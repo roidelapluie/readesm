@@ -6,6 +6,9 @@
 #include <sstream>
 #include <time.h>
 
+
+/// for now, a simple wrapper around timestamps.
+//TODO: check out boosts classes
 class Time{
 	public:
 	Time(int timestamp_ = 0) : timestamp(timestamp_){}
@@ -32,6 +35,7 @@ class Time{
 	int timestamp;
 };
 
+///a duration between two times
 class Duration{
 	public:
 	///construct a duration from an int containing a duration in seconds
