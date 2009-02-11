@@ -15,11 +15,11 @@ class Time{
 	static Time fromBigEndianChars32(const unsigned char* start){
 		return Time((start[0] << 24) + (start[1] << 16) + (start[2] << 8) + start[3]); 
 	}
-	std::string str(std::string format = "%c %Z") const{
+	std::string str(const std::string& format = "%c %Z") const{
 		if(timestamp == -1) return "(undefined)";
 		char buffer[35];
 		time_t t = timestamp;
-		tm* timeinfo = localtime(&t);
+		tm* timeinfo = gmtime(&t);
 		strftime(buffer, 35, format.c_str(), timeinfo);
 		return buffer;
 	}

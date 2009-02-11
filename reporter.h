@@ -11,6 +11,7 @@ You should have received a copy of the GNU General Public License along with rea
 #define REPORTER_H REPORTER_H
 #include <sstream>
 #include <string>
+#include "helper.h"
 
 class reporter : public std::ostringstream{
 	public:
@@ -61,9 +62,10 @@ class reporter : public std::ostringstream{
 			bigblockbreak();
 		}
 	}
-	virtual void bigblockstart(int index, const std::string& name) = 0;
+	virtual void bigblockstart(const std::string& name) = 0;
 	virtual void bigblockbreak(){ blockbreak(); };
 	virtual void bigblockend() = 0;
+	virtual bool hasimg() const { return false; }
 	std::string title;
 	bool verbose;
 };
@@ -87,8 +89,8 @@ class txtreporter : public reporter{
 	virtual void operator()(const std::string& description, int value){
 		(*this) << description << ": \t" << value << "\n";
 	}
-	virtual void bigblockstart(int index, const std::string& name){
-		(*this) << "\n\n+++++++++++++++++ Block at " << index << " : " << name << " ++++++++++++++++++++++++++\n";
+	virtual void bigblockstart(const std::string& name){
+		(*this) << "\n\n+++++++++++++++++ Block: " << name << " ++++++++++++++++++++++++++\n";
 	}
 	virtual void bigblockend(){
 		(*this) << "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n";
@@ -100,16 +102,17 @@ class txtreporter : public reporter{
 class htmlreporter : public reporter {
 	protected:
 	std::ostringstream links;
+	int targetcount;
 	public:
-	htmlreporter(const std::string& title_ = "ESM Data") : reporter(title_) {}
+	htmlreporter(const std::string& title_ = "ESM Data") : reporter(title_), targetcount(0) {}
 	virtual std::string str(){
 		std::ostringstream o;
 		o << "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\" dir=\"ltr\" lang=\"en-US\">\n<head><link rel='stylesheet' type='text/css' media='screen' href='style.css'/><title>" << title << "</title><meta http-equiv='Content-Type' content='text/html; charset=latin1'/></head><body><h1>" << title <<"</h1>" << links.str() << "<hr/>" << reporter::str() << "</body></html>\n"; 
 		return o.str();
 	}
-	virtual void bigblockstart(int index, const std::string& name){
-		links << "<a href='#" << index <<"'>"<<name<<"</a><br/>";
-		(*this) << "<h2><a name='" << index << "'>" << name << "</a></h2><table>";
+	virtual void bigblockstart(const std::string& name){
+		links << "<a href='#" << stringify(++targetcount) <<"'>"<<name<<"</a><br/>";
+		(*this) << "<h2><a name='" << stringify(targetcount) << "'>" << name << "</a></h2><table>";
 	}
 	virtual void bigblockend(){
 		(*this) << "</table>";
@@ -129,6 +132,7 @@ class htmlreporter : public reporter {
 	virtual void operator()(const std::string& description, int value){
 		(*this) << "<tr><th>" << description << "</th><td>" << value << "</td></tr>\n";
 	}
+	virtual bool hasimg() const { return true; }
 
 };
 

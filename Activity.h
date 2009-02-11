@@ -77,8 +77,8 @@ class Activity{
 };
 
 
-void image(std::ostream& o, const char* filename, int height, int width, std::string title){
-	o << "<img src='images/" << filename <<"' width='" << ((width)/2) << "' height='" << height << "' title='" << title << "' alt='" << title << "'/>";
+void image(std::ostream& o, const std::string& filename, int height, int width, const std::string& title){
+	o << "<img src='images/" << filename <<"' width='" << width << "' height='" << height << "' title='" << title << "' alt='" << title << "'/>";
 }
 
 
@@ -88,20 +88,20 @@ std::string visualization(const std::vector<Activity>& acts){
 		if(j->duration > 10000) std::cerr << "ouch";
 		std::string descr = j->astr() + " for " + Activity::formatDurTime(j->duration) + "  from " + j->tstr() + " to " + j->tstr(j->duration);
 		int act = j->activity;
-		if(act == Activity::Work) image(actvisual,"yellow.gif",70,j->duration,descr);
-		else if(act == Activity::Available)  image(actvisual,"black.gif",10,j->duration,descr);
-		else if(act == Activity::Driving) image(actvisual,"green.gif",100,j->duration,descr);
+		if(act == Activity::Work) image(actvisual,"yellow.gif",70,j->duration / 2,descr);
+		else if(act == Activity::Available)  image(actvisual,"black.gif",10,j->duration / 2,descr);
+		else if(act == Activity::Driving) image(actvisual,"green.gif",100,j->duration / 2,descr);
 		else if(act == Activity::Break){
 			if(j->duration >= 15)
-			image(actvisual,"red.gif",40,j->duration,descr);
-			else image(actvisual,"blue.gif",50,j->duration,descr);
+			image(actvisual,"red.gif",40,j->duration / 2,descr);
+			else image(actvisual,"blue.gif",50,j->duration / 2,descr);
 		}
 		else{
 			actvisual << act << j->str();
 		}
 	}
 	actvisual << "<br/>";
-	image(actvisual,"scale.gif",20,1440,"scale");
+	image(actvisual,"scale.gif",20,1440 / 2,"scale");
 	return actvisual.str();
 }
 

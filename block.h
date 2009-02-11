@@ -24,7 +24,7 @@ class block{
 		return (filewalker[0] << 8) + filewalker[1];
 	}
 	friend std::ostream& operator<< (reporter& o, const block& b){
-		o.bigblockstart((int)&(b.start),b.name());
+		o.bigblockstart(b.name());
 		b.printOn(o);
 		o("Validly signed",b.hassignature? (b.validsignature ? "Yes, valid" : "No, invalid") : "No, not signed");
 		o.bigblockend();
