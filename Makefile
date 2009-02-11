@@ -6,11 +6,10 @@
 ###############################################
 
 name := readesm
-zipname = $(name)_goelzer_andreas
 headers = $(wildcard *.h)
 objects = $(headers:.h=.o)
 extrafiles = $(name).doxygen EC_PK.bin batchall.sh license_sha1.txt COPYING README images.tar.bz2  $(name)-wrap-kde.sh
-run_args = --filename data/D__UL-GK108______20080614_1449.ESM
+run_args = 
 sources = $(name).cpp $(filter $(wildcard *.cpp), $(objects:.o=.cpp)) $(filter $(wildcard *.h), $(objects:.o=.h))
 data =
 plots = $(data:.dat=.eps)
@@ -21,8 +20,7 @@ uploader=scp -p
 
 SHELL=/bin/bash
 TEX=latex
-#CFLAGS=-pg -Wall -pipe -O3 -Werror
-CFLAGS=-Wall -pipe  -Werror -ffast-math -march=pentium-m   -fgcse-after-reload 
+CFLAGS=-Wall -pipe  -Werror -O3
 
 
 LIBRARIES=
@@ -103,16 +101,6 @@ dist: $(name).tar.bz2
 $(name).tar.bz2: $(distribution)
 	@echo Creating $(name).tar.bz2 ...
 	@tar -C .. -chvjf $(name).tar.bz2 $(addprefix $(name)/,$(distribution))
-
-zip: dist
-	-rm $(name).zip
-	-mv $(name) _$(name)
-	tar -xjf $(name).tar.bz2
-	mv $(name) $(zipname)
-	zip -r $(zipname).zip $(zipname)
-	rm -rf $(zipname)
-	-mv _$(name) $(name)
-#really really dirty...find out that stuff with make and dirs
 
 upload: dist
 	$(uploader) $(name).tar.bz2 $(uploadtarget)
