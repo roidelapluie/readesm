@@ -11,7 +11,7 @@ You should have received a copy of the GNU General Public License along with rea
 /** \file readesm.cpp
 \brief contains main() and handling of command line arguments.
 
-readesm mainly defines whichh files to read and parse. The actual parsing of files is described in esmfile.h, and the information about the parsing of the individual blocks just there.
+readesm mainly defines which files to read and parse. The actual parsing of files is described in esmfile.h, and the information about the parsing of the individual blocks just there.
 */
 #include <iostream>
 #include <boost/program_options.hpp>
