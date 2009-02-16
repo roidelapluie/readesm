@@ -1,18 +1,18 @@
 readESM - digital tachograph file reader
 
-This program takes an ESM file, as downloaded from a digital tachograph or a driver card, a compulsory equipment for trucks heavier than 3.5 tons within the european union. It converts said files into human-readable form, either html or simple plaintext.
+This program takes an ESM file, as downloaded from a digital tachograph or a driver card, a compulsory equipment for trucks heavier than 3.5 tons within the European Union. It converts said files into human-readable form, either html or simple plaintext.
 
-So far the program just does this conversion, with a few datasets still unread, and does little analysis of the data, more analysis is planned for the future, but any serious attempt requires refactoring the data heavily, which might never be done due to time constraints.
+So far the program just does this conversion, with a few datasets still unread, and does little analysis of the data. More analysis is planned for the future, but any serious attempt requires refactoring the data heavily, which might never be done due to time constraints.
 
-To the best of my knowledge there is no free software(as in either beer or speech) that does this job, and checking wether the driving times are legal proved to be very cumbersome with the commercial solutions I could test. There are some high-priced ones that probably do that well, yet several thousand euro are too expensive for small companies or individual drivers; there is a really cheap web-based solution by tachomaster.co.uk, however giving away rsa-signed data that could probably be used against you in a court of law is a bad idea.
- 
+To the best of my knowledge there is no free software (as in either beer or speech) that does this job, and checking wether the driving times are legal proved to be very cumbersome with the commercial solutions I could test. There are some high-priced ones that probably do that well, yet several thousand euros are too expensive for small companies or individual drivers; there is a really cheap web-based solution by tachomaster.co.uk, however giving away rsa-signed data that could probably be used against you in a court of law is a bad idea.
+
 The digital tachographs and respective cards use a quite elaborate security model, with 1024-bit rsa, sha-1 hashes and individual certificates on each card signed by ec member states authorities. The software checks the signatures and certification chain for correctness, but no effort is made to circumvent the security mechanisms (and since all important data in the files is protected by industry-standard signatures, that would be a daunting task anyway).
 
-The language of the project is C++, and development is done on a linux platform, but it should be possible to compile it on any platform with a c++-compiler, boost and the stdlib. Right now it also uses the Gnu MP - library, but if signature checking is not needed that could simply be commented out.
+The language of the project is C++, and development is done on a linux platform, but it should be possible to compile it on any platform with a C++-compiler, boost and the stdlib. Right now it also uses the Gnu MP library, but if signature checking is not needed that could simply be commented out.
 
 Compiling
 Since so far there is no binary distribution for the program, you will have to compile it yourself.
-To do that, you need a c++ compiler, parts of the boost (http://www.boost.org/) library (specifically program_options and shared_ptr) and the Gnu MP library (http://gmplib.org/), wich is used to check the various RSA signatures. Once all those are installed, typing make/make install should work fine.
+To do that, you need a C++ compiler, parts of the boost (http://www.boost.org/) library (specifically program_options and shared_ptr) and the Gnu MP Library (http://gmplib.org/), which is used to check the various RSA signatures. Once all those are installed, typing make/make install should work fine. If not, it might give you a hint what is still needed, if not, report your error. For certain linux flavours, "make package" will create a package using checkinstall, which you can easily uninstall with your package management tool.
 
 Running the program
 In most circumstances, you will run the program from the commandline like this:
