@@ -11,8 +11,6 @@ objects = $(headers:.h=.o)
 extrafiles = $(name).doxygen EC_PK.bin batchall.sh license_sha1.txt COPYING README images.tar.bz2  $(name)-wrap-kde.sh
 run_args = 
 sources = $(name).cpp $(filter $(wildcard *.cpp), $(objects:.o=.cpp)) $(filter $(wildcard *.h), $(objects:.o=.h))
-data =
-plots = $(data:.dat=.eps)
 
 distribution = $(sources) $(extrafiles) Makefile
 uploadtarget=www.goelzer.de@ssh.strato.de:andreas/wordpress/download
@@ -27,35 +25,16 @@ LIBRARIES=
 CXXFLAGS=$(CFLAGS)
 LDFLAGS=-s -lgmp -lgmpxx -lboost_program_options
 
-objectsdir=/home/goelzera/Documents/Programme/cpp/include/
-templatedir=/home/goelzera/Documents/Programme/cpp/templates/
-
-
 all: $(name)
 
 $(name) : $(patsubst %.cpp, %.o, $(filter $(wildcard *.cpp), $(objects:.o=.cpp)))
 $(name).o: $(filter $(wildcard *.h), $(objects:.o=.h))
 
 
-# -- report generation --
-$(plots):$(data) creategraphs.gp
-	./creategraphs.gp
-$(name).pdf:$(name).tex $(plots)
-
-.PHONY:all clean distclean doc dist backup depend run zip links tcopys upload runall install uninstall
-.PRECIOUS:%.dat
-
-
-links: $(objects:.o=.h) $(objects:.o=.cpp)
-tcopys: $(name).cpp $(name).tex $(name).gp
+.PHONY:all clean distclean doc dist backup depend run zip links upload runall install uninstall package
 
 run: $(name)
 	./$(name) $(run_args)
-
-runall: $(name)
-	cat head.html_ > index.html
-	ls data/D__*.ESM | xargs -l1 -I%F ./readesm --filename "%F" >> index.html 2>&1
-	echo "</ul></body></html>" >> index.html
 
 install: $(name)
 	install -d /usr/local/share/readesm
@@ -64,8 +43,8 @@ install: $(name)
 	install -m 644 images.tar.bz2 /usr/local/share/readesm
 	install -m 644 EC_PK.bin /usr/local/share/readesm
 
-deb: $(name)
-	checkinstall -y --maintainer "Andreas Goelzer \<andreas@goelzer.de\>" --pkgsource "http://andreas.goelzer.de/download/$(name).tar.bz2" --pkggroup text --requires "libgmpxx4ldbl, libgmp3c2, libboost-program-options1.34.1" 
+package: $(name)
+	checkinstall -y --maintainer "Andreas Goelzer \<andreas@goelzer.de\>" --pkgsource "http://andreas.goelzer.de/download/$(name).tar.bz2" --pkggroup text --requires "libgmpxx4ldbl, libgmp3c2, libboost-program-options1.34.1" --install=no
 uninstall:
 	rm /usr/local/bin/$(name)
 	rm /usr/local/share/images.tar.bz2
@@ -90,11 +69,6 @@ distclean: clean
 	@echo if you have to.
 	@echo The following files in this directory would normally not be included in the
 	@echo distribution:
-	@ls -hl $(addprefix -I ,$(distribution))
-
-maintainer-clean: distclean
-	@echo This target should only be used if you know what you are doing.
-	@echo Following files are left:
 	@ls -hl $(addprefix -I ,$(distribution))
 
 dist: $(name).tar.bz2
