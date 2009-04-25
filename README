@@ -69,6 +69,8 @@ http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=OJ:L:2002:207:0001:0252:EN
 - The code is rather unclean, often two or more classes in the same file, wild
 naming convention(often taken from the european law, which has quite large
 names.
+- You can create a doxygen documentation by typing make doc, or within an
+appropriate IDE.
 
 Andreas Gölzer
 April 25th, 2009
