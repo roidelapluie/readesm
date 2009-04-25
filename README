@@ -57,6 +57,11 @@ Running the program
 In most circumstances, you will run the program from the commandline like this:
 readesm --infile foo.esm --outfile bar.html --format=html
 Alternatively, if no output file is specified, stdout is used.
+For KDE (http://www.kde.org/) users, i wrote a little wrapper script named
+readesm-wrap-kde.sh. It will get installed my typing make install. If you
+associate esm files with it, you can click on one in your kde file manager, and
+it will open a konqueror window containing the html result.
+
 
 Modifying the program
 You are free to modify the program under the terms of the GPL, or the license in
