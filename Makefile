@@ -44,7 +44,7 @@ install: $(name)
 	install -m 644 EC_PK.bin /usr/local/share/readesm
 
 package: $(name)
-	checkinstall -y --maintainer "Andreas Goelzer \<andreas@goelzer.de\>" --pkgsource "http://andreas.goelzer.de/download/$(name).tar.bz2" --pkggroup text --requires "libgmpxx4ldbl, libgmp3c2, libboost-program-options1.34.1" --install=no
+	checkinstall -y --maintainer "Andreas Goelzer \<andreas@goelzer.de\>" --pkgsource "http://andreas.goelzer.de/download/$(name).tar.bz2" --pkggroup text --requires "libgmpxx4ldbl, libgmp3c2, libboost-program-options1.34.1" --install=no --fstrans
 uninstall:
 	rm /usr/local/bin/$(name)
 	rm /usr/local/share/images.tar.bz2
