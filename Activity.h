@@ -77,32 +77,30 @@ class Activity{
 };
 
 
-void image(std::ostream& o, const string& filename, int height, int width, const string& title){
-	o << "<img src='images/" << filename <<"' width='" << width << "' height='" << height << "' title='" << title << "' alt='" << title << "'/>";
-}
-
-
-string visualization(const std::vector<Activity>& acts){
-	ostringstream actvisual;
+string visualization(reporter& o, const std::vector<Activity>& acts){
+	reporter::pgptr actvisual(o.getImageGenerator());
 	for(std::vector<Activity>::const_iterator j(acts.begin()); j != acts.end(); ++j){
 		if(j->duration > 10000) std::cerr << "ouch";
 		string descr = j->astr() + " for " + Activity::formatDurTime(j->duration) + "  from " + j->tstr() + " to " + j->tstr(j->duration);
-		int act = j->activity;
-		if(act == Activity::Work) image(actvisual,"yellow.gif",70,j->duration / 2,descr);
-		else if(act == Activity::Available)  image(actvisual,"black.gif",10,j->duration / 2,descr);
-		else if(act == Activity::Driving) image(actvisual,"green.gif",100,j->duration / 2,descr);
-		else if(act == Activity::Break){
-			if(j->duration >= 15)
-			image(actvisual,"red.gif",40,j->duration / 2,descr);
-			else image(actvisual,"blue.gif",50,j->duration / 2,descr);
+		int height = 10;
+		string color;
+		switch(j->activity){
+			case Activity::Work:       height =  70; color = "yellow"; break;
+			case Activity::Available:  height =  10; color = "black";  break;
+			case Activity::Driving:    height = 100; color = "green";  break;
+			case Activity::Break:
+				if(j->duration >= 15){
+						   height =  40; color = "red";
+				} else {
+						   height =  50; color = "blue";
+				}
+				break;
+			default:
+				*actvisual << (j->activity) << (j->str()) << descr;
 		}
-		else{
-			actvisual << act << j->str();
-		}
+		actvisual->add(j->time, j->duration, height, color, descr);
 	}
-	actvisual << "<br/>";
-	image(actvisual,"scale.gif",20,1440 / 2,"scale");
-	return actvisual.str();
+	return actvisual->str();
 }
 
 class DailyActivity{
@@ -165,11 +163,11 @@ class DailyActivity{
 			o("Date", d.start.datestr());
 			if(d.driver.size() >= 2 - (unsigned int)o.verbose){
 				if(o.verbose) o.reportray(d.driver,"Daily Activity Driver");
-				o("Activities Driver", visualization(d.driver));
+				if(o.hasimg()) o("Activities Driver", visualization(o, d.driver));
 			}
 			if(d.codriver.size() >= 2 - (unsigned int)o.verbose){
 				if(o.verbose) o.reportray(d.codriver,"Daily Activity Codriver");
-				o("Activities Codriver",visualization(d.codriver));
+				if(o.hasimg()) o("Activities Codriver",visualization(o, d.codriver));
 			}
 			o("Driven time", Activity::formatDurTime(d.driventime));
 			if(d.overtime){

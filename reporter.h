@@ -12,9 +12,12 @@ You should have received a copy of the GNU General Public License along with rea
 #include <sstream>
 #include <string>
 #include "helper.h"
+#include "picgen.h"
+#include "typedefs.h"
 
 class reporter : public ostringstream{
 	public:
+	typedef shared_ptr<picgen> pgptr;
 	reporter(const string& title_ = "ESM Data") : title(title_), verbose(false) {}
 	class subblock{
 		public:
@@ -66,9 +69,7 @@ class reporter : public ostringstream{
 	virtual void bigblockbreak(){ blockbreak(); };
 	virtual void bigblockend() = 0;
 	virtual bool hasimg() const { return false; }
-	virtual void imageStart() {}
-	virtual void imageStop() {}
-	virtual void imageBar(int fromMin, int tillMin, int height, string color) {}
+	virtual pgptr getImageGenerator() const { return pgptr(new picgen); }
 	string title;
 	bool verbose;
 };
@@ -136,11 +137,7 @@ class htmlreporter : public reporter {
 		(*this) << "<tr><th>" << description << "</th><td>" << value << "</td></tr>\n";
 	}
 	virtual bool hasimg() const { return true; }
-	virtual void imageStart() {}
-	virtual void imageStop() {}
-	virtual void imageBar(int fromMin, int tillMin, int height, string color, std::string title) {
-		(*this) << "<img src='images/" << color <<".gif' width='" << (fromMin - tillMin) << "' height='" << height << "' title='" << title << "' alt='" << title << "'/>";
-	}
+	virtual pgptr getImageGenerator() const { return pgptr(new htmlBarGraph); }
 };
 
 class xmlreporter : public htmlreporter {
