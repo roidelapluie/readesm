@@ -26,8 +26,8 @@ class Activity{
 	static const int Driver = 0;
 	static const int Codriver = 1;
 	static const int Crew = 1;
-	static std::string formatDurTime(int offset = 0){
-		std::ostringstream o;
+	static string formatDurTime(int offset = 0){
+		ostringstream o;
 		o << std::setw(2) << std::setfill('0') << ((offset) / 60) << ":" << std::setw(2) << std::setfill('0') << ((offset) % 60);
 		return o.str();
 	}
@@ -47,18 +47,18 @@ class Activity{
 		activity = (start[0] & ((1 << 4) | (1 << 3))) >> 3;
 		time = int((start[0] & 7) << 8) + start[1];
 	}
-	std::string astr() const{
+	string astr() const{
 		if(activity == Break) return "Break/rest";
 		else if(activity == Available) return "Available";
 		else if(activity == Work) return "Work";
 		else if(activity == Driving) return "Driving";
 		return "Unknown Activity";
 	}
-	std::string tstr(int offset = 0) const{
+	string tstr(int offset = 0) const{
 		return formatDurTime(time + offset);
 	}
-	std::string str() const{
-		std::ostringstream o;
+	string str() const{
+		ostringstream o;
 		o << (slot == Codriver ? "Codriver" : "Driver") << ", ";
 		o << (manning == Crew ? "Crew  " : "Single") << ", ";
 		o << "Card " << (cardin ? "not" : "") << " inserted, ";
@@ -77,16 +77,16 @@ class Activity{
 };
 
 
-void image(std::ostream& o, const std::string& filename, int height, int width, const std::string& title){
+void image(std::ostream& o, const string& filename, int height, int width, const string& title){
 	o << "<img src='images/" << filename <<"' width='" << width << "' height='" << height << "' title='" << title << "' alt='" << title << "'/>";
 }
 
 
-std::string visualization(const std::vector<Activity>& acts){
-	std::ostringstream actvisual;
+string visualization(const std::vector<Activity>& acts){
+	ostringstream actvisual;
 	for(std::vector<Activity>::const_iterator j(acts.begin()); j != acts.end(); ++j){
 		if(j->duration > 10000) std::cerr << "ouch";
-		std::string descr = j->astr() + " for " + Activity::formatDurTime(j->duration) + "  from " + j->tstr() + " to " + j->tstr(j->duration);
+		string descr = j->astr() + " for " + Activity::formatDurTime(j->duration) + "  from " + j->tstr() + " to " + j->tstr(j->duration);
 		int act = j->activity;
 		if(act == Activity::Work) image(actvisual,"yellow.gif",70,j->duration / 2,descr);
 		else if(act == Activity::Available)  image(actvisual,"black.gif",10,j->duration / 2,descr);

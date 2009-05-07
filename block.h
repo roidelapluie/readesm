@@ -31,7 +31,7 @@ class block{
 		return o;
 	}
 	virtual int size() const = 0;
-	virtual std::string name() const{
+	virtual string name() const{
 		return "Unknown block type " +  hex(type,4);
 	}
 	virtual void reportstuff(esmfilehead& esm){}

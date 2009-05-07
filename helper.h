@@ -26,8 +26,8 @@ bool compare(const T1& from, const T2& to, int number){
 }
 
 template <typename T>
-std::string hex(T toHex, int w = 0){
-	std::ostringstream s;
+string hex(T toHex, int w = 0){
+	ostringstream s;
 	s << std::hex << std::setw(w) << std::setfill('0') << toHex;
 	return s.str();
 }
@@ -47,8 +47,8 @@ void hexout(std::ostream& o, T ray, int len){
 }
 
 template <typename T>
-std::string stringify(T toStr){
-	std::ostringstream s;
+string stringify(T toStr){
+	ostringstream s;
 	s << toStr;
 	return s.str();
 }

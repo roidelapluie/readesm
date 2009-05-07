@@ -24,7 +24,7 @@ You should have received a copy of the GNU General Public License along with rea
 class CAid{
 	public:
 	int numnation;
-	std::string alphanation;
+	string alphanation;
 	int serialnumber;
 	int additionalCoding;
 	int identifier;
@@ -57,7 +57,7 @@ class verifiedcert{
 	rsa key;
 	typedef boost::shared_ptr<verifiedcert> ptr;
 	verifiedcert(iter start_) : start(start_), car(start + 186), verified(false) {}
-	bool verify(const std::string& filename){
+	bool verify(const string& filename){
 		slurpedfile rawkey = slurp(filename);
 		CAid rawkey_ca(rawkey.begin());
 		if(rawkey_ca != car){

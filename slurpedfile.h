@@ -16,15 +16,15 @@ You should have received a copy of the GNU General Public License along with rea
 #include "typedefs.h"
 
 class file_not_found : public std::runtime_error {
-	public: file_not_found(std::string s) : std::runtime_error(s) {}
+	public: file_not_found(string s) : std::runtime_error(s) {}
 };
 
-bool file_exists(const std::string& filename){
+bool file_exists(const string& filename){
 	std::ifstream f(filename.c_str());
 	return f.is_open();
 }
 
-slurpedfile slurp(const std::string& filename){
+slurpedfile slurp(const string& filename){
 	slurpedfile fbuffer;
 	std::ifstream f(filename.c_str(),std::ios::binary);
 	if(!f.is_open()){
@@ -44,7 +44,7 @@ slurpedfile slurp(const std::string& filename){
 
 
 
-bool slurptofile(const std::string& filename, const std::string& content){
+bool slurptofile(const string& filename, const std::string& content){
 	std::ofstream f(filename.c_str(),std::ios::binary);
 	if(!f.is_open()) return false;
 	f << content;

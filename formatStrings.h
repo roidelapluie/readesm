@@ -13,8 +13,8 @@ You should have received a copy of the GNU General Public License along with rea
 #include <sstream>
 
 
-std::string formatEventType(unsigned char etype){
-	std::ostringstream o;
+string formatEventType(unsigned char etype){
+	ostringstream o;
 	int major = etype >> 4;
 	int minor = etype & 0xF;
 	o << int(etype) << " - ";
@@ -51,7 +51,7 @@ std::string formatEventType(unsigned char etype){
 	return o.str();
 }
 
-std::string formatEventRecordPurpose(unsigned char etype){
+string formatEventRecordPurpose(unsigned char etype){
 	const char* rpurp[] = {"one of the 10 most recent (or last) events or faults", "the longest event for one of the last 10 days of occurrence", "one of the 5 longest events over the last 365 days", "the last event for one of the last 10 days of occurrence", "the most serious event for one of the last 10 days of occurrence", "one of the 5 most serious events over the last 365 days", "the first event or fault having occurred after the last calibration","an active/on-going event or fault"};
 	if(etype <= 7) return rpurp[etype];
 	else if(8 <= etype && etype <= 0x7F){
@@ -61,7 +61,7 @@ std::string formatEventRecordPurpose(unsigned char etype){
 	} else return "(err:blame programmer)";
 }
 
-std::string formatCountry(unsigned char country){
+string formatCountry(unsigned char country){
 	static const char* countries[] = {"No information available", "Austria", "Albania", "Andorra", "Armenia", "Azerbaijan", "Belgium", "Bulgaria", "Bosnia and Herzegovina", "Belarus", "Switzerland", "Cyprus", "Czech Republic", "Germany", "Denmark", "Spain", "Estonia", "France", "Finland", "Liechtenstein", "Faeroe Islands", "United Kingdom", "Georgia", "Greece", "Hungary", "Croatia", "Italy", "Ireland", "Iceland", "Kazakhstan", "Luxembourg", "Lithuania", "Latvia", "Malta", "Monaco", "Republic of Moldova", "Macedonia", "Norway", "Netherlands", "Portugal", "Poland", "Romania", "San Marino", "Russian Federation", "Sweden", "Slovakia", "Slovenia", "Turkmenistan", "Turkey", "Ukraine", "Vatican City", "Yugoslavia"};
 	if(country <= 0x33) return countries[country];
 	if(0x34 <= country && country <= 0xFC) return "Reserved for future use";
@@ -71,19 +71,19 @@ std::string formatCountry(unsigned char country){
 	return "error in formatCountry";
 }
 
-std::string formatSpecificCondition(unsigned char country){
+string formatSpecificCondition(unsigned char country){
 	static const char* countries[] = {"RFU","Out of scope - Begin", "Out of Scope - End","Ferry/Train crosssing"};
 	if(country <= 0x3) return countries[country];
 	else return "RFU";
 }
-std::string formatCalibrationPurpose(unsigned char cpurp){
+string formatCalibrationPurpose(unsigned char cpurp){
 	const char* cpurps[] = {"reserved value (should not appear)", "activation: recording of calibration parameters known, at the moment of the VU activation", "first installation: first calibration of the VU after its activation", "installation: first calibration of the VU in the current vehicle", "periodic inspection"};
 	if(cpurp <= 4) return cpurps[cpurp];
 	else return "(not specified)";
 }
 
-std::string formatControlType(unsigned char ctype){
-	std::ostringstream o;
+string formatControlType(unsigned char ctype){
+	ostringstream o;
 	if(ctype & (1 << 7)) o << "Card Downloading, ";
 	if(ctype & (1 << 6)) o << "VU Downloading, ";
 	if(ctype & (1 << 5)) o << "Printing Done, ";
@@ -91,13 +91,13 @@ std::string formatControlType(unsigned char ctype){
 	return o.str();
 }
 
-std::string formatEquipmentType(unsigned char value){
+string formatEquipmentType(unsigned char value){
 	const char* vals[] = {"Reserved","Driver Card","Workshop Card","Control Card","Company Card","Manufacturing Card","Vehicle Unit","Motion Sensor"};
 	if(value <= 7) return vals[value];
 	else return "RFU";
 }
 
-std::string formatDailyWorkPeriod(unsigned char value){
+string formatDailyWorkPeriod(unsigned char value){
 	const char* vals[] = {
 		"Begin, related time = card insertion time or time of entry",
 		"End,   related time = card withdrawal time or time of entry",

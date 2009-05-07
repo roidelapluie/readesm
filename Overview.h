@@ -19,7 +19,7 @@ You should have received a copy of the GNU General Public License along with rea
 class Overview : public vublock {
 	public:
 	static const int TREP = 0x1;
-	virtual std::string name() const{
+	virtual string name() const{
 		return "Overview";
 	}
 	Overview(iter nstart) : vublock(nstart) { Init(); }

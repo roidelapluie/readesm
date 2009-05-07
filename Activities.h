@@ -20,7 +20,7 @@ You should have received a copy of the GNU General Public License along with rea
 ///See page 161 of l207.pdf
 class Activities : public vublock {
 	struct CardInOut {
-		std::string Name;
+		string Name;
 		Time InTime, OutTime;
 		int OdometerIn, OdometerOut;
 	};
@@ -32,7 +32,7 @@ class Activities : public vublock {
 		return Activity(&block_start[runningIndex - 2]);
 	}
  	public:
-	virtual std::string name() const{
+	virtual string name() const{
 		return "Activities for " + readDate(0).datestr();
 	}
 	static const int TREP = 0x2;

@@ -19,7 +19,7 @@ You should have received a copy of the GNU General Public License along with rea
 class esmfilehead{
 	public:
 	slurpedfile content;
-	std::string title;
+	string title;
 	Time first;
 	Time last;
 	boost::shared_ptr<verifiedcert> CAcert;
@@ -29,7 +29,7 @@ class esmfilehead{
 		if(torep < first) first = torep;
 		if(torep > last) last = torep;
 	}
-	esmfilehead(const std::string& filename) :
+	esmfilehead(const string& filename) :
 		content(slurp(filename)),
 		first(0x7fFfFfFf),
 		last(0)

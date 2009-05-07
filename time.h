@@ -15,7 +15,7 @@ class Time{
 	static Time fromBigEndianChars32(const unsigned char* start){
 		return Time((start[0] << 24) + (start[1] << 16) + (start[2] << 8) + start[3]); 
 	}
-	std::string str(const std::string& format = "%c %Z") const{
+	string str(const std::string& format = "%c %Z") const{
 		if(timestamp == -1) return "(undefined)";
 		char buffer[35];
 		time_t t = timestamp;
@@ -23,7 +23,7 @@ class Time{
 		strftime(buffer, 35, format.c_str(), timeinfo);
 		return buffer;
 	}
-	std::string datestr() const{
+	string datestr() const{
 		return str("%F"); 
 	}
 	friend std::ostream& operator<<(std::ostream& o, const Time& d){
@@ -40,8 +40,8 @@ class Duration{
 	public:
 	///construct a duration from an int containing a duration in seconds
 	Duration(int length_ = 0) : length(length_){}
-	std::string str() const{
-		std::ostringstream o;
+	string str() const{
+		ostringstream o;
 		o << (*this);
 		return o.str();
 	}

@@ -12,9 +12,11 @@ You should have received a copy of the GNU General Public License along with rea
 #include <boost/shared_ptr.hpp>
 #include <vector>
 #include <iterator>
-
+#include <string>
+#include <sstream>
 typedef std::vector<unsigned char> slurpedfile;
 typedef slurpedfile::const_iterator iter;
-//using boost::shared_ptr;
-
+using boost::shared_ptr;
+using std::string;
+using std::ostringstream;
 #endif

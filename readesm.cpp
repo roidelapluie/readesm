@@ -43,10 +43,10 @@ int main(int argc, char* argv[]){
 	po::options_description desc("ESM Reader, allowed options");
 	desc.add_options()
 	("help", "produce help message")
-	("infile", po::value<std::string>(), "input file")
-	("outfile", po::value<std::string>(), "output file")
+	("infile", po::value<string>(), "input file")
+	("outfile", po::value<string>(), "output file")
 	("verbose",po::value<bool>()->default_value(false),"verbose output format, print just everything")
-	("format", po::value<std::string>()->default_value("text"), "output format, text or html")
+	("format", po::value<string>()->default_value("text"), "output format, text or html")
 	;
 	
 	po::variables_map vm;
@@ -62,18 +62,18 @@ int main(int argc, char* argv[]){
 		return 1;
 	}
 
-	esmfile f(vm["infile"].as<std::string>());
+	esmfile f(vm["infile"].as<string>());
 	reporter* report;
-	if(vm["format"].as<std::string>() == "html") report = new htmlreporter(f.name());
+	if(vm["format"].as<string>() == "html") report = new htmlreporter(f.name());
 	else report = new txtreporter(f.name());
 	report->verbose = vm["verbose"].as<bool>();
 	*report << f;
 
-	if (!vm.count("outfile") || vm["outfile"].as<std::string>() == "-") {
+	if (!vm.count("outfile") || vm["outfile"].as<string>() == "-") {
 		std::cout << report->str();
 		return 0;
 	} else {
-		if(!slurptofile(vm["outfile"].as<std::string>(),  report->str())){
+		if(!slurptofile(vm["outfile"].as<string>(),  report->str())){
 			std::cerr << "Could not open output file, writing to stdout";
 			std::cout << report->str();
 			return 2;

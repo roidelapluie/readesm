@@ -15,7 +15,7 @@ You should have received a copy of the GNU General Public License along with rea
 ///See page 163 of l207.pdf
 class Technical : public vublock {
 	public:
-	std::string name() const{
+	string name() const{
 		return "Technical Data";
 	}
 	static const int TREP = 0x5;

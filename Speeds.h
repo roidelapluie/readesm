@@ -6,7 +6,7 @@
 ///See page 163 of l207.pdf
 class Speeds : public vublock {
 	public:
-	std::string name() const {
+	string name() const {
 		return "Detailed Speed";
 	}
 	static const int TREP = 0x4;
@@ -18,7 +18,7 @@ class Speeds : public vublock {
 		runningIndex = 0;
 		for(reporter::subblock b = report.newsub("Detailed Speed", Int16()); b(); ++b){
 			report("BeginDate",readDate().str());
-			std::ostringstream o;
+			ostringstream o;
 			for(int k = 0; k < 60; ++k) o << IntByte() << ", ";
 			report("Speeds",o.str());
 		}

@@ -18,7 +18,7 @@ You should have received a copy of the GNU General Public License along with rea
 
 class vublock  : public block {
 	public:
-	virtual std::string name() const = 0;
+	virtual string name() const = 0;
 	vublock(iter nstart) : block(nstart), block_start(&nstart[2]), runningIndex(0) {
 		hassignature = true;
 	}
@@ -37,7 +37,7 @@ class vublock  : public block {
 		runningIndex += 4;
 		return readDate(runningIndex - 4);
 	}
-	std::string fixedString(int length) const{
+	string fixedString(int length) const{
 		runningIndex += length;
 		return ::fixedString(start + 2 + runningIndex - length, length);
 	}
@@ -64,8 +64,8 @@ class vublock  : public block {
 		return Odometer(runningIndex - 3);
 	}
 
-	std::string fixedString(int start, int length) const{
-		std::ostringstream o;
+	string fixedString(int start, int length) const{
+		ostringstream o;
 		//for(int j = start; j < start + length; ++j) if(block_start[j] >= 0x20 && block_start[j] < 127) 
 		//o << block_start[j];
 		for(int j = start; j < start + length; ++j) if(block_start[j] >= 0x20) o << block_start[j];

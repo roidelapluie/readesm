@@ -13,8 +13,8 @@ You should have received a copy of the GNU General Public License along with rea
 #include <sstream>
 #include "typedefs.h"
 
-std::string fixedString(iter start, int length){
-	std::ostringstream o;
+string fixedString(iter start, int length){
+	ostringstream o;
 	int lastchar = length - 1; 
 	for(; lastchar; --lastchar) if(start[lastchar] > 0x20) break;
 	for(int j = 0; j <= lastchar ; ++j) if(start[j] >= 0x20 && start[j] != 0xFF) o << start[j];
@@ -30,14 +30,14 @@ int BEInt32(iter start){
 int BEInt24(iter start){
 	return (start[0] << 16) + (start[1] << 8) + start[2]; 
 }
-std::string bcdbyte(unsigned char start){
+string bcdbyte(unsigned char start){
 	char rv[3];
 	rv[0] = '0' + (start >> 4);
 	rv[1] = '0' + (start & 0xF);
 	rv[2] = 0;
 	return rv;
 }
-std::string BCDDate(iter start){
+string BCDDate(iter start){
 	return bcdbyte(start[0]) + bcdbyte(start[1]) + "-" + bcdbyte(start[2]) + "-" + bcdbyte(start[3]);
 }
 

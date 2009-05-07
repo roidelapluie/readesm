@@ -28,12 +28,12 @@ class esmfile : public esmfilehead{
 	public:
 	typedef std::vector<block::ptr> subray;
 	typedef subray::const_iterator subiter;
-	std::string name(){
+	string name(){
 		return title + ", " + first.datestr() + " to " + last.datestr();
 	}
 	
 	subray blocks;
-	esmfile(const std::string& filename) : esmfilehead(filename) {
+	esmfile(const string& filename) : esmfilehead(filename) {
 		iter filewalker = content.begin();
 		while(filewalker < content.end()){
 			block::ptr p(Factory(filewalker));
@@ -42,7 +42,7 @@ class esmfile : public esmfilehead{
 		}
 		for(subiter i = blocks.begin(); i < blocks.end(); ++i) (*i)->reportstuff(*this);
 		if(CAcert &&  devicecert){
-			std::string filename("EC_PK.bin");
+			string filename("EC_PK.bin");
 			if(!file_exists(filename)) filename = "/usr/local/share/readesm/EC_PK.bin";
 			if(file_exists(filename)){
 				CAcert->verify(filename);
