@@ -31,4 +31,17 @@ class htmlBarGraph : public picgen {
 	}
 };
 
+
+class svgBarGraph : public picgen {
+	//static const int compressh = 2;
+	public:
+	virtual void add(int from, int duration, int height, string color, string title) {
+		(*this) << "<rect x='" << from << "' y='" << (100 - height) << "' fill='" << color <<"' width='" << duration << "' height='" << height << "' title='" << title << "' />";
+	}
+	virtual string str(){
+		ostringstream o;
+		o << "<svg xmlns='http://www.w3.org/2000/svg' width='1440' height='100'>" << ostringstream::str() << "</svg>";
+		return o.str();
+	}
+};
 #endif

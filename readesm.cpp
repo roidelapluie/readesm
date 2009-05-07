@@ -46,7 +46,7 @@ int main(int argc, char* argv[]){
 	("infile", po::value<string>(), "input file")
 	("outfile", po::value<string>(), "output file")
 	("verbose",po::value<bool>()->default_value(false),"verbose output format, print just everything")
-	("format", po::value<string>()->default_value("text"), "output format, text or html")
+	("format", po::value<string>()->default_value("text"), "output format, text, html or xml")
 	;
 	
 	po::variables_map vm;
@@ -65,6 +65,7 @@ int main(int argc, char* argv[]){
 	esmfile f(vm["infile"].as<string>());
 	reporter* report;
 	if(vm["format"].as<string>() == "html") report = new htmlreporter(f.name());
+	else if(vm["format"].as<string>() == "xml") report = new xmlreporter(f.name());
 	else report = new txtreporter(f.name());
 	report->verbose = vm["verbose"].as<bool>();
 	*report << f;

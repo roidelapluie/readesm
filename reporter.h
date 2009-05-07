@@ -143,6 +143,7 @@ class htmlreporter : public reporter {
 class xmlreporter : public htmlreporter {
 	public:
 	xmlreporter(const string& title_ = "ESM Data") : htmlreporter(title_) {}
+	virtual pgptr getImageGenerator() const { return pgptr(new svgBarGraph); }
 };
 
 #endif
