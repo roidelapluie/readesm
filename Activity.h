@@ -78,7 +78,7 @@ class Activity{
 
 
 string visualization(reporter& o, const std::vector<Activity>& acts){
-	reporter::pgptr actvisual(o.getImageGenerator());
+	reporter::pgptr actvisual(o.getBarGraph());
 	for(std::vector<Activity>::const_iterator j(acts.begin()); j != acts.end(); ++j){
 		if(j->duration > 10000) std::cerr << "ouch";
 		string descr = j->astr() + " for " + Activity::formatDurTime(j->duration) + "  from " + j->tstr() + " to " + j->tstr(j->duration);
@@ -163,11 +163,11 @@ class DailyActivity{
 			o("Date", d.start.datestr());
 			if(d.driver.size() >= 2 - (unsigned int)o.verbose){
 				if(o.verbose) o.reportray(d.driver,"Daily Activity Driver");
-				if(o.hasimg()) o("Activities Driver", visualization(o, d.driver));
+				if(o.hasBarGraph()) o("Activities Driver", visualization(o, d.driver));
 			}
 			if(d.codriver.size() >= 2 - (unsigned int)o.verbose){
 				if(o.verbose) o.reportray(d.codriver,"Daily Activity Codriver");
-				if(o.hasimg()) o("Activities Codriver",visualization(o, d.codriver));
+				if(o.hasBarGraph()) o("Activities Codriver",visualization(o, d.codriver));
 			}
 			o("Driven time", Activity::formatDurTime(d.driventime));
 			if(d.overtime){

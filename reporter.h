@@ -69,9 +69,9 @@ class reporter : public ostringstream{
 	virtual void bigblockbreak(){ blockbreak(); };
 	virtual void bigblockend() = 0;
 	///returns wether embedding images is possible
-	virtual bool hasimg() const { return false; }
+	virtual bool hasBarGraph() const { return false; }
 	///determines in what way images should be created
-	virtual pgptr getImageGenerator() const { return pgptr(new picgen); }
+	virtual pgptr getBarGraph() const { return pgptr(new picgen); }
 	string title;
 	bool verbose;
 };
@@ -140,8 +140,8 @@ class htmlreporter : public reporter {
 	virtual void operator()(const string& description, int value){
 		(*this) << "<tr><th>" << description << "</th><td>" << value << "</td></tr>\n";
 	}
-	virtual bool hasimg() const { return true; }
-	virtual pgptr getImageGenerator() const { return pgptr(new htmlBarGraph); }
+	virtual bool hasBarGraph() const { return true; }
+	virtual pgptr getBarGraph() const { return pgptr(new htmlBarGraph); }
 };
 
 ///The XHTML(inline svg graphics) reporter class
@@ -170,7 +170,7 @@ class xmlreporter : public htmlreporter {
 		return o.str();
 	}
 	xmlreporter(const string& title_ = "ESM Data") : htmlreporter(title_) {}
-	virtual pgptr getImageGenerator() const { return pgptr(new svgBarGraph); }
+	virtual pgptr getBarGraph() const { return pgptr(new svgBarGraph); }
 };
 
 #endif
