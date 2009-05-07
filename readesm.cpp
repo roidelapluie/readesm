@@ -42,11 +42,11 @@ namespace po = boost::program_options;
 int main(int argc, char* argv[]){
 	po::options_description desc("ESM Reader, allowed options");
 	desc.add_options()
-	("help", "produce help message")
-	("infile", po::value<string>(), "input file")
-	("outfile", po::value<string>(), "output file")
-	("verbose",po::value<bool>()->default_value(false),"verbose output format, print just everything")
-	("format", po::value<string>()->default_value("text"), "output format, text, html or xml")
+	("help,h", "produce help message")
+	("infile,i", po::value<string>(), "input file")
+	("outfile,o", po::value<string>(), "output file")
+	("verbose,v",po::value<bool>()->default_value(false),"verbose output format, print just everything")
+	("format,f", po::value<string>()->default_value("text"), "output format, text, html or xml")
 	;
 	
 	po::variables_map vm;
