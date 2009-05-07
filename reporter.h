@@ -68,7 +68,9 @@ class reporter : public ostringstream{
 	virtual void bigblockstart(const string& name) = 0;
 	virtual void bigblockbreak(){ blockbreak(); };
 	virtual void bigblockend() = 0;
+	///returns wether embedding images is possible
 	virtual bool hasimg() const { return false; }
+	///determines in what way images should be created
 	virtual pgptr getImageGenerator() const { return pgptr(new picgen); }
 	string title;
 	bool verbose;
@@ -102,7 +104,9 @@ class txtreporter : public reporter{
 
 };
 
-
+///HTML reporter
+/** This reporter aims to format the data in a nicer fashion, and creates graphic visualizations
+by punching together various stretched single-pixel images */
 class htmlreporter : public reporter {
 	protected:
 	ostringstream links;
@@ -140,6 +144,9 @@ class htmlreporter : public reporter {
 	virtual pgptr getImageGenerator() const { return pgptr(new htmlBarGraph); }
 };
 
+///The XHTML(inline svg graphics) reporter class
+/** This reporter aims to produce one single file of output with everything embedded within it.
+To do that it embeds svg into the html, it works in firefox, not in konqueror :( */
 class xmlreporter : public htmlreporter {
 	public:
 	virtual string str(){
