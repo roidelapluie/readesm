@@ -72,6 +72,9 @@ class reporter : public ostringstream{
 	virtual bool hasBarGraph() const { return false; }
 	///determines in what way images should be created
 	virtual pgptr getBarGraph() const { return pgptr(new picgen); }
+
+	virtual bool hasPlotGraph() const { return false; }
+	virtual pgptr getPlotGraph() const { return pgptr(new picgen); }
 	string title;
 	bool verbose;
 };
@@ -171,6 +174,8 @@ class xmlreporter : public htmlreporter {
 	}
 	xmlreporter(const string& title_ = "ESM Data") : htmlreporter(title_) {}
 	virtual pgptr getBarGraph() const { return pgptr(new svgBarGraph); }
+	virtual bool hasPlotGraph() const { return true; }
+	virtual pgptr getPlotGraph() const { return pgptr(new svgPlotGraph); }
 };
 
 #endif

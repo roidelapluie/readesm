@@ -24,8 +24,22 @@ class Speeds : public vublock {
 		}
 	}
 	void BriefReport(reporter& report) const{
-		//this requires a plotting program and stuff
-		report("Speed data","omitted");
+		if(!report.hasPlotGraph()){
+			//this really requires a plotting program and stuff
+			report("Speed data","omitted");
+			return;
+		}
+		reporter::pgptr visual(report.getPlotGraph());
+		runningIndex = 0;
+		int count = Int16();
+		if(!count) return;
+		int offset = readDate().timestamp;
+		for(int k = 0; k < 60; ++k) *visual << k << " " << IntByte() << "\n";
+		for(int j = 1; j < count; ++j){
+			int difference = readDate().timestamp - offset;
+			for(int k = 0; k < 60; ++k) *visual << (difference + k) << " " << IntByte() << "\n";
+		}
+		report("Speeds",visual->str());
 	}
 
 };

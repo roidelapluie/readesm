@@ -18,6 +18,16 @@ class picgen : public ostringstream{
 	virtual void add(int from, int duration, int height, string color, string title) {}
 };
 
+void drawDayOutline(ostringstream& o){
+	o << "<svg xmlns='http://www.w3.org/2000/svg' width='740' height='120'>" ;
+	o << "<g transform='translate(10,0)'>";
+	o << "<g style='text-anchor:middle;font-size:16px;'>";
+	for(int j = 0; j < 25; ++j) o << "<text x='"<< (j * 30) << "' y='118'>" << j << "</text><line x1='" << (j * 30) << "' y1='100' x2='" << (j * 30) << "' y2='104' style='stroke-width:2;stroke:black' />";
+	o << "</g>";
+	o << "<polyline points='0,0 720,0 720,100 0,100 0,0' style='fill:none;stroke:black;stroke-width:2'/>";
+}
+const char* DayOutlineEnd = "</g></svg>";
+
 class htmlBarGraph : public picgen {
 	static const int compressh = 2;
 	public:
@@ -39,10 +49,12 @@ class svgBarGraph : public picgen {
 	}
 	virtual string str(){
 		ostringstream o;
-		o << "<svg xmlns='http://www.w3.org/2000/svg' width='720' height='100'><g transform='scale(0.5,-1) translate(0,-100)'>" << ostringstream::str() << "</g></svg>";
+		drawDayOutline(o);
+		o << "<g transform='scale(0.5,-1) translate(0,-100)'>" << ostringstream::str() << "</g>" << DayOutlineEnd;
 		return o.str();
 	}
 };
+
 
 class svgPlotGraph : public picgen {
 	public:
@@ -51,7 +63,8 @@ class svgPlotGraph : public picgen {
 	}
 	virtual string str(){
 		ostringstream o;
-		o << "<svg xmlns='http://www.w3.org/2000/svg' width='720' height='100'><path style='stroke:#dd2200' d='M 0 0 L " << ostringstream::str() << "' /></svg>";
+		drawDayOutline(o);
+		o << "<g transform='scale(1,-1) translate(0,-100)'><path style='stroke:#dd2200' d='M 0 0 L " << ostringstream::str() << "' /></g>" << DayOutlineEnd;
 		return o.str();
 	}
 };
