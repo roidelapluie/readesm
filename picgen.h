@@ -64,7 +64,7 @@ class svgPlotGraph : public picgen {
 	virtual string str(){
 		ostringstream o;
 		drawDayOutline(o);
-		o << "<g transform='scale(1,-1) translate(0,-100)'><path style='stroke:#dd2200' d='M 0 0 L " << ostringstream::str() << "' /></g>" << DayOutlineEnd;
+		o << "<g transform='scale(0.0083333,-1) translate(0,-100)'><path style='stroke:#dd2200' d='M 0 0 L " << ostringstream::str() << "' /></g>" << DayOutlineEnd;
 		return o.str();
 	}
 };

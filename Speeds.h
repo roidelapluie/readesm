@@ -29,17 +29,23 @@ class Speeds : public vublock {
 			report("Speed data","omitted");
 			return;
 		}
-		reporter::pgptr visual(report.getPlotGraph());
 		runningIndex = 0;
 		int count = Int16();
 		if(!count) return;
-		int offset = readDate().timestamp;
-		for(int k = 0; k < 60; ++k) *visual << k << " " << IntByte() << "\n";
-		for(int j = 1; j < count; ++j){
-			int difference = readDate().timestamp - offset;
-			for(int k = 0; k < 60; ++k) *visual << (difference + k) << " " << IntByte() << "\n";
+		int j = 0;
+		Time date =  readDate();
+		while(++j < count){
+			reporter::pgptr visual(report.getPlotGraph());
+			Time sdate(date);
+			int daystart = date.timestamp - date.timestamp % 86400;
+			int dayend = daystart + 86400;
+			do {
+				int difference = date.timestamp - daystart;
+				for(int k = 0; k < 60; ++k) *visual << (difference + k) << " " << IntByte() << "\n";
+				if(j < count) date = readDate();
+			} while(++j < count && date.timestamp < dayend);
+			report(sdate.datestr(),visual->str());
 		}
-		report("Speeds",visual->str());
 	}
 
 };
