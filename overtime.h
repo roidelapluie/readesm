@@ -11,7 +11,10 @@ You should have received a copy of the GNU General Public License along with rea
 #define OVERTIME_H OVERTIME_H
 #include "Activity.h"
 #include "typedefs.h"
-
+int fine(int overtime){
+	if(overtime) return (overtime / 30 + 1) * 30;
+	return 0;
+}
 
 void checkDayDrivingTime(DailyActivity& a){
 	typedef std::vector<Activity> subray;
@@ -38,11 +41,9 @@ void checkDayDrivingTime(DailyActivity& a){
 	}
 	if(sincelastbreak > 270) overtime += sincelastbreak - 270;
 	a.overtime = std::max(overtime, a.driventime - 600);
-	a.overtimeReason = "Tageslenkzeit";
+	a.fine = fine(a.overtime);
+	a.overtimeReason = "Daily driving time";
 }
 
-int fine(int overtime){
-	if(overtime) return (overtime / 30 + 1) * 30;
-	return 0;
-}
+
 #endif
