@@ -112,12 +112,17 @@ class DailyActivity{
 	subray codriver;
 	int driventime;
 	int overtime;
-	void calcDurations(std::vector<Activity>& acts) const{
+	string overtimeReason;
+	int fine;
+	void calcDurations(std::vector<Activity>& acts){
 		if(!acts.size()) return;
 		for(unsigned int j = 1; j < acts.size(); ++j){
 			acts[j - 1].duration = acts[j].time - acts[j-1].time;
 			if(acts[j - 1].duration < 0){
-//				std::cerr << "duration < 0\n";
+				std::cerr << "duration < 0\n";
+			}
+			if(acts[j - 1].activity == Activity::Driving){
+				driventime += acts[j - 1].duration;
 			}
 		}
 		acts[acts.size() -1].duration = 24*60 - acts[acts.size() -1].time;
@@ -130,32 +135,6 @@ class DailyActivity{
 		}
 		calcDurations(driver);
 		calcDurations(codriver);
-		int sincelastbreak = 0;
-		bool had15minbreak = false;
-		for(subiter i = driver.begin(); i < driver.end(); ++i){
-			const int& d = i->duration;
-			if(i->activity == Activity::Driving){
-				driventime += d;
-				sincelastbreak += d;
-			}
-			if(i->activity == Activity::Break && d >= 15){	
-				if(d < 30) had15minbreak = true;
-				else if(d >= 30){
-					if(had15minbreak || d >= 45){ 
-						if(sincelastbreak > 270) overtime += sincelastbreak - 270;
-						sincelastbreak = 0;
-						had15minbreak = false;
-					}
-					else had15minbreak = true;
-				} 
-			}
-		}
-		if(sincelastbreak > 270) overtime += sincelastbreak - 270;
-		overtime = std::max(overtime, driventime - 600);
-	}
-	int fine() const{
-		if(overtime) return (overtime / 30 + 1) * 30;
-		return 0;
 	}
 	DailyActivity(){}
 	friend reporter& operator<<(reporter& o, const DailyActivity& d){
@@ -171,8 +150,8 @@ class DailyActivity{
 			}
 			o("Driven time", Activity::formatDurTime(d.driventime));
 			if(d.overtime){
-				o("Overtime", Activity::formatDurTime(d.overtime));
-				o("Fine / EURO", d.fine() );
+				o("Overtime", Activity::formatDurTime(d.overtime)+ " " + d.overtimeReason );
+				o("Fine / EURO", d.fine );
 			}
 		}
 		return o;

@@ -14,6 +14,7 @@ You should have received a copy of the GNU General Public License along with rea
 #include "crypto.h"
 #include "block.h"
 #include "typedefs.h"
+#include "overtime.h"
 
 class tlvblock : public block{
 	public:
@@ -453,7 +454,8 @@ class Driver_Activity_Data : public tlvblock{
 				break;
 			}
 			DailyActivityCard d(walker, (thissize - 12)/2);
-			fine += d.fine();
+			checkDayDrivingTime(d);
+			fine += d.fine;
 			acts.push_back(d);
 			walker += thissize;
 		}
