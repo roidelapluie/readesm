@@ -33,8 +33,6 @@ class tlvblock : public block{
 		if(hassignature) validsignature = CheckSignature(start + 5, datasize, signature, 128, key);
 		return validsignature;
 	}
-	private:
-	static tlvblock* DumbFactory(int type, iter& filewalker);
 	protected:
 	int datasize;
 
@@ -480,30 +478,26 @@ class Driver_Activity_Data : public tlvblock{
 };
 
 //Driver Card Codes and structure are on p. 119 in l207.pdf
-tlvblock* tlvblock::DumbFactory(int type, iter& filewalker){
-	switch(type){
-		case Card_Download::Type	: return new Card_Download(filewalker);
-		case Driving_License_Info::Type	: return new Driving_License_Info(filewalker);
-		case Current_Usage::Type	: return new Current_Usage(filewalker);
-		case Driver_Activity_Data::Type	: return new Driver_Activity_Data(filewalker);
-		case Identification::Type	: return new Identification(filewalker);
-		case Specific_Conditions::Type	: return new Specific_Conditions(filewalker);
-		case Faults_Data::Type		: return new Faults_Data(filewalker);
-		case Events_Data::Type		: return new Events_Data(filewalker);
-		case Vehicles_Used::Type	: return new Vehicles_Used(filewalker);
-		case Card_Certificate::Type	: return new Card_Certificate(filewalker);
-		case CA_Certificate::Type	: return new CA_Certificate(filewalker);
-		case Application_Identification::Type:return new Application_Identification(filewalker);
-		case Control_Activity_Data::Type: return new Control_Activity_Data(filewalker);
-		case Places::Type: return new Places(filewalker);
-		default: return new tlvblock(filewalker);
-	}
-}
-
 tlvblock::ptr tlvblock::Factory(iter& filewalker){
 	if(filewalker[2] == 1) throw std::runtime_error("Stray signature");
-	ptr retval(DumbFactory(tlvblock::getType(filewalker),filewalker));
-	return retval;
+	typedef tlvblock::ptr p;
+	switch(tlvblock::getType(filewalker)){
+		case Card_Download::Type	: return p(new Card_Download(filewalker));
+		case Driving_License_Info::Type	: return p(new Driving_License_Info(filewalker));
+		case Current_Usage::Type	: return p(new Current_Usage(filewalker));
+		case Driver_Activity_Data::Type	: return p(new Driver_Activity_Data(filewalker));
+		case Identification::Type	: return p(new Identification(filewalker));
+		case Specific_Conditions::Type	: return p(new Specific_Conditions(filewalker));
+		case Faults_Data::Type		: return p(new Faults_Data(filewalker));
+		case Events_Data::Type		: return p(new Events_Data(filewalker));
+		case Vehicles_Used::Type	: return p(new Vehicles_Used(filewalker));
+		case Card_Certificate::Type	: return p(new Card_Certificate(filewalker));
+		case CA_Certificate::Type	: return p(new CA_Certificate(filewalker));
+		case Application_Identification::Type:return p(new Application_Identification(filewalker));
+		case Control_Activity_Data::Type: return p(new Control_Activity_Data(filewalker));
+		case Places::Type               : return p(new Places(filewalker));
+		default: return p(new tlvblock(filewalker));
+	}
 }
 
 #endif
