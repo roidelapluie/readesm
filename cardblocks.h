@@ -414,7 +414,7 @@ class DailyActivityCard : public DailyActivity {
 	friend reporter& operator<<(reporter& o, const DailyActivityCard& d){
 		o << (DailyActivity)d;
 		if(o.verbose) o("Daily presence counter",d.presence);
-		o("Distance driven",d.distance);
+		if(d.distance) o("Distance driven",d.distance);
 		return o;
 	}
 };
