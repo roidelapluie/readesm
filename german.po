@@ -3,16 +3,16 @@
 # Copyright (C) 2009 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
-#: Activity.h:64 i18n.h:18 i18n.h:24 i18n.h:28
 # Andreas Gölzer <K_2005@goelzer.de>, 2009.
 # Andreas Gölzer <goelzera@ethz.ch>, 2009.
 # Martin Walch <walch.martin@web.de>, 2009.
+#: Activity.h:64 i18n.h:18 i18n.h:24 i18n.h:28
 msgid ""
 msgstr ""
 "Project-Id-Version: german\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-05-09 22:52+0200\n"
-"PO-Revision-Date: 2009-05-09 23:15+0200\n"
+"POT-Creation-Date: 2009-05-10 00:26+0200\n"
+"PO-Revision-Date: 2009-05-10 00:22+0200\n"
 "Last-Translator: Martin Walch <walch.martin@web.de>\n"
 "Language-Team: American English <kde-i18n-de@kde.org>\n"
 "MIME-Version: 1.0\n"
@@ -406,10 +406,6 @@ msgstr "Andorra"
 msgid "Application Identification"
 msgstr ""
 
-#: Technical.h:35
-msgid "ApprovalNumber"
-msgstr ""
-
 #: formatStrings.h:65
 msgid "Armenia"
 msgstr "Armenien"
@@ -486,10 +482,6 @@ msgstr "Bulgarien"
 msgid "CA Certificate"
 msgstr ""
 
-#: Technical.h:41
-msgid "CalibrationPurpose"
-msgstr ""
-
 #: Technical.h:40
 msgid "Calibrations"
 msgstr ""
@@ -532,27 +524,11 @@ msgstr ""
 msgid "Card insertion while driving"
 msgstr ""
 
-#: Activities.h:75
-msgid "CardExpDate"
-msgstr ""
-
-#: Activities.h:73
-msgid "CardHolderFirstname"
-msgstr ""
-
-#: Activities.h:72
-msgid "CardHolderSurname"
-msgstr ""
-
-#: Activities.h:76
-msgid "CardInsTime"
-msgstr ""
-
 #: Activities.h:71
 msgid "CardInsertions"
 msgstr ""
 
-#: Activities.h:74 Activities.h:92
+#: Activities.h:92
 msgid "CardNumber"
 msgstr ""
 
@@ -572,20 +548,12 @@ msgstr ""
 msgid "CardNumberDriverSlotEnd"
 msgstr ""
 
-#: Activities.h:78
-msgid "CardSlotNumber"
-msgstr ""
-
 #: Overview.h:40
 msgid "CardSlotsStatus"
 msgstr ""
 
 #: cardblocks.h:81
 msgid "CardType"
-msgstr ""
-
-#: Activities.h:79
-msgid "CardWithdrawalTime"
 msgstr ""
 
 #: crypto.h:78
@@ -837,9 +805,8 @@ msgid "Faults"
 msgstr "Fehler"
 
 #: cardblocks.h:265
-#, fuzzy
 msgid "Faults Data"
-msgstr "Fehler"
+msgstr "Störungsdaten"
 
 #: formatStrings.h:75
 msgid "Ferry/Train crosssing"
@@ -973,18 +940,6 @@ msgstr "Mazedonien"
 msgid "Malta"
 msgstr "Malta"
 
-#: Technical.h:29
-msgid "ManuAddr"
-msgstr ""
-
-#: Technical.h:34
-msgid "ManuDate"
-msgstr ""
-
-#: Technical.h:28
-msgid "ManuName"
-msgstr ""
-
 #: formatStrings.h:49 formatStrings.h:60
 msgid "Manufacturer Specific"
 msgstr ""
@@ -1029,16 +984,8 @@ msgstr ""
 msgid "Netherlands"
 msgstr "Niederlande"
 
-#: Technical.h:55
-msgid "NewOdometerValue"
-msgstr ""
-
-#: Faults.h:68 Technical.h:57
+#: Faults.h:68
 msgid "NewTimeValue"
-msgstr ""
-
-#: Technical.h:58
-msgid "NextCalibrationDate"
 msgstr ""
 
 #: formatStrings.h:23 formatStrings.h:28 formatStrings.h:33 formatStrings.h:38
@@ -1086,12 +1033,12 @@ msgstr ""
 msgid "OdometerEnd"
 msgstr ""
 
-#: Technical.h:54
-msgid "OldOdometerValue"
+#: Faults.h:67
+msgid "OldTimeValue"
 msgstr ""
 
-#: Faults.h:67 Technical.h:56
-msgid "OldTimeValue"
+#: Technical.h:54
+msgid "OoldOdometerValue"
 msgstr ""
 
 #: vufactory.h:31
@@ -1116,10 +1063,6 @@ msgstr "Lenkzeitüberschreitung"
 
 #: Overview.h:23
 msgid "Overview"
-msgstr ""
-
-#: Technical.h:30
-msgid "PartNo"
 msgstr ""
 
 #: cardblocks.h:275
@@ -1212,14 +1155,6 @@ msgstr ""
 msgid "Sensor related security breach attempt events: "
 msgstr ""
 
-#: Technical.h:38
-msgid "SensorPairingDateFirst"
-msgstr ""
-
-#: Technical.h:31
-msgid "SerNo"
-msgstr ""
-
 #: crypto.h:45
 msgid "Serial Number"
 msgstr ""
@@ -1232,6 +1167,10 @@ msgstr ""
 msgid "Single"
 msgstr ""
 
+#: cardblocks.h:453
+msgid "Size 0 for increment. Aborting.\n"
+msgstr ""
+
 #: formatStrings.h:65
 msgid "Slovakia"
 msgstr "Slowakei"
@@ -1239,14 +1178,6 @@ msgstr "Slowakei"
 #: formatStrings.h:65
 msgid "Slovenia"
 msgstr "Slowenien"
-
-#: Technical.h:33
-msgid "SoftwareInstDate"
-msgstr ""
-
-#: Technical.h:32
-msgid "SoftwareVersion"
-msgstr ""
 
 #: formatStrings.h:65
 msgid "Spain"
@@ -1380,24 +1311,12 @@ msgstr ""
 msgid "Vehicle unit related security breach attempt event: "
 msgstr ""
 
-#: Overview.h:33 Technical.h:46
+#: Overview.h:33
 msgid "VehicleIdentificationNumber"
 msgstr ""
 
-#: Activities.h:77
-msgid "VehicleOdometerValueAtInsertion"
-msgstr ""
-
-#: Activities.h:80
-msgid "VehicleOdometerValueAtWithdrawal"
-msgstr ""
-
-#: Overview.h:34 Technical.h:47
+#: Overview.h:34
 msgid "VehicleRegistrationNation"
-msgstr ""
-
-#: Technical.h:48
-msgid "VehicleRegistrationNumber"
 msgstr ""
 
 #: Overview.h:35
@@ -1432,19 +1351,15 @@ msgstr ""
 msgid "Workshop Card"
 msgstr ""
 
-#: Faults.h:70 Technical.h:43
+#: Faults.h:70
 msgid "WorkshopAddress"
 msgstr ""
 
-#: Technical.h:45
-msgid "WorkshopCardExpiryDate"
-msgstr ""
-
-#: Faults.h:71 Technical.h:44
+#: Faults.h:71
 msgid "WorkshopCardNumber"
 msgstr ""
 
-#: Faults.h:69 Technical.h:42
+#: Faults.h:69
 msgid "WorkshopName"
 msgstr ""
 
@@ -1471,7 +1386,7 @@ msgid "an active/on-going event or fault"
 msgstr ""
 
 #: Technical.h:53
-msgid "authorizedSpeed"
+msgid "authorisedSpeed"
 msgstr ""
 
 #: Activity.h:89
@@ -1482,7 +1397,11 @@ msgstr "schwarz"
 msgid "blue"
 msgstr "blau"
 
-#: cardblocks.h:364
+#: Technical.h:41
+msgid "calibrationPurpose"
+msgstr ""
+
+#: Activities.h:75 cardblocks.h:364
 msgid "cardExpiryDate"
 msgstr ""
 
@@ -1490,9 +1409,21 @@ msgstr ""
 msgid "cardHolderBirthDate"
 msgstr ""
 
+#: Activities.h:73
+msgid "cardHolderFirstNames"
+msgstr ""
+
 #: cardblocks.h:368
 msgid "cardHolderPreferredLanguage"
-msgstr "cardHolderPreferredLanguage"
+msgstr ""
+
+#: Activities.h:72
+msgid "cardHolderSurname"
+msgstr ""
+
+#: Activities.h:76
+msgid "cardInsertionTime"
+msgstr ""
 
 #: cardblocks.h:362
 msgid "cardIssueDate"
@@ -1510,6 +1441,10 @@ msgstr ""
 msgid "cardNumber"
 msgstr ""
 
+#: Activities.h:78
+msgid "cardSlotNumber"
+msgstr ""
+
 #: cardblocks.h:190
 msgid "cardType"
 msgstr ""
@@ -1518,13 +1453,17 @@ msgstr ""
 msgid "cardValidityBegin"
 msgstr ""
 
+#: Activities.h:79
+msgid "cardWithdrawalTime"
+msgstr ""
+
 #: Overview.h:48
 msgid "companyAddress"
-msgstr "companyAddress"
+msgstr ""
 
 #: Overview.h:47
 msgid "companyName"
-msgstr "companyName"
+msgstr ""
 
 #: Overview.h:54
 msgid "controlCardNumber"
@@ -1614,6 +1553,10 @@ msgstr ""
 msgid "from"
 msgstr ""
 
+#: Activities.h:74
+msgid "fullCardNumber"
+msgstr ""
+
 #: Activity.h:90
 msgid "green"
 msgstr "grün"
@@ -1675,7 +1618,7 @@ msgid "lockOutTime"
 msgstr ""
 
 #: Activities.h:84
-msgid "manInputFlag:"
+msgid "manualInputFlag:"
 msgstr ""
 
 #: Overview.h:39
@@ -1686,8 +1629,24 @@ msgstr ""
 msgid "minDownloadableTime"
 msgstr ""
 
+#: Technical.h:55
+msgid "newOdometerValue"
+msgstr ""
+
+#: Technical.h:57
+msgid "newTimeValue"
+msgstr ""
+
+#: Technical.h:58
+msgid "nextCalibrationDate"
+msgstr ""
+
 #: Activity.h:64
 msgid "not"
+msgstr ""
+
+#: Technical.h:56
+msgid "oldTimeValue"
 msgstr ""
 
 #: Speeds.h:29
@@ -1730,21 +1689,21 @@ msgstr ""
 msgid "periodic inspection"
 msgstr ""
 
+#: Activities.h:83
+msgid "previousCardWithdrawalTime"
+msgstr ""
+
 #: Activities.h:81
-msgid "prevVehicleRegistrationNation"
+msgid "previousVehicleRegistrationNation"
 msgstr ""
 
 #: Activities.h:82
-msgid "prevVehicleRegistrationNumber"
-msgstr ""
-
-#: Activities.h:83
-msgid "prevvecCardWitTime"
+msgid "previousVehicleRegistrationNumber"
 msgstr ""
 
 #: readesm.cpp:48
 msgid "produce help message"
-msgstr ""
+msgstr "Hilfetext ausgeben"
 
 #: i18n.h:19 i18n.h:20
 msgid "readesm"
@@ -1756,10 +1715,14 @@ msgstr "rot"
 
 #: formatStrings.h:80
 msgid "reserved value (should not appear)"
-msgstr ""
+msgstr "reservierter Wert (sollte nicht auftauchen)"
 
 #: Technical.h:37
 msgid "sensorApprovalNumber"
+msgstr ""
+
+#: Technical.h:38
+msgid "sensorPairingDateFirst"
 msgstr ""
 
 #: Technical.h:36
@@ -1770,10 +1733,6 @@ msgstr ""
 msgid "sessionOpenTime"
 msgstr ""
 
-#: cardblocks.h:453
-msgid "size 0 for increment. aborting.\n"
-msgstr ""
-
 #: readesm.cpp:52
 msgid "text"
 msgstr "Text"
@@ -1781,36 +1740,50 @@ msgstr "Text"
 #: formatStrings.h:55
 msgid "the first event or fault having occurred after the last calibration"
 msgstr ""
+"das erste Ereignis oder die erste Störung nach der letzten Kalibrierung"
 
 #: formatStrings.h:55
 msgid "the last event for one of the last 10 days of occurrence"
-msgstr ""
+msgstr "das letzte Ereignis an einem der letzten 10 Tage des Auftretens"
 
 #: formatStrings.h:55
 msgid "the longest event for one of the last 10 days of occurrence"
-msgstr ""
+msgstr "das längste Ereignis an einem der letzten 10 Tage des Auftretens"
 
 #: formatStrings.h:55
 msgid "the most serious event for one of the last 10 days of occurrence"
 msgstr ""
+"das schwerwiegendste Ereignis an einem der letzten 10 Tage des Auftretens"
 
 #: esmfile.h:61
 msgid "to"
-msgstr ""
+msgstr "nach"
 
 #: Technical.h:52
 msgid "tyreSize"
-msgstr "tyreSize"
+msgstr ""
+
+#: Technical.h:46
+msgid "vehicleIdentificationNumber"
+msgstr ""
 
 #: cardblocks.h:171
 msgid "vehicleOdometerValue"
 msgstr ""
 
-#: cardblocks.h:143 cardblocks.h:391
+#: Activities.h:77
+msgid "vehicleOdometerValueAtInsertion"
+msgstr ""
+
+#: Activities.h:80
+msgid "vehicleOdometerValueAtWithdrawal"
+msgstr ""
+
+#: cardblocks.h:143 cardblocks.h:391 Technical.h:47
 msgid "vehicleRegistrationNation"
 msgstr ""
 
-#: cardblocks.h:144 cardblocks.h:392
+#: cardblocks.h:144 cardblocks.h:392 Technical.h:48
 msgid "vehicleRegistrationNumber"
 msgstr ""
 
@@ -1826,13 +1799,61 @@ msgstr ""
 msgid "verbose,v"
 msgstr ""
 
+#: Technical.h:35
+msgid "vuApprovalNumber"
+msgstr ""
+
 #: cardblocks.h:307
 msgid "vuDataBlockCounter"
 msgstr ""
 
+#: Technical.h:29
+msgid "vuManufacturerAddress"
+msgstr ""
+
+#: Technical.h:28
+msgid "vuManufacturerMame"
+msgstr ""
+
+#: Technical.h:34
+msgid "vuManufacturingDate"
+msgstr ""
+
+#: Technical.h:30
+msgid "vuPartNumber"
+msgstr ""
+
+#: Technical.h:31
+msgid "vuSerialNumber"
+msgstr ""
+
+#: Technical.h:33
+msgid "vuSoftInstallationDate"
+msgstr ""
+
+#: Technical.h:32
+msgid "vuSoftwareVersion"
+msgstr ""
+
 #: Technical.h:49
 msgid "wVehicleCharacteristicConstant"
-msgstr "wVehicleCharacteristicConstant"
+msgstr ""
+
+#: Technical.h:43
+msgid "workshopAddress"
+msgstr ""
+
+#: Technical.h:45
+msgid "workshopCardExpiryDate"
+msgstr ""
+
+#: Technical.h:44
+msgid "workshopCardNumber"
+msgstr ""
+
+#: Technical.h:42
+msgid "workshopName"
+msgstr ""
 
 #: readesm.cpp:71
 msgid "xml"
@@ -1841,4 +1862,3 @@ msgstr "xml"
 #: Activity.h:88
 msgid "yellow"
 msgstr "gelb "
-

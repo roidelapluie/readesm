@@ -450,7 +450,7 @@ class Driver_Activity_Data : public tlvblock{
 		while(walker < end){
 			int thissize = BEInt16(walker + 2);
 			if(!thissize){
-				std::cerr << "size 0 for increment. aborting.\n";
+				std::cerr << "Size 0 for increment. Aborting.\n";
 				break;
 			}
 			DailyActivityCard d(walker, (thissize - 12)/2);

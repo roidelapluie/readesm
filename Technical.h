@@ -25,17 +25,17 @@ class Technical : public vublock {
 	}
 	void CompleteReport(reporter& report) const{
 		runningIndex = 0;
-		report("VU manufacturer name",fixedString(36) );
-		report("VU manufacturer address",fixedString(36) );
-		report("VU part number",fixedString(16) );
-		report("SerNo",fixedString(8) );
-		report("SoftwareVersion",fixedString(4) );
-		report("SoftwareInstDate",readDate().str() );
-		report("ManuDate",readDate().str() );
-		report("ApprovalNumber",fixedString(8) );
+		report("vuManufacturerMame",fixedString(36) );
+		report("vuManufacturerAddress",fixedString(36) );
+		report("vuPartNumber",fixedString(16) );
+		report("vuSerialNumber",fixedString(8) );
+		report("vuSoftwareVersion",fixedString(4) );
+		report("vuSoftInstallationDate",readDate().str() );
+		report("vuManufacturingDate",readDate().str() );
+		report("vuApprovalNumber",fixedString(8) );
 		report("sensorSerialNumber",fixedString(8) );
 		report("sensorApprovalNumber",fixedString(8) );
-		report("SensorPairingDateFirst",readDate().str() );
+		report("sensorPairingDateFirst",readDate().str() );
 		
 		for(reporter::subblock b = report.newsub("Calibrations", IntByte()); b(); ++b){
 			report("calibrationPurpose", formatCalibrationPurpose(IntByte()));

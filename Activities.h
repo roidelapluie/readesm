@@ -69,19 +69,19 @@ class Activities : public vublock {
 		report("TimeReal",readDate().str());
 		report("Odometer",Odometer());
 		for(reporter::subblock b = report.newsub("CardInsertions", Int16()); b(); ++b){
-			report("CardHolderSurname", fixedString(36));
-			report("CardHolderFirstname", fixedString(36));
-			report("CardNumber", fixedString(18));
-			report("CardExpDate", readDate().str());
-			report("CardInsTime", readDate().str());
-			report("VehicleOdometerValueAtInsertion", Odometer());
-			report("CardSlotNumber", IntByte());
-			report("CardWithdrawalTime", readDate().str());
-			report("VehicleOdometerValueAtWithdrawal", Odometer());
-			report("prevVehicleRegistrationNation", formatCountry(IntByte()));
-			report("prevVehicleRegistrationNumber", fixedString(14));
-			report("prevvecCardWitTime", readDate().str());
-			report("manInputFlag:", IntByte());
+			report("cardHolderSurname", fixedString(36));
+			report("cardHolderFirstNames", fixedString(36));
+			report("fullCardNumber", fixedString(18));
+			report("cardExpiryDate", readDate().str());
+			report("cardInsertionTime", readDate().str());
+			report("vehicleOdometerValueAtInsertion", Odometer());
+			report("cardSlotNumber", IntByte());
+			report("cardWithdrawalTime", readDate().str());
+			report("vehicleOdometerValueAtWithdrawal", Odometer());
+			report("previousVehicleRegistrationNation", formatCountry(IntByte()));
+			report("previousVehicleRegistrationNumber", fixedString(14));
+			report("previousCardWithdrawalTime", readDate().str());
+			report("manualInputFlag:", IntByte());
 		}
 
 		for(reporter::subblock b = report.newsub("ActivityChangeInfo", Int16()); b(); ++b){
