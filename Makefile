@@ -8,7 +8,7 @@
 name := readesm
 headers = $(wildcard *.h)
 objects = $(headers:.h=.o)
-extrafiles = $(name).doxygen EC_PK.bin batchall.sh license_sha1.txt COPYING README images.tar.bz2  $(name)-wrap-kde.sh
+extrafiles = $(name).doxygen EC_PK.bin batchall.sh COPYING README images.tar.bz2  $(name)-wrap-kde.sh
 run_args = 
 sources = $(name).cpp $(filter $(wildcard *.cpp), $(objects:.o=.cpp)) $(filter $(wildcard *.h), $(objects:.o=.h))
 
