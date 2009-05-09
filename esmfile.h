@@ -23,6 +23,11 @@ block::ptr Factory(iter start){
 	if(start[0] == 0x76) return block::ptr(vuFactory(start));
 	else return tlvblock::Factory(start);
 }
+static string formatDurTime(int offset = 0){
+	ostringstream o;
+	o << std::setw(2) << std::setfill('0') << ((offset) / 60) << ":" << std::setw(2) << std::setfill('0') << ((offset) % 60);
+	return o.str();
+}
 
 class esmfile : public esmfilehead{
 	public:
@@ -54,6 +59,14 @@ class esmfile : public esmfilehead{
 		}
 	}
 	friend reporter& operator<<(reporter& report, const esmfile& e){
+		report.bigblockstart("Statistics");
+		report("Driven distance", e.drivenkm);
+		report("Driven time", formatDurTime(e.drivenminutes));
+		report("Kilometers per day", e.drivenkm / e.daycount);
+		report("Time driven per day", formatDurTime(e.drivenminutes / e.daycount));
+		report("Average speed when driving", e.drivenkm * 60 / e.drivenminutes);
+		report.bigblockend();
+		
 		for(subiter i = e.blocks.begin(); i < e.blocks.end(); ++i) report << **i;
 		return report;
 	}

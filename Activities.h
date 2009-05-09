@@ -36,10 +36,22 @@ class Activities : public vublock {
 		return "Activities for " + readDate(0).datestr();
 	}
 	static const int TREP = 0x2;
-	Activities(iter nstart) : vublock(nstart) {
+	Activities(iter nstart) : vublock(nstart), driven(0) {
 		Init();
 		int index = 7 + 129*Int16(7) + 2;
 		DayAct = DailyActivity(start + 2, start + index + 4, Int16(index));
+		int num_crblocks = Int16(7);
+		for(int j = 0; j < num_crblocks; ++j){
+			int sb_start = 9 + j*129;
+			CardInOut t;
+			t.Name =  fixedString(sb_start + 36,36) + fixedString(sb_start,36);
+			t.InTime = readDate(sb_start + 94);
+			t.OdometerIn = Odometer(sb_start + 98);
+			t.OutTime = readDate(sb_start + 102);
+			t.OdometerOut = Odometer(sb_start + 106);
+			CardInOuts.push_back(t);
+			driven += t.OdometerOut - t.OdometerIn;
+		}
 	}
 	int size() const{
 		int index = 7 + 129*Int16(7) + 2;
@@ -86,32 +98,21 @@ class Activities : public vublock {
 		}
 	}
 	DailyActivity DayAct;
-
+	int driven;
+	std::vector<CardInOut> CardInOuts;
 	void BriefReport(reporter& report) const{
-		runningIndex = 0;
-		std::vector<CardInOut> CardInOuts;
-		int num_crblocks = Int16(7);
-		for(int j = 0; j < num_crblocks; ++j){
-			int sb_start = 9 + j*129;
-			CardInOut t;
-			t.Name =  fixedString(sb_start + 36,36) + fixedString(sb_start,36);
-			t.InTime = readDate(sb_start + 94);
-			t.OdometerIn = Odometer(sb_start + 98);
-			t.OutTime = readDate(sb_start + 102);
-			t.OdometerOut = Odometer(sb_start + 106);
-			CardInOuts.push_back(t);
-		}
-
 		for(unsigned int j = 0; j < CardInOuts.size() ; ++j){
-			CardInOut& t = CardInOuts[j];
+			const CardInOut& t = CardInOuts[j];
 			report("Driver",t.Name);
 			report("Work period", (t.OutTime - t.InTime).str());
 			report("Driven km",(t.OdometerOut - t.OdometerIn));
 		}
 		report << DayAct;
+		//report("Driven km",driven);
 	}
+	//TODO:inaccurate (multi-day)
 	virtual void reportstuff(esmfilehead& esm){
-		esm.reportDate(Time(BEInt32(start + 2)));
+		esm.reportDayStatistics(Time(BEInt32(start + 2)),driven,DayAct.driventime);
 	}
 };
 

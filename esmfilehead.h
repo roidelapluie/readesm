@@ -15,7 +15,6 @@ You should have received a copy of the GNU General Public License along with rea
 #include "time.h"
 
 
-
 class esmfilehead{
 	public:
 	slurpedfile content;
@@ -29,10 +28,20 @@ class esmfilehead{
 		if(torep < first) first = torep;
 		if(torep > last) last = torep;
 	}
+	int daycount;
+	int drivenkm;
+	int drivenminutes;
+	void reportDayStatistics(Time day, int daydrivenkm, int daydrivenminutes){
+		reportDate(day);
+		++daycount;
+		drivenkm += daydrivenkm;
+		drivenminutes += daydrivenminutes;
+	}
 	esmfilehead(const string& filename) :
 		content(slurp(filename)),
 		first(0x7fFfFfFf),
-		last(0)
+		last(0),
+		daycount(0),drivenkm(0),drivenminutes(0)
 		{}
 };
 

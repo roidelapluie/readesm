@@ -19,6 +19,7 @@ uploader=scp -p
 SHELL=/bin/bash
 TEX=latex
 CFLAGS=-Wall -pipe  -Werror
+CXX=ccache g++
 # CXX=i586-mingw32msvc-g++
 # LD=i586-mingw32msvc-ld
  

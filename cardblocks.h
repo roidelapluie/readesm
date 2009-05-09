@@ -473,7 +473,7 @@ class Driver_Activity_Data : public tlvblock{
 	}
 	virtual void reportstuff(esmfilehead& esm){
 		for(subiter i = acts.begin(); i < acts.end(); ++i){
-			esm.reportDate(i->start);
+			esm.reportDayStatistics(i->start, i->distance, i->driventime);
 		}
 	}
 
