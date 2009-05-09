@@ -45,9 +45,9 @@ class esmfile : public esmfilehead{
 			string filename("EC_PK.bin");
 			if(!file_exists(filename)) filename = "/usr/local/share/readesm/EC_PK.bin";
 			if(file_exists(filename)){
-				CAcert->verify(filename);
-				devicecert->verify(*CAcert);
-				for(subiter i = blocks.begin(); i < blocks.end(); ++i) (*i)->checksig(devicecert->key);
+				if(CAcert->verify(filename))
+					if(devicecert->verify(*CAcert))
+						for(subiter i = blocks.begin(); i < blocks.end(); ++i) (*i)->checksig(devicecert->key);
 			} else {
 				std::cerr << "Cannot verify certificates and signatures: European main certificate file not found or not openable.";
 			}

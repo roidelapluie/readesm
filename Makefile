@@ -21,10 +21,10 @@ TEX=latex
 CFLAGS=-Wall -pipe  -Werror
 # CXX=i586-mingw32msvc-g++
 # LD=i586-mingw32msvc-ld
-
+ 
 LIBRARIES=
 CXXFLAGS=$(CFLAGS)
-LDFLAGS=-s -lgmp -lgmpxx -lboost_program_options
+LDFLAGS=-s -lgmp -lboost_program_options
 
 all: $(name)
 

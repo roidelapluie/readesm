@@ -10,29 +10,41 @@ You should have received a copy of the GNU General Public License along with rea
 #ifndef RSA_H
 #define RSA_H RSA_H
 
-#include <gmpxx.h>
+#include <gmp.h>
 #include <vector>
+
+///wrap around mpz_t
+/** This can also be done by the c++-bindings of GMP, but they are not yet finished and not avail. everywhere */
+class mpz {
+	public:
+	mpz_t t;
+	int dummy;
+	mpz() { mpz_init(t);  }
+	~mpz(){ mpz_clear(t); }
+	mpz(const mpz& o){ mpz_init_set(t, o.t); }
+	mpz& operator=(const mpz& o){ mpz_init_set(t, o.t); return *this; }
+};
+
 ///simple rsa, no padding or fancy stuff, just for the requirements this tacho stuff gives
 class rsa {
 	public:
 	rsa() {};
-	//rsa(mpz_class n_, mpz_class e_) : n(n_), e(e_)
 	rsa(unsigned char* modulus, int mlen, unsigned char* exponent, int elen){
-		mpz_import(n.get_mpz_t(), mlen, 1, 1, 0, 0, modulus);
-		mpz_import(e.get_mpz_t(), elen, 1, 1, 0, 0, exponent);
+		mpz_import(n.t, mlen, 1, 1, 0, 0, modulus);
+		mpz_import(e.t, elen, 1, 1, 0, 0, exponent);
 	}
 	std::vector<unsigned char> perform(const unsigned char* input, int length) const{
-		mpz_class in, out;
-		mpz_import(in.get_mpz_t(), length, 1, 1, 0, 0, input);
-		mpz_powm(out.get_mpz_t(), in.get_mpz_t(),e.get_mpz_t(),n.get_mpz_t());
+		mpz in, out;
+		mpz_import(in.t, length, 1, 1, 0, 0, input);
+		mpz_powm(out.t, in.t,e.t,n.t);
 		size_t size;
-		std::vector<unsigned char> rv(mpz_sizeinbase(out.get_mpz_t(), 256) + 10);
-		mpz_export(&rv[0], &size, 1, 1, 0, 0, out.get_mpz_t());
+		std::vector<unsigned char> rv(mpz_sizeinbase(out.t, 256) + 10);
+		mpz_export(&rv[0], &size, 1, 1, 0, 0, out.t);
 		rv.resize(size);
 		return rv;
 	}
-	private:	
-	mpz_class n, e;
+	private:
+	mpz n, e;
 };
 
 #endif
