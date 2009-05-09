@@ -31,7 +31,6 @@ class Time{
 	}
 	bool operator>(const Time& other) const{ return timestamp > other.timestamp; }
 	bool operator<(const Time& other) const{ return timestamp < other.timestamp; }
-
 	int timestamp;
 };
 

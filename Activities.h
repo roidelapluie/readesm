@@ -24,6 +24,10 @@ class Activities : public vublock {
 		Time InTime, OutTime;
 		int OdometerIn, OdometerOut;
 	};
+	DailyActivity DayAct;
+	int driven;
+	std::vector<CardInOut> CardInOuts;
+	Time day;
 	Activity readActivity(int start) const{
 		return Activity(&block_start[start]);
 	}
@@ -36,7 +40,7 @@ class Activities : public vublock {
 		return "Activities for " + readDate(0).datestr();
 	}
 	static const int TREP = 0x2;
-	Activities(iter nstart) : vublock(nstart), driven(0) {
+	Activities(iter nstart) : vublock(nstart), driven(0), day(BEInt32(start + 2)) {
 		Init();
 		int index = 7 + 129*Int16(7) + 2;
 		DayAct = DailyActivity(start + 2, start + index + 4, Int16(index));
@@ -50,7 +54,7 @@ class Activities : public vublock {
 			t.OutTime = readDate(sb_start + 102);
 			t.OdometerOut = Odometer(sb_start + 106);
 			CardInOuts.push_back(t);
-			driven += t.OdometerOut - t.OdometerIn;
+			if(t.InTime.timestamp >= day.timestamp && t.InTime.timestamp < day.timestamp + 86400) driven += t.OdometerOut - t.OdometerIn;
 		}
 	}
 	int size() const{
@@ -97,9 +101,6 @@ class Activities : public vublock {
 			report("CondType", IntByte());
 		}
 	}
-	DailyActivity DayAct;
-	int driven;
-	std::vector<CardInOut> CardInOuts;
 	void BriefReport(reporter& report) const{
 		for(unsigned int j = 0; j < CardInOuts.size() ; ++j){
 			const CardInOut& t = CardInOuts[j];
@@ -110,7 +111,6 @@ class Activities : public vublock {
 		report << DayAct;
 		//report("Driven km",driven);
 	}
-	//TODO:inaccurate (multi-day)
 	virtual void reportstuff(esmfilehead& esm){
 		esm.reportDayStatistics(Time(BEInt32(start + 2)),driven,DayAct.driventime);
 	}
