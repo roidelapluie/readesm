@@ -74,8 +74,7 @@ class verifiedcert{
 		unsigned char cdash[164];
 		copy(&buffer[1], &cdash[0], 106);
 		copy(&start[128], &cdash[106], 58);
-		SHA1 hasher(cdash,164);
-		if(!hasher.checkmatch(&buffer[107])){
+		if(!checkSHA1match(cdash, 164, &buffer[107])){
 			std::cout << "Certificate is invalid\n";
 			return false;
 		}
@@ -90,18 +89,15 @@ class verifiedcert{
 
 bool CheckSignature(const iter& data, int length, const iter& signature, int siglength, const rsa& key){
 	std::vector<unsigned char> decryptedsig = key.perform(&signature[0],siglength);
-	SHA1 hasher(&data[0],length);
-	bool valid = hasher.checkmatch(&decryptedsig[107]);
+	bool valid = checkSHA1match(&data[0], length,&decryptedsig[107]);
 	const unsigned char der[] = {0x30, 0x21, 0x30, 0x09, 0x06, 0x05, 0x2b, 0x0e, 0x03, 0x02, 0x1a, 0x05, 0x00, 0x04, 0x14};
 	valid = valid && compare(&decryptedsig[92],der,15);
 	for(int j = 1; j < 91; ++j) if(decryptedsig[j] != 0xff) valid = false;
 	//not checking the first two, l207 p.251 says 0x00, 0x01,
 	//but the files actually contain 0x01, 0xff
 	if(!valid){
-		std::cerr << "\nSig check failed. Expected from rsa: ";
-		hexout(decryptedsig,128);
-		std::cerr << "\nHash is " << hasher << "\n";
-	}	
+		std::cerr << "\nSig check failed. ";
+	}
 	return valid;
 }
 

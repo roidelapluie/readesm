@@ -10,14 +10,6 @@ and does little analysis of the data. More analysis is planned for the future,
 but any serious attempt requires refactoring the data heavily, which might never
 be done due to time constraints.
 
-To the best of my knowledge there is no free software (as in either beer or
-speech) that does this job, and checking wether the driving times are legal
-proved to be very cumbersome with the commercial solutions I could test. There
-are some high-priced ones that probably do that well, yet several thousand euros
-are too expensive for small companies or individual drivers; there is a really
-cheap web-based solution by tachomaster.co.uk, however giving away rsa-signed
-data that could probably be used against you in a court of law is a bad idea.
-
 The digital tachographs and respective cards use a quite elaborate security
 model, with 1024-bit rsa, sha-1 hashes and individual certificates on each card
 signed by ec member states authorities. The software checks the signatures and
@@ -27,8 +19,8 @@ industry-standard signatures, that would be a daunting task anyway).
 
 The language of the project is C++, and development is done on a linux platform,
 but it should be possible to compile it on any platform with a C++-compiler,
-boost and the stdlib. Right now it also uses the Gnu MP library, but if
-signature checking is not needed that could simply be commented out.
+boost and the stdlib. Right now it also uses the Gnu MP library and libgcrypt,
+but if signature checking is not needed that could simply be commented out.
 
 Compiling
 You can get the program files from my homepage
@@ -46,7 +38,7 @@ which you can easily uninstall with your package management tool.
 On Ubuntu (http://www.ubuntu.com/) systems, you will need to do something like:
 
 svn co https://readesm.svn.sourceforge.net/svnroot/readesm readesm
-sudo apt-get install libboost-program-options-dev libgmpxx4ldbl  libgmp3-dev
+sudo apt-get install libboost-program-options-dev libgcrypt11-dev libgmp3-dev
 make
 sudo make install
 
@@ -64,8 +56,7 @@ it will open a konqueror window containing the html result.
 
 
 Modifying the program
-You are free to modify the program under the terms of the GPL, or the license in
-license_sha1.txt for Paul E. Jones' sha-1 implementation. 
+You are free to modify the program under the terms of the GPL.
 If you do so, note:
 - Sometimes i added references to l207.pdf in the comments, that refers to
 OJ:L:2002:207, p. 1-252,
