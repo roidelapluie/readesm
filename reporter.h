@@ -14,6 +14,7 @@ You should have received a copy of the GNU General Public License along with rea
 #include "helper.h"
 #include "picgen.h"
 #include "typedefs.h"
+#include "i18n.h"
 
 class reporter : public ostringstream{
 	public:
@@ -84,7 +85,7 @@ class txtreporter : public reporter{
 	txtreporter(const string& title_ = "ESM Data") : reporter(title_) {}
 	virtual string str(){ return title + reporter::str(); }
 	virtual void blockstart(const string& description, int blockcount){
-		(*this) << "***************" << description << " (" << blockcount << ") *********\n";
+		(*this) << "***************" << tr(description) << " (" << blockcount << ") *********\n";
 	}
 	virtual void blockend(){
 		(*this) << "*************************************\n";
@@ -93,10 +94,10 @@ class txtreporter : public reporter{
 		(*this) << "  ***   \n";
 	}
 	virtual void operator()(const string& description, const std::string& value){
-		(*this) << description << ": \t" << value << "\n";
+		(*this) << tr(description) << ": \t" << tr(value) << "\n";
 	}
 	virtual void operator()(const string& description, int value){
-		(*this) << description << ": \t" << value << "\n";
+		(*this) << tr(description) << ": \t" << value << "\n";
 	}
 	virtual void bigblockstart(const string& name){
 		(*this) << "\n\n+++++++++++++++++ Block: " << name << " ++++++++++++++++++++++++++\n";
@@ -122,14 +123,14 @@ class htmlreporter : public reporter {
 		return o.str();
 	}
 	virtual void bigblockstart(const string& name){
-		links << "<a href='#" << stringify(++targetcount) <<"'>"<<name<<"</a><br/>";
-		(*this) << "<h2><a name='" << stringify(targetcount) << "'>" << name << "</a></h2><table>";
+		links << "<a href='#" << stringify(++targetcount) <<"'>" << tr(name) << "</a><br/>";
+		(*this) << "<h2><a name='" << stringify(targetcount) << "'>" << tr(name) << "</a></h2><table>";
 	}
 	virtual void bigblockend(){
 		(*this) << "</table>";
 	}
 	virtual void blockstart(const string& description, int blockcount){
-		(*this) << "<tr><th>" << description << "</th><td><table>\n";
+		(*this) << "<tr><th>" << tr(description) << "</th><td><table>\n";
 	}
 	virtual void blockbreak(){
 		(*this) << "<tr><th></th><td></td></tr>\n";
@@ -138,10 +139,10 @@ class htmlreporter : public reporter {
 		(*this) << "</table></td></tr>\n";
 	}
 	virtual void operator()(const string& description, const std::string& value){
-		(*this) << "<tr><th>" << description << "</th><td>" << value << "</td></tr>\n";
+		(*this) << "<tr><th>" << tr(description) << "</th><td>" << tr(value) << "</td></tr>\n";
 	}
 	virtual void operator()(const string& description, int value){
-		(*this) << "<tr><th>" << description << "</th><td>" << value << "</td></tr>\n";
+		(*this) << "<tr><th>" << tr(description) << "</th><td>" << value << "</td></tr>\n";
 	}
 	virtual bool hasBarGraph() const { return true; }
 	virtual pgptr getBarGraph() const { return pgptr(new htmlBarGraph); }

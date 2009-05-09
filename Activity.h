@@ -151,7 +151,7 @@ class DailyActivity{
 			o("Driven time", Activity::formatDurTime(d.driventime));
 			if(d.overtime){
 				o("Overtime", Activity::formatDurTime(d.overtime)+ " " + d.overtimeReason );
-				o("Fine / EURO", d.fine );
+				o("Fine", d.fine );
 			}
 		}
 		return o;

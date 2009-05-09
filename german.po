@@ -1,0 +1,1842 @@
+# German translations for PACKAGE package
+# German messages for PACKAGE.
+# Copyright (C) 2009 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Andreas Gölzer <K_2005@goelzer.de>, 2009.
+# Andreas Gölzer <goelzera@ethz.ch>, 2009.
+#: Activity.h:64 i18n.h:18 i18n.h:24 i18n.h:28
+msgid ""
+msgstr ""
+"Project-Id-Version: german\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-05-09 21:59+0200\n"
+"PO-Revision-Date: 2009-05-09 21:42+0200\n"
+"Last-Translator: Andreas Gölzer <goelzera@ethz.ch>\n"
+"Language-Team: American English <kde-i18n-doc@kde.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 0.3\n"
+
+#: readesm.cpp:60 readesm.cpp:64 reporter.h:97 reporter.h:100 Speeds.h:44
+msgid "\n"
+msgstr ""
+
+#: reporter.h:103
+msgid ""
+"\n"
+"\n"
+"+++++++++++++++++ Block: "
+msgstr ""
+
+#: crypto.h:99
+msgid ""
+"\n"
+"Sig check failed. "
+msgstr ""
+
+#: Activity.h:65 Activity.h:153 cardblocks.h:371 helper.h:38 helper.h:45
+#: Speeds.h:44
+msgid " "
+msgstr ""
+
+#: reporter.h:94
+msgid "  ***   \n"
+msgstr ""
+
+#: Activity.h:84
+msgid "  from "
+msgstr ""
+
+#: esmfile.h:66 reporter.h:88
+msgid " ("
+msgstr ""
+
+#: reporter.h:103
+msgid " ++++++++++++++++++++++++++\n"
+msgstr ""
+
+#: formatStrings.h:20
+msgid " - "
+msgstr ""
+
+#: cardblocks.h:470
+msgid " Bytes"
+msgstr ""
+
+#: time.h:66
+msgid " days "
+msgstr ""
+
+#: Activity.h:84
+msgid " for "
+msgstr ""
+
+#: time.h:66
+msgid " h "
+msgstr ""
+
+#: Activity.h:64
+msgid " inserted, "
+msgstr ""
+
+#: time.h:66
+msgid " m"
+msgstr ""
+
+#: cardblocks.h:470
+msgid " of "
+msgstr ""
+
+#: Activity.h:84 esmfile.h:33
+msgid " to "
+msgstr ""
+
+#: esmfile.h:66
+msgid "%)"
+msgstr ""
+
+#: time.h:27
+#, c-format
+msgid "%F"
+msgstr ""
+
+#: time.h:18
+msgid "%c %Z"
+msgstr ""
+
+#: picgen.h:48 picgen.h:62
+msgid "' />"
+msgstr ""
+
+#: picgen.h:67
+msgid "' /></g>"
+msgstr ""
+
+#: picgen.h:35
+msgid "' alt='"
+msgstr ""
+
+#: picgen.h:39
+msgid "' alt='scale' />"
+msgstr ""
+
+#: picgen.h:48 picgen.h:62
+msgid "' fill='"
+msgstr ""
+
+#: picgen.h:35 picgen.h:48 picgen.h:62
+msgid "' height='"
+msgstr ""
+
+#: picgen.h:35 picgen.h:48 picgen.h:62
+msgid "' title='"
+msgstr ""
+
+#: picgen.h:48 picgen.h:62
+msgid "' width='"
+msgstr ""
+
+#: picgen.h:25
+msgid "' y1='100' x2='"
+msgstr ""
+
+#: picgen.h:25
+msgid "' y2='104' style='stroke-width:2;stroke:black' />"
+msgstr ""
+
+#: picgen.h:25
+msgid "' y='118'>"
+msgstr ""
+
+#: picgen.h:35
+msgid "'/>"
+msgstr ""
+
+#: reporter.h:126 reporter.h:127
+msgid "'>"
+msgstr ""
+
+#: formatStrings.h:50 formatStrings.h:61
+msgid "(err:blame programmer)"
+msgstr ""
+
+#: formatStrings.h:82 formatStrings.h:110
+msgid "(not specified)"
+msgstr ""
+
+#: time.h:19
+msgid "(undefined)"
+msgstr ""
+
+#: reporter.h:88
+msgid ") *********\n"
+msgstr ""
+
+#: reporter.h:88
+msgid "***************"
+msgstr ""
+
+#: reporter.h:91
+msgid "*************************************\n"
+msgstr ""
+
+#: reporter.h:106
+msgid "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n"
+msgstr ""
+
+#: Activity.h:62 Activity.h:63 esmfile.h:33 Speeds.h:22
+msgid ", "
+msgstr ""
+
+#: readesm.cpp:76 readTypes.h:41 time.h:50
+msgid "-"
+msgstr ""
+
+#: picgen.h:35
+msgid ".gif' width='"
+msgstr ""
+
+#: i18n.h:19
+msgid "/home/goelzera/Documents/Programme/cpp/readesm/locale"
+msgstr ""
+
+#: esmfile.h:47
+msgid "/usr/local/share/readesm/EC_PK.bin"
+msgstr ""
+
+#: Activity.h:31 time.h:53 time.h:65
+msgid ":"
+msgstr ""
+
+#: reporter.h:97 reporter.h:100
+msgid ": \t"
+msgstr ""
+
+#: reporter.h:122
+msgid ""
+"<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://"
+"www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n"
+"<html xmlns=\"http://www.w3.org/1999/xhtml\" dir=\"ltr\" lang=\"en-US\">\n"
+"<head><link rel='stylesheet' type='text/css' media='screen' href='style.css'/"
+"><title>"
+msgstr ""
+
+#: reporter.h:158
+msgid ""
+"<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://"
+"www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n"
+"<html xmlns=\"http://www.w3.org/1999/xhtml\" dir=\"ltr\" lang=\"en-US\">\n"
+"<head><title>"
+msgstr ""
+
+#: reporter.h:127
+msgid "</a></h2><table>"
+msgstr ""
+
+#: reporter.h:126
+msgid "</a><br/>"
+msgstr ""
+
+#: reporter.h:122 reporter.h:173
+msgid "</body></html>\n"
+msgstr ""
+
+#: picgen.h:26 picgen.h:53
+msgid "</g>"
+msgstr ""
+
+#: picgen.h:29
+msgid "</g></svg>"
+msgstr ""
+
+#: reporter.h:122 reporter.h:171
+msgid "</h1>"
+msgstr ""
+
+#: reporter.h:130
+msgid "</table>"
+msgstr ""
+
+#: reporter.h:139
+msgid "</table></td></tr>\n"
+msgstr ""
+
+#: reporter.h:142 reporter.h:145
+msgid "</td></tr>\n"
+msgstr ""
+
+#: picgen.h:25
+msgid "</text><line x1='"
+msgstr ""
+
+#: reporter.h:142 reporter.h:145
+msgid "</th><td>"
+msgstr ""
+
+#: reporter.h:133
+msgid "</th><td><table>\n"
+msgstr ""
+
+#: reporter.h:122
+msgid ""
+"</title><meta http-equiv='Content-Type' content='text/html; charset=latin1'/"
+"></head><body><h1>"
+msgstr ""
+
+#: reporter.h:160
+msgid ""
+"</title><meta http-equiv='Content-Type' content='text/html; charset=latin1'/"
+"><style type=\"text/css\">table\t\t{ border-collapse:collapse;  border-"
+"width:2px; border-style:solid; }tr \t\t{ border-top-width:1px; border-top-"
+"style:dashed; }tr:hover \t{border-style:outset; background-color:#eeeeee; }th"
+"\t\t{text-align:left;vertical-align:top;}td,th.max,th.avg, th.min{text-align:"
+"left;border-left: 1px dotted;}caption\t\t{font-size:0.5em;}small\t\t{font-"
+"size:0.8em;}</style></head><body><h1>"
+msgstr ""
+
+#: reporter.h:126
+msgid "<a href='#"
+msgstr ""
+
+#: picgen.h:24
+msgid "<g style='text-anchor:middle;font-size:16px;'>"
+msgstr ""
+
+#: picgen.h:67
+msgid ""
+"<g transform='scale(0.0083333,-1) translate(0,-100)'><path style='stroke:"
+"#dd2200' d='M 0 0 L "
+msgstr ""
+
+#: picgen.h:53
+msgid "<g transform='scale(0.5,-1) translate(0,-100)'>"
+msgstr ""
+
+#: picgen.h:23
+msgid "<g transform='translate(10,0)'>"
+msgstr ""
+
+#: reporter.h:127
+msgid "<h2><a name='"
+msgstr ""
+
+#: reporter.h:122 reporter.h:171
+msgid "<hr/>"
+msgstr ""
+
+#: picgen.h:35
+msgid "<img src='images/"
+msgstr ""
+
+#: picgen.h:39
+msgid "<img src='images/scale.gif' height='20' width='"
+msgstr ""
+
+#: picgen.h:27
+msgid ""
+"<polyline points='0,0 720,0 720,100 0,100 0,0' style='fill:none;stroke:black;"
+"stroke-width:2'/>"
+msgstr ""
+
+#: picgen.h:48 picgen.h:62
+msgid "<rect x='"
+msgstr ""
+
+#: picgen.h:22
+msgid "<svg xmlns='http://www.w3.org/2000/svg' width='740' height='120'>"
+msgstr ""
+
+#: picgen.h:25
+msgid "<text x='"
+msgstr ""
+
+#: reporter.h:133 reporter.h:142 reporter.h:145
+msgid "<tr><th>"
+msgstr ""
+
+#: reporter.h:136
+msgid "<tr><th></th><td></td></tr>\n"
+msgstr ""
+
+#: cardblocks.h:469
+msgid "Accumulated fine"
+msgstr ""
+
+#: Activities.h:88
+msgid "ActChangeInfo"
+msgstr ""
+
+#: Activity.h:149
+msgid "Activities Codriver"
+msgstr ""
+
+#: Activity.h:145
+msgid "Activities Driver"
+msgstr "Fahreraktivitäten"
+
+#: Activities.h:40
+msgid "Activities for "
+msgstr ""
+
+#: cardblocks.h:470
+msgid "Activity space usage"
+msgstr ""
+
+#: Activities.h:87 Faults.h:56
+msgid "ActivityChangeInfo"
+msgstr ""
+
+#: crypto.h:46
+msgid "Add. Coding"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "Albania"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "Andorra"
+msgstr ""
+
+#: cardblocks.h:75
+msgid "Application Identification"
+msgstr ""
+
+#: Technical.h:35
+msgid "ApprovalNumber"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "Armenia"
+msgstr ""
+
+#: crypto.h:64
+msgid "Attempting to use wrong ca certificate"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "Austria"
+msgstr ""
+
+#: formatStrings.h:33
+msgid "Authentication failure"
+msgstr ""
+
+#: Activity.h:52
+msgid "Available"
+msgstr ""
+
+#: esmfile.h:67
+msgid "Average speed when driving"
+msgstr ""
+
+#: Faults.h:62
+msgid "AverageSpeedValue"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "Azerbaijan"
+msgstr ""
+
+#: formatStrings.h:102
+msgid "Begin, related time = card insertion time or time of entry"
+msgstr ""
+
+#: formatStrings.h:106
+msgid "Begin, related time assumed by VU"
+msgstr ""
+
+#: formatStrings.h:104
+msgid "Begin, related time manually entered (start time)"
+msgstr ""
+
+#: Speeds.h:20
+msgid "BeginDate"
+msgstr ""
+
+#: cardblocks.h:235
+msgid "BeginTime"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "Belarus"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "Belgium"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "Bosnia and Herzegovina"
+msgstr ""
+
+#: Activity.h:51
+msgid "Break/rest"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "Bulgaria"
+msgstr ""
+
+#: cardblocks.h:100
+msgid "CA Certificate"
+msgstr ""
+
+#: Technical.h:41
+msgid "CalibrationPurpose"
+msgstr ""
+
+#: Technical.h:40
+msgid "Calibrations"
+msgstr ""
+
+#: esmfile.h:53
+msgid ""
+"Cannot verify certificates and signatures: European main certificate file "
+"not found or not openable."
+msgstr ""
+
+#: Activity.h:64
+msgid "Card "
+msgstr "Karte"
+
+#: cardblocks.h:89
+msgid "Card Certificate"
+msgstr ""
+
+#: cardblocks.h:63
+msgid "Card Download"
+msgstr ""
+
+#: formatStrings.h:87
+msgid "Card Downloading, "
+msgstr ""
+
+#: formatStrings.h:23
+msgid "Card conflict"
+msgstr ""
+
+#: formatStrings.h:28
+msgid "Card data input integrity error"
+msgstr ""
+
+#: formatStrings.h:42
+msgid "Card faults: "
+msgstr ""
+
+#: formatStrings.h:23
+msgid "Card insertion while driving"
+msgstr ""
+
+#: Activities.h:75
+msgid "CardExpDate"
+msgstr ""
+
+#: Activities.h:73
+msgid "CardHolderFirstname"
+msgstr ""
+
+#: Activities.h:72
+msgid "CardHolderSurname"
+msgstr ""
+
+#: Activities.h:76
+msgid "CardInsTime"
+msgstr ""
+
+#: Activities.h:71
+msgid "CardInsertions"
+msgstr ""
+
+#: Activities.h:74 Activities.h:92
+msgid "CardNumber"
+msgstr ""
+
+#: Faults.h:38 Faults.h:48
+msgid "CardNumberCodriverSlotBegin"
+msgstr ""
+
+#: Faults.h:40 Faults.h:50
+msgid "CardNumberCodriverSlotEnd"
+msgstr ""
+
+#: Faults.h:37 Faults.h:47 Faults.h:63
+msgid "CardNumberDriverSlotBegin"
+msgstr ""
+
+#: Faults.h:39 Faults.h:49
+msgid "CardNumberDriverSlotEnd"
+msgstr ""
+
+#: Activities.h:78
+msgid "CardSlotNumber"
+msgstr ""
+
+#: Overview.h:40
+msgid "CardSlotsStatus"
+msgstr ""
+
+#: cardblocks.h:81
+msgid "CardType"
+msgstr ""
+
+#: Activities.h:79
+msgid "CardWithdrawalTime"
+msgstr ""
+
+#: crypto.h:78
+msgid "Certificate is invalid\n"
+msgstr ""
+
+#: Activity.h:62
+msgid "Codriver"
+msgstr "Beifahrer"
+
+#: formatStrings.h:95
+msgid "Company Card"
+msgstr ""
+
+#: Overview.h:48
+msgid "CompanyAddress"
+msgstr ""
+
+#: Overview.h:49
+msgid "CompanyCardNo"
+msgstr ""
+
+#: Overview.h:47
+msgid "CompanyName"
+msgstr ""
+
+#: Overview.h:43
+msgid "CompanyOrWorkshopName"
+msgstr ""
+
+#: Activities.h:101
+msgid "CondType"
+msgstr ""
+
+#: Activities.h:99
+msgid "Conditions"
+msgstr ""
+
+#: cardblocks.h:208
+msgid "Control Activity Data"
+msgstr ""
+
+#: formatStrings.h:95
+msgid "Control Card"
+msgstr ""
+
+#: cardblocks.h:218
+msgid "ControlTime"
+msgstr ""
+
+#: cardblocks.h:217
+msgid "ControlType"
+msgstr ""
+
+#: Overview.h:51
+msgid "Controls"
+msgstr ""
+
+#: readesm.cpp:81
+msgid "Could not open output file, writing to stdout"
+msgstr ""
+
+#: Activity.h:63
+msgid "Crew  "
+msgstr ""
+
+#: formatStrings.h:65
+msgid "Croatia"
+msgstr ""
+
+#: Overview.h:37
+msgid "CurrentDateTime"
+msgstr ""
+
+#: cardblocks.h:379
+msgid "Current_Usage"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "Cyprus"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "Czech Republic"
+msgstr ""
+
+#: Activity.h:148
+msgid "Daily Activity Codriver"
+msgstr ""
+
+#: Activity.h:144
+msgid "Daily Activity Driver"
+msgstr ""
+
+#: overtime.h:45
+msgid "Daily driving time"
+msgstr ""
+
+#: cardblocks.h:417
+msgid "Daily presence counter"
+msgstr ""
+
+#: Activity.h:142
+msgid "Date"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "Denmark"
+msgstr ""
+
+#: Speeds.h:10 Speeds.h:19
+msgid "Detailed Speed"
+msgstr ""
+
+#: formatStrings.h:38
+msgid "Display fault"
+msgstr ""
+
+#: formatStrings.h:90
+msgid "Display used, "
+msgstr ""
+
+#: cardblocks.h:418
+msgid "Distance driven"
+msgstr ""
+
+#: formatStrings.h:38
+msgid "Downloading fault"
+msgstr ""
+
+#: esmfile.h:63
+msgid "Driven distance"
+msgstr ""
+
+#: Activities.h:109
+msgid "Driven km"
+msgstr ""
+
+#: Activity.h:151 esmfile.h:64
+msgid "Driven time"
+msgstr ""
+
+#: Activities.h:107 Activity.h:62
+msgid "Driver"
+msgstr ""
+
+#: cardblocks.h:427
+msgid "Driver Activity Data"
+msgstr ""
+
+#: formatStrings.h:95
+msgid "Driver Card"
+msgstr ""
+
+#: Activity.h:54
+msgid "Driving"
+msgstr ""
+
+#: cardblocks.h:47
+msgid "Driving License Info"
+msgstr ""
+
+#: formatStrings.h:23
+msgid "Driving without an appropriate card"
+msgstr ""
+
+#: esmfile.h:46
+msgid "EC_PK.bin"
+msgstr ""
+
+#: reporter.h:22 reporter.h:85 reporter.h:119 reporter.h:176
+msgid "ESM Data"
+msgstr ""
+
+#: readesm.cpp:46
+msgid "ESM Reader, allowed options"
+msgstr "ESM Reader, erlaubte Parameter"
+
+#: formatStrings.h:103
+msgid "End,   related time = card withdrawal time or time of entry"
+msgstr ""
+
+#: formatStrings.h:107
+msgid "End,   related time assumed by VU "
+msgstr ""
+
+#: formatStrings.h:105
+msgid "End,   related time manually entered (end of work period)"
+msgstr ""
+
+#: cardblocks.h:236
+msgid "EndTime"
+msgstr ""
+
+#: Activities.h:93 Activities.h:100
+msgid "EntryTime"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "Estonia"
+msgstr ""
+
+#: formatStrings.h:69
+msgid "Europe (Non-EC)"
+msgstr ""
+
+#: formatStrings.h:68
+msgid "European Community"
+msgstr ""
+
+#: Faults.h:45 Faults.h:59
+msgid "EventBeginTime"
+msgstr ""
+
+#: Faults.h:46 Faults.h:60
+msgid "EventEndTime"
+msgstr ""
+
+#: Faults.h:44 Faults.h:58
+msgid "EventRecordPurpose"
+msgstr ""
+
+#: cardblocks.h:234 Faults.h:43 Faults.h:57
+msgid "EventType"
+msgstr ""
+
+#: Faults.h:42
+msgid "Events"
+msgstr ""
+
+#: cardblocks.h:251
+msgid "Events Data"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "Faeroe Islands"
+msgstr ""
+
+#: Faults.h:35
+msgid "FaultBeginTime"
+msgstr ""
+
+#: Faults.h:36
+msgid "FaultEndTime"
+msgstr ""
+
+#: Faults.h:34
+msgid "FaultRecordPurpose"
+msgstr ""
+
+#: Faults.h:33
+msgid "FaultType"
+msgstr ""
+
+#: Faults.h:19 Faults.h:32
+msgid "Faults"
+msgstr "Fehler"
+
+#: cardblocks.h:265
+#, fuzzy
+msgid "Faults Data"
+msgstr "Fehler"
+
+#: formatStrings.h:75
+msgid "Ferry/Train crosssing"
+msgstr ""
+
+#: Activity.h:154
+msgid "Fine"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "Finland"
+msgstr ""
+
+#: Faults.h:54
+msgid "FirstOverspeedSince"
+msgstr ""
+
+#: cardblocks.h:304
+msgid "FirstUse"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "France"
+msgstr ""
+
+#: Overview.h:42
+msgid "FullCardNumber"
+msgstr ""
+
+#: formatStrings.h:22
+msgid "General Event: "
+msgstr ""
+
+#: formatStrings.h:65
+msgid "Georgia"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "Germany"
+msgstr "Deutschland"
+
+#: formatStrings.h:65
+msgid "Greece"
+msgstr ""
+
+#: formatStrings.h:28 formatStrings.h:33
+msgid "Hardware sabotage"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "Hungary"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "Iceland"
+msgstr ""
+
+#: cardblocks.h:345
+msgid "Identification"
+msgstr ""
+
+#: crypto.h:47
+msgid "Identifier"
+msgstr ""
+
+#: formatStrings.h:23
+msgid "Insertion of a non-valid card"
+msgstr ""
+
+#: formatStrings.h:28 formatStrings.h:33
+msgid "Internal data transfer error"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "Ireland"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "Italy"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "Kazakhstan"
+msgstr ""
+
+#: esmfile.h:65
+msgid "Kilometers per day"
+msgstr ""
+
+#: formatStrings.h:23
+msgid "Last card session not correctly closed"
+msgstr ""
+
+#: cardblocks.h:68
+msgid "LastCardDownload"
+msgstr ""
+
+#: Faults.h:53
+msgid "LastOverspeedControlTime"
+msgstr ""
+
+#: cardblocks.h:305
+msgid "LastUse"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "Latvia"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "Liechtenstein"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "Lithuania"
+msgstr ""
+
+#: Overview.h:44
+msgid "Locks"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "Luxembourg"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "Macedonia"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "Malta"
+msgstr ""
+
+#: Technical.h:29
+msgid "ManuAddr"
+msgstr ""
+
+#: Technical.h:34
+msgid "ManuDate"
+msgstr ""
+
+#: Technical.h:28
+msgid "ManuName"
+msgstr ""
+
+#: formatStrings.h:49 formatStrings.h:60
+msgid "Manufacturer Specific"
+msgstr ""
+
+#: formatStrings.h:95
+msgid "Manufacturing Card"
+msgstr ""
+
+#: Faults.h:61
+msgid "MaxSpeedValue"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "Monaco"
+msgstr ""
+
+#: formatStrings.h:95
+msgid "Motion Sensor"
+msgstr ""
+
+#: formatStrings.h:23
+msgid "Motion data error"
+msgstr ""
+
+#: formatStrings.h:28
+msgid "Motion sensor authentication failure"
+msgstr ""
+
+#: crypto.h:44
+msgid "Nation alpha"
+msgstr ""
+
+#: crypto.h:43
+msgid "Nation numeric"
+msgstr ""
+
+#: readesm.cpp:64
+msgid "Needs an input filename (--infile)!\n"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "Netherlands"
+msgstr ""
+
+#: Technical.h:55
+msgid "NewOdometerValue"
+msgstr ""
+
+#: Faults.h:68 Technical.h:57
+msgid "NewTimeValue"
+msgstr ""
+
+#: Technical.h:58
+msgid "NextCalibrationDate"
+msgstr ""
+
+#: formatStrings.h:23 formatStrings.h:28 formatStrings.h:33 formatStrings.h:38
+#: formatStrings.h:43
+msgid "No further details"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "No information available"
+msgstr ""
+
+#: block.h:29
+msgid "No, invalid"
+msgstr ""
+
+#: block.h:29
+msgid "No, not signed"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "Norway"
+msgstr ""
+
+#: vufactory.h:23
+msgid "Not a block"
+msgstr ""
+
+#: Faults.h:55
+msgid "NumberOfOverspeedSince"
+msgstr ""
+
+#: Activities.h:97
+msgid "Odom"
+msgstr ""
+
+#: Activities.h:70
+msgid "Odometer"
+msgstr ""
+
+#: cardblocks.h:302
+msgid "OdometerBegin"
+msgstr ""
+
+#: cardblocks.h:303
+msgid "OdometerEnd"
+msgstr ""
+
+#: Technical.h:54
+msgid "OldOdometerValue"
+msgstr ""
+
+#: Faults.h:67 Technical.h:56
+msgid "OldTimeValue"
+msgstr ""
+
+#: vufactory.h:31
+msgid "Oops! "
+msgstr ""
+
+#: formatStrings.h:75
+msgid "Out of Scope - End"
+msgstr ""
+
+#: formatStrings.h:75
+msgid "Out of scope - Begin"
+msgstr ""
+
+#: formatStrings.h:23
+msgid "Over speeding"
+msgstr ""
+
+#: Activity.h:153
+msgid "Overtime"
+msgstr "Lenkzeitüberschreitung"
+
+#: Overview.h:23
+msgid "Overview"
+msgstr ""
+
+#: Technical.h:30
+msgid "PartNo"
+msgstr ""
+
+#: cardblocks.h:275
+msgid "Places"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "Poland"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "Portugal"
+msgstr ""
+
+#: formatStrings.h:23
+msgid "Power supply interruption"
+msgstr ""
+
+#: formatStrings.h:38
+msgid "Printer fault"
+msgstr ""
+
+#: formatStrings.h:89
+msgid "Printing Done, "
+msgstr ""
+
+#: formatStrings.h:25 formatStrings.h:30 formatStrings.h:35 formatStrings.h:40
+#: formatStrings.h:45 formatStrings.h:58 formatStrings.h:75 formatStrings.h:77
+#: formatStrings.h:97
+msgid "RFU"
+msgstr ""
+
+#: formatStrings.h:47
+msgid "RFU groups"
+msgstr ""
+
+#: Overview.h:60
+msgid "Reassigning CAcert\n"
+msgstr ""
+
+#: cardblocks.h:92 cardblocks.h:103
+msgid "Reassigning cert\n"
+msgstr ""
+
+#: Overview.h:62
+msgid "Reassigning devicecert\n"
+msgstr ""
+
+#: esmfile.h:62
+msgid "Recorded days"
+msgstr ""
+
+#: formatStrings.h:37
+msgid "Recording equipment faults: "
+msgstr ""
+
+#: Activities.h:91
+msgid "Regions"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "Republic of Moldova"
+msgstr ""
+
+#: formatStrings.h:95
+msgid "Reserved"
+msgstr ""
+
+#: formatStrings.h:67
+msgid "Reserved for future use"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "Romania"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "Russian Federation"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "San Marino"
+msgstr ""
+
+#: formatStrings.h:38
+msgid "Sensor fault"
+msgstr ""
+
+#: formatStrings.h:32
+msgid "Sensor related security breach attempt events: "
+msgstr ""
+
+#: Technical.h:38
+msgid "SensorPairingDateFirst"
+msgstr ""
+
+#: Technical.h:31
+msgid "SerNo"
+msgstr ""
+
+#: crypto.h:45
+msgid "Serial Number"
+msgstr ""
+
+#: Faults.h:51 Faults.h:64
+msgid "SimilarEventsNumber"
+msgstr ""
+
+#: Activity.h:63
+msgid "Single"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "Slovakia"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "Slovenia"
+msgstr ""
+
+#: Technical.h:33
+msgid "SoftwareInstDate"
+msgstr ""
+
+#: Technical.h:32
+msgid "SoftwareVersion"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "Spain"
+msgstr ""
+
+#: cardblocks.h:123
+msgid "Specific Conditions"
+msgstr ""
+
+#: Speeds.h:29
+msgid "Speed data"
+msgstr ""
+
+#: Speeds.h:23
+msgid "Speeds"
+msgstr ""
+
+#: esmfile.h:58
+msgid "Statistics"
+msgstr ""
+
+#: esmfile.h:59
+msgid "Statistics for"
+msgstr ""
+
+#: formatStrings.h:33
+msgid "Stored data integrity error"
+msgstr ""
+
+#: formatStrings.h:28
+msgid "Stored user data integrity error"
+msgstr ""
+
+#: cardblocks.h:484
+msgid "Stray signature"
+msgstr ""
+
+#: cardblocks.h:82
+msgid "StructureVersion"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "Sweden"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "Switzerland"
+msgstr ""
+
+#: formatStrings.h:28
+msgid "Tachograph card authentication failure"
+msgstr ""
+
+#: Technical.h:19
+msgid "Technical Data"
+msgstr ""
+
+#: esmfile.h:66
+msgid "Time driven per day"
+msgstr ""
+
+#: formatStrings.h:23
+msgid "Time overlap"
+msgstr ""
+
+#: Faults.h:66
+msgid "TimeAdjustments"
+msgstr ""
+
+#: Activities.h:69
+msgid "TimeReal"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "Turkey"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "Turkmenistan"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "Ukraine"
+msgstr ""
+
+#: formatStrings.h:28 formatStrings.h:33
+msgid "Unauthorised case opening"
+msgstr ""
+
+#: formatStrings.h:28
+msgid "Unauthorised change of motion sensor"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "United Kingdom"
+msgstr ""
+
+#: Activity.h:55
+msgid "Unknown Activity"
+msgstr ""
+
+#: vufactory.h:32
+msgid "Unknown block"
+msgstr ""
+
+#: block.h:35
+msgid "Unknown block type "
+msgstr ""
+
+#: formatStrings.h:88
+msgid "VU Downloading, "
+msgstr ""
+
+#: formatStrings.h:38
+msgid "VU internal fault"
+msgstr ""
+
+#: block.h:29
+msgid "Validly signed"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "Vatican City"
+msgstr ""
+
+#: formatStrings.h:95
+msgid "Vehicle Unit"
+msgstr ""
+
+#: formatStrings.h:27
+msgid "Vehicle unit related security breach attempt event: "
+msgstr ""
+
+#: Overview.h:33 Technical.h:46
+msgid "VehicleIdentificationNumber"
+msgstr ""
+
+#: Activities.h:77
+msgid "VehicleOdometerValueAtInsertion"
+msgstr ""
+
+#: Activities.h:80
+msgid "VehicleOdometerValueAtWithdrawal"
+msgstr ""
+
+#: Overview.h:34 Technical.h:47
+msgid "VehicleRegistrationNation"
+msgstr ""
+
+#: Technical.h:48
+msgid "VehicleRegistrationNumber"
+msgstr ""
+
+#: Overview.h:35
+msgid "VehicleRegistrationNumber:"
+msgstr ""
+
+#: cardblocks.h:319
+msgid "Vehicles Used"
+msgstr ""
+
+#: Activity.h:53
+msgid "Work"
+msgstr ""
+
+#: Activities.h:108
+msgid "Work period"
+msgstr ""
+
+#: Activities.h:94
+msgid "WorkPer"
+msgstr ""
+
+#: Activities.h:95
+msgid "WorkPerCountry"
+msgstr ""
+
+#: Activities.h:96
+msgid "WorkPerRegion"
+msgstr ""
+
+#: formatStrings.h:95
+msgid "Workshop Card"
+msgstr ""
+
+#: Faults.h:70 Technical.h:43
+msgid "WorkshopAddress"
+msgstr ""
+
+#: Technical.h:45
+msgid "WorkshopCardExpiryDate"
+msgstr ""
+
+#: Faults.h:71 Technical.h:44
+msgid "WorkshopCardNumber"
+msgstr ""
+
+#: Faults.h:69 Technical.h:42
+msgid "WorkshopName"
+msgstr ""
+
+#: formatStrings.h:70
+msgid "World without Europe"
+msgstr ""
+
+#: block.h:29
+msgid "Yes, valid"
+msgstr ""
+
+#: formatStrings.h:65
+msgid "Yugoslavia"
+msgstr ""
+
+#: formatStrings.h:80
+msgid ""
+"activation: recording of calibration parameters known, at the moment of the "
+"VU activation"
+msgstr ""
+
+#: formatStrings.h:55
+msgid "an active/on-going event or fault"
+msgstr ""
+
+#: Technical.h:53
+msgid "authorizedSpeed"
+msgstr ""
+
+#: Activity.h:89
+msgid "black"
+msgstr ""
+
+#: Activity.h:95
+msgid "blue"
+msgstr ""
+
+#: cardblocks.h:364
+msgid "cardExpiryDate"
+msgstr ""
+
+#: cardblocks.h:367
+msgid "cardHolderBirthDate"
+msgstr ""
+
+#: cardblocks.h:368
+msgid "cardHolderPreferredLanguage"
+msgstr ""
+
+#: cardblocks.h:362
+msgid "cardIssueDate"
+msgstr ""
+
+#: cardblocks.h:361
+msgid "cardIssuingAuthorityName"
+msgstr ""
+
+#: cardblocks.h:191 cardblocks.h:359
+msgid "cardIssuingMemberState"
+msgstr ""
+
+#: cardblocks.h:192 cardblocks.h:360
+msgid "cardNumber"
+msgstr ""
+
+#: cardblocks.h:190
+msgid "cardType"
+msgstr ""
+
+#: cardblocks.h:363
+msgid "cardValidityBegin"
+msgstr ""
+
+#: Overview.h:54
+msgid "controlCardNumber"
+msgstr ""
+
+#: cardblocks.h:221
+msgid "controlDownloadPeriodBegin"
+msgstr ""
+
+#: cardblocks.h:222
+msgid "controlDownloadPeriodEnd"
+msgstr ""
+
+#: Overview.h:53
+msgid "controlTime"
+msgstr ""
+
+#: Overview.h:52
+msgid "controlType"
+msgstr ""
+
+#: cardblocks.h:169
+msgid "dailyWorkPeriodCountry"
+msgstr ""
+
+#: cardblocks.h:170
+msgid "dailyWorkPeriodRegion"
+msgstr ""
+
+#: Overview.h:55
+msgid "downloadPeriodBeginTime"
+msgstr ""
+
+#: Overview.h:56
+msgid "downloadPeriodEndTime"
+msgstr ""
+
+#: Overview.h:41
+msgid "downloadingTime"
+msgstr ""
+
+#: cardblocks.h:54
+msgid "drivingLicenseIssuingAuthorithy"
+msgstr ""
+
+#: cardblocks.h:55
+msgid "drivingLicenseIssuingNation"
+msgstr ""
+
+#: cardblocks.h:56
+msgid "drivingLicenseNumber"
+msgstr ""
+
+#: Activity.h:122
+msgid "duration < 0\n"
+msgstr ""
+
+#: cardblocks.h:167
+msgid "entryTime"
+msgstr ""
+
+#: cardblocks.h:168
+msgid "entryTypeDailyWorkPeriod"
+msgstr ""
+
+#: formatStrings.h:71
+msgid "error in formatCountry"
+msgstr ""
+
+#: slurpedfile.h:31
+msgid "error opening file "
+msgstr ""
+
+#: formatStrings.h:80
+msgid "first installation: first calibration of the VU after its activation"
+msgstr ""
+
+#: readesm.cpp:70 readesm.cpp:71
+msgid "format"
+msgstr ""
+
+#: readesm.cpp:52
+msgid "format,f"
+msgstr ""
+
+#: esmfile.h:60
+msgid "from"
+msgstr ""
+
+#: Activity.h:90
+msgid "green"
+msgstr ""
+
+#: readesm.cpp:59
+msgid "help"
+msgstr ""
+
+#: readesm.cpp:48
+msgid "help,h"
+msgstr ""
+
+#: cardblocks.h:366
+msgid "holderFirstname"
+msgstr ""
+
+#: cardblocks.h:365
+msgid "holderSurname"
+msgstr ""
+
+#: readesm.cpp:70
+msgid "html"
+msgstr ""
+
+#: readesm.cpp:63 readesm.cpp:68
+msgid "infile"
+msgstr ""
+
+#: readesm.cpp:49
+msgid "infile,i"
+msgstr ""
+
+#: readesm.cpp:49
+msgid "input file"
+msgstr ""
+
+#: formatStrings.h:80
+msgid "installation: first calibration of the VU in the current vehicle"
+msgstr ""
+
+#: Technical.h:50
+msgid "kConstantOfRecordingEquipment"
+msgstr ""
+
+#: Technical.h:51
+msgid "lTyreCircumference"
+msgstr ""
+
+#: block.h:42
+msgid "length"
+msgstr ""
+
+#: Overview.h:45
+msgid "lockInTime"
+msgstr ""
+
+#: Overview.h:46
+msgid "lockOutTime"
+msgstr ""
+
+#: Activities.h:84
+msgid "manInputFlag:"
+msgstr ""
+
+#: Overview.h:39
+msgid "maxDownloadableTime"
+msgstr ""
+
+#: Overview.h:38
+msgid "minDownloadableTime"
+msgstr ""
+
+#: Activity.h:64
+msgid "not"
+msgstr ""
+
+#: Speeds.h:29
+msgid "omitted"
+msgstr ""
+
+#: formatStrings.h:55
+msgid "one of the 10 most recent (or last) events or faults"
+msgstr ""
+
+#: formatStrings.h:55
+msgid "one of the 5 longest events over the last 365 days"
+msgstr ""
+
+#: formatStrings.h:55
+msgid "one of the 5 most serious events over the last 365 days"
+msgstr ""
+
+#: Activity.h:83
+msgid "ouch"
+msgstr ""
+
+#: readesm.cpp:76 readesm.cpp:80
+msgid "outfile"
+msgstr ""
+
+#: readesm.cpp:50
+msgid "outfile,o"
+msgstr ""
+
+#: readesm.cpp:50
+msgid "output file"
+msgstr ""
+
+#: readesm.cpp:52
+msgid "output format, text, html or xml"
+msgstr ""
+
+#: formatStrings.h:80
+msgid "periodic inspection"
+msgstr ""
+
+#: Activities.h:81
+msgid "prevVehicleRegistrationNation"
+msgstr ""
+
+#: Activities.h:82
+msgid "prevVehicleRegistrationNumber"
+msgstr ""
+
+#: Activities.h:83
+msgid "prevvecCardWitTime"
+msgstr ""
+
+#: readesm.cpp:48
+msgid "produce help message"
+msgstr ""
+
+#: i18n.h:19 i18n.h:20
+msgid "readesm"
+msgstr ""
+
+#: Activity.h:93
+msgid "red"
+msgstr ""
+
+#: formatStrings.h:80
+msgid "reserved value (should not appear)"
+msgstr ""
+
+#: Technical.h:37
+msgid "sensorApprovalNumber"
+msgstr ""
+
+#: Technical.h:36
+msgid "sensorSerialNumber"
+msgstr ""
+
+#: cardblocks.h:390
+msgid "sessionOpenTime"
+msgstr ""
+
+#: cardblocks.h:453
+msgid "size 0 for increment. aborting.\n"
+msgstr ""
+
+#: readesm.cpp:52
+msgid "text"
+msgstr ""
+
+#: formatStrings.h:55
+msgid "the first event or fault having occurred after the last calibration"
+msgstr ""
+
+#: formatStrings.h:55
+msgid "the last event for one of the last 10 days of occurrence"
+msgstr ""
+
+#: formatStrings.h:55
+msgid "the longest event for one of the last 10 days of occurrence"
+msgstr ""
+
+#: formatStrings.h:55
+msgid "the most serious event for one of the last 10 days of occurrence"
+msgstr ""
+
+#: esmfile.h:61
+msgid "to"
+msgstr ""
+
+#: Technical.h:52
+msgid "tyreSize"
+msgstr ""
+
+#: cardblocks.h:171
+msgid "vehicleOdometerValue"
+msgstr ""
+
+#: cardblocks.h:143 cardblocks.h:391
+msgid "vehicleRegistrationNation"
+msgstr ""
+
+#: cardblocks.h:144 cardblocks.h:392
+msgid "vehicleRegistrationNumber"
+msgstr ""
+
+#: readesm.cpp:73
+msgid "verbose"
+msgstr ""
+
+#: readesm.cpp:51
+msgid "verbose output format, print just everything"
+msgstr ""
+
+#: readesm.cpp:51
+msgid "verbose,v"
+msgstr ""
+
+#: cardblocks.h:307
+msgid "vuDataBlockCounter"
+msgstr ""
+
+#: Technical.h:49
+msgid "wVehicleCharacteristicConstant"
+msgstr ""
+
+#: readesm.cpp:71
+msgid "xml"
+msgstr ""
+
+#: Activity.h:88
+msgid "yellow"
+msgstr ""

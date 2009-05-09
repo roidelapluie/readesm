@@ -15,6 +15,7 @@ readesm mainly defines which files to read and parse. The actual parsing of file
 */
 #include <iostream>
 #include <boost/program_options.hpp>
+#include "i18n.h"
 #include "esmfile.h"
 #include "reporter.h"
 
@@ -40,7 +41,9 @@ Alternatively, if no output file is specified, stdout is used.
 namespace po = boost::program_options;
 
 int main(int argc, char* argv[]){
-	po::options_description desc("ESM Reader, allowed options");
+	i18nInit();
+
+	po::options_description desc(tr("ESM Reader, allowed options"));
 	desc.add_options()
 	("help,h", "produce help message")
 	("infile,i", po::value<string>(), "input file")
