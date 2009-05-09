@@ -60,8 +60,7 @@ You are free to modify the program under the terms of the GPL.
 If you do so, note:
 - Sometimes i added references to l207.pdf in the comments, that refers to
 OJ:L:2002:207, p. 1-252,
-http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=OJ:L:2002:207:0001:0252:EN
-:PDF
+http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=OJ:L:2002:207:0001:0252:EN:PDF
 - The code is rather unclean, often two or more classes in the same file, wild
 naming convention(often taken from the european law, which has quite large
 names.
