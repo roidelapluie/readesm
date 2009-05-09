@@ -25,9 +25,9 @@ class Technical : public vublock {
 	}
 	void CompleteReport(reporter& report) const{
 		runningIndex = 0;
-		report("ManuName",fixedString(36) );
-		report("ManuAddr",fixedString(36) );
-		report("PartNo",fixedString(16) );
+		report("VU manufacturer name",fixedString(36) );
+		report("VU manufacturer address",fixedString(36) );
+		report("VU part number",fixedString(16) );
 		report("SerNo",fixedString(8) );
 		report("SoftwareVersion",fixedString(4) );
 		report("SoftwareInstDate",readDate().str() );
@@ -38,24 +38,24 @@ class Technical : public vublock {
 		report("SensorPairingDateFirst",readDate().str() );
 		
 		for(reporter::subblock b = report.newsub("Calibrations", IntByte()); b(); ++b){
-			report("CalibrationPurpose", formatCalibrationPurpose(IntByte()));
-			report("WorkshopName", fixedString(36) );
-			report("WorkshopAddress", fixedString(36) );
-			report("WorkshopCardNumber", fixedString(18) );
-			report("WorkshopCardExpiryDate", readDate().str());
-			report("VehicleIdentificationNumber", fixedString(17));
-			report("VehicleRegistrationNation", formatCountry(IntByte()));
-			report("VehicleRegistrationNumber", fixedString(14));
+			report("calibrationPurpose", formatCalibrationPurpose(IntByte()));
+			report("workshopName", fixedString(36) );
+			report("workshopAddress", fixedString(36) );
+			report("workshopCardNumber", fixedString(18) );
+			report("workshopCardExpiryDate", readDate().str());
+			report("vehicleIdentificationNumber", fixedString(17));
+			report("vehicleRegistrationNation", formatCountry(IntByte()));
+			report("vehicleRegistrationNumber", fixedString(14));
 			report("wVehicleCharacteristicConstant", Int16());
 			report("kConstantOfRecordingEquipment", Int16());
 			report("lTyreCircumference", Int16());
 			report("tyreSize", fixedString(15));
-			report("authorizedSpeed", IntByte());
-			report("OldOdometerValue", Odometer());
-			report("NewOdometerValue", Odometer());
-			report("OldTimeValue", readDate().str());
-			report("NewTimeValue", readDate().str());
-			report("NextCalibrationDate", readDate().str());
+			report("authorisedSpeed", IntByte());
+			report("OoldOdometerValue", Odometer());
+			report("newOdometerValue", Odometer());
+			report("oldTimeValue", readDate().str());
+			report("newTimeValue", readDate().str());
+			report("nextCalibrationDate", readDate().str());
 		}
 	}
 	void BriefReport(reporter& report) const{

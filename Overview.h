@@ -44,8 +44,8 @@ class Overview : public vublock {
 		for(reporter::subblock b = report.newsub("Locks", IntByte()); b(); ++b){
 			report("lockInTime",	readDate().str());
 			report("lockOutTime",	readDate().str());	
-			report("CompanyName",	fixedString(36));
-			report("CompanyAddress",fixedString(36));
+			report("companyName",	fixedString(36));
+			report("companyAddress",fixedString(36));
 			report("CompanyCardNo",	fixedString(18));
 		}
 		for(reporter::subblock b = report.newsub("Controls", IntByte()); b(); ++b){

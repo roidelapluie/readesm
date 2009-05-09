@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: german\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-05-09 21:59+0200\n"
-"PO-Revision-Date: 2009-05-09 22:36+0200\n"
+"POT-Creation-Date: 2009-05-09 22:52+0200\n"
+"PO-Revision-Date: 2009-05-09 23:15+0200\n"
 "Last-Translator: Martin Walch <walch.martin@web.de>\n"
 "Language-Team: American English <kde-i18n-de@kde.org>\n"
 "MIME-Version: 1.0\n"
@@ -69,7 +69,7 @@ msgstr ""
 
 #: time.h:66
 msgid " days "
-msgstr ""
+msgstr "Tage"
 
 #: Activity.h:84
 msgid " for "
@@ -77,7 +77,7 @@ msgstr ""
 
 #: time.h:66
 msgid " h "
-msgstr ""
+msgstr "Std."
 
 #: Activity.h:64
 msgid " inserted, "
@@ -598,18 +598,10 @@ msgstr "Beifahrer"
 
 #: formatStrings.h:95
 msgid "Company Card"
-msgstr ""
-
-#: Overview.h:48
-msgid "CompanyAddress"
-msgstr ""
+msgstr "Unternehmenskarte"
 
 #: Overview.h:49
 msgid "CompanyCardNo"
-msgstr ""
-
-#: Overview.h:47
-msgid "CompanyName"
 msgstr ""
 
 #: Overview.h:43
@@ -654,7 +646,7 @@ msgstr ""
 
 #: formatStrings.h:65
 msgid "Croatia"
-msgstr ""
+msgstr "Kroatien"
 
 #: Overview.h:37
 msgid "CurrentDateTime"
@@ -1500,7 +1492,7 @@ msgstr ""
 
 #: cardblocks.h:368
 msgid "cardHolderPreferredLanguage"
-msgstr ""
+msgstr "cardHolderPreferredLanguage"
 
 #: cardblocks.h:362
 msgid "cardIssueDate"
@@ -1525,6 +1517,14 @@ msgstr ""
 #: cardblocks.h:363
 msgid "cardValidityBegin"
 msgstr ""
+
+#: Overview.h:48
+msgid "companyAddress"
+msgstr "companyAddress"
+
+#: Overview.h:47
+msgid "companyName"
+msgstr "companyName"
 
 #: Overview.h:54
 msgid "controlCardNumber"
@@ -1800,7 +1800,7 @@ msgstr ""
 
 #: Technical.h:52
 msgid "tyreSize"
-msgstr ""
+msgstr "tyreSize"
 
 #: cardblocks.h:171
 msgid "vehicleOdometerValue"
@@ -1832,7 +1832,7 @@ msgstr ""
 
 #: Technical.h:49
 msgid "wVehicleCharacteristicConstant"
-msgstr ""
+msgstr "wVehicleCharacteristicConstant"
 
 #: readesm.cpp:71
 msgid "xml"
