@@ -61,7 +61,7 @@ int main(int argc, char* argv[]){
 		return 0;
 	}
 	if (!vm.count("infile")) {
-		std::cout << "Needs an input filename (--infile)!\n" << desc << "\n";
+		std::cout << tr("Needs an input filename (--infile)!\n") << desc << "\n";
 		return 1;
 	}
 
@@ -78,7 +78,7 @@ int main(int argc, char* argv[]){
 		return 0;
 	} else {
 		if(!slurptofile(vm["outfile"].as<string>(),  report->str())){
-			std::cerr << "Could not open output file, writing to stdout";
+			std::cerr << tr("Could not open output file, writing to stdout");
 			std::cout << report->str();
 			return 2;
 		} else {
