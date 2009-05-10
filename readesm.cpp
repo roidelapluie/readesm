@@ -45,11 +45,11 @@ int main(int argc, char* argv[]){
 
 	po::options_description desc(tr("ESM Reader, allowed options"));
 	desc.add_options()
-	("help,h", "produce help message")
-	("infile,i", po::value<string>(), "input file")
-	("outfile,o", po::value<string>(), "output file")
-	("verbose,v",po::value<bool>()->default_value(false),"verbose output format, print just everything")
-	("format,f", po::value<string>()->default_value("text"), "output format: text, html or xml")
+	("help,h", trc("produce help message"))
+	("infile,i", po::value<string>(), trc("input file"))
+	("outfile,o", po::value<string>(), trc("output file"))
+	("verbose,v",po::value<bool>()->default_value(false),trc("verbose output format, print simply everything"))
+	("format,f", po::value<string>()->default_value("text"), trc("output format: text, html or xml"))
 	;
 	
 	po::variables_map vm;

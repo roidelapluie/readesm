@@ -27,4 +27,8 @@ string tr(string in){
 string tr(const char* in){
 	return *in == 0 ? "" : gettext(in);
 }
+
+char* trc(const char* in){
+	return gettext(in);
+}
 #endif
