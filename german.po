@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: german\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-05-10 11:53+0200\n"
-"PO-Revision-Date: 2009-05-10 11:53+0200\n"
+"POT-Creation-Date: 2009-05-10 12:06+0200\n"
+"PO-Revision-Date: 2009-05-10 12:09+0200\n"
 "Last-Translator: Andreas Gölzer <goelzera@ethz.ch>\n"
 "Language-Team: American English <kde-i18n-doc@kde.org>\n"
 "MIME-Version: 1.0\n"
@@ -374,7 +374,7 @@ msgstr ""
 
 #: Activity.h:149
 msgid "Activities Codriver"
-msgstr ""
+msgstr "Beifahreraktivitäten"
 
 #: Activity.h:145
 msgid "Activities Driver"
@@ -428,9 +428,18 @@ msgstr "Fehlgeschlagene Authentisierung"
 msgid "Available"
 msgstr ""
 
+#: esmfile.h:65
+msgid "Average kilometers per day"
+msgstr "Durchschnittliche Strecke pro Tag"
+
 #: esmfile.h:67
 msgid "Average speed when driving"
-msgstr ""
+msgstr "Durchschnittsgeschwindigkeit während der Fahrt"
+
+#: esmfile.h:66
+#, fuzzy
+msgid "Average time driven per day"
+msgstr "Pro Tag gefahrene Zeit"
 
 #: formatStrings.h:65
 msgid "Azerbaijan"
@@ -624,22 +633,14 @@ msgstr "Anzeigestörung"
 
 #: cardblocks.h:418
 msgid "Distance driven"
-msgstr ""
+msgstr "Gefahrene Strecke"
 
 #: formatStrings.h:38
 msgid "Downloading fault"
 msgstr "Störung beim Herunterladen"
 
-#: esmfile.h:63
-msgid "Driven distance"
-msgstr ""
-
 #: Activities.h:109
 msgid "Driven km"
-msgstr ""
-
-#: Activity.h:151 esmfile.h:64
-msgid "Driven time"
 msgstr ""
 
 #: Activities.h:107 Activity.h:62
@@ -648,7 +649,7 @@ msgstr "Fahrer"
 
 #: formatStrings.h:95
 msgid "Driver Card"
-msgstr ""
+msgstr "Fahrerkarte"
 
 #: cardblocks.h:427
 msgid "Driver_Activity_Data"
@@ -660,7 +661,11 @@ msgstr ""
 
 #: cardblocks.h:47
 msgid "Driving License Info"
-msgstr ""
+msgstr "Führerscheininformationen"
+
+#: Activity.h:151
+msgid "Driving time"
+msgstr "Fahrzeit"
 
 #: formatStrings.h:23
 msgid "Driving without an appropriate card"
@@ -734,10 +739,6 @@ msgstr ""
 msgid "Ferry/Train crosssing"
 msgstr ""
 
-#: Activity.h:154
-msgid "Fine"
-msgstr ""
-
 #: formatStrings.h:65
 msgid "Finland"
 msgstr "Finnland"
@@ -809,10 +810,6 @@ msgstr "Italien"
 #: formatStrings.h:65
 msgid "Kazakhstan"
 msgstr "Kasachstan"
-
-#: esmfile.h:65
-msgid "Kilometers per day"
-msgstr ""
 
 #: formatStrings.h:23
 msgid "Last card session not correctly closed"
@@ -940,6 +937,14 @@ msgstr ""
 msgid "Over speeding"
 msgstr "Geschwindigkeitsüberschreitung"
 
+#: esmfile.h:63
+msgid "Overall driven distance"
+msgstr "Insgesamt gefahrene Strecke"
+
+#: esmfile.h:64
+msgid "Overall driving time"
+msgstr "Gesamtfahrzeit"
+
 #: Activity.h:153
 msgid "Overtime"
 msgstr "Lenkzeitüberschreitung"
@@ -959,6 +964,10 @@ msgstr "Polen"
 #: formatStrings.h:65
 msgid "Portugal"
 msgstr "Portugal"
+
+#: Activity.h:154
+msgid "Possible fine"
+msgstr "Mögliche Strafe"
 
 #: formatStrings.h:23
 msgid "Power supply interruption"
@@ -1108,10 +1117,6 @@ msgstr "Authentisierungsfehler der Kontrollgerätkarte"
 
 #: Technical.h:19
 msgid "Technical Data"
-msgstr ""
-
-#: esmfile.h:66
-msgid "Time driven per day"
 msgstr ""
 
 #: formatStrings.h:23

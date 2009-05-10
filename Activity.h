@@ -148,10 +148,10 @@ class DailyActivity{
 				if(o.verbose) o.reportray(d.codriver,"Daily Activity Codriver");
 				if(o.hasBarGraph()) o("Activities Codriver",visualization(o, d.codriver));
 			}
-			o("Driven time", Activity::formatDurTime(d.driventime));
+			o("Driving time", Activity::formatDurTime(d.driventime));
 			if(d.overtime){
 				o("Overtime", Activity::formatDurTime(d.overtime)+ " " + d.overtimeReason );
-				o("Fine", d.fine );
+				o("Possible fine", d.fine );
 			}
 		}
 		return o;

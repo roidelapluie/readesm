@@ -60,10 +60,10 @@ class esmfile : public esmfilehead{
 		report("from",e.first.datestr());
 		report("to",e.last.datestr());
 		report("Recorded days",e.daycount);
-		report("Driven distance", e.drivenkm);
-		report("Driven time", formatMinutes(e.drivenminutes));
-		report("Kilometers per day", e.drivenkm / e.daycount);
-		report("Time driven per day", formatMinutes(e.drivenminutes / e.daycount) + " (" + stringify(100*e.drivenminutes / (e.daycount*24*60)) + "%)");
+		report("Overall driven distance", e.drivenkm);
+		report("Overall driving time", formatMinutes(e.drivenminutes));
+		report("Average kilometers per day", e.drivenkm / e.daycount);
+		report("Average time driven per day", formatMinutes(e.drivenminutes / e.daycount) + " (" + stringify(100*e.drivenminutes / (e.daycount*24*60)) + "%)");
 		report("Average speed when driving", e.drivenkm * 60 / e.drivenminutes);
 		report.bigblockend();
 		
