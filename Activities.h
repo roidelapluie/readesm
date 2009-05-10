@@ -78,10 +78,10 @@ class Activities : public vublock {
 			report("cardSlotNumber", IntByte());
 			report("cardWithdrawalTime", readDate().str());
 			report("vehicleOdometerValueAtWithdrawal", Odometer());
-			report("previousVehicleRegistrationNation", formatCountry(IntByte()));
+			report("previousVehicleRegistrationNation", nationNumeric(IntByte()));
 			report("previousVehicleRegistrationNumber", fixedString(14));
 			report("previousCardWithdrawalTime", readDate().str());
-			report("manualInputFlag:", IntByte());
+			report("manualInputFlag", IntByte());
 		}
 
 		for(reporter::subblock b = report.newsub("ActivityChangeInfo", Int16()); b(); ++b){
@@ -89,16 +89,16 @@ class Activities : public vublock {
 		}
 		
 		for(reporter::subblock b = report.newsub("Regions", IntByte()); b(); ++b){
-			report("CardNumber", fixedString(18));
-			report("EntryTime", readDate().str());
-			report("WorkPer", formatDailyWorkPeriod(IntByte()));
-			report("WorkPerCountry", formatCountry(IntByte()));
-			report("WorkPerRegion", IntByte());
-			report("Odom", Odometer());
+			report("fullCardNumber", fixedString(18));
+			report("entryTime", readDate().str());
+			report("entryTypeDailyWorkPeriod", formatDailyWorkPeriod(IntByte()));
+			report("dailyWorkPeriodCountry", nationNumeric(IntByte()));
+			report("dailyWorkPeriodRegion", IntByte());
+			report("vehicleOdometerValue", Odometer());
 		}
 		for(reporter::subblock b = report.newsub("Conditions", Int16()); b(); ++b){
-			report("EntryTime", readDate().str());
-			report("CondType", IntByte());
+			report("entryTime", readDate().str());
+			report("specificConditionType", IntByte());
 		}
 	}
 	void BriefReport(reporter& report) const{

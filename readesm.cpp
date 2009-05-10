@@ -49,7 +49,7 @@ int main(int argc, char* argv[]){
 	("infile,i", po::value<string>(), "input file")
 	("outfile,o", po::value<string>(), "output file")
 	("verbose,v",po::value<bool>()->default_value(false),"verbose output format, print just everything")
-	("format,f", po::value<string>()->default_value("text"), "output format, text, html or xml")
+	("format,f", po::value<string>()->default_value("text"), "output format: text, html or xml")
 	;
 	
 	po::variables_map vm;

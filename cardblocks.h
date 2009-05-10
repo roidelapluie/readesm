@@ -51,9 +51,9 @@ class Driving_License_Info : public tlvblock{
 		drivingLicenseNumber(fixedString(start + 5 + 36 + 1, 16)) {}
 
 	virtual void printOn(reporter& o) const{
-		o("drivingLicenseIssuingAuthorithy",drivingLicenseIssuingAuthorithy);
-		o("drivingLicenseIssuingNation",formatCountry(drivingLicenseIssuingNation));
-		o("drivingLicenseNumber",drivingLicenseNumber);
+		o("drivingLicenceIssuingAuthorithy",drivingLicenseIssuingAuthorithy);
+		o("drivingLicenceIssuingNation",nationNumeric(drivingLicenseIssuingNation));
+		o("drivingLicenceNumber",drivingLicenseNumber);
 	}
 };
 
@@ -120,7 +120,7 @@ class Specific_Conditions : public tlvblock{
 	typedef subray::const_iterator subiter;
 	subray sub;
 	static const int Type = 0x0522;
-	string name() const{ return "Specific Conditions"; }
+	string name() const{ return "Specific_Conditions"; }
 	Specific_Conditions(iter filewalker) : tlvblock(filewalker){
 		for(iter i = start + 5; i < start + 5 + datasize; i += 5){
 			int time = BEInt32(i), cond = i[4];
@@ -140,7 +140,7 @@ struct vehicleRegistration{
 	string Number;
 	vehicleRegistration(iter start) : Nation(start[0]), Number(fixedString(start + 1, 14)) {} 
 	friend reporter& operator<<(reporter& report, vehicleRegistration sub){
-		if(report.verbose) report("vehicleRegistrationNation" ,formatCountry(sub.Nation));
+		if(report.verbose) report("vehicleRegistrationNation" ,nationNumeric(sub.Nation));
 		report("vehicleRegistrationNumber" ,sub.Number);
 		return report;
 	}
@@ -166,7 +166,7 @@ struct placeRecord{
 	friend reporter& operator<<(reporter& report, placeRecord sub){
 		report("entryTime",sub.entryTime.str());
 		report("entryTypeDailyWorkPeriod" ,formatDailyWorkPeriod(sub.entryTypeDailyWorkPeriod));
-		report("dailyWorkPeriodCountry" ,formatCountry(sub.dailyWorkPeriodCountry));
+		report("dailyWorkPeriodCountry" ,nationNumeric(sub.dailyWorkPeriodCountry));
 		report("dailyWorkPeriodRegion",sub.dailyWorkPeriodRegion);
 		report("vehicleOdometerValue",sub.vehicleOdometerValue);
 		return report;
@@ -187,9 +187,9 @@ struct fullCardNumber{
 		Nation(start[1]), 
 		Number(fixedString(start + 2, 16)) {} 
 	friend reporter& operator<<(reporter& report, fullCardNumber sub){
-		report("cardType" ,formatEquipmentType(sub.Type));
-		report("cardIssuingMemberState" ,formatCountry(sub.Nation));
-		report("cardNumber" , sub.Number);
+		report("cardType", formatEquipmentType(sub.Type));
+		report("cardIssuingMemberState", nationNumeric(sub.Nation));
+		report("cardNumber", sub.Number);
 		return report;
 	}
 	static bool defval(iter start){
@@ -200,22 +200,22 @@ struct fullCardNumber{
 class Control_Activity_Data : public tlvblock{
 	public:
 	static const int Type = 0x0508;
-	int ControlType;
-	Time ControlTime;
+	int controlType;
+	Time controlTime;
 	fullCardNumber controlCardNumber;
 	vehicleRegistration controlVehicleRegistration;
 	Time controlDownloadPeriodBegin, controlDownloadPeriodEnd;
-	virtual string name() const{ return "Control Activity Data"; }
+	virtual string name() const{ return "Control_Activity_Data"; }
 	Control_Activity_Data(iter filewalker) : tlvblock(filewalker),
-		ControlType(start[5]),
-		ControlTime(BEInt32(start + 6)),
+		controlType(start[5]),
+		controlTime(BEInt32(start + 6)),
 		controlCardNumber(start + 10),
 		controlVehicleRegistration(start + 28),
 		controlDownloadPeriodBegin(BEInt32(start + 43)),
 		controlDownloadPeriodEnd(BEInt32(start + 47)) {}
 	virtual void printOn(reporter& o) const{
-		o("ControlType", formatControlType(ControlType));
-		o("ControlTime", ControlTime.str());
+		o("controlType", formatControlType(controlType));
+		o("controlTime", controlTime.str());
 		o << controlCardNumber;
 		o << controlVehicleRegistration;
 		o("controlDownloadPeriodBegin", controlDownloadPeriodBegin.str());
@@ -248,7 +248,7 @@ class Events_Data : public tlvblock{
 	typedef subray::const_iterator subiter;
 	subray sub;
 	static const int Type = 0x0502;
-	virtual string name() const{ return "Events Data"; }
+	virtual string name() const{ return "Events_Data"; }
 	Events_Data(iter filewalker) : tlvblock(filewalker){
 		for(iter i = start + 5; i < start + 5 + datasize; i += 24){
 			if(!CardEventRecord::defval(i)) sub.push_back(CardEventRecord(i));
@@ -262,7 +262,7 @@ class Events_Data : public tlvblock{
 class Faults_Data : public Events_Data{
 	public:
 	Faults_Data(iter filewalker) : Events_Data(filewalker){}
-	virtual string name() const{ return "Faults Data"; }
+	virtual string name() const{ return "Faults_Data"; }
 	static const int Type = 0x0503;
 };
 
@@ -316,7 +316,7 @@ class Vehicles_Used : public tlvblock{
 	typedef subray::const_iterator subiter;
 	subray sub;
 	static const int Type = 0x0505;
-	virtual string name() const{ return "Vehicles Used"; }
+	virtual string name() const{ return "Vehicles_Used"; }
 	Vehicles_Used(iter filewalker) : tlvblock(filewalker){
 		for(iter i = start + 5 + 2; i < start + 5 + datasize; i += 31){
 			if(!CardVehicleRecord::defval(i)) sub.push_back(CardVehicleRecord(i));
@@ -356,14 +356,14 @@ class Identification : public tlvblock{
 		cardHolderPreferredLanguage(fixedString(start + 146, 2))
 		{}
 	virtual void printOn(reporter& o) const{
-		o("cardIssuingMemberState",formatCountry(cardIssuingMemberState));
+		o("cardIssuingMemberState",nationNumeric(cardIssuingMemberState));
 		o("cardNumber",cardNumber);
 		o("cardIssuingAuthorityName",cardIssuingAuthorityName);
 		o("cardIssueDate",cardIssueDate.str());
 		o("cardValidityBegin",cardValidityBegin.str());
 		o("cardExpiryDate",cardExpiryDate.str());
 		o("holderSurname",holderSurname);
-		o("holderFirstname",holderFirstname);
+		o("holderFirstNames",holderFirstname);
 		o("cardHolderBirthDate",cardHolderBirthDate);
 		o("cardHolderPreferredLanguage",cardHolderPreferredLanguage);
 	}
@@ -388,7 +388,7 @@ class Current_Usage : public tlvblock{
 		
 	virtual void printOn(reporter& o) const{
 		o("sessionOpenTime",sessionOpenTime.str());
-		o("vehicleRegistrationNation",formatCountry(vehicleRegistrationNation));
+		o("vehicleRegistrationNation",nationNumeric(vehicleRegistrationNation));
 		o("vehicleRegistrationNumber",vehicleRegistrationNumber);
 	}
 };
@@ -424,7 +424,7 @@ class DailyActivityCard : public DailyActivity {
 class Driver_Activity_Data : public tlvblock{
 	public:
 	static const int Type = 0x0504;
-	string name() const{ return "Driver Activity Data"; }
+	string name() const{ return "Driver_Activity_Data"; }
 	Time LastCardDownload;
 	int fine;
 	int useddata;

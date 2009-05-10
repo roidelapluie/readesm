@@ -44,14 +44,14 @@ class Technical : public vublock {
 			report("workshopCardNumber", fixedString(18) );
 			report("workshopCardExpiryDate", readDate().str());
 			report("vehicleIdentificationNumber", fixedString(17));
-			report("vehicleRegistrationNation", formatCountry(IntByte()));
+			report("vehicleRegistrationNation", nationNumeric(IntByte()));
 			report("vehicleRegistrationNumber", fixedString(14));
 			report("wVehicleCharacteristicConstant", Int16());
 			report("kConstantOfRecordingEquipment", Int16());
 			report("lTyreCircumference", Int16());
 			report("tyreSize", fixedString(15));
 			report("authorisedSpeed", IntByte());
-			report("OoldOdometerValue", Odometer());
+			report("oldOdometerValue", Odometer());
 			report("newOdometerValue", Odometer());
 			report("oldTimeValue", readDate().str());
 			report("newTimeValue", readDate().str());

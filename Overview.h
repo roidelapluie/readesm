@@ -31,8 +31,8 @@ class Overview : public vublock {
 	void CompleteReport(reporter& report) const{
 		runningIndex = 388;
 		report("VehicleIdentificationNumber",fixedString(17));
-		report("VehicleRegistrationNation",  formatCountry(IntByte()));
-		report("VehicleRegistrationNumber:", fixedString(14));
+		report("VehicleRegistrationNation",  nationNumeric(IntByte()));
+		report("VehicleRegistrationNumber", fixedString(14));
 
 		report("CurrentDateTime",	readDate().str());
 		report("minDownloadableTime",	readDate().str());
@@ -46,7 +46,7 @@ class Overview : public vublock {
 			report("lockOutTime",	readDate().str());	
 			report("companyName",	fixedString(36));
 			report("companyAddress",fixedString(36));
-			report("CompanyCardNo",	fixedString(18));
+			report("companyCardNumber",	fixedString(18));
 		}
 		for(reporter::subblock b = report.newsub("Controls", IntByte()); b(); ++b){
 			report("controlType",	formatControlType(IntByte()));

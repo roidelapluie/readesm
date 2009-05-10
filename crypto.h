@@ -32,7 +32,7 @@ class CAid{
 		return numnation == other.numnation && alphanation == other.alphanation && serialnumber == other.serialnumber && additionalCoding == other.additionalCoding && identifier == other.identifier;
 	}
 	bool operator!=(const CAid& other) const{ return !operator==(other); }
-	CAid(iter start) : 
+	CAid(iter start) :
 		numnation(start[0]), 
 		alphanation(fixedString(start + 1, 3)), 
 		serialnumber(start[4]),
@@ -40,7 +40,7 @@ class CAid{
 		identifier(start[7])
 		{}
 	friend reporter& operator<<(reporter& o, const CAid& p){
-		o("Nation numeric", formatCountry(p.numnation));
+		o("Nation numeric", nationNumeric(p.numnation));
 		o("Nation alpha", p.alphanation);
 		o("Serial Number", p.serialnumber);
 		o("Add. Coding", p.additionalCoding);
@@ -96,7 +96,7 @@ bool CheckSignature(const iter& data, int length, const iter& signature, int sig
 	//not checking the first two, l207 p.251 says 0x00, 0x01,
 	//but the files actually contain 0x01, 0xff
 	if(!valid){
-		std::cerr << "\nSig check failed. ";
+		std::cerr << "\nsignature check failed ";
 	}
 	return valid;
 }

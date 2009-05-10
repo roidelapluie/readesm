@@ -26,7 +26,7 @@ class block{
 	friend std::ostream& operator<< (reporter& o, const block& b){
 		o.bigblockstart(b.name());
 		b.printOn(o);
-		o("Validly signed",b.hassignature? (b.validsignature ? "Yes, valid" : "No, invalid") : "No, not signed");
+		o("validly signed",b.hassignature? (b.validsignature ? "yes, valid" : "no, invalid") : "no, not signed");
 		o.bigblockend();
 		return o;
 	}

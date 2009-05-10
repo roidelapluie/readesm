@@ -19,12 +19,12 @@ string formatEventType(unsigned char etype){
 	int minor = etype & 0xF;
 	o << int(etype) << " - ";
 	if(major == 0){
-		o << "General Event: ";
+		o << "General events: ";
 		const char* gevents[] = {"No further details","Insertion of a non-valid card", "Card conflict", "Time overlap", "Driving without an appropriate card", "Card insertion while driving", "Last card session not correctly closed", "Over speeding", "Power supply interruption", "Motion data error" };
 		if(minor <= 0x9) o << gevents[minor];
 		else o << "RFU"; 
 	} else if(major == 1){
-		o << "Vehicle unit related security breach attempt event: ";
+		o << "Vehicle unit related security breach attempt events: ";
 		const char* sevents[] = {"No further details", "Motion sensor authentication failure", "Tachograph card authentication failure", "Unauthorised change of motion sensor", "Card data input integrity error", "Stored user data integrity error", "Internal data transfer error", "Unauthorised case opening", "Hardware sabotage"};
 		if(minor <= 0x8) o << sevents[minor];
 		else o << "RFU"; 
@@ -46,7 +46,7 @@ string formatEventType(unsigned char etype){
 	} else if(major >= 5 && major <= 7){
 		o << "RFU groups";
 	} else if(major >= 8 && major <= 0xF){
-		o << "Manufacturer Specific";
+		o << "Manufacturer specific";
 	} else o << "(err:blame programmer)";
 	return o.str();
 }
@@ -57,18 +57,18 @@ string formatEventRecordPurpose(unsigned char etype){
 	else if(8 <= etype && etype <= 0x7F){
 		return "RFU";
 	} else if(0x80 <= etype && etype <= 0x7F){
-		return "Manufacturer Specific";
+		return "Manufacturer specific";
 	} else return "(err:blame programmer)";
 }
 
-string formatCountry(unsigned char country){
+string nationNumeric(unsigned char country){
 	static const char* countries[] = {"No information available", "Austria", "Albania", "Andorra", "Armenia", "Azerbaijan", "Belgium", "Bulgaria", "Bosnia and Herzegovina", "Belarus", "Switzerland", "Cyprus", "Czech Republic", "Germany", "Denmark", "Spain", "Estonia", "France", "Finland", "Liechtenstein", "Faeroe Islands", "United Kingdom", "Georgia", "Greece", "Hungary", "Croatia", "Italy", "Ireland", "Iceland", "Kazakhstan", "Luxembourg", "Lithuania", "Latvia", "Malta", "Monaco", "Republic of Moldova", "Macedonia", "Norway", "Netherlands", "Portugal", "Poland", "Romania", "San Marino", "Russian Federation", "Sweden", "Slovakia", "Slovenia", "Turkmenistan", "Turkey", "Ukraine", "Vatican City", "Yugoslavia"};
 	if(country <= 0x33) return countries[country];
-	if(0x34 <= country && country <= 0xFC) return "Reserved for future use";
+	if(0x34 <= country && country <= 0xFC) return "Rreserved for future use";
 	if(country == 0xFD) return "European Community";
-	if(country == 0xFE) return "Europe (Non-EC)";
-	if(country == 0xFF) return "World without Europe";
-	return "error in formatCountry";
+	if(country == 0xFE) return "Europe, but not EC and not registered";
+	if(country == 0xFF) return "outside of Europe, not registered";
+	return "error in nationNumeric";
 }
 
 string formatSpecificCondition(unsigned char country){
@@ -84,10 +84,10 @@ string formatCalibrationPurpose(unsigned char cpurp){
 
 string formatControlType(unsigned char ctype){
 	ostringstream o;
-	if(ctype & (1 << 7)) o << "Card Downloading, ";
-	if(ctype & (1 << 6)) o << "VU Downloading, ";
-	if(ctype & (1 << 5)) o << "Printing Done, ";
-	if(ctype & (1 << 4)) o << "Display used, ";
+	if(ctype & (1 << 7)) o << "card downloaded, ";
+	if(ctype & (1 << 6)) o << "VU downloaded, ";
+	if(ctype & (1 << 5)) o << "printing done, ";
+	if(ctype & (1 << 4)) o << "display used, ";
 	return o.str();
 }
 

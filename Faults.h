@@ -30,45 +30,45 @@ class Faults : public vublock {
 	void CompleteReport(reporter& report) const{
 		runningIndex = 0;
 		for(reporter::subblock b = report.newsub("Faults", IntByte()); b(); ++b){
-			report("FaultType", formatEventType(IntByte()));
-			report("FaultRecordPurpose", formatEventRecordPurpose(IntByte()));
-			report("FaultBeginTime", readDate().str());
-			report("FaultEndTime", readDate().str());
-			report("CardNumberDriverSlotBegin", fixedString(18));
-			report("CardNumberCodriverSlotBegin",fixedString(18));
-			report("CardNumberDriverSlotEnd",fixedString(18));
-			report("CardNumberCodriverSlotEnd",fixedString(18));
+			report("faultType", formatEventType(IntByte()));
+			report("faultRecordPurpose", formatEventRecordPurpose(IntByte()));
+			report("faultBeginTime", readDate().str());
+			report("faultEndTime", readDate().str());
+			report("cardNumberDriverSlotBegin", fixedString(18));
+			report("cardNumberCodriverSlotBegin",fixedString(18));
+			report("cardNumberDriverSlotEnd",fixedString(18));
+			report("cardNumberCodriverSlotEnd",fixedString(18));
 		}
 		for(reporter::subblock b = report.newsub("Events", IntByte()); b(); ++b){
-			report("EventType", formatEventType(IntByte()));
-			report("EventRecordPurpose", formatEventRecordPurpose(IntByte()));
-			report("EventBeginTime", readDate().str());
-			report("EventEndTime", readDate().str());
-			report("CardNumberDriverSlotBegin", fixedString(18));
-			report("CardNumberCodriverSlotBegin",fixedString(18));
-			report("CardNumberDriverSlotEnd",fixedString(18));
-			report("CardNumberCodriverSlotEnd",fixedString(18));
-			report("SimilarEventsNumber",IntByte());
+			report("eventType", formatEventType(IntByte()));
+			report("eventRecordPurpose", formatEventRecordPurpose(IntByte()));
+			report("eventBeginTime", readDate().str());
+			report("eventEndTime", readDate().str());
+			report("cardNumberDriverSlotBegin", fixedString(18));
+			report("cardNumberCodriverSlotBegin",fixedString(18));
+			report("cardNumberDriverSlotEnd",fixedString(18));
+			report("cardNumberCodriverSlotEnd",fixedString(18));
+			report("similarEventsNumber",IntByte());
 		}
-		report("LastOverspeedControlTime", readDate().str());
-		report("FirstOverspeedSince", readDate().str());
-		report("NumberOfOverspeedSince", IntByte());
+		report("lastOverspeedControlTime", readDate().str());
+		report("firstOverspeedSince", readDate().str());
+		report("numberOfOverspeedSince", IntByte());
 		for(reporter::subblock b = report.newsub("ActivityChangeInfo", IntByte()); b(); ++b){
-			report("EventType", formatEventType(IntByte()));
-			report("EventRecordPurpose", formatEventRecordPurpose(IntByte()));
-			report("EventBeginTime", readDate().str());
-			report("EventEndTime",readDate().str());
-			report("MaxSpeedValue",IntByte());
-			report("AverageSpeedValue",IntByte());
-			report("CardNumberDriverSlotBegin",fixedString(18));
-			report("SimilarEventsNumber",IntByte());
+			report("eventType", formatEventType(IntByte()));
+			report("eventRecordPurpose", formatEventRecordPurpose(IntByte()));
+			report("eventBeginTime", readDate().str());
+			report("eventEndTime",readDate().str());
+			report("maxSpeedValue",IntByte());
+			report("averageSpeedValue",IntByte());
+			report("cardNumberDriverSlotBegin",fixedString(18));
+			report("similarEventsNumber",IntByte());
 		}
 		for(reporter::subblock b = report.newsub("TimeAdjustments", IntByte()); b(); ++b){
-			report("OldTimeValue",readDate().str());
-			report("NewTimeValue",readDate().str());
-			report("WorkshopName",fixedString(36));
-			report("WorkshopAddress",fixedString(36));
-			report("WorkshopCardNumber",fixedString(18));
+			report("oldTimeValue",readDate().str());
+			report("newTimeValue",readDate().str());
+			report("workshopName",fixedString(36));
+			report("workshopAddress",fixedString(36));
+			report("workshopCardNumber",fixedString(18));
 		}
 	}
 	void BriefReport(reporter& report) const{
