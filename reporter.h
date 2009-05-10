@@ -119,7 +119,7 @@ class htmlreporter : public reporter {
 	htmlreporter(const string& title_ = "ESM Data") : reporter(title_), targetcount(0) {}
 	virtual string str(){
 		ostringstream o;
-		o << "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\" dir=\"ltr\" lang=\"en-US\">\n<head><link rel='stylesheet' type='text/css' media='screen' href='style.css'/><title>" << title << "</title><meta http-equiv='Content-Type' content='text/html; charset=latin1'/></head><body><h1>" << title <<"</h1>" << links.str() << "<hr/>" << reporter::str() << "</body></html>\n"; 
+		o << "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\" dir=\"ltr\" lang=\"en-US\">\n<head><link rel='stylesheet' type='text/css' media='screen' href='style.css'/><title>" << title << "</title><meta http-equiv='Content-Type' content='text/html; charset=utf8'/></head><body><h1>" << title <<"</h1>" << links.str() << "<hr/>" << reporter::str() << "</body></html>\n";
 		return o.str();
 	}
 	virtual void bigblockstart(const string& name){
@@ -158,7 +158,7 @@ class xmlreporter : public htmlreporter {
 		o << "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n" \
 		"<html xmlns=\"http://www.w3.org/1999/xhtml\" dir=\"ltr\" lang=\"en-US\">\n" \
 		"<head><title>" << title << "</title>" \
-		"<meta http-equiv='Content-Type' content='text/html; charset=latin1'/>" \
+		"<meta http-equiv='Content-Type' content='text/html; charset=utf8'/>" \
 		"<style type=\"text/css\">" \
 		"table		{ border-collapse:collapse;  border-width:2px; border-style:solid; }" \
 		"tr 		{ border-top-width:1px; border-top-style:dashed; }" \
