@@ -6,7 +6,6 @@
 #include <sstream>
 #include <time.h>
 
-
 /// for now, a simple wrapper around timestamps.
 //TODO: check out boosts classes
 class Time{
@@ -15,12 +14,12 @@ class Time{
 	static Time fromBigEndianChars32(const unsigned char* start){
 		return Time((start[0] << 24) + (start[1] << 16) + (start[2] << 8) + start[3]); 
 	}
-	string str(const std::string& format = "%c %Z") const{
+	string str(const std::string& format = "%c") const{
 		if(timestamp == -1) return "(undefined)";
-		char buffer[35];
+		char buffer[40];
 		time_t t = timestamp;
 		tm* timeinfo = gmtime(&t);
-		strftime(buffer, 35, format.c_str(), timeinfo);
+		strftime(buffer, 39, format.c_str(), timeinfo);
 		return buffer;
 	}
 	string datestr() const{
