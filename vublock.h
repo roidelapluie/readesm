@@ -64,13 +64,8 @@ class vublock  : public block {
 		return Odometer(runningIndex - 3);
 	}
 
-	string fixedString(int start, int length) const{
-		ostringstream o;
-		//for(int j = start; j < start + length; ++j) if(block_start[j] >= 0x20 && block_start[j] < 127) 
-		//o << block_start[j];
-		for(int j = start; j < start + length; ++j) if(block_start[j] >= 0x20) o << block_start[j];
-		//files seem to be latin-1, watch out
-		return o.str();
+	string fixedString(int offset, int length) const{
+		return ::fixedString(start + 2 + offset, length);
 	}
 	const unsigned char* block_start;
 	mutable int runningIndex;

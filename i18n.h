@@ -16,14 +16,17 @@ You should have received a copy of the GNU General Public License along with rea
 
 void i18nInit(){
 	setlocale( LC_ALL, "" );
-	bindtextdomain( "readesm", "/usr/local/share/locale" );
+//	bindtextdomain( "readesm", "/usr/local/share/locale" );
+	bindtextdomain( "readesm", "locale" );
 	textdomain( "readesm" );
 }
 
 string tr(string in){
 	return (in.empty())? in : gettext(in.c_str());
 }
-
+string tr(string& in){
+	return (in.empty())? in : gettext(in.c_str());
+}
 string tr(const char* in){
 	return *in == 0 ? in : gettext(in);
 }

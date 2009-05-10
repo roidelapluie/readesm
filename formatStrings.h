@@ -64,7 +64,7 @@ string formatEventRecordPurpose(unsigned char etype){
 string nationNumeric(unsigned char country){
 	static const char* countries[] = {"No information available", "Austria", "Albania", "Andorra", "Armenia", "Azerbaijan", "Belgium", "Bulgaria", "Bosnia and Herzegovina", "Belarus", "Switzerland", "Cyprus", "Czech Republic", "Germany", "Denmark", "Spain", "Estonia", "France", "Finland", "Liechtenstein", "Faeroe Islands", "United Kingdom", "Georgia", "Greece", "Hungary", "Croatia", "Italy", "Ireland", "Iceland", "Kazakhstan", "Luxembourg", "Lithuania", "Latvia", "Malta", "Monaco", "Republic of Moldova", "Macedonia", "Norway", "Netherlands", "Portugal", "Poland", "Romania", "San Marino", "Russian Federation", "Sweden", "Slovakia", "Slovenia", "Turkmenistan", "Turkey", "Ukraine", "Vatican City", "Yugoslavia"};
 	if(country <= 0x33) return countries[country];
-	if(0x34 <= country && country <= 0xFC) return "Rreserved for future use";
+	if(0x34 <= country && country <= 0xFC) return "Reserved for future use";
 	if(country == 0xFD) return "European Community";
 	if(country == 0xFE) return "Europe, but not EC and not registered";
 	if(country == 0xFF) return "outside of Europe, not registered";

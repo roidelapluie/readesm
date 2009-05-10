@@ -60,7 +60,7 @@ class Driving_License_Info : public tlvblock{
 class Card_Download : public tlvblock{
 	public:
 	static const int Type = 0x050e;
-	string name() const{ return "Card_Download"; }
+	string name() const{ return "Card Download"; }
 	Time LastCardDownload;
 	Card_Download(iter filewalker) : tlvblock(filewalker),
 		LastCardDownload(Time(BEInt32(filewalker + 5))){}
@@ -87,7 +87,7 @@ class Application_Identification : public tlvblock{
 class Card_Certificate : public tlvblock{
 	public:
 	static const int Type = 0xc100;
-	virtual string name() const{ return "Card_Certificate"; }
+	virtual string name() const{ return "Card Certificate"; }
 	Card_Certificate(iter filewalker) : tlvblock(filewalker){}
 	virtual void reportstuff(esmfilehead& esm){
 		if(esm.devicecert) std::cerr << "Reassigning cert\n";
@@ -121,7 +121,7 @@ class Specific_Conditions : public tlvblock{
 	typedef subray::const_iterator subiter;
 	subray sub;
 	static const int Type = 0x0522;
-	string name() const{ return "Specific_Conditions"; }
+	string name() const{ return "Specific Conditions"; }
 	Specific_Conditions(iter filewalker) : tlvblock(filewalker){
 		for(iter i = start + 5; i < start + 5 + datasize; i += 5){
 			int time = BEInt32(i), cond = i[4];
@@ -206,7 +206,7 @@ class Control_Activity_Data : public tlvblock{
 	fullCardNumber controlCardNumber;
 	vehicleRegistration controlVehicleRegistration;
 	Time controlDownloadPeriodBegin, controlDownloadPeriodEnd;
-	virtual string name() const{ return "Control_Activity_Data"; }
+	virtual string name() const{ return "Control Activity Data"; }
 	Control_Activity_Data(iter filewalker) : tlvblock(filewalker),
 		controlType(start[5]),
 		controlTime(BEInt32(start + 6)),
@@ -249,7 +249,7 @@ class Events_Data : public tlvblock{
 	typedef subray::const_iterator subiter;
 	subray sub;
 	static const int Type = 0x0502;
-	virtual string name() const{ return "Events_Data"; }
+	virtual string name() const{ return "Events Data"; }
 	Events_Data(iter filewalker) : tlvblock(filewalker){
 		for(iter i = start + 5; i < start + 5 + datasize; i += 24){
 			if(!CardEventRecord::defval(i)) sub.push_back(CardEventRecord(i));
@@ -263,7 +263,7 @@ class Events_Data : public tlvblock{
 class Faults_Data : public Events_Data{
 	public:
 	Faults_Data(iter filewalker) : Events_Data(filewalker){}
-	virtual string name() const{ return "Faults_Data"; }
+	virtual string name() const{ return "Faults Data"; }
 	static const int Type = 0x0503;
 };
 
@@ -317,7 +317,7 @@ class Vehicles_Used : public tlvblock{
 	typedef subray::const_iterator subiter;
 	subray sub;
 	static const int Type = 0x0505;
-	virtual string name() const{ return "Vehicles_Used"; }
+	virtual string name() const{ return "Vehicles Used"; }
 	Vehicles_Used(iter filewalker) : tlvblock(filewalker){
 		for(iter i = start + 5 + 2; i < start + 5 + datasize; i += 31){
 			if(!CardVehicleRecord::defval(i)) sub.push_back(CardVehicleRecord(i));
@@ -343,7 +343,7 @@ class Identification : public tlvblock{
 	string cardHolderPreferredLanguage;
 
 	static const int Type = 0x0520;
-	string name() const{ return "CardIdentification"; }
+	string name() const{ return "Card Identification"; }
 	Identification(iter filewalker) : tlvblock(filewalker),
 		cardIssuingMemberState(start[5]),
 		cardNumber(fixedString(start + 6, 16)),
@@ -377,7 +377,7 @@ class Identification : public tlvblock{
 class Current_Usage : public tlvblock{
 	public:
 	static const int Type = 0x0507;
-	string name() const{ return "Current_Usage"; }
+	string name() const{ return "Current Usage"; }
 	Time sessionOpenTime;
 	int vehicleRegistrationNation;
 	string vehicleRegistrationNumber;
@@ -425,7 +425,7 @@ class DailyActivityCard : public DailyActivity {
 class Driver_Activity_Data : public tlvblock{
 	public:
 	static const int Type = 0x0504;
-	string name() const{ return "Driver_Activity_Data"; }
+	string name() const{ return "Driver Activity Data"; }
 	Time LastCardDownload;
 	int fine;
 	int useddata;

@@ -37,7 +37,7 @@ class Activities : public vublock {
 	}
 	public:
 	virtual string name() const{
-		return "Activities for " + readDate(0).datestr();
+		return tr("Activities for") + " " + readDate(0).datestr();
 	}
 	static const int TREP = 0x2;
 	Activities(iter nstart) : vublock(nstart), driven(0), day(BEInt32(start + 2)) {
@@ -106,7 +106,7 @@ class Activities : public vublock {
 			const CardInOut& t = CardInOuts[j];
 			report("Driver",t.Name);
 			report("Work period", (t.OutTime - t.InTime).str());
-			report("Driven km",(t.OdometerOut - t.OdometerIn));
+			report("Driven distance",(t.OdometerOut - t.OdometerIn));
 		}
 		report << DayAct;
 		//report("Driven km",driven);
