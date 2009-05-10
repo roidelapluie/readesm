@@ -48,7 +48,7 @@ class Activities : public vublock {
 		for(int j = 0; j < num_crblocks; ++j){
 			int sb_start = 9 + j*129;
 			CardInOut t;
-			t.Name = fixedString(sb_start + 36,36) + fixedString(sb_start,36);
+			t.Name = fixedString(sb_start + 36,36) + " " + fixedString(sb_start,36);
 			t.InTime = readDate(sb_start + 94);
 			t.OdometerIn = Odometer(sb_start + 98);
 			t.OutTime = readDate(sb_start + 102);

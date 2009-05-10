@@ -36,10 +36,10 @@ char* trc(const char* in){
 }
 
 string latin1tounicode(unsigned char in){
-	ostringstream o;
 	if(in <= 127){
-		o << in;
-		return o.str();
+		static char dummy[] = { 0, 0 };
+		dummy[0] = in;
+		return dummy;
 	}
 	if(in < 160) return string();
 	const char* conversion[]= { " ", "¡", "¢", "£", "¤", "¥", "¦", "§", "¨", "©", "ª", "«", "¬", "\xc2\xad", "®", "¯", \
