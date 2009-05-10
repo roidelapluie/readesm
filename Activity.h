@@ -48,20 +48,20 @@ class Activity{
 		time = int((start[0] & 7) << 8) + start[1];
 	}
 	string astr() const{
-		if(activity == Break) return "Break/rest";
-		else if(activity == Available) return "Available";
-		else if(activity == Work) return "Work";
-		else if(activity == Driving) return "Driving";
-		return "Unknown Activity";
+		if(activity == Break) return "break/rest";
+		else if(activity == Available) return "availability";
+		else if(activity == Work) return "work";
+		else if(activity == Driving) return "driving";
+		return "unknown activity";
 	}
 	string tstr(int offset = 0) const{
 		return formatDurTime(time + offset);
 	}
 	string str() const{
 		ostringstream o;
-		o << (slot == Codriver ? "Codriver" : "Driver") << ", ";
-		o << (manning == Crew ? "Crew  " : "Single") << ", ";
-		o << "Card " << (cardin ? "not" : "") << " inserted, ";
+		o << (slot == Codriver ? "co-driver" : "driver") << ", ";
+		o << (manning == Crew ? "crew" : "single") << ", ";
+		o << "card " << (cardin ? "not inserted" : "inserted") << ", ";
 		o << astr() << " " << tstr();
 		return o.str();
 	}
@@ -81,7 +81,8 @@ string visualization(reporter& o, const std::vector<Activity>& acts){
 	reporter::pgptr actvisual(o.getBarGraph());
 	for(std::vector<Activity>::const_iterator j(acts.begin()); j != acts.end(); ++j){
 		if(j->duration > 10000) std::cerr << "ouch";
-		string descr = j->astr() + " for " + Activity::formatDurTime(j->duration) + "  from " + j->tstr() + " to " + j->tstr(j->duration);
+		//TODO: make a better fix for localisation conflicts (" to" + " " vs " to ")
+		string descr = j->astr() + " for " + Activity::formatDurTime(j->duration) + " from " + j->tstr() + " to" + " " + j->tstr(j->duration);
 		int height = 10;
 		string color;
 		switch(j->activity){
@@ -119,7 +120,7 @@ class DailyActivity{
 		for(unsigned int j = 1; j < acts.size(); ++j){
 			acts[j - 1].duration = acts[j].time - acts[j-1].time;
 			if(acts[j - 1].duration < 0){
-				std::cerr << "duration < 0\n";
+				std::cerr << tr("duration < 0\n");
 			}
 			if(acts[j - 1].activity == Activity::Driving){
 				driventime += acts[j - 1].duration;

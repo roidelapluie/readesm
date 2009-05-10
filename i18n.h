@@ -21,11 +21,11 @@ void i18nInit(){
 }
 
 string tr(string in){
-	return (in == "") ? "" : gettext(in.c_str());
+	return (in.empty())? in : gettext(in.c_str());
 }
 
 string tr(const char* in){
-	return *in == 0 ? "" : gettext(in);
+	return *in == 0 ? in : gettext(in);
 }
 
 char* trc(const char* in){
@@ -38,8 +38,8 @@ string latin1tounicode(unsigned char in){
 		o << in;
 		return o.str();
 	}
-	if(in < 160) return "";
-	const char* conversion[]= { " ", "¡", "¢", "£", "¤", "¥", "¦", "§", "¨", "©", "ª", "«", "¬",  "", "®", "¯", \
+	if(in < 160) return string();
+	const char* conversion[]= { " ", "¡", "¢", "£", "¤", "¥", "¦", "§", "¨", "©", "ª", "«", "¬", "\xc2\xad", "®", "¯", \
 				    "°", "±", "²", "³", "´", "µ", "¶", "·", "¸", "¹", "º", "»", "¼", "½", "¾", "¿", \
 				    "À", "Á", "Â", "Ã", "Ä", "Å", "Æ", "Ç", "È", "É", "Ê", "Ë", "Ì", "Í", "Î", "Ï", \
 				    "Ð", "Ñ", "Ò", "Ó", "Ô", "Õ", "Ö", "×", "Ø", "Ù", "Ú", "Û", "Ü", "Ý", "Þ", "ß", \

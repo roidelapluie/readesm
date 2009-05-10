@@ -3,16 +3,16 @@
 # Copyright (C) 2009 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
-#: Activity.h:64 i18n.h:18 i18n.h:24 i18n.h:28 i18n.h:41 i18n.h:42
 # Andreas Gölzer <K_2005@goelzer.de>, 2009.
 # Andreas Gölzer <goelzera@ethz.ch>, 2009.
 # Martin Walch <walch.martin@web.de>, 2009.
+#: i18n.h:18
 msgid ""
 msgstr ""
 "Project-Id-Version: german\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-05-10 13:42+0200\n"
-"PO-Revision-Date: 2009-05-10 13:42+0200\n"
+"POT-Creation-Date: 2009-05-10 19:51+0200\n"
+"PO-Revision-Date: 2009-05-10 18:40+0200\n"
 "Last-Translator: Martin Walch <walch.martin@web.de>\n"
 "Language-Team: American English <kde-i18n-de@kde.org>\n"
 "MIME-Version: 1.0\n"
@@ -20,10 +20,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 0.3\n"
-
-#: readesm.cpp:60 readesm.cpp:64 reporter.h:97 reporter.h:100 Speeds.h:44
-msgid "\n"
-msgstr ""
 
 #: reporter.h:103
 msgid ""
@@ -40,17 +36,13 @@ msgstr ""
 "\n"
 "Signatur-Prüfung fehlgeschlagen "
 
-#: Activity.h:65 Activity.h:153 cardblocks.h:371 helper.h:38 helper.h:45
-#: i18n.h:42 Speeds.h:44
+#: Activity.h:65 Activity.h:85 Activity.h:154 cardblocks.h:372 helper.h:38
+#: helper.h:45 i18n.h:42 Speeds.h:44
 msgid " "
 msgstr ""
 
 #: reporter.h:94
 msgid "  ***   \n"
-msgstr ""
-
-#: Activity.h:84
-msgid "  from "
 msgstr ""
 
 #: esmfile.h:66 reporter.h:88
@@ -65,7 +57,7 @@ msgstr ""
 msgid " - "
 msgstr ""
 
-#: cardblocks.h:470
+#: cardblocks.h:471
 msgid " Bytes"
 msgstr ""
 
@@ -73,29 +65,33 @@ msgstr ""
 msgid " days "
 msgstr "Tage"
 
-#: Activity.h:84
+#: Activity.h:85
 msgid " for "
 msgstr ""
 
+#: Activity.h:85
+msgid " from "
+msgstr "von"
+
 #: time.h:66
 msgid " h "
-msgstr "Std."
-
-#: Activity.h:64
-msgid " inserted, "
 msgstr ""
 
 #: time.h:66
-msgid " m"
+msgid " min"
 msgstr ""
 
-#: cardblocks.h:470
+#: cardblocks.h:471
 msgid " of "
-msgstr ""
+msgstr "von"
 
-#: Activity.h:84 esmfile.h:33
+#: Activity.h:85
+msgid " to"
+msgstr " nach"
+
+#: esmfile.h:33
 msgid " to "
-msgstr ""
+msgstr " bis "
 
 #: esmfile.h:66
 msgid "%)"
@@ -124,7 +120,7 @@ msgstr ""
 
 #: picgen.h:39
 msgid "' alt='scale' />"
-msgstr ""
+msgstr "' alt='Skala' />"
 
 #: picgen.h:48 picgen.h:62
 msgid "' fill='"
@@ -190,7 +186,7 @@ msgstr ""
 msgid "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n"
 msgstr ""
 
-#: Activity.h:62 Activity.h:63 esmfile.h:33 Speeds.h:22
+#: Activity.h:62 Activity.h:63 Activity.h:64 esmfile.h:33 Speeds.h:22
 msgid ", "
 msgstr ""
 
@@ -360,36 +356,29 @@ msgstr ""
 msgid "<tr><th></th><td></td></tr>\n"
 msgstr ""
 
-#: cardblocks.h:469
-msgid "Accumulated fine"
-msgstr ""
+#: cardblocks.h:470
+#, fuzzy
+msgid "Accumulated fines"
+msgstr "mögliche aufgerechnete Strafe"
 
-#: Activities.h:88
-msgid "ActChangeInfo"
-msgstr ""
-
-#: Activity.h:149
+#: Activity.h:150
 msgid "Activities Codriver"
 msgstr "Beifahreraktivitäten"
 
-#: Activity.h:145
+#: Activity.h:146
 msgid "Activities Driver"
 msgstr "Fahreraktivitäten"
 
 #: Activities.h:40
 msgid "Activities for "
-msgstr ""
+msgstr "Aktivitäten am"
 
-#: cardblocks.h:470
+#: cardblocks.h:471
 msgid "Activity space usage"
-msgstr ""
+msgstr "Platzverbrauch durch Aktivitäten"
 
-#: Activities.h:87 Faults.h:56
+#: Faults.h:56
 msgid "ActivityChangeInfo"
-msgstr ""
-
-#: crypto.h:46
-msgid "Add. Coding"
 msgstr ""
 
 #: formatStrings.h:65
@@ -402,15 +391,15 @@ msgstr "Andorra"
 
 #: cardblocks.h:75
 msgid "Application Identification"
-msgstr ""
+msgstr "Anwendungskennung"
 
 #: formatStrings.h:65
 msgid "Armenia"
 msgstr "Armenien"
 
 #: crypto.h:64
-msgid "Attempting to use wrong ca certificate"
-msgstr ""
+msgid "Attempting to use wrong ca certificate."
+msgstr "Versuche falsches CA-Zertifikat zu verwenden."
 
 #: formatStrings.h:65
 msgid "Austria"
@@ -420,12 +409,8 @@ msgstr "Österreich"
 msgid "Authentication failure"
 msgstr "Fehlgeschlagene Authentisierung"
 
-#: Activity.h:52
-msgid "Available"
-msgstr ""
-
 #: esmfile.h:65
-msgid "Average kilometers per day"
+msgid "Average distance per day"
 msgstr "Durchschnittliche Strecke pro Tag"
 
 #: esmfile.h:67
@@ -452,59 +437,33 @@ msgstr ""
 msgid "Begin, related time manually entered (start time)"
 msgstr ""
 
-#: Speeds.h:20
-msgid "BeginDate"
-msgstr ""
-
-#: cardblocks.h:235
-msgid "BeginTime"
-msgstr ""
-
 #: formatStrings.h:65
 msgid "Belarus"
 msgstr "Weißrussland"
 
 #: formatStrings.h:65
 msgid "Belgium"
-msgstr ""
+msgstr "Belgien"
 
 #: formatStrings.h:65
 msgid "Bosnia and Herzegovina"
 msgstr "Bosnien und Herzegowina"
 
-#: Activity.h:51
-msgid "Break/rest"
-msgstr ""
-
 #: formatStrings.h:65
 msgid "Bulgaria"
 msgstr "Bulgarien"
 
-#: cardblocks.h:100
+#: cardblocks.h:101
 msgid "CA Certificate"
-msgstr ""
-
-#: Technical.h:40
-msgid "Calibrations"
-msgstr ""
+msgstr "CA-Zertifikat"
 
 #: esmfile.h:53
 msgid ""
 "Cannot verify certificates and signatures: European main certificate file "
 "not found or not openable."
 msgstr ""
-
-#: Activity.h:64
-msgid "Card "
-msgstr "Karte"
-
-#: cardblocks.h:89
-msgid "Card Certificate"
-msgstr ""
-
-#: cardblocks.h:63
-msgid "Card Download"
-msgstr ""
+"Kann Zertifikate und Signaturen nicht prüfen: Datei mit europäischem "
+"Hauptzertifikat wurde nicht gefunden oder ließ sich nicht öffnen."
 
 #: formatStrings.h:23
 msgid "Card conflict"
@@ -522,57 +481,41 @@ msgstr "Kartenstörungen: "
 msgid "Card insertion while driving"
 msgstr "Einstecken der Karte während des Lenkens"
 
-#: Activities.h:71
-msgid "CardInsertions"
+#: cardblocks.h:346
+msgid "CardIdentification"
 msgstr ""
 
 #: Overview.h:40
 msgid "CardSlotsStatus"
 msgstr ""
 
-#: cardblocks.h:81
-msgid "CardType"
+#: cardblocks.h:90
+msgid "Card_Certificate"
+msgstr ""
+
+#: cardblocks.h:63
+msgid "Card_Download"
 msgstr ""
 
 #: crypto.h:78
-msgid "Certificate is invalid\n"
-msgstr ""
-
-#: Activity.h:62
-msgid "Codriver"
-msgstr "Beifahrer"
+msgid "Certificate is invalid.\n"
+msgstr "Zertifikat ist ungültig.\n"
 
 #: formatStrings.h:95
 msgid "Company Card"
 msgstr "Unternehmenskarte"
 
-#: Overview.h:43
-msgid "CompanyOrWorkshopName"
-msgstr ""
-
-#: Activities.h:99
-msgid "Conditions"
-msgstr ""
-
 #: formatStrings.h:95
 msgid "Control Card"
 msgstr ""
 
-#: cardblocks.h:208
+#: cardblocks.h:209
 msgid "Control_Activity_Data"
-msgstr ""
-
-#: Overview.h:51
-msgid "Controls"
 msgstr ""
 
 #: readesm.cpp:81
 msgid "Could not open output file, writing to stdout"
-msgstr ""
-
-#: Activity.h:63
-msgid "Crew  "
-msgstr ""
+msgstr "Konnte "
 
 #: formatStrings.h:65
 msgid "Croatia"
@@ -582,7 +525,7 @@ msgstr "Kroatien"
 msgid "CurrentDateTime"
 msgstr ""
 
-#: cardblocks.h:379
+#: cardblocks.h:380
 msgid "Current_Usage"
 msgstr ""
 
@@ -594,23 +537,19 @@ msgstr "Zypern"
 msgid "Czech Republic"
 msgstr "Tschechische Republik"
 
-#: Activity.h:148
+#: Activity.h:149
 msgid "Daily Activity Codriver"
-msgstr ""
+msgstr "Tagestätigkeit des 2. Fahrers"
 
-#: Activity.h:144
+#: Activity.h:145
 msgid "Daily Activity Driver"
-msgstr ""
+msgstr "Tagestätigkeit des Fahrers"
 
 #: overtime.h:45
 msgid "Daily driving time"
-msgstr ""
+msgstr "Tageslenkzeit"
 
-#: cardblocks.h:417
-msgid "Daily presence counter"
-msgstr ""
-
-#: Activity.h:142
+#: Activity.h:143
 msgid "Date"
 msgstr "Datum"
 
@@ -618,17 +557,13 @@ msgstr "Datum"
 msgid "Denmark"
 msgstr "Dänemark"
 
-#: Speeds.h:10 Speeds.h:19
+#: Speeds.h:10
 msgid "Detailed Speed"
-msgstr ""
+msgstr "detaillierte Geschwindigkeit"
 
 #: formatStrings.h:38
 msgid "Display fault"
 msgstr "Anzeigestörung"
-
-#: cardblocks.h:418
-msgid "Distance driven"
-msgstr "Gefahrene Strecke"
 
 #: formatStrings.h:38
 msgid "Downloading fault"
@@ -636,9 +571,9 @@ msgstr "Störung beim Herunterladen"
 
 #: Activities.h:109
 msgid "Driven km"
-msgstr ""
+msgstr "Gefahrene km"
 
-#: Activities.h:107 Activity.h:62
+#: Activities.h:107
 msgid "Driver"
 msgstr "Fahrer"
 
@@ -646,19 +581,15 @@ msgstr "Fahrer"
 msgid "Driver Card"
 msgstr "Fahrerkarte"
 
-#: cardblocks.h:427
+#: cardblocks.h:428
 msgid "Driver_Activity_Data"
-msgstr ""
-
-#: Activity.h:54
-msgid "Driving"
 msgstr ""
 
 #: cardblocks.h:47
 msgid "Driving License Info"
 msgstr "Führerscheininformationen"
 
-#: Activity.h:151
+#: Activity.h:152
 msgid "Driving time"
 msgstr "Fahrzeit"
 
@@ -672,7 +603,7 @@ msgstr ""
 
 #: reporter.h:22 reporter.h:85 reporter.h:119 reporter.h:176
 msgid "ESM Data"
-msgstr ""
+msgstr "ESM Daten"
 
 #: readesm.cpp:46
 msgid "ESM Reader, allowed options"
@@ -690,31 +621,23 @@ msgstr ""
 msgid "End,   related time manually entered (end of work period)"
 msgstr ""
 
-#: cardblocks.h:236
-msgid "EndTime"
-msgstr ""
-
 #: formatStrings.h:65
 msgid "Estonia"
 msgstr "Estland"
 
 #: formatStrings.h:69
 msgid "Europe, but not EC and not registered"
-msgstr ""
+msgstr "Europa, aber nicht EG und nicht registriert"
 
 #: formatStrings.h:68
 msgid "European Community"
 msgstr "Europäische Gemeinschaft"
 
-#: cardblocks.h:234
-msgid "EventType"
-msgstr ""
-
 #: Faults.h:42
 msgid "Events"
 msgstr ""
 
-#: cardblocks.h:251
+#: cardblocks.h:252
 msgid "Events_Data"
 msgstr ""
 
@@ -726,29 +649,21 @@ msgstr "Färöer"
 msgid "Faults"
 msgstr "Fehler"
 
-#: cardblocks.h:265
+#: cardblocks.h:266
 msgid "Faults_Data"
 msgstr ""
 
 #: formatStrings.h:75
-msgid "Ferry/Train crosssing"
-msgstr ""
+msgid "Ferry/Train crossing"
+msgstr "Fährüberfahrt/Zugfahrt"
 
 #: formatStrings.h:65
 msgid "Finland"
 msgstr "Finnland"
 
-#: cardblocks.h:304
-msgid "FirstUse"
-msgstr ""
-
 #: formatStrings.h:65
 msgid "France"
 msgstr "Frankreich"
-
-#: Overview.h:42
-msgid "FullCardNumber"
-msgstr ""
 
 #: formatStrings.h:22
 msgid "General events: "
@@ -778,14 +693,6 @@ msgstr "Ungarn"
 msgid "Iceland"
 msgstr "Island"
 
-#: cardblocks.h:345
-msgid "Identification"
-msgstr ""
-
-#: crypto.h:47
-msgid "Identifier"
-msgstr ""
-
 #: formatStrings.h:23
 msgid "Insertion of a non-valid card"
 msgstr "Einstecken einer ungültigen Karte"
@@ -814,10 +721,6 @@ msgstr "Letzter Vorgang nicht korrekt abgeschlossen"
 msgid "LastCardDownload"
 msgstr ""
 
-#: cardblocks.h:305
-msgid "LastUse"
-msgstr ""
-
 #: formatStrings.h:65
 msgid "Latvia"
 msgstr "Lettland"
@@ -829,10 +732,6 @@ msgstr "Liechtenstein"
 #: formatStrings.h:65
 msgid "Lithuania"
 msgstr "Litauen"
-
-#: Overview.h:44
-msgid "Locks"
-msgstr ""
 
 #: formatStrings.h:65
 msgid "Luxembourg"
@@ -871,17 +770,9 @@ msgid "Motion sensor authentication failure"
 msgstr ""
 "Fehlgeschlagene Authentisierung des Weg- und/oder Geschwindigkeitsgebers"
 
-#: crypto.h:44
-msgid "Nation alpha"
-msgstr ""
-
-#: crypto.h:43
-msgid "Nation numeric"
-msgstr ""
-
 #: readesm.cpp:64
 msgid "Needs an input filename (--infile)!\n"
-msgstr ""
+msgstr "Benötigt einen Dateinamen für die Eingabe (--infile)!\n"
 
 #: formatStrings.h:65
 msgid "Netherlands"
@@ -894,7 +785,7 @@ msgstr "Keine weiteren Angaben"
 
 #: formatStrings.h:65
 msgid "No information available"
-msgstr ""
+msgstr "Keine Informationen verfügbar"
 
 #: formatStrings.h:65
 msgid "Norway"
@@ -902,31 +793,23 @@ msgstr "Norwegen"
 
 #: vufactory.h:23
 msgid "Not a block"
-msgstr ""
+msgstr "Kein Block"
 
 #: Activities.h:70
 msgid "Odometer"
-msgstr ""
-
-#: cardblocks.h:302
-msgid "OdometerBegin"
-msgstr ""
-
-#: cardblocks.h:303
-msgid "OdometerEnd"
-msgstr ""
+msgstr "Kilometerstand"
 
 #: vufactory.h:31
 msgid "Oops! "
 msgstr "Ups!"
 
 #: formatStrings.h:75
-msgid "Out of Scope - End"
-msgstr ""
+msgid "Out of scope – Begin"
+msgstr "Kontrollgerät nicht erforderlich – Anfang"
 
 #: formatStrings.h:75
-msgid "Out of scope - Begin"
-msgstr ""
+msgid "Out of scope – End"
+msgstr "Kontrollgerät nicht erforderlich – Ende"
 
 #: formatStrings.h:23
 msgid "Over speeding"
@@ -940,7 +823,7 @@ msgstr "Insgesamt gefahrene Strecke"
 msgid "Overall driving time"
 msgstr "Gesamtfahrzeit"
 
-#: Activity.h:153
+#: Activity.h:154
 msgid "Overtime"
 msgstr "Lenkzeitüberschreitung"
 
@@ -948,7 +831,7 @@ msgstr "Lenkzeitüberschreitung"
 msgid "Overview"
 msgstr "Übersicht"
 
-#: cardblocks.h:275
+#: cardblocks.h:276
 msgid "Places"
 msgstr ""
 
@@ -960,7 +843,7 @@ msgstr "Polen"
 msgid "Portugal"
 msgstr "Portugal"
 
-#: Activity.h:154
+#: Activity.h:155
 msgid "Possible fine"
 msgstr "Mögliche Strafe"
 
@@ -986,7 +869,7 @@ msgstr ""
 msgid "Reassigning CAcert\n"
 msgstr ""
 
-#: cardblocks.h:92 cardblocks.h:103
+#: cardblocks.h:93 cardblocks.h:104
 msgid "Reassigning cert\n"
 msgstr ""
 
@@ -996,7 +879,7 @@ msgstr ""
 
 #: esmfile.h:62
 msgid "Recorded days"
-msgstr ""
+msgstr "Aufgezeichnete Tage"
 
 #: formatStrings.h:37
 msgid "Recording equipment faults: "
@@ -1038,17 +921,9 @@ msgstr "Sensorstörung"
 msgid "Sensor related security breach attempt events: "
 msgstr "Sicherheitsverletzende Versuche Weg- und/oder Geschwindigkeitsgeber: "
 
-#: crypto.h:45
-msgid "Serial Number"
-msgstr ""
-
-#: Activity.h:63
-msgid "Single"
-msgstr ""
-
-#: cardblocks.h:453
+#: cardblocks.h:454
 msgid "Size 0 for increment. Aborting.\n"
-msgstr ""
+msgstr "Größe 0 für Inkrementierung. Abbruch.\n"
 
 #: formatStrings.h:65
 msgid "Slovakia"
@@ -1062,25 +937,25 @@ msgstr "Slowenien"
 msgid "Spain"
 msgstr "Spanien"
 
-#: cardblocks.h:123
+#: Activities.h:99
+msgid "SpecificConditionRecord"
+msgstr ""
+
+#: cardblocks.h:124
 msgid "Specific_Conditions"
 msgstr ""
 
 #: Speeds.h:29
 msgid "Speed data"
-msgstr ""
-
-#: Speeds.h:23
-msgid "Speeds"
-msgstr "Geschwindigkeiten"
+msgstr "Geschwindigkeitsdaten"
 
 #: esmfile.h:58
 msgid "Statistics"
-msgstr ""
+msgstr "Statistik"
 
 #: esmfile.h:59
 msgid "Statistics for"
-msgstr ""
+msgstr "Statistik für"
 
 #: formatStrings.h:33
 msgid "Stored data integrity error"
@@ -1089,10 +964,6 @@ msgstr "Integritätsfehler der Speicherdaten"
 #: formatStrings.h:28
 msgid "Stored user data integrity error"
 msgstr "Integritätsfehler der gespeicherten Benutzerdaten"
-
-#: cardblocks.h:82
-msgid "StructureVersion"
-msgstr ""
 
 #: formatStrings.h:65
 msgid "Sweden"
@@ -1146,10 +1017,6 @@ msgstr "Unbefugte Veränderung des Weg- und/oder Geschwindigkeitsgebers"
 msgid "United Kingdom"
 msgstr "Vereinigtes Königreich"
 
-#: Activity.h:55
-msgid "Unknown Activity"
-msgstr "Unbekannte Tätigkeit"
-
 #: vufactory.h:32
 msgid "Unknown block"
 msgstr "Unbekannter Block"
@@ -1190,13 +1057,30 @@ msgstr ""
 msgid "VehicleRegistrationNumber"
 msgstr ""
 
-#: cardblocks.h:319
+#: cardblocks.h:320
 msgid "Vehicles_Used"
 msgstr ""
 
-#: Activity.h:53
-msgid "Work"
-msgstr "Arbeit"
+#: Technical.h:40
+msgid "VuCalibrationRecord"
+msgstr ""
+
+#: Activities.h:71
+msgid "VuCardIWRecord"
+msgstr ""
+
+#: Overview.h:44
+msgid "VuCompanyLocksRecord"
+msgstr ""
+
+#: Overview.h:51
+msgid "VuControlActivityRecord"
+msgstr ""
+
+#: Speeds.h:19
+#, fuzzy
+msgid "VuDetailedSpeedBlock"
+msgstr "detaillierte Geschwindigkeit"
 
 #: Activities.h:108
 msgid "Work period"
@@ -1218,6 +1102,26 @@ msgstr ""
 "Aktivierung: Aufzeichnung von bekannten Kalibrierungsparametern zum "
 "Zeitpunkt der FE-Aktivierung"
 
+#: Activities.h:88
+msgid "activityChangeInfo"
+msgstr ""
+
+#: Activities.h:87
+msgid "activityChangeInfos"
+msgstr ""
+
+#: cardblocks.h:418
+msgid "activityDailyPresenceCounter"
+msgstr ""
+
+#: cardblocks.h:419
+msgid "activityDayDistance"
+msgstr ""
+
+#: crypto.h:46
+msgid "additionalInfo"
+msgstr ""
+
 #: formatStrings.h:55
 msgid "an active/on-going event or fault"
 msgstr "ein aktives Ereignis oder eine andauernde Störung"
@@ -1226,31 +1130,51 @@ msgstr "ein aktives Ereignis oder eine andauernde Störung"
 msgid "authorisedSpeed"
 msgstr ""
 
+#: Activity.h:52
+msgid "availability"
+msgstr ""
+
 #: Faults.h:62
 msgid "averageSpeedValue"
 msgstr ""
 
-#: Activity.h:89
+#: cardblocks.h:236
+msgid "beginTime"
+msgstr ""
+
+#: Activity.h:90
 msgid "black"
 msgstr "schwarz"
 
-#: Activity.h:95
+#: Activity.h:96
 msgid "blue"
 msgstr "blau"
+
+#: Activity.h:51
+msgid "break/rest"
+msgstr ""
+
+#: crypto.h:47
+msgid "caIdentifier"
+msgstr ""
 
 #: Technical.h:41
 msgid "calibrationPurpose"
 msgstr ""
 
+#: Activity.h:64
+msgid "card "
+msgstr "Karte"
+
 #: formatStrings.h:87
 msgid "card downloaded, "
 msgstr "Karte heruntergeladen, "
 
-#: Activities.h:75 cardblocks.h:364
+#: Activities.h:75 cardblocks.h:365
 msgid "cardExpiryDate"
 msgstr ""
 
-#: cardblocks.h:367
+#: cardblocks.h:368
 msgid "cardHolderBirthDate"
 msgstr ""
 
@@ -1258,7 +1182,7 @@ msgstr ""
 msgid "cardHolderFirstNames"
 msgstr ""
 
-#: cardblocks.h:368
+#: cardblocks.h:369
 msgid "cardHolderPreferredLanguage"
 msgstr ""
 
@@ -1270,19 +1194,19 @@ msgstr ""
 msgid "cardInsertionTime"
 msgstr ""
 
-#: cardblocks.h:362
+#: cardblocks.h:363
 msgid "cardIssueDate"
 msgstr ""
 
-#: cardblocks.h:361
+#: cardblocks.h:362
 msgid "cardIssuingAuthorityName"
 msgstr ""
 
-#: cardblocks.h:191 cardblocks.h:359
+#: cardblocks.h:192 cardblocks.h:360
 msgid "cardIssuingMemberState"
 msgstr ""
 
-#: cardblocks.h:192 cardblocks.h:360
+#: cardblocks.h:193 cardblocks.h:361
 msgid "cardNumber"
 msgstr ""
 
@@ -1306,17 +1230,25 @@ msgstr ""
 msgid "cardSlotNumber"
 msgstr ""
 
-#: cardblocks.h:190
+#: cardblocks.h:82
+msgid "cardStructureVersion"
+msgstr ""
+
+#: cardblocks.h:191
 msgid "cardType"
 msgstr ""
 
-#: cardblocks.h:363
+#: cardblocks.h:364
 msgid "cardValidityBegin"
 msgstr ""
 
 #: Activities.h:79
 msgid "cardWithdrawalTime"
 msgstr ""
+
+#: Activity.h:62
+msgid "co-driver"
+msgstr "2. Fahrer"
 
 #: Overview.h:48
 msgid "companyAddress"
@@ -1330,31 +1262,39 @@ msgstr ""
 msgid "companyName"
 msgstr ""
 
+#: Overview.h:43
+msgid "companyOrWorkshopName"
+msgstr ""
+
 #: Overview.h:54
 msgid "controlCardNumber"
 msgstr ""
 
-#: cardblocks.h:221
+#: cardblocks.h:222
 msgid "controlDownloadPeriodBegin"
 msgstr ""
 
-#: cardblocks.h:222
+#: cardblocks.h:223
 msgid "controlDownloadPeriodEnd"
 msgstr ""
 
-#: cardblocks.h:218 Overview.h:53
+#: cardblocks.h:219 Overview.h:53
 msgid "controlTime"
 msgstr ""
 
-#: cardblocks.h:217 Overview.h:52
+#: cardblocks.h:218 Overview.h:52
 msgid "controlType"
 msgstr ""
 
-#: Activities.h:95 cardblocks.h:169
+#: Activity.h:63
+msgid "crew"
+msgstr "Team"
+
+#: Activities.h:95 cardblocks.h:170
 msgid "dailyWorkPeriodCountry"
 msgstr ""
 
-#: Activities.h:96 cardblocks.h:170
+#: Activities.h:96 cardblocks.h:171
 msgid "dailyWorkPeriodRegion"
 msgstr ""
 
@@ -1374,6 +1314,14 @@ msgstr ""
 msgid "downloadingTime"
 msgstr ""
 
+#: Activity.h:62
+msgid "driver"
+msgstr "Fahrer"
+
+#: Activity.h:54
+msgid "driving"
+msgstr "Lenken"
+
 #: cardblocks.h:54
 msgid "drivingLicenceIssuingAuthorithy"
 msgstr ""
@@ -1386,15 +1334,19 @@ msgstr ""
 msgid "drivingLicenceNumber"
 msgstr ""
 
-#: Activity.h:122
+#: Activity.h:123
 msgid "duration < 0\n"
 msgstr "Dauer < 0\n"
 
-#: Activities.h:93 Activities.h:100 cardblocks.h:167
+#: cardblocks.h:237
+msgid "endTime"
+msgstr ""
+
+#: Activities.h:93 Activities.h:100 cardblocks.h:168
 msgid "entryTime"
 msgstr ""
 
-#: Activities.h:94 cardblocks.h:168
+#: Activities.h:94 cardblocks.h:169
 msgid "entryTypeDailyWorkPeriod"
 msgstr ""
 
@@ -1418,7 +1370,7 @@ msgstr ""
 msgid "eventRecordPurpose"
 msgstr ""
 
-#: Faults.h:43 Faults.h:57
+#: cardblocks.h:235 Faults.h:43 Faults.h:57
 msgid "eventType"
 msgstr ""
 
@@ -1458,11 +1410,11 @@ msgstr ""
 msgid "from"
 msgstr "von"
 
-#: Activities.h:74 Activities.h:92
+#: Activities.h:74 Activities.h:92 Overview.h:42
 msgid "fullCardNumber"
 msgstr ""
 
-#: Activity.h:90
+#: Activity.h:91
 msgid "green"
 msgstr "grün"
 
@@ -1474,11 +1426,11 @@ msgstr ""
 msgid "help,h"
 msgstr ""
 
-#: cardblocks.h:366
+#: cardblocks.h:367
 msgid "holderFirstNames"
 msgstr ""
 
-#: cardblocks.h:365
+#: cardblocks.h:366
 msgid "holderSurname"
 msgstr ""
 
@@ -1498,12 +1450,20 @@ msgstr ""
 msgid "input file"
 msgstr "Eingabedatei"
 
+#: Activity.h:64
+msgid "inserted"
+msgstr "eingesteckt"
+
 #: formatStrings.h:80
 msgid "installation: first calibration of the VU in the current vehicle"
 msgstr "Einbau: Erste Kalibrierung der FE im derzeitigen Fahrzeug"
 
 #: Technical.h:50
 msgid "kConstantOfRecordingEquipment"
+msgstr ""
+
+#: crypto.h:45
+msgid "keySerialNumber"
 msgstr ""
 
 #: Technical.h:51
@@ -1546,6 +1506,14 @@ msgstr ""
 msgid "minDownloadableTime"
 msgstr ""
 
+#: crypto.h:44
+msgid "nationAlpha"
+msgstr ""
+
+#: crypto.h:43
+msgid "nationNumeric"
+msgstr ""
+
 #: Technical.h:55
 msgid "newOdometerValue"
 msgstr ""
@@ -1567,8 +1535,8 @@ msgid "no, not signed"
 msgstr "nein, nicht signiert"
 
 #: Activity.h:64
-msgid "not"
-msgstr "nicht"
+msgid "not inserted"
+msgstr "nicht eingesteckt"
 
 #: Faults.h:55
 msgid "numberOfOverspeedSince"
@@ -1650,7 +1618,7 @@ msgstr "Hilfetext ausgeben"
 msgid "readesm"
 msgstr ""
 
-#: Activity.h:93
+#: Activity.h:94
 msgid "red"
 msgstr "rot"
 
@@ -1670,7 +1638,7 @@ msgstr ""
 msgid "sensorSerialNumber"
 msgstr ""
 
-#: cardblocks.h:390
+#: cardblocks.h:391
 msgid "sessionOpenTime"
 msgstr ""
 
@@ -1678,11 +1646,23 @@ msgstr ""
 msgid "similarEventsNumber"
 msgstr ""
 
+#: Activity.h:63
+msgid "single"
+msgstr "Einmannbetrieb"
+
 #: Activities.h:101
 msgid "specificConditionType"
 msgstr ""
 
-#: cardblocks.h:484
+#: Speeds.h:20
+msgid "speedBlockBeginDate"
+msgstr ""
+
+#: Speeds.h:23
+msgid "speedsPerSecond"
+msgstr ""
+
+#: cardblocks.h:485
 msgid "stray signature"
 msgstr "verwaiste Signatur"
 
@@ -1712,19 +1692,43 @@ msgstr ""
 msgid "to"
 msgstr "nach"
 
+#: cardblocks.h:81
+msgid "typeOfTachographCardId"
+msgstr ""
+
 #: Technical.h:52
 msgid "tyreSize"
 msgstr ""
+
+#: Activity.h:55
+msgid "unknown activity"
+msgstr "unbekannte Tätigkeit"
 
 #: block.h:29
 msgid "validly signed"
 msgstr "gültig signiert"
 
+#: cardblocks.h:305
+msgid "vehicleFirstUse"
+msgstr ""
+
 #: Technical.h:46
 msgid "vehicleIdentificationNumber"
 msgstr ""
 
-#: Activities.h:97 cardblocks.h:171
+#: cardblocks.h:306
+msgid "vehicleLastUse"
+msgstr ""
+
+#: cardblocks.h:303
+msgid "vehicleOdometerBegin"
+msgstr ""
+
+#: cardblocks.h:304
+msgid "vehicleOdometerEnd"
+msgstr ""
+
+#: Activities.h:97 cardblocks.h:172
 msgid "vehicleOdometerValue"
 msgstr ""
 
@@ -1736,11 +1740,11 @@ msgstr ""
 msgid "vehicleOdometerValueAtWithdrawal"
 msgstr ""
 
-#: cardblocks.h:143 cardblocks.h:391 Technical.h:47
+#: cardblocks.h:144 cardblocks.h:392 Technical.h:47
 msgid "vehicleRegistrationNation"
 msgstr ""
 
-#: cardblocks.h:144 cardblocks.h:392 Technical.h:48
+#: cardblocks.h:145 cardblocks.h:393 Technical.h:48
 msgid "vehicleRegistrationNumber"
 msgstr ""
 
@@ -1760,7 +1764,7 @@ msgstr ""
 msgid "vuApprovalNumber"
 msgstr ""
 
-#: cardblocks.h:307
+#: cardblocks.h:308
 msgid "vuDataBlockCounter"
 msgstr ""
 
@@ -1796,6 +1800,10 @@ msgstr ""
 msgid "wVehicleCharacteristicConstant"
 msgstr ""
 
+#: Activity.h:53
+msgid "work"
+msgstr "Arbeit"
+
 #: Faults.h:70 Technical.h:43
 msgid "workshopAddress"
 msgstr ""
@@ -1816,7 +1824,7 @@ msgstr ""
 msgid "xml"
 msgstr "xml"
 
-#: Activity.h:88
+#: Activity.h:89
 msgid "yellow"
 msgstr "gelb "
 
@@ -1870,6 +1878,10 @@ msgstr ""
 
 #: i18n.h:42
 msgid "¬"
+msgstr ""
+
+#: i18n.h:42
+msgid "­"
 msgstr ""
 
 #: i18n.h:42
@@ -2200,3 +2212,11 @@ msgstr ""
 msgid "ÿ"
 msgstr ""
 
+#~ msgid "Distance driven"
+#~ msgstr "Gefahrene Strecke"
+
+#~ msgid "Speeds"
+#~ msgstr "Geschwindigkeiten"
+
+#~ msgid "not"
+#~ msgstr "nicht"

@@ -23,28 +23,28 @@ You should have received a copy of the GNU General Public License along with rea
 
 class CAid{
 	public:
-	int numnation;
-	string alphanation;
-	int serialnumber;
+	int numNation;
+	string alphaNation;
+	int serialNumber;
 	int additionalCoding;
 	int identifier;
 	bool operator==(const CAid& other) const{
-		return numnation == other.numnation && alphanation == other.alphanation && serialnumber == other.serialnumber && additionalCoding == other.additionalCoding && identifier == other.identifier;
+		return numNation == other.numNation && alphaNation == other.alphaNation && serialNumber == other.serialNumber && additionalCoding == other.additionalCoding && identifier == other.identifier;
 	}
 	bool operator!=(const CAid& other) const{ return !operator==(other); }
 	CAid(iter start) :
-		numnation(start[0]), 
-		alphanation(fixedString(start + 1, 3)), 
-		serialnumber(start[4]),
+		numNation(start[0]), 
+		alphaNation(fixedString(start + 1, 3)), 
+		serialNumber(start[4]),
 		additionalCoding(BEInt16(start + 5)),
 		identifier(start[7])
 		{}
 	friend reporter& operator<<(reporter& o, const CAid& p){
-		o("Nation numeric", nationNumeric(p.numnation));
-		o("Nation alpha", p.alphanation);
-		o("Serial Number", p.serialnumber);
-		o("Add. Coding", p.additionalCoding);
-		o("Identifier", p.identifier);
+		o("nationNumeric", nationNumeric(p.numNation));
+		o("nationAlpha", p.alphaNation);
+		o("keySerialNumber", p.serialNumber);
+		o("additionalInfo", p.additionalCoding);
+		o("caIdentifier", p.identifier);
 		return o;
 	}
 };
@@ -61,7 +61,7 @@ class verifiedcert{
 		slurpedfile rawkey = slurp(filename);
 		CAid rawkey_ca(rawkey.begin());
 		if(rawkey_ca != car){
-			std::cerr << "Attempting to use wrong ca certificate";
+			std::cerr << "Attempting to use wrong ca certificate.";
 			return false;
 		}
 		return verify(rsa(&rawkey[8], 128, &rawkey[136], 8));
@@ -75,7 +75,7 @@ class verifiedcert{
 		copy(&buffer[1], &cdash[0], 106);
 		copy(&start[128], &cdash[106], 58);
 		if(!checkSHA1match(cdash, 164, &buffer[107])){
-			std::cout << "Certificate is invalid\n";
+			std::cout << "Certificate is invalid.\n";
 			return false;
 		}
 		key = rsa(&cdash[28],128,&cdash[156],8);

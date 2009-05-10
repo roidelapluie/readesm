@@ -94,10 +94,10 @@ class txtreporter : public reporter{
 		(*this) << "  ***   \n";
 	}
 	virtual void operator()(const string& description, const std::string& value){
-		(*this) << tr(description) << ": \t" << tr(value) << "\n";
+		(*this) << tr(description) << ": \t" << tr(value) << std::endl;
 	}
 	virtual void operator()(const string& description, int value){
-		(*this) << tr(description) << ": \t" << value << "\n";
+		(*this) << tr(description) << ": \t" << value << std::endl;
 	}
 	virtual void bigblockstart(const string& name){
 		(*this) << "\n\n+++++++++++++++++ Block: " << name << " ++++++++++++++++++++++++++\n";

@@ -16,11 +16,11 @@ class Speeds : public vublock {
 	}
 	void CompleteReport(reporter& report) const{
 		runningIndex = 0;
-		for(reporter::subblock b = report.newsub("Detailed Speed", Int16()); b(); ++b){
-			report("BeginDate",readDate().str());
+		for(reporter::subblock b = report.newsub("VuDetailedSpeedBlock", Int16()); b(); ++b){
+			report("speedBlockBeginDate",readDate().str());
 			ostringstream o;
 			for(int k = 0; k < 60; ++k) o << IntByte() << ", ";
-			report("Speeds",o.str());
+			report("speedsPerSecond",o.str());
 		}
 	}
 	void BriefReport(reporter& report) const{
@@ -41,7 +41,7 @@ class Speeds : public vublock {
 			int dayend = daystart + 86400;
 			do {
 				int difference = date.timestamp - daystart;
-				for(int k = 0; k < 60; ++k) *visual << (difference + k) << " " << IntByte() << "\n";
+				for(int k = 0; k < 60; ++k) *visual << (difference + k) << " " << IntByte() << std::endl;
 				if(j < count) date = readDate();
 			} while(++j < count && date.timestamp < dayend);
 			report(sdate.datestr(),visual->str());

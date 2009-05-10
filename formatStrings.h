@@ -72,7 +72,7 @@ string nationNumeric(unsigned char country){
 }
 
 string formatSpecificCondition(unsigned char country){
-	static const char* countries[] = {"RFU","Out of scope - Begin", "Out of Scope - End","Ferry/Train crosssing"};
+	static const char* countries[] = {"RFU", "Out of scope – Begin", "Out of scope – End", "Ferry/Train crossing"};
 	if(country <= 0x3) return countries[country];
 	else return "RFU";
 }

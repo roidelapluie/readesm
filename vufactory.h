@@ -35,8 +35,4 @@ boost::shared_ptr<vublock> vuFactory(iter start){
 }
 
 
-
-
-
-
 #endif

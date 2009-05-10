@@ -57,11 +57,11 @@ int main(int argc, char* argv[]){
 	po::notify(vm);
 	
 	if (vm.count("help")) {
-		std::cout << desc << "\n";
+		std::cout << desc << std::endl;
 		return 0;
 	}
 	if (!vm.count("infile")) {
-		std::cout << tr("Needs an input filename (--infile)!\n") << desc << "\n";
+		std::cout << tr("Needs an input filename (--infile)!\n") << desc << std::endl;
 		return 1;
 	}
 

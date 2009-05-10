@@ -39,16 +39,16 @@ class Overview : public vublock {
 		report("maxDownloadableTime",	readDate().str());
 		report("CardSlotsStatus",	IntByte());
 		report("downloadingTime",	readDate().str());
-		report("FullCardNumber",	fixedString(18));
-		report("CompanyOrWorkshopName",fixedString(36));
-		for(reporter::subblock b = report.newsub("Locks", IntByte()); b(); ++b){
+		report("fullCardNumber",	fixedString(18));
+		report("companyOrWorkshopName",	fixedString(36));
+		for(reporter::subblock b = report.newsub("VuCompanyLocksRecord", IntByte()); b(); ++b){
 			report("lockInTime",	readDate().str());
 			report("lockOutTime",	readDate().str());	
 			report("companyName",	fixedString(36));
 			report("companyAddress",fixedString(36));
 			report("companyCardNumber",	fixedString(18));
 		}
-		for(reporter::subblock b = report.newsub("Controls", IntByte()); b(); ++b){
+		for(reporter::subblock b = report.newsub("VuControlActivityRecord", IntByte()); b(); ++b){
 			report("controlType",	formatControlType(IntByte()));
 			report("controlTime",	readDate().str());
 			report("controlCardNumber",	fixedString(18));

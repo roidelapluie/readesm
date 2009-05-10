@@ -35,7 +35,7 @@ class Activities : public vublock {
 		runningIndex += 2;
 		return Activity(&block_start[runningIndex - 2]);
 	}
- 	public:
+	public:
 	virtual string name() const{
 		return "Activities for " + readDate(0).datestr();
 	}
@@ -48,7 +48,7 @@ class Activities : public vublock {
 		for(int j = 0; j < num_crblocks; ++j){
 			int sb_start = 9 + j*129;
 			CardInOut t;
-			t.Name =  fixedString(sb_start + 36,36) + fixedString(sb_start,36);
+			t.Name = fixedString(sb_start + 36,36) + fixedString(sb_start,36);
 			t.InTime = readDate(sb_start + 94);
 			t.OdometerIn = Odometer(sb_start + 98);
 			t.OutTime = readDate(sb_start + 102);
@@ -68,7 +68,7 @@ class Activities : public vublock {
 		runningIndex = 0;
 		report("TimeReal",readDate().str());
 		report("Odometer",Odometer());
-		for(reporter::subblock b = report.newsub("CardInsertions", Int16()); b(); ++b){
+		for(reporter::subblock b = report.newsub("VuCardIWRecord", Int16()); b(); ++b){
 			report("cardHolderSurname", fixedString(36));
 			report("cardHolderFirstNames", fixedString(36));
 			report("fullCardNumber", fixedString(18));
@@ -84,8 +84,8 @@ class Activities : public vublock {
 			report("manualInputFlag", IntByte());
 		}
 
-		for(reporter::subblock b = report.newsub("ActivityChangeInfo", Int16()); b(); ++b){
-			report("ActChangeInfo", readActivity().str());
+		for(reporter::subblock b = report.newsub("activityChangeInfos", Int16()); b(); ++b){
+			report("activityChangeInfo", readActivity().str());
 		}
 		
 		for(reporter::subblock b = report.newsub("Regions", IntByte()); b(); ++b){
@@ -96,7 +96,7 @@ class Activities : public vublock {
 			report("dailyWorkPeriodRegion", IntByte());
 			report("vehicleOdometerValue", Odometer());
 		}
-		for(reporter::subblock b = report.newsub("Conditions", Int16()); b(); ++b){
+		for(reporter::subblock b = report.newsub("SpecificConditionRecord", Int16()); b(); ++b){
 			report("entryTime", readDate().str());
 			report("specificConditionType", IntByte());
 		}

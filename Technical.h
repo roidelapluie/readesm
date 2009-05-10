@@ -37,7 +37,7 @@ class Technical : public vublock {
 		report("sensorApprovalNumber",fixedString(8) );
 		report("sensorPairingDateFirst",readDate().str() );
 		
-		for(reporter::subblock b = report.newsub("Calibrations", IntByte()); b(); ++b){
+		for(reporter::subblock b = report.newsub("VuCalibrationRecord", IntByte()); b(); ++b){
 			report("calibrationPurpose", formatCalibrationPurpose(IntByte()));
 			report("workshopName", fixedString(36) );
 			report("workshopAddress", fixedString(36) );

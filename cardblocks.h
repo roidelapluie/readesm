@@ -60,7 +60,7 @@ class Driving_License_Info : public tlvblock{
 class Card_Download : public tlvblock{
 	public:
 	static const int Type = 0x050e;
-	string name() const{ return "Card Download"; }
+	string name() const{ return "Card_Download"; }
 	Time LastCardDownload;
 	Card_Download(iter filewalker) : tlvblock(filewalker),
 		LastCardDownload(Time(BEInt32(filewalker + 5))){}
@@ -78,15 +78,16 @@ class Application_Identification : public tlvblock{
 		typeOfTachographCardId(start[5]),
 		cardStructureVersion(BEInt16(start + 6)){}
 	virtual void printOn(reporter& o) const{
-		o("CardType",formatEquipmentType(typeOfTachographCardId));
+		o("typeOfTachographCardId",formatEquipmentType(typeOfTachographCardId));
 		o("cardStructureVersion",hex(cardStructureVersion, 4));
+		//TODO: read noOfCompanyActivityRecords
 	}
 };
 
 class Card_Certificate : public tlvblock{
 	public:
 	static const int Type = 0xc100;
-	virtual string name() const{ return "Card Certificate"; }
+	virtual string name() const{ return "Card_Certificate"; }
 	Card_Certificate(iter filewalker) : tlvblock(filewalker){}
 	virtual void reportstuff(esmfilehead& esm){
 		if(esm.devicecert) std::cerr << "Reassigning cert\n";
@@ -231,9 +232,9 @@ class Events_Data : public tlvblock{
 		vehicleRegistration vreg;
 		CardEventRecord(iter start) : Type(start[0]), BeginTime(BEInt32(start + 1)), EndTime(BEInt32(start + 5)), vreg(start+9) {} 
 		friend reporter& operator<<(reporter& report, CardEventRecord e){
-			report("EventType" ,formatEventType(e.Type));
-			report("BeginTime" ,e.BeginTime.str());
-			report("EndTime" ,e.EndTime.str());
+			report("eventType" ,formatEventType(e.Type));
+			report("beginTime" ,e.BeginTime.str());
+			report("endTime" ,e.EndTime.str());
 			report << e.vreg;
 			return report;
 		}
@@ -299,10 +300,10 @@ class Vehicles_Used : public tlvblock{
 			vreg(start+14),
 			vuDataBlockCounter(BEInt16(start + 29)) {} 
 		friend reporter& operator<<(reporter& report, const CardVehicleRecord& e){
-			report("OdometerBegin" ,e.OdometerBegin);
-			report("OdometerEnd" ,e.OdometerEnd);
-			report("FirstUse" ,e.FirstUse.str());
-			report("LastUse" ,e.LastUse.str());
+			report("vehicleOdometerBegin" ,e.OdometerBegin);
+			report("vehicleOdometerEnd" ,e.OdometerEnd);
+			report("vehicleFirstUse" ,e.FirstUse.str());
+			report("vehicleLastUse" ,e.LastUse.str());
 			report << e.vreg;
 			report("vuDataBlockCounter" ,e.vuDataBlockCounter);
 			return report;
@@ -342,7 +343,7 @@ class Identification : public tlvblock{
 	string cardHolderPreferredLanguage;
 
 	static const int Type = 0x0520;
-	string name() const{ return "Identification"; }
+	string name() const{ return "CardIdentification"; }
 	Identification(iter filewalker) : tlvblock(filewalker),
 		cardIssuingMemberState(start[5]),
 		cardNumber(fixedString(start + 6, 16)),
@@ -414,8 +415,8 @@ class DailyActivityCard : public DailyActivity {
 	DailyActivityCard(iter start, int count) : DailyActivity(start + 4, start + 12, count), presence(BEInt16(start + 8)), distance(BEInt16(start + 10)) {}
 	friend reporter& operator<<(reporter& o, const DailyActivityCard& d){
 		o << (DailyActivity)d;
-		if(o.verbose) o("Daily presence counter",d.presence);
-		if(d.distance) o("Distance driven",d.distance);
+		if(o.verbose) o("activityDailyPresenceCounter",d.presence);
+		if(d.distance) o("activityDayDistance",d.distance);
 		return o;
 	}
 };
@@ -466,7 +467,7 @@ class Driver_Activity_Data : public tlvblock{
 	subray acts;
 
 	virtual void printOn(reporter& o) const{
-		o("Accumulated fine", fine);
+		o("Accumulated fines", fine);
 		o("Activity space usage", stringify(useddata) + " of " + stringify(datasize - 9) + " Bytes");
 		o.reportraynosub(acts);
 		
