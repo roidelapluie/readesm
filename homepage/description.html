@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
+<head>
+	<title>readESM - digital tachograph file reader</title>
+	<meta http-equiv='Content-Type' content='text/html; charset=utf8'/>
+</head>
+<body>
+<h1>readESM - digital tachograph file reader</h1>
+
+<p>This program takes an ESM file, as downloaded from a digital tachograph or a
+driver card, a compulsory equipment for trucks heavier than 3.5 tons within the
+European Union. It converts said files into human-readable form, either html or
+simple plaintext.</p>
+
+<p>So far the program just does this conversion, with a few datasets still unread,
+and does little analysis of the data. More analysis is planned for the future,
+but any serious attempt requires refactoring the data heavily, which might never
+be done due to time constraints.</p>
+
+<p>The digital tachographs and respective cards use a quite elaborate security
+model, with 1024-bit rsa, sha-1 hashes and individual certificates on each card
+signed by ec member states authorities. The software checks the signatures and
+certification chain for correctness, but no effort is made to circumvent the
+security mechanisms (and since all important data in the files is protected by
+industry-standard signatures, that would be a daunting task anyway).</p>
+
+<p>The language of the project is C++, and development is done on a linux platform,
+but it should be possible to compile it on any platform with a C++-compiler,
+boost and the stdlib. Right now it also uses the Gnu MP library and libgcrypt,
+but if signature checking is not needed that could simply be commented out.</p>
+
+<h3><a name="Compiling">Compiling</a></h3>
+<p>You can get the program files from <a href="http://andreas.goelzer.de/readesm-reading-digital-tachograph-files">my homepage</a> or from
+the <a href="http://sourceforge.net/projects/readesm/">development page</a> at Sourceforge.
+Since so far there is no binary distribution of the program, you will have to
+compile it yourself.</p>
+<p>To do that, you need a C++ compiler, parts of the <a href="http://www.boost.org/">boost</a> library (specifically program_options and shared_ptr), the <a href="http://gmplib.org/">Gnu MP</a> library and <a href="http://directory.fsf.org/security/libgcrypt.html">libgrypt</a>, which is used to check the various RSA signatures.</p>
+<p>Once all those are installed, typing make/make install should work fine. If not, it
+might give you a hint what is still needed, if not, report your error.</p>
+<p>For certain linux flavours, "make package" will create a package using checkinstall,
+which you can easily uninstall with your package management tool.
+On Ubuntu (http://www.ubuntu.com/) systems, you will need to do something like:
+<pre>svn co https://readesm.svn.sourceforge.net/svnroot/readesm readesm
+sudo apt-get install libboost-program-options-dev libgcrypt11-dev libgmp3-dev
+make
+sudo make install</pre>
+Or use some method that integrates it into your package manager, like
+aforementioned checkinstall.</p>
+
+<h3><a name="Running">Running the program</a></h3>
+<p>In most circumstances, you will run the program from the commandline like this:
+<pre>readesm --infile foo.esm --outfile bar.html --format=html</pre>
+Alternatively, if no output file is specified, stdout is used.</p>
+<p>For <a href="http://www.kde.org/">KDE</a> users,I wrote a little wrapper script named
+readesm-wrap-kde.sh. It will get installed my typing make install. If you
+associate esm files with it, you can click on one in your kde file manager, and
+it will open a konqueror window containing the html result.</p>
+
+
+<h3><a name="Modifying">Modifying the program</a></h3>
+<p>You are free to modify the program under the terms of the GPL.
+If you do so, note:
+<ul><li>Sometimes i added references to l207.pdf in the comments, that refers to
+<a href="http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=OJ:L:2002:207:0001:0252:EN:PDF">OJ:L:2002:207, p. 1-252</a>.</li>
+<li>The code is rather unclean, often two or more classes in the same file, wild
+naming convention(often taken from the european law, which leads to some unhandy names).</li>
+<li>You can create a doxygen documentation by typing make doc. It is also available <a href="codedoc/">online</a>.</p>
+
+<hr>
+<a href="http://andreas.goelzer.de/">Andreas Gölzer</a>, May 10th, 2009
+</body>
+</html>
