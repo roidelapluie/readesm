@@ -36,6 +36,8 @@ $(name).pot: $(sources)
 	xgettext -d $(name) -a -s --from-code utf-8 -o $(name).pot $(sources)
 german.po: $(name).pot
 	msgmerge -s -U $@ $<
+german.mo: german.po
+	msgfmt -c -v -o $@ $<
 locale/de_DE.utf8/LC_MESSAGES/$(name).mo: german.po
 	msgfmt -c -v -o $@ $<
 
@@ -45,15 +47,19 @@ locale/de_DE.utf8/LC_MESSAGES/$(name).mo: german.po
 run: $(name)
 	./$(name) $(run_args)
 
-install: $(name)
+install: $(name) german.mo
 	install -d /usr/local/share/readesm
+	install -d /usr/local/bin
+	install -d /usr/local/share/locale/de_DE.utf8/LC_MESSAGES
 	install -m 755 $(name) /usr/local/bin
 	install -m 755 $(name)-wrap-kde.sh /usr/local/bin
 	install -m 644 images.tar.bz2 /usr/local/share/readesm
+	install -m 644 german.mo /usr/local/share/locale/de_DE.utf8/LC_MESSAGES/$(name).mo
 	install -m 644 EC_PK.bin /usr/local/share/readesm
 
-package: $(name)
-	checkinstall -y --maintainer "Andreas Goelzer \<andreas@goelzer.de\>" --pkgsource "http://andreas.goelzer.de/download/$(name).tar.bz2" --pkggroup text --requires "libgmpxx4ldbl, libgmp3c2, libboost-program-options1.34.1" --install=no --fstrans
+
+packageinstall: $(name)
+	checkinstall -y --maintainer "Andreas Goelzer \<andreas@goelzer.de\>" --pkgsource "http://andreas.goelzer.de/download/$(name).tar.bz2" --pkggroup text --requires "libgcrypt11, libgmp3c2, libboost-program-options1.34.1"
 uninstall:
 	rm /usr/local/bin/$(name)
 	rm /usr/local/share/images.tar.bz2
