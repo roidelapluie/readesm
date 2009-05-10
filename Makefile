@@ -8,7 +8,7 @@
 name := readesm
 headers = $(wildcard *.h)
 objects = $(headers:.h=.o)
-extrafiles = $(name).doxygen EC_PK.bin batchall.sh COPYING README images.tar.bz2  $(name)-wrap-kde.sh
+extrafiles = $(name).doxygen EC_PK.bin batchall.sh COPYING README images.tar.bz2  $(name)-wrap-kde.sh german.po
 run_args = 
 sources = $(name).cpp $(filter $(wildcard *.cpp), $(objects:.o=.cpp)) $(filter $(wildcard *.h), $(objects:.o=.h))
 
@@ -50,11 +50,11 @@ run: $(name)
 install: $(name) german.mo
 	install -d /usr/local/share/readesm
 	install -d /usr/local/bin
-	install -d /usr/local/share/locale/de_DE.utf8/LC_MESSAGES
+	install -d /usr/local/share/locale/de/LC_MESSAGES
 	install -m 755 $(name) /usr/local/bin
 	install -m 755 $(name)-wrap-kde.sh /usr/local/bin
 	install -m 644 images.tar.bz2 /usr/local/share/readesm
-	install -m 644 german.mo /usr/local/share/locale/de_DE.utf8/LC_MESSAGES/$(name).mo
+	install -m 644 german.mo /usr/local/share/locale/de/LC_MESSAGES/$(name).mo
 	install -m 644 EC_PK.bin /usr/local/share/readesm
 
 
