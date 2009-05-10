@@ -12,12 +12,13 @@ You should have received a copy of the GNU General Public License along with rea
 #include <string>
 #include <sstream>
 #include "typedefs.h"
+#include "i18n.h"
 
 string fixedString(iter start, int length){
 	ostringstream o;
 	int lastchar = length - 1; 
 	for(; lastchar; --lastchar) if(start[lastchar] > 0x20) break;
-	for(int j = 0; j <= lastchar ; ++j) if(start[j] >= 0x20 && start[j] != 0xFF) o << start[j];
+	for(int j = 0; j <= lastchar ; ++j) if(start[j] >= 0x20 && start[j] != 0xFF) o << latin1tounicode(start[j]);
 	return o.str();
 }
 

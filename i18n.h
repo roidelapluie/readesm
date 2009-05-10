@@ -31,4 +31,13 @@ string tr(const char* in){
 char* trc(const char* in){
 	return gettext(in);
 }
+
+string latin1tounicode(unsigned char in){
+	ostringstream o;
+	if(in <= 127){
+		o << in;
+		return o.str();
+	}
+	return "";
+}
 #endif
