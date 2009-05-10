@@ -1,9 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
 	<title>readESM - digital tachograph file reader</title>
 	<meta http-equiv='Content-Type' content='text/html; charset=utf8'/>
+	<link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
 <h1>readESM - digital tachograph file reader</h1>
@@ -17,22 +17,22 @@
 <h3><a name="About">About the program</a></h3>
 <p>This program takes an ESM file, as downloaded from a digital tachograph or a
 driver card, a compulsory equipment for trucks heavier than 3.5 tons within the
-European Union. It converts said files into human-readable form, either html or
-simple plaintext.</p>
+European Union. It converts said files into human-readable form, either HTML or
+simple plain text.</p>
 
-<p>So far the program just does this conversion, with a few datasets still unread,
+<p>So far the program just does this conversion, with a few data sets still unread,
 and does little analysis of the data. More analysis is planned for the future,
 but any serious attempt requires refactoring the data heavily, which might never
 be done due to time constraints.</p>
 
 <p>The digital tachographs and respective cards use a quite elaborate security
-model, with 1024-bit rsa, sha-1 hashes and individual certificates on each card
-signed by ec member states authorities. The software checks the signatures and
+model, with 1024-bit RSA, SHA-1 hashes and individual certificates on each card
+signed by EC member states authorities. The software checks the signatures and
 certification chain for correctness, but no effort is made to circumvent the
 security mechanisms (and since all important data in the files is protected by
 industry-standard signatures, that would be a daunting task anyway).</p>
 
-<p>The language of the project is C++, and development is done on a linux platform,
+<p>The language of the project is C++, and development is done on a Linux platform,
 but it should be possible to compile it on any platform with a C++-compiler,
 boost and the stdlib. Right now it also uses the Gnu MP library and libgcrypt,
 but if signature checking is not needed that could simply be commented out.</p>
@@ -45,7 +45,7 @@ compile it yourself.</p>
 <p>To do that, you need a C++ compiler, parts of the <a href="http://www.boost.org/">boost</a> library (specifically program_options and shared_ptr), the <a href="http://gmplib.org/">Gnu MP</a> library and <a href="http://directory.fsf.org/security/libgcrypt.html">libgrypt</a>, which is used to check the various RSA signatures.</p>
 <p>Once all those are installed, typing make/make install should work fine. If not, it
 might give you a hint what is still needed, if not, report your error.</p>
-<p>For certain linux flavours, "make package" will create a package using checkinstall,
+<p>For certain Linux flavors, "make package" will create a package using checkinstall,
 which you can easily uninstall with your package management tool.
 On <a href="http://www.ubuntu.com/">Ubuntu</a> systems, you will need to do something like:
 <pre>svn co https://readesm.svn.sourceforge.net/svnroot/readesm readesm
@@ -56,11 +56,11 @@ Or use some method that integrates it into your package manager, like
 aforementioned checkinstall.</p>
 
 <h3><a name="Running">Running the program</a></h3>
-<p>In most circumstances, you will run the program from the commandline like this:
+<p>In most circumstances, you will run the program from the command line like this:
 <pre>readesm --infile foo.esm --outfile bar.html --format=html</pre>
 Alternatively, if no output file is specified, stdout is used.</p>
 <p>For <a href="http://www.kde.org/">KDE</a> users,I wrote a little wrapper script named
-readesm-wrap-kde.sh. It will get installed my typing make install. If you
+readesm-wrap-kde.sh. It will get installed by typing make install. If you
 associate esm files with it, you can click on one in your kde file manager, and
 it will open a konqueror window containing the html result.</p>
 
@@ -71,8 +71,8 @@ If you do so, note:
 <ul><li>Sometimes i added references to l207.pdf in the comments, that refers to
 <a href="http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=OJ:L:2002:207:0001:0252:EN:PDF">OJ:L:2002:207, p. 1-252</a>.</li>
 <li>The code is rather unclean, often two or more classes in the same file, wild
-naming convention(often taken from the european law, which leads to some unhandy names).</li>
-<li>You can create a doxygen documentation by typing make doc. It is also available <a href="codedoc/">online</a>.</li></ul></p>
+naming convention(often taken from the European law, which leads to some unhandy names).</li>
+<li>You can create a Doxygen documentation by typing make doc. It is also available <a href="codedoc/">online</a>.</li></ul></p>
 
 <h3><a name="Help">Getting Help</a></h3>
 <p>If the program crashes, won't install, if you have feature requests or general feedback, feel free to either:
