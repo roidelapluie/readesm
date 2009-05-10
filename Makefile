@@ -33,7 +33,7 @@ $(name) : $(patsubst %.cpp, %.o, $(filter $(wildcard *.cpp), $(objects:.o=.cpp))
 $(name).o: $(filter $(wildcard *.h), $(objects:.o=.h))
 
 $(name).pot: $(sources)
-	xgettext -d $(name) -a -s -o $(name).pot $(sources)
+	xgettext -d $(name) -a -s --from-code utf-8 -o $(name).pot $(sources)
 german.po: $(name).pot
 	msgmerge -s -U $@ $<
 locale/de_DE.utf8/LC_MESSAGES/$(name).mo: german.po

@@ -16,7 +16,7 @@ You should have received a copy of the GNU General Public License along with rea
 
 void i18nInit(){
 	setlocale( LC_ALL, "" );
-	bindtextdomain( "readesm", "/home/goelzera/Documents/Programme/cpp/readesm/locale" );
+	bindtextdomain( "readesm", "locale" );
 	textdomain( "readesm" );
 }
 

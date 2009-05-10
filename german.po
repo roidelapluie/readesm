@@ -3,18 +3,18 @@
 # Copyright (C) 2009 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
-#: Activity.h:64 i18n.h:18 i18n.h:24 i18n.h:28
 # Andreas Gölzer <K_2005@goelzer.de>, 2009.
 # Andreas Gölzer <goelzera@ethz.ch>, 2009.
 # Martin Walch <walch.martin@web.de>, 2009.
+#: Activity.h:64 i18n.h:18 i18n.h:24 i18n.h:28 i18n.h:41 i18n.h:42
 msgid ""
 msgstr ""
 "Project-Id-Version: german\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-05-10 12:06+0200\n"
-"PO-Revision-Date: 2009-05-10 12:09+0200\n"
-"Last-Translator: Andreas Gölzer <goelzera@ethz.ch>\n"
-"Language-Team: American English <kde-i18n-doc@kde.org>\n"
+"POT-Creation-Date: 2009-05-10 13:31+0200\n"
+"PO-Revision-Date: 2009-05-10 13:11+0200\n"
+"Last-Translator: Martin Walch <walch.martin@web.de>\n"
+"Language-Team: American English <kde-i18n-de@kde.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -41,7 +41,7 @@ msgstr ""
 "Signatur-Prüfung fehlgeschlagen "
 
 #: Activity.h:65 Activity.h:153 cardblocks.h:371 helper.h:38 helper.h:45
-#: Speeds.h:44
+#: i18n.h:42 Speeds.h:44
 msgid " "
 msgstr ""
 
@@ -164,15 +164,15 @@ msgstr ""
 
 #: formatStrings.h:50 formatStrings.h:61
 msgid "(err:blame programmer)"
-msgstr ""
+msgstr "(err: Programmierer ist schuld)"
 
 #: formatStrings.h:82 formatStrings.h:110
 msgid "(not specified)"
-msgstr ""
+msgstr "(nicht näher angegeben)"
 
 #: time.h:19
 msgid "(undefined)"
-msgstr ""
+msgstr "(undefiniert)"
 
 #: reporter.h:88
 msgid ") *********\n"
@@ -194,16 +194,12 @@ msgstr ""
 msgid ", "
 msgstr ""
 
-#: readesm.cpp:76 readTypes.h:41 time.h:50
+#: readesm.cpp:76 readTypes.h:42 time.h:50
 msgid "-"
 msgstr ""
 
 #: picgen.h:35
 msgid ".gif' width='"
-msgstr ""
-
-#: i18n.h:19
-msgid "/home/goelzera/Documents/Programme/cpp/readesm/locale"
 msgstr ""
 
 #: esmfile.h:47
@@ -285,13 +281,13 @@ msgstr ""
 
 #: reporter.h:122
 msgid ""
-"</title><meta http-equiv='Content-Type' content='text/html; charset=latin1'/"
-"></head><body><h1>"
+"</title><meta http-equiv='Content-Type' content='text/html; charset=utf8'/></"
+"head><body><h1>"
 msgstr ""
 
 #: reporter.h:160
 msgid ""
-"</title><meta http-equiv='Content-Type' content='text/html; charset=latin1'/"
+"</title><meta http-equiv='Content-Type' content='text/html; charset=utf8'/"
 "><style type=\"text/css\">table\t\t{ border-collapse:collapse;  border-"
 "width:2px; border-style:solid; }tr \t\t{ border-top-width:1px; border-top-"
 "style:dashed; }tr:hover \t{border-style:outset; background-color:#eeeeee; }th"
@@ -437,9 +433,8 @@ msgid "Average speed when driving"
 msgstr "Durchschnittsgeschwindigkeit während der Fahrt"
 
 #: esmfile.h:66
-#, fuzzy
 msgid "Average time driven per day"
-msgstr "Pro Tag gefahrene Zeit"
+msgstr "Durchschnittlich pro Tag gefahrene Zeit"
 
 #: formatStrings.h:65
 msgid "Azerbaijan"
@@ -475,7 +470,7 @@ msgstr ""
 
 #: formatStrings.h:65
 msgid "Bosnia and Herzegovina"
-msgstr ""
+msgstr "Bosnien und Herzegowina"
 
 #: Activity.h:51
 msgid "Break/rest"
@@ -1527,6 +1522,10 @@ msgstr ""
 msgid "length"
 msgstr "Länge"
 
+#: i18n.h:19
+msgid "locale"
+msgstr ""
+
 #: Overview.h:45
 msgid "lockInTime"
 msgstr ""
@@ -1825,3 +1824,378 @@ msgstr "gelb "
 msgid "yes, valid"
 msgstr "ja, gültig"
 
+#: i18n.h:42
+msgid "¡"
+msgstr ""
+
+#: i18n.h:42
+msgid "¢"
+msgstr ""
+
+#: i18n.h:42
+msgid "£"
+msgstr ""
+
+#: i18n.h:42
+msgid "¤"
+msgstr ""
+
+#: i18n.h:42
+msgid "¥"
+msgstr ""
+
+#: i18n.h:42
+msgid "¦"
+msgstr ""
+
+#: i18n.h:42
+msgid "§"
+msgstr ""
+
+#: i18n.h:42
+msgid "¨"
+msgstr ""
+
+#: i18n.h:42
+msgid "©"
+msgstr ""
+
+#: i18n.h:42
+msgid "ª"
+msgstr ""
+
+#: i18n.h:42
+msgid "«"
+msgstr ""
+
+#: i18n.h:42
+msgid "¬"
+msgstr ""
+
+#: i18n.h:42
+msgid "®"
+msgstr ""
+
+#: i18n.h:42
+msgid "¯"
+msgstr ""
+
+#: i18n.h:43
+msgid "°"
+msgstr ""
+
+#: i18n.h:43
+msgid "±"
+msgstr ""
+
+#: i18n.h:43
+msgid "²"
+msgstr ""
+
+#: i18n.h:43
+msgid "³"
+msgstr ""
+
+#: i18n.h:43
+msgid "´"
+msgstr ""
+
+#: i18n.h:43
+msgid "µ"
+msgstr ""
+
+#: i18n.h:43
+msgid "¶"
+msgstr ""
+
+#: i18n.h:43
+msgid "·"
+msgstr ""
+
+#: i18n.h:43
+msgid "¸"
+msgstr ""
+
+#: i18n.h:43
+msgid "¹"
+msgstr ""
+
+#: i18n.h:43
+msgid "º"
+msgstr ""
+
+#: i18n.h:43
+msgid "»"
+msgstr ""
+
+#: i18n.h:43
+msgid "¼"
+msgstr ""
+
+#: i18n.h:43
+msgid "½"
+msgstr ""
+
+#: i18n.h:43
+msgid "¾"
+msgstr ""
+
+#: i18n.h:43
+msgid "¿"
+msgstr ""
+
+#: i18n.h:44
+msgid "À"
+msgstr ""
+
+#: i18n.h:44
+msgid "Á"
+msgstr ""
+
+#: i18n.h:44
+msgid "Â"
+msgstr ""
+
+#: i18n.h:44
+msgid "Ã"
+msgstr ""
+
+#: i18n.h:44
+msgid "Ä"
+msgstr ""
+
+#: i18n.h:44
+msgid "Å"
+msgstr ""
+
+#: i18n.h:44
+msgid "Æ"
+msgstr ""
+
+#: i18n.h:44
+msgid "Ç"
+msgstr ""
+
+#: i18n.h:44
+msgid "È"
+msgstr ""
+
+#: i18n.h:44
+msgid "É"
+msgstr ""
+
+#: i18n.h:44
+msgid "Ê"
+msgstr ""
+
+#: i18n.h:44
+msgid "Ë"
+msgstr ""
+
+#: i18n.h:44
+msgid "Ì"
+msgstr ""
+
+#: i18n.h:44
+msgid "Í"
+msgstr ""
+
+#: i18n.h:44
+msgid "Î"
+msgstr ""
+
+#: i18n.h:44
+msgid "Ï"
+msgstr ""
+
+#: i18n.h:45
+msgid "Ð"
+msgstr ""
+
+#: i18n.h:45
+msgid "Ñ"
+msgstr ""
+
+#: i18n.h:45
+msgid "Ò"
+msgstr ""
+
+#: i18n.h:45
+msgid "Ó"
+msgstr ""
+
+#: i18n.h:45
+msgid "Ô"
+msgstr ""
+
+#: i18n.h:45
+msgid "Õ"
+msgstr ""
+
+#: i18n.h:45
+msgid "Ö"
+msgstr ""
+
+#: i18n.h:45
+msgid "×"
+msgstr ""
+
+#: i18n.h:45
+msgid "Ø"
+msgstr ""
+
+#: i18n.h:45
+msgid "Ù"
+msgstr ""
+
+#: i18n.h:45
+msgid "Ú"
+msgstr ""
+
+#: i18n.h:45
+msgid "Û"
+msgstr ""
+
+#: i18n.h:45
+msgid "Ü"
+msgstr ""
+
+#: i18n.h:45
+msgid "Ý"
+msgstr ""
+
+#: i18n.h:45
+msgid "Þ"
+msgstr ""
+
+#: i18n.h:45
+msgid "ß"
+msgstr ""
+
+#: i18n.h:46
+msgid "à"
+msgstr ""
+
+#: i18n.h:46
+msgid "á"
+msgstr ""
+
+#: i18n.h:46
+msgid "â"
+msgstr ""
+
+#: i18n.h:46
+msgid "ã"
+msgstr ""
+
+#: i18n.h:46
+msgid "ä"
+msgstr ""
+
+#: i18n.h:46
+msgid "å"
+msgstr ""
+
+#: i18n.h:46
+msgid "æ"
+msgstr ""
+
+#: i18n.h:46
+msgid "ç"
+msgstr ""
+
+#: i18n.h:46
+msgid "è"
+msgstr ""
+
+#: i18n.h:46
+msgid "é"
+msgstr ""
+
+#: i18n.h:46
+msgid "ê"
+msgstr ""
+
+#: i18n.h:46
+msgid "ë"
+msgstr ""
+
+#: i18n.h:46
+msgid "ì"
+msgstr ""
+
+#: i18n.h:46
+msgid "í"
+msgstr ""
+
+#: i18n.h:46
+msgid "î"
+msgstr ""
+
+#: i18n.h:46
+msgid "ï"
+msgstr ""
+
+#: i18n.h:47
+msgid "ð"
+msgstr ""
+
+#: i18n.h:47
+msgid "ñ"
+msgstr ""
+
+#: i18n.h:47
+msgid "ò"
+msgstr ""
+
+#: i18n.h:47
+msgid "ó"
+msgstr ""
+
+#: i18n.h:47
+msgid "ô"
+msgstr ""
+
+#: i18n.h:47
+msgid "õ"
+msgstr ""
+
+#: i18n.h:47
+msgid "ö"
+msgstr ""
+
+#: i18n.h:47
+msgid "÷"
+msgstr ""
+
+#: i18n.h:47
+msgid "ø"
+msgstr ""
+
+#: i18n.h:47
+msgid "ù"
+msgstr ""
+
+#: i18n.h:47
+msgid "ú"
+msgstr ""
+
+#: i18n.h:47
+msgid "û"
+msgstr ""
+
+#: i18n.h:47
+msgid "ü"
+msgstr ""
+
+#: i18n.h:47
+msgid "ý"
+msgstr ""
+
+#: i18n.h:47
+msgid "þ"
+msgstr ""
+
+#: i18n.h:47
+msgid "ÿ"
+msgstr ""
