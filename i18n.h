@@ -21,10 +21,10 @@ void i18nInit(){
 	textdomain( "readesm" );
 }
 
-string tr(string in){
-	return (in.empty())? in : gettext(in.c_str());
-}
-string tr(string& in){
+// string tr(string in){
+// 	return (in.empty())? in : gettext(in.c_str());
+// }
+string tr(const string& in){
 	return (in.empty())? in : gettext(in.c_str());
 }
 string tr(const char* in){

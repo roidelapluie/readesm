@@ -49,6 +49,10 @@ class Duration{
 			o << "-";
 			l = -l;
 		}
+		if(l > 86400){
+			o << (l / 86400) << " " << tr("days") << " ";
+			l %= 86400;
+		}
 		return o << (l / 3600) << ":" << std::setw(2) << std::setfill('0') << ((l / 60) % 60) << ":" << std::setw(2) << std::setfill('0') << (l % 60);
 	}
 	int length;
@@ -56,6 +60,12 @@ class Duration{
 
 Duration operator-(const Time& a, const Time& b){
 	return Duration(a.timestamp - b.timestamp);
+}
+
+string formatRange(const Time& begin, const Time& end){
+	Duration d = end - begin;
+	if(d.length < 86400) return tr("from") + " " + begin.str() + " " + tr("on for") + " " + d.str();
+	return tr("from") + " " + begin.str() + " " + tr("to") + " " + end.str() + " (" + d.str() + ")";
 }
 
 string formatMinutes(int minutes){

@@ -94,7 +94,7 @@ class txtreporter : public reporter{
 		(*this) << "  ***   \n";
 	}
 	virtual void operator()(const string& description, const std::string& value){
-		(*this) << tr(description) << ": \t" << tr(value) << std::endl;
+		(*this) << tr(description) << ": \t" << value << std::endl;
 	}
 	virtual void operator()(const string& description, int value){
 		(*this) << tr(description) << ": \t" << value << std::endl;
@@ -139,7 +139,7 @@ class htmlreporter : public reporter {
 		(*this) << "</table></td></tr>\n";
 	}
 	virtual void operator()(const string& description, const std::string& value){
-		(*this) << "<tr><th>" << tr(description) << "</th><td>" << tr(value) << "</td></tr>\n";
+		(*this) << "<tr><th>" << tr(description) << "</th><td>" << value << "</td></tr>\n";
 	}
 	virtual void operator()(const string& description, int value){
 		(*this) << "<tr><th>" << tr(description) << "</th><td>" << value << "</td></tr>\n";
