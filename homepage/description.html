@@ -7,7 +7,14 @@
 </head>
 <body>
 <h1>readESM - digital tachograph file reader</h1>
-
+<ul>
+<li><a href="#About">About readESM</a></li>
+<li><a href="#Compiling">Compiling readESM</a></li>
+<li><a href="#Running">Running readESM</a></li>
+<li><a href="#Modyfying">Modifying the program</a></li>
+<li><a href="#Help">Getting Help</a></li>
+</ul>
+<h3><a name="About">About the program</a></h3>
 <p>This program takes an ESM file, as downloaded from a digital tachograph or a
 driver card, a compulsory equipment for trucks heavier than 3.5 tons within the
 European Union. It converts said files into human-readable form, either html or
@@ -40,7 +47,7 @@ compile it yourself.</p>
 might give you a hint what is still needed, if not, report your error.</p>
 <p>For certain linux flavours, "make package" will create a package using checkinstall,
 which you can easily uninstall with your package management tool.
-On Ubuntu (http://www.ubuntu.com/) systems, you will need to do something like:
+On <a href="http://www.ubuntu.com/">Ubuntu</a> systems, you will need to do something like:
 <pre>svn co https://readesm.svn.sourceforge.net/svnroot/readesm readesm
 sudo apt-get install libboost-program-options-dev libgcrypt11-dev libgmp3-dev
 make
@@ -65,8 +72,15 @@ If you do so, note:
 <a href="http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=OJ:L:2002:207:0001:0252:EN:PDF">OJ:L:2002:207, p. 1-252</a>.</li>
 <li>The code is rather unclean, often two or more classes in the same file, wild
 naming convention(often taken from the european law, which leads to some unhandy names).</li>
-<li>You can create a doxygen documentation by typing make doc. It is also available <a href="codedoc/">online</a>.</p>
+<li>You can create a doxygen documentation by typing make doc. It is also available <a href="codedoc/">online</a>.</li></ul></p>
 
+<h3><a name="Help">Getting Help</a></h3>
+<p>If the program crashes, won't install, if you have feature requests or general feedback, feel free to either:
+<ul><li>Send me an email to <a href="mailto:K_2005@goelzer.de">K_2005@goelzer.de</a></li>
+<li>Open a post in the <a href="http://sourceforge.net/forum/?group_id=252982">forum</a>.</li>
+<li>For specific bugs, file a report in the <a href="http://sourceforge.net/tracker/?group_id=252982&atid=1126660">tracker</a>.</li>
+<li>Write a comment to the entry on my <a href="http://andreas.goelzer.de/readesm-reading-digital-tachograph-files">personal homepage</a>.</li>
+</ul></p>
 <hr>
 <a href="http://andreas.goelzer.de/">Andreas Gölzer</a>, May 10th, 2009
 </body>
