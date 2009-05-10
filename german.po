@@ -3,16 +3,16 @@
 # Copyright (C) 2009 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
+#: Activity.h:64 i18n.h:18 i18n.h:24 i18n.h:28 i18n.h:41 i18n.h:42
 # Andreas Gölzer <K_2005@goelzer.de>, 2009.
 # Andreas Gölzer <goelzera@ethz.ch>, 2009.
 # Martin Walch <walch.martin@web.de>, 2009.
-#: Activity.h:64 i18n.h:18 i18n.h:24 i18n.h:28 i18n.h:41 i18n.h:42
 msgid ""
 msgstr ""
 "Project-Id-Version: german\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-05-10 13:31+0200\n"
-"PO-Revision-Date: 2009-05-10 13:11+0200\n"
+"POT-Creation-Date: 2009-05-10 13:42+0200\n"
+"PO-Revision-Date: 2009-05-10 13:42+0200\n"
 "Last-Translator: Martin Walch <walch.martin@web.de>\n"
 "Language-Team: American English <kde-i18n-de@kde.org>\n"
 "MIME-Version: 1.0\n"
@@ -1090,10 +1090,6 @@ msgstr "Integritätsfehler der Speicherdaten"
 msgid "Stored user data integrity error"
 msgstr "Integritätsfehler der gespeicherten Benutzerdaten"
 
-#: cardblocks.h:484
-msgid "Stray signature"
-msgstr ""
-
 #: cardblocks.h:82
 msgid "StructureVersion"
 msgstr ""
@@ -1686,6 +1682,10 @@ msgstr ""
 msgid "specificConditionType"
 msgstr ""
 
+#: cardblocks.h:484
+msgid "stray signature"
+msgstr "verwaiste Signatur"
+
 #: readesm.cpp:52
 msgid "text"
 msgstr "Text"
@@ -2199,3 +2199,4 @@ msgstr ""
 #: i18n.h:47
 msgid "ÿ"
 msgstr ""
+

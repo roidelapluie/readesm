@@ -79,7 +79,7 @@ class Application_Identification : public tlvblock{
 		cardStructureVersion(BEInt16(start + 6)){}
 	virtual void printOn(reporter& o) const{
 		o("CardType",formatEquipmentType(typeOfTachographCardId));
-		o("StructureVersion",hex(cardStructureVersion, 4));
+		o("cardStructureVersion",hex(cardStructureVersion, 4));
 	}
 };
 
@@ -481,7 +481,7 @@ class Driver_Activity_Data : public tlvblock{
 
 //Driver Card Codes and structure are on p. 119 in l207.pdf
 tlvblock::ptr tlvblock::Factory(iter& filewalker){
-	if(filewalker[2] == 1) throw std::runtime_error("Stray signature");
+	if(filewalker[2] == 1) throw std::runtime_error("stray signature");
 	typedef tlvblock::ptr p;
 	switch(tlvblock::getType(filewalker)){
 		case Card_Download::Type	: return p(new Card_Download(filewalker));
