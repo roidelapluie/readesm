@@ -168,7 +168,7 @@ struct placeRecord{
 		report("entryTime",sub.entryTime.str());
 		report("entryTypeDailyWorkPeriod" ,formatDailyWorkPeriod(sub.entryTypeDailyWorkPeriod));
 		report("dailyWorkPeriodCountry" ,nationNumeric(sub.dailyWorkPeriodCountry));
-		report("dailyWorkPeriodRegion",sub.dailyWorkPeriodRegion);
+		if(sub.dailyWorkPeriodRegion) report("dailyWorkPeriodRegion",sub.dailyWorkPeriodRegion);
 		report("vehicleOdometerValue",sub.vehicleOdometerValue);
 		return report;
 	}
@@ -300,11 +300,11 @@ class Vehicles_Used : public tlvblock{
 			vreg(start+14),
 			vuDataBlockCounter(BEInt16(start + 29)) {} 
 		friend reporter& operator<<(reporter& report, const CardVehicleRecord& e){
-			report("vehicleOdometerBegin" ,e.OdometerBegin);
-			report("vehicleOdometerEnd" ,e.OdometerEnd);
+			report << e.vreg;
 			report("vehicleFirstUse" ,e.FirstUse.str());
 			report("vehicleLastUse" ,e.LastUse.str());
-			report << e.vreg;
+			report("vehicleOdometerBegin" ,e.OdometerBegin);
+			report("vehicleOdometerEnd" ,e.OdometerEnd);
 			report("vuDataBlockCounter" ,e.vuDataBlockCounter);
 			return report;
 		}
@@ -323,9 +323,19 @@ class Vehicles_Used : public tlvblock{
 			if(!CardVehicleRecord::defval(i)) sub.push_back(CardVehicleRecord(i));
 		}
 	}
-	virtual void printOn(reporter& o) const{
-		o.reportraynosub(sub);
-		//for(subiter i = sub.begin(); i < sub.end(); ++i) o << *i;
+	virtual void printOn(reporter& report) const{
+		if(report.verbose) report.reportraynosub(sub);
+		else {
+			for(subiter i = sub.begin(); i < sub.end(); ++i){
+				subiter lastentry = i;
+				while(i < sub.end() && i->LastUse.timestamp % 86400 == 86399) ++i;
+				report << i->vreg;
+				report("vehicleFirstUse", lastentry->FirstUse.str());
+				report("vehicleLastUse", i->LastUse.str());
+				report("vehicleOdometerBegin", lastentry->OdometerBegin);
+				report("vehicleOdometerEnd", i->OdometerEnd);
+			}
+		}
 	}
 };
 
