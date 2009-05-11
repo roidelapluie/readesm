@@ -42,7 +42,7 @@ void checkDayDrivingTime(DailyActivity& a){
 	if(sincelastbreak > 270) overtime += sincelastbreak - 270;
 	a.overtime = std::max(overtime, a.driventime - 600);
 	a.fine = fine(a.overtime);
-	a.overtimeReason = "Daily driving time";
+	a.overtimeReason = tr("Daily driving time");
 }
 
 

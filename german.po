@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: german\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-05-10 22:22+0200\n"
-"PO-Revision-Date: 2009-05-10 22:33+0200\n"
+"PO-Revision-Date: 2009-05-11 17:35+0200\n"
 "Last-Translator: Andreas Gölzer <goelzera@ethz.ch>\n"
 "Language-Team: American English <kde-i18n-doc@kde.org>\n"
 "MIME-Version: 1.0\n"
@@ -357,9 +357,8 @@ msgid "<tr><th></th><td></td></tr>\n"
 msgstr ""
 
 #: cardblocks.h:470
-#, fuzzy
 msgid "Accumulated fines"
-msgstr "mögliche aufgerechnete Strafe"
+msgstr "Mögliche aufgerechnete Strafe"
 
 #: Activity.h:150
 msgid "Activities Codriver"
@@ -475,9 +474,8 @@ msgid "Card Download"
 msgstr "Karte heruntergeladen, "
 
 #: cardblocks.h:346
-#, fuzzy
 msgid "Card Identification"
-msgstr "Anwendungskennung"
+msgstr "Karteninformationen"
 
 #: formatStrings.h:23
 msgid "Card conflict"
@@ -1327,15 +1325,15 @@ msgstr "Lenken"
 
 #: cardblocks.h:54
 msgid "drivingLicenceIssuingAuthorithy"
-msgstr ""
+msgstr "Ausstellende Behörde"
 
 #: cardblocks.h:55
 msgid "drivingLicenceIssuingNation"
-msgstr ""
+msgstr "Ausstellender Staat"
 
 #: cardblocks.h:56
 msgid "drivingLicenceNumber"
-msgstr ""
+msgstr "Führerscheinnummer"
 
 #: Activity.h:123
 msgid "duration < 0\n"
@@ -1431,11 +1429,11 @@ msgstr ""
 
 #: cardblocks.h:367
 msgid "holderFirstNames"
-msgstr ""
+msgstr "Vornamen des Karteninhabers"
 
 #: cardblocks.h:366
 msgid "holderSurname"
-msgstr ""
+msgstr "Nachname des Karteninhabers"
 
 #: readesm.cpp:70
 msgid "html"
@@ -1471,7 +1469,7 @@ msgstr ""
 
 #: Technical.h:51
 msgid "lTyreCircumference"
-msgstr ""
+msgstr "Effektiver Reifenumfang"
 
 #: Faults.h:53
 msgid "lastOverspeedControlTime"
@@ -1603,11 +1601,11 @@ msgstr ""
 
 #: Activities.h:81
 msgid "previousVehicleRegistrationNation"
-msgstr ""
+msgstr "Registrierungsland des vorherigen Fahrzeugs"
 
 #: Activities.h:82
 msgid "previousVehicleRegistrationNumber"
-msgstr ""
+msgstr "Amtliches Kennzeichen des vorherigen Fahrzeugs"
 
 #: formatStrings.h:89
 msgid "printing done, "
@@ -1693,7 +1691,7 @@ msgstr ""
 
 #: esmfile.h:61
 msgid "to"
-msgstr "nach"
+msgstr "bis"
 
 #: cardblocks.h:81
 msgid "typeOfTachographCardId"
@@ -1725,31 +1723,31 @@ msgstr ""
 
 #: cardblocks.h:303
 msgid "vehicleOdometerBegin"
-msgstr ""
+msgstr "Kilometerstand am Anfang"
 
 #: cardblocks.h:304
 msgid "vehicleOdometerEnd"
-msgstr ""
+msgstr "Kilometerstand am Ende"
 
 #: Activities.h:97 cardblocks.h:172
 msgid "vehicleOdometerValue"
-msgstr ""
+msgstr "Kilometerstand"
 
 #: Activities.h:77
 msgid "vehicleOdometerValueAtInsertion"
-msgstr ""
+msgstr "Kilometerstand bei Karteneingabe"
 
 #: Activities.h:80
 msgid "vehicleOdometerValueAtWithdrawal"
-msgstr ""
+msgstr "Kilometerstand bei Kartenentnahme"
 
 #: cardblocks.h:144 cardblocks.h:392 Technical.h:47
 msgid "vehicleRegistrationNation"
-msgstr ""
+msgstr "Fahzeugregistrierungsland"
 
 #: cardblocks.h:145 cardblocks.h:393 Technical.h:48
 msgid "vehicleRegistrationNumber"
-msgstr ""
+msgstr "Amtliches Kennzeichen"
 
 #: readesm.cpp:73
 msgid "verbose"

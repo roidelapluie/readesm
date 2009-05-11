@@ -152,7 +152,7 @@ class DailyActivity{
 			o("Driving time", Activity::formatDurTime(d.driventime));
 			if(d.overtime){
 				o("Overtime", Activity::formatDurTime(d.overtime)+ " " + d.overtimeReason );
-				o("Possible fine", d.fine );
+				o("Possible fine", stringify(d.fine) + " €" );
 			}
 		}
 		return o;
