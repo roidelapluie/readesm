@@ -328,10 +328,11 @@ class Vehicles_Used : public tlvblock{
 				subiter lastentry = i;
 				while(i < sub.end() && i->LastUse.timestamp % 86400 == 86399) ++i;
 				report << i->vreg;
-				report("Vehicle used", formatRange(lastentry->FirstUse, i->LastUse));
+				report.single(formatRange(lastentry->FirstUse, i->LastUse));
 				report("vehicleOdometerBegin", lastentry->OdometerBegin);
 				report("vehicleOdometerEnd", i->OdometerEnd);
-				report("Driven distance", stringify(i->OdometerEnd - i->OdometerBegin) + " km");
+				report("Driven distance", stringify(i->OdometerEnd - lastentry->OdometerBegin) + " km");
+				if(i < sub.end()) report.blockbreak();
 			}
 		}
 	}

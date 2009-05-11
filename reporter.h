@@ -147,7 +147,7 @@ class htmlreporter : public reporter {
 	virtual void single(const string& description, bool ishead = false){
 		string mark = "td";
 		if(ishead) mark = "th";
-		(*this) << "<tr><" << mark << " colspan='2'>" << tr(description) << "</" << mark << "></tr>" << std::endl;
+		(*this) << "<tr><" << mark << " colspan='2' class='center'>" << tr(description) << "</" << mark << "></tr>" << std::endl;
 	}
 	virtual void operator()(const string& description, const std::string& value){
 		(*this) << "<tr><th>" << tr(description) << "</th><td>" << value << "</td></tr>\n";
@@ -174,6 +174,7 @@ class xmlreporter : public htmlreporter {
 		"table		{ border-collapse:collapse;  border-width:2px; border-style:solid; }" \
 		"tr 		{ border-top-width:1px; border-top-style:dashed; }" \
 		"tr:hover 	{border-style:outset; background-color:#eeeeee; }" \
+		".center	{text-align:center; }" \
 		"th		{text-align:left;vertical-align:top;}" \
 		"td,th.max,th.avg, th.min{text-align:left;border-left: 1px dotted;}" \
 		"caption		{font-size:0.5em;}" \
