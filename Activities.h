@@ -106,7 +106,7 @@ class Activities : public vublock {
 			const CardInOut& t = CardInOuts[j];
 			report("Driver",t.Name);
 			report("Work period", (t.OutTime - t.InTime).str());
-			report("Driven distance",(t.OdometerOut - t.OdometerIn));
+			report("Driven distance",stringify(t.OdometerOut - t.OdometerIn) + " km");
 		}
 		report << DayAct;
 		//report("Driven km",driven);

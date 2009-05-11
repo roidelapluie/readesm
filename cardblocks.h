@@ -239,7 +239,6 @@ class Events_Data : public tlvblock{
 			return report;
 		}
 		static bool defval(iter start){
-//			hexout(std::cout, start,24); std::cout << "\n";
 			return checkZeros(start, 9)  && vehicleRegistration::defval(start + 9);
 		}
 
@@ -281,7 +280,6 @@ class Places : public tlvblock{
 	}
 	virtual void printOn(reporter& o) const{
 		o.reportraynosub(sub);
-		//for(subiter i = sub.begin(); i < sub.end(); ++i) o << *i;
 	}
 };
 
@@ -404,20 +402,6 @@ class Current_Usage : public tlvblock{
 	}
 };
 
-/*
-class circular_accessor{
-	iter datap;
-	int period_;
-	int index;
-	inline int mathmod(int nominator, int denom){
-		int rv = nominator % denom;
-		return rv > 0? rv:rv += period;
-	}
-	public:
-	circular_accessor(iter  start, int length, int index_ = 0): datap(start), period_(length), index(index_) {};
-	int period() const { return period_; }
-	unsigned char operator[](int index) const{ return datap[mathmod(index, period_)]; }
-};*/
 ///p. 57 and corrigendum(!)
 class DailyActivityCard : public DailyActivity {
 	public:
@@ -426,7 +410,7 @@ class DailyActivityCard : public DailyActivity {
 	friend reporter& operator<<(reporter& o, const DailyActivityCard& d){
 		o << (DailyActivity)d;
 		if(o.verbose) o("activityDailyPresenceCounter",d.presence);
-		if(d.distance) o("activityDayDistance",d.distance);
+		if(d.distance) o("activityDayDistance",stringify(d.distance) + " km");
 		return o;
 	}
 };
@@ -477,8 +461,8 @@ class Driver_Activity_Data : public tlvblock{
 	subray acts;
 
 	virtual void printOn(reporter& o) const{
-		o("Accumulated fines", fine);
-		o("Activity space usage", stringify(useddata) + " of " + stringify(datasize - 9) + " Bytes");
+		o("Accumulated fines", stringify(fine) + " €");
+		o("Activity space usage", stringify(useddata) + " " + tr("of") + " " + stringify(datasize - 9) + " Bytes");
 		o.reportraynosub(acts);
 		
 	}
