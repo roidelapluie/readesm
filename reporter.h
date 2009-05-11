@@ -48,6 +48,7 @@ class reporter : public ostringstream{
 	virtual void blockstart(const string& description, int blockcount) = 0;
 	virtual void blockend() = 0;
 	virtual void blockbreak() = 0;
+	virtual void single(const string& description, bool ishead = false) = 0;
 	virtual void operator()(const string& description, const std::string& value) = 0;
 	virtual void operator()(const string& description, int value) = 0;
 	template <typename T>
@@ -93,6 +94,11 @@ class txtreporter : public reporter{
 	virtual void blockbreak(){
 		(*this) << "  ***   \n";
 	}
+	virtual void single(const string& description, bool ishead = false){
+		string mark = "";
+		if(ishead) mark = "**";
+		(*this) << mark << " " << tr(description) << " " << mark << std::endl;
+	}
 	virtual void operator()(const string& description, const std::string& value){
 		(*this) << tr(description) << ": \t" << value << std::endl;
 	}
@@ -137,6 +143,11 @@ class htmlreporter : public reporter {
 	}
 	virtual void blockend(){
 		(*this) << "</table></td></tr>\n";
+	}
+	virtual void single(const string& description, bool ishead = false){
+		string mark = "td";
+		if(ishead) mark = "th";
+		(*this) << "<tr><" << mark << " colspan='2'>" << tr(description) << "</" << mark << "></tr>" << std::endl;
 	}
 	virtual void operator()(const string& description, const std::string& value){
 		(*this) << "<tr><th>" << tr(description) << "</th><td>" << value << "</td></tr>\n";

@@ -56,15 +56,14 @@ class esmfile : public esmfilehead{
 	}
 	friend reporter& operator<<(reporter& report, const esmfile& e){
 		report.bigblockstart("Statistics");
-		report("Statistics for",e.title);
-		report("from",e.first.datestr());
-		report("to",e.last.datestr());
+		report.single(tr("Statistics for") + " " + e.title, true);
+		report.single(formatRange(e.first,e.last));
 		report("Recorded days",e.daycount);
-		report("Overall driven distance", e.drivenkm);
+		report("Overall driven distance", stringify(e.drivenkm) + " km");
 		report("Overall driving time", formatMinutes(e.drivenminutes));
-		report("Average distance per day", e.drivenkm / e.daycount);
+		report("Average distance per day", stringify(e.drivenkm / e.daycount) + " km");
 		report("Average time driven per day", formatMinutes(e.drivenminutes / e.daycount) + " (" + stringify(100*e.drivenminutes / (e.daycount*24*60)) + "%)");
-		report("Average speed when driving", e.drivenkm * 60 / e.drivenminutes);
+		report("Average speed when driving", stringify(e.drivenkm * 60 / e.drivenminutes) + " km/h");
 		report.bigblockend();
 		
 		for(subiter i = e.blocks.begin(); i < e.blocks.end(); ++i) report << **i;
