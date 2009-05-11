@@ -48,7 +48,8 @@ class Technical : public vublock {
 			report("vehicleRegistrationNumber", fixedString(14));
 			report("wVehicleCharacteristicConstant", Int16());
 			report("kConstantOfRecordingEquipment", Int16());
-			report("lTyreCircumference", Int16());
+			int lTyreCircumference = Int16();
+			report("lTyreCircumference", stringify(lTyreCircumference / 8)  + " " + (lTyreCircumference % 8 ? stringify(lTyreCircumference % 8) + "/8 " : "") + "mm" );
 			report("tyreSize", fixedString(15));
 			report("authorisedSpeed", IntByte());
 			report("oldOdometerValue", Odometer());
