@@ -16,7 +16,7 @@ clean:
 	dh_testdir
 	dh_clean
 	rm -f build
-	-$(MAKE) -i distclean
+	[ ! -f Makefile ] || $(MAKE) distclean
 
 install: build
 	dh_testdir

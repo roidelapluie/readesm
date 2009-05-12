@@ -4,7 +4,7 @@ Section: text
 Maintainer: Ubuntu MOTU Developers <ubuntu-motu@lists.ubuntu.com>
 XSBC-Original-Maintainer: Andreas Goelzer <andreas@goelzer.de>
 Standards-Version:  3.8.0
-Build-Depends: libboost-program-options-dev, libgcrypt11-dev, libgmp3-dev, debhelper (>= 5)
+Build-Depends: libboost-program-options-dev, libgcrypt11-dev, libgmp3-dev, debhelper (>= 7)
 Homepage: http://readesm.sourceforge.net
 
 Package: readesm
