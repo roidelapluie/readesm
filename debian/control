@@ -1,0 +1,15 @@
+Source: readesm
+Priority: optional
+Section: text
+Maintainer: Andreas Goelzer <andreas@goelzer.de>
+Standards-Version:  3.8.0
+Build-Depends: libboost-program-options-dev, libgcrypt11-dev, libgmp3-dev, debhelper (>= 5)
+Homepage: http://readesm.sourceforge.net
+
+Package: readesm
+Architecture: any
+Depends: libgcrypt11, libgmp3c2, libboost-program-options1.34.1
+Description: This program takes an ESM file, as downloaded from a digital tachograph or a
+ driver card, a compulsory equipment for trucks heavier than 3.5 tons within the
+ European Union. It converts said files into human-readable form, either html or
+ simple plaintext.
