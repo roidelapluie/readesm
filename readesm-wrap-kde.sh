@@ -3,5 +3,5 @@ dir=/tmp/readesm-$RANDOM
 file=$(basename $1).html
 mkdir $dir
 readesm --infile $1 --outfile $dir/$file --format html
-tar xjf /usr/local/share/readesm/images.tar.bz2 -C $dir 
+tar xjf PREFIX/share/readesm/images.tar.bz2 -C $dir
 kfmclient openURL $dir/$file text/html

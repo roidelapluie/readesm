@@ -38,19 +38,21 @@ german.mo: german.po
 	msgfmt -c -v -o $@ $<
 locale/de_DE.utf8/LC_MESSAGES/$(name).mo: german.po
 	msgfmt -c -v -o $@ $<
-
+readesm-wrap-kde: readesm-wrap-kde.sh
+	sed -e s,PREFIX,$(prefix), > $@
 
 .PHONY:all clean distclean doc dist backup depend run zip links upload runall install uninstall package
 
 run: $(name)
 	./$(name) $(run_args)
 
-install: $(name) german.mo
+install: $(name) german.mo readesm-wrap-kde
 	install -d $(prefix)/share/readesm
 	install -d $(prefix)/bin
 	install -d $(prefix)/share/locale/de/LC_MESSAGES
 	install -m 755 $(name) $(prefix)/bin
-	install -m 755 $(name)-wrap-kde.sh $(prefix)/bin
+	install -m 755 $(name)-wrap-kde $(prefix)/bin
+	install -m 755 $(name)-wrap-firefox $(prefix)/bin
 	install -m 644 images.tar.bz2 $(prefix)/share/readesm
 	install -m 644 german.mo $(prefix)/share/locale/de/LC_MESSAGES/$(name).mo
 	install -m 644 EC_PK.bin $(prefix)/share/readesm
