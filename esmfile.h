@@ -44,7 +44,7 @@ class esmfile : public esmfilehead{
 		for(subiter i = blocks.begin(); i < blocks.end(); ++i) (*i)->reportstuff(*this);
 		if(CAcert &&  devicecert){
 			string filename("EC_PK.bin");
-			if(!file_exists(filename)) filename = "/usr/local/share/readesm/EC_PK.bin";
+			if(!file_exists(filename)) filename = PREFIX "/share/readesm/EC_PK.bin";
 			if(file_exists(filename)){
 				if(CAcert->verify(filename))
 					if(devicecert->verify(*CAcert))

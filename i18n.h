@@ -16,7 +16,7 @@ You should have received a copy of the GNU General Public License along with rea
 
 void i18nInit(){
 	setlocale( LC_ALL, "" );
-	bindtextdomain( "readesm", "/usr/local/share/locale" );
+	bindtextdomain( "readesm", PREFIX "/share/locale" );
 //	bindtextdomain( "readesm", "locale" );
 	textdomain( "readesm" );
 }

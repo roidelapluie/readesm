@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: german\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-05-11 18:11+0200\n"
+"POT-Creation-Date: 2009-05-12 19:28+0200\n"
 "PO-Revision-Date: 2009-05-11 17:35+0200\n"
 "Last-Translator: Andreas Gölzer <goelzera@ethz.ch>\n"
 "Language-Team: American English <kde-i18n-doc@kde.org>\n"
@@ -232,11 +232,11 @@ msgid "/8 "
 msgstr ""
 
 #: i18n.h:19
-msgid "/usr/local/share/locale"
+msgid "/share/locale"
 msgstr ""
 
 #: esmfile.h:47
-msgid "/usr/local/share/readesm/EC_PK.bin"
+msgid "/share/readesm/EC_PK.bin"
 msgstr ""
 
 #: Activity.h:31 time.h:56 time.h:74

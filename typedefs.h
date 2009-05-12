@@ -19,4 +19,9 @@ typedef slurpedfile::const_iterator iter;
 using boost::shared_ptr;
 using std::string;
 using std::ostringstream;
+
+#ifndef PREFIX
+#define PREFIX /usr/local
+#endif
+
 #endif

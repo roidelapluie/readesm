@@ -12,6 +12,7 @@ extrafiles = $(name).doxygen EC_PK.bin batchall.sh COPYING README images.tar.bz2
 run_args = 
 sources = $(name).cpp $(filter $(wildcard *.cpp), $(objects:.o=.cpp)) $(filter $(wildcard *.h), $(objects:.o=.h))
 
+prefix=/usr/local
 distribution = $(sources) $(extrafiles) Makefile
 uploadtarget=www.goelzer.de@ssh.strato.de:andreas/wordpress/download
 uploader=scp -p
@@ -20,10 +21,7 @@ SHELL=/bin/bash
 TEX=latex
 CFLAGS=-Wall -pipe -Werror -O2
 CXX=g++
-# CXX=i586-mingw32msvc-g++
-# LD=i586-mingw32msvc-ld
- 
-LIBRARIES=
+CPPFLAGS=-DPREFIX=\"$(prefix)\"
 CXXFLAGS=$(CFLAGS)
 LDFLAGS=-s -lgmp -lboost_program_options -lgcrypt
 
@@ -48,21 +46,25 @@ run: $(name)
 	./$(name) $(run_args)
 
 install: $(name) german.mo
-	install -d /usr/local/share/readesm
-	install -d /usr/local/bin
-	install -d /usr/local/share/locale/de/LC_MESSAGES
-	install -m 755 $(name) /usr/local/bin
-	install -m 755 $(name)-wrap-kde.sh /usr/local/bin
-	install -m 644 images.tar.bz2 /usr/local/share/readesm
-	install -m 644 german.mo /usr/local/share/locale/de/LC_MESSAGES/$(name).mo
-	install -m 644 EC_PK.bin /usr/local/share/readesm
+	install -d $(prefix)/share/readesm
+	install -d $(prefix)/bin
+	install -d $(prefix)/share/locale/de/LC_MESSAGES
+	install -m 755 $(name) $(prefix)/bin
+	install -m 755 $(name)-wrap-kde.sh $(prefix)/bin
+	install -m 644 images.tar.bz2 $(prefix)/share/readesm
+	install -m 644 german.mo $(prefix)/share/locale/de/LC_MESSAGES/$(name).mo
+	install -m 644 EC_PK.bin $(prefix)/share/readesm
 
 
 packageinstall: $(name)
 	checkinstall -y --maintainer "Andreas Goelzer \<andreas@goelzer.de\>" --pkgsource "http://andreas.goelzer.de/download/$(name).tar.bz2" --pkggroup text --requires "libgcrypt11, libgmp3c2, libboost-program-options1.34.1"
+
 uninstall:
-	rm /usr/local/bin/$(name)
-	rm /usr/local/share/images.tar.bz2
+	rm $(prefix)/bin/$(name)
+	rm $(prefix)/bin/$(name)-wrap-kde.sh
+	rm $(prefix)/share/images.tar.bz2
+	rm $(prefix)/share/locale/de/LC_MESSAGES/$(name).mo
+	rm $(prefix)/share/readesm/EC_PK.bin
 
 profiling: $(name)
 	valgrind --tool=callgrind ./$(name) $(run_args)
@@ -93,7 +95,8 @@ $(name).tar.bz2: $(distribution)
 
 upload: dist
 	$(uploader) $(name).tar.bz2 $(uploadtarget)
-
+	scp $(name).tar.bz2 evil_k@frs.sourceforge.net:uploads
+	
 backup: dist
 	@echo Copying $(name).tar.bz2 to $(name)-backup-`date +%Y%m%d-%H%M`.tar.bz2
 	@cp $(name).tar.bz2 $(name)-backup-`date +%Y%m%d-%H%M`.tar.bz2

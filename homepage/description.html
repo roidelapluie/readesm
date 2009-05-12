@@ -45,13 +45,13 @@ compile it yourself.</p>
 <p>To do that, you need a C++ compiler, parts of the <a href="http://www.boost.org/">boost</a> library (specifically program_options and shared_ptr), the <a href="http://gmplib.org/">Gnu MP</a> library and <a href="http://directory.fsf.org/security/libgcrypt.html">libgrypt</a>, which is used to check the various RSA signatures.</p>
 <p>Once all those are installed, typing make/make install should work fine. If not, it
 might give you a hint what is still needed, if not, report your error.</p>
-<p>For certain Linux flavors, "make package" will create a package using checkinstall,
+<p>For certain Linux flavors, "make packageinstall" will install a package using checkinstall,
 which you can easily uninstall with your package management tool.
 On <a href="http://www.ubuntu.com/">Ubuntu</a> systems, you will need to do something like:
 <pre>svn co https://readesm.svn.sourceforge.net/svnroot/readesm readesm
-sudo apt-get install libboost-program-options-dev libgcrypt11-dev libgmp3-dev
+sudo apt-get install libboost-program-options-dev libgcrypt11-dev libgmp3-dev checkinstall
 make
-sudo make install</pre>
+sudo make packageinstall</pre>
 Or use some method that integrates it into your package manager, like
 aforementioned checkinstall.</p>
 
