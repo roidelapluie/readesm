@@ -93,6 +93,10 @@ $(name).tar.bz2: $(distribution)
 	@echo Creating $(name).tar.bz2 ...
 	@tar -C .. -chvjf $(name).tar.bz2 $(addprefix $(name)/,$(distribution))
 
+debian:
+	debuild -S -sa -k4B41883C -i
+	put my-ppa ../readesm_*.changes
+
 upload: dist
 	$(uploader) $(name).tar.bz2 $(uploadtarget)
 	scp $(name).tar.bz2 evil_k@frs.sourceforge.net:uploads
