@@ -38,7 +38,7 @@ german.mo: german.po
 	msgfmt -c -v -o $@ $<
 
 readesm-wrap-kde: readesm-wrap-kde.sh
-	sed -e s,PREFIX,$(prefix), > $@
+	sed -e s,PREFIX,$(prefix), $< > $@
 
 .PHONY:all clean distclean doc dist backup depend run upload install uninstall packageinstall debian
 
@@ -96,7 +96,7 @@ $(name).tar.bz2: $(distribution)
 	@tar -C .. -chvjf $(name).tar.bz2 $(addprefix $(name)/,$(distribution))
 
 debian:
-	debuild -S -sa -k4B41883C -i
+	debuild -S -sa -k4B41883C
 	#Dput my-ppa ../readesm_*.changes
 
 upload: dist

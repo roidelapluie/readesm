@@ -1,3 +1,10 @@
+readesm (0.3.1-0ubuntu3) jaunty; urgency=low
+
+   * fixed among other things a bug with readesm-wrap-kde and the prefix
+
+ -- Andreas Gölzer <K_2005@goelzer.de>  Wed,  13 May 2009 02:51:00 +0200
+
+
 readesm (0.3.1-0ubuntu2) jaunty; urgency=low
 
    * fixed among other things a bug with readesm-wrap-kde and the prefix
