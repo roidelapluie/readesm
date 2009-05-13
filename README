@@ -33,8 +33,10 @@ library (specifically program_options and shared_ptr) and the Gnu MP Library
 (http://gmplib.org/), which is used to check the various RSA signatures. Once
 all those are installed, typing make/make install should work fine. If not, it
 might give you a hint what is still needed, if not, report your error. For
-certain linux flavours, "make package" will create a package using checkinstall,
-which you can easily uninstall with your package management tool.
+certain linux flavours, "sudo make packageinstall" will create and install a
+package using checkinstall, which you can easily uninstall with your package
+management tool.
+
 On Ubuntu (http://www.ubuntu.com/) systems, you will need to do something like:
 
 svn co https://readesm.svn.sourceforge.net/svnroot/readesm readesm

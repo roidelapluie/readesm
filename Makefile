@@ -23,7 +23,8 @@ CFLAGS=-Wall -pipe -Werror -O2
 CXX=g++
 CPPFLAGS=-DPREFIX=\"$(prefix)\"
 CXXFLAGS=$(CFLAGS)
-LDFLAGS=-s -lgmp -lboost_program_options -lgcrypt
+LIBS=-lgmp -lboost_program_options -lgcrypt
+LDFLAGS=$(LIBS)
 
 all: $(name)
 
@@ -36,8 +37,7 @@ german.po: $(name).pot
 	msgmerge -s -U $@ $<
 german.mo: german.po
 	msgfmt -c -v -o $@ $<
-locale/de_DE.utf8/LC_MESSAGES/$(name).mo: german.po
-	msgfmt -c -v -o $@ $<
+
 readesm-wrap-kde: readesm-wrap-kde.sh
 	sed -e s,PREFIX,$(prefix), > $@
 
@@ -63,7 +63,8 @@ packageinstall: $(name)
 
 uninstall:
 	rm $(prefix)/bin/$(name)
-	rm $(prefix)/bin/$(name)-wrap-kde.sh
+	rm $(prefix)/bin/$(name)-wrap-kde
+	rm $(prefix)/bin/$(name)-wrap-firefox
 	rm $(prefix)/share/images.tar.bz2
 	rm $(prefix)/share/locale/de/LC_MESSAGES/$(name).mo
 	rm $(prefix)/share/readesm/EC_PK.bin
@@ -78,7 +79,7 @@ depend:
 
 
 clean:
-	-$(RM) $(RMFLAGS) $(name) $(objects) $(name).o
+	-$(RM) $(RMFLAGS) $(name) $(objects) $(name).o readesm-wrap-kde
 
 distclean: clean
 	-rm -r html/ latex/

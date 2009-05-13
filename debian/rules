@@ -27,6 +27,7 @@ install: build
 
 build:
 	$(MAKE) CC="$(CC)" CFLAGS="$(CFLAGS)" prefix=/usr
+	$(MAKE) prefix=/usr readesm-wrap-kde
 	touch build
 
 binary-indep: install
