@@ -23,8 +23,7 @@ CFLAGS=-Wall -pipe -Werror -O2
 CXX=g++
 CPPFLAGS=-DPREFIX=\"$(prefix)\"
 CXXFLAGS=$(CFLAGS)
-LIBS=-lgmp -lboost_program_options -lgcrypt
-LDFLAGS=$(LIBS)
+LDLIBS=-lgmp -lboost_program_options -lgcrypt
 
 all: $(name)
 
