@@ -41,7 +41,7 @@ locale/de_DE.utf8/LC_MESSAGES/$(name).mo: german.po
 readesm-wrap-kde: readesm-wrap-kde.sh
 	sed -e s,PREFIX,$(prefix), > $@
 
-.PHONY:all clean distclean doc dist backup depend run zip links upload runall install uninstall package
+.PHONY:all clean distclean doc dist backup depend run upload install uninstall packageinstall debian
 
 run: $(name)
 	./$(name) $(run_args)
@@ -97,7 +97,7 @@ $(name).tar.bz2: $(distribution)
 
 debian:
 	debuild -S -sa -k4B41883C -i
-	put my-ppa ../readesm_*.changes
+	#Dput my-ppa ../readesm_*.changes
 
 upload: dist
 	$(uploader) $(name).tar.bz2 $(uploadtarget)
