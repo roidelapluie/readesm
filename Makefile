@@ -71,6 +71,10 @@ uninstall:
 profiling: $(name)
 	valgrind --tool=callgrind ./$(name) $(run_args)
 
+homepage=index.html description.html beschreibung.html truck.jpg style.css
+homepageupload:
+	rsync -avP -e ssh $(addprefix homepage/,$(homepage)) evil_k,readesm@web.sourceforge.net:htdocs/
+
 depend: 
 	@echo Makedepend is pretty insane, and will report lots of warnings about missing iostream and
 	@echo similar standard headers. That is okay, or more precisely can hardly be prevented.

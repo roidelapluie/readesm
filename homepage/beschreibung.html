@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de_DE">
 <head>
 	<title>readESM - digital tachograph file reader</title>
-	<meta http-equiv='Content-Type' content='text/html; charset=utf8'/>
+	<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
 	<link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
@@ -33,49 +33,49 @@
 <p>Je nach verwendetem Betriebssystem bieten sich verschiedene Installationsmöglichkeiten. Leider habe ich bis jetzt noch keine Windows-Version erstellen können, doch sollte es prinzipiell möglich sein eine solche zu erstellen.</p>
 
 <h4><a name="Ubuntu">Ubuntu Linux</a></h4>
-<p>Veröffentlichte Versionen von readESM sind im meinem <a href="https://launchpad.net/~k-2005/+archive/ppa">persönlichen Paketarchiv</a> verfügbar. Dort finden sie auch detaillierte Informationen zum Einbinden des Archivs in ihr System. In Kurzform:
+<p>Veröffentlichte Versionen von readESM sind im meinem <a href="https://launchpad.net/~k-2005/+archive/ppa">persönlichen Paketarchiv</a> verfügbar. Dort finden sie auch detaillierte Informationen zum Einbinden des Archivs in ihr System. In Kurzform:</p>
 <ul>
 	<li>Fügen Sie mit <pre>sudo nano /etc/apt/sources.list</pre> oder ihrem bevorzugten Paketmanager den Paketquellen das ppa hinzu: <pre>deb http://ppa.launchpad.net/k-2005/ppa/ubuntu jaunty main</pre></li>
 	<li>Installieren Sie readESM:<pre>sudo apt-get update
 sudo apt-get install readesm</pre></li>
 	<li>Wählen Sie in ihrem bevorzugten Dateimanager als Programm zum öffnen von ESM-Dateien <i>readesm-wrap-kde</i> oder <i>readesm-wrap-firefox</i> aus.</li>
 	<li>Neue Versionen werden automatisch durch <i>update-manager</i> oder <i>sudo apt-get dist-upgrade</i> installiert.</li>
-</ul></p>
+</ul>
 <h4><a name="Gentoo">Gentoo Linux</a></h4>
 <p>Im svn befindet sich eine ebuild-Datei, die von Martin Walch erstellt wurde.</p>
 <h3><a name="Compiling">Kompilieren für andere Systeme</a></h3>
 <p>Sie können readESM-quelldateien von <a href="http://sourceforge.net/projects/readesm/">Sourceforge</a>, meiner <a href="http://andreas.goelzer.de/readesm-reading-digital-tachograph-files">homepage</a>, mittels Subversion oder als Quellpaket aus <a href="https://launchpad.net/~k-2005/+archive/ppa">meinem PPA</a> beziehen.</p>
 <p>Um das Programm zu übersetzen, benötigen Sie einen C++ Kompiler, Teile der <a href="http://www.boost.org/">Boost-Bibliothek</a> (nämlich program_options und shared_ptr), die <a href="http://gmplib.org/">Gnu MP-Bibliothek</a> und <a href="http://directory.fsf.org/security/libgcrypt.html">libgrypt</a>. Die letzteren beiden Abhängiglkeiten dienen dem prüfen der kryptographischen Signaturen in den Tachodateien.</p>
 <p>Sobald alle Abhängigkeiten installiert sind, sollten Übersetzen und Installieren mit <i>make</i> und <i>make install</i> gelingen.</p>
-<p>Um unter <a href="http://www.ubuntu.com/">Ubuntu</a> die aktuellste Version direkt aus dem Subversion-Baum zu übersetzen, gehen Sie wie folgt vor:
+<p>Um unter <a href="http://www.ubuntu.com/">Ubuntu</a> die aktuellste Version direkt aus dem Subversion-Baum zu übersetzen, gehen Sie wie folgt vor:</p>
 <pre>svn co https://readesm.svn.sourceforge.net/svnroot/readesm readesm
 sudo apt-get install libboost-program-options-dev libgcrypt11-dev libgmp3-dev
 cd readesm
 make
 sudo make install</pre>
-Statt <i>make install</i> können Sie auch <i>make packageinstall</i> verwenden, es verwendet <a href="http://www.asic-linux.com.mx/~izto/checkinstall/">Checkinstall</a> um ein Paket zu erstellen.</p>
+<p>Statt <i>make install</i> können Sie auch <i>make packageinstall</i> verwenden, es verwendet <a href="http://www.asic-linux.com.mx/~izto/checkinstall/">Checkinstall</a> um ein Paket zu erstellen.</p>
 
 <h3><a name="Running">readESM benutzen</a></h3>
-<p>Unter den meisten Umständen werden Sie das Programm von der Kommandozeile wie folgt benutzen:
+<p>Unter den meisten Umständen werden Sie das Programm von der Kommandozeile wie folgt benutzen:</p>
 <pre>readesm --infile foo.esm --outfile bar.html --format=html</pre>
-Sofern keine Ausgabedatei angegeben wird, wird stdout verwendet.</p>
+<p>Sofern keine Ausgabedatei angegeben wird, wird stdout verwendet.</p>
 <p>Die beiden Skriptdateien <i>readesm-wrap-kde</i> und <i>readesm-wrap-firefox</i> können verwendet werden, um ESM-Dateien umzuwandeln und die entstehenden Dateien in konqueror oder firefox anzusehen. Temporäre Dateien werden dabei in <i>/tmp</i> abgelegt. Die beiden Skripte sind insbesondere sinnvoll, um in einer grafischen Benutzeroberfläche wie KDE oder Gnome die Dateien anzusehen.</p>
 
 <h3><a name="Modifying">Veränderungen des Programms</a></h3>
-<p>Sie dürfen das Programm unter den Bedingungen der GPL verändern. Wenn sie dies tun, würde ich mich sehr freuen, wenn sie mir die veränderte Version zukommen lassen würden. Wenn Sie das Programm verändern wollen, beachten Sie:
+<p>Sie dürfen das Programm unter den Bedingungen der GPL verändern. Wenn sie dies tun, würde ich mich sehr freuen, wenn sie mir die veränderte Version zukommen lassen würden. Wenn Sie das Programm verändern wollen, beachten Sie:</p>
 <ul><li>Referenzen auf <i>l207.pdf</i> in den Kommentaren beziehen sich auf
 <a href="http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=OJ:L:2002:207:0001:0252:EN:PDF">OJ:L:2002:207, p. 1-252</a>. In dieser Verordnung steht vom Dateiformat der Tachographendaten bis zur elektrischen Verbindung beim Auslesen so ziemlich alles, was man an Informationen über Digitaltachographen benötigen könnte. Leider ist es nicht sehr einfach zu lesen. Die Verordnung ist in mehreren Sprachen verfügbar, Seitenangaben beziehen sich auf die englischsprachige Version. Die deutsche Version finden sie <a href="http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=OJ:L:2002:207:0001:0252:DE:PDF">hier</a>, für andere Sprachen das EN oder DE durch andere Ländercodes ersetzen.</li>
 <li>Der Quellcode ist sehr unsauber, oft viele Klassen in der gleichen Datei, wilde Namenskonverntionen. Variablen sind oft nach den Vorgaben oben genannter Verordnung benannt, was zu langen Konstrukten wie <i>controlDownloadPeriodBegin</i> führt.</li>
-<li>Mit Hilfe von <i>make doc</i> können sie eine Doxygen-Dokomentation erstellen. Eine solche ist auch <a href="codedoc/">online verfügbar</a>.</li></ul></p>
+<li>Mit Hilfe von <i>make doc</i> können sie eine Doxygen-Dokomentation erstellen. Eine solche ist auch <a href="codedoc/">online verfügbar</a>.</li></ul>
 
 <h3><a name="Help">Hilfe</a></h3>
-<p>Falls das Programm abstürzt, sich nicht installieren lässt, oder wenn sie allgemeine Fragen haben oder sonstige Rückmeldungen geben wollen, können Sie:
+<p>Falls das Programm abstürzt, sich nicht installieren lässt, oder wenn sie allgemeine Fragen haben oder sonstige Rückmeldungen geben wollen, können Sie:</p>
 <ul><li>Mir eine email an <a href="mailto:K_2005@goelzer.de">K_2005@goelzer.de</a> senden.</li>
 <li>Einen Beitrag in das <a href="http://sourceforge.net/forum/?group_id=252982">Forum</a> schreiben.</li>
-<li>Bei enger eingegrenzten Problemen oder Bugs, im <a href="http://sourceforge.net/tracker/?group_id=252982&atid=1126660">Bugtracker</a> einen Bericht schreiben.</li>
+<li>Bei enger eingegrenzten Problemen oder Bugs, im <a href="http://sourceforge.net/tracker/?group_id=252982&amp;atid=1126660">Bugtracker</a> einen Bericht schreiben.</li>
 <li>Den Eintrag auf meiner <a href="http://andreas.goelzer.de/readesm-reading-digital-tachograph-files">privaten Homepage</a> kommentieren.</li>
-</ul></p>
-<hr>
+</ul>
+<hr />
 <a href="http://andreas.goelzer.de/">Andreas Gölzer</a>, 14. Mai 2009
 </body>
 </html>

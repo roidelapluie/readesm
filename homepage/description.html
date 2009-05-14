@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
 	<title>readESM - digital tachograph file reader</title>
-	<meta http-equiv='Content-Type' content='text/html; charset=utf8'/>
+	<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
 	<link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
@@ -47,18 +47,19 @@ compile it yourself.</p>
 might give you a hint what is still needed, if not, report your error.</p>
 <p>For certain Linux flavors, "make packageinstall" will install a package using checkinstall,
 which you can easily uninstall with your package management tool.
-On <a href="http://www.ubuntu.com/">Ubuntu</a> systems, you will need to do something like:
+On <a href="http://www.ubuntu.com/">Ubuntu</a> systems, you will need to do something like:</p>
 <pre>svn co https://readesm.svn.sourceforge.net/svnroot/readesm readesm
-sudo apt-get install libboost-program-options-dev libgcrypt11-dev libgmp3-dev checkinstall
+sudo apt-get install libboost-program-options-dev libgcrypt11-dev libgmp3-dev
+cd readesm
 make
-sudo make packageinstall</pre>
-Or use some method that integrates it into your package manager, like
+sudo make install</pre>
+<p>Or use some method that integrates it into your package manager, like
 aforementioned checkinstall.</p>
 
 <h3><a name="Running">Running the program</a></h3>
-<p>In most circumstances, you will run the program from the command line like this:
+<p>In most circumstances, you will run the program from the command line like this:</p>
 <pre>readesm --infile foo.esm --outfile bar.html --format=html</pre>
-Alternatively, if no output file is specified, stdout is used.</p>
+<p>Alternatively, if no output file is specified, stdout is used.</p>
 <p>For <a href="http://www.kde.org/">KDE</a> users,I wrote a little wrapper script named
 readesm-wrap-kde.sh. It will get installed by typing make install. If you
 associate esm files with it, you can click on one in your kde file manager, and
@@ -67,21 +68,21 @@ it will open a konqueror window containing the html result.</p>
 
 <h3><a name="Modifying">Modifying the program</a></h3>
 <p>You are free to modify the program under the terms of the GPL.
-If you do so, note:
+If you do so, note:</p>
 <ul><li>Sometimes i added references to l207.pdf in the comments, that refers to
 <a href="http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=OJ:L:2002:207:0001:0252:EN:PDF">OJ:L:2002:207, p. 1-252</a>.</li>
 <li>The code is rather unclean, often two or more classes in the same file, wild
 naming convention(often taken from the European law, which leads to some unhandy names).</li>
-<li>You can create a Doxygen documentation by typing make doc. It is also available <a href="codedoc/">online</a>.</li></ul></p>
+<li>You can create a Doxygen documentation by typing make doc. It is also available <a href="codedoc/">online</a>.</li></ul>
 
 <h3><a name="Help">Getting Help</a></h3>
-<p>If the program crashes, won't install, if you have feature requests or general feedback, feel free to either:
+<p>If the program crashes, won't install, if you have feature requests or general feedback, feel free to either:</p>
 <ul><li>Send me an email to <a href="mailto:K_2005@goelzer.de">K_2005@goelzer.de</a></li>
 <li>Open a post in the <a href="http://sourceforge.net/forum/?group_id=252982">forum</a>.</li>
-<li>For specific bugs, file a report in the <a href="http://sourceforge.net/tracker/?group_id=252982&atid=1126660">tracker</a>.</li>
+<li>For specific bugs, file a report in the <a href="http://sourceforge.net/tracker/?group_id=252982&amp;atid=1126660">tracker</a>.</li>
 <li>Write a comment to the entry on my <a href="http://andreas.goelzer.de/readesm-reading-digital-tachograph-files">personal homepage</a>.</li>
-</ul></p>
-<hr>
+</ul>
+<hr />
 <a href="http://andreas.goelzer.de/">Andreas Gölzer</a>, May 10th, 2009
 </body>
 </html>
