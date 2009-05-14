@@ -40,7 +40,7 @@ german.mo: german.po
 readesm-wrap-kde: readesm-wrap-kde.sh
 	sed -e s,PREFIX,$(prefix), $< > $@
 
-.PHONY:all clean distclean doc dist backup depend run upload install uninstall packageinstall debian
+.PHONY:all clean distclean doc dist backup depend run upload install uninstall packageinstall debian hpupload
 
 run: $(name)
 	./$(name) $(run_args)
@@ -70,10 +70,6 @@ uninstall:
 
 profiling: $(name)
 	valgrind --tool=callgrind ./$(name) $(run_args)
-
-homepage=index.html description.html beschreibung.html truck.jpg style.css
-homepageupload:
-	rsync -avP -e ssh $(addprefix homepage/,$(homepage)) evil_k,readesm@web.sourceforge.net:htdocs/
 
 depend: 
 	@echo Makedepend is pretty insane, and will report lots of warnings about missing iostream and
@@ -106,7 +102,11 @@ debian:
 upload: dist
 	$(uploader) $(name).tar.bz2 $(uploadtarget)
 	scp $(name).tar.bz2 evil_k@frs.sourceforge.net:uploads
-	
+
+hpupload:
+	rsync -avP -e ssh $(filter-out $(wildcard homepage/*~), $(wildcard homepage/*)) evil_k,readesm@web.sourceforge.net:htdocs/
+
+
 backup: dist
 	@echo Copying $(name).tar.bz2 to $(name)-backup-`date +%Y%m%d-%H%M`.tar.bz2
 	@cp $(name).tar.bz2 $(name)-backup-`date +%Y%m%d-%H%M`.tar.bz2
