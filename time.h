@@ -23,7 +23,7 @@ class Time{
 		return buffer;
 	}
 	string datestr() const{
-		return str("%F"); 
+		return str("%x");
 	}
 	friend std::ostream& operator<<(std::ostream& o, const Time& d){
 		return o << d.str();
