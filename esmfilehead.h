@@ -11,7 +11,9 @@ You should have received a copy of the GNU General Public License along with rea
 #define ESMFILEHEAD_H
 #include <string>
 #include "slurpedfile.h"
+#ifndef HAVE_NO_CRYPTO
 #include "crypto.h"
+#endif
 #include "time.h"
 
 
@@ -21,9 +23,10 @@ class esmfilehead{
 	string title;
 	Time first;
 	Time last;
+#ifndef HAVE_NO_CRYPTO
 	boost::shared_ptr<verifiedcert> CAcert;
 	boost::shared_ptr<verifiedcert> devicecert;
-
+#endif
 	void reportDate(const Time& torep){
 		if(torep < first) first = torep;
 		if(torep > last) last = torep;

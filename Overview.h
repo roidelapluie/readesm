@@ -12,7 +12,9 @@ You should have received a copy of the GNU General Public License along with rea
 #include <string>
 #include "vublock.h"
 #include "formatStrings.h"
+#ifndef HAVE_NO_CRYPTO
 #include "crypto.h"
+#endif
 #include "readTypes.h"
 
 ///See page 160 of l207.pdf
@@ -57,11 +59,14 @@ class Overview : public vublock {
 		}
 	}
 	virtual void reportstuff(esmfilehead& esm){
+#ifndef HAVE_NO_CRYPTO
 		if(esm.CAcert) std::cerr << "Reassigning CAcert\n";
 		esm.CAcert = verifiedcert::ptr(new verifiedcert(start + 2));
 		if(esm.devicecert) std::cerr << "Reassigning devicecert\n";
 		esm.devicecert = verifiedcert::ptr(new verifiedcert(start + 2 + 194));
+#endif
 		esm.title = ::fixedString(start + 390 + 18, 14);
+
 	}
 	int nonhashedbytes() const{ return 2*194;}
 	void BriefReport(reporter& report) const{

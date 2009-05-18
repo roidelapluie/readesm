@@ -9,8 +9,10 @@ readESM is distributed in the hope that it will be useful, but WITHOUT ANY WARRA
 You should have received a copy of the GNU General Public License along with readESM.  If not, see <http://www.gnu.org/licenses/>. */
 #ifndef CRYPTO_H
 #define CRYPTO_H CRYPTO_H
-#include <string>
-#include <boost/shared_ptr.hpp>
+#ifdef HAVE_NO_CRYPTO
+#error "including crypto"
+#endif
+
 #include <vector>
 #include <gcrypt.h>
 
@@ -20,6 +22,7 @@ You should have received a copy of the GNU General Public License along with rea
 #include "reporter.h"
 #include "helper.h"
 #include "slurpedfile.h"
+#include "typedefs.h"
 
 bool checkSHA1match(const unsigned char* text, int textlength, const unsigned char* hash){
 	std::vector<unsigned char> buffer(20);

@@ -21,7 +21,7 @@ using std::string;
 using std::ostringstream;
 
 #ifndef PREFIX
-#define PREFIX /usr/local
+#define PREFIX "/usr/local"
 #endif
 
 #endif

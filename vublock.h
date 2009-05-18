@@ -11,7 +11,9 @@ You should have received a copy of the GNU General Public License along with rea
 #define VUBLOCK_H
 #include <string>
 #include "time.h"
+#ifndef HAVE_NO_CRYPTO
 #include "crypto.h"
+#endif
 #include "block.h"
 #include "readTypes.h"
 
@@ -76,10 +78,12 @@ class vublock  : public block {
 		if(report.verbose) CompleteReport(report);
 		else BriefReport(report);
 	}
+#ifndef HAVE_NO_CRYPTO
 	virtual bool checksig(const rsa& key){;
 		validsignature = CheckSignature(start + 2 + nonhashedbytes(), size() - 128 - 2 - nonhashedbytes(), signature, 128, key);
 		return validsignature;
 	}
+#endif
 	virtual int nonhashedbytes() const{ return 0;}
 };
 

@@ -42,6 +42,7 @@ class esmfile : public esmfilehead{
 			filewalker += p->size();
 		}
 		for(subiter i = blocks.begin(); i < blocks.end(); ++i) (*i)->reportstuff(*this);
+#ifndef HAVE_NO_CRYPTO
 		if(CAcert &&  devicecert){
 			string filename("EC_PK.bin");
 			if(!file_exists(filename)) filename = PREFIX "/share/readesm/EC_PK.bin";
@@ -53,6 +54,7 @@ class esmfile : public esmfilehead{
 				std::cerr << "Cannot verify certificates and signatures: European main certificate file not found or not openable.";
 			}
 		}
+#endif
 	}
 	friend reporter& operator<<(reporter& report, const esmfile& e){
 		report.bigblockstart("Statistics");

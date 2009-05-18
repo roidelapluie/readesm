@@ -26,7 +26,11 @@ class block{
 	friend std::ostream& operator<< (reporter& o, const block& b){
 		o.bigblockstart(b.name());
 		b.printOn(o);
+#ifndef HAVE_NO_CRYPTO
 		o("validly signed",tr(b.hassignature? (b.validsignature ? "yes, valid" : "no, invalid") : "no, not signed"));
+#else
+		o("validly signed",tr("no crypto support compiled in"));
+#endif
 		o.bigblockend();
 		return o;
 	}
@@ -36,7 +40,9 @@ class block{
 	}
 	virtual void reportstuff(esmfilehead& esm){}
 	static ptr Factory(iter& filewalker);
+#ifndef HAVE_NO_CRYPTO
 	virtual bool checksig(const rsa& key) = 0;
+#endif
 	protected:
 	virtual void printOn(reporter& o) const{
 		o("length", size());

@@ -11,10 +11,14 @@ You should have received a copy of the GNU General Public License along with rea
 #define CARDBLOCKS_H
 #include "Activity.h"
 #include "esmfilehead.h"
+#ifndef HAVE_NO_CRYPTO
 #include "crypto.h"
+#endif
 #include "block.h"
 #include "typedefs.h"
 #include "overtime.h"
+#include "readTypes.h"
+#include "formatStrings.h"
 
 class tlvblock : public block{
 	public:
@@ -30,10 +34,12 @@ class tlvblock : public block{
 		return datasize + 5 + (hassignature ? 5 + 128 : 0);
 	}
 	static ptr Factory(iter& filewalker);
+#ifndef HAVE_NO_CRYPTO
 	virtual bool checksig(const rsa& key){
 		if(hassignature) validsignature = CheckSignature(start + 5, datasize, signature, 128, key);
 		return validsignature;
 	}
+#endif
 	protected:
 	int datasize;
 
@@ -90,8 +96,10 @@ class Card_Certificate : public tlvblock{
 	virtual string name() const{ return "Card Certificate"; }
 	Card_Certificate(iter filewalker) : tlvblock(filewalker){}
 	virtual void reportstuff(esmfilehead& esm){
+#ifndef HAVE_NO_CRYPTO
 		if(esm.devicecert) std::cerr << "Reassigning cert\n";
 		esm.devicecert = verifiedcert::ptr(new verifiedcert(start + 5));
+#endif
 	}
 };
 
@@ -101,8 +109,10 @@ class CA_Certificate : public Card_Certificate{
 	virtual string name() const{ return "CA Certificate"; }
 	CA_Certificate(iter filewalker) : Card_Certificate(filewalker){}
 	virtual void reportstuff(esmfilehead& esm){
+#ifndef HAVE_NO_CRYPTO
 		if(esm.CAcert) std::cerr << "Reassigning cert\n";
 		esm.CAcert = verifiedcert::ptr(new verifiedcert(start + 5));
+#endif
 	}
 };
 
