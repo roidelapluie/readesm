@@ -9,8 +9,7 @@ readESM is distributed in the hope that it will be useful, but WITHOUT ANY WARRA
 You should have received a copy of the GNU General Public License along with readESM.  If not, see <http://www.gnu.org/licenses/>. */
 #ifndef FORMATSTRINGS_H
 #define FORMATSTRINGS_H
-#include <string>
-#include <sstream>
+#include "typedefs.h"
 #include "i18n.h"
 
 string formatEventType(unsigned char etype){

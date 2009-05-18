@@ -21,7 +21,7 @@ SHELL=/bin/bash
 TEX=latex
 CFLAGS=-Wall -pipe -Werror -O2
 CXX=g++
-CPPFLAGS=-DPREFIX=\"$(prefix)\"
+CPPFLAGS=-DPREFIX=\"$(prefix)\" $(EXTRAFLAGS)
 CXXFLAGS=$(CFLAGS)
 LDLIBS=-lgmp -lboost_program_options -lgcrypt
 

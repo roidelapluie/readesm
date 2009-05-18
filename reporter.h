@@ -9,8 +9,6 @@ readESM is distributed in the hope that it will be useful, but WITHOUT ANY WARRA
 You should have received a copy of the GNU General Public License along with readESM.  If not, see <http://www.gnu.org/licenses/>. */
 #ifndef REPORTER_H
 #define REPORTER_H REPORTER_H
-#include <sstream>
-#include <string>
 #include "helper.h"
 #include "picgen.h"
 #include "typedefs.h"

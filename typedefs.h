@@ -9,14 +9,27 @@ readESM is distributed in the hope that it will be useful, but WITHOUT ANY WARRA
 You should have received a copy of the GNU General Public License along with readESM.  If not, see <http://www.gnu.org/licenses/>. */
 #ifndef TYPEDEFS_H
 #define TYPEDEFS_H
-#include <boost/shared_ptr.hpp>
 #include <vector>
 #include <iterator>
 #include <string>
 #include <sstream>
+
+#ifndef HAVE_NO_BOOST
+#include <boost/shared_ptr.hpp>
+using boost::shared_ptr;
+#else
+template <typename T>
+class shared_ptr {
+	T* content;
+	public:
+	T& operator*(){ return *content; }
+	T* operator->(){ return content; }
+	shared_ptr(T* ncontent) : content(ncontent) {}
+};
+#endif
+
 typedef std::vector<unsigned char> slurpedfile;
 typedef slurpedfile::const_iterator iter;
-using boost::shared_ptr;
 using std::string;
 using std::ostringstream;
 

@@ -10,7 +10,7 @@ You should have received a copy of the GNU General Public License along with rea
 #ifndef VUFACTORY_H
 #define VUFACTORY_H
 
-#include <boost/shared_ptr.hpp>
+#include "typedefs.h"
 #include "Activities.h"
 #include "Speeds.h"
 #include "Technical.h"
