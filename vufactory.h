@@ -18,8 +18,8 @@ You should have received a copy of the GNU General Public License along with rea
 #include "Overview.h"
 
 
-boost::shared_ptr<vublock> vuFactory(iter start){
-	typedef boost::shared_ptr<vublock> p;
+shared_ptr<vublock> vuFactory(iter start){
+	typedef shared_ptr<vublock> p;
 	if(start[0] != 0x76) throw std::runtime_error("Not a block");
 	switch (start[1]){
 		case Overview::TREP: 	return p(new Overview(start));

@@ -69,7 +69,7 @@ class verifiedcert{
 	CAid car;
 	bool verified;
 	rsa key;
-	typedef boost::shared_ptr<verifiedcert> ptr;
+	typedef shared_ptr<verifiedcert> ptr;
 	verifiedcert(iter start_) : start(start_), car(start + 186), verified(false) {}
 	bool verify(const string& filename){
 		slurpedfile rawkey = slurp(filename);

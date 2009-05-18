@@ -20,11 +20,13 @@ using boost::shared_ptr;
 #else
 template <typename T>
 class shared_ptr {
-	T* content;
 	public:
-	T& operator*(){ return *content; }
-	T* operator->(){ return content; }
-	shared_ptr(T* ncontent) : content(ncontent) {}
+	T* content;
+	T& operator*() const{ return *content; }
+	T* operator->() const{ return content; }
+	template <class TO> shared_ptr(const shared_ptr<TO>& o) { content = o.content; }
+	shared_ptr(T* ncontent = NULL) : content(ncontent) {}
+	operator bool(){ return content != NULL; }
 };
 #endif
 

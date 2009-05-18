@@ -24,8 +24,8 @@ class esmfilehead{
 	Time first;
 	Time last;
 #ifndef HAVE_NO_CRYPTO
-	boost::shared_ptr<verifiedcert> CAcert;
-	boost::shared_ptr<verifiedcert> devicecert;
+	shared_ptr<verifiedcert> CAcert;
+	shared_ptr<verifiedcert> devicecert;
 #endif
 	void reportDate(const Time& torep){
 		if(torep < first) first = torep;

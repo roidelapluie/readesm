@@ -14,7 +14,7 @@ You should have received a copy of the GNU General Public License along with rea
 
 class block{
 	public:
-	typedef boost::shared_ptr<block> ptr;
+	typedef shared_ptr<block> ptr;
 	block(iter filewalker) : 
 		validsignature(false), 
 		hassignature(false), 
