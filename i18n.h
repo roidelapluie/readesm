@@ -10,6 +10,7 @@ You should have received a copy of the GNU General Public License along with rea
 #ifndef I18N_H
 #define I18N_H I18N_H
 
+#ifndef HAVE_NO_I18N
 #include <libintl.h>
 #include <locale.h>
 #include "typedefs.h"
@@ -17,13 +18,9 @@ You should have received a copy of the GNU General Public License along with rea
 void i18nInit(){
 	setlocale( LC_ALL, "" );
 	bindtextdomain( "readesm", PREFIX "/share/locale" );
-//	bindtextdomain( "readesm", "locale" );
 	textdomain( "readesm" );
 }
 
-// string tr(string in){
-// 	return (in.empty())? in : gettext(in.c_str());
-// }
 string tr(const string& in){
 	return (in.empty())? in : gettext(in.c_str());
 }
@@ -34,6 +31,14 @@ string tr(const char* in){
 char* trc(const char* in){
 	return gettext(in);
 }
+
+#else
+#include "typedefs.h"
+void i18nInit(){}
+string tr(const string& in){ return in; }
+string tr(const char* in){ return in; }
+const char* trc(const char* in){ return in; }
+#endif
 
 string latin1tounicode(unsigned char in){
 	if(in <= 127){
