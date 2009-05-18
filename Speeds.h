@@ -39,10 +39,18 @@ class Speeds : public vublock {
 			Time sdate(date);
 			int daystart = date.timestamp - date.timestamp % 86400;
 			int dayend = daystart + 86400;
+			*visual << (date.timestamp - daystart - 1) << " 0\n";
 			do {
 				int difference = date.timestamp - daystart;
 				for(int k = 0; k < 60; ++k) *visual << (difference + k) << " " << IntByte() << std::endl;
-				if(j < count) date = readDate();
+				if(j < count){
+					Time ndate = readDate();
+					if(ndate.timestamp != date.timestamp + 60 && ndate.timestamp < dayend){
+						*visual << (difference + 60) << " 0\n";
+						*visual << (ndate.timestamp - daystart - 1) << " 0\n";
+					}
+					date = ndate;
+				}
 			} while(++j < count && date.timestamp < dayend);
 			report(sdate.datestr(),visual->str());
 		}
