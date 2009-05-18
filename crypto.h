@@ -11,14 +11,25 @@ You should have received a copy of the GNU General Public License along with rea
 #define CRYPTO_H CRYPTO_H
 #include <string>
 #include <boost/shared_ptr.hpp>
+#include <vector>
+#include <gcrypt.h>
 
 #include "rsa.h"
-#include "sha1.h"
 #include "formatStrings.h"
 #include "readTypes.h"
 #include "reporter.h"
 #include "helper.h"
 #include "slurpedfile.h"
+
+bool checkSHA1match(const unsigned char* text, int textlength, const unsigned char* hash){
+	std::vector<unsigned char> buffer(20);
+	gcry_md_hash_buffer(GCRY_MD_SHA1, &buffer[0], text, textlength);
+	bool cmp = true;
+	for(int j = 0; cmp && j < 20; ++j){
+		cmp = (hash[j] == buffer[j]);
+	}
+	return cmp;
+}
 
 
 class CAid{
