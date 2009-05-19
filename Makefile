@@ -111,12 +111,17 @@ $(name).tar.bz2: $(distribution)
 	@echo Creating $(name).tar.bz2 ...
 	@tar -C .. -chvjf $(name).tar.bz2 $(addprefix $(name)/,$(distribution))
 
-release: $(name)-$(releaseversion).tar.bz2
+release: $(name)-$(releaseversion).tar.bz2 install_readesm_windows-$(releaseversion).exe
 $(name)-$(releaseversion).tar.bz2: $(name).tar.bz2
 	tar xjf $(name).tar.bz2
 	mv $(name) $(name)-$(releaseversion)
 	tar -chvjf $(name)-$(releaseversion).tar.bz2 $(name)-$(releaseversion)
+	tar -chvzf $(name)-$(releaseversion).tar.gz $(name)-$(releaseversion)
 	rm -r $(name)-$(releaseversion)
+	
+install_readesm_windows-$(releaseversion).exe: windows/Install_readesm_windows.exe
+	cp $< $@
+
 
 debian:
 	debuild -S -sa -k4B41883C
@@ -124,7 +129,7 @@ debian:
 
 upload: dist
 	$(uploader) $(name).tar.bz2 $(uploadtarget)
-	scp $(name).tar.bz2 evil_k@frs.sourceforge.net:uploads
+	scp $(name)-$(releaseversion).tar.bz2 $(name)-$(releaseversion).tar.gz install_readesm_windows-$(releaseversion).exe evil_k@frs.sourceforge.net:uploads
 
 hpupload:
 	rsync -avP -e ssh $(filter-out $(wildcard homepage/*~), $(wildcard homepage/*)) evil_k,readesm@web.sourceforge.net:htdocs/
