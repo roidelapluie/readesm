@@ -12,9 +12,11 @@ extrafiles = $(name).doxygen EC_PK.bin batchall.sh COPYING README images.tar.bz2
 run_args = 
 sources = $(name).cpp $(filter $(wildcard *.cpp), $(objects:.o=.cpp)) $(filter $(wildcard *.h), $(objects:.o=.h))
 svnversion = $(shell svnversion)
-version := 0.3.2
+releaseversion = 0.3.2
 ifneq ($(svnversion),exported)
-	version := $(version)svn$(svnversion)
+	version = $(releaseversion)svn$(svnversion)
+else
+	version = $(releaseversion)
 endif
 
 prefix=/usr/local
@@ -90,7 +92,7 @@ depend:
 
 
 clean:
-	-$(RM) $(RMFLAGS) $(name) $(objects) $(name).o readesm-wrap-kde
+	-$(RM) $(RMFLAGS) $(name) $(objects) $(name).o readesm-wrap-kde *.exe windows/*.exe
 
 distclean: clean
 	-rm -r html/ latex/
