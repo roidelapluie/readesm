@@ -14,6 +14,8 @@ OutFile "Install_readesm_windows.exe"
 ; AutoCloseWindow false ; (can be true for the window go away automatically at end)
 ; ShowInstDetails hide ; (can be show to have them shown, or nevershow to disable)
 ; SetDateSave off ; (can be on to have files restored to their orginal date)
+LicenseText "You must agree to this license before installing."
+LicenseData "../COPYING"
 
 InstallDir "$PROGRAMFILES\readesm"
 InstallDirRegKey HKEY_LOCAL_MACHINE "SOFTWARE\readesm" ""
