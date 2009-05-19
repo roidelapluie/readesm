@@ -131,9 +131,9 @@ upload: dist
 	$(uploader) $(name).tar.bz2 $(uploadtarget)
 	scp $(name)-$(releaseversion).tar.bz2 $(name)-$(releaseversion).tar.gz install_readesm_windows-$(releaseversion).exe evil_k@frs.sourceforge.net:uploads
 
-hpupload:
+hpupload:doc
 	rsync -avP -e ssh $(filter-out $(wildcard homepage/*~), $(wildcard homepage/*)) evil_k,readesm@web.sourceforge.net:htdocs/
-
+	rsync -avP -e ssh html evil_k,readesm@web.sourceforge.net:htdocs/codedoc
 
 backup: dist
 	@echo Copying $(name).tar.bz2 to $(name)-backup-`date +%Y%m%d-%H%M`.tar.bz2

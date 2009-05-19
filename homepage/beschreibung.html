@@ -11,6 +11,7 @@
 	<li><a href="#About">Über readESM</a></li>
 	<li><a href="#Installing">readESM installieren</a><br />
 		<ul>
+		<li><a href="#Windows">Windows</a></li>
 		<li><a href="#Ubuntu">Ubuntu</a></li>
 		<li><a href="#Gentoo">Gentoo</a></li>
 		<li><a href="#Compiling">Kompilieren für andere Systeme</a></li>
@@ -30,8 +31,10 @@
 <p>readESM ist freie Software - frei wie in freier Rede, und frei wie in Freibier. Sie dürfen readesm kostenlos <a href="http://sourceforge.net/project/showfiles.php?group_id=252982">herunterladen</a>, und es nach den Bestimmungen der <a href="http://www.gnu.org/copyleft/gpl.html">GPL</a> verändern und weitergeben.</p>
 
 <h3><a name="Installing">Installieren</a></h3>
-<p>Je nach verwendetem Betriebssystem bieten sich verschiedene Installationsmöglichkeiten. Leider habe ich bis jetzt noch keine Windows-Version erstellen können, doch sollte es prinzipiell möglich sein eine solche zu erstellen.</p>
-
+<p>Je nach verwendetem Betriebssystem bieten sich verschiedene Installationsmöglichkeiten.</p>
+<h4><a name="Ubuntu">Windows</a></h4>
+<p>Für Windows ist ein Binärpaket verfügbar, das Programm muss folglich nicht zwingend übersetzt werden. Laden Sie das Paket von Sourceforge herunter, und wählen Sie für ESM-Dateien «Öffnen mit» - <i>
+readesm-wrap-windows.bat</i>. Danach sollte es funktionieren, eine ESM-Datei mit einem doppelklick in Firefox zu sehen.</p>
 <h4><a name="Ubuntu">Ubuntu Linux</a></h4>
 <p>Veröffentlichte Versionen von readESM sind im meinem <a href="https://launchpad.net/~k-2005/+archive/ppa">persönlichen Paketarchiv</a> verfügbar. Dort finden sie auch detaillierte Informationen zum Einbinden des Archivs in ihr System. In Kurzform:</p>
 <ul>
@@ -45,7 +48,7 @@ sudo apt-get install readesm</pre></li>
 <p>Im svn befindet sich eine ebuild-Datei, die von Martin Walch erstellt wurde.</p>
 <h3><a name="Compiling">Kompilieren für andere Systeme</a></h3>
 <p>Sie können readESM-quelldateien von <a href="http://sourceforge.net/projects/readesm/">Sourceforge</a>, meiner <a href="http://andreas.goelzer.de/readesm-reading-digital-tachograph-files">homepage</a>, mittels Subversion oder als Quellpaket aus <a href="https://launchpad.net/~k-2005/+archive/ppa">meinem PPA</a> beziehen.</p>
-<p>Um das Programm zu übersetzen, benötigen Sie einen C++ Kompiler, Teile der <a href="http://www.boost.org/">Boost-Bibliothek</a> (nämlich program_options und shared_ptr), die <a href="http://gmplib.org/">Gnu MP-Bibliothek</a> und <a href="http://directory.fsf.org/security/libgcrypt.html">libgrypt</a>. Die letzteren beiden Abhängiglkeiten dienen dem prüfen der kryptographischen Signaturen in den Tachodateien.</p>
+<p>Um das Programm zu übersetzen, benötigen Sie einen C++ Kompiler, Teile der <a href="http://www.boost.org/">Boost-Bibliothek</a> (nämlich program_options und shared_ptr), die <a href="http://gmplib.org/">Gnu MP-Bibliothek</a> und <a href="http://directory.fsf.org/security/libgcrypt.html">libgrypt</a>. Die letzteren beiden Abhängiglkeiten dienen dem prüfen der kryptographischen Signaturen in den Tachodateien. Sollten einige der Abhängigkeiten nicht verfügbar sein, versuchen Sie, das Programm mit <i>make EXTRAFLAGS="-DHAVE_NO_BOOST -DHAVE_NO_CRYPTO -DHAVE_NO_I18N"</i> zu übersetzen, dann hängt es nur noch von der stdlib ab.</p>
 <p>Sobald alle Abhängigkeiten installiert sind, sollten Übersetzen und Installieren mit <i>make</i> und <i>make install</i> gelingen.</p>
 <p>Um unter <a href="http://www.ubuntu.com/">Ubuntu</a> die aktuellste Version direkt aus dem Subversion-Baum zu übersetzen, gehen Sie wie folgt vor:</p>
 <pre>svn co https://readesm.svn.sourceforge.net/svnroot/readesm readesm

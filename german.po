@@ -3,17 +3,17 @@
 # Copyright (C) 2009 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
-#: readesm.cpp:47 Faults.h:50 Faults.h:51 Faults.h:52 Faults.h:53 Faults.h:54
-#: Faults.h:55 Faults.h:56 Faults.h:57 i18n.h:19 i18n.h:57 reporter.h:106
-#: Technical.h:52
 # Andreas Gölzer <K_2005@goelzer.de>, 2009.
 # Andreas Gölzer <goelzera@ethz.ch>, 2009.
 # Martin Walch <walch.martin@web.de>, 2009.
+#: readesm.cpp:47 Faults.h:50 Faults.h:51 Faults.h:52 Faults.h:53 Faults.h:54
+#: Faults.h:55 Faults.h:56 Faults.h:57 i18n.h:19 i18n.h:57 reporter.h:106
+#: Technical.h:52
 msgid ""
 msgstr ""
 "Project-Id-Version: german\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-05-19 19:00+0200\n"
+"POT-Creation-Date: 2009-05-19 19:24+0200\n"
 "PO-Revision-Date: 2009-05-19 19:16+0200\n"
 "Last-Translator: Andreas Gölzer <goelzera@ethz.ch>\n"
 "Language-Team: American English <kde-i18n-doc@kde.org>\n"
@@ -42,10 +42,11 @@ msgstr ""
 "\n"
 "Signatur-Prüfung fehlgeschlagen "
 
-#: Activities.h:40 Activities.h:51 Activity.h:65 Activity.h:85 Activity.h:154
-#: cardblocks.h:391 cardblocks.h:476 esmfile.h:61 helper.h:38 helper.h:45
-#: i18n.h:50 reporter.h:18 reporter.h:22 reporter.h:108 Speeds.h:45
-#: Technical.h:49 Technical.h:50 Technical.h:52 time.h:53 time.h:67 time.h:68
+#: readesm.cpp:52 readesm.cpp:86 Activities.h:40 Activities.h:51 Activity.h:65
+#: Activity.h:84 Activity.h:153 cardblocks.h:391 cardblocks.h:476 esmfile.h:61
+#: helper.h:38 helper.h:45 i18n.h:50 reporter.h:18 reporter.h:22
+#: reporter.h:108 Speeds.h:45 Technical.h:49 Technical.h:50 Technical.h:52
+#: time.h:53 time.h:67 time.h:68
 msgid " "
 msgstr ""
 
@@ -102,7 +103,7 @@ msgstr ""
 msgid " to "
 msgstr " bis "
 
-#: Activity.h:155 cardblocks.h:475
+#: Activity.h:154 cardblocks.h:475
 msgid " €"
 msgstr ""
 
@@ -419,11 +420,11 @@ msgstr ""
 msgid "Accumulated fines"
 msgstr "Mögliche aufgerechnete Strafe"
 
-#: Activity.h:150
+#: Activity.h:149
 msgid "Activities Codriver"
 msgstr "Beifahreraktivitäten"
 
-#: Activity.h:146
+#: Activity.h:145
 msgid "Activities Driver"
 msgstr "Fahreraktivitäten"
 
@@ -596,11 +597,11 @@ msgstr "Zypern"
 msgid "Czech Republic"
 msgstr "Tschechische Republik"
 
-#: Activity.h:149
+#: Activity.h:148
 msgid "Daily Activity Codriver"
 msgstr "Tagestätigkeit des 2. Fahrers"
 
-#: Activity.h:145
+#: Activity.h:144
 msgid "Daily Activity Driver"
 msgstr "Tagestätigkeit des Fahrers"
 
@@ -608,7 +609,7 @@ msgstr "Tagestätigkeit des Fahrers"
 msgid "Daily driving time"
 msgstr "Tageslenkzeit"
 
-#: Activity.h:143
+#: Activity.h:142
 msgid "Date"
 msgstr "Datum"
 
@@ -649,7 +650,7 @@ msgstr "Fahrerkarte"
 msgid "Driving License Info"
 msgstr "Führerscheininformationen"
 
-#: Activity.h:152
+#: Activity.h:151
 msgid "Driving time"
 msgstr "Fahrzeit"
 
@@ -893,7 +894,7 @@ msgstr "Insgesamt gefahrene Strecke"
 msgid "Overall driving time"
 msgstr "Gesamtfahrzeit"
 
-#: Activity.h:154
+#: Activity.h:153
 msgid "Overtime"
 msgstr "Lenkzeitüberschreitung"
 
@@ -913,7 +914,7 @@ msgstr "Polen"
 msgid "Portugal"
 msgstr "Portugal"
 
-#: Activity.h:155
+#: Activity.h:154
 msgid "Possible fine"
 msgstr "Mögliche Strafe"
 
@@ -1220,11 +1221,11 @@ msgstr "Durchschnittsgeschwindigkeit"
 msgid "beginTime"
 msgstr ""
 
-#: Activity.h:90
+#: Activity.h:89
 msgid "black"
 msgstr "schwarz"
 
-#: Activity.h:96
+#: Activity.h:95
 msgid "blue"
 msgstr "blau"
 
@@ -1424,7 +1425,7 @@ msgstr "Ausstellender Staat"
 msgid "drivingLicenceNumber"
 msgstr "Führerscheinnummer"
 
-#: Activity.h:123
+#: Activity.h:122
 msgid "duration < 0\n"
 msgstr "Dauer < 0\n"
 
@@ -1460,7 +1461,7 @@ msgstr "Ersteinbau: Erste Kalibrierung der FE nach ihrer Aktivierung"
 msgid "firstOverspeedSince"
 msgstr ""
 
-#: Activity.h:85
+#: Activity.h:84
 msgid "for"
 msgstr "für"
 
@@ -1472,7 +1473,7 @@ msgstr ""
 msgid "format,f"
 msgstr ""
 
-#: Activity.h:85 time.h:67 time.h:68
+#: Activity.h:84 time.h:67 time.h:68
 msgid "from"
 msgstr "von"
 
@@ -1480,7 +1481,7 @@ msgstr "von"
 msgid "fullCardNumber"
 msgstr "Volle Kartennummer"
 
-#: Activity.h:91
+#: Activity.h:90
 msgid "green"
 msgstr "grün"
 
@@ -1701,7 +1702,7 @@ msgstr ""
 msgid "readesm"
 msgstr ""
 
-#: Activity.h:94
+#: Activity.h:93
 msgid "red"
 msgstr "rot"
 
@@ -1779,7 +1780,7 @@ msgid "the most serious event for one of the last 10 days of occurrence"
 msgstr ""
 "das schwerwiegendste Ereignis an einem der letzten 10 Tage des Auftretens"
 
-#: Activity.h:85 time.h:68
+#: Activity.h:84 time.h:68
 msgid "to"
 msgstr "bis"
 
@@ -1919,7 +1920,7 @@ msgstr "Werkstattname"
 msgid "xml"
 msgstr "xml"
 
-#: Activity.h:89
+#: Activity.h:88
 msgid "yellow"
 msgstr "gelb "
 

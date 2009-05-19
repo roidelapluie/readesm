@@ -49,7 +49,7 @@ int main(int argc, char* argv[]){
 #ifndef HAVE_NO_BOOST
 	namespace po = boost::program_options;
 
-	po::options_description desc(tr("ESM Reader, allowed options"));
+	po::options_description desc(InfoAppend(false,false) + " " + tr("ESM Reader, allowed options"));
 	desc.add_options()
 	("help,h", trc("produce help message"))
 	("infile,i", po::value<string>(), trc("input file"))
@@ -83,7 +83,7 @@ int main(int argc, char* argv[]){
 	verbose = vm["verbose"].as<bool>();
 #else
 	if(argc >= 2) infile = argv[1];
-	else std::cerr << "Missing option.\nSyntax: readesm (input file) [output file] [format]";
+	else std::cerr << InfoAppend(false,false) + " " + tr("Missing option.\nSyntax: readesm (input file) [output file] [format]");
 	if(argc >= 3) outfile = argv[2];
 	if(argc >= 4) format = argv[3];
 	
