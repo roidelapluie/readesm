@@ -5,6 +5,7 @@
 
 Name "readesm"
 OutFile "Install_readesm_windows.exe"
+!include "FileAssociation.nsh"
 
 ; Some default compiler settings (uncomment and change at will):
 ; SetCompress auto ; (can be off or force)
@@ -27,6 +28,7 @@ file ../readesm.exe
 WriteRegStr HKEY_LOCAL_MACHINE "SOFTWARE\readesm" "" "$INSTDIR"
 WriteRegStr HKEY_LOCAL_MACHINE "Software\Microsoft\Windows\CurrentVersion\Uninstall\readesm" "DisplayName" "readesm (remove only)"
 WriteRegStr HKEY_LOCAL_MACHINE "Software\Microsoft\Windows\CurrentVersion\Uninstall\readesm" "UninstallString" '"$INSTDIR\uninst.exe"'
+${registerExtension} "$INSTDIR\readesm-wrap-windows.bat" ".esm" "ESM Digital Tachograph File"
 ; write out uninstaller
 WriteUninstaller "$INSTDIR\uninst.exe"
 SectionEnd ; end of default section
@@ -40,6 +42,7 @@ Section Uninstall
 Delete "$INSTDIR\uninst.exe"
 DeleteRegKey HKEY_LOCAL_MACHINE "SOFTWARE\readesm"
 DeleteRegKey HKEY_LOCAL_MACHINE "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\readesm"
+${unregisterExtension} ".esm" "ESM Digital Tachograph File"
 RMDir "$INSTDIR"
 SectionEnd ; end of uninstall section
 
