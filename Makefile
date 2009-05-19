@@ -8,11 +8,14 @@
 name := readesm
 headers = $(wildcard *.h)
 objects = $(headers:.h=.o)
-extrafiles = $(name).doxygen EC_PK.bin batchall.sh COPYING README images.tar.bz2  $(name)-wrap-kde.sh $(name)-wrap-firefox german.po
+extrafiles = $(name).doxygen EC_PK.bin batchall.sh COPYING README images.tar.bz2  $(name)-wrap-kde.sh $(name)-wrap-firefox readesm-wrap-windows.bat german.po
 run_args = 
 sources = $(name).cpp $(filter $(wildcard *.cpp), $(objects:.o=.cpp)) $(filter $(wildcard *.h), $(objects:.o=.h))
-version = 0.3.2 $(shell svnversion)
-
+svnversion = $(shell svnversion)
+version := 0.3.2
+ifneq ($(svnversion),exported)
+	version := $(version)svn$(svnversion)
+endif
 
 prefix=/usr/local
 distribution = $(sources) $(extrafiles) Makefile
@@ -23,14 +26,15 @@ SHELL=/bin/bash
 TEX=latex
 CFLAGS=-Wall -pipe -Werror -O2
 CXX=g++
-CPPFLAGS=-DPREFIX=\"$(prefix)\" $(EXTRAFLAGS)
+CC=$(CXX)
+CPPFLAGS=-DPREFIX=\"$(prefix)\" $(EXTRAFLAGS) -DVERSION=\"$(version)\"
 CXXFLAGS=$(CFLAGS)
 LDLIBS=-lgmp -lboost_program_options -lgcrypt
 
 all: $(name)
 
 $(name) : $(patsubst %.cpp, %.o, $(filter $(wildcard *.cpp), $(objects:.o=.cpp)))
-$(name).o: $(filter $(wildcard *.h), $(objects:.o=.h))
+$(name).o : $(filter $(wildcard *.h), $(objects:.o=.h))
 
 $(name).pot: $(sources)
 	xgettext -d $(name) -a -s --from-code utf-8 -o $(name).pot $(sources)
@@ -40,7 +44,7 @@ german.mo: german.po
 	msgfmt -c -v -o $@ $<
 
 $(name).exe: $(sources)
-	i586-mingw32msvc-g++ -DHAVE_NO_BOOST -DHAVE_NO_CRYPTO -DHAVE_NO_I18N $(name).cpp -o $@ -O2
+	i586-mingw32msvc-g++ $(CPPFLAGS) -DHAVE_NO_BOOST -DHAVE_NO_CRYPTO -DHAVE_NO_I18N $(name).cpp -o $@ -O2
 
 readesm-wrap-kde: readesm-wrap-kde.sh
 	sed -e s,PREFIX,$(prefix), $< > $@
