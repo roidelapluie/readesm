@@ -81,7 +81,6 @@ string visualization(reporter& o, const std::vector<Activity>& acts){
 	reporter::pgptr actvisual(o.getBarGraph());
 	for(std::vector<Activity>::const_iterator j(acts.begin()); j != acts.end(); ++j){
 		if(j->duration > 10000) std::cerr << "ouch";
-		//TODO: make a better fix for localisation conflicts (" to" + " " vs " to ")
 		string descr = tr(j->astr()) + " " + tr("for") + " " + Activity::formatDurTime(j->duration) + " " + tr("from") + " " + tr(j->tstr()) + " " + tr("to") + " " + j->tstr(j->duration);
 		int height = 10;
 		string color;

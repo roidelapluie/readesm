@@ -3,18 +3,18 @@
 # Copyright (C) 2009 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Andreas Gölzer <K_2005@goelzer.de>, 2009.
-# Andreas Gölzer <goelzera@ethz.ch>, 2009.
-# Martin Walch <walch.martin@web.de>, 2009.
 #: readesm.cpp:47 Faults.h:50 Faults.h:51 Faults.h:52 Faults.h:53 Faults.h:54
 #: Faults.h:55 Faults.h:56 Faults.h:57 i18n.h:19 i18n.h:57 reporter.h:106
 #: Technical.h:52
+# Andreas Gölzer <K_2005@goelzer.de>, 2009.
+# Andreas Gölzer <goelzera@ethz.ch>, 2009.
+# Martin Walch <walch.martin@web.de>, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: german\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-05-19 19:00+0200\n"
-"PO-Revision-Date: 2009-05-19 18:55+0200\n"
+"PO-Revision-Date: 2009-05-19 19:16+0200\n"
 "Last-Translator: Andreas Gölzer <goelzera@ethz.ch>\n"
 "Language-Team: American English <kde-i18n-doc@kde.org>\n"
 "MIME-Version: 1.0\n"
@@ -1461,9 +1461,8 @@ msgid "firstOverspeedSince"
 msgstr ""
 
 #: Activity.h:85
-#, fuzzy
 msgid "for"
-msgstr "ab, für"
+msgstr "für"
 
 #: readesm.cpp:81
 msgid "format"
