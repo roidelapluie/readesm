@@ -15,7 +15,8 @@ You should have received a copy of the GNU General Public License along with rea
 #include "i18n.h"
 
 string InfoAppend(bool html = false, bool justname = false){
-	string rv = tr("Report generated with") + " ";
+	string rv;
+	if(!justname) rv += tr("Report generated with") + " ";
 	if(html) rv += "<a href='http://readesm.sourceforge.net/'>readESM</a>";
 	else rv += "readESM (http://readesm.sourceforge.net/)";
 #ifdef VERSION

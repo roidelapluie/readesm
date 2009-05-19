@@ -26,7 +26,7 @@ uploader=scp -p
 
 SHELL=/bin/bash
 TEX=latex
-CFLAGS=-Wall -pipe -Werror -O2
+CFLAGS=-Wall -pipe -O2
 CXX=g++
 CC=$(CXX)
 CPPFLAGS=-DPREFIX=\"$(prefix)\" $(EXTRAFLAGS) -DVERSION=\"$(version)\"
