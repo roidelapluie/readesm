@@ -111,6 +111,13 @@ $(name).tar.bz2: $(distribution)
 	@echo Creating $(name).tar.bz2 ...
 	@tar -C .. -chvjf $(name).tar.bz2 $(addprefix $(name)/,$(distribution))
 
+release: $(name)-$(releaseversion).tar.bz2
+$(name)-$(releaseversion).tar.bz2: $(name).tar.bz2
+	tar xjf $(name).tar.bz2
+	mv $(name) $(name)-$(releaseversion)
+	tar -chvjf $(name)-$(releaseversion).tar.bz2 $(name)-$(releaseversion)
+	rm -r $(name)-$(releaseversion)
+
 debian:
 	debuild -S -sa -k4B41883C
 	#Dput my-ppa ../readesm_*.changes
