@@ -12,6 +12,88 @@ You should have received a copy of the GNU General Public License along with rea
 #include "vublock.h"
 #include "formatStrings.h"
 
+
+class EventBase {
+	public:
+	static const int csize = 10;
+	int Type, RecordPurpose;
+	Time BeginTime, EndTime;
+	virtual string shortDescriptor() const { return "event"; }
+	EventBase(iter filewalker) :
+		Type(filewalker[0]),
+		RecordPurpose(filewalker[1]),
+		BeginTime(BEInt32(filewalker + 2)),
+		EndTime(BEInt32(filewalker + 6)){}
+	virtual void printOn(reporter& o) const{
+		o(shortDescriptor() + "Type", formatEventType(Type));
+		o.single(formatRange(BeginTime,EndTime));
+		o(shortDescriptor() + "RecordPurpose", formatEventRecordPurpose(RecordPurpose));
+	}
+	friend reporter& operator<<(reporter& report, const EventBase& e){
+		e.printOn(report);
+		return report;
+	}
+};
+
+class Fault : public EventBase {
+	public:
+	static const int csize = EventBase::csize + 4*18;
+	string cardnumbers[4];
+	static const int cardNumberDriverSlotBegin = 0;
+	static const int cardNumberCodriverSlotBegin = 1;
+	static const int cardNumberDriverSlotEnd = 2;
+	static const int cardNumberCodriverSlotEnd = 3;
+	virtual string shortDescriptor() const { return "fault"; }
+
+	Fault(iter filewalker) : EventBase(filewalker) {
+		for(int j = 0; j < 4; ++j) cardnumbers[j] = fixedString(filewalker + EventBase::csize + j*18,18);
+	}
+	virtual void printOn(reporter& report) const{
+		EventBase::printOn(report);
+		if(cardnumbers[2] != "" && cardnumbers[2] != cardnumbers[0]){
+			if(cardnumbers[0] != "") report("cardNumberDriverSlotBegin", cardnumbers[0]);
+			if(cardnumbers[2] != "") report("cardNumberDriverSlotEnd", cardnumbers[2]);
+		} else if(cardnumbers[0] != "") report("cardNumberDriverSlot", cardnumbers[0]);
+		if(cardnumbers[3] != "" && cardnumbers[3] != cardnumbers[1]){
+			if(cardnumbers[1] != "") report("cardNumberCodriverSlotBegin", cardnumbers[1]);
+			if(cardnumbers[3] != "") report("cardNumberCodriverSlotEnd", cardnumbers[3]);
+		} else if(cardnumbers[1] != "") report("cardNumberCodriverSlot", cardnumbers[1]);
+	}
+};
+
+class Event : public Fault {
+	public:
+	static const int csize = Fault::csize + 1;
+	int similarEventsNumber;
+	virtual string shortDescriptor() const { return "event"; }
+	Event(iter filewalker) : Fault(filewalker), similarEventsNumber(filewalker[Fault::csize]) {}
+	virtual void printOn(reporter& report) const{
+		Fault::printOn(report);
+		if(similarEventsNumber) report("similarEventsNumber",similarEventsNumber);
+	}
+};
+
+class Overspeed : public EventBase {
+	public:
+	static const int csize = EventBase::csize + 21;
+	int maxSpeedValue, averageSpeedValue;
+	string cardNumberDriverSlotBegin;
+	int similarEventsNumber;
+	Overspeed(iter filewalker) : EventBase(filewalker),
+		maxSpeedValue(filewalker[10]),
+		averageSpeedValue(filewalker[11]),
+		cardNumberDriverSlotBegin(fixedString(filewalker + 12, 18)),
+		similarEventsNumber(filewalker[30]) {}
+	virtual void printOn(reporter& report) const{
+		EventBase::printOn(report);
+		report("maxSpeedValue",stringify(maxSpeedValue) + " km/h");
+		report("averageSpeedValue",stringify(averageSpeedValue) + " km/h");
+		report("cardNumberDriverSlotBegin",cardNumberDriverSlotBegin);
+		if(similarEventsNumber) report("similarEventsNumber",similarEventsNumber);
+	}
+};
+
+
 ///See page 162 of l207.pdf
 class Faults : public vublock {
 	public:
@@ -30,38 +112,22 @@ class Faults : public vublock {
 	void CompleteReport(reporter& report) const{
 		runningIndex = 0;
 		for(reporter::subblock b = report.newsub("Faults", IntByte()); b(); ++b){
-			report("faultType", formatEventType(IntByte()));
-			report("faultRecordPurpose", formatEventRecordPurpose(IntByte()));
-			report("faultBeginTime", readDate().str());
-			report("faultEndTime", readDate().str());
-			report("cardNumberDriverSlotBegin", fixedString(18));
-			report("cardNumberCodriverSlotBegin",fixedString(18));
-			report("cardNumberDriverSlotEnd",fixedString(18));
-			report("cardNumberCodriverSlotEnd",fixedString(18));
+			Fault e(start + runningIndex + 2);
+			e.printOn(report);
+			runningIndex += Fault::csize;
 		}
 		for(reporter::subblock b = report.newsub("Events", IntByte()); b(); ++b){
-			report("eventType", formatEventType(IntByte()));
-			report("eventRecordPurpose", formatEventRecordPurpose(IntByte()));
-			report("eventBeginTime", readDate().str());
-			report("eventEndTime", readDate().str());
-			report("cardNumberDriverSlotBegin", fixedString(18));
-			report("cardNumberCodriverSlotBegin",fixedString(18));
-			report("cardNumberDriverSlotEnd",fixedString(18));
-			report("cardNumberCodriverSlotEnd",fixedString(18));
-			report("similarEventsNumber",IntByte());
+			Event e(start + runningIndex + 2);
+			e.printOn(report);
+			runningIndex += Event::csize;
 		}
 		report("lastOverspeedControlTime", readDate().str());
 		report("firstOverspeedSince", readDate().str());
 		report("numberOfOverspeedSince", IntByte());
 		for(reporter::subblock b = report.newsub("ActivityChangeInfo", IntByte()); b(); ++b){
-			report("eventType", formatEventType(IntByte()));
-			report("eventRecordPurpose", formatEventRecordPurpose(IntByte()));
-			report("eventBeginTime", readDate().str());
-			report("eventEndTime",readDate().str());
-			report("maxSpeedValue",IntByte());
-			report("averageSpeedValue",IntByte());
-			report("cardNumberDriverSlotBegin",fixedString(18));
-			report("similarEventsNumber",IntByte());
+			Overspeed e(start + runningIndex + 2);
+			e.printOn(report);
+			runningIndex += Overspeed::csize;
 		}
 		for(reporter::subblock b = report.newsub("TimeAdjustments", IntByte()); b(); ++b){
 			report("oldTimeValue",readDate().str());
