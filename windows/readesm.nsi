@@ -24,6 +24,9 @@ Section "" ; (default section)
 SetOutPath "$INSTDIR"
 ; add files / whatever that need to be installed here.
 file ../readesm.exe
+file ../README
+file ../COPYING
+file ../readesm-wrap-windows.bat
 ;
 WriteRegStr HKEY_LOCAL_MACHINE "SOFTWARE\readesm" "" "$INSTDIR"
 WriteRegStr HKEY_LOCAL_MACHINE "Software\Microsoft\Windows\CurrentVersion\Uninstall\readesm" "DisplayName" "readesm (remove only)"
