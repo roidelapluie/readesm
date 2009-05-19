@@ -37,6 +37,9 @@ german.po: $(name).pot
 german.mo: german.po
 	msgfmt -c -v -o $@ $<
 
+readesm.exe: $(sources)
+	i586-mingw32msvc-g++ -DHAVE_NO_BOOST -DHAVE_NO_CRYPTO -DHAVE_NO_I18N readesm.cpp -o $@ -O2
+
 readesm-wrap-kde: readesm-wrap-kde.sh
 	sed -e s,PREFIX,$(prefix), $< > $@
 
