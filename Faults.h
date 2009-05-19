@@ -18,16 +18,15 @@ class EventBase {
 	static const int csize = 10;
 	int Type, RecordPurpose;
 	Time BeginTime, EndTime;
-	virtual string shortDescriptor() const { return "event"; }
 	EventBase(iter filewalker) :
 		Type(filewalker[0]),
 		RecordPurpose(filewalker[1]),
 		BeginTime(BEInt32(filewalker + 2)),
 		EndTime(BEInt32(filewalker + 6)){}
 	virtual void printOn(reporter& o) const{
-		o(shortDescriptor() + "Type", formatEventType(Type));
+		o.single(formatEventType(Type), true);
 		o.single(formatRange(BeginTime,EndTime));
-		o(shortDescriptor() + "RecordPurpose", formatEventRecordPurpose(RecordPurpose));
+		o("RecordPurpose", formatEventRecordPurpose(RecordPurpose));
 	}
 	friend reporter& operator<<(reporter& report, const EventBase& e){
 		e.printOn(report);
@@ -43,8 +42,6 @@ class Fault : public EventBase {
 	static const int cardNumberCodriverSlotBegin = 1;
 	static const int cardNumberDriverSlotEnd = 2;
 	static const int cardNumberCodriverSlotEnd = 3;
-	virtual string shortDescriptor() const { return "fault"; }
-
 	Fault(iter filewalker) : EventBase(filewalker) {
 		for(int j = 0; j < 4; ++j) cardnumbers[j] = fixedString(filewalker + EventBase::csize + j*18,18);
 	}
@@ -65,7 +62,6 @@ class Event : public Fault {
 	public:
 	static const int csize = Fault::csize + 1;
 	int similarEventsNumber;
-	virtual string shortDescriptor() const { return "event"; }
 	Event(iter filewalker) : Fault(filewalker), similarEventsNumber(filewalker[Fault::csize]) {}
 	virtual void printOn(reporter& report) const{
 		Fault::printOn(report);

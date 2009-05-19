@@ -6,13 +6,15 @@
 # Andreas Gölzer <K_2005@goelzer.de>, 2009.
 # Andreas Gölzer <goelzera@ethz.ch>, 2009.
 # Martin Walch <walch.martin@web.de>, 2009.
-#: i18n.h:18 reporter.h:98 Technical.h:52
+#: readesm.cpp:47 Faults.h:50 Faults.h:51 Faults.h:52 Faults.h:53 Faults.h:54
+#: Faults.h:55 Faults.h:56 Faults.h:57 i18n.h:19 i18n.h:57 reporter.h:106
+#: Technical.h:52
 msgid ""
 msgstr ""
 "Project-Id-Version: german\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-05-13 02:30+0200\n"
-"PO-Revision-Date: 2009-05-11 17:35+0200\n"
+"POT-Creation-Date: 2009-05-19 19:00+0200\n"
+"PO-Revision-Date: 2009-05-19 18:55+0200\n"
 "Last-Translator: Andreas Gölzer <goelzera@ethz.ch>\n"
 "Language-Team: American English <kde-i18n-doc@kde.org>\n"
 "MIME-Version: 1.0\n"
@@ -21,14 +23,18 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 0.3\n"
 
-#: reporter.h:109
+#: reporter.h:24
+msgid "\n"
+msgstr ""
+
+#: reporter.h:117
 msgid ""
 "\n"
 "\n"
 "+++++++++++++++++ Block: "
 msgstr ""
 
-#: crypto.h:99
+#: crypto.h:113
 msgid ""
 "\n"
 "signature check failed "
@@ -37,33 +43,37 @@ msgstr ""
 "Signatur-Prüfung fehlgeschlagen "
 
 #: Activities.h:40 Activities.h:51 Activity.h:65 Activity.h:85 Activity.h:154
-#: cardblocks.h:381 cardblocks.h:466 esmfile.h:59 helper.h:38 helper.h:45
-#: i18n.h:45 reporter.h:100 Speeds.h:44 Technical.h:52 time.h:53 time.h:67
-#: time.h:68
+#: cardblocks.h:391 cardblocks.h:476 esmfile.h:61 helper.h:38 helper.h:45
+#: i18n.h:50 reporter.h:18 reporter.h:22 reporter.h:108 Speeds.h:45
+#: Technical.h:49 Technical.h:50 Technical.h:52 time.h:53 time.h:67 time.h:68
 msgid " "
 msgstr ""
 
-#: reporter.h:95
+#: reporter.h:103
 msgid "  ***   \n"
 msgstr ""
 
-#: esmfile.h:65 reporter.h:89 time.h:68
+#: esmfile.h:67 reporter.h:97 time.h:68
 msgid " ("
 msgstr ""
 
-#: reporter.h:109
+#: reporter.h:117
 msgid " ++++++++++++++++++++++++++\n"
 msgstr ""
 
-#: formatStrings.h:20
+#: formatStrings.h:19
 msgid " - "
 msgstr ""
 
-#: cardblocks.h:466
+#: Speeds.h:42 Speeds.h:49 Speeds.h:50
+msgid " 0\n"
+msgstr ""
+
+#: cardblocks.h:476
 msgid " Bytes"
 msgstr ""
 
-#: reporter.h:150
+#: reporter.h:158
 msgid " colspan='2' class='center'>"
 msgstr ""
 
@@ -71,24 +81,16 @@ msgstr ""
 msgid " days "
 msgstr "Tage"
 
-#: Activity.h:85
-msgid " for "
-msgstr ""
-
-#: Activity.h:85
-msgid " from "
-msgstr "von"
-
 #: time.h:75
 msgid " h "
 msgstr ""
 
-#: Activities.h:109 cardblocks.h:334 cardblocks.h:414 esmfile.h:62
-#: esmfile.h:64
+#: Activities.h:109 cardblocks.h:344 cardblocks.h:424 esmfile.h:64
+#: esmfile.h:66 Technical.h:55 Technical.h:56
 msgid " km"
 msgstr ""
 
-#: esmfile.h:66
+#: esmfile.h:68 Faults.h:85 Faults.h:86 Technical.h:54
 msgid " km/h"
 msgstr ""
 
@@ -96,30 +98,26 @@ msgstr ""
 msgid " min"
 msgstr ""
 
-#: Activity.h:85
-msgid " to"
-msgstr " nach"
-
 #: esmfile.h:33
 msgid " to "
 msgstr " bis "
 
-#: Activity.h:155 cardblocks.h:465
+#: Activity.h:155 cardblocks.h:475
 msgid " €"
 msgstr ""
 
-#: esmfile.h:65
+#: esmfile.h:67
 msgid "%)"
-msgstr ""
-
-#: time.h:26
-#, c-format
-msgid "%F"
 msgstr ""
 
 #: time.h:17
 #, c-format
 msgid "%c"
+msgstr ""
+
+#: time.h:26
+#, c-format
+msgid "%x"
 msgstr ""
 
 #: picgen.h:48 picgen.h:62
@@ -170,20 +168,20 @@ msgstr ""
 msgid "'/>"
 msgstr ""
 
-#: reporter.h:132 reporter.h:133
+#: reporter.h:140 reporter.h:141
 msgid "'>"
 msgstr ""
 
-#: formatStrings.h:61
+#: formatStrings.h:60
 msgid "(err:blame programmer)"
 msgstr "(err: Programmierer ist schuld)"
 
-#: formatStrings.h:50
+#: formatStrings.h:49
 #, fuzzy
 msgid "(error: blame programmer)"
 msgstr "(err: Programmierer ist schuld)"
 
-#: formatStrings.h:82 formatStrings.h:110
+#: formatStrings.h:81 formatStrings.h:109
 msgid "(not specified)"
 msgstr "(nicht näher angegeben)"
 
@@ -195,23 +193,23 @@ msgstr "(undefiniert)"
 msgid ")"
 msgstr ""
 
-#: reporter.h:89
+#: reporter.h:97
 msgid ") *********\n"
 msgstr ""
 
-#: reporter.h:99
+#: reporter.h:107
 msgid "**"
 msgstr ""
 
-#: reporter.h:89
+#: reporter.h:97
 msgid "***************"
 msgstr ""
 
-#: reporter.h:92
+#: reporter.h:100
 msgid "*************************************\n"
 msgstr ""
 
-#: reporter.h:112
+#: reporter.h:120
 msgid "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n"
 msgstr ""
 
@@ -219,7 +217,7 @@ msgstr ""
 msgid ", "
 msgstr ""
 
-#: readesm.cpp:76 readTypes.h:42 time.h:49
+#: readesm.cpp:47 readesm.cpp:56 readesm.cpp:99 readTypes.h:42 time.h:49
 msgid "-"
 msgstr ""
 
@@ -231,23 +229,31 @@ msgstr ""
 msgid "/8 "
 msgstr ""
 
-#: i18n.h:19
+#: Technical.h:49 Technical.h:50
+msgid "/km"
+msgstr ""
+
+#: i18n.h:20
 msgid "/share/locale"
 msgstr ""
 
-#: esmfile.h:47
+#: esmfile.h:48
 msgid "/share/readesm/EC_PK.bin"
+msgstr ""
+
+#: typedefs.h:39
+msgid "/usr/local"
 msgstr ""
 
 #: Activity.h:31 time.h:56 time.h:74
 msgid ":"
 msgstr ":"
 
-#: reporter.h:103 reporter.h:106
+#: reporter.h:111 reporter.h:114
 msgid ": \t"
 msgstr ": \t"
 
-#: reporter.h:128
+#: reporter.h:136
 msgid ""
 "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://"
 "www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n"
@@ -256,7 +262,7 @@ msgid ""
 "><title>"
 msgstr ""
 
-#: reporter.h:169
+#: reporter.h:177
 msgid ""
 "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://"
 "www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n"
@@ -264,19 +270,19 @@ msgid ""
 "<head><title>"
 msgstr ""
 
-#: reporter.h:150
+#: reporter.h:158
 msgid "</"
 msgstr ""
 
-#: reporter.h:133
+#: reporter.h:141
 msgid "</a></h2><table>"
 msgstr ""
 
-#: reporter.h:132
+#: reporter.h:140
 msgid "</a><br/>"
 msgstr ""
 
-#: reporter.h:128 reporter.h:185
+#: reporter.h:136 reporter.h:193
 msgid "</body></html>\n"
 msgstr ""
 
@@ -288,19 +294,19 @@ msgstr ""
 msgid "</g></svg>"
 msgstr ""
 
-#: reporter.h:128 reporter.h:183
+#: reporter.h:136 reporter.h:191
 msgid "</h1>"
 msgstr ""
 
-#: reporter.h:136
+#: reporter.h:144
 msgid "</table>"
 msgstr ""
 
-#: reporter.h:145
+#: reporter.h:153
 msgid "</table></td></tr>\n"
 msgstr ""
 
-#: reporter.h:153 reporter.h:156
+#: reporter.h:161 reporter.h:164
 msgid "</td></tr>\n"
 msgstr ""
 
@@ -308,21 +314,21 @@ msgstr ""
 msgid "</text><line x1='"
 msgstr ""
 
-#: reporter.h:153 reporter.h:156
+#: reporter.h:161 reporter.h:164
 msgid "</th><td>"
 msgstr ""
 
-#: reporter.h:139
+#: reporter.h:147
 msgid "</th><td><table>\n"
 msgstr ""
 
-#: reporter.h:128
+#: reporter.h:136
 msgid ""
 "</title><meta http-equiv='Content-Type' content='text/html; charset=utf8'/></"
 "head><body><h1>"
 msgstr ""
 
-#: reporter.h:171
+#: reporter.h:179
 msgid ""
 "</title><meta http-equiv='Content-Type' content='text/html; charset=utf8'/"
 "><style type=\"text/css\">table\t\t{ border-collapse:collapse;  border-"
@@ -333,8 +339,12 @@ msgid ""
 "{font-size:0.5em;}small\t\t{font-size:0.8em;}</style></head><body><h1>"
 msgstr ""
 
-#: reporter.h:132
+#: reporter.h:140
 msgid "<a href='#"
+msgstr ""
+
+#: reporter.h:19
+msgid "<a href='http://readesm.sourceforge.net/'>readESM</a>"
 msgstr ""
 
 #: picgen.h:24
@@ -355,11 +365,11 @@ msgstr ""
 msgid "<g transform='translate(10,0)'>"
 msgstr ""
 
-#: reporter.h:133
+#: reporter.h:141
 msgid "<h2><a name='"
 msgstr ""
 
-#: reporter.h:128 reporter.h:183
+#: reporter.h:136 reporter.h:191 reporter.h:192
 msgid "<hr/>"
 msgstr ""
 
@@ -389,23 +399,23 @@ msgstr ""
 msgid "<text x='"
 msgstr ""
 
-#: reporter.h:150
+#: reporter.h:158
 msgid "<tr><"
 msgstr ""
 
-#: reporter.h:139 reporter.h:153 reporter.h:156
+#: reporter.h:147 reporter.h:161 reporter.h:164
 msgid "<tr><th>"
 msgstr ""
 
-#: reporter.h:142
+#: reporter.h:150
 msgid "<tr><th></th><td></td></tr>\n"
 msgstr ""
 
-#: reporter.h:150
+#: reporter.h:158
 msgid "></tr>"
 msgstr ""
 
-#: cardblocks.h:465
+#: cardblocks.h:475
 msgid "Accumulated fines"
 msgstr "Mögliche aufgerechnete Strafe"
 
@@ -421,91 +431,91 @@ msgstr "Fahreraktivitäten"
 msgid "Activities for"
 msgstr "Aktivitäten am"
 
-#: cardblocks.h:466
+#: cardblocks.h:476
 msgid "Activity space usage"
 msgstr "Platzverbrauch durch Aktivitäten"
 
-#: Faults.h:56
+#: Faults.h:123
 msgid "ActivityChangeInfo"
 msgstr "Aktivitätenänderungsinformation"
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "Albania"
 msgstr "Albanien"
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "Andorra"
 msgstr "Andorra"
 
-#: cardblocks.h:75
+#: cardblocks.h:81
 msgid "Application Identification"
 msgstr "Anwendungskennung"
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "Armenia"
 msgstr "Armenien"
 
-#: crypto.h:64
+#: crypto.h:78
 msgid "Attempting to use wrong ca certificate."
 msgstr "Versuche falsches CA-Zertifikat zu verwenden."
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "Austria"
 msgstr "Österreich"
 
-#: formatStrings.h:33
+#: formatStrings.h:32
 msgid "Authentication failure"
 msgstr "Fehlgeschlagene Authentisierung"
 
-#: esmfile.h:64
+#: esmfile.h:66
 msgid "Average distance per day"
 msgstr "Durchschnittliche Strecke pro Tag"
 
-#: esmfile.h:66
+#: esmfile.h:68
 msgid "Average speed when driving"
 msgstr "Durchschnittsgeschwindigkeit während der Fahrt"
 
-#: esmfile.h:65
+#: esmfile.h:67
 msgid "Average time driven per day"
 msgstr "Durchschnittlich pro Tag gefahrene Zeit"
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "Azerbaijan"
 msgstr "Aserbaidschan"
 
-#: formatStrings.h:102
+#: formatStrings.h:101
 msgid "Begin, related time = card insertion time or time of entry"
 msgstr ""
 
-#: formatStrings.h:106
+#: formatStrings.h:105
 msgid "Begin, related time assumed by VU"
 msgstr ""
 
-#: formatStrings.h:104
+#: formatStrings.h:103
 msgid "Begin, related time manually entered (start time)"
 msgstr ""
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "Belarus"
 msgstr "Weißrussland"
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "Belgium"
 msgstr "Belgien"
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "Bosnia and Herzegovina"
 msgstr "Bosnien und Herzegowina"
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "Bulgaria"
 msgstr "Bulgarien"
 
-#: cardblocks.h:101
+#: cardblocks.h:109
 msgid "CA Certificate"
 msgstr "CA-Zertifikat"
 
-#: esmfile.h:53
+#: esmfile.h:54
 msgid ""
 "Cannot verify certificates and signatures: European main certificate file "
 "not found or not openable."
@@ -513,76 +523,76 @@ msgstr ""
 "Kann Zertifikate und Signaturen nicht prüfen: Datei mit europäischem "
 "Hauptzertifikat wurde nicht gefunden oder ließ sich nicht öffnen."
 
-#: cardblocks.h:90
+#: cardblocks.h:96
 msgid "Card Certificate"
 msgstr "Kartenzertifikat"
 
-#: cardblocks.h:63
+#: cardblocks.h:69
 #, fuzzy
 msgid "Card Download"
 msgstr "Karte heruntergeladen, "
 
-#: cardblocks.h:355
+#: cardblocks.h:365
 msgid "Card Identification"
 msgstr "Karteninformationen"
 
-#: formatStrings.h:23
+#: formatStrings.h:22
 msgid "Card conflict"
 msgstr "Kartenkonflikt"
 
-#: formatStrings.h:28
+#: formatStrings.h:27
 msgid "Card data input integrity error"
 msgstr "Integritätsfehler der Kartendateneingabedaten"
 
-#: formatStrings.h:42
+#: formatStrings.h:41
 msgid "Card faults: "
 msgstr "Kartenstörungen: "
 
-#: formatStrings.h:23
+#: formatStrings.h:22
 msgid "Card insertion while driving"
 msgstr "Einstecken der Karte während des Lenkens"
 
-#: Overview.h:40
+#: Overview.h:42
 msgid "CardSlotsStatus"
 msgstr "Status Der Karteneinschübe"
 
-#: crypto.h:78
+#: crypto.h:92
 msgid "Certificate is invalid.\n"
 msgstr "Zertifikat ist ungültig.\n"
 
-#: formatStrings.h:95
+#: formatStrings.h:94
 msgid "Company Card"
 msgstr "Unternehmenskarte"
 
-#: cardblocks.h:209
+#: cardblocks.h:219
 msgid "Control Activity Data"
 msgstr "Übersicht über Kontrollen"
 
-#: formatStrings.h:95
+#: formatStrings.h:94
 msgid "Control Card"
 msgstr "Kontrollkarte"
 
-#: readesm.cpp:81
+#: readesm.cpp:104
 msgid "Could not open output file, writing to stdout"
 msgstr "Konnte "
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "Croatia"
 msgstr "Kroatien"
 
-#: cardblocks.h:389
+#: cardblocks.h:399
 msgid "Current Usage"
 msgstr "Derzeitige Benutzung"
 
-#: Overview.h:37
+#: Overview.h:39
 msgid "CurrentDateTime"
 msgstr "Jetzige Zeit"
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "Cyprus"
 msgstr "Zypern"
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "Czech Republic"
 msgstr "Tschechische Republik"
 
@@ -602,7 +612,7 @@ msgstr "Tageslenkzeit"
 msgid "Date"
 msgstr "Datum"
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "Denmark"
 msgstr "Dänemark"
 
@@ -610,15 +620,15 @@ msgstr "Dänemark"
 msgid "Detailed Speed"
 msgstr "detaillierte Geschwindigkeit"
 
-#: formatStrings.h:38
+#: formatStrings.h:37
 msgid "Display fault"
 msgstr "Anzeigestörung"
 
-#: formatStrings.h:38
+#: formatStrings.h:37
 msgid "Downloading fault"
 msgstr "Störung beim Herunterladen"
 
-#: Activities.h:109 cardblocks.h:334
+#: Activities.h:109 cardblocks.h:344
 msgid "Driven distance"
 msgstr "Gefahrene Strecke"
 
@@ -626,16 +636,16 @@ msgstr "Gefahrene Strecke"
 msgid "Driver"
 msgstr "Fahrer"
 
-#: cardblocks.h:423
+#: cardblocks.h:433
 #, fuzzy
 msgid "Driver Activity Data"
 msgstr "Tagestätigkeit des Fahrers"
 
-#: formatStrings.h:95
+#: formatStrings.h:94
 msgid "Driver Card"
 msgstr "Fahrerkarte"
 
-#: cardblocks.h:47
+#: cardblocks.h:53
 msgid "Driving License Info"
 msgstr "Führerscheininformationen"
 
@@ -643,201 +653,211 @@ msgstr "Führerscheininformationen"
 msgid "Driving time"
 msgstr "Fahrzeit"
 
-#: formatStrings.h:23
+#: formatStrings.h:22
 msgid "Driving without an appropriate card"
 msgstr "Lenken ohne geeignete Karte"
 
-#: esmfile.h:46
+#: esmfile.h:47
 msgid "EC_PK.bin"
 msgstr ""
 
-#: reporter.h:22 reporter.h:86 reporter.h:125 reporter.h:188
+#: reporter.h:30 reporter.h:94 reporter.h:133 reporter.h:196
 msgid "ESM Data"
 msgstr "ESM Daten"
 
-#: readesm.cpp:46
+#: readesm.cpp:52
 msgid "ESM Reader, allowed options"
 msgstr "ESM Reader, erlaubte Parameter"
 
-#: formatStrings.h:103
+#: formatStrings.h:102
 msgid "End,   related time = card withdrawal time or time of entry"
 msgstr ""
 
-#: formatStrings.h:107
+#: formatStrings.h:106
 msgid "End,   related time assumed by VU "
 msgstr ""
 
-#: formatStrings.h:105
+#: formatStrings.h:104
 msgid "End,   related time manually entered (end of work period)"
 msgstr ""
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "Estonia"
 msgstr "Estland"
 
-#: formatStrings.h:69
+#: formatStrings.h:68
 msgid "Europe, but not EC and not registered"
 msgstr "Europa, aber nicht EG und nicht registriert"
 
-#: formatStrings.h:68
+#: formatStrings.h:67
 msgid "European Community"
 msgstr "Europäische Gemeinschaft"
 
-#: Faults.h:42
+#: Faults.h:115
 msgid "Events"
 msgstr "Ereignisse"
 
-#: cardblocks.h:251
+#: cardblocks.h:261
 msgid "Events Data"
 msgstr "Ereignisdaten"
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "Faeroe Islands"
 msgstr "Färöer"
 
-#: Faults.h:19 Faults.h:32
+#: Faults.h:97 Faults.h:110
 msgid "Faults"
 msgstr "Fehler"
 
-#: cardblocks.h:265
+#: cardblocks.h:275
 msgid "Faults Data"
 msgstr "Fehlerdaten"
 
-#: formatStrings.h:75
+#: formatStrings.h:74
 msgid "Ferry/Train crossing"
 msgstr "Fährüberfahrt/Zugfahrt"
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "Finland"
 msgstr "Finnland"
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "France"
 msgstr "Frankreich"
 
-#: formatStrings.h:22
+#: formatStrings.h:21
 msgid "General events: "
 msgstr "Allgemeine Ereignisse: "
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "Georgia"
 msgstr "Georgien"
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "Germany"
 msgstr "Deutschland"
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "Greece"
 msgstr "Griechenland"
 
-#: formatStrings.h:28 formatStrings.h:33
+#: formatStrings.h:27 formatStrings.h:32
 msgid "Hardware sabotage"
 msgstr "Hardwaremanipulation"
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "Hungary"
 msgstr "Ungarn"
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "Iceland"
 msgstr "Island"
 
-#: formatStrings.h:23
+#: Technical.h:49 Technical.h:50
+msgid "Impulses"
+msgstr "Impulse"
+
+#: formatStrings.h:22
 msgid "Insertion of a non-valid card"
 msgstr "Einstecken einer ungültigen Karte"
 
-#: formatStrings.h:28 formatStrings.h:33
+#: formatStrings.h:27 formatStrings.h:32
 msgid "Internal data transfer error"
 msgstr "Interner Datenübertragungsfehler"
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "Ireland"
 msgstr "Irland"
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "Italy"
 msgstr "Italien"
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "Kazakhstan"
 msgstr "Kasachstan"
 
-#: formatStrings.h:23
+#: formatStrings.h:22
 msgid "Last card session not correctly closed"
 msgstr "Letzter Vorgang nicht korrekt abgeschlossen"
 
-#: cardblocks.h:68
+#: cardblocks.h:74
 msgid "LastCardDownload"
 msgstr "Letzter Kartendownload"
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "Latvia"
 msgstr "Lettland"
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "Liechtenstein"
 msgstr "Liechtenstein"
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "Lithuania"
 msgstr "Litauen"
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "Luxembourg"
 msgstr "Luxemburg"
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "Macedonia"
 msgstr "Mazedonien"
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "Malta"
 msgstr "Malta"
 
-#: formatStrings.h:49 formatStrings.h:60
+#: formatStrings.h:48 formatStrings.h:59
 msgid "Manufacturer specific"
 msgstr "Herstellerspezifisch"
 
-#: formatStrings.h:95
+#: formatStrings.h:94
 msgid "Manufacturing Card"
 msgstr "Herstellerkarte"
 
-#: formatStrings.h:65
+#: readesm.cpp:86
+msgid ""
+"Missing option.\n"
+"Syntax: readesm (input file) [output file] [format]"
+msgstr ""
+
+#: formatStrings.h:64
 msgid "Monaco"
 msgstr "Monaco"
 
-#: formatStrings.h:95
+#: formatStrings.h:94
 msgid "Motion Sensor"
 msgstr "Bewegungssensor"
 
-#: formatStrings.h:23
+#: formatStrings.h:22
 msgid "Motion data error"
 msgstr "Datenfehler Weg und Geschwindigkeit"
 
-#: formatStrings.h:28
+#: formatStrings.h:27
 msgid "Motion sensor authentication failure"
 msgstr ""
 "Fehlgeschlagene Authentisierung des Weg- und/oder Geschwindigkeitsgebers"
 
-#: readesm.cpp:64
+#: readesm.cpp:76
 msgid "Needs an input filename (--infile)!\n"
 msgstr "Benötigt einen Dateinamen für die Eingabe (--infile)!\n"
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "Netherlands"
 msgstr "Niederlande"
 
-#: formatStrings.h:23 formatStrings.h:28 formatStrings.h:33 formatStrings.h:38
-#: formatStrings.h:43
+#: formatStrings.h:22 formatStrings.h:27 formatStrings.h:32 formatStrings.h:37
+#: formatStrings.h:42
 msgid "No further details"
 msgstr "Keine weiteren Angaben"
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "No information available"
 msgstr "Keine Informationen verfügbar"
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "Norway"
 msgstr "Norwegen"
 
@@ -853,23 +873,23 @@ msgstr "Kilometerstand"
 msgid "Oops! "
 msgstr "Ups!"
 
-#: formatStrings.h:75
+#: formatStrings.h:74
 msgid "Out of scope – Begin"
 msgstr "Kontrollgerät nicht erforderlich – Anfang"
 
-#: formatStrings.h:75
+#: formatStrings.h:74
 msgid "Out of scope – End"
 msgstr "Kontrollgerät nicht erforderlich – Ende"
 
-#: formatStrings.h:23
+#: formatStrings.h:22
 msgid "Over speeding"
 msgstr "Geschwindigkeitsüberschreitung"
 
-#: esmfile.h:62
+#: esmfile.h:64
 msgid "Overall driven distance"
 msgstr "Insgesamt gefahrene Strecke"
 
-#: esmfile.h:63
+#: esmfile.h:65
 msgid "Overall driving time"
 msgstr "Gesamtfahrzeit"
 
@@ -877,19 +897,19 @@ msgstr "Gesamtfahrzeit"
 msgid "Overtime"
 msgstr "Lenkzeitüberschreitung"
 
-#: Overview.h:23
+#: Overview.h:25
 msgid "Overview"
 msgstr "Übersicht"
 
-#: cardblocks.h:275
+#: cardblocks.h:285
 msgid "Places"
 msgstr "Orte"
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "Poland"
 msgstr "Polen"
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "Portugal"
 msgstr "Portugal"
 
@@ -897,41 +917,45 @@ msgstr "Portugal"
 msgid "Possible fine"
 msgstr "Mögliche Strafe"
 
-#: formatStrings.h:23
+#: formatStrings.h:22
 msgid "Power supply interruption"
 msgstr "Unterbrechung der Stromversorgung"
 
-#: formatStrings.h:38
+#: formatStrings.h:37
 msgid "Printer fault"
 msgstr "Druckerstörung"
 
-#: formatStrings.h:25 formatStrings.h:30 formatStrings.h:35 formatStrings.h:40
-#: formatStrings.h:45 formatStrings.h:58 formatStrings.h:75 formatStrings.h:77
-#: formatStrings.h:97
+#: formatStrings.h:24 formatStrings.h:29 formatStrings.h:34 formatStrings.h:39
+#: formatStrings.h:44 formatStrings.h:57 formatStrings.h:74 formatStrings.h:76
+#: formatStrings.h:96
 msgid "RFU"
 msgstr ""
 
-#: formatStrings.h:47
+#: formatStrings.h:46
 msgid "RFU groups"
 msgstr ""
 
-#: Overview.h:60
+#: Overview.h:63
 msgid "Reassigning CAcert\n"
 msgstr ""
 
-#: cardblocks.h:93 cardblocks.h:104
+#: cardblocks.h:100 cardblocks.h:113
 msgid "Reassigning cert\n"
 msgstr ""
 
-#: Overview.h:62
+#: Overview.h:65
 msgid "Reassigning devicecert\n"
 msgstr ""
 
-#: esmfile.h:61
+#: Faults.h:29
+msgid "RecordPurpose"
+msgstr "Aufzeichnungsgrund"
+
+#: esmfile.h:63
 msgid "Recorded days"
 msgstr "Aufgezeichnete Tage"
 
-#: formatStrings.h:37
+#: formatStrings.h:36
 msgid "Recording equipment faults: "
 msgstr "Störungen Kontrollgerät: "
 
@@ -939,55 +963,59 @@ msgstr "Störungen Kontrollgerät: "
 msgid "Regions"
 msgstr "Regionen"
 
-#: formatStrings.h:65
+#: reporter.h:18
+msgid "Report generated with"
+msgstr ""
+
+#: formatStrings.h:64
 msgid "Republic of Moldova"
 msgstr "Republik Moldau"
 
-#: formatStrings.h:95
+#: formatStrings.h:94
 msgid "Reserved"
 msgstr "Reserviert"
 
-#: formatStrings.h:67
+#: formatStrings.h:66
 msgid "Reserved for future use"
 msgstr ""
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "Romania"
 msgstr "Rumänien"
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "Russian Federation"
 msgstr "Russische Föderation"
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "San Marino"
 msgstr "San Marino"
 
-#: formatStrings.h:38
+#: formatStrings.h:37
 msgid "Sensor fault"
 msgstr "Sensorstörung"
 
-#: formatStrings.h:32
+#: formatStrings.h:31
 msgid "Sensor related security breach attempt events: "
 msgstr "Sicherheitsverletzende Versuche Weg- und/oder Geschwindigkeitsgeber: "
 
-#: cardblocks.h:449
+#: cardblocks.h:459
 msgid "Size 0 for increment. Aborting.\n"
 msgstr "Größe 0 für Inkrementierung. Abbruch.\n"
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "Slovakia"
 msgstr "Slowakei"
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "Slovenia"
 msgstr "Slowenien"
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "Spain"
 msgstr "Spanien"
 
-#: cardblocks.h:124
+#: cardblocks.h:134
 msgid "Specific Conditions"
 msgstr ""
 
@@ -999,31 +1027,31 @@ msgstr ""
 msgid "Speed data"
 msgstr "Geschwindigkeitsdaten"
 
-#: esmfile.h:58
+#: esmfile.h:60
 msgid "Statistics"
 msgstr "Statistik"
 
-#: esmfile.h:59
+#: esmfile.h:61
 msgid "Statistics for"
 msgstr "Statistik für"
 
-#: formatStrings.h:33
+#: formatStrings.h:32
 msgid "Stored data integrity error"
 msgstr "Integritätsfehler der Speicherdaten"
 
-#: formatStrings.h:28
+#: formatStrings.h:27
 msgid "Stored user data integrity error"
 msgstr "Integritätsfehler der gespeicherten Benutzerdaten"
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "Sweden"
 msgstr "Schweden"
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "Switzerland"
 msgstr "Schweiz"
 
-#: formatStrings.h:28
+#: formatStrings.h:27
 msgid "Tachograph card authentication failure"
 msgstr "Authentisierungsfehler der Kontrollgerätkarte"
 
@@ -1031,11 +1059,11 @@ msgstr "Authentisierungsfehler der Kontrollgerätkarte"
 msgid "Technical Data"
 msgstr "Technische Daten"
 
-#: formatStrings.h:23
+#: formatStrings.h:22
 msgid "Time overlap"
 msgstr "Zeitüberlappung"
 
-#: Faults.h:66
+#: Faults.h:128
 msgid "TimeAdjustments"
 msgstr "Uhrzeitveränderungen"
 
@@ -1043,27 +1071,27 @@ msgstr "Uhrzeitveränderungen"
 msgid "TimeReal"
 msgstr ""
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "Turkey"
 msgstr "Türkei"
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "Turkmenistan"
 msgstr "Turkmenistan"
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "Ukraine"
 msgstr "Ukraine"
 
-#: formatStrings.h:28 formatStrings.h:33
+#: formatStrings.h:27 formatStrings.h:32
 msgid "Unauthorised case opening"
 msgstr "Unberechtigtes Öffnen des Gehäuses"
 
-#: formatStrings.h:28
+#: formatStrings.h:27
 msgid "Unauthorised change of motion sensor"
 msgstr "Unbefugte Veränderung des Weg- und/oder Geschwindigkeitsgebers"
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "United Kingdom"
 msgstr "Vereinigtes Königreich"
 
@@ -1071,43 +1099,43 @@ msgstr "Vereinigtes Königreich"
 msgid "Unknown block"
 msgstr "Unbekannter Block"
 
-#: block.h:35
+#: block.h:39
 msgid "Unknown block type "
 msgstr "Unbekannter Block-Typ "
 
-#: formatStrings.h:88
+#: formatStrings.h:87
 msgid "VU downloaded, "
 msgstr "FE heruntergeladen, "
 
-#: formatStrings.h:38
+#: formatStrings.h:37
 msgid "VU internal fault"
 msgstr "FE-interne Störung"
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "Vatican City"
 msgstr "Vatikanstadt"
 
-#: formatStrings.h:95
+#: formatStrings.h:94
 msgid "Vehicle Unit"
 msgstr "Fahrzeugeinheit"
 
-#: formatStrings.h:27
+#: formatStrings.h:26
 msgid "Vehicle unit related security breach attempt events: "
 msgstr "Sicherheitsverletzende Versuche an der Fahrzeugeinheit: "
 
-#: Overview.h:33
+#: Overview.h:35
 msgid "VehicleIdentificationNumber"
 msgstr "Fahrzeugnummer"
 
-#: Overview.h:34
+#: Overview.h:36
 msgid "VehicleRegistrationNation"
 msgstr "Fahzeugregistrierungsland"
 
-#: Overview.h:35
+#: Overview.h:37
 msgid "VehicleRegistrationNumber"
 msgstr "Amtliches Kennzeichen"
 
-#: cardblocks.h:318
+#: cardblocks.h:328
 msgid "Vehicles Used"
 msgstr "Benutzte Fahrzeuge"
 
@@ -1119,11 +1147,11 @@ msgstr ""
 msgid "VuCardIWRecord"
 msgstr ""
 
-#: Overview.h:44
+#: Overview.h:46
 msgid "VuCompanyLocksRecord"
 msgstr ""
 
-#: Overview.h:51
+#: Overview.h:53
 msgid "VuControlActivityRecord"
 msgstr ""
 
@@ -1136,15 +1164,15 @@ msgstr "detaillierte Geschwindigkeit"
 msgid "Work period"
 msgstr "Arbeitszeit"
 
-#: formatStrings.h:95
+#: formatStrings.h:94
 msgid "Workshop Card"
 msgstr "Werkstattkarte"
 
-#: formatStrings.h:65
+#: formatStrings.h:64
 msgid "Yugoslavia"
 msgstr "Jugoslawien"
 
-#: formatStrings.h:80
+#: formatStrings.h:79
 msgid ""
 "activation: recording of calibration parameters known, at the moment of the "
 "VU activation"
@@ -1160,35 +1188,35 @@ msgstr ""
 msgid "activityChangeInfos"
 msgstr ""
 
-#: cardblocks.h:413
+#: cardblocks.h:423
 msgid "activityDailyPresenceCounter"
 msgstr ""
 
-#: cardblocks.h:414
+#: cardblocks.h:424
 msgid "activityDayDistance"
 msgstr "Gefahrene Strecke"
 
-#: crypto.h:46
+#: crypto.h:60
 msgid "additionalInfo"
 msgstr "Zusätzliche Informationen"
 
-#: formatStrings.h:55
+#: formatStrings.h:54
 msgid "an active/on-going event or fault"
 msgstr "ein aktives Ereignis oder eine andauernde Störung"
 
 #: Technical.h:54
 msgid "authorisedSpeed"
-msgstr ""
+msgstr "Erlaubte Höchstgeschwindigkeit"
 
 #: Activity.h:52
 msgid "availability"
 msgstr "Verfügbarkeit"
 
-#: Faults.h:62
+#: Faults.h:86
 msgid "averageSpeedValue"
 msgstr "Durchschnittsgeschwindigkeit"
 
-#: cardblocks.h:236
+#: cardblocks.h:246
 msgid "beginTime"
 msgstr ""
 
@@ -1204,7 +1232,7 @@ msgstr "blau"
 msgid "break/rest"
 msgstr "Ruhepause"
 
-#: crypto.h:47
+#: crypto.h:61
 msgid "caIdentifier"
 msgstr ""
 
@@ -1216,15 +1244,15 @@ msgstr "Kalibrierungsgrund"
 msgid "card "
 msgstr "Karte"
 
-#: formatStrings.h:87
+#: formatStrings.h:86
 msgid "card downloaded, "
 msgstr "Karte heruntergeladen, "
 
-#: Activities.h:75 cardblocks.h:374
+#: Activities.h:75 cardblocks.h:384
 msgid "cardExpiryDate"
 msgstr "Kartengültigkeitsende"
 
-#: cardblocks.h:377
+#: cardblocks.h:387
 msgid "cardHolderBirthDate"
 msgstr "Geburtstag des Karteninhabers"
 
@@ -1232,7 +1260,7 @@ msgstr "Geburtstag des Karteninhabers"
 msgid "cardHolderFirstNames"
 msgstr "Vornamen des Karteninhabers"
 
-#: cardblocks.h:378
+#: cardblocks.h:388
 msgid "cardHolderPreferredLanguage"
 msgstr "Bevorzugte Sprache des Karteninhabers"
 
@@ -1244,51 +1272,59 @@ msgstr "Nachname des Karteninhabers"
 msgid "cardInsertionTime"
 msgstr ""
 
-#: cardblocks.h:372
+#: cardblocks.h:382
 msgid "cardIssueDate"
 msgstr "Kartenausgabedatum"
 
-#: cardblocks.h:371
+#: cardblocks.h:381
 msgid "cardIssuingAuthorityName"
 msgstr "Kartenausgebende Behörde"
 
-#: cardblocks.h:192 cardblocks.h:369
+#: cardblocks.h:202 cardblocks.h:379
 msgid "cardIssuingMemberState"
 msgstr "Kartenausgebender Staat"
 
-#: cardblocks.h:193 cardblocks.h:370
+#: cardblocks.h:203 cardblocks.h:380
 msgid "cardNumber"
 msgstr "Kartennummer"
 
-#: Faults.h:38 Faults.h:48
+#: Faults.h:57
+msgid "cardNumberCodriverSlot"
+msgstr "Kartennummer des Beifahrers"
+
+#: Faults.h:55
 msgid "cardNumberCodriverSlotBegin"
-msgstr ""
+msgstr "Kartennummer des Beifahrers bei Ereignisbeginn"
 
-#: Faults.h:40 Faults.h:50
+#: Faults.h:56
 msgid "cardNumberCodriverSlotEnd"
-msgstr ""
+msgstr "Kartennummer des Beifahrers bei Ereignisende"
 
-#: Faults.h:37 Faults.h:47 Faults.h:63
+#: Faults.h:53
+msgid "cardNumberDriverSlot"
+msgstr "Kartennummer des Fahrers"
+
+#: Faults.h:51 Faults.h:87
 msgid "cardNumberDriverSlotBegin"
-msgstr ""
+msgstr "Kartennummer des Fahrers bei Ereignisbeginn"
 
-#: Faults.h:39 Faults.h:49
+#: Faults.h:52
 msgid "cardNumberDriverSlotEnd"
-msgstr ""
+msgstr "Kartennummer des Fahrers bei Ereignisende"
 
 #: Activities.h:78
 msgid "cardSlotNumber"
 msgstr "Kartenfachnummer"
 
-#: cardblocks.h:82
+#: cardblocks.h:88
 msgid "cardStructureVersion"
 msgstr "Strukturversion der Karte"
 
-#: cardblocks.h:191
+#: cardblocks.h:201
 msgid "cardType"
 msgstr "Kartenart"
 
-#: cardblocks.h:373
+#: cardblocks.h:383
 msgid "cardValidityBegin"
 msgstr "Kartengültigkeitsbeginn"
 
@@ -1300,39 +1336,39 @@ msgstr "Kartenentnahmezeit"
 msgid "co-driver"
 msgstr "2. Fahrer"
 
-#: Overview.h:48
+#: Overview.h:50
 msgid "companyAddress"
 msgstr "Firmenadresse"
 
-#: Overview.h:49
+#: Overview.h:51
 msgid "companyCardNumber"
 msgstr "Unternehmerkartennummer"
 
-#: Overview.h:47
+#: Overview.h:49
 msgid "companyName"
 msgstr "Firma"
 
-#: Overview.h:43
+#: Overview.h:45
 msgid "companyOrWorkshopName"
-msgstr ""
+msgstr "Firmen- oder Werkstattname"
 
-#: Overview.h:54
+#: Overview.h:56
 msgid "controlCardNumber"
 msgstr "Kontrollkartennummer"
 
-#: cardblocks.h:222
+#: cardblocks.h:232
 msgid "controlDownloadPeriodBegin"
 msgstr ""
 
-#: cardblocks.h:223
+#: cardblocks.h:233
 msgid "controlDownloadPeriodEnd"
 msgstr ""
 
-#: cardblocks.h:219 Overview.h:53
+#: cardblocks.h:229 Overview.h:55
 msgid "controlTime"
 msgstr "Kontrollzeit"
 
-#: cardblocks.h:218 Overview.h:52
+#: cardblocks.h:228 Overview.h:54
 msgid "controlType"
 msgstr "Kontrollart"
 
@@ -1340,32 +1376,31 @@ msgstr "Kontrollart"
 msgid "crew"
 msgstr "Team"
 
-#: Activities.h:95 cardblocks.h:170
+#: Activities.h:95 cardblocks.h:180
 msgid "dailyWorkPeriodCountry"
 msgstr ""
 
-#: Activities.h:96 cardblocks.h:171
+#: Activities.h:96 cardblocks.h:181
 msgid "dailyWorkPeriodRegion"
 msgstr ""
 
 #: time.h:53
-#, fuzzy
 msgid "days"
 msgstr "Tage"
 
-#: formatStrings.h:90
+#: formatStrings.h:89
 msgid "display used, "
 msgstr "Anzeige verwendet, "
 
-#: Overview.h:55
+#: Overview.h:57
 msgid "downloadPeriodBeginTime"
 msgstr ""
 
-#: Overview.h:56
+#: Overview.h:58
 msgid "downloadPeriodEndTime"
 msgstr ""
 
-#: Overview.h:41
+#: Overview.h:43
 msgid "downloadingTime"
 msgstr ""
 
@@ -1377,15 +1412,15 @@ msgstr "Fahrer"
 msgid "driving"
 msgstr "Lenken"
 
-#: cardblocks.h:54
+#: cardblocks.h:60
 msgid "drivingLicenceIssuingAuthorithy"
 msgstr "Ausstellende Behörde"
 
-#: cardblocks.h:55
+#: cardblocks.h:61
 msgid "drivingLicenceIssuingNation"
 msgstr "Ausstellender Staat"
 
-#: cardblocks.h:56
+#: cardblocks.h:62
 msgid "drivingLicenceNumber"
 msgstr "Führerscheinnummer"
 
@@ -1393,19 +1428,19 @@ msgstr "Führerscheinnummer"
 msgid "duration < 0\n"
 msgstr "Dauer < 0\n"
 
-#: cardblocks.h:237
+#: cardblocks.h:247
 msgid "endTime"
 msgstr ""
 
-#: Activities.h:93 Activities.h:100 cardblocks.h:168
+#: Activities.h:93 Activities.h:100 cardblocks.h:178
 msgid "entryTime"
 msgstr ""
 
-#: Activities.h:94 cardblocks.h:169
+#: Activities.h:94 cardblocks.h:179
 msgid "entryTypeDailyWorkPeriod"
 msgstr ""
 
-#: formatStrings.h:71
+#: formatStrings.h:70
 msgid "error in nationNumeric"
 msgstr "Fehler in nationNumeric"
 
@@ -1413,59 +1448,36 @@ msgstr "Fehler in nationNumeric"
 msgid "error opening file "
 msgstr "Fehler beim Öffnen der Datei"
 
-#: Faults.h:45 Faults.h:59
-msgid "eventBeginTime"
-msgstr ""
-
-#: Faults.h:46 Faults.h:60
-msgid "eventEndTime"
-msgstr ""
-
-#: Faults.h:44 Faults.h:58
-msgid "eventRecordPurpose"
-msgstr ""
-
-#: cardblocks.h:235 Faults.h:43 Faults.h:57
+#: cardblocks.h:245
 msgid "eventType"
 msgstr ""
 
-#: Faults.h:35
-msgid "faultBeginTime"
-msgstr ""
-
-#: Faults.h:36
-msgid "faultEndTime"
-msgstr ""
-
-#: Faults.h:34
-msgid "faultRecordPurpose"
-msgstr ""
-
-#: Faults.h:33
-msgid "faultType"
-msgstr ""
-
-#: formatStrings.h:80
+#: formatStrings.h:79
 msgid "first installation: first calibration of the VU after its activation"
 msgstr "Ersteinbau: Erste Kalibrierung der FE nach ihrer Aktivierung"
 
-#: Faults.h:54
+#: Faults.h:121
 msgid "firstOverspeedSince"
 msgstr ""
 
-#: readesm.cpp:70 readesm.cpp:71
+#: Activity.h:85
+#, fuzzy
+msgid "for"
+msgstr "ab, für"
+
+#: readesm.cpp:81
 msgid "format"
 msgstr ""
 
-#: readesm.cpp:52
+#: readesm.cpp:58
 msgid "format,f"
 msgstr ""
 
-#: time.h:67 time.h:68
+#: Activity.h:85 time.h:67 time.h:68
 msgid "from"
 msgstr "von"
 
-#: Activities.h:74 Activities.h:92 Overview.h:42
+#: Activities.h:74 Activities.h:92 Overview.h:44
 msgid "fullCardNumber"
 msgstr "Volle Kartennummer"
 
@@ -1473,35 +1485,35 @@ msgstr "Volle Kartennummer"
 msgid "green"
 msgstr "grün"
 
-#: readesm.cpp:59
+#: readesm.cpp:71
 msgid "help"
 msgstr ""
 
-#: readesm.cpp:48
+#: readesm.cpp:54
 msgid "help,h"
 msgstr ""
 
-#: cardblocks.h:376
+#: cardblocks.h:386
 msgid "holderFirstNames"
 msgstr "Vornamen des Karteninhabers"
 
-#: cardblocks.h:375
+#: cardblocks.h:385
 msgid "holderSurname"
 msgstr "Nachname des Karteninhabers"
 
-#: readesm.cpp:70
+#: readesm.cpp:93
 msgid "html"
 msgstr ""
 
-#: readesm.cpp:63 readesm.cpp:68
+#: readesm.cpp:75 readesm.cpp:79
 msgid "infile"
 msgstr ""
 
-#: readesm.cpp:49
+#: readesm.cpp:55
 msgid "infile,i"
 msgstr ""
 
-#: readesm.cpp:49
+#: readesm.cpp:55
 msgid "input file"
 msgstr "Eingabedatei"
 
@@ -1509,7 +1521,7 @@ msgstr "Eingabedatei"
 msgid "inserted"
 msgstr "eingesteckt"
 
-#: formatStrings.h:80
+#: formatStrings.h:79
 msgid "installation: first calibration of the VU in the current vehicle"
 msgstr "Einbau: Erste Kalibrierung der FE im derzeitigen Fahrzeug"
 
@@ -1517,7 +1529,7 @@ msgstr "Einbau: Erste Kalibrierung der FE im derzeitigen Fahrzeug"
 msgid "kConstantOfRecordingEquipment"
 msgstr ""
 
-#: crypto.h:45
+#: crypto.h:59
 msgid "keySerialNumber"
 msgstr ""
 
@@ -1525,19 +1537,19 @@ msgstr ""
 msgid "lTyreCircumference"
 msgstr "Effektiver Reifenumfang"
 
-#: Faults.h:53
+#: Faults.h:120
 msgid "lastOverspeedControlTime"
 msgstr ""
 
-#: block.h:42
+#: block.h:48
 msgid "length"
 msgstr "Länge"
 
-#: Overview.h:45
+#: Overview.h:47
 msgid "lockInTime"
 msgstr ""
 
-#: Overview.h:46
+#: Overview.h:48
 msgid "lockOutTime"
 msgstr ""
 
@@ -1545,15 +1557,15 @@ msgstr ""
 msgid "manualInputFlag"
 msgstr ""
 
-#: Overview.h:39
+#: Overview.h:41
 msgid "maxDownloadableTime"
 msgstr ""
 
-#: Faults.h:61
+#: Faults.h:85
 msgid "maxSpeedValue"
-msgstr ""
+msgstr "Höchste gefahrene Geschwindigkeit"
 
-#: Overview.h:38
+#: Overview.h:40
 msgid "minDownloadableTime"
 msgstr ""
 
@@ -1561,31 +1573,35 @@ msgstr ""
 msgid "mm"
 msgstr ""
 
-#: crypto.h:44
+#: crypto.h:58
 msgid "nationAlpha"
 msgstr ""
 
-#: crypto.h:43
+#: crypto.h:57
 msgid "nationNumeric"
 msgstr ""
 
 #: Technical.h:56
 msgid "newOdometerValue"
-msgstr ""
+msgstr "Neuer Kilometerstand"
 
-#: Faults.h:68 Technical.h:58
+#: Faults.h:130 Technical.h:58
 msgid "newTimeValue"
-msgstr ""
+msgstr "Neue Uhrzeit"
 
 #: Technical.h:59
 msgid "nextCalibrationDate"
 msgstr ""
 
-#: block.h:29
+#: block.h:32
+msgid "no crypto support compiled in"
+msgstr ""
+
+#: block.h:30
 msgid "no, invalid"
 msgstr "nein, ungültig"
 
-#: block.h:29
+#: block.h:30
 msgid "no, not signed"
 msgstr "nein, nicht signiert"
 
@@ -1593,22 +1609,22 @@ msgstr "nein, nicht signiert"
 msgid "not inserted"
 msgstr "nicht eingesteckt"
 
-#: Faults.h:55
+#: Faults.h:122
 msgid "numberOfOverspeedSince"
-msgstr ""
+msgstr "Seitherige Geschwindigkeitsüberschreitungen"
 
-#: cardblocks.h:466
+#: cardblocks.h:476
 #, fuzzy
 msgid "of"
 msgstr "von"
 
 #: Technical.h:55
 msgid "oldOdometerValue"
-msgstr ""
+msgstr "Alter Kilometerstand"
 
-#: Faults.h:67 Technical.h:57
+#: Faults.h:129 Technical.h:57
 msgid "oldTimeValue"
-msgstr ""
+msgstr "Alte Uhrzeit"
 
 #: Speeds.h:29
 msgid "omitted"
@@ -1616,17 +1632,17 @@ msgstr "weggelassen"
 
 #: time.h:67
 msgid "on for"
-msgstr ""
+msgstr "ab, für"
 
-#: formatStrings.h:55
+#: formatStrings.h:54
 msgid "one of the 10 most recent (or last) events or faults"
 msgstr "eines der 10 jüngsten Ereignisse oder Störungen"
 
-#: formatStrings.h:55
+#: formatStrings.h:54
 msgid "one of the 5 longest events over the last 365 days"
 msgstr "eines der 5 längsten Ereignisse in den letzten 365 Tagen"
 
-#: formatStrings.h:55
+#: formatStrings.h:54
 msgid "one of the 5 most serious events over the last 365 days"
 msgstr "eines der 5 schwerwiegendsten Ereignisse in den letzten 365 Tagen"
 
@@ -1634,27 +1650,27 @@ msgstr "eines der 5 schwerwiegendsten Ereignisse in den letzten 365 Tagen"
 msgid "ouch"
 msgstr "autsch"
 
-#: readesm.cpp:76 readesm.cpp:80
+#: readesm.cpp:82
 msgid "outfile"
 msgstr ""
 
-#: readesm.cpp:50
+#: readesm.cpp:56
 msgid "outfile,o"
 msgstr ""
 
-#: readesm.cpp:50
+#: readesm.cpp:56
 msgid "output file"
 msgstr "Ausgabedatei"
 
-#: readesm.cpp:52
+#: readesm.cpp:58
 msgid "output format: text, html or xml"
 msgstr "Ausgabeformat: text, html oder xml"
 
-#: formatStrings.h:70
+#: formatStrings.h:69
 msgid "outside of Europe, not registered"
 msgstr ""
 
-#: formatStrings.h:80
+#: formatStrings.h:79
 msgid "periodic inspection"
 msgstr "regelmäßige Nachprüfung"
 
@@ -1670,15 +1686,19 @@ msgstr "Registrierungsland des vorherigen Fahrzeugs"
 msgid "previousVehicleRegistrationNumber"
 msgstr "Amtliches Kennzeichen des vorherigen Fahrzeugs"
 
-#: formatStrings.h:89
+#: formatStrings.h:88
 msgid "printing done, "
 msgstr "gedruckt, "
 
-#: readesm.cpp:48
+#: readesm.cpp:54
 msgid "produce help message"
 msgstr "Hilfetext ausgeben"
 
-#: i18n.h:19 i18n.h:21
+#: reporter.h:20
+msgid "readESM (http://readesm.sourceforge.net/)"
+msgstr ""
+
+#: i18n.h:20 i18n.h:21
 msgid "readesm"
 msgstr ""
 
@@ -1686,7 +1706,7 @@ msgstr ""
 msgid "red"
 msgstr "rot"
 
-#: formatStrings.h:80
+#: formatStrings.h:79
 msgid "reserved value (should not appear)"
 msgstr "reservierter Wert (sollte nicht auftauchen)"
 
@@ -1702,13 +1722,13 @@ msgstr ""
 msgid "sensorSerialNumber"
 msgstr ""
 
-#: cardblocks.h:400
+#: cardblocks.h:410
 msgid "sessionOpenTime"
 msgstr ""
 
-#: Faults.h:51 Faults.h:64
+#: Faults.h:68 Faults.h:88
 msgid "similarEventsNumber"
-msgstr ""
+msgstr "Anzahl Ähnlicher Ereignisse"
 
 #: Activity.h:63
 msgid "single"
@@ -1726,61 +1746,61 @@ msgstr ""
 msgid "speedsPerSecond"
 msgstr ""
 
-#: cardblocks.h:480
+#: cardblocks.h:490
 msgid "stray signature"
 msgstr "verwaiste Signatur"
 
-#: reporter.h:148
+#: reporter.h:156
 msgid "td"
 msgstr ""
 
-#: readesm.cpp:52
+#: readesm.cpp:47 readesm.cpp:58
 msgid "text"
 msgstr "Text"
 
-#: reporter.h:149
+#: reporter.h:157
 msgid "th"
 msgstr ""
 
-#: formatStrings.h:55
+#: formatStrings.h:54
 msgid "the first event or fault having occurred after the last calibration"
 msgstr ""
 "das erste Ereignis oder die erste Störung nach der letzten Kalibrierung"
 
-#: formatStrings.h:55
+#: formatStrings.h:54
 msgid "the last event for one of the last 10 days of occurrence"
 msgstr "das letzte Ereignis an einem der letzten 10 Tage des Auftretens"
 
-#: formatStrings.h:55
+#: formatStrings.h:54
 msgid "the longest event for one of the last 10 days of occurrence"
 msgstr "das längste Ereignis an einem der letzten 10 Tage des Auftretens"
 
-#: formatStrings.h:55
+#: formatStrings.h:54
 msgid "the most serious event for one of the last 10 days of occurrence"
 msgstr ""
 "das schwerwiegendste Ereignis an einem der letzten 10 Tage des Auftretens"
 
-#: time.h:68
+#: Activity.h:85 time.h:68
 msgid "to"
 msgstr "bis"
 
-#: cardblocks.h:81
+#: cardblocks.h:87
 msgid "typeOfTachographCardId"
 msgstr ""
 
 #: Technical.h:53
 msgid "tyreSize"
-msgstr ""
+msgstr "Reifengröße"
 
 #: Activity.h:55
 msgid "unknown activity"
 msgstr "unbekannte Tätigkeit"
 
-#: block.h:29
+#: block.h:30 block.h:32
 msgid "validly signed"
 msgstr "gültig signiert"
 
-#: cardblocks.h:302
+#: cardblocks.h:312
 msgid "vehicleFirstUse"
 msgstr ""
 
@@ -1788,19 +1808,19 @@ msgstr ""
 msgid "vehicleIdentificationNumber"
 msgstr ""
 
-#: cardblocks.h:303
+#: cardblocks.h:313
 msgid "vehicleLastUse"
 msgstr ""
 
-#: cardblocks.h:304 cardblocks.h:332
+#: cardblocks.h:314 cardblocks.h:342
 msgid "vehicleOdometerBegin"
 msgstr "Kilometerstand am Anfang"
 
-#: cardblocks.h:305 cardblocks.h:333
+#: cardblocks.h:315 cardblocks.h:343
 msgid "vehicleOdometerEnd"
 msgstr "Kilometerstand am Ende"
 
-#: Activities.h:97 cardblocks.h:172
+#: Activities.h:97 cardblocks.h:182
 msgid "vehicleOdometerValue"
 msgstr "Kilometerstand"
 
@@ -1812,31 +1832,35 @@ msgstr "Kilometerstand bei Karteneingabe"
 msgid "vehicleOdometerValueAtWithdrawal"
 msgstr "Kilometerstand bei Kartenentnahme"
 
-#: cardblocks.h:144 cardblocks.h:401 Technical.h:47
+#: cardblocks.h:154 cardblocks.h:411 Technical.h:47
 msgid "vehicleRegistrationNation"
 msgstr "Fahzeugregistrierungsland"
 
-#: cardblocks.h:145 cardblocks.h:402 Technical.h:48
+#: cardblocks.h:155 cardblocks.h:412 Technical.h:48
 msgid "vehicleRegistrationNumber"
 msgstr "Amtliches Kennzeichen"
 
-#: readesm.cpp:73
+#: readesm.cpp:83
 msgid "verbose"
 msgstr ""
 
-#: readesm.cpp:51
+#: readesm.cpp:57
 msgid "verbose output format, print simply everything"
 msgstr "Ausführliche Ausgabe, einfach alles ausgeben"
 
-#: readesm.cpp:51
+#: readesm.cpp:57
 msgid "verbose,v"
 msgstr ""
+
+#: reporter.h:22
+msgid "version"
+msgstr "Version"
 
 #: Technical.h:35
 msgid "vuApprovalNumber"
 msgstr ""
 
-#: cardblocks.h:306
+#: cardblocks.h:316
 msgid "vuDataBlockCounter"
 msgstr ""
 
@@ -1876,23 +1900,23 @@ msgstr ""
 msgid "work"
 msgstr "Arbeit"
 
-#: Faults.h:70 Technical.h:43
+#: Faults.h:132 Technical.h:43
 msgid "workshopAddress"
-msgstr ""
+msgstr "Werkstattaddresse"
 
 #: Technical.h:45
 msgid "workshopCardExpiryDate"
 msgstr "Werkstattkartengültigkeitsablauf"
 
-#: Faults.h:71 Technical.h:44
+#: Faults.h:133 Technical.h:44
 msgid "workshopCardNumber"
 msgstr "Werkstattkartennummer"
 
-#: Faults.h:69 Technical.h:42
+#: Faults.h:131 Technical.h:42
 msgid "workshopName"
-msgstr ""
+msgstr "Werkstattname"
 
-#: readesm.cpp:71
+#: readesm.cpp:94
 msgid "xml"
 msgstr "xml"
 
@@ -1900,389 +1924,395 @@ msgstr "xml"
 msgid "yellow"
 msgstr "gelb "
 
-#: block.h:29
+#: block.h:30
 msgid "yes, valid"
 msgstr "ja, gültig"
 
-#: i18n.h:45
+#: i18n.h:50
 msgid "¡"
 msgstr ""
 
-#: i18n.h:45
+#: i18n.h:50
 msgid "¢"
 msgstr ""
 
-#: i18n.h:45
+#: i18n.h:50
 msgid "£"
 msgstr ""
 
-#: i18n.h:45
+#: i18n.h:50
 msgid "¤"
 msgstr ""
 
-#: i18n.h:45
+#: i18n.h:50
 msgid "¥"
 msgstr ""
 
-#: i18n.h:45
+#: i18n.h:50
 msgid "¦"
 msgstr ""
 
-#: i18n.h:45
+#: i18n.h:50
 msgid "§"
 msgstr ""
 
-#: i18n.h:45
+#: i18n.h:50
 msgid "¨"
 msgstr ""
 
-#: i18n.h:45
+#: i18n.h:50
 msgid "©"
 msgstr ""
 
-#: i18n.h:45
+#: i18n.h:50
 msgid "ª"
 msgstr ""
 
-#: i18n.h:45
+#: i18n.h:50
 msgid "«"
 msgstr ""
 
-#: i18n.h:45
+#: i18n.h:50
 msgid "¬"
 msgstr ""
 
-#: i18n.h:45
+#: i18n.h:50
 msgid "­"
 msgstr ""
 
-#: i18n.h:45
+#: i18n.h:50
 msgid "®"
 msgstr ""
 
-#: i18n.h:45
+#: i18n.h:50
 msgid "¯"
 msgstr ""
 
-#: i18n.h:46
+#: i18n.h:51
 msgid "°"
 msgstr ""
 
-#: i18n.h:46
+#: i18n.h:51
 msgid "±"
 msgstr ""
 
-#: i18n.h:46
+#: i18n.h:51
 msgid "²"
 msgstr ""
 
-#: i18n.h:46
+#: i18n.h:51
 msgid "³"
 msgstr ""
 
-#: i18n.h:46
+#: i18n.h:51
 msgid "´"
 msgstr ""
 
-#: i18n.h:46
+#: i18n.h:51
 msgid "µ"
 msgstr ""
 
-#: i18n.h:46
+#: i18n.h:51
 msgid "¶"
 msgstr ""
 
-#: i18n.h:46
+#: i18n.h:51
 msgid "·"
 msgstr ""
 
-#: i18n.h:46
+#: i18n.h:51
 msgid "¸"
 msgstr ""
 
-#: i18n.h:46
+#: i18n.h:51
 msgid "¹"
 msgstr ""
 
-#: i18n.h:46
+#: i18n.h:51
 msgid "º"
 msgstr ""
 
-#: i18n.h:46
+#: i18n.h:51
 msgid "»"
 msgstr ""
 
-#: i18n.h:46
+#: i18n.h:51
 msgid "¼"
 msgstr ""
 
-#: i18n.h:46
+#: i18n.h:51
 msgid "½"
 msgstr ""
 
-#: i18n.h:46
+#: i18n.h:51
 msgid "¾"
 msgstr ""
 
-#: i18n.h:46
+#: i18n.h:51
 msgid "¿"
 msgstr ""
 
-#: i18n.h:47
+#: i18n.h:52
 msgid "À"
 msgstr ""
 
-#: i18n.h:47
+#: i18n.h:52
 msgid "Á"
 msgstr ""
 
-#: i18n.h:47
+#: i18n.h:52
 msgid "Â"
 msgstr ""
 
-#: i18n.h:47
+#: i18n.h:52
 msgid "Ã"
 msgstr ""
 
-#: i18n.h:47
+#: i18n.h:52
 msgid "Ä"
 msgstr ""
 
-#: i18n.h:47
+#: i18n.h:52
 msgid "Å"
 msgstr ""
 
-#: i18n.h:47
+#: i18n.h:52
 msgid "Æ"
 msgstr ""
 
-#: i18n.h:47
+#: i18n.h:52
 msgid "Ç"
 msgstr ""
 
-#: i18n.h:47
+#: i18n.h:52
 msgid "È"
 msgstr ""
 
-#: i18n.h:47
+#: i18n.h:52
 msgid "É"
 msgstr ""
 
-#: i18n.h:47
+#: i18n.h:52
 msgid "Ê"
 msgstr ""
 
-#: i18n.h:47
+#: i18n.h:52
 msgid "Ë"
 msgstr ""
 
-#: i18n.h:47
+#: i18n.h:52
 msgid "Ì"
 msgstr ""
 
-#: i18n.h:47
+#: i18n.h:52
 msgid "Í"
 msgstr ""
 
-#: i18n.h:47
+#: i18n.h:52
 msgid "Î"
 msgstr ""
 
-#: i18n.h:47
+#: i18n.h:52
 msgid "Ï"
 msgstr ""
 
-#: i18n.h:48
+#: i18n.h:53
 msgid "Ð"
 msgstr ""
 
-#: i18n.h:48
+#: i18n.h:53
 msgid "Ñ"
 msgstr ""
 
-#: i18n.h:48
+#: i18n.h:53
 msgid "Ò"
 msgstr ""
 
-#: i18n.h:48
+#: i18n.h:53
 msgid "Ó"
 msgstr ""
 
-#: i18n.h:48
+#: i18n.h:53
 msgid "Ô"
 msgstr ""
 
-#: i18n.h:48
+#: i18n.h:53
 msgid "Õ"
 msgstr ""
 
-#: i18n.h:48
+#: i18n.h:53
 msgid "Ö"
 msgstr ""
 
-#: i18n.h:48
+#: i18n.h:53
 msgid "×"
 msgstr ""
 
-#: i18n.h:48
+#: i18n.h:53
 msgid "Ø"
 msgstr ""
 
-#: i18n.h:48
+#: i18n.h:53
 msgid "Ù"
 msgstr ""
 
-#: i18n.h:48
+#: i18n.h:53
 msgid "Ú"
 msgstr ""
 
-#: i18n.h:48
+#: i18n.h:53
 msgid "Û"
 msgstr ""
 
-#: i18n.h:48
+#: i18n.h:53
 msgid "Ü"
 msgstr ""
 
-#: i18n.h:48
+#: i18n.h:53
 msgid "Ý"
 msgstr ""
 
-#: i18n.h:48
+#: i18n.h:53
 msgid "Þ"
 msgstr ""
 
-#: i18n.h:48
+#: i18n.h:53
 msgid "ß"
 msgstr ""
 
-#: i18n.h:49
+#: i18n.h:54
 msgid "à"
 msgstr ""
 
-#: i18n.h:49
+#: i18n.h:54
 msgid "á"
 msgstr ""
 
-#: i18n.h:49
+#: i18n.h:54
 msgid "â"
 msgstr ""
 
-#: i18n.h:49
+#: i18n.h:54
 msgid "ã"
 msgstr ""
 
-#: i18n.h:49
+#: i18n.h:54
 msgid "ä"
 msgstr ""
 
-#: i18n.h:49
+#: i18n.h:54
 msgid "å"
 msgstr ""
 
-#: i18n.h:49
+#: i18n.h:54
 msgid "æ"
 msgstr ""
 
-#: i18n.h:49
+#: i18n.h:54
 msgid "ç"
 msgstr ""
 
-#: i18n.h:49
+#: i18n.h:54
 msgid "è"
 msgstr ""
 
-#: i18n.h:49
+#: i18n.h:54
 msgid "é"
 msgstr ""
 
-#: i18n.h:49
+#: i18n.h:54
 msgid "ê"
 msgstr ""
 
-#: i18n.h:49
+#: i18n.h:54
 msgid "ë"
 msgstr ""
 
-#: i18n.h:49
+#: i18n.h:54
 msgid "ì"
 msgstr ""
 
-#: i18n.h:49
+#: i18n.h:54
 msgid "í"
 msgstr ""
 
-#: i18n.h:49
+#: i18n.h:54
 msgid "î"
 msgstr ""
 
-#: i18n.h:49
+#: i18n.h:54
 msgid "ï"
 msgstr ""
 
-#: i18n.h:50
+#: i18n.h:55
 msgid "ð"
 msgstr ""
 
-#: i18n.h:50
+#: i18n.h:55
 msgid "ñ"
 msgstr ""
 
-#: i18n.h:50
+#: i18n.h:55
 msgid "ò"
 msgstr ""
 
-#: i18n.h:50
+#: i18n.h:55
 msgid "ó"
 msgstr ""
 
-#: i18n.h:50
+#: i18n.h:55
 msgid "ô"
 msgstr ""
 
-#: i18n.h:50
+#: i18n.h:55
 msgid "õ"
 msgstr ""
 
-#: i18n.h:50
+#: i18n.h:55
 msgid "ö"
 msgstr ""
 
-#: i18n.h:50
+#: i18n.h:55
 msgid "÷"
 msgstr ""
 
-#: i18n.h:50
+#: i18n.h:55
 msgid "ø"
 msgstr ""
 
-#: i18n.h:50
+#: i18n.h:55
 msgid "ù"
 msgstr ""
 
-#: i18n.h:50
+#: i18n.h:55
 msgid "ú"
 msgstr ""
 
-#: i18n.h:50
+#: i18n.h:55
 msgid "û"
 msgstr ""
 
-#: i18n.h:50
+#: i18n.h:55
 msgid "ü"
 msgstr ""
 
-#: i18n.h:50
+#: i18n.h:55
 msgid "ý"
 msgstr ""
 
-#: i18n.h:50
+#: i18n.h:55
 msgid "þ"
 msgstr ""
 
-#: i18n.h:50
+#: i18n.h:55
 msgid "ÿ"
 msgstr ""
+
+#~ msgid " from "
+#~ msgstr "von"
+
+#~ msgid " to"
+#~ msgstr " nach"
 
 #~ msgid "Distance driven"
 #~ msgstr "Gefahrene Strecke"
