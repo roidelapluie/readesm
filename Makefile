@@ -35,8 +35,10 @@ LDLIBS=-lgmp -lboost_program_options -lgcrypt
 
 all: $(name)
 
-$(name) : $(patsubst %.cpp, %.o, $(filter $(wildcard *.cpp), $(objects:.o=.cpp)))
-$(name).o : $(filter $(wildcard *.h), $(objects:.o=.h))
+#$(name) : $(patsubst %.cpp, %.o, $(filter $(wildcard *.cpp), $(objects:.o=.cpp)))
+#$(name).o : $(filter $(wildcard *.h), $(objects:.o=.h))
+$(name) : $(sources)
+	$(CXX) -o $@ $(name).cpp $(LDFLAGS) $(LDLIBS) $(CPPFLAGS) $(CXXFLAGS)
 
 $(name).pot: $(sources)
 	xgettext -d $(name) -a -s --from-code utf-8 -o $(name).pot $(sources)
