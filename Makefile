@@ -11,6 +11,8 @@ objects = $(headers:.h=.o)
 extrafiles = $(name).doxygen EC_PK.bin batchall.sh COPYING README images.tar.bz2  $(name)-wrap-kde.sh $(name)-wrap-firefox german.po
 run_args = 
 sources = $(name).cpp $(filter $(wildcard *.cpp), $(objects:.o=.cpp)) $(filter $(wildcard *.h), $(objects:.o=.h))
+version = 0.3.2 $(shell svnversion)
+
 
 prefix=/usr/local
 distribution = $(sources) $(extrafiles) Makefile
@@ -37,16 +39,19 @@ german.po: $(name).pot
 german.mo: german.po
 	msgfmt -c -v -o $@ $<
 
-readesm.exe: $(sources)
-	i586-mingw32msvc-g++ -DHAVE_NO_BOOST -DHAVE_NO_CRYPTO -DHAVE_NO_I18N readesm.cpp -o $@ -O2
+$(name).exe: $(sources)
+	i586-mingw32msvc-g++ -DHAVE_NO_BOOST -DHAVE_NO_CRYPTO -DHAVE_NO_I18N $(name).cpp -o $@ -O2
 
 readesm-wrap-kde: readesm-wrap-kde.sh
 	sed -e s,PREFIX,$(prefix), $< > $@
 
-.PHONY:all clean distclean doc dist backup depend run upload install uninstall packageinstall debian hpupload
+.PHONY:all clean distclean doc dist backup depend run upload install uninstall packageinstall debian hpupload windows
 
 run: $(name)
 	./$(name) $(run_args)
+
+windows: $(name).exe
+	makensis windows/readesm.nsi
 
 install: $(name) german.mo readesm-wrap-kde
 	install -d $(prefix)/share/readesm
