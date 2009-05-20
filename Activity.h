@@ -113,6 +113,7 @@ class DailyActivity{
 	int driventime;
 	int overtime;
 	string overtimeReason;
+	string weekStats;
 	int fine;
 	void calcDurations(std::vector<Activity>& acts){
 		if(!acts.size()) return;
@@ -153,6 +154,9 @@ class DailyActivity{
 				o("Overtime", Activity::formatDurTime(d.overtime)+ " " + d.overtimeReason );
 				o("Possible fine", stringify(d.fine) + " €" );
 			}
+		}
+		if(d.weekStats != ""){
+			o("Week",d.weekStats);
 		}
 		return o;
 	}

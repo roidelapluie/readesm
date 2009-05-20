@@ -71,7 +71,7 @@ string formatRange(const Time& begin, const Time& end){
 
 string formatMinutes(int minutes){
 	ostringstream o;
-	if(minutes >= 24*60){
+	if(minutes >= 3*24*60){
 		o << (minutes / (24*60)) << " " << tr("days") << " ";
 		minutes %= 24*60;
 	}
