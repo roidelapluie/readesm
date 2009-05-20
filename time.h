@@ -68,11 +68,14 @@ string formatRange(const Time& begin, const Time& end){
 	return tr("from") + " " + begin.str() + " " + tr("to") + " " + end.str() + " (" + d.str() + ")";
 }
 
+
 string formatMinutes(int minutes){
 	ostringstream o;
-	if(minutes < 24*60)
-		o << std::setw(2) << std::setfill('0') << (minutes / 60) << ":" << std::setw(2) << std::setfill('0') << (minutes % 60);
-	else o << (minutes / (24*60)) << " days " << (minutes / (24*60*60)) << " h " << ((minutes / (24*60)) % 60) << " min";
+	if(minutes >= 24*60){
+		o << (minutes / (24*60)) << " " << tr("days") << " ";
+		minutes %= 24*60;
+	}
+	o << std::setw(2) << std::setfill('0') << (minutes / 60) << ":" << std::setw(2) << std::setfill('0') << (minutes % 60);
 	return o.str();
 }
 
