@@ -11,6 +11,7 @@ You should have received a copy of the GNU General Public License along with rea
 #define OVERTIME_H OVERTIME_H
 #include "Activity.h"
 #include "typedefs.h"
+
 int fine(int overtime){
 	if(overtime) return (overtime / 30 + 1) * 30;
 	return 0;
@@ -42,8 +43,31 @@ void checkDayDrivingTime(DailyActivity& a){
 	if(sincelastbreak > 270) overtime += sincelastbreak - 270;
 	a.overtime = std::max(overtime, a.driventime - 600);
 	a.fine = fine(a.overtime);
-	a.overtimeReason = tr("Daily driving time");
+	if(a.overtime) a.overtimeReason = tr("Daily driving time");
 }
+
+int checkTimes(std::vector<DailyActivityCard>& days){
+	int fine = 0;
+	int weekdays = 0;
+	int weekdriven = 0;
+	for(std::vector<DailyActivityCard>::iterator j = days.begin(); j < days.end(); ++j){
+		checkDayDrivingTime(*j);
+		fine += j->fine;
+		++weekdays;
+		weekdriven += j->driventime;
+		if((j->start.timestamp % (86400 *7)) / 86400 == 3){
+			//that means, it is sunday
+			j->overtime = 20;
+			j->overtimeReason = tr(" Week: ") + stringify(weekdriven) + " " + formatMinutes(weekdriven) + " days:" + stringify(weekdays);
+std::cout << j->overtimeReason << j->start.str() << "\n";
+			weekdriven = 0;
+			weekdays = 0;
+		}
+	}
+	return fine;
+}
+
+
 
 
 #endif

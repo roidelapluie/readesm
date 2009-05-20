@@ -158,5 +158,16 @@ class DailyActivity{
 	}
 };
 
-
+///p. 57 and corrigendum(!)
+class DailyActivityCard : public DailyActivity {
+	public:
+	int presence, distance;
+	DailyActivityCard(iter start, int count) : DailyActivity(start + 4, start + 12, count), presence(BEInt16(start + 8)), distance(BEInt16(start + 10)) {}
+	friend reporter& operator<<(reporter& o, const DailyActivityCard& d){
+		o << (DailyActivity)d;
+		if(o.verbose) o("activityDailyPresenceCounter",d.presence);
+		if(d.distance) o("activityDayDistance",stringify(d.distance) + " km");
+		return o;
+	}
+};
 #endif

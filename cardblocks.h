@@ -413,18 +413,7 @@ class Current_Usage : public tlvblock{
 	}
 };
 
-///p. 57 and corrigendum(!)
-class DailyActivityCard : public DailyActivity {
-	public:
-	int presence, distance;
-	DailyActivityCard(iter start, int count) : DailyActivity(start + 4, start + 12, count), presence(BEInt16(start + 8)), distance(BEInt16(start + 10)) {}
-	friend reporter& operator<<(reporter& o, const DailyActivityCard& d){
-		o << (DailyActivity)d;
-		if(o.verbose) o("activityDailyPresenceCounter",d.presence);
-		if(d.distance) o("activityDayDistance",stringify(d.distance) + " km");
-		return o;
-	}
-};
+
 
 ///see p. 59
 class Driver_Activity_Data : public tlvblock{
@@ -460,12 +449,10 @@ class Driver_Activity_Data : public tlvblock{
 				break;
 			}
 			DailyActivityCard d(walker, (thissize - 12)/2);
-			checkDayDrivingTime(d);
-			fine += d.fine;
 			acts.push_back(d);
 			walker += thissize;
 		}
-
+		fine = checkTimes(acts);
 	}
 	typedef std::vector<DailyActivityCard> subray;
 	typedef subray::const_iterator subiter;
