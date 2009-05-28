@@ -58,7 +58,7 @@ int checkTimes(std::vector<DailyActivityCard>& days){
 		if((j->start.timestamp % (86400 *7)) / 86400 == 3){
 			//that means, it is sunday
 			j->weekStats = tr("driven for ") + formatMinutes(weekdriven);
-			if(weekdays != 7) j->weekStats += tr("only") + " " + stringify(weekdays) + " " + tr("recorded");
+			if(weekdays != 7) j->weekStats += " " + tr("only") + " " + stringify(weekdays) + " " + tr("recorded");
 			weekdriven = 0;
 			weekdays = 0;
 		}

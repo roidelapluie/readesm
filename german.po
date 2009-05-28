@@ -6,28 +6,28 @@
 # Andreas Gölzer <K_2005@goelzer.de>, 2009.
 # Andreas Gölzer <goelzera@ethz.ch>, 2009.
 # Martin Walch <walch.martin@web.de>, 2009.
-#: readesm.cpp:47 Faults.h:50 Faults.h:51 Faults.h:52 Faults.h:53 Faults.h:54
-#: Faults.h:55 Faults.h:56 Faults.h:57 i18n.h:19 i18n.h:57 reporter.h:106
-#: Technical.h:52
+#: readesm.cpp:47 Activity.h:158 Faults.h:50 Faults.h:51 Faults.h:52
+#: Faults.h:53 Faults.h:54 Faults.h:55 Faults.h:56 Faults.h:57 i18n.h:19
+#: i18n.h:57 reporter.h:107 Technical.h:52
 msgid ""
 msgstr ""
 "Project-Id-Version: german\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-05-19 19:24+0200\n"
-"PO-Revision-Date: 2009-05-19 19:16+0200\n"
-"Last-Translator: Andreas Gölzer <goelzera@ethz.ch>\n"
-"Language-Team: American English <kde-i18n-doc@kde.org>\n"
+"POT-Creation-Date: 2009-05-28 22:46+0200\n"
+"PO-Revision-Date: 2009-05-28 22:31+0200\n"
+"Last-Translator: Martin Walch <walch.martin@web.de>\n"
+"Language-Team: American English <kde-i18n-de@kde.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 0.3\n"
 
-#: reporter.h:24
+#: reporter.h:25
 msgid "\n"
 msgstr ""
 
-#: reporter.h:117
+#: reporter.h:118
 msgid ""
 "\n"
 "\n"
@@ -43,22 +43,22 @@ msgstr ""
 "Signatur-Prüfung fehlgeschlagen "
 
 #: readesm.cpp:52 readesm.cpp:86 Activities.h:40 Activities.h:51 Activity.h:65
-#: Activity.h:84 Activity.h:153 cardblocks.h:391 cardblocks.h:476 esmfile.h:61
-#: helper.h:38 helper.h:45 i18n.h:50 reporter.h:18 reporter.h:22
-#: reporter.h:108 Speeds.h:45 Technical.h:49 Technical.h:50 Technical.h:52
-#: time.h:53 time.h:67 time.h:68
+#: Activity.h:84 Activity.h:154 cardblocks.h:391 cardblocks.h:463 esmfile.h:61
+#: helper.h:38 helper.h:45 i18n.h:50 overtime.h:61 reporter.h:19 reporter.h:23
+#: reporter.h:109 Speeds.h:45 Technical.h:49 Technical.h:50 Technical.h:52
+#: time.h:53 time.h:67 time.h:68 time.h:75
 msgid " "
 msgstr ""
 
-#: reporter.h:103
+#: reporter.h:104
 msgid "  ***   \n"
 msgstr ""
 
-#: esmfile.h:67 reporter.h:97 time.h:68
+#: esmfile.h:67 reporter.h:98 time.h:68
 msgid " ("
 msgstr ""
 
-#: reporter.h:117
+#: reporter.h:118
 msgid " ++++++++++++++++++++++++++\n"
 msgstr ""
 
@@ -70,24 +70,16 @@ msgstr ""
 msgid " 0\n"
 msgstr ""
 
-#: cardblocks.h:476
+#: cardblocks.h:463
 msgid " Bytes"
 msgstr ""
 
-#: reporter.h:158
+#: reporter.h:159
 msgid " colspan='2' class='center'>"
 msgstr ""
 
-#: time.h:75
-msgid " days "
-msgstr "Tage"
-
-#: time.h:75
-msgid " h "
-msgstr ""
-
-#: Activities.h:109 cardblocks.h:344 cardblocks.h:424 esmfile.h:64
-#: esmfile.h:66 Technical.h:55 Technical.h:56
+#: Activities.h:109 Activity.h:173 cardblocks.h:344 esmfile.h:64 esmfile.h:66
+#: Technical.h:55 Technical.h:56
 msgid " km"
 msgstr ""
 
@@ -95,15 +87,11 @@ msgstr ""
 msgid " km/h"
 msgstr ""
 
-#: time.h:75
-msgid " min"
-msgstr ""
-
 #: esmfile.h:33
 msgid " to "
 msgstr " bis "
 
-#: Activity.h:154 cardblocks.h:475
+#: Activity.h:155 cardblocks.h:462
 msgid " €"
 msgstr ""
 
@@ -169,7 +157,7 @@ msgstr ""
 msgid "'/>"
 msgstr ""
 
-#: reporter.h:140 reporter.h:141
+#: reporter.h:141 reporter.h:142
 msgid "'>"
 msgstr ""
 
@@ -178,7 +166,6 @@ msgid "(err:blame programmer)"
 msgstr "(err: Programmierer ist schuld)"
 
 #: formatStrings.h:49
-#, fuzzy
 msgid "(error: blame programmer)"
 msgstr "(err: Programmierer ist schuld)"
 
@@ -194,23 +181,23 @@ msgstr "(undefiniert)"
 msgid ")"
 msgstr ""
 
-#: reporter.h:97
+#: reporter.h:98
 msgid ") *********\n"
 msgstr ""
 
-#: reporter.h:107
+#: reporter.h:108
 msgid "**"
 msgstr ""
 
-#: reporter.h:97
+#: reporter.h:98
 msgid "***************"
 msgstr ""
 
-#: reporter.h:100
+#: reporter.h:101
 msgid "*************************************\n"
 msgstr ""
 
-#: reporter.h:120
+#: reporter.h:121
 msgid "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n"
 msgstr ""
 
@@ -246,15 +233,15 @@ msgstr ""
 msgid "/usr/local"
 msgstr ""
 
-#: Activity.h:31 time.h:56 time.h:74
+#: Activity.h:31 time.h:56 time.h:78
 msgid ":"
 msgstr ":"
 
-#: reporter.h:111 reporter.h:114
+#: reporter.h:112 reporter.h:115
 msgid ": \t"
 msgstr ": \t"
 
-#: reporter.h:136
+#: reporter.h:137
 msgid ""
 "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://"
 "www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n"
@@ -263,7 +250,7 @@ msgid ""
 "><title>"
 msgstr ""
 
-#: reporter.h:177
+#: reporter.h:178
 msgid ""
 "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://"
 "www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n"
@@ -271,19 +258,19 @@ msgid ""
 "<head><title>"
 msgstr ""
 
-#: reporter.h:158
+#: reporter.h:159
 msgid "</"
 msgstr ""
 
-#: reporter.h:141
+#: reporter.h:142
 msgid "</a></h2><table>"
 msgstr ""
 
-#: reporter.h:140
+#: reporter.h:141
 msgid "</a><br/>"
 msgstr ""
 
-#: reporter.h:136 reporter.h:193
+#: reporter.h:137 reporter.h:194
 msgid "</body></html>\n"
 msgstr ""
 
@@ -295,19 +282,19 @@ msgstr ""
 msgid "</g></svg>"
 msgstr ""
 
-#: reporter.h:136 reporter.h:191
+#: reporter.h:137 reporter.h:192
 msgid "</h1>"
 msgstr ""
 
-#: reporter.h:144
+#: reporter.h:145
 msgid "</table>"
 msgstr ""
 
-#: reporter.h:153
+#: reporter.h:154
 msgid "</table></td></tr>\n"
 msgstr ""
 
-#: reporter.h:161 reporter.h:164
+#: reporter.h:162 reporter.h:165
 msgid "</td></tr>\n"
 msgstr ""
 
@@ -315,21 +302,21 @@ msgstr ""
 msgid "</text><line x1='"
 msgstr ""
 
-#: reporter.h:161 reporter.h:164
+#: reporter.h:162 reporter.h:165
 msgid "</th><td>"
 msgstr ""
 
-#: reporter.h:147
+#: reporter.h:148
 msgid "</th><td><table>\n"
 msgstr ""
 
-#: reporter.h:136
+#: reporter.h:137
 msgid ""
 "</title><meta http-equiv='Content-Type' content='text/html; charset=utf8'/></"
 "head><body><h1>"
 msgstr ""
 
-#: reporter.h:179
+#: reporter.h:180
 msgid ""
 "</title><meta http-equiv='Content-Type' content='text/html; charset=utf8'/"
 "><style type=\"text/css\">table\t\t{ border-collapse:collapse;  border-"
@@ -340,11 +327,11 @@ msgid ""
 "{font-size:0.5em;}small\t\t{font-size:0.8em;}</style></head><body><h1>"
 msgstr ""
 
-#: reporter.h:140
+#: reporter.h:141
 msgid "<a href='#"
 msgstr ""
 
-#: reporter.h:19
+#: reporter.h:20
 msgid "<a href='http://readesm.sourceforge.net/'>readESM</a>"
 msgstr ""
 
@@ -366,11 +353,11 @@ msgstr ""
 msgid "<g transform='translate(10,0)'>"
 msgstr ""
 
-#: reporter.h:141
+#: reporter.h:142
 msgid "<h2><a name='"
 msgstr ""
 
-#: reporter.h:136 reporter.h:191 reporter.h:192
+#: reporter.h:137 reporter.h:192 reporter.h:193
 msgid "<hr/>"
 msgstr ""
 
@@ -400,31 +387,31 @@ msgstr ""
 msgid "<text x='"
 msgstr ""
 
-#: reporter.h:158
+#: reporter.h:159
 msgid "<tr><"
 msgstr ""
 
-#: reporter.h:147 reporter.h:161 reporter.h:164
+#: reporter.h:148 reporter.h:162 reporter.h:165
 msgid "<tr><th>"
 msgstr ""
 
-#: reporter.h:150
+#: reporter.h:151
 msgid "<tr><th></th><td></td></tr>\n"
 msgstr ""
 
-#: reporter.h:158
+#: reporter.h:159
 msgid "></tr>"
 msgstr ""
 
-#: cardblocks.h:475
+#: cardblocks.h:462
 msgid "Accumulated fines"
 msgstr "Mögliche aufgerechnete Strafe"
 
-#: Activity.h:149
+#: Activity.h:150
 msgid "Activities Codriver"
 msgstr "Beifahreraktivitäten"
 
-#: Activity.h:145
+#: Activity.h:146
 msgid "Activities Driver"
 msgstr "Fahreraktivitäten"
 
@@ -432,7 +419,7 @@ msgstr "Fahreraktivitäten"
 msgid "Activities for"
 msgstr "Aktivitäten am"
 
-#: cardblocks.h:476
+#: cardblocks.h:463
 msgid "Activity space usage"
 msgstr "Platzverbrauch durch Aktivitäten"
 
@@ -529,9 +516,8 @@ msgid "Card Certificate"
 msgstr "Kartenzertifikat"
 
 #: cardblocks.h:69
-#, fuzzy
 msgid "Card Download"
-msgstr "Karte heruntergeladen, "
+msgstr "Herunterladen einer Karte"
 
 #: cardblocks.h:365
 msgid "Card Identification"
@@ -597,19 +583,19 @@ msgstr "Zypern"
 msgid "Czech Republic"
 msgstr "Tschechische Republik"
 
-#: Activity.h:148
+#: Activity.h:149
 msgid "Daily Activity Codriver"
 msgstr "Tagestätigkeit des 2. Fahrers"
 
-#: Activity.h:144
+#: Activity.h:145
 msgid "Daily Activity Driver"
 msgstr "Tagestätigkeit des Fahrers"
 
-#: overtime.h:45
+#: overtime.h:46
 msgid "Daily driving time"
 msgstr "Tageslenkzeit"
 
-#: Activity.h:142
+#: Activity.h:143
 msgid "Date"
 msgstr "Datum"
 
@@ -637,10 +623,9 @@ msgstr "Gefahrene Strecke"
 msgid "Driver"
 msgstr "Fahrer"
 
-#: cardblocks.h:433
-#, fuzzy
+#: cardblocks.h:422
 msgid "Driver Activity Data"
-msgstr "Tagestätigkeit des Fahrers"
+msgstr "Fahrertätigkeitsdaten"
 
 #: formatStrings.h:94
 msgid "Driver Card"
@@ -650,7 +635,7 @@ msgstr "Fahrerkarte"
 msgid "Driving License Info"
 msgstr "Führerscheininformationen"
 
-#: Activity.h:151
+#: Activity.h:152
 msgid "Driving time"
 msgstr "Fahrzeit"
 
@@ -662,7 +647,7 @@ msgstr "Lenken ohne geeignete Karte"
 msgid "EC_PK.bin"
 msgstr ""
 
-#: reporter.h:30 reporter.h:94 reporter.h:133 reporter.h:196
+#: reporter.h:31 reporter.h:95 reporter.h:134 reporter.h:197
 msgid "ESM Data"
 msgstr "ESM Daten"
 
@@ -894,7 +879,7 @@ msgstr "Insgesamt gefahrene Strecke"
 msgid "Overall driving time"
 msgstr "Gesamtfahrzeit"
 
-#: Activity.h:153
+#: Activity.h:154
 msgid "Overtime"
 msgstr "Lenkzeitüberschreitung"
 
@@ -914,7 +899,7 @@ msgstr "Polen"
 msgid "Portugal"
 msgstr "Portugal"
 
-#: Activity.h:154
+#: Activity.h:155
 msgid "Possible fine"
 msgstr "Mögliche Strafe"
 
@@ -964,7 +949,7 @@ msgstr "Störungen Kontrollgerät: "
 msgid "Regions"
 msgstr "Regionen"
 
-#: reporter.h:18
+#: reporter.h:19
 msgid "Report generated with"
 msgstr ""
 
@@ -1000,7 +985,7 @@ msgstr "Sensorstörung"
 msgid "Sensor related security breach attempt events: "
 msgstr "Sicherheitsverletzende Versuche Weg- und/oder Geschwindigkeitsgeber: "
 
-#: cardblocks.h:459
+#: cardblocks.h:448
 msgid "Size 0 for increment. Aborting.\n"
 msgstr "Größe 0 für Inkrementierung. Abbruch.\n"
 
@@ -1157,9 +1142,12 @@ msgid "VuControlActivityRecord"
 msgstr ""
 
 #: Speeds.h:19
-#, fuzzy
 msgid "VuDetailedSpeedBlock"
-msgstr "detaillierte Geschwindigkeit"
+msgstr "genaue Geschwindigkeit während einer Minute"
+
+#: Activity.h:159
+msgid "Week"
+msgstr ""
 
 #: Activities.h:108
 msgid "Work period"
@@ -1189,11 +1177,11 @@ msgstr ""
 msgid "activityChangeInfos"
 msgstr ""
 
-#: cardblocks.h:423
+#: Activity.h:172
 msgid "activityDailyPresenceCounter"
 msgstr ""
 
-#: cardblocks.h:424
+#: Activity.h:173
 msgid "activityDayDistance"
 msgstr "Gefahrene Strecke"
 
@@ -1385,7 +1373,7 @@ msgstr ""
 msgid "dailyWorkPeriodRegion"
 msgstr ""
 
-#: time.h:53
+#: time.h:53 time.h:75
 msgid "days"
 msgstr "Tage"
 
@@ -1404,6 +1392,10 @@ msgstr ""
 #: Overview.h:43
 msgid "downloadingTime"
 msgstr ""
+
+#: overtime.h:60
+msgid "driven for "
+msgstr "gefahren für"
 
 #: Activity.h:62
 msgid "driver"
@@ -1425,7 +1417,7 @@ msgstr "Ausstellender Staat"
 msgid "drivingLicenceNumber"
 msgstr "Führerscheinnummer"
 
-#: Activity.h:122
+#: Activity.h:123
 msgid "duration < 0\n"
 msgstr "Dauer < 0\n"
 
@@ -1613,8 +1605,7 @@ msgstr "nicht eingesteckt"
 msgid "numberOfOverspeedSince"
 msgstr "Seitherige Geschwindigkeitsüberschreitungen"
 
-#: cardblocks.h:476
-#, fuzzy
+#: cardblocks.h:463
 msgid "of"
 msgstr "von"
 
@@ -1645,6 +1636,10 @@ msgstr "eines der 5 längsten Ereignisse in den letzten 365 Tagen"
 #: formatStrings.h:54
 msgid "one of the 5 most serious events over the last 365 days"
 msgstr "eines der 5 schwerwiegendsten Ereignisse in den letzten 365 Tagen"
+
+#: overtime.h:61
+msgid "only"
+msgstr ""
 
 #: Activity.h:83
 msgid "ouch"
@@ -1694,13 +1689,17 @@ msgstr "gedruckt, "
 msgid "produce help message"
 msgstr "Hilfetext ausgeben"
 
-#: reporter.h:20
+#: reporter.h:21
 msgid "readESM (http://readesm.sourceforge.net/)"
 msgstr ""
 
 #: i18n.h:20 i18n.h:21
 msgid "readesm"
 msgstr ""
+
+#: overtime.h:61
+msgid "recorded"
+msgstr "aufgezeichnet"
 
 #: Activity.h:93
 msgid "red"
@@ -1746,11 +1745,11 @@ msgstr ""
 msgid "speedsPerSecond"
 msgstr ""
 
-#: cardblocks.h:490
+#: cardblocks.h:477
 msgid "stray signature"
 msgstr "verwaiste Signatur"
 
-#: reporter.h:156
+#: reporter.h:157
 msgid "td"
 msgstr ""
 
@@ -1758,7 +1757,7 @@ msgstr ""
 msgid "text"
 msgstr "Text"
 
-#: reporter.h:157
+#: reporter.h:158
 msgid "th"
 msgstr ""
 
@@ -1852,7 +1851,7 @@ msgstr "Ausführliche Ausgabe, einfach alles ausgeben"
 msgid "verbose,v"
 msgstr ""
 
-#: reporter.h:22
+#: reporter.h:23
 msgid "version"
 msgstr "Version"
 
@@ -2307,6 +2306,9 @@ msgstr ""
 #: i18n.h:55
 msgid "ÿ"
 msgstr ""
+
+#~ msgid " days "
+#~ msgstr "Tage"
 
 #~ msgid " from "
 #~ msgstr "von"
