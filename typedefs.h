@@ -1,12 +1,19 @@
 /* Copyright 2009 Andreas Gölzer
 
-This file is part of readESM.
+ This file is part of readESM.
 
-readESM is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+ readESM is free software: you can redistribute it and/or modify it under the
+ terms of the GNU General Public License as published by the Free Software
+ Foundation, either version 3 of the License, or (at your option) any later
+ version.
 
-readESM is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ readESM is distributed in the hope that it will be useful, but WITHOUT ANY
+ WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
-You should have received a copy of the GNU General Public License along with readESM.  If not, see <http://www.gnu.org/licenses/>. */
+ You should have received a copy of the GNU General Public License along with
+ readESM.  If not, see <http://www.gnu.org/licenses/>. */
+
 #ifndef TYPEDEFS_H
 #define TYPEDEFS_H
 #include <vector>
@@ -22,11 +29,11 @@ template <typename T>
 class shared_ptr {
 	public:
 	T* content;
-	T& operator*() const{ return *content; }
-	T* operator->() const{ return content; }
-	template <class TO> shared_ptr(const shared_ptr<TO>& o) { content = o.content; }
+	T& operator*() const {return *content;}
+	T* operator->() const {return content;}
+	template <class TO> shared_ptr(const shared_ptr<TO>& o) {content = o.content;}
 	shared_ptr(T* ncontent = NULL) : content(ncontent) {}
-	operator bool(){ return content != NULL; }
+	operator bool() {return content != NULL;}
 };
 #endif
 

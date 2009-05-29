@@ -29,7 +29,7 @@ TEX=latex
 CFLAGS=-Wall -pipe -O2
 CXX=g++
 CC=$(CXX)
-CPPFLAGS=-DPREFIX=\"$(prefix)\" $(EXTRAFLAGS) -DVERSION=\"$(version)\"
+CPPFLAGS=-DPREFIX="\"$(prefix)\"" $(EXTRAFLAGS) -DVERSION="\"$(version)\""
 CXXFLAGS=$(CFLAGS)
 LDLIBS=-lgmp -lboost_program_options -lgcrypt
 
