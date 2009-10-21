@@ -388,7 +388,7 @@ class Vehicles_Used : public tlvblock {
 		else {
 			for(subiter i = sub.begin(); i < sub.end(); ++i) {
 				subiter lastentry = i;
-				while(i < sub.end() && i->LastUse.timestamp % 86400 == 86399)
+				while(i < (sub.end() - 1) && i->LastUse.timestamp % 86400 == 86399)
 					++i;
 				report << i->vreg;
 				report.single(formatRange(lastentry->FirstUse, i->LastUse));
