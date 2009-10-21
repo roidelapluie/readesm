@@ -18,10 +18,9 @@
 #define FAULTS_H FAULTS_H
 #include "vublock.h"
 #include "formatStrings.h"
-
 class EventBase {
 	public:
-	static const int csize = 10;
+	static int csize() { return 10;}
 	int Type, RecordPurpose;
 	Time BeginTime, EndTime;
 	EventBase(iter filewalker) :
@@ -41,7 +40,7 @@ class EventBase {
 
 class Fault : public EventBase {
 	public:
-	static const int csize = EventBase::csize + 4* 18 ;
+	static int csize() {return  EventBase::csize() + 4* 18; }
 	string cardnumbers[4];
 	static const int cardNumberDriverSlotBegin = 0;
 	static const int cardNumberCodriverSlotBegin = 1;
@@ -51,7 +50,7 @@ class Fault : public EventBase {
 		EventBase(filewalker) {
 		for(int j = 0; j < 4; ++j)
 			cardnumbers[j] = fixedString(
-					filewalker + EventBase::csize + j * 18, 18);
+					filewalker + EventBase::csize() + j * 18, 18);
 	}
 	virtual void printOn(reporter& report) const {
 		EventBase::printOn(report);
@@ -74,10 +73,10 @@ class Fault : public EventBase {
 
 class Event : public Fault {
 	public:
-	static const int csize = Fault::csize + 1;
+	static int csize() { return Fault::csize() + 1; }
 	int similarEventsNumber;
 	Event(iter filewalker) :
-		Fault(filewalker), similarEventsNumber(filewalker[Fault::csize]) {
+		Fault(filewalker), similarEventsNumber(filewalker[Fault::csize()]) {
 	}
 	virtual void printOn(reporter& report) const {
 		Fault::printOn(report);
@@ -88,7 +87,7 @@ class Event : public Fault {
 
 class Overspeed : public EventBase {
 	public:
-	static const int csize = EventBase::csize + 21;
+	static int csize() { return EventBase::csize() + 21; }
 	int maxSpeedValue, averageSpeedValue;
 	string cardNumberDriverSlotBegin;
 	int similarEventsNumber;
@@ -131,12 +130,12 @@ class Faults : public vublock {
 		for(reporter::subblock b = report.newsub("Faults", IntByte()); b(); ++b) {
 			Fault e(start + runningIndex + 2);
 			e.printOn(report);
-			runningIndex += Fault::csize;
+			runningIndex += Fault::csize();
 		}
 		for(reporter::subblock b = report.newsub("Events", IntByte()); b(); ++b) {
 			Event e(start + runningIndex + 2);
 			e.printOn(report);
-			runningIndex += Event::csize;
+			runningIndex += Event::csize();
 		}
 		report("lastOverspeedControlTime", readDate().str());
 		report("firstOverspeedSince", readDate().str());
@@ -145,7 +144,7 @@ class Faults : public vublock {
 				IntByte()); b(); ++b) {
 			Overspeed e(start + runningIndex + 2);
 			e.printOn(report);
-			runningIndex += Overspeed::csize;
+			runningIndex += Overspeed::csize();
 		}
 		for(reporter::subblock b = report.newsub("TimeAdjustments", IntByte()); b(); ++b) {
 			report("oldTimeValue", readDate().str());
