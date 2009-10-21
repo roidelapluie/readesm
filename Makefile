@@ -31,7 +31,7 @@ CXX=g++
 CC=$(CXX)
 CPPFLAGS=-DPREFIX="\"$(prefix)\"" $(EXTRAFLAGS) -DVERSION="\"$(version)\""
 CXXFLAGS=$(CFLAGS)
-LDLIBS=-lgmp -lboost_program_options -lgcrypt
+LDLIBS=-lgmp -lboost_program_options-mt -lgcrypt
 
 all: $(name)
 
