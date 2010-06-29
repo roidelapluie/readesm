@@ -1,3 +1,10 @@
+readesm (0.3.2-0ubuntu2) lucid; urgency=low
+
+   * New version of libboost-program-options in jaunty
+
+ -- Andreas Gölzer <K_2005@goelzer.de>  Tue,  29 Jun 2010 23:14:00 +0200
+
+
 readesm (0.3.2-0ubuntu1) jaunty; urgency=low
 
    * New upstream release with some bug fixes and feature improvements.
