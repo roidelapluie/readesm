@@ -17,6 +17,9 @@ class mainWindow : public QMainWindow
 		void openFile();
 		void openFile(const QString& filename);
 		void helpOnline();
+		void print();
+		void saveRaw();
+		void saveHtml();
 		void helpAbout();
 	
 };
