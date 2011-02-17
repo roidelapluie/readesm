@@ -4,6 +4,16 @@ find_package(Qt4 COMPONENTS QtGui QtWebKit REQUIRED)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
 
+#*** Make Version known to program ***
+find_package(Subversion)
+if(Subversion_FOUND)
+	Subversion_WC_INFO(${CMAKE_CURRENT_SOURCE_DIR} ER)
+	set(SUBVERSION_REVISION ${ER_WC_REVISION})
+	add_definitions(-DVERSION="${SUBVERSION_REVISION}")
+endif(Subversion_FOUND)
+
+#*** check for crypto libraries and enable them if found ***
+
 find_package(gmp)
 find_package(gcrypt)
 
@@ -15,13 +25,25 @@ else()
 	add_definitions(-DHAVE_NO_CRYPTO)
 endif()
 
+
+#*** Actual part needed to build everything ***
+
 include_directories(${QT_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR})
 
 set(readesm_SRCS readesm.cpp gui/mainWindow.cpp legacyWrapper.cpp)
 qt4_automoc(${readesm_SRCS})
+add_definitions(-Wall)
 
 add_executable(readesm ${readesm_SRCS})
-#add_executable(readesm-nogui readesm-nogui.cpp)
-
 
 target_link_libraries(readesm ${QT_QTCORE_LIBRARY} ${QT_QTGUI_LIBRARY} ${QT_QTWEBKIT_LIBRARY} ${LIBS})
+
+#*** Documentation Files ***
+
+set(DOC_FILES README)
+set(DOC_PATH "share/doc/readesm")
+
+#*** Install files ***
+install(FILES ${DOC_FILES} DESTINATION ${DOC_PATH})
+install(TARGETS readesm RUNTIME DESTINATION bin)
+install(FILES EC_PK.bin DESTINATION share/readesm)
