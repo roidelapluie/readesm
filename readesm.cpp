@@ -9,5 +9,8 @@ int main(int argc, char** argv)
 	QApplication app(argc, argv);
 	mainWindow widgetMainWindow;
 	widgetMainWindow.show();
+	if(argc > 1){
+		widgetMainWindow.openFile(QString(argv[1]));
+	}
 	return app.exec();
 }

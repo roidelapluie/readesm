@@ -12,11 +12,10 @@
 
 #include "../legacyWrapper.h"
 
-mainWindow::mainWindow() {
-	
+mainWindow::mainWindow()
+{
 	view = new QWebView(this);
-	//view->setHtml("All art is quite useless.");
-	view->load(QUrl("file:///home/goelzera/Programme/readesm/build/last.xml#7"));
+	view->setHtml("All art is quite useless.");
 	setCentralWidget(view);
 	
 	//define and link the stuff in the menu bar
@@ -33,7 +32,8 @@ mainWindow::mainWindow() {
 	connect(fileQuitAction, SIGNAL(triggered()), SLOT(close()) );
 	connect(fileOpenAction, SIGNAL(triggered()), SLOT(openFile()) );
 	connect(filePrintAction, SIGNAL(triggered()), SLOT(print()) );
-	//connect(filePrintAction, SIGNAL(triggered()), SLOT(print()) );
+	connect(fileSaveRawAction, SIGNAL(triggered()), SLOT(saveRaw()) );
+	connect(fileSaveHtmlAction, SIGNAL(triggered()), SLOT(saveHtml()) );
 	
 	fileMenu->addAction(fileOpenAction);
 	fileMenu->addSeparator();
