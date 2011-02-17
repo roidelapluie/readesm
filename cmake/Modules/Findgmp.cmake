@@ -1,22 +1,60 @@
-include(LibFindMacros)
+# - Try to find gmp
+# Once done this will define
+#
+#  GMP_FOUND - system has gmp
+#  GMP_INCLUDE_DIRS - the gmp include directory
+#  GMP_LIBRARIES - Link these to use gmp
+#  GMP_DEFINITIONS - Compiler switches required for using gmp
+#
+#  Copyright (c) 2011 Andreas Goelzer <andreas@goelzer.de>
+#
+#  Redistribution and use is allowed according to the terms of the New
+#  BSD license.
+#  For details see the accompanying COPYING-CMAKE-SCRIPTS file.
+#
 
-# Use pkg-config to get hints about paths
-libfind_pkg_check_modules(gmp_PKGCONF gmp)
 
-# Include dir
-find_path(gmp_INCLUDE_DIR
-  NAMES gmp.h
-  PATHS ${gmp_PKGCONF_INCLUDE_DIRS}
-)
+if (GMP_LIBRARIES AND GMP_INCLUDE_DIRS)
+  # in cache already
+  set(GMP_FOUND TRUE)
+else (GMP_LIBRARIES AND GMP_INCLUDE_DIRS)
 
-# Finally the library itself
-find_library(gmp_LIBRARY
-  NAMES gmp
-  PATHS ${gmp_PKGCONF_LIBRARY_DIRS}
-)
+  find_path(GMP_INCLUDE_DIR
+    NAMES
+      gmp.h
+    PATHS
+      /usr/include
+      /usr/local/include
+      /opt/local/include
+      /sw/include
+  )
 
-# Set the include dir variables and the libraries and let libfind_process do the rest.
-# NOTE: Singular variables for this library, plural for libraries this this lib depends on.
-set(gmp_PROCESS_INCLUDES gmp_INCLUDE_DIR gmp_INCLUDE_DIRS)
-set(gmp_PROCESS_LIBS gmp_LIBRARY gmp_LIBRARIES)
-libfind_process(gmp)
+  find_library(GMP_LIBRARY
+    NAMES
+      gmp
+    PATHS
+      /usr/lib
+      /usr/local/lib
+      /opt/local/lib
+      /sw/lib
+  )
+
+  set(GMP_INCLUDE_DIRS
+    ${GMP_INCLUDE_DIR}
+  )
+
+  if (GMP_LIBRARY)
+    set(GMP_LIBRARIES
+        ${GMP_LIBRARIES}
+        ${GMP_LIBRARY}
+    )
+  endif (GMP_LIBRARY)
+
+  include(FindPackageHandleStandardArgs)
+  find_package_handle_standard_args(gmp DEFAULT_MSG GMP_LIBRARIES GMP_INCLUDE_DIRS)
+
+  # show the GMP_INCLUDE_DIRS and GMP_LIBRARIES variables only in the advanced view
+  mark_as_advanced(GMP_INCLUDE_DIRS GMP_LIBRARIES)
+
+endif (GMP_LIBRARIES AND GMP_INCLUDE_DIRS)
+

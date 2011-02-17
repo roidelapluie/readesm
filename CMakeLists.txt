@@ -7,9 +7,9 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
 find_package(gmp)
 find_package(gcrypt)
 
-if(gmp_FOUND AND gcrypt_FOUND)
+if(GMP_FOUND AND GCRYPT_FOUND)
 	message("Found gcrypt and gmp. Will use cryptographic checks.")
-	set(LIBS ${LIBS} ${gmp_LIBRARY} ${gcrypt_LIBRARY})
+	set(LIBS ${LIBS} ${GCRYPT_LIBRARIES} ${GMP_LIBRARIES})
 else()
 	message("Did not find both gmp and gcrypt. Disabling cryptographic checks.")
 	add_definitions(-DHAVE_NO_CRYPTO)
@@ -22,5 +22,6 @@ qt4_automoc(${readesm_SRCS})
 
 add_executable(readesm ${readesm_SRCS})
 #add_executable(readesm-nogui readesm-nogui.cpp)
+
 
 target_link_libraries(readesm ${QT_QTCORE_LIBRARY} ${QT_QTGUI_LIBRARY} ${QT_QTWEBKIT_LIBRARY} ${LIBS})

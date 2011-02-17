@@ -1,22 +1,60 @@
-include(LibFindMacros)
+# - Try to find gcrypt
+# Once done this will define
+#
+#  GCRYPT_FOUND - system has gcrypt
+#  GCRYPT_INCLUDE_DIRS - the gcrypt include directory
+#  GCRYPT_LIBRARIES - Link these to use gcrypt
+#  GCRYPT_DEFINITIONS - Compiler switches required for using gcrypt
+#
+#  Copyright (c) 2011 Andreas Goelzer <andreas@goelzer.de>
+#
+#  Redistribution and use is allowed according to the terms of the New
+#  BSD license.
+#  For details see the accompanying COPYING-CMAKE-SCRIPTS file.
+#
 
-# Use pkg-config to get hints about paths
-libfind_pkg_check_modules(gcrypt_PKGCONF gcrypt)
 
-# Include dir
-find_path(gcrypt_INCLUDE_DIR
-  NAMES gcrypt.h
-  PATHS ${gcrypt_PKGCONF_INCLUDE_DIRS}
-)
+if (GCRYPT_LIBRARIES AND GCRYPT_INCLUDE_DIRS)
+  # in cache already
+  set(GCRYPT_FOUND TRUE)
+else (GCRYPT_LIBRARIES AND GCRYPT_INCLUDE_DIRS)
 
-# Finally the library itself
-find_library(gcrypt_LIBRARY
-  NAMES gcrypt
-  PATHS ${gcrypt_PKGCONF_LIBRARY_DIRS}
-)
+  find_path(GCRYPT_INCLUDE_DIR
+    NAMES
+      gcrypt.h
+    PATHS
+      /usr/include
+      /usr/local/include
+      /opt/local/include
+      /sw/include
+  )
 
-# Set the include dir variables and the libraries and let libfind_process do the rest.
-# NOTE: Singular variables for this library, plural for libraries this this lib depends on.
-set(gcrypt_PROCESS_INCLUDES gcrypt_INCLUDE_DIR gcrypt_INCLUDE_DIRS)
-set(gcrypt_PROCESS_LIBS gcrypt_LIBRARY gcrypt_LIBRARIES)
-libfind_process(gcrypt)
+  find_library(GCRYPT_LIBRARY
+    NAMES
+      gcrypt
+    PATHS
+      /usr/lib
+      /usr/local/lib
+      /opt/local/lib
+      /sw/lib
+  )
+
+  set(GCRYPT_INCLUDE_DIRS
+    ${GCRYPT_INCLUDE_DIR}
+  )
+
+  if (GCRYPT_LIBRARY)
+    set(GCRYPT_LIBRARIES
+        ${GCRYPT_LIBRARIES}
+        ${GCRYPT_LIBRARY}
+    )
+  endif (GCRYPT_LIBRARY)
+
+  include(FindPackageHandleStandardArgs)
+  find_package_handle_standard_args(gcrypt DEFAULT_MSG GCRYPT_LIBRARIES GCRYPT_INCLUDE_DIRS)
+
+  # show the GCRYPT_INCLUDE_DIRS and GCRYPT_LIBRARIES variables only in the advanced view
+  mark_as_advanced(GCRYPT_INCLUDE_DIRS GCRYPT_LIBRARIES)
+
+endif (GCRYPT_LIBRARIES AND GCRYPT_INCLUDE_DIRS)
+
