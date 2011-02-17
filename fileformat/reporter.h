@@ -70,8 +70,7 @@ class reporter : public ostringstream {
 	virtual void blockend() = 0;
 	virtual void blockbreak() = 0;
 	virtual void single(const string& description, bool ishead = false) = 0;
-	virtual void
-			operator()(const string& description, const std::string& value) = 0;
+	virtual void operator()(const string& description, const std::string& value) = 0;
 	virtual void operator()(const string& description, int value) = 0;
 	template <typename T>
 	void reportray(const T& ray, const string& description) {
