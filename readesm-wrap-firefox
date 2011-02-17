@@ -1,4 +1,0 @@
-#!/bin/bash
-file=$(basename $1).xhtml
-readesm --infile $1 --outfile /tmp/$file --format xml
-firefox /tmp/$file
