@@ -53,6 +53,14 @@ class vuBlock : public block {
 		runningIndex += length;
 		return ::fixedString(start + 2 + runningIndex - length, length);
 	}
+	QString hexCode(int length) const {
+		QString rv;
+		QTextStream o(&rv);
+		hexout(o, start.toUnsignedPointer(2 + runningIndex), length);
+		runningIndex += length;
+		return rv;
+	}
+
 	int IntByte(int start) const {
 		return int(block_start[start]);
 	}

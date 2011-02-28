@@ -39,12 +39,12 @@ class vuTechnical : public vuBlock {
 		report(tr("vuManufacturerMame"), fixedString(36));
 		report(tr("vuManufacturerAddress"), fixedString(36));
 		report(tr("vuPartNumber"), fixedString(16));
-		report(tr("vuSerialNumber"), fixedString(8));
+		report(tr("vuSerialNumber"), hexCode(8));
 		report(tr("vuSoftwareVersion"), fixedString(4));
 		report(tr("vuSoftInstallationDate"), readDate().str());
 		report(tr("vuManufacturingDate"), readDate().str());
 		report(tr("vuApprovalNumber"), fixedString(8));
-		report(tr("sensorSerialNumber"), fixedString(8));
+		report(tr("sensorSerialNumber"), hexCode(8));
 		report(tr("sensorApprovalNumber"), fixedString(8));
 		report(tr("sensorPairingDateFirst"), readDate().str());
 

@@ -20,7 +20,7 @@
 #include "constDataPointer.h"
 
 inline QString fixedString(constDataPointer start, int length) {
-	QString rv = QString::fromLatin1(start.toPointer(),length);
+	QString rv = QString::fromLatin1(start.toPointer(1),length-1);
 	return rv.trimmed();;
 }
 

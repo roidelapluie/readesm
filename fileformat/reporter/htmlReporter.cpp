@@ -23,7 +23,7 @@ QString htmlReporter::str() {
 
 void htmlReporter::bigblockstart(const QString& name) {
 	linksCollector << "<a href='#" << (++targetcount) << "'>" << name
-			<< "</a><br/>";
+			<< "</a><br/>\n";
 	collector << "<h2><a name='" << targetcount << "'>"
 			<< name << "</a></h2><table>";
 }
