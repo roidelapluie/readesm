@@ -47,10 +47,10 @@ target_link_libraries(readesm ${QT_QTCORE_LIBRARY} ${QT_QTGUI_LIBRARY} ${QT_QTWE
 
 #*** Documentation Files ***
 
-set(DOC_FILES README)
-set(DOC_PATH "share/doc/readesm")
+#set(DOC_FILES README)
+#set(DOC_PATH "share/doc/readesm")
 
 #*** Install files ***
-install(FILES ${DOC_FILES} DESTINATION ${DOC_PATH})
+#install(FILES ${DOC_FILES} DESTINATION ${DOC_PATH})
 install(TARGETS readesm RUNTIME DESTINATION bin)
-install(FILES EC_PK.bin DESTINATION share/readesm)
+#install(FILES EC_PK.bin DESTINATION share/readesm)
