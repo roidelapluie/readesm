@@ -16,20 +16,47 @@
 
 #ifndef BLOCK_H
 #define BLOCK_H BLOCK_H
+
+#include <QSharedPointer>
+#include <QObject>
+
 #include "helper.h"
 #include "esmfilehead.h"
+#include "constDataPointer.h"
 
-class block {
+class signature {
 	public:
-	typedef shared_ptr<block> ptr;
-	block(iter filewalker) :
-		validsignature(false), hassignature(false), start(filewalker), type(
-				getType(start)) {
+	enum validity {UNCHECKED, INVALID, VALID};
+	bool present;
+	validity valid;
+	signature() : present(false), valid(UNCHECKED) {}
+	void report(reporter& o){
+#ifndef HAVE_NO_CRYPTO
+		if(valid == UNCHECKED) o("validly signed", "Could not or did not check signature");
+		else if(valid == VALID) o("validly signed", "Signature checked and valid");
+		else if(valid == INVALID) o("validly signed", "Signature checked and invalid");
+		else o("error", "Sig state weird");
+#endif
 	}
-	static int getType(iter filewalker) {
+};
+
+class block{
+	Q_DECLARE_TR_FUNCTIONS(block)
+	public:
+	typedef QSharedPointer<block> ptr;
+	block(constDataPointer filewalker) :
+		validsignature(false), 
+		hassignature(false), 
+		start(filewalker), 
+		type(getType(start)) 
+	{
+	}
+
+	static int getType(constDataPointer filewalker) {
 		return (filewalker[0] << 8) + filewalker[1];
 	}
-	friend std::ostream& operator<<(reporter& o, const block& b) {
+
+	friend reporter& operator<<(reporter& o, const block& b) {
 		o.bigblockstart(b.name());
 		b.printOn(o);
 #ifndef HAVE_NO_CRYPTO
@@ -41,13 +68,17 @@ class block {
 		o.bigblockend();
 		return o;
 	}
+	
 	virtual int size() const = 0;
-	virtual string name() const {
-		return "Unknown block type " + hex(type, 4);
+
+	virtual QString name() const {
+		return tr("Unknown block type %1").arg(hex(type, 4));
 	}
+
 	virtual void reportstuff(esmfilehead& esm) {
 	}
-	static ptr Factory(iter& filewalker);
+
+	static ptr Factory(constDataPointer filewalker);
 #ifndef HAVE_NO_CRYPTO
 	virtual bool checksig(const rsa& key) = 0;
 #endif
@@ -55,11 +86,11 @@ class block {
 	virtual void printOn(reporter& o) const {
 		o("length", size());
 	}
-	//virtual void printLess(reporter& o) const{}
+
 	protected:
-	iter signature;
+	constDataPointer signature;
 	bool validsignature, hassignature;
-	iter start;
+	constDataPointer start;
 	int type;
 };
 

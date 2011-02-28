@@ -16,82 +16,76 @@
 
 #ifndef PICGEN_H
 #define PICGEN_H PICGEN_H
-#include "typedefs.h"
 
-class picgen : public ostringstream {
+#include <QString>
+#include <QTextStream>
+
+class picgen{
+	protected:
+		QString collected;
 	public:
-	virtual string str() {
-		return ostringstream::str();
+		QTextStream collector;
+	picgen() : collected(), collector(&collected) {}
+	virtual QString str() {
+		return collected;
 	}
-	virtual void add(int from, int duration, int height, string color,
-			string title) {
-	}
+	virtual void add(int from, int duration, int height, QString color, QString title) {}
 };
 
-void drawDayOutline(ostringstream& o) {
-	o << "<svg xmlns='http://www.w3.org/2000/svg' width='740' height='120'>";
-	o << "<g transform='translate(10,0)'>";
-	o << "<g style='text-anchor:middle;font-size:16px;'>";
-	for(int j = 0; j < 25; ++j)
-		o << "<text x='" << (j * 30) << "' y='118'>" << j
-				<< "</text><line x1='" << (j * 30) << "' y1='100' x2='" << (j
-				* 30) << "' y2='104' style='stroke-width:2;stroke:black' />";
-	o << "</g>";
-	o
-			<< "<polyline points='0,0 720,0 720,100 0,100 0,0' style='fill:none;stroke:black;stroke-width:2'/>";
-}
-const char* DayOutlineEnd = "</g></svg>";
+void drawDayOutlineStart(QTextStream& o);
+void drawDayOutlineEnd(QTextStream& o);
 
 class htmlBarGraph : public picgen {
 	static const int compressh = 2;
 	public:
-	virtual void add(int from, int duration, int height, string color,
-			string title) {
-		(*this) << "<img src='images/" << color << ".gif' width='" << (duration
+	virtual void add(int from, int duration, int height, QString color, QString title) {
+		collector<< "<img src='images/" << color << ".gif' width='" << (duration
 				/ compressh) << "' height='" << height << "' title='" << title
 				<< "' alt='" << title << "'/>";
 	}
-	virtual string str() {
-		ostringstream o;
-		o << ostringstream::str()
+	virtual QString str() {
+		QString rv;
+		QTextStream o(&rv); 
+		o << str()
 				<< "<img src='images/scale.gif' height='20' width='" << (1440
 				/ compressh) << "' alt='scale' />";
-		return o.str();
+		return rv;
 	}
 };
 
 class svgBarGraph : public picgen {
 	public:
-	virtual void add(int from, int duration, int height, string color,
-			string title) {
-		(*this) << "<rect x='" << from << "' fill='" << color << "' width='"
+	virtual void add(int from, int duration, int height, QString color, QString title) {
+		collector<< "<rect x='" << from << "' fill='" << color << "' width='"
 				<< duration << "' height='" << height << "' title='" << title
 				<< "' />";
 	}
-	virtual string str() {
-		ostringstream o;
-		drawDayOutline(o);
+	virtual QString str() {
+		QString rv;
+		QTextStream o(&rv); 
+		drawDayOutlineStart(o);
 		o << "<g transform='scale(0.5,-1) translate(0,-100)'>"
-				<< ostringstream::str() << "</g>" << DayOutlineEnd;
-		return o.str();
+				<< collected << "</g>";
+		drawDayOutlineEnd(o);
+		return rv;
 	}
 };
 
 class svgPlotGraph : public picgen {
 	public:
-	virtual void add(int from, int duration, int height, string color,
-			string title) {
-		(*this) << "<rect x='" << from << "' fill='" << color << "' width='"
+	virtual void add(int from, int duration, int height, QString color, QString title) {
+		collector << "<rect x='" << from << "' fill='" << color << "' width='"
 				<< duration << "' height='" << height << "' title='" << title
 				<< "' />";
 	}
-	virtual string str() {
-		ostringstream o;
-		drawDayOutline(o);
-		o
-				<< "<g transform='scale(0.0083333,-1) translate(0,-100)'><path style='stroke:#dd2200' d='M 0 0 L "
-				<< ostringstream::str() << "' /></g>" << DayOutlineEnd;
-		return o.str();
+	virtual QString str() {
+		QString rv;
+		QTextStream o(&rv); 
+		drawDayOutlineStart(o);
+		o << "<g transform='scale(0.0083333,-1) translate(0,-100)'><path style='stroke:#dd2200' d='M 0 0 L "
+		<< collected << "' /></g>";
+		drawDayOutlineEnd(o);
+		return rv;
 	}
 };
 

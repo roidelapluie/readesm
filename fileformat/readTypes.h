@@ -16,43 +16,42 @@
 
 #ifndef READTYPES_H
 #define READTYPES_H
-#include <string>
-#include <sstream>
-#include "typedefs.h"
-#include "i18n.h"
+#include <QString>
+#include "constDataPointer.h"
 
-string fixedString(iter start, int length) {
-	ostringstream o;
-	int lastchar = length - 1;
-	for(; lastchar; --lastchar)
-		if(start[lastchar] > 0x20) break;
-	for(int j = 0; j <= lastchar; ++j)
-		if(start[j] >= 0x20 && start[j] != 0xFF) o << latin1tounicode(start[j]);
-	return o.str();
+inline QString fixedString(constDataPointer start, int length) {
+	QString rv = QString::fromLatin1(start.toPointer(),length);
+	return rv.trimmed();;
 }
 
-int BEInt16(iter start) {
+inline  int BEInt16(constDataPointer start) {
 	return (start[0] << 8) + start[1];
 }
-int BEInt32(iter start) {
+inline int BEInt32(constDataPointer start) {
 	return (start[0] << 24) + (start[1] << 16) + (start[2] << 8) + start[3];
 }
-int BEInt24(iter start) {
+inline int BEInt24(constDataPointer start) {
 	return (start[0] << 16) + (start[1] << 8) + start[2];
 }
-string bcdbyte(unsigned char start) {
+
+inline QString bcdbyte(unsigned char start)
+{
 	char rv[3];
 	rv[0] = '0' + (start >> 4);
 	rv[1] = '0' + (start & 0xF);
 	rv[2] = 0;
 	return rv;
 }
-string BCDDate(iter start) {
-	return bcdbyte(start[0]) + bcdbyte(start[1]) + "-" + bcdbyte(start[2])
-			+ "-" + bcdbyte(start[3]);
+
+inline QString BCDDate(constDataPointer start)
+{
+	return bcdbyte(start[0]) 
+		+ bcdbyte(start[1])
+		+ "-" + bcdbyte(start[2])
+		+ "-" + bcdbyte(start[3]);
 }
 
-int LEInt32(iter start) {
+inline int LEInt32(constDataPointer start) {
 	return (start[3] << 24) + (start[2] << 16) + (start[1] << 8) + start[0];
 }
 

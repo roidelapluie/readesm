@@ -10,16 +10,17 @@
 #include <QPrintDialog>
 #include <QtWebKit>
 
-#include "../legacyWrapper.h"
+#include "../fileformat/esmfile.h"
+#include "../fileformat/reporter/xmlReporter.h"
 
 mainWindow::mainWindow()
 {
 	view = new QWebView(this);
-	view->setHtml("All art is quite useless.");
+	view->setHtml("readesm");
 	setCentralWidget(view);
 	
 	//define and link the stuff in the menu bar
-	QMenu *fileMenu = new QMenu("&File",this); 
+	QMenu *fileMenu = new QMenu(tr("&File"),this); 
 	QAction* fileOpenAction = new QAction(QIcon::fromTheme("document-open"), tr("&Open"), this);
 	QAction* fileSaveRawAction = new QAction(QIcon::fromTheme("document-save-as"), tr("Save &As"), this);
 	QAction* fileSaveHtmlAction = new QAction(tr("Save &Html"), this);
@@ -44,15 +45,15 @@ mainWindow::mainWindow()
 	fileMenu->addAction(fileQuitAction);
 	menuBar()->addMenu(fileMenu);
 	
-	QMenu* helpMenu = new QMenu("&Help",this); 
-	QAction* helpOnlineAction = new QAction(QIcon::fromTheme("help-contents"), tr("&Online"), this);
-	QAction* helpAboutAction = new QAction(QIcon::fromTheme("help-about"), tr("&About"), this);
+	QMenu* helpMenu = new QMenu(tr("&Help"),this); 
+	QAction* helpContentsAction = new QAction(QIcon::fromTheme("help-contents"), tr("&Contents"), this);
+	QAction* helpAboutAction = new QAction(QIcon::fromTheme("help-about"), tr("&About Readesm"), this);
 	QAction* helpAboutQtAction = new QAction(tr("About &Qt"), this);
-	connect(helpOnlineAction, SIGNAL(triggered()), SLOT(helpOnline()) );
+	connect(helpContentsAction, SIGNAL(triggered()), SLOT(helpContents()) );
 	connect(helpAboutAction, SIGNAL(triggered()), SLOT(helpAbout()) );
 	connect(helpAboutQtAction, SIGNAL(triggered()), qApp, SLOT(aboutQt()) );
-	helpOnlineAction->setShortcut(QKeySequence::HelpContents);
-	helpMenu->addAction(helpOnlineAction);
+	helpContentsAction->setShortcut(QKeySequence::HelpContents);
+	helpMenu->addAction(helpContentsAction);
 	helpMenu->addSeparator();
 	helpMenu->addAction(helpAboutQtAction);
 	helpMenu->addAction(helpAboutAction);
@@ -68,9 +69,9 @@ void mainWindow::helpAbout()
 	);
 }
 
-void mainWindow::helpOnline()
+void mainWindow::helpContents()
 {
-	view->load(QUrl("http://readesm.sourceforge.net/"));
+	view->load(QUrl("qrc:///homepage/help.html"));
 }
 
 void mainWindow::openFile()
@@ -78,15 +79,17 @@ void mainWindow::openFile()
 	QString fileName = QFileDialog::getOpenFileName(this,
 		tr("Open Tachograph File"), 
 		QString(), 
-		tr("Tachograph Files (*.esm *.ddd)")
+		tr("Tachograph Files") +  "(*.esm *.ddd)" + ";;" + tr("All files") + "(*)"
 	);
 	openFile(fileName);
 }
 
 void mainWindow::openFile(const QString& filename)
 {
-	view->setContent(QByteArray(convertFile(filename.toStdString()).c_str()), "application/xhtml+xml");
-
+	esmfile esm(filename);
+	xmlReporter rep;
+	rep << esm;
+	view->setContent(rep.str().toUtf8(), "application/xhtml+xml");
 }
 
 void mainWindow::print()
@@ -101,7 +104,13 @@ void mainWindow::print()
 
 void mainWindow::saveHtml()
 {
-
+	QString content = view->page()->mainFrame()->toHtml();
+	QString filename = QFileDialog::getSaveFileName(this,
+		tr("Save XHtml file as"), 
+		QString(), 
+		tr("XHtml files") +  "(*.xhtml)"
+	);
+	
 }
 
 void mainWindow::saveRaw()
@@ -109,5 +118,9 @@ void mainWindow::saveRaw()
 
 }
 
+QSize mainWindow::sizeHint() const
+{
+    return QSize(800,400);
+}
 
 #include "mainWindow.moc"

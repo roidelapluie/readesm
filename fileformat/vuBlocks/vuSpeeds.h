@@ -16,18 +16,20 @@
 
 #ifndef SPEEDS_H
 #define SPEEDS_H SPEEDS_H
-#include <string>
-#include "vublock.h"
+#include <QString>
+
+#include "vuBlock.h"
+#include "constDataPointer.h"
 
 ///See page 163 of l207.pdf
-class Speeds : public vublock {
+class vuSpeeds : public vuBlock {
 	public:
-	string name() const {
-		return "Detailed Speed";
+	QString name() const {
+		return tr("Detailed Speed");
 	}
 	static const int TREP = 0x4;
-	Speeds(iter nstart) :
-		vublock(nstart) {
+	vuSpeeds(constDataPointer nstart) :
+		vuBlock(nstart) {
 		Init();
 	}
 	int size() const {
@@ -35,19 +37,20 @@ class Speeds : public vublock {
 	}
 	void CompleteReport(reporter& report) const {
 		runningIndex = 0;
-		for(reporter::subblock b = report.newsub("VuDetailedSpeedBlock",
+		for(reporter::subblock b = report.newsub(tr("VuDetailedSpeedBlock"),
 				Int16()); b(); ++b) {
-			report("speedBlockBeginDate", readDate().str());
-			ostringstream o;
+			report(tr("speedBlockBeginDate"), readDate().str());
+			QString speedsPerSecond;
+			QTextStream o(&speedsPerSecond);
 			for(int k = 0; k < 60; ++k)
 				o << IntByte() << ", ";
-			report("speedsPerSecond", o.str());
+			report(tr("speedsPerSecond"), speedsPerSecond);
 		}
 	}
 	void BriefReport(reporter& report) const {
 		if(!report.hasPlotGraph()) {
 			//this really requires a plotting program and stuff
-			report("Speed data", "omitted");
+			report(tr("Speed data"), tr("omitted"));
 			return;
 		}
 		runningIndex = 0;
@@ -60,18 +63,18 @@ class Speeds : public vublock {
 			Time sdate(date);
 			int daystart = date.timestamp - date.timestamp % 86400;
 			int dayend = daystart + 86400;
-			*visual << (date.timestamp - daystart - 1) << " 0\n";
+			visual->collector << (date.timestamp - daystart - 1) << " 0\n";
 			do {
 				int difference = date.timestamp - daystart;
 				for(int k = 0; k < 60; ++k)
-					*visual << (difference + k) << " " << IntByte()
-							<< std::endl;
+					visual->collector << (difference + k) << " " << IntByte()
+							<< endl;
 				if(j < count) {
 					Time ndate = readDate();
 					if(ndate.timestamp != date.timestamp + 60
 							&& ndate.timestamp < dayend) {
-						*visual << (difference + 60) << " 0\n";
-						*visual << (ndate.timestamp - daystart - 1) << " 0\n";
+						visual->collector << (difference + 60) << " 0\n";
+						visual->collector << (ndate.timestamp - daystart - 1) << " 0\n";
 					}
 					date = ndate;
 				}

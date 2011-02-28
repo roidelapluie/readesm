@@ -16,32 +16,12 @@
 #ifndef VUFACTORY_H
 #define VUFACTORY_H
 
-#include "typedefs.h"
-#include "Activities.h"
-#include "Speeds.h"
-#include "Technical.h"
-#include "Faults.h"
-#include "Overview.h"
+#include <QSharedPointer>
+#include <QDebug>
 
-shared_ptr<vublock> vuFactory(iter start) {
-	typedef shared_ptr<vublock> p;
-	if(start[0] != 0x76) throw std::runtime_error("Not a block");
-	switch(start[1]) {
-		case Overview::TREP:
-			return p(new Overview(start));
-		case Activities::TREP:
-			return p(new Activities(start));
-		case Faults::TREP:
-			return p(new Faults(start));
-		case Speeds::TREP:
-			return p(new Speeds(start));
-		case Technical::TREP:
-			return p(new Technical(start));
-		default:
-			std::cerr << "Oops! " << start[1] << std::endl;
-			throw std::runtime_error("Unknown block");
-	}
-	return p();
-}
+#include "vuBlock.h"
+#include "constDataPointer.h"
+
+QSharedPointer<vuBlock> vuFactory(constDataPointer start);
 
 #endif

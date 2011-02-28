@@ -16,8 +16,9 @@
 
 #ifndef OVERTIME_H
 #define OVERTIME_H OVERTIME_H
+
+#include <QObject>
 #include "Activity.h"
-#include "typedefs.h"
 
 int fine(int overtime) {
 	if(overtime) return (overtime / 30 + 1) * 30;
@@ -49,7 +50,7 @@ void checkDayDrivingTime(DailyActivity& a) {
 	if(sincelastbreak > 270) overtime += sincelastbreak - 270;
 	a.overtime = std::max(overtime, a.driventime - 600);
 	a.fine = fine(a.overtime);
-	if(a.overtime) a.overtimeReason = tr("Daily driving time");
+	if(a.overtime) a.overtimeReason = QObject::tr("Daily driving time");
 }
 
 int checkTimes(std::vector<DailyActivityCard>& days) {
@@ -64,9 +65,9 @@ int checkTimes(std::vector<DailyActivityCard>& days) {
 		weekdriven += j->driventime;
 		if((j->start.timestamp % (86400 * 7)) / 86400 == 3) {
 			//that means, it is sunday
-			j->weekStats = tr("driven for ") + formatMinutes(weekdriven);
-			if(weekdays != 7) j->weekStats += " " + tr("only") + " "
-					+ stringify(weekdays) + " " + tr("recorded");
+			j->weekStats = QObject::tr("driven for ") + formatMinutes(weekdriven);
+			if(weekdays != 7) j->weekStats += " " + QObject::tr("only") + " "
+					+ stringify(weekdays) + " " + QObject::tr("recorded");
 			weekdriven = 0;
 			weekdays = 0;
 		}

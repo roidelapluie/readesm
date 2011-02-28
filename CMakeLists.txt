@@ -28,13 +28,20 @@ endif()
 
 #*** Actual part needed to build everything ***
 
-include_directories(${QT_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR})
+include_directories(${QT_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/fileformat ${CMAKE_CURRENT_SOURCE_DIR}/fileformat/vuBlocks ${CMAKE_CURRENT_SOURCE_DIR}/fileformat/reporter)
 
-set(readesm_SRCS readesm.cpp gui/mainWindow.cpp legacyWrapper.cpp)
+file(GLOB gui_CPP "gui/*.cpp")
+file(GLOB fileformat_CPP "fileformat/*.cpp" fileformat/*/*.cpp) 
+
+set(readesm_SRCS ${gui_CPP} ${fileformat_CPP} readesm.cpp )
+
+set(readesm_RCCS readesm.qrc)
+qt4_add_resources(readesm_RCC_SRCS ${readesm_RCCS})
+
 qt4_automoc(${readesm_SRCS})
 add_definitions(-Wall)
 
-add_executable(readesm ${readesm_SRCS})
+add_executable(readesm ${readesm_SRCS} ${readesm_RCC_SRCS})
 
 target_link_libraries(readesm ${QT_QTCORE_LIBRARY} ${QT_QTGUI_LIBRARY} ${QT_QTWEBKIT_LIBRARY} ${LIBS})
 

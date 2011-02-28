@@ -19,22 +19,21 @@
 #include <vector>
 #include <fstream>
 #include <stdexcept>
-#include <string>
-#include "typedefs.h"
+#include <QString>
 
 class file_not_found : public std::runtime_error {
 	public:
-	file_not_found(string s) :
+	file_not_found(QString s) :
 		std::runtime_error(s) {
 	}
 };
 
-bool file_exists(const string& filename) {
+bool file_exists(const QString& filename) {
 	std::ifstream f(filename.c_str());
 	return f.is_open();
 }
 
-slurpedfile slurp(const string& filename) {
+slurpedfile slurp(const QString& filename) {
 	slurpedfile fbuffer;
 	std::ifstream f(filename.c_str(), std::ios::binary);
 	if(!f.is_open()) {
@@ -52,7 +51,7 @@ slurpedfile slurp(const string& filename) {
 	return fbuffer;
 }
 
-bool slurptofile(const string& filename, const std::string& content) {
+bool slurptofile(const QString& filename, const std::string& content) {
 	std::ofstream f(filename.c_str(), std::ios::binary);
 	if(!f.is_open()) return false;
 	f << content;

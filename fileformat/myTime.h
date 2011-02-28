@@ -16,14 +16,14 @@
 
 #ifndef TIME_H
 #define TIME_H TIME_H
-#include <iostream>
-#include <iomanip>
-#include <string>
-#include <sstream>
+
+#include <QString>
+#include <QTextStream>
+#include <QObject>
 #include <time.h>
 
 /// for now, a simple wrapper around timestamps.
-//TODO: check out boosts classes
+//TODO: use qdatetime
 class Time {
 	public:
 	Time(int timestamp_ = 0) :
@@ -33,18 +33,18 @@ class Time {
 		return Time((start[0] << 24) + (start[1] << 16) + (start[2] << 8)
 				+ start[3]);
 	}
-	string str(const std::string& format = "%c") const {
+	QString str(const QString& format = "%c") const {
 		if(timestamp == -1) return "(undefined)";
 		char buffer[40];
 		time_t t = timestamp;
 		tm* timeinfo = gmtime(&t);
-		strftime(buffer, 39, format.c_str(), timeinfo);
+		strftime(buffer, 39, format.toLocal8Bit(), timeinfo);
 		return buffer;
 	}
-	string datestr() const {
+	QString datestr() const {
 		return str("%x");
 	}
-	friend std::ostream& operator<<(std::ostream& o, const Time& d) {
+	friend QTextStream& operator<<(QTextStream& o, const Time& d) {
 		return o << d.str();
 	}
 	bool operator>(const Time& other) const {
@@ -63,47 +63,33 @@ class Duration {
 	Duration(int length_ = 0) :
 		length(length_) {
 	}
-	string str() const {
-		ostringstream o;
+	QString str() const {
+		QString rv;
+		QTextStream o(&rv);
 		o << (*this);
-		return o.str();
+		return rv;
 	}
-	friend std::ostream& operator<<(std::ostream& o, const Duration& d) {
+	friend QTextStream& operator<<(QTextStream& o, const Duration& d) {
 		int l = d.length;
 		if(l < 0) {
 			o << "-";
 			l = -l;
 		}
 		if(l > 86400) {
-			o << (l / 86400) << " " << tr("days") << " ";
+			o << (l / 86400) << " " << QObject::tr("days") << " ";
 			l %= 86400;
 		}
-		return o << (l / 3600) << ":" << std::setw(2) << std::setfill('0')
-				<< ((l / 60) % 60) << ":" << std::setw(2) << std::setfill('0')
-				<< (l % 60);
+		o << QString("%1:%2:%3")
+			.arg(l / 3600, 1, 10, QChar('0'))
+			.arg((l / 60) % 60, 2, 10, QChar('0'))
+			.arg(l % 60, 2, 10, QChar('0'));
+		return o;
 	}
 	int length;
 };
 
-Duration operator-(const Time& a, const Time& b) {
-	return Duration(a.timestamp - b.timestamp);
-}
-
-string formatRange(const Time& begin, const Time& end) {
-	Duration d = end - begin;
-	if(d.length < 86400) return tr("from") + " " + begin.str() + " " + tr(
-			"on for") + " " + d.str();
-	return tr("from") + " " + begin.str() + " " + tr("to") + " " + end.str()
-			+ " (" + d.str() + ")";
-}
-
-string formatMinutes(int minutes) {
-	ostringstream o;
-	if(minutes >= 3* 24* 60 ) {o << (minutes / (24*60)) << " " << tr("days") << " ";
-	minutes %= 24*60;
-}
-o << std::setw(2) << std::setfill('0') << (minutes / 60) << ":" << std::setw(2) << std::setfill('0') << (minutes % 60);
-return o.str();
-}
+Duration operator-(const Time& a, const Time& b);
+QString formatRange(const Time& begin, const Time& end);
+QString formatMinutes(int minutes);
 
 #endif

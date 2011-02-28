@@ -16,10 +16,9 @@
 
 #ifndef HELPER_H
 #define HELPER_H HELPER_H
-#include <string>
-#include <sstream>
-#include <iomanip>
-#include <iostream>
+
+#include <QString>
+#include <QTextStream>
 
 template <typename T1, typename T2>
 void copy(T1 from, T2 to, int number) {
@@ -35,37 +34,37 @@ bool compare(const T1& from, const T2& to, int number) {
 }
 
 template <typename T>
-string hex(T toHex, int w = 0) {
-	ostringstream s;
-	s << std::hex << std::setw(w) << std::setfill('0') << toHex;
-	return s.str();
+QString hex(const T& toHex, int w = 0) {
+	return QString("%1").arg(toHex, w, 16, QChar('0'));
 }
+	
 
 template <typename T>
-void hexout(T ray, int len) {
+void hexout(QTextStream& o, T ray, int len) {
 	for(int j = 0; j < len; ++j) {
-		std::cout << hex<int> (int(ray[j])) << " ";
+		o << hex(int(ray[j]), 2) << " ";
 	}
 }
 
 template <typename T>
-void hexout(std::ostream& o, T ray, int len) {
-	for(int j = 0; j < len; ++j) {
-		o << hex<int> (int(ray[j])) << " ";
-	}
-}
-
-template <typename T>
-string stringify(T toStr) {
-	ostringstream s;
+QString stringify(T toStr) {
+	QString rv;
+	QTextStream s(&rv);
 	s << toStr;
-	return s.str();
+	return rv;
 }
+
+// template <typename T>
+// bool checkchar(const T& i, int length, unsigned char tocheck) {
+// 	for(T j = i; j < i + length; ++j)
+// 		if(*j != tocheck) return false;
+// 	return true;
+// }
 
 template <typename T>
 bool checkchar(const T& i, int length, unsigned char tocheck) {
-	for(T j = i; j < i + length; ++j)
-		if(*j != tocheck) return false;
+	for(int j = 0; j < length; ++j)
+		if(i[j] != tocheck) return false;
 	return true;
 }
 
@@ -73,6 +72,7 @@ template <typename T>
 bool checkZeros(const T& i, int length) {
 	return checkchar(i, length, 0);
 }
+
 template <typename T>
 bool checkSpaces(const T& i, int length) {
 	return checkchar(i, length, 0x20);

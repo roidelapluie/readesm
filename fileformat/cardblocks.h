@@ -16,20 +16,23 @@
 
 #ifndef CARDBLOCKS_H
 #define CARDBLOCKS_H
+
+#include <QDebug>
+
 #include "Activity.h"
 #include "esmfilehead.h"
 #ifndef HAVE_NO_CRYPTO
 #include "crypto.h"
 #endif
 #include "block.h"
-#include "typedefs.h"
 #include "overtime.h"
 #include "readTypes.h"
 #include "formatStrings.h"
+#include "constDataPointer.h"
 
 class tlvblock : public block {
 	public:
-	tlvblock(iter filewalker) :
+	tlvblock(constDataPointer filewalker) :
 		block(filewalker) {
 		datasize = (start[3] << 8) + start[4];
 		filewalker = start + 5 + datasize;
@@ -41,7 +44,7 @@ class tlvblock : public block {
 	int size() const {
 		return datasize + 5 + (hassignature ? 5 + 128 : 0);
 	}
-	static ptr Factory(iter& filewalker);
+	static ptr Factory(constDataPointer& filewalker);
 #ifndef HAVE_NO_CRYPTO
 	virtual bool checksig(const rsa& key) {
 		if(hassignature) validsignature = CheckSignature(start + 5, datasize,
@@ -55,56 +58,55 @@ class tlvblock : public block {
 };
 class Driving_License_Info : public tlvblock {
 	public:
-	string drivingLicenseIssuingAuthorithy;
+	QString drivingLicenseIssuingAuthorithy;
 	static const int Type = 0x0521;
 	int drivingLicenseIssuingNation;
-	string drivingLicenseNumber;
-	string name() const {
-		return "Driving License Info";
+	QString drivingLicenseNumber;
+	QString name() const {
+		return tr("Driving License Info");
 	}
-	Driving_License_Info(iter filewalker) :
+	Driving_License_Info(constDataPointer filewalker) :
 		tlvblock(filewalker), drivingLicenseIssuingAuthorithy(fixedString(start
 				+ 5, 36)), drivingLicenseIssuingNation(start[5 + 36]),
 				drivingLicenseNumber(fixedString(start + 5 + 36 + 1, 16)) {
 	}
 
 	virtual void printOn(reporter& o) const {
-		o("drivingLicenceIssuingAuthorithy", drivingLicenseIssuingAuthorithy);
-		o("drivingLicenceIssuingNation", nationNumeric(
-				drivingLicenseIssuingNation));
-		o("drivingLicenceNumber", drivingLicenseNumber);
+		o(tr("drivingLicenceIssuingAuthorithy"), drivingLicenseIssuingAuthorithy);
+		o(tr("drivingLicenceIssuingNation"), formatStrings::nationNumeric(drivingLicenseIssuingNation));
+		o(tr("drivingLicenceNumber"), drivingLicenseNumber);
 	}
 };
 
 class Card_Download : public tlvblock {
 	public:
 	static const int Type = 0x050e;
-	string name() const {
-		return "Card Download";
+	QString name() const {
+		return tr("Card Download");
 	}
 	Time LastCardDownload;
-	Card_Download(iter filewalker) :
+	Card_Download(constDataPointer filewalker) :
 		tlvblock(filewalker), LastCardDownload(Time(BEInt32(filewalker + 5))) {
 	}
 	virtual void printOn(reporter& o) const {
-		o("LastCardDownload", LastCardDownload.str());
+		o(tr("LastCardDownload"), LastCardDownload.str());
 	}
 };
 
 class Application_Identification : public tlvblock {
 	public:
 	static const int Type = 0x0501;
-	string name() const {
-		return "Application Identification";
+	QString name() const {
+		return tr("Application Identification");
 	}
 	int typeOfTachographCardId, cardStructureVersion;
-	Application_Identification(iter filewalker) :
+	Application_Identification(constDataPointer filewalker) :
 		tlvblock(filewalker), typeOfTachographCardId(start[5]),
 				cardStructureVersion(BEInt16(start + 6)) {
 	}
 	virtual void printOn(reporter& o) const {
-		o("typeOfTachographCardId", formatEquipmentType(typeOfTachographCardId));
-		o("cardStructureVersion", hex(cardStructureVersion, 4));
+		o(tr("typeOfTachographCardId"), formatStrings::equipmentType(typeOfTachographCardId));
+		o(tr("cardStructureVersion"), hex(cardStructureVersion, 4));
 		//TODO: read noOfCompanyActivityRecords
 	}
 };
@@ -112,15 +114,15 @@ class Application_Identification : public tlvblock {
 class Card_Certificate : public tlvblock {
 	public:
 	static const int Type = 0xc100;
-	virtual string name() const {
-		return "Card Certificate";
+	virtual QString name() const {
+		return tr("Card Certificate");
 	}
-	Card_Certificate(iter filewalker) :
+	Card_Certificate(constDataPointer filewalker) :
 		tlvblock(filewalker) {
 	}
 	virtual void reportstuff(esmfilehead& esm) {
 #ifndef HAVE_NO_CRYPTO
-		if(esm.devicecert) std::cerr << "Reassigning cert\n";
+		if(esm.devicecert) qDebug() << "Reassigning cert";
 		esm.devicecert = verifiedcert::ptr(new verifiedcert(start + 5));
 #endif
 	}
@@ -129,15 +131,15 @@ class Card_Certificate : public tlvblock {
 class CA_Certificate : public Card_Certificate {
 	public:
 	static const int Type = 0xc108;
-	virtual string name() const {
-		return "CA Certificate";
+	virtual QString name() const {
+		return tr("CA Certificate");
 	}
-	CA_Certificate(iter filewalker) :
+	CA_Certificate(constDataPointer filewalker) :
 		Card_Certificate(filewalker) {
 	}
 	virtual void reportstuff(esmfilehead& esm) {
 #ifndef HAVE_NO_CRYPTO
-		if(esm.CAcert) std::cerr << "Reassigning cert\n";
+		if(esm.CAcert) qDebug() << "Reassigning cert\n";
 		esm.CAcert = verifiedcert::ptr(new verifiedcert(start + 5));
 #endif
 	}
@@ -151,8 +153,7 @@ class Specific_Conditions : public tlvblock {
 			time(time_), condition(condition_) {
 		}
 		friend reporter& operator<<(reporter& report, Specific_Condition scond) {
-			report(scond.time.str().c_str(), formatSpecificCondition(
-					scond.condition));
+			report(scond.time.str(), formatStrings::specificCondition(scond.condition));
 			return report;
 		}
 	};
@@ -161,12 +162,12 @@ class Specific_Conditions : public tlvblock {
 	typedef subray::const_iterator subiter;
 	subray sub;
 	static const int Type = 0x0522;
-	string name() const {
-		return "Specific Conditions";
+	QString name() const {
+		return tr("Specific Conditions");
 	}
-	Specific_Conditions(iter filewalker) :
+	Specific_Conditions(constDataPointer filewalker) :
 		tlvblock(filewalker) {
-		for(iter i = start + 5; i < start + 5 + datasize; i += 5) {
+		for(constDataPointer i = start + 5; i < start + 5 + datasize; i += 5) {
 			int time = BEInt32(i), cond = i[4];
 			if(time != 0 || cond != 0) sub.push_back(Specific_Condition(time,
 					cond));
@@ -179,64 +180,68 @@ class Specific_Conditions : public tlvblock {
 };
 
 struct vehicleRegistration {
+	Q_DECLARE_TR_FUNCTIONS(vehicleRegistration)
+public:
 	int Nation;
-	string Number;
-	vehicleRegistration(iter start) :
+	QString Number;
+	vehicleRegistration(constDataPointer start) :
 		Nation(start[0]), Number(fixedString(start + 1, 14)) {
 	}
 	friend reporter& operator<<(reporter& report, vehicleRegistration sub) {
-		if(report.verbose) report("vehicleRegistrationNation", nationNumeric(
-				sub.Nation));
-		report("vehicleRegistrationNumber", sub.Number);
+		if(report.verbose) report(tr("vehicleRegistrationNation"), formatStrings::nationNumeric(sub.Nation));
+		report(tr("vehicleRegistrationNumber"), sub.Number);
 		return report;
 	}
-	static bool defval(iter start) {
+	static bool defval(constDataPointer start) {
 		return checkZeros(start, 2) && checkSpaces(start + 2, 13);
 	}
 };
 
 struct placeRecord {
+	Q_DECLARE_TR_FUNCTIONS(placeRecord)
+public:
 	Time entryTime;
 	int entryTypeDailyWorkPeriod;
 	int dailyWorkPeriodCountry;
 	int dailyWorkPeriodRegion;
 	int vehicleOdometerValue;
 
-	placeRecord(iter start) :
+	placeRecord(constDataPointer start) :
 		entryTime(BEInt32(start)), entryTypeDailyWorkPeriod(start[4]),
 				dailyWorkPeriodCountry(start[5]), dailyWorkPeriodRegion(
 						start[6]), vehicleOdometerValue(BEInt24(start + 7)) {
 	}
 	friend reporter& operator<<(reporter& report, placeRecord sub) {
-		report("entryTime", sub.entryTime.str());
-		report("entryTypeDailyWorkPeriod", formatDailyWorkPeriod(
+		report(tr("entryTime"), sub.entryTime.str());
+		report(tr("entryTypeDailyWorkPeriod"), formatStrings::dailyWorkPeriod(
 				sub.entryTypeDailyWorkPeriod));
-		report("dailyWorkPeriodCountry", nationNumeric(
-				sub.dailyWorkPeriodCountry));
-		if(sub.dailyWorkPeriodRegion) report("dailyWorkPeriodRegion",
-				sub.dailyWorkPeriodRegion);
-		report("vehicleOdometerValue", sub.vehicleOdometerValue);
+		report(tr("dailyWorkPeriodCountry"), formatStrings::nationNumeric(sub.dailyWorkPeriodCountry));
+		if(sub.dailyWorkPeriodRegion) 
+			report(tr("dailyWorkPeriodRegion"), sub.dailyWorkPeriodRegion);
+		report(tr("vehicleOdometerValue"), sub.vehicleOdometerValue);
 		return report;
 	}
-	static bool defval(iter start) {
+	static bool defval(constDataPointer start) {
 		return checkZeros(start, 10);
 	}
 };
 
 struct fullCardNumber {
+	Q_DECLARE_TR_FUNCTIONS(fullCardNumber)
+public:
 	int Type;
 	int Nation;
-	string Number;
-	fullCardNumber(iter start) :
+	QString Number;
+	fullCardNumber(constDataPointer start) :
 		Type(start[0]), Nation(start[1]), Number(fixedString(start + 2, 16)) {
 	}
 	friend reporter& operator<<(reporter& report, fullCardNumber sub) {
-		report("cardType", formatEquipmentType(sub.Type));
-		report("cardIssuingMemberState", nationNumeric(sub.Nation));
-		report("cardNumber", sub.Number);
+		report(tr("cardType"), formatStrings::equipmentType(sub.Type));
+		report(tr("cardIssuingMemberState"), formatStrings::nationNumeric(sub.Nation));
+		report(tr("cardNumber"), sub.Number);
 		return report;
 	}
-	static bool defval(iter start) {
+	static bool defval(constDataPointer start) {
 		return checkZeros(start, 3) && checkSpaces(start + 3, 16);
 	}
 };
@@ -249,10 +254,10 @@ class Control_Activity_Data : public tlvblock {
 	fullCardNumber controlCardNumber;
 	vehicleRegistration controlVehicleRegistration;
 	Time controlDownloadPeriodBegin, controlDownloadPeriodEnd;
-	virtual string name() const {
-		return "Control Activity Data";
+	virtual QString name() const {
+		return tr("Control Activity Data");
 	}
-	Control_Activity_Data(iter filewalker) :
+	Control_Activity_Data(constDataPointer filewalker) :
 		tlvblock(filewalker), controlType(start[5]), controlTime(BEInt32(start
 				+ 6)), controlCardNumber(start + 10),
 				controlVehicleRegistration(start + 28),
@@ -260,12 +265,12 @@ class Control_Activity_Data : public tlvblock {
 				controlDownloadPeriodEnd(BEInt32(start + 47)) {
 	}
 	virtual void printOn(reporter& o) const {
-		o("controlType", formatControlType(controlType));
-		o("controlTime", controlTime.str());
+		o(tr("controlType"), formatStrings::controlType(controlType));
+		o(tr("controlTime"), controlTime.str());
 		o << controlCardNumber;
 		o << controlVehicleRegistration;
-		o("controlDownloadPeriodBegin", controlDownloadPeriodBegin.str());
-		o("controlDownloadPeriodEnd", controlDownloadPeriodEnd.str());
+		o(tr("controlDownloadPeriodBegin"), controlDownloadPeriodBegin.str());
+		o(tr("controlDownloadPeriodEnd"), controlDownloadPeriodEnd.str());
 	}
 };
 
@@ -274,18 +279,18 @@ class Events_Data : public tlvblock {
 		int Type;
 		Time BeginTime, EndTime;
 		vehicleRegistration vreg;
-		CardEventRecord(iter start) :
+		CardEventRecord(constDataPointer start) :
 			Type(start[0]), BeginTime(BEInt32(start + 1)), EndTime(BEInt32(
 					start + 5)), vreg(start + 9) {
 		}
 		friend reporter& operator<<(reporter& report, CardEventRecord e) {
-			report("eventType", formatEventType(e.Type));
-			report("beginTime", e.BeginTime.str());
-			report("endTime", e.EndTime.str());
+			report(tr("eventType"), formatStrings::eventType(e.Type));
+			report(tr("beginTime"), e.BeginTime.str());
+			report(tr("endTime"), e.EndTime.str());
 			report << e.vreg;
 			return report;
 		}
-		static bool defval(iter start) {
+		static bool defval(constDataPointer start) {
 			return checkZeros(start, 9) && vehicleRegistration::defval(start
 					+ 9);
 		}
@@ -296,12 +301,12 @@ class Events_Data : public tlvblock {
 	typedef subray::const_iterator subiter;
 	subray sub;
 	static const int Type = 0x0502;
-	virtual string name() const {
-		return "Events Data";
+	virtual QString name() const {
+		return tr("Events Data");
 	}
-	Events_Data(iter filewalker) :
+	Events_Data(constDataPointer filewalker) :
 		tlvblock(filewalker) {
-		for(iter i = start + 5; i < start + 5 + datasize; i += 24) {
+		for(constDataPointer i = start + 5; i < start + 5 + datasize; i += 24) {
 			if(!CardEventRecord::defval(i)) sub.push_back(CardEventRecord(i));
 		}
 	}
@@ -313,11 +318,11 @@ class Events_Data : public tlvblock {
 
 class Faults_Data : public Events_Data {
 	public:
-	Faults_Data(iter filewalker) :
+	Faults_Data(constDataPointer filewalker) :
 		Events_Data(filewalker) {
 	}
-	virtual string name() const {
-		return "Faults Data";
+	virtual QString name() const {
+		return tr("Faults Data");
 	}
 	static const int Type = 0x0503;
 };
@@ -328,12 +333,12 @@ class Places : public tlvblock {
 	typedef subray::const_iterator subiter;
 	subray sub;
 	static const int Type = 0x0506;
-	virtual string name() const {
-		return "Places";
+	virtual QString name() const {
+		return tr("Places");
 	}
-	Places(iter filewalker) :
+	Places(constDataPointer filewalker) :
 		tlvblock(filewalker) {
-		for(iter i = start + 5 + 1; i < start + 5 + datasize; i += 10) {
+		for(constDataPointer i = start + 5 + 1; i < start + 5 + datasize; i += 10) {
 			if(!placeRecord::defval(i)) sub.push_back(placeRecord(i));
 		}
 	}
@@ -348,7 +353,7 @@ class Vehicles_Used : public tlvblock {
 		Time FirstUse, LastUse;
 		vehicleRegistration vreg;
 		int vuDataBlockCounter;
-		CardVehicleRecord(iter start) :
+		CardVehicleRecord(constDataPointer start) :
 			OdometerBegin(BEInt24(start)), OdometerEnd(BEInt24(start + 3)),
 					FirstUse(BEInt32(start + 6)), LastUse(BEInt32(start + 10)),
 					vreg(start + 14), vuDataBlockCounter(BEInt16(start + 29)) {
@@ -356,14 +361,14 @@ class Vehicles_Used : public tlvblock {
 		friend reporter& operator<<(reporter& report,
 				const CardVehicleRecord& e) {
 			report << e.vreg;
-			report("vehicleFirstUse", e.FirstUse.str());
-			report("vehicleLastUse", e.LastUse.str());
-			report("vehicleOdometerBegin", e.OdometerBegin);
-			report("vehicleOdometerEnd", e.OdometerEnd);
-			report("vuDataBlockCounter", e.vuDataBlockCounter);
+			report(tr("vehicleFirstUse"), e.FirstUse.str());
+			report(tr("vehicleLastUse"), e.LastUse.str());
+			report(tr("vehicleOdometerBegin"), e.OdometerBegin);
+			report(tr("vehicleOdometerEnd"), e.OdometerEnd);
+			report(tr("vuDataBlockCounter"), e.vuDataBlockCounter);
 			return report;
 		}
-		static bool defval(iter start) {
+		static bool defval(constDataPointer start) {
 			return checkZeros(start, 14) && vehicleRegistration::defval(start
 					+ 14) && checkZeros(start + 29, 2);
 		}
@@ -373,12 +378,12 @@ class Vehicles_Used : public tlvblock {
 	typedef subray::const_iterator subiter;
 	subray sub;
 	static const int Type = 0x0505;
-	virtual string name() const {
-		return "Vehicles Used";
+	virtual QString name() const {
+		return tr("Vehicles Used");
 	}
-	Vehicles_Used(iter filewalker) :
+	Vehicles_Used(constDataPointer filewalker) :
 		tlvblock(filewalker) {
-		for(iter i = start + 5 + 2; i < start + 5 + datasize; i += 31) {
+		for(constDataPointer i = start + 5 + 2; i < start + 5 + datasize; i += 31) {
 			if(!CardVehicleRecord::defval(i)) sub.push_back(
 					CardVehicleRecord(i));
 		}
@@ -392,9 +397,9 @@ class Vehicles_Used : public tlvblock {
 					++i;
 				report << i->vreg;
 				report.single(formatRange(lastentry->FirstUse, i->LastUse));
-				report("vehicleOdometerBegin", lastentry->OdometerBegin);
-				report("vehicleOdometerEnd", i->OdometerEnd);
-				report("Driven distance", stringify(i->OdometerEnd
+				report(tr("vehicleOdometerBegin"), lastentry->OdometerBegin);
+				report(tr("vehicleOdometerEnd"), i->OdometerEnd);
+				report(tr("Driven distance"), stringify(i->OdometerEnd
 						- lastentry->OdometerBegin) + " km");
 				if(i < sub.end()) report.blockbreak();
 			}
@@ -405,21 +410,21 @@ class Vehicles_Used : public tlvblock {
 class Identification : public tlvblock {
 	public:
 	int cardIssuingMemberState;
-	string cardNumber;
-	string cardIssuingAuthorityName;
+	QString cardNumber;
+	QString cardIssuingAuthorityName;
 	Time cardIssueDate;
 	Time cardValidityBegin;
 	Time cardExpiryDate;
-	string holderSurname;
-	string holderFirstname;
-	string cardHolderBirthDate;
-	string cardHolderPreferredLanguage;
+	QString holderSurname;
+	QString holderFirstname;
+	QString cardHolderBirthDate;
+	QString cardHolderPreferredLanguage;
 
 	static const int Type = 0x0520;
-	string name() const {
-		return "Card Identification";
+	QString name() const {
+		return tr("Card Identification");
 	}
-	Identification(iter filewalker) :
+	Identification(constDataPointer filewalker) :
 		tlvblock(filewalker), cardIssuingMemberState(start[5]), cardNumber(
 				fixedString(start + 6, 16)), cardIssuingAuthorityName(
 				fixedString(start + 22, 36)),
@@ -431,16 +436,16 @@ class Identification : public tlvblock {
 						fixedString(start + 146, 2)) {
 	}
 	virtual void printOn(reporter& o) const {
-		o("cardIssuingMemberState", nationNumeric(cardIssuingMemberState));
-		o("cardNumber", cardNumber);
-		o("cardIssuingAuthorityName", cardIssuingAuthorityName);
-		o("cardIssueDate", cardIssueDate.str());
-		o("cardValidityBegin", cardValidityBegin.str());
-		o("cardExpiryDate", cardExpiryDate.str());
-		o("holderSurname", holderSurname);
-		o("holderFirstNames", holderFirstname);
-		o("cardHolderBirthDate", cardHolderBirthDate);
-		o("cardHolderPreferredLanguage", cardHolderPreferredLanguage);
+		o(tr("cardIssuingMemberState"), formatStrings::nationNumeric(cardIssuingMemberState));
+		o(tr("cardNumber"), cardNumber);
+		o(tr("cardIssuingAuthorityName"), cardIssuingAuthorityName);
+		o(tr("cardIssueDate"), cardIssueDate.str());
+		o(tr("cardValidityBegin"), cardValidityBegin.str());
+		o(tr("cardExpiryDate"), cardExpiryDate.str());
+		o(tr("holderSurname"), holderSurname);
+		o(tr("holderFirstNames"), holderFirstname);
+		o(tr("cardHolderBirthDate"), cardHolderBirthDate);
+		o(tr("cardHolderPreferredLanguage"), cardHolderPreferredLanguage);
 	}
 	virtual void reportstuff(esmfilehead& esm) {
 		esm.title = holderFirstname + " " + holderSurname;
@@ -450,23 +455,23 @@ class Identification : public tlvblock {
 class Current_Usage : public tlvblock {
 	public:
 	static const int Type = 0x0507;
-	string name() const {
-		return "Current Usage";
+	QString name() const {
+		return tr("Current Usage");
 	}
 	Time sessionOpenTime;
 	int vehicleRegistrationNation;
-	string vehicleRegistrationNumber;
+	QString vehicleRegistrationNumber;
 
-	Current_Usage(iter filewalker) :
+	Current_Usage(constDataPointer filewalker) :
 		tlvblock(filewalker), sessionOpenTime(BEInt32(start + 5)),
 				vehicleRegistrationNation(start[5 + 4]),
 				vehicleRegistrationNumber(fixedString(start + 5 + 4 + 1, 14)) {
 	}
 
 	virtual void printOn(reporter& o) const {
-		o("sessionOpenTime", sessionOpenTime.str());
-		o("vehicleRegistrationNation", nationNumeric(vehicleRegistrationNation));
-		o("vehicleRegistrationNumber", vehicleRegistrationNumber);
+		o(tr("sessionOpenTime"), sessionOpenTime.str());
+		o(tr("vehicleRegistrationNation"), formatStrings::nationNumeric(vehicleRegistrationNation));
+		o(tr("vehicleRegistrationNumber"), vehicleRegistrationNumber);
 	}
 };
 
@@ -474,38 +479,32 @@ class Current_Usage : public tlvblock {
 class Driver_Activity_Data : public tlvblock {
 	public:
 	static const int Type = 0x0504;
-	string name() const {
-		return "Driver Activity Data";
+	QString name() const {
+		return tr("Driver Activity Data");
 	}
 	Time LastCardDownload;
 	int fine;
 	int useddata;
-	Driver_Activity_Data(iter filewalker) :
+	Driver_Activity_Data(constDataPointer filewalker) :
 		tlvblock(filewalker), fine(0) {
 		int oldestrec = BEInt16(start + 5); //start of oldest rec
 		int newestrec = BEInt16(start + 5 + 2); //start of newest rec
 		//newestrec += BEInt16(start + newestrec + 2); //end of newestrec
 		useddata = newestrec - oldestrec;
-		slurpedfile actdata;
-		iter walker, end;
+		QByteArray actdata;
 		if(newestrec < oldestrec) {
 			useddata += datasize - 9;
 			//just copy the circular stuff into a new vector, avoids those boundary problems
-			actdata.reserve(datasize - 9);
-			for(iter i = start + 9 + oldestrec; i < start + 5 + datasize; ++i)
-				actdata.push_back(*i);
-			for(iter i = start + 9; i < start + 5 + newestrec; ++i)
-				actdata.push_back(*i);
-			walker = actdata.begin();
-			end = actdata.end();
+			actdata.append(start.toPointer(9 + oldestrec), datasize - oldestrec - 4);
+			actdata.append(start.toPointer(9), newestrec - 4);
 		} else {
-			walker = start + 9 + oldestrec;
-			end = start + 9 + newestrec;
+			actdata.append(start.toPointer(9 + oldestrec), newestrec - oldestrec);
 		}
-		while(walker < end) {
+		constDataPointer walker(actdata,0);
+		while(walker.bytesLeft()) {
 			int thissize = BEInt16(walker + 2);
 			if(!thissize) {
-				std::cerr << "Size 0 for increment. Aborting.\n";
+				qDebug() << "Size 0 for increment. Aborting.";
 				break;
 			}
 			DailyActivityCard d(walker, (thissize - 12) / 2);
@@ -519,8 +518,8 @@ class Driver_Activity_Data : public tlvblock {
 	subray acts;
 
 	virtual void printOn(reporter& o) const {
-		o("Accumulated fines", stringify(fine) + " €");
-		o("Activity space usage", stringify(useddata) + " " + tr("of") + " "
+		o(tr("Accumulated fines"), stringify(fine) + " €");
+		o(tr("Activity space usage"), stringify(useddata) + " " + tr("of") + " "
 				+ stringify(datasize - 9) + " Bytes");
 		o.reportraynosub(acts);
 
@@ -534,8 +533,8 @@ class Driver_Activity_Data : public tlvblock {
 };
 
 //Driver Card Codes and structure are on p. 119 in l207.pdf
-tlvblock::ptr tlvblock::Factory(iter& filewalker) {
-	if(filewalker[2] == 1) throw std::runtime_error("stray signature");
+tlvblock::ptr tlvblock::Factory(constDataPointer& filewalker) {
+	if(filewalker[2] == 1) qFatal("stray signature");
 	typedef tlvblock::ptr p;
 	switch(tlvblock::getType(filewalker)) {
 		case Card_Download::Type:

@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QString>
+#include <QSize>
 class QWebView;
 
 
@@ -12,11 +13,11 @@ class mainWindow : public QMainWindow
 	public:
 		QWebView* view;
 		mainWindow();
-
+		virtual QSize sizeHint () const;
 	public slots:
 		void openFile();
 		void openFile(const QString& filename);
-		void helpOnline();
+		void helpContents();
 		void print();
 		void saveRaw();
 		void saveHtml();

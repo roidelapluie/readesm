@@ -16,19 +16,20 @@
 
 #ifndef VUBLOCK_H
 #define VUBLOCK_H
-#include <string>
-#include "time.h"
+#include <QString>
+#include "myTime.h"
 #ifndef HAVE_NO_CRYPTO
 #include "crypto.h"
 #endif
 #include "block.h"
 #include "readTypes.h"
+#include "constDataPointer.h"
 
-class vublock : public block {
+class vuBlock : public block {
 	public:
-	virtual string name() const = 0;
-	vublock(iter nstart) :
-		block(nstart), block_start(&nstart[2]), runningIndex(0) {
+	virtual QString name() const = 0;
+	vuBlock(constDataPointer nstart) :
+		block(nstart), block_start(nstart.toUnsignedPointer(2)), runningIndex(0) {
 		hassignature = true;
 	}
 	virtual void Init() {
@@ -48,7 +49,7 @@ class vublock : public block {
 		runningIndex += 4;
 		return readDate(runningIndex - 4);
 	}
-	string fixedString(int length) const {
+	QString fixedString(int length) const {
 		runningIndex += length;
 		return ::fixedString(start + 2 + runningIndex - length, length);
 	}
@@ -76,7 +77,7 @@ class vublock : public block {
 		return Odometer(runningIndex - 3);
 	}
 
-	string fixedString(int offset, int length) const {
+	QString fixedString(int offset, int length) const {
 		return ::fixedString(start + 2 + offset, length);
 	}
 	const unsigned char* block_start;

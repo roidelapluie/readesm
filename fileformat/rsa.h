@@ -49,7 +49,7 @@ class rsa {
 	rsa() {
 	}
 	;
-	rsa(unsigned char* modulus, int mlen, unsigned char* exponent, int elen) {
+	rsa(const unsigned char* modulus, int mlen, const unsigned char* exponent, int elen) {
 		mpz_import(n.t, mlen, 1, 1, 0, 0, modulus);
 		mpz_import(e.t, elen, 1, 1, 0, 0, exponent);
 	}

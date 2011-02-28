@@ -16,22 +16,26 @@
 
 #ifndef ESMFILEHEAD_H
 #define ESMFILEHEAD_H
-#include <string>
-#include "slurpedfile.h"
+
+#include <QString>
+#include <QSharedPointer>
+#include <QFile>
+#include <QByteArray>
+
 #ifndef HAVE_NO_CRYPTO
 #include "crypto.h"
 #endif
-#include "time.h"
+#include "myTime.h"
 
 class esmfilehead {
 	public:
-	slurpedfile content;
-	string title;
+	QByteArray content;
+	QString title;
 	Time first;
 	Time last;
 #ifndef HAVE_NO_CRYPTO
-	shared_ptr<verifiedcert> CAcert;
-	shared_ptr<verifiedcert> devicecert;
+	QSharedPointer<verifiedcert> CAcert;
+	QSharedPointer<verifiedcert> devicecert;
 #endif
 	void reportDate(const Time& torep) {
 		if(torep < first) first = torep;
@@ -46,10 +50,20 @@ class esmfilehead {
 		drivenkm += daydrivenkm;
 		drivenminutes += daydrivenminutes;
 	}
-	esmfilehead(const string& filename) :
-		content(slurp(filename)), first(0x7fFfFfFf), last(0), daycount(0),
-				drivenkm(0), drivenminutes(0) {
+
+	esmfilehead(const QString& filename) :
+		first(0x7fFfFfFf), 
+		last(0), 
+		daycount(0),
+		drivenkm(0), 
+		drivenminutes(0) 
+	{
+		QFile file(filename);
+		if (!file.open(QIODevice::ReadOnly));
+		content = file.read(1e9);
+		file.close();
 	}
+	
 };
 
 #endif

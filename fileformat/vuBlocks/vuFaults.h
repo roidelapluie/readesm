@@ -16,21 +16,25 @@
 
 #ifndef FAULTS_H
 #define FAULTS_H FAULTS_H
-#include "vublock.h"
+
+#include "vuBlock.h"
 #include "formatStrings.h"
+
 class EventBase {
+	Q_DECLARE_TR_FUNCTIONS(EventBase)
+
 	public:
 	static int csize() { return 10;}
 	int Type, RecordPurpose;
 	Time BeginTime, EndTime;
-	EventBase(iter filewalker) :
+	EventBase(constDataPointer filewalker) :
 		Type(filewalker[0]), RecordPurpose(filewalker[1]), BeginTime(BEInt32(
 				filewalker + 2)), EndTime(BEInt32(filewalker + 6)) {
 	}
 	virtual void printOn(reporter& o) const {
-		o.single(formatEventType(Type), true);
+		o.single(formatStrings::eventType(Type), true);
 		o.single(formatRange(BeginTime, EndTime));
-		o("RecordPurpose", formatEventRecordPurpose(RecordPurpose));
+		o(tr("RecordPurpose"), formatStrings::eventRecordPurpose(RecordPurpose));
 	}
 	friend reporter& operator<<(reporter& report, const EventBase& e) {
 		e.printOn(report);
@@ -41,12 +45,12 @@ class EventBase {
 class Fault : public EventBase {
 	public:
 	static int csize() {return  EventBase::csize() + 4* 18; }
-	string cardnumbers[4];
+	QString cardnumbers[4];
 	static const int cardNumberDriverSlotBegin = 0;
 	static const int cardNumberCodriverSlotBegin = 1;
 	static const int cardNumberDriverSlotEnd = 2;
 	static const int cardNumberCodriverSlotEnd = 3;
-	Fault(iter filewalker) :
+	Fault(constDataPointer filewalker) :
 		EventBase(filewalker) {
 		for(int j = 0; j < 4; ++j)
 			cardnumbers[j] = fixedString(
@@ -55,18 +59,18 @@ class Fault : public EventBase {
 	virtual void printOn(reporter& report) const {
 		EventBase::printOn(report);
 		if(cardnumbers[2] != "" && cardnumbers[2] != cardnumbers[0]) {
-			if(cardnumbers[0] != "") report("cardNumberDriverSlotBegin",
+			if(cardnumbers[0] != "") report(tr("cardNumberDriverSlotBegin"),
 					cardnumbers[0]);
-			if(cardnumbers[2] != "") report("cardNumberDriverSlotEnd",
+			if(cardnumbers[2] != "") report(tr("cardNumberDriverSlotEnd"),
 					cardnumbers[2]);
-		} else if(cardnumbers[0] != "") report("cardNumberDriverSlot",
+		} else if(cardnumbers[0] != "") report(tr("cardNumberDriverSlot"),
 				cardnumbers[0]);
 		if(cardnumbers[3] != "" && cardnumbers[3] != cardnumbers[1]) {
-			if(cardnumbers[1] != "") report("cardNumberCodriverSlotBegin",
+			if(cardnumbers[1] != "") report(tr("cardNumberCodriverSlotBegin"),
 					cardnumbers[1]);
-			if(cardnumbers[3] != "") report("cardNumberCodriverSlotEnd",
+			if(cardnumbers[3] != "") report(tr("cardNumberCodriverSlotEnd"),
 					cardnumbers[3]);
-		} else if(cardnumbers[1] != "") report("cardNumberCodriverSlot",
+		} else if(cardnumbers[1] != "") report(tr("cardNumberCodriverSlot"),
 				cardnumbers[1]);
 	}
 };
@@ -75,12 +79,12 @@ class Event : public Fault {
 	public:
 	static int csize() { return Fault::csize() + 1; }
 	int similarEventsNumber;
-	Event(iter filewalker) :
+	Event(constDataPointer filewalker) :
 		Fault(filewalker), similarEventsNumber(filewalker[Fault::csize()]) {
 	}
 	virtual void printOn(reporter& report) const {
 		Fault::printOn(report);
-		if(similarEventsNumber) report("similarEventsNumber",
+		if(similarEventsNumber) report(tr("similarEventsNumber"),
 				similarEventsNumber);
 	}
 };
@@ -89,9 +93,9 @@ class Overspeed : public EventBase {
 	public:
 	static int csize() { return EventBase::csize() + 21; }
 	int maxSpeedValue, averageSpeedValue;
-	string cardNumberDriverSlotBegin;
+	QString cardNumberDriverSlotBegin;
 	int similarEventsNumber;
-	Overspeed(iter filewalker) :
+	Overspeed(constDataPointer filewalker) :
 		EventBase(filewalker), maxSpeedValue(filewalker[10]),
 				averageSpeedValue(filewalker[11]), cardNumberDriverSlotBegin(
 						fixedString(filewalker + 12, 18)), similarEventsNumber(
@@ -99,23 +103,23 @@ class Overspeed : public EventBase {
 	}
 	virtual void printOn(reporter& report) const {
 		EventBase::printOn(report);
-		report("maxSpeedValue", stringify(maxSpeedValue) + " km/h");
-		report("averageSpeedValue", stringify(averageSpeedValue) + " km/h");
-		report("cardNumberDriverSlotBegin", cardNumberDriverSlotBegin);
-		if(similarEventsNumber) report("similarEventsNumber",
+		report(tr("maxSpeedValue"), stringify(maxSpeedValue) + " km/h");
+		report(tr("averageSpeedValue"), stringify(averageSpeedValue) + " km/h");
+		report(tr("cardNumberDriverSlotBegin"), cardNumberDriverSlotBegin);
+		if(similarEventsNumber) report(tr("similarEventsNumber"),
 				similarEventsNumber);
 	}
 };
 
 ///See page 162 of l207.pdf
-class Faults : public vublock {
+class vuFaults : public vuBlock {
 	public:
-	string name() const {
+	QString name() const {
 		return "Faults";
 	}
 	static const int TREP = 0x3;
-	Faults(iter nstart) :
-		vublock(nstart) {
+	vuFaults(constDataPointer nstart) :
+		vuBlock(nstart) {
 		Init();
 	}
 	int size() const {
@@ -127,31 +131,31 @@ class Faults : public vublock {
 	}
 	void CompleteReport(reporter& report) const {
 		runningIndex = 0;
-		for(reporter::subblock b = report.newsub("Faults", IntByte()); b(); ++b) {
+		for(reporter::subblock b = report.newsub(tr("Faults"), IntByte()); b(); ++b) {
 			Fault e(start + runningIndex + 2);
 			e.printOn(report);
 			runningIndex += Fault::csize();
 		}
-		for(reporter::subblock b = report.newsub("Events", IntByte()); b(); ++b) {
+		for(reporter::subblock b = report.newsub(tr("Events"), IntByte()); b(); ++b) {
 			Event e(start + runningIndex + 2);
 			e.printOn(report);
 			runningIndex += Event::csize();
 		}
-		report("lastOverspeedControlTime", readDate().str());
-		report("firstOverspeedSince", readDate().str());
-		report("numberOfOverspeedSince", IntByte());
-		for(reporter::subblock b = report.newsub("ActivityChangeInfo",
+		report(tr("lastOverspeedControlTime"), readDate().str());
+		report(tr("firstOverspeedSince"), readDate().str());
+		report(tr("numberOfOverspeedSince"), IntByte());
+		for(reporter::subblock b = report.newsub(tr("ActivityChangeInfo"),
 				IntByte()); b(); ++b) {
 			Overspeed e(start + runningIndex + 2);
 			e.printOn(report);
 			runningIndex += Overspeed::csize();
 		}
-		for(reporter::subblock b = report.newsub("TimeAdjustments", IntByte()); b(); ++b) {
-			report("oldTimeValue", readDate().str());
-			report("newTimeValue", readDate().str());
-			report("workshopName", fixedString(36));
-			report("workshopAddress", fixedString(36));
-			report("workshopCardNumber", fixedString(18));
+		for(reporter::subblock b = report.newsub(tr("TimeAdjustments"), IntByte()); b(); ++b) {
+			report(tr("oldTimeValue"), readDate().str());
+			report(tr("newTimeValue"), readDate().str());
+			report(tr("workshopName"), fixedString(36));
+			report(tr("workshopAddress"), fixedString(36));
+			report(tr("workshopCardNumber"), fixedString(18));
 		}
 	}
 	void BriefReport(reporter& report) const {

@@ -16,13 +16,15 @@
 
 #ifndef ACTIVITY_H
 #define ACTIVITY_H
-#include <string>
-#include <sstream>
-#include <iomanip>
+#include <QString>
+#include <QCoreApplication>
+#include <QObject>
+#include <QDebug>
+
 #include "reporter.h"
-#include "typedefs.h"
-#include "time.h"
+#include "myTime.h"
 #include "readTypes.h"
+#include "helper.h"
 
 class Activity {
 	public:
@@ -33,17 +35,17 @@ class Activity {
 	static const int Driver = 0;
 	static const int Codriver = 1;
 	static const int Crew = 1;
-	static string formatDurTime(int offset = 0) {
-		ostringstream o;
-		o << std::setw(2) << std::setfill('0') << ((offset) / 60) << ":"
-				<< std::setw(2) << std::setfill('0') << ((offset) % 60);
-		return o.str();
+
+	static QString formatDurTime(int offset) {
+		return QString("%1:%2")
+				.arg(offset / 60, 1, 10, QChar('0'))
+				.arg(offset % 60, 2, 10, QChar('0'));
 	}
 
 	Activity() :
 		slot(0), manning(0), cardin(0), activity(0), time(0), duration(0) {
 	}
-	Activity(iter start) {
+	Activity(constDataPointer start) {
 		slot = (start[0] & (1 << 7)) >> 7;
 		manning = (start[0] & (1 << 6)) >> 6;
 		cardin = (start[0] & (1 << 5)) >> 5;
@@ -57,26 +59,27 @@ class Activity {
 		activity = (start[0] & ((1 << 4) | (1 << 3))) >> 3;
 		time = int((start[0] & 7) << 8) + start[1];
 	}
-	string astr() const {
+	QString astr() const {
 		if(activity == Break) return "break/rest";
 		else if(activity == Available) return "availability";
 		else if(activity == Work) return "work";
 		else if(activity == Driving) return "driving";
 		return "unknown activity";
 	}
-	string tstr(int offset = 0) const {
+	QString tstr(int offset = 0) const {
 		return formatDurTime(time + offset);
 	}
-	string str() const {
-		ostringstream o;
+	QString str() const {
+		QString rv;
+		QTextStream o(&rv);
 		o << (slot == Codriver ? "co-driver" : "driver") << ", ";
 		o << (manning == Crew ? "crew" : "single") << ", ";
 		o << "card " << (cardin ? "not inserted" : "inserted") << ", ";
 		o << astr() << " " << tstr();
-		return o.str();
+		return rv;
 	}
 	int slot, manning, cardin, activity, time, duration;
-	friend std::ostream& operator<<(std::ostream& o, const Activity& a) {
+	friend QTextStream& operator<<(QTextStream& o, const Activity& a) {
 		o << a.str();
 		return o;
 	}
@@ -86,46 +89,10 @@ class Activity {
 	}
 };
 
-string visualization(reporter& o, const std::vector<Activity>& acts) {
-	reporter::pgptr actvisual(o.getBarGraph());
-	for(std::vector<Activity>::const_iterator j(acts.begin()); j != acts.end(); ++j) {
-		if(j->duration > 10000) std::cerr << "ouch";
-		string descr = tr(j->astr()) + " " + tr("for") + " "
-				+ Activity::formatDurTime(j->duration) + " " + tr("from") + " "
-				+ tr(j->tstr()) + " " + tr("to") + " " + j->tstr(j->duration);
-		int height = 10;
-		string color;
-		switch(j->activity) {
-			case Activity::Work:
-				height = 70;
-				color = "yellow";
-				break;
-			case Activity::Available:
-				height = 10;
-				color = "black";
-				break;
-			case Activity::Driving:
-				height = 100;
-				color = "green";
-				break;
-			case Activity::Break:
-				if(j->duration >= 15) {
-					height = 40;
-					color = "red";
-				} else {
-					height = 50;
-					color = "blue";
-				}
-				break;
-			default:
-				*actvisual << (j->activity) << (j->str()) << descr;
-		}
-		actvisual->add(j->time, j->duration, height, color, descr);
-	}
-	return actvisual->str();
-}
+QString visualization(reporter& o, const std::vector<Activity>& acts); 
 
 class DailyActivity {
+	Q_DECLARE_TR_FUNCTIONS(DailyActivity)
 	public:
 	Time start;
 	typedef std::vector<Activity> subray;
@@ -134,15 +101,15 @@ class DailyActivity {
 	subray codriver;
 	int driventime;
 	int overtime;
-	string overtimeReason;
-	string weekStats;
+	QString overtimeReason;
+	QString weekStats;
 	int fine;
 	void calcDurations(std::vector<Activity>& acts) {
 		if(!acts.size()) return;
 		for(unsigned int j = 1; j < acts.size(); ++j) {
 			acts[j - 1].duration = acts[j].time - acts[j - 1].time;
 			if(acts[j - 1].duration < 0) {
-				std::cerr << tr("duration < 0\n");
+				qDebug() << "duration < 0\n";
 			}
 			if(acts[j - 1].activity == Activity::Driving) {
 				driventime += acts[j - 1].duration;
@@ -150,10 +117,10 @@ class DailyActivity {
 		}
 		acts[acts.size() - 1].duration = 24* 60 - acts [acts.size() - 1].time;
 	}
-	DailyActivity(iter datepos, iter data, int count) :
+	DailyActivity(constDataPointer datepos, constDataPointer data, int count) :
 		start(BEInt32(datepos)), driventime(0), overtime(0) {
 		for(int j = 0; j < count; ++j) {
-			Activity Act(data + 2* j );
+			Activity Act(data + 2 * j);
 			if(Act.slot == Activity::Driver) driver.push_back(Act);
 			else if(Act.slot == Activity::Codriver) codriver.push_back(Act);
 		}
@@ -183,7 +150,7 @@ class DailyActivity {
 			}
 		}
 		if(d.weekStats != "") {
-			o("Week", d.weekStats);
+			o(tr("Week"), d.weekStats);
 		}
 		return o;
 	}
@@ -193,14 +160,16 @@ class DailyActivity {
 class DailyActivityCard : public DailyActivity {
 	public:
 	int presence, distance;
-	DailyActivityCard(iter start, int count) :
-		DailyActivity(start + 4, start + 12, count), presence(
-				BEInt16(start + 8)), distance(BEInt16(start + 10)) {
+	DailyActivityCard(constDataPointer start, int count) :
+		DailyActivity(start + 4, start + 12, count), 
+		presence(BEInt16(start + 8)), 
+		distance(BEInt16(start + 10)) 
+	{
 	}
 	friend reporter& operator<<(reporter& o, const DailyActivityCard& d) {
 		o << (DailyActivity) d;
-		if(o.verbose) o("activityDailyPresenceCounter", d.presence);
-		if(d.distance) o("activityDayDistance", stringify(d.distance) + " km");
+		if(o.verbose) o(tr("activityDailyPresenceCounter"), d.presence);
+		if(d.distance) o(tr("activityDayDistance"), stringify(d.distance) + " km");
 		return o;
 	}
 };
