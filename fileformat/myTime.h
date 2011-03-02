@@ -39,7 +39,7 @@ class Time {
 		time_t t = timestamp;
 		tm* timeinfo = gmtime(&t);
 		strftime(buffer, 39, format.toLocal8Bit(), timeinfo);
-		return buffer;
+		return QString::fromLocal8Bit(buffer);
 	}
 	QString datestr() const {
 		return str("%x");

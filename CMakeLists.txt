@@ -39,7 +39,7 @@ set(readesm_RCCS readesm.qrc)
 qt4_add_resources(readesm_RCC_SRCS ${readesm_RCCS})
 
 qt4_automoc(${readesm_SRCS})
-add_definitions(-Wall)
+add_definitions(-Wall -Os)
 
 add_executable(readesm ${readesm_SRCS} ${readesm_RCC_SRCS})
 
