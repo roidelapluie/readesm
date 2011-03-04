@@ -53,7 +53,7 @@ class block{
 	}
 
 	static int getType(constDataPointer filewalker) {
-		return (filewalker[0] << 8) + filewalker[1];
+		return BEInt16(filewalker);
 	}
 
 	friend reporter& operator<<(reporter& o, const block& b) {

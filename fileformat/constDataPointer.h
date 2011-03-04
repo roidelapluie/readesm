@@ -5,8 +5,8 @@
 
 class constDataPointer {
 	QByteArray data;
-	int offset;
 	public:
+	int offset;
 	constDataPointer(){}
 	
 	constDataPointer(const QByteArray& data_, int offset_ = 0) :
@@ -31,7 +31,7 @@ class constDataPointer {
 		return *this;
 	}
 
-	char operator[](int j) const
+	unsigned char operator[](int j) const
 	{
 		return data[offset + j];
 	}

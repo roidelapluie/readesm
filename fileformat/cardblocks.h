@@ -33,8 +33,10 @@
 class tlvblock : public block {
 	public:
 	tlvblock(constDataPointer filewalker) :
-		block(filewalker) {
-		datasize = (start[3] << 8) + start[4];
+		block(filewalker) 
+	{
+		datasize = BEInt16(start + 3);
+		qDebug() << "size" << datasize;
 		filewalker = start + 5 + datasize;
 		if(getType(filewalker) == type && filewalker[2] == 1) {
 			signature = filewalker + 5;
@@ -44,7 +46,7 @@ class tlvblock : public block {
 	int size() const {
 		return datasize + 5 + (hassignature ? 5 + 128 : 0);
 	}
-	static ptr Factory(constDataPointer& filewalker);
+	static ptr Factory(constDataPointer filewalker);
 #ifndef HAVE_NO_CRYPTO
 	virtual bool checksig(const rsa& key) {
 		if(hassignature) validsignature = CheckSignature(start + 5, datasize,
@@ -492,16 +494,21 @@ class Driver_Activity_Data : public tlvblock {
 		//newestrec += BEInt16(start + newestrec + 2); //end of newestrec
 		useddata = newestrec - oldestrec;
 		QByteArray actdata;
+		qDebug() << "Driver_Activity_Data";
 		if(newestrec < oldestrec) {
 			useddata += datasize - 9;
+			qDebug() << "older";
 			//just copy the circular stuff into a new vector, avoids those boundary problems
-			actdata.append(start.toPointer(9 + oldestrec), datasize - oldestrec - 4);
+			actdata.append(start.toPointer(9 + oldestrec), datasize - 4 - oldestrec);
 			actdata.append(start.toPointer(9), newestrec - 4);
+			//TODO: why 4? write at least a comment
 		} else {
+			qDebug() << "younger";
 			actdata.append(start.toPointer(9 + oldestrec), newestrec - oldestrec);
 		}
 		constDataPointer walker(actdata,0);
-		while(walker.bytesLeft()) {
+		while(walker.bytesLeft() > 16) {
+			qDebug() << walker.bytesLeft();
 			int thissize = BEInt16(walker + 2);
 			if(!thissize) {
 				qDebug() << "Size 0 for increment. Aborting.";
@@ -512,6 +519,7 @@ class Driver_Activity_Data : public tlvblock {
 			walker += thissize;
 		}
 		fine = checkTimes(acts);
+		qDebug() << "Driver_Activity_Data end";
 	}
 	typedef std::vector<DailyActivityCard> subray;
 	typedef subray::const_iterator subiter;
@@ -533,7 +541,7 @@ class Driver_Activity_Data : public tlvblock {
 };
 
 //Driver Card Codes and structure are on p. 119 in l207.pdf
-tlvblock::ptr tlvblock::Factory(constDataPointer& filewalker) {
+tlvblock::ptr tlvblock::Factory(constDataPointer filewalker) {
 	if(filewalker[2] == 1) qFatal("stray signature");
 	typedef tlvblock::ptr p;
 	switch(tlvblock::getType(filewalker)) {
