@@ -58,7 +58,7 @@ class cardBlock : public block {
 	int datasize;
 
 };
-class Driving_License_Info : public cardBlock {
+class drivingLicenseInfo : public cardBlock {
 	public:
 	QString drivingLicenseIssuingAuthorithy;
 	static const int Type = 0x0521;
@@ -67,7 +67,7 @@ class Driving_License_Info : public cardBlock {
 	QString name() const {
 		return tr("Driving License Info");
 	}
-	Driving_License_Info(constDataPointer filewalker) :
+	drivingLicenseInfo(constDataPointer filewalker) :
 		cardBlock(filewalker), 
 		drivingLicenseIssuingAuthorithy(fixedString(start + 5, 36)), 
 		drivingLicenseIssuingNation(start[5 + 36]),
@@ -82,14 +82,14 @@ class Driving_License_Info : public cardBlock {
 	}
 };
 
-class Card_Download : public cardBlock {
+class cardDownload : public cardBlock {
 	public:
 	static const int Type = 0x050e;
 	QString name() const {
 		return tr("Card Download");
 	}
 	Time LastCardDownload;
-	Card_Download(constDataPointer filewalker) :
+	cardDownload(constDataPointer filewalker) :
 		cardBlock(filewalker), 
 		LastCardDownload(Time(BEInt32(filewalker + 5))) 
 	{
@@ -99,14 +99,14 @@ class Card_Download : public cardBlock {
 	}
 };
 
-class Application_Identification : public cardBlock {
+class applicationIdentification : public cardBlock {
 	public:
 	static const int Type = 0x0501;
 	QString name() const {
 		return tr("Application Identification");
 	}
 	int typeOfTachographCardId, cardStructureVersion;
-	Application_Identification(constDataPointer filewalker) :
+	applicationIdentification(constDataPointer filewalker) :
 		cardBlock(filewalker), 
 		typeOfTachographCardId(start[5]),
 		cardStructureVersion(BEInt16(start + 6)) 
@@ -119,13 +119,13 @@ class Application_Identification : public cardBlock {
 	}
 };
 
-class Card_Certificate : public cardBlock {
+class cardCertificate : public cardBlock {
 	public:
 	static const int Type = 0xc100;
 	virtual QString name() const {
 		return tr("Card Certificate");
 	}
-	Card_Certificate(constDataPointer filewalker) :
+	cardCertificate(constDataPointer filewalker) :
 		cardBlock(filewalker) {
 	}
 	virtual void reportstuff(esmfilehead& esm) {
@@ -136,14 +136,14 @@ class Card_Certificate : public cardBlock {
 	}
 };
 
-class CA_Certificate : public Card_Certificate {
+class caCertificate : public cardCertificate {
 	public:
 	static const int Type = 0xc108;
 	virtual QString name() const {
 		return tr("CA Certificate");
 	}
-	CA_Certificate(constDataPointer filewalker) :
-		Card_Certificate(filewalker) {
+	caCertificate(constDataPointer filewalker) :
+		cardCertificate(filewalker) {
 	}
 	virtual void reportstuff(esmfilehead& esm) {
 #ifndef HAVE_NO_CRYPTO
@@ -153,7 +153,7 @@ class CA_Certificate : public Card_Certificate {
 	}
 };
 
-class Specific_Conditions : public cardBlock {
+class specificConditions : public cardBlock {
 	struct Specific_Condition {
 		Time time;
 		int condition;
@@ -173,7 +173,7 @@ class Specific_Conditions : public cardBlock {
 	QString name() const {
 		return tr("Specific Conditions");
 	}
-	Specific_Conditions(constDataPointer filewalker) :
+	specificConditions(constDataPointer filewalker) :
 		cardBlock(filewalker) 
 	{
 		for(constDataPointer i = start + 5; i < start + 5 + datasize; i += 5) {
@@ -264,7 +264,7 @@ public:
 	}
 };
 
-class Control_Activity_Data : public cardBlock {
+class controlActivityData : public cardBlock {
 	public:
 	static const int Type = 0x0508;
 	int controlType;
@@ -275,7 +275,7 @@ class Control_Activity_Data : public cardBlock {
 	virtual QString name() const {
 		return tr("Control Activity Data");
 	}
-	Control_Activity_Data(constDataPointer filewalker) :
+	controlActivityData(constDataPointer filewalker) :
 		cardBlock(filewalker), 
 		controlType(start[5]), 
 		controlTime(BEInt32(start + 6)),
@@ -295,7 +295,7 @@ class Control_Activity_Data : public cardBlock {
 	}
 };
 
-class Events_Data : public cardBlock {
+class eventsData : public cardBlock {
 	struct CardEventRecord {
 		int Type;
 		Time BeginTime, EndTime;
@@ -328,7 +328,7 @@ class Events_Data : public cardBlock {
 	virtual QString name() const {
 		return tr("Events Data");
 	}
-	Events_Data(constDataPointer filewalker) :
+	eventsData(constDataPointer filewalker) :
 		cardBlock(filewalker) {
 		for(constDataPointer i = start + 5; i < start + 5 + datasize; i += 24) {
 			if(!CardEventRecord::defval(i)) sub.push_back(CardEventRecord(i));
@@ -340,10 +340,10 @@ class Events_Data : public cardBlock {
 	}
 };
 
-class Faults_Data : public Events_Data {
+class faultsData : public eventsData {
 	public:
-	Faults_Data(constDataPointer filewalker) :
-		Events_Data(filewalker) 
+	faultsData(constDataPointer filewalker) :
+		eventsData(filewalker) 
 	{
 	}
 	virtual QString name() const {
@@ -352,7 +352,7 @@ class Faults_Data : public Events_Data {
 	static const int Type = 0x0503;
 };
 
-class Places : public cardBlock {
+class places : public cardBlock {
 	public:
 	typedef std::vector<placeRecord> subray;
 	typedef subray::const_iterator subiter;
@@ -361,7 +361,7 @@ class Places : public cardBlock {
 	virtual QString name() const {
 		return tr("Places");
 	}
-	Places(constDataPointer filewalker) :
+	places(constDataPointer filewalker) :
 		cardBlock(filewalker) 
 	{
 		for(constDataPointer i = start + 5 + 1; i < start + 5 + datasize; i += 10) {
@@ -373,7 +373,7 @@ class Places : public cardBlock {
 	}
 };
 
-class Vehicles_Used : public cardBlock {
+class vehiclesUsed : public cardBlock {
 	struct CardVehicleRecord {
 		int OdometerBegin, OdometerEnd;
 		Time FirstUse, LastUse;
@@ -411,7 +411,7 @@ class Vehicles_Used : public cardBlock {
 	virtual QString name() const {
 		return tr("Vehicles Used");
 	}
-	Vehicles_Used(constDataPointer filewalker) :
+	vehiclesUsed(constDataPointer filewalker) :
 		cardBlock(filewalker) 
 	{
 		for(constDataPointer i = start + 5 + 2; i < start + 5 + datasize; i += 31) {
@@ -438,7 +438,7 @@ class Vehicles_Used : public cardBlock {
 	}
 };
 
-class Identification : public cardBlock {
+class identification : public cardBlock {
 	public:
 	int cardIssuingMemberState;
 	QString cardNumber;
@@ -456,7 +456,7 @@ class Identification : public cardBlock {
 		return tr("Card Identification");
 	}
 	
-	Identification(constDataPointer filewalker) :
+	identification(constDataPointer filewalker) :
 		cardBlock(filewalker), 
 		cardIssuingMemberState(start[5]), 
 		cardNumber(fixedString(start + 6, 16)), 
@@ -489,7 +489,7 @@ class Identification : public cardBlock {
 	}
 };
 
-class Current_Usage : public cardBlock {
+class currentUsage : public cardBlock {
 	public:
 	static const int Type = 0x0507;
 	QString name() const {
@@ -498,7 +498,7 @@ class Current_Usage : public cardBlock {
 	Time sessionOpenTime;
 	vehicleRegistration reg;
 
-	Current_Usage(constDataPointer filewalker) :
+	currentUsage(constDataPointer filewalker) :
 		cardBlock(filewalker), 
 		sessionOpenTime(BEInt32(start + 5)),
 		reg(start + 5 + 4)
@@ -514,7 +514,8 @@ class Current_Usage : public cardBlock {
 };
 
 ///see p. 59
-class Driver_Activity_Data : public cardBlock {
+class driverActivityData : public cardBlock {
+	Q_DECLARE_TR_FUNCTIONS(driverActivityData)
 	public:
 	static const int Type = 0x0504;
 	QString name() const {
@@ -524,7 +525,7 @@ class Driver_Activity_Data : public cardBlock {
 	int fine;
 	int useddata;
 	QByteArray actdata;
-	Driver_Activity_Data(constDataPointer filewalker) :
+	driverActivityData(constDataPointer filewalker) :
 		cardBlock(filewalker), 
 		fine(0) 
 	{
@@ -547,14 +548,14 @@ class Driver_Activity_Data : public cardBlock {
 				qDebug() << "Size 0 for increment. Aborting.";
 				break;
 			}
-			DailyActivityCard d(walker, (thissize - 12) / 2);
+			dailyActivityCard d(walker, (thissize - 12) / 2);
 			acts.push_back(d);
 			walker += thissize;
 		}
 		fine = checkTimes(acts);
-		qDebug() << "Driver_Activity_Data end";
+		qDebug() << "driverActivityData end";
 	}
-	typedef std::vector<DailyActivityCard> subray;
+	typedef std::vector<dailyActivityCard> subray;
 	typedef subray::const_iterator subiter;
 	subray acts;
 
@@ -580,34 +581,34 @@ cardBlock::ptr cardBlock::Factory(constDataPointer filewalker) {
 	if(filewalker[2] == 1) qFatal("stray signature");
 	typedef cardBlock::ptr p;
 	switch(cardBlock::getType(filewalker)) {
-		case Card_Download::Type:
-			return p(new Card_Download(filewalker));
-		case Driving_License_Info::Type:
-			return p(new Driving_License_Info(filewalker));
-		case Current_Usage::Type:
-			return p(new Current_Usage(filewalker));
-		case Driver_Activity_Data::Type:
-			return p(new Driver_Activity_Data(filewalker));
-		case Identification::Type:
-			return p(new Identification(filewalker));
-		case Specific_Conditions::Type:
-			return p(new Specific_Conditions(filewalker));
-		case Faults_Data::Type:
-			return p(new Faults_Data(filewalker));
-		case Events_Data::Type:
-			return p(new Events_Data(filewalker));
-		case Vehicles_Used::Type:
-			return p(new Vehicles_Used(filewalker));
-		case Card_Certificate::Type:
-			return p(new Card_Certificate(filewalker));
-		case CA_Certificate::Type:
-			return p(new CA_Certificate(filewalker));
-		case Application_Identification::Type:
-			return p(new Application_Identification(filewalker));
-		case Control_Activity_Data::Type:
-			return p(new Control_Activity_Data(filewalker));
-		case Places::Type:
-			return p(new Places(filewalker));
+		case cardDownload::Type:
+			return p(new cardDownload(filewalker));
+		case drivingLicenseInfo::Type:
+			return p(new drivingLicenseInfo(filewalker));
+		case currentUsage::Type:
+			return p(new currentUsage(filewalker));
+		case driverActivityData::Type:
+			return p(new driverActivityData(filewalker));
+		case identification::Type:
+			return p(new identification(filewalker));
+		case specificConditions::Type:
+			return p(new specificConditions(filewalker));
+		case faultsData::Type:
+			return p(new faultsData(filewalker));
+		case eventsData::Type:
+			return p(new eventsData(filewalker));
+		case vehiclesUsed::Type:
+			return p(new vehiclesUsed(filewalker));
+		case cardCertificate::Type:
+			return p(new cardCertificate(filewalker));
+		case caCertificate::Type:
+			return p(new caCertificate(filewalker));
+		case applicationIdentification::Type:
+			return p(new applicationIdentification(filewalker));
+		case controlActivityData::Type:
+			return p(new controlActivityData(filewalker));
+		case places::Type:
+			return p(new places(filewalker));
 		default:
 			return p(new cardBlock(filewalker));
 	}

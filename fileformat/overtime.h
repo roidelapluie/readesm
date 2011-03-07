@@ -25,7 +25,7 @@ int fine(int overtime) {
 	return 0;
 }
 
-void checkDayDrivingTime(DailyActivity& a) {
+void checkDayDrivingTime(dailyActivity& a) {
 	typedef std::vector<Activity> subray;
 	typedef subray::const_iterator subiter;
 	int sincelastbreak = 0;
@@ -53,11 +53,11 @@ void checkDayDrivingTime(DailyActivity& a) {
 	if(a.overtime) a.overtimeReason = QObject::tr("Daily driving time");
 }
 
-int checkTimes(std::vector<DailyActivityCard>& days) {
+int checkTimes(std::vector<dailyActivityCard>& days) {
 	int fine = 0;
 	int weekdays = 0;
 	int weekdriven = 0;
-	for(std::vector<DailyActivityCard>::iterator j = days.begin(); j
+	for(std::vector<dailyActivityCard>::iterator j = days.begin(); j
 			< days.end(); ++j) {
 		checkDayDrivingTime(*j);
 		fine += j->fine;

@@ -23,6 +23,7 @@
 
 ///See page 163 of l207.pdf
 class vuSpeeds : public vuBlock {
+	Q_DECLARE_TR_FUNCTIONS(vuSpeeds)
 	public:
 	QString name() const {
 		return tr("Detailed Speed");

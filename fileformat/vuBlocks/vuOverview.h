@@ -30,6 +30,7 @@
 
 ///See page 160 of l207.pdf
 class vuOverview : public vuBlock {
+	Q_DECLARE_TR_FUNCTIONS(vuOverview)
 	public:
 	static const int TREP = 0x1;
 	virtual QString name() const {

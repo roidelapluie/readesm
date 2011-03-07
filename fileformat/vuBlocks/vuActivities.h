@@ -10,13 +10,14 @@
 
 ///See page 161 of l207.pdf
 class vuActivities : public vuBlock {
+	Q_DECLARE_TR_FUNCTIONS(vuActivities)
 	struct CardInOut {
 		QString Name;
 		Time InTime, OutTime;
 		int OdometerIn, OdometerOut;
 	};
 
-	DailyActivity DayAct;
+	dailyActivity DayAct;
 	int driven;
 	std::vector<CardInOut> CardInOuts;
 	Time day;

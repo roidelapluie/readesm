@@ -28,7 +28,7 @@ vuActivities::vuActivities(constDataPointer nstart) :
 {
 	Init();
 	int index = 7 + 129* Int16 (7) + 2;
-	DayAct = DailyActivity(start + 2, start + index + 4, Int16(index));
+	DayAct = dailyActivity(start + 2, start + index + 4, Int16(index));
 	int num_crblocks = Int16(7);
 	for(int j = 0; j < num_crblocks; ++j) {
 		int sb_start = 9 + j * 129;

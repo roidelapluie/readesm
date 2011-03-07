@@ -27,6 +27,7 @@
 #include "helper.h"
 
 class Activity {
+	Q_DECLARE_TR_FUNCTIONS(Activity)
 	public:
 	static const int Break = 0;
 	static const int Available = 1;
@@ -60,11 +61,11 @@ class Activity {
 		time = int((start[0] & 7) << 8) + start[1];
 	}
 	QString astr() const {
-		if(activity == Break) return "break/rest";
-		else if(activity == Available) return "availability";
-		else if(activity == Work) return "work";
-		else if(activity == Driving) return "driving";
-		return "unknown activity";
+		if(activity == Break) return tr("break/rest");
+		else if(activity == Available) return tr("availability");
+		else if(activity == Work) return tr("work");
+		else if(activity == Driving) return tr("driving");
+		return tr("unknown activity");
 	}
 	QString tstr(int offset = 0) const {
 		return formatDurTime(time + offset);
@@ -72,9 +73,9 @@ class Activity {
 	QString str() const {
 		QString rv;
 		QTextStream o(&rv);
-		o << (slot == Codriver ? "co-driver" : "driver") << ", ";
-		o << (manning == Crew ? "crew" : "single") << ", ";
-		o << "card " << (cardin ? "not inserted" : "inserted") << ", ";
+		o << (slot == Codriver ? tr("co-driver") : tr("driver")) << ", ";
+		o << (manning == Crew ? tr("crew") : tr("single")) << ", ";
+		o << "card " << (cardin ? tr("not inserted") : tr("inserted")) << ", ";
 		o << astr() << " " << tstr();
 		return rv;
 	}
@@ -91,8 +92,8 @@ class Activity {
 
 QString visualization(reporter& o, const std::vector<Activity>& acts); 
 
-class DailyActivity {
-	Q_DECLARE_TR_FUNCTIONS(DailyActivity)
+class dailyActivity {
+	Q_DECLARE_TR_FUNCTIONS(dailyActivity)
 	public:
 	Time start;
 	typedef std::vector<Activity> subray;
@@ -117,7 +118,7 @@ class DailyActivity {
 		}
 		acts[acts.size() - 1].duration = 24* 60 - acts [acts.size() - 1].time;
 	}
-	DailyActivity(constDataPointer datepos, constDataPointer data, int count) :
+	dailyActivity(constDataPointer datepos, constDataPointer data, int count) :
 		start(BEInt32(datepos)), driventime(0), overtime(0) {
 		for(int j = 0; j < count; ++j) {
 			Activity Act(data + 2 * j);
@@ -127,26 +128,26 @@ class DailyActivity {
 		calcDurations(driver);
 		calcDurations(codriver);
 	}
-	DailyActivity() {
+	dailyActivity() {
 	}
-	friend reporter& operator<<(reporter& o, const DailyActivity& d) {
+	friend reporter& operator<<(reporter& o, const dailyActivity& d) {
 		if(d.driventime) {
-			o("Date", d.start.datestr());
+			o(tr("Date"), d.start.datestr());
 			if(d.driver.size() >= 2 - (unsigned int) o.verbose) {
-				if(o.verbose) o.reportray(d.driver, "Daily Activity Driver");
+				if(o.verbose) o.reportray(d.driver, tr("Daily Activity Driver"));
 				if(o.hasBarGraph()) o.single(tr("Activities Driver") + "<br />" + visualization(o,
 						d.driver));
 			}
 			if(d.codriver.size() >= 2 - (unsigned int) o.verbose) {
-				if(o.verbose) o.reportray(d.codriver, "Daily Activity Codriver");
-				if(o.hasBarGraph()) o.single(tr("Activities CoDriver") + "<br />" + visualization(o,
+				if(o.verbose) o.reportray(d.codriver, tr("Daily Activity Codriver"));
+				if(o.hasBarGraph()) o.single(tr("Activities Codriver") + "<br />" + visualization(o,
 						d.driver));
 			}
-			o("Driving time", Activity::formatDurTime(d.driventime));
+			o(tr("Driving time"), Activity::formatDurTime(d.driventime));
 			if(d.overtime) {
-				o("Overtime", Activity::formatDurTime(d.overtime) + " "
+				o(tr("Overtime"), Activity::formatDurTime(d.overtime) + " "
 						+ d.overtimeReason);
-				o("Possible fine", stringify(d.fine) + QString::fromUtf8(" €"));
+				o(tr("Possible fine"), stringify(d.fine) + QString::fromUtf8(" €"));
 			}
 		}
 		if(d.weekStats != "") {
@@ -157,17 +158,18 @@ class DailyActivity {
 };
 
 ///p. 57 and corrigendum(!)
-class DailyActivityCard : public DailyActivity {
+class dailyActivityCard : public dailyActivity {
+	Q_DECLARE_TR_FUNCTIONS(dailyActivityCard)
 	public:
 	int presence, distance;
-	DailyActivityCard(constDataPointer start, int count) :
-		DailyActivity(start + 4, start + 12, count), 
+	dailyActivityCard(constDataPointer start, int count) :
+		dailyActivity(start + 4, start + 12, count), 
 		presence(BEInt16(start + 8)), 
 		distance(BEInt16(start + 10)) 
 	{
 	}
-	friend reporter& operator<<(reporter& o, const DailyActivityCard& d) {
-		o << (DailyActivity) d;
+	friend reporter& operator<<(reporter& o, const dailyActivityCard& d) {
+		o << (dailyActivity) d;
 		if(o.verbose) o(tr("activityDailyPresenceCounter"), d.presence);
 		if(d.distance) o(tr("activityDayDistance"), stringify(d.distance) + " km");
 		return o;

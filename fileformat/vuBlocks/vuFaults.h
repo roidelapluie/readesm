@@ -43,6 +43,7 @@ class EventBase {
 };
 
 class Fault : public EventBase {
+	Q_DECLARE_TR_FUNCTIONS(Fault)
 	public:
 	static int csize() {return  EventBase::csize() + 4* 18; }
 	QString cardnumbers[4];
@@ -76,6 +77,7 @@ class Fault : public EventBase {
 };
 
 class Event : public Fault {
+	Q_DECLARE_TR_FUNCTIONS(Event);
 	public:
 	static int csize() { return Fault::csize() + 1; }
 	int similarEventsNumber;
@@ -90,6 +92,7 @@ class Event : public Fault {
 };
 
 class Overspeed : public EventBase {
+	Q_DECLARE_TR_FUNCTIONS(Overspeed);
 	public:
 	static int csize() { return EventBase::csize() + 21; }
 	int maxSpeedValue, averageSpeedValue;
@@ -113,6 +116,7 @@ class Overspeed : public EventBase {
 
 ///See page 162 of l207.pdf
 class vuFaults : public vuBlock {
+	Q_DECLARE_TR_FUNCTIONS(vuFaults)
 	public:
 	QString name() const {
 		return "Faults";
