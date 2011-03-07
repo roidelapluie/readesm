@@ -30,9 +30,9 @@
 #include "formatStrings.h"
 #include "constDataPointer.h"
 
-class tlvblock : public block {
+class cardBlock : public block {
 	public:
-	tlvblock(constDataPointer filewalker) :
+	cardBlock(constDataPointer filewalker) :
 		block(filewalker) 
 	{
 		datasize = BEInt16(start + 3);
@@ -58,7 +58,7 @@ class tlvblock : public block {
 	int datasize;
 
 };
-class Driving_License_Info : public tlvblock {
+class Driving_License_Info : public cardBlock {
 	public:
 	QString drivingLicenseIssuingAuthorithy;
 	static const int Type = 0x0521;
@@ -68,9 +68,11 @@ class Driving_License_Info : public tlvblock {
 		return tr("Driving License Info");
 	}
 	Driving_License_Info(constDataPointer filewalker) :
-		tlvblock(filewalker), drivingLicenseIssuingAuthorithy(fixedString(start
-				+ 5, 36)), drivingLicenseIssuingNation(start[5 + 36]),
-				drivingLicenseNumber(fixedString(start + 5 + 36 + 1, 16)) {
+		cardBlock(filewalker), 
+		drivingLicenseIssuingAuthorithy(fixedString(start + 5, 36)), 
+		drivingLicenseIssuingNation(start[5 + 36]),
+		drivingLicenseNumber(fixedString(start + 5 + 36 + 1, 16)) 
+	{
 	}
 
 	virtual void printOn(reporter& o) const {
@@ -80,7 +82,7 @@ class Driving_License_Info : public tlvblock {
 	}
 };
 
-class Card_Download : public tlvblock {
+class Card_Download : public cardBlock {
 	public:
 	static const int Type = 0x050e;
 	QString name() const {
@@ -88,14 +90,16 @@ class Card_Download : public tlvblock {
 	}
 	Time LastCardDownload;
 	Card_Download(constDataPointer filewalker) :
-		tlvblock(filewalker), LastCardDownload(Time(BEInt32(filewalker + 5))) {
+		cardBlock(filewalker), 
+		LastCardDownload(Time(BEInt32(filewalker + 5))) 
+	{
 	}
 	virtual void printOn(reporter& o) const {
 		o(tr("LastCardDownload"), LastCardDownload.str());
 	}
 };
 
-class Application_Identification : public tlvblock {
+class Application_Identification : public cardBlock {
 	public:
 	static const int Type = 0x0501;
 	QString name() const {
@@ -103,8 +107,10 @@ class Application_Identification : public tlvblock {
 	}
 	int typeOfTachographCardId, cardStructureVersion;
 	Application_Identification(constDataPointer filewalker) :
-		tlvblock(filewalker), typeOfTachographCardId(start[5]),
-				cardStructureVersion(BEInt16(start + 6)) {
+		cardBlock(filewalker), 
+		typeOfTachographCardId(start[5]),
+		cardStructureVersion(BEInt16(start + 6)) 
+	{
 	}
 	virtual void printOn(reporter& o) const {
 		o(tr("typeOfTachographCardId"), formatStrings::equipmentType(typeOfTachographCardId));
@@ -113,14 +119,14 @@ class Application_Identification : public tlvblock {
 	}
 };
 
-class Card_Certificate : public tlvblock {
+class Card_Certificate : public cardBlock {
 	public:
 	static const int Type = 0xc100;
 	virtual QString name() const {
 		return tr("Card Certificate");
 	}
 	Card_Certificate(constDataPointer filewalker) :
-		tlvblock(filewalker) {
+		cardBlock(filewalker) {
 	}
 	virtual void reportstuff(esmfilehead& esm) {
 #ifndef HAVE_NO_CRYPTO
@@ -147,7 +153,7 @@ class CA_Certificate : public Card_Certificate {
 	}
 };
 
-class Specific_Conditions : public tlvblock {
+class Specific_Conditions : public cardBlock {
 	struct Specific_Condition {
 		Time time;
 		int condition;
@@ -168,7 +174,8 @@ class Specific_Conditions : public tlvblock {
 		return tr("Specific Conditions");
 	}
 	Specific_Conditions(constDataPointer filewalker) :
-		tlvblock(filewalker) {
+		cardBlock(filewalker) 
+	{
 		for(constDataPointer i = start + 5; i < start + 5 + datasize; i += 5) {
 			int time = BEInt32(i), cond = i[4];
 			if(time != 0 || cond != 0) sub.push_back(Specific_Condition(time,
@@ -187,7 +194,9 @@ public:
 	int Nation;
 	QString Number;
 	vehicleRegistration(constDataPointer start) :
-		Nation(start[0]), Number(fixedString(start + 1, 14)) {
+		Nation(start[0]), 
+		Number(fixedString(start + 1, 14)) 
+	{
 	}
 	friend reporter& operator<<(reporter& report, vehicleRegistration sub) {
 		if(report.verbose) report(tr("vehicleRegistrationNation"), formatStrings::nationNumeric(sub.Nation));
@@ -209,10 +218,14 @@ public:
 	int vehicleOdometerValue;
 
 	placeRecord(constDataPointer start) :
-		entryTime(BEInt32(start)), entryTypeDailyWorkPeriod(start[4]),
-				dailyWorkPeriodCountry(start[5]), dailyWorkPeriodRegion(
-						start[6]), vehicleOdometerValue(BEInt24(start + 7)) {
+		entryTime(BEInt32(start)), 
+		entryTypeDailyWorkPeriod(start[4]),
+		dailyWorkPeriodCountry(start[5]), 
+		dailyWorkPeriodRegion(start[6]), 
+		vehicleOdometerValue(BEInt24(start + 7))
+	{
 	}
+
 	friend reporter& operator<<(reporter& report, placeRecord sub) {
 		report(tr("entryTime"), sub.entryTime.str());
 		report(tr("entryTypeDailyWorkPeriod"), formatStrings::dailyWorkPeriod(
@@ -235,7 +248,10 @@ public:
 	int Nation;
 	QString Number;
 	fullCardNumber(constDataPointer start) :
-		Type(start[0]), Nation(start[1]), Number(fixedString(start + 2, 16)) {
+		Type(start[0]), 
+		Nation(start[1]), 
+		Number(fixedString(start + 2, 16)) 
+	{
 	}
 	friend reporter& operator<<(reporter& report, fullCardNumber sub) {
 		report(tr("cardType"), formatStrings::equipmentType(sub.Type));
@@ -248,7 +264,7 @@ public:
 	}
 };
 
-class Control_Activity_Data : public tlvblock {
+class Control_Activity_Data : public cardBlock {
 	public:
 	static const int Type = 0x0508;
 	int controlType;
@@ -260,11 +276,14 @@ class Control_Activity_Data : public tlvblock {
 		return tr("Control Activity Data");
 	}
 	Control_Activity_Data(constDataPointer filewalker) :
-		tlvblock(filewalker), controlType(start[5]), controlTime(BEInt32(start
-				+ 6)), controlCardNumber(start + 10),
-				controlVehicleRegistration(start + 28),
-				controlDownloadPeriodBegin(BEInt32(start + 43)),
-				controlDownloadPeriodEnd(BEInt32(start + 47)) {
+		cardBlock(filewalker), 
+		controlType(start[5]), 
+		controlTime(BEInt32(start + 6)),
+		controlCardNumber(start + 10),
+		controlVehicleRegistration(start + 28),
+		controlDownloadPeriodBegin(BEInt32(start + 43)),
+		controlDownloadPeriodEnd(BEInt32(start + 47))
+	{
 	}
 	virtual void printOn(reporter& o) const {
 		o(tr("controlType"), formatStrings::controlType(controlType));
@@ -276,14 +295,17 @@ class Control_Activity_Data : public tlvblock {
 	}
 };
 
-class Events_Data : public tlvblock {
+class Events_Data : public cardBlock {
 	struct CardEventRecord {
 		int Type;
 		Time BeginTime, EndTime;
 		vehicleRegistration vreg;
 		CardEventRecord(constDataPointer start) :
-			Type(start[0]), BeginTime(BEInt32(start + 1)), EndTime(BEInt32(
-					start + 5)), vreg(start + 9) {
+			Type(start[0]), 
+			BeginTime(BEInt32(start + 1)), 
+			EndTime(BEInt32(start + 5)), 
+			vreg(start + 9) 
+		{
 		}
 		friend reporter& operator<<(reporter& report, CardEventRecord e) {
 			report(tr("eventType"), formatStrings::eventType(e.Type));
@@ -307,7 +329,7 @@ class Events_Data : public tlvblock {
 		return tr("Events Data");
 	}
 	Events_Data(constDataPointer filewalker) :
-		tlvblock(filewalker) {
+		cardBlock(filewalker) {
 		for(constDataPointer i = start + 5; i < start + 5 + datasize; i += 24) {
 			if(!CardEventRecord::defval(i)) sub.push_back(CardEventRecord(i));
 		}
@@ -321,7 +343,8 @@ class Events_Data : public tlvblock {
 class Faults_Data : public Events_Data {
 	public:
 	Faults_Data(constDataPointer filewalker) :
-		Events_Data(filewalker) {
+		Events_Data(filewalker) 
+	{
 	}
 	virtual QString name() const {
 		return tr("Faults Data");
@@ -329,7 +352,7 @@ class Faults_Data : public Events_Data {
 	static const int Type = 0x0503;
 };
 
-class Places : public tlvblock {
+class Places : public cardBlock {
 	public:
 	typedef std::vector<placeRecord> subray;
 	typedef subray::const_iterator subiter;
@@ -339,7 +362,8 @@ class Places : public tlvblock {
 		return tr("Places");
 	}
 	Places(constDataPointer filewalker) :
-		tlvblock(filewalker) {
+		cardBlock(filewalker) 
+	{
 		for(constDataPointer i = start + 5 + 1; i < start + 5 + datasize; i += 10) {
 			if(!placeRecord::defval(i)) sub.push_back(placeRecord(i));
 		}
@@ -349,16 +373,20 @@ class Places : public tlvblock {
 	}
 };
 
-class Vehicles_Used : public tlvblock {
+class Vehicles_Used : public cardBlock {
 	struct CardVehicleRecord {
 		int OdometerBegin, OdometerEnd;
 		Time FirstUse, LastUse;
 		vehicleRegistration vreg;
 		int vuDataBlockCounter;
 		CardVehicleRecord(constDataPointer start) :
-			OdometerBegin(BEInt24(start)), OdometerEnd(BEInt24(start + 3)),
-					FirstUse(BEInt32(start + 6)), LastUse(BEInt32(start + 10)),
-					vreg(start + 14), vuDataBlockCounter(BEInt16(start + 29)) {
+			OdometerBegin(BEInt24(start)), 
+			OdometerEnd(BEInt24(start + 3)),
+			FirstUse(BEInt32(start + 6)), 
+			LastUse(BEInt32(start + 10)),
+			vreg(start + 14), 
+			vuDataBlockCounter(BEInt16(start + 29)) 
+		{
 		}
 		friend reporter& operator<<(reporter& report,
 				const CardVehicleRecord& e) {
@@ -384,7 +412,8 @@ class Vehicles_Used : public tlvblock {
 		return tr("Vehicles Used");
 	}
 	Vehicles_Used(constDataPointer filewalker) :
-		tlvblock(filewalker) {
+		cardBlock(filewalker) 
+	{
 		for(constDataPointer i = start + 5 + 2; i < start + 5 + datasize; i += 31) {
 			if(!CardVehicleRecord::defval(i)) sub.push_back(
 					CardVehicleRecord(i));
@@ -409,7 +438,7 @@ class Vehicles_Used : public tlvblock {
 	}
 };
 
-class Identification : public tlvblock {
+class Identification : public cardBlock {
 	public:
 	int cardIssuingMemberState;
 	QString cardNumber;
@@ -426,17 +455,22 @@ class Identification : public tlvblock {
 	QString name() const {
 		return tr("Card Identification");
 	}
+	
 	Identification(constDataPointer filewalker) :
-		tlvblock(filewalker), cardIssuingMemberState(start[5]), cardNumber(
-				fixedString(start + 6, 16)), cardIssuingAuthorityName(
-				fixedString(start + 22, 36)),
-				cardIssueDate(BEInt32(start + 58)), cardValidityBegin(BEInt32(
-						start + 62)), cardExpiryDate(BEInt32(start + 66)),
-				holderSurname(fixedString(start + 70, 36)), holderFirstname(
-						fixedString(start + 106, 36)), cardHolderBirthDate(
-						BCDDate(start + 142)), cardHolderPreferredLanguage(
-						fixedString(start + 146, 2)) {
+		cardBlock(filewalker), 
+		cardIssuingMemberState(start[5]), 
+		cardNumber(fixedString(start + 6, 16)), 
+		cardIssuingAuthorityName(fixedString(start + 22, 36)),
+		cardIssueDate(BEInt32(start + 58)),
+		cardValidityBegin(BEInt32(start + 62)), 
+		cardExpiryDate(BEInt32(start + 66)),
+		holderSurname(fixedString(start + 70, 36)),
+		holderFirstname(fixedString(start + 106, 36)), 
+		cardHolderBirthDate(BCDDate(start + 142)), 
+		cardHolderPreferredLanguage(fixedString(start + 146, 2)) 
+	{
 	}
+	
 	virtual void printOn(reporter& o) const {
 		o(tr("cardIssuingMemberState"), formatStrings::nationNumeric(cardIssuingMemberState));
 		o(tr("cardNumber"), cardNumber);
@@ -449,36 +483,38 @@ class Identification : public tlvblock {
 		o(tr("cardHolderBirthDate"), cardHolderBirthDate);
 		o(tr("cardHolderPreferredLanguage"), cardHolderPreferredLanguage);
 	}
+	
 	virtual void reportstuff(esmfilehead& esm) {
 		esm.title = holderFirstname + " " + holderSurname;
 	}
 };
 
-class Current_Usage : public tlvblock {
+class Current_Usage : public cardBlock {
 	public:
 	static const int Type = 0x0507;
 	QString name() const {
 		return tr("Current Usage");
 	}
 	Time sessionOpenTime;
-	int vehicleRegistrationNation;
-	QString vehicleRegistrationNumber;
+	vehicleRegistration reg;
 
 	Current_Usage(constDataPointer filewalker) :
-		tlvblock(filewalker), sessionOpenTime(BEInt32(start + 5)),
-				vehicleRegistrationNation(start[5 + 4]),
-				vehicleRegistrationNumber(fixedString(start + 5 + 4 + 1, 14)) {
+		cardBlock(filewalker), 
+		sessionOpenTime(BEInt32(start + 5)),
+		reg(start + 5 + 4)
+	{
 	}
 
 	virtual void printOn(reporter& o) const {
 		o(tr("sessionOpenTime"), sessionOpenTime.str());
-		o(tr("vehicleRegistrationNation"), formatStrings::nationNumeric(vehicleRegistrationNation));
-		o(tr("vehicleRegistrationNumber"), vehicleRegistrationNumber);
+		qDebug() << "usage..." << formatStrings::nationNumeric(reg.Nation) << reg.Number.length() << "regnum:" << reg.Number << "enddd";
+		o << reg;
+		qDebug() << "cuse " << start.offset;
 	}
 };
 
 ///see p. 59
-class Driver_Activity_Data : public tlvblock {
+class Driver_Activity_Data : public cardBlock {
 	public:
 	static const int Type = 0x0504;
 	QString name() const {
@@ -487,29 +523,26 @@ class Driver_Activity_Data : public tlvblock {
 	Time LastCardDownload;
 	int fine;
 	int useddata;
+	QByteArray actdata;
 	Driver_Activity_Data(constDataPointer filewalker) :
-		tlvblock(filewalker), fine(0) {
+		cardBlock(filewalker), 
+		fine(0) 
+	{
 		int oldestrec = BEInt16(start + 5); //start of oldest rec
-		int newestrec = BEInt16(start + 5 + 2); //start of newest rec
-		//newestrec += BEInt16(start + newestrec + 2); //end of newestrec
-		useddata = newestrec - oldestrec;
-		QByteArray actdata;
-		qDebug() << "Driver_Activity_Data";
+		int newestrec = BEInt16(start + 5 + 2); //end of newest rec (TODO:check this)
 		if(newestrec < oldestrec) {
-			useddata += datasize - 9;
-			qDebug() << "older";
+			//datasize is 2 byte for newest pointer, 2 byte for oldest pointer
+			//plus activity data. so datasize - 4 is the activity data size
 			//just copy the circular stuff into a new vector, avoids those boundary problems
 			actdata.append(start.toPointer(9 + oldestrec), datasize - 4 - oldestrec);
-			actdata.append(start.toPointer(9), newestrec - 4);
-			//TODO: why 4? write at least a comment
+			actdata.append(start.toPointer(9), newestrec);
 		} else {
-			qDebug() << "younger";
 			actdata.append(start.toPointer(9 + oldestrec), newestrec - oldestrec);
 		}
 		constDataPointer walker(actdata,0);
-		while(walker.bytesLeft() > 16) {
-			qDebug() << walker.bytesLeft();
+		while(walker.bytesLeft()) {
 			int thissize = BEInt16(walker + 2);
+			//qDebug() << walker.bytesLeft() <<" Bytes left, " << thissize << "in next block";
 			if(!thissize) {
 				qDebug() << "Size 0 for increment. Aborting.";
 				break;
@@ -526,9 +559,11 @@ class Driver_Activity_Data : public tlvblock {
 	subray acts;
 
 	virtual void printOn(reporter& o) const {
-		o(tr("Accumulated fines"), stringify(fine) + " €");
-		o(tr("Activity space usage"), stringify(useddata) + " " + tr("of") + " "
-				+ stringify(datasize - 9) + " Bytes");
+		o(tr("Accumulated fines"), stringify(fine) + QString::fromUtf8(" €"));
+		o(tr("Activity space usage"), tr("%1 of %2 Bytes")
+						.arg(actdata.size())
+						.arg(datasize - 9)
+		 );
 		o.reportraynosub(acts);
 
 	}
@@ -541,10 +576,10 @@ class Driver_Activity_Data : public tlvblock {
 };
 
 //Driver Card Codes and structure are on p. 119 in l207.pdf
-tlvblock::ptr tlvblock::Factory(constDataPointer filewalker) {
+cardBlock::ptr cardBlock::Factory(constDataPointer filewalker) {
 	if(filewalker[2] == 1) qFatal("stray signature");
-	typedef tlvblock::ptr p;
-	switch(tlvblock::getType(filewalker)) {
+	typedef cardBlock::ptr p;
+	switch(cardBlock::getType(filewalker)) {
 		case Card_Download::Type:
 			return p(new Card_Download(filewalker));
 		case Driving_License_Info::Type:
@@ -574,7 +609,7 @@ tlvblock::ptr tlvblock::Factory(constDataPointer filewalker) {
 		case Places::Type:
 			return p(new Places(filewalker));
 		default:
-			return p(new tlvblock(filewalker));
+			return p(new cardBlock(filewalker));
 	}
 }
 

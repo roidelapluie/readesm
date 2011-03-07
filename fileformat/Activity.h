@@ -134,19 +134,19 @@ class DailyActivity {
 			o("Date", d.start.datestr());
 			if(d.driver.size() >= 2 - (unsigned int) o.verbose) {
 				if(o.verbose) o.reportray(d.driver, "Daily Activity Driver");
-				if(o.hasBarGraph()) o("Activities Driver", visualization(o,
+				if(o.hasBarGraph()) o.single(tr("Activities Driver") + "<br />" + visualization(o,
 						d.driver));
 			}
 			if(d.codriver.size() >= 2 - (unsigned int) o.verbose) {
 				if(o.verbose) o.reportray(d.codriver, "Daily Activity Codriver");
-				if(o.hasBarGraph()) o("Activities Codriver", visualization(o,
-						d.codriver));
+				if(o.hasBarGraph()) o.single(tr("Activities CoDriver") + "<br />" + visualization(o,
+						d.driver));
 			}
 			o("Driving time", Activity::formatDurTime(d.driventime));
 			if(d.overtime) {
 				o("Overtime", Activity::formatDurTime(d.overtime) + " "
 						+ d.overtimeReason);
-				o("Possible fine", stringify(d.fine) + " €");
+				o("Possible fine", stringify(d.fine) + QString::fromUtf8(" €"));
 			}
 		}
 		if(d.weekStats != "") {

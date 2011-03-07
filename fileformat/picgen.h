@@ -58,7 +58,7 @@ class svgBarGraph : public picgen {
 	virtual void add(int from, int duration, int height, QString color, QString title) {
 		collector<< "<rect x='" << from << "' fill='" << color << "' width='"
 				<< duration << "' height='" << height << "' title='" << title
-				<< "' />";
+				<< "'><title>"<< title << "</title></rect>\n";
 	}
 	virtual QString str() {
 		QString rv;
@@ -73,11 +73,6 @@ class svgBarGraph : public picgen {
 
 class svgPlotGraph : public picgen {
 	public:
-	virtual void add(int from, int duration, int height, QString color, QString title) {
-		collector << "<rect x='" << from << "' fill='" << color << "' width='"
-				<< duration << "' height='" << height << "' title='" << title
-				<< "' />";
-	}
 	virtual QString str() {
 		QString rv;
 		QTextStream o(&rv); 
