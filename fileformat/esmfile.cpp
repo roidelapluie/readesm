@@ -3,6 +3,7 @@
 #include <QDebug>
 
 reporter& operator<<(reporter& report, const esmfile& e){
+	report.title = e.name();
 	report.bigblockstart(QObject::tr("Statistics"));
 	report.single(QObject::tr("Statistics for") + " " + e.title, true);
 	report.single(formatRange(e.first, e.last));
@@ -48,6 +49,9 @@ esmfile::esmfile(const QString& filename) :
 #endif
 }
 
-QString esmfile::name(){
-	return title + ", " + first.datestr() + " to " + last.datestr();
+QString esmfile::name() const{
+	return tr("%1, %2 to %3")
+		.arg(title)
+		.arg(first.datestr())
+		.arg(last.datestr());
 }

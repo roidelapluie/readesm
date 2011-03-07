@@ -36,7 +36,7 @@ class esmfile : public esmfilehead {
 	subray blocks;
 	esmfile(const QString& filename);
 
-	QString name();
+	QString name() const;
 	friend reporter& operator<<(reporter& report, const esmfile& e);
 
 };

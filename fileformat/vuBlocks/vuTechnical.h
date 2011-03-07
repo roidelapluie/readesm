@@ -22,7 +22,7 @@
 
 ///See page 163 of l207.pdf
 class vuTechnical : public vuBlock {
-	Q_DECLARE_TR_FUNCTIONS(vuSpeeds)
+	Q_DECLARE_TR_FUNCTIONS(vuTechnical)
 	public:
 	QString name() const {
 		return tr("Technical Data");

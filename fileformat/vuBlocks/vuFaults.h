@@ -119,7 +119,7 @@ class vuFaults : public vuBlock {
 	Q_DECLARE_TR_FUNCTIONS(vuFaults)
 	public:
 	QString name() const {
-		return "Faults";
+		return tr("Faults");
 	}
 	static const int TREP = 0x3;
 	vuFaults(constDataPointer nstart) :
