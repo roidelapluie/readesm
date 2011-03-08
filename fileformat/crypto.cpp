@@ -1,3 +1,4 @@
+#ifndef HAVE_NO_CRYPTO
 #include "crypto.h"
 #include <gcrypt.h>
 
@@ -28,3 +29,4 @@ bool CheckSignature(const constDataPointer& data, int length, const constDataPoi
 	}
 	return valid;
 }
+#endif

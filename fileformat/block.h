@@ -23,6 +23,8 @@
 #include "helper.h"
 #include "esmfilehead.h"
 #include "constDataPointer.h"
+#include "readTypes.h"
+#include "reporter/reporter.h"
 
 class signature {
 	public:
