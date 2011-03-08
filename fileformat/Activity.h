@@ -147,7 +147,7 @@ class dailyActivity {
 			if(d.overtime) {
 				o(tr("Overtime"), Activity::formatDurTime(d.overtime) + " "
 						+ d.overtimeReason);
-				o(tr("Possible fine"), stringify(d.fine) + QString::fromUtf8(" €"));
+				o(tr("Possible fine"), QString::fromUtf8("%1 €").arg(d.fine));
 			}
 		}
 		if(d.weekStats != "") {
@@ -171,7 +171,7 @@ class dailyActivityCard : public dailyActivity {
 	friend reporter& operator<<(reporter& o, const dailyActivityCard& d) {
 		o << (dailyActivity) d;
 		if(o.verbose) o(tr("activityDailyPresenceCounter"), d.presence);
-		if(d.distance) o(tr("activityDayDistance"), stringify(d.distance) + " km");
+		if(d.distance) o(tr("activityDayDistance"), QString("%1 km").arg(d.distance));
 		return o;
 	}
 };

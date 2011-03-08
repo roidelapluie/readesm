@@ -8,9 +8,9 @@ reporter& operator<<(reporter& report, const esmfile& e){
 	report.single(QObject::tr("Statistics for") + " " + e.title, true);
 	report.single(formatRange(e.first, e.last));
 	report(QObject::tr("Recorded days"), e.daycount);
-	report(QObject::tr("Overall driven distance"), stringify(e.drivenkm) + " km");
+	report(QObject::tr("Overall driven distance"), QString("%1 km").arg(e.drivenkm));
 	report(QObject::tr("Overall driving time"), formatMinutes(e.drivenminutes));
-	report(QObject::tr("Average distance per day"), stringify(e.drivenkm / e.daycount) + " km");
+	report(QObject::tr("Average distance per day"), QString("%1 km").arg(e.drivenkm / e.daycount));
 	report(QObject::tr("Average time driven per day"), formatMinutes(e.drivenminutes
 			/ e.daycount) + " (" + stringify(100* e .drivenminutes
 			/ (e.daycount * 24* 60 ))+ "%)");

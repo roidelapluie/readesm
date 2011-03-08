@@ -430,8 +430,8 @@ class vehiclesUsed : public cardBlock {
 				report.single(formatRange(lastentry->FirstUse, i->LastUse));
 				report(tr("vehicleOdometerBegin"), lastentry->OdometerBegin);
 				report(tr("vehicleOdometerEnd"), i->OdometerEnd);
-				report(tr("Driven distance"), stringify(i->OdometerEnd
-						- lastentry->OdometerBegin) + " km");
+				int driven = i->OdometerEnd - lastentry->OdometerBegin;
+				report(tr("Driven distance"), QString("%1 km").arg(driven));
 				if(i < sub.end()) report.blockbreak();
 			}
 		}
@@ -560,7 +560,7 @@ class driverActivityData : public cardBlock {
 	subray acts;
 
 	virtual void printOn(reporter& o) const {
-		o(tr("Accumulated fines"), stringify(fine) + QString::fromUtf8(" €"));
+		o(tr("Accumulated fines"), QString::fromUtf8("%1 €").arg(fine));
 		o(tr("Activity space usage"), tr("%1 of %2 Bytes")
 						.arg(actdata.size())
 						.arg(datasize - 9)

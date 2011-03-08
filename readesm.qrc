@@ -1,0 +1,8 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource>
+	<file>readesm_de.qm</file>
+	<file>EC_PK.bin</file>
+	<file>homepage/help.html</file>
+	<file>homepage/style.css</file>
+</qresource>
+</RCC>
