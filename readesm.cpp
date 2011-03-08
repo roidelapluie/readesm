@@ -19,11 +19,18 @@
 #include "fileformat/reporter/htmlReporter.h"
 #include "fileformat/reporter/txtReporter.h"
 #include "fileformat/esmfile.h"
-
+#include "config.h"
 
 int main(int argc, char** argv)
 {
 	QApplication app(argc, argv);
+	app.setApplicationName("readesm");
+	app.setApplicationVersion(QString("%1 (%2)")
+			.arg(VERSION)
+			.arg(VERSION_DATE));
+	app.setOrganizationName(QString::fromUtf8("Andreas Gölzer"));
+	app.setOrganizationDomain("http://andreas.goelzer.de");
+	
 	QTextStream cerr(stderr);
 
 	QTranslator qtTranslator;
