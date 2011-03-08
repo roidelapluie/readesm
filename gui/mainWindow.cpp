@@ -17,7 +17,7 @@
 mainWindow::mainWindow()
 {
 	view = new QWebView(this);
-	view->setHtml("readesm");
+	view->load(QUrl("qrc:///greeting.xhtml"));
 	setCentralWidget(view);
 	
 	//define and link the stuff in the menu bar
