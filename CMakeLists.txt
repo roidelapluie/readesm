@@ -22,10 +22,12 @@ if(GMP_FOUND AND GCRYPT_FOUND)
 	set(LIBS ${LIBS} ${GCRYPT_LIBRARIES} ${GMP_LIBRARIES})
 else()
 	message("Did not find both gmp and gcrypt. Disabling cryptographic checks.")
+	set(HAVE_NO_CRYPTO 1)
 	add_definitions(-DHAVE_NO_CRYPTO)
 endif()
 
 
+CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/config.h.in ${CMAKE_CURRENT_BINARY_DIR}/config.h)
 #*** Actual part needed to build everything ***
 
 include_directories(${QT_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/fileformat ${CMAKE_CURRENT_SOURCE_DIR}/fileformat/vuBlocks ${CMAKE_CURRENT_SOURCE_DIR}/fileformat/reporter)
@@ -51,5 +53,15 @@ target_link_libraries(readesm ${QT_QTCORE_LIBRARY} ${QT_QTGUI_LIBRARY} ${QT_QTWE
 #*** Install files ***
 install(TARGETS readesm RUNTIME DESTINATION bin)
 
-# set(CPACK_DEBIAN_PACKAGE_DEPENDS "libgcrypt11, libgmp3c2, libqtcore4, libqtgui4")
-# include(CPack)
+
+#packaging
+set(CPACK_GENERATOR TBZ2)
+set(CPACK_SOURCE_GENERATOR TGZ;TBZ2)
+set(CPACK_SOURCE_IGNORE_FILES
+	"~$"
+	"^${PROJECT_SOURCE_DIR}.*/.svn/"
+	"^${PROJECT_SOURCE_DIR}/build/"
+)
+
+set(CPACK_DEBIAN_PACKAGE_DEPENDS "libgcrypt11, libgmp3c2, libqtcore4, libqtgui4")
+include(CPack)

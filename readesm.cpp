@@ -43,7 +43,7 @@ int main(int argc, char** argv)
 		esmfile esm(inputFile);
 		//determine extension of output file
 		QString extension(outputFile.section(".",-1).toLower());
-cerr << esm.name();
+
 		//create report into temporary array
 		QByteArray outData;
 		if(extension == "txt"){

@@ -1,0 +1,2 @@
+#cmakedefine HAVE_NO_CRYPTO
+#cmakedefine VERSION
