@@ -4,12 +4,17 @@
 #include <QMainWindow>
 #include <QString>
 #include <QSize>
+#include <QSharedPointer>
+
+class esmfile;
 class QWebView;
 
 
 class mainWindow : public QMainWindow
 {
 	Q_OBJECT
+	private:
+		QSharedPointer<esmfile> esm;
 	public:
 		QWebView* view;
 		mainWindow();

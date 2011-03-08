@@ -58,3 +58,10 @@ QString esmfile::name() const{
 		.arg(first.datestr())
 		.arg(last.datestr());
 }
+
+QString esmfile::suggestFileName() const{
+	return tr("%1  (%2 to %3)")
+		.arg(title)
+		.arg(first.datestr("%F"))
+		.arg(last.datestr("%F"));
+}

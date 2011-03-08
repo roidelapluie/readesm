@@ -37,6 +37,7 @@ class esmfile : public esmfilehead {
 	esmfile(const QString& filename);
 
 	QString name() const;
+	QString suggestFileName() const;
 	friend reporter& operator<<(reporter& report, const esmfile& e);
 
 };

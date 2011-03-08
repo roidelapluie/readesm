@@ -9,6 +9,7 @@
 #include <QPrinter>
 #include <QPrintDialog>
 #include <QtWebKit>
+#include <QDir>
 
 #include "../fileformat/esmfile.h"
 #include "../fileformat/reporter/xmlReporter.h"
@@ -102,9 +103,9 @@ void mainWindow::openFile()
 
 void mainWindow::openFile(const QString& filename)
 {
-	esmfile esm(filename);
+	esm = QSharedPointer<esmfile>(new esmfile(filename));
 	xmlReporter rep;
-	rep << esm;
+	rep << *esm;
 	view->setContent(rep.str().toUtf8(), "application/xhtml+xml");
 }
 
@@ -120,18 +121,45 @@ void mainWindow::print()
 
 void mainWindow::saveHtml()
 {
-	QString content = view->page()->mainFrame()->toHtml();
-	QString filename = QFileDialog::getSaveFileName(this,
+	if(!esm){
+		QMessageBox::warning(this, tr("Saving not possible"),tr("Nothing opened, nothing to save."));
+		return;
+	}
+	QString fileName = QFileDialog::getSaveFileName(this,
 		tr("Save XHtml file as"), 
-		QString(), 
-		tr("XHtml files") +  "(*.xhtml)"
+		esm->suggestFileName() + ".xhtml", 
+		tr("XHtml files") +  "(*.xhtml)" + ";;" + tr("All files") + "(*)"
 	);
-	
+	if(fileName != ""){
+		QString content = view->page()->mainFrame()->toHtml();
+		QFile file(fileName);
+		if(!file.open(QIODevice::WriteOnly)){
+			QMessageBox::warning(this, tr("Saving not possible"),tr("Could not open file."));
+			return;
+		}
+		file.write(content.toUtf8());
+	}
 }
 
 void mainWindow::saveRaw()
 {
-
+	if(!esm){
+		QMessageBox::warning(this, tr("Saving not possible"),tr("Nothing opened, nothing to save."));
+		return;
+	}
+	QString fileName = QFileDialog::getSaveFileName(this,
+		tr("Save Tachograph file as"), 
+		esm->suggestFileName() + ".esm", 
+		tr("Tachograph Files") +  "(*.esm *.ddd)" + ";;" + tr("All files") + "(*)"
+	);
+	if(fileName != ""){
+		QFile file(fileName);
+		if(!file.open(QIODevice::WriteOnly)){
+			QMessageBox::warning(this, tr("Saving not possible"),tr("Could not open file."));
+			return;
+		}
+		file.write(esm->content);
+	}
 }
 
 #include "mainWindow.moc"

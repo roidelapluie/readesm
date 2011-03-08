@@ -41,8 +41,8 @@ class Time {
 		strftime(buffer, 39, format.toLocal8Bit(), timeinfo);
 		return QString::fromLocal8Bit(buffer);
 	}
-	QString datestr() const {
-		return str("%x");
+	QString datestr(const QString& format = "%x") const {
+		return str(format);
 	}
 	friend QTextStream& operator<<(QTextStream& o, const Time& d) {
 		return o << d.str();
