@@ -81,7 +81,7 @@ void mainWindow::openFile()
 		QString(), 
 		tr("Tachograph Files") +  "(*.esm *.ddd)" + ";;" + tr("All files") + "(*)"
 	);
-	openFile(fileName);
+        if(fileName != "") openFile(fileName);
 }
 
 void mainWindow::openFile(const QString& filename)
