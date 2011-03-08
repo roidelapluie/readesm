@@ -13,7 +13,6 @@ class mainWindow : public QMainWindow
 	public:
 		QWebView* view;
 		mainWindow();
-		virtual QSize sizeHint () const;
 	public slots:
 		void openFile();
 		void openFile(const QString& filename);

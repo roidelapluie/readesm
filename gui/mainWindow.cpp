@@ -118,9 +118,4 @@ void mainWindow::saveRaw()
 
 }
 
-QSize mainWindow::sizeHint() const
-{
-    return QSize(800,400);
-}
-
 #include "mainWindow.moc"
