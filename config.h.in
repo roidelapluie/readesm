@@ -1,2 +1,3 @@
 #cmakedefine HAVE_NO_CRYPTO
-#cmakedefine VERSION
+#define VERSION "${VERSION_STRING}"
+#define VERSION_DATE "${VERSION_DATE}"

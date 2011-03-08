@@ -5,15 +5,19 @@ find_package(Qt4 COMPONENTS QtGui QtWebKit REQUIRED)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
 
 #*** Make Version known to program ***
+#is this in version control? take version control revision
 find_package(Subversion)
-if(Subversion_FOUND)
+find_file(Subversion_IS_WC .svn ${CMAKE_CURRENT_SOURCE_DIR} NO_CMAKE_PATH)
+if(Subversion_FOUND AND Subversion_IS_WC)
 	Subversion_WC_INFO(${CMAKE_CURRENT_SOURCE_DIR} ER)
-	set(SUBVERSION_REVISION ${ER_WC_REVISION})
-	add_definitions(-DVERSION="${SUBVERSION_REVISION}")
-endif(Subversion_FOUND)
+	set(VERSION_STRING "svn${ER_WC_REVISION}")
+	set(VERSION_DATE ${ER_WC_LAST_CHANGED_DATE})
+endif()
+
+#if this is a release, look into the release file to get release version
+include(currentRelease.cmake OPTIONAL)
 
 #*** check for crypto libraries and enable them if found ***
-
 find_package(gmp)
 find_package(gcrypt)
 
@@ -23,11 +27,11 @@ if(GMP_FOUND AND GCRYPT_FOUND)
 else()
 	message("Did not find both gmp and gcrypt. Disabling cryptographic checks.")
 	set(HAVE_NO_CRYPTO 1)
-	add_definitions(-DHAVE_NO_CRYPTO)
 endif()
 
 
-CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/config.h.in ${CMAKE_CURRENT_BINARY_DIR}/config.h)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config.h.in ${CMAKE_CURRENT_BINARY_DIR}/config.h)
+
 #*** Actual part needed to build everything ***
 
 include_directories(${QT_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/fileformat ${CMAKE_CURRENT_SOURCE_DIR}/fileformat/vuBlocks ${CMAKE_CURRENT_SOURCE_DIR}/fileformat/reporter)
@@ -55,6 +59,7 @@ install(TARGETS readesm RUNTIME DESTINATION bin)
 
 
 #packaging
+set(CPACK_PACKAGE_VERSION ${VERSION_STRING})
 set(CPACK_GENERATOR TBZ2)
 set(CPACK_SOURCE_GENERATOR TGZ;TBZ2)
 set(CPACK_SOURCE_IGNORE_FILES
