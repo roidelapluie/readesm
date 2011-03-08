@@ -1,6 +1,9 @@
 #include "esmfile.h"
+
 #include <QObject>
 #include <QDebug>
+
+#include "config.h"
 
 reporter& operator<<(reporter& report, const esmfile& e){
 	report.title = e.name();

@@ -18,6 +18,7 @@
 #define VUBLOCK_H
 #include <QString>
 #include "myTime.h"
+#include "config.h"
 #ifndef HAVE_NO_CRYPTO
 #include "crypto.h"
 #endif

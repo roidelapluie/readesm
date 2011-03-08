@@ -22,9 +22,11 @@
 #include <QFile>
 #include <QByteArray>
 
+#include "config.h"
 #ifndef HAVE_NO_CRYPTO
 #include "crypto.h"
 #endif
+
 #include "myTime.h"
 
 class esmfilehead {

@@ -21,9 +21,12 @@
 
 #include "Activity.h"
 #include "esmfilehead.h"
+
+#include "config.h"
 #ifndef HAVE_NO_CRYPTO
 #include "crypto.h"
 #endif
+
 #include "block.h"
 #include "overtime.h"
 #include "readTypes.h"

@@ -25,6 +25,7 @@
 #include "constDataPointer.h"
 #include "readTypes.h"
 #include "reporter/reporter.h"
+#include "config.h"
 
 class signature {
 	public:

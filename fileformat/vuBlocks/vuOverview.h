@@ -22,6 +22,8 @@
 
 #include "vuBlock.h"
 #include "formatStrings.h"
+
+#include "config.h"
 #ifndef HAVE_NO_CRYPTO
 #include "crypto.h"
 #endif
