@@ -1,5 +1,5 @@
 project(readesm)
-cmake_minimum_required(VERSION 2.6)
+cmake_minimum_required(VERSION 2.8)
 find_package(Qt4 COMPONENTS QtGui QtWebKit REQUIRED)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
@@ -33,21 +33,20 @@ endif()
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config.h.in ${CMAKE_CURRENT_BINARY_DIR}/config.h)
 
 #*** translation ***
-file (GLOB TRANSLATIONS_FILES *.ts)
+file (GLOB TRANSLATIONS_FILES "*.ts")
+set_source_files_properties(${TRANSLATIONS_FILES} PROPERTIES OUTPUT_LOCATION ${CMAKE_CURRENT_SOURCE_DIR})
 qt4_create_translation(QM_FILES ${readesm_SRCS} ${TRANSLATIONS_FILES})
 add_custom_target(translations_target DEPENDS ${QM_FILES})
 
-
 #*** Actual part needed to build everything ***
-
 include_directories(${QT_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/fileformat ${CMAKE_CURRENT_SOURCE_DIR}/fileformat/vuBlocks ${CMAKE_CURRENT_SOURCE_DIR}/fileformat/reporter)
 
 file(GLOB gui_CPP "gui/*.cpp")
 file(GLOB fileformat_CPP "fileformat/*.cpp" fileformat/*/*.cpp) 
 
 set(readesm_SRCS ${gui_CPP} ${fileformat_CPP} readesm.cpp )
-
 set(readesm_RCCS readesm.qrc)
+
 qt4_add_resources(readesm_RCC_SRCS ${readesm_RCCS})
 
 qt4_automoc(${readesm_SRCS})
