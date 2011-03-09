@@ -17,13 +17,13 @@
 #ifndef REPORTER_H
 #define REPORTER_H REPORTER_H
 
-#include <QString>
+#include <QtCore/QString>
 #include <QTextStream>
 #include <QCoreApplication>
 #include <QObject>
 #include <QSharedPointer>
 
-#include "picgen.h"
+#include "../picgen.h"
 
 
 

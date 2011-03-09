@@ -1,15 +1,14 @@
 #include "mainWindow.h"
 
-#include <QMenu>
-#include <QMenuBar>
-#include <QAction>
-#include <QMessageBox>
-#include <QFileDialog>
-
-#include <QPrinter>
-#include <QPrintDialog>
-#include <QtWebKit>
-#include <QDir>
+#include <QtCore/QDir>
+#include <QtGui/QAction>
+#include <QtGui/QFileDialog>
+#include <QtGui/QMenu>
+#include <QtGui/QMenuBar>
+#include <QtGui/QMessageBox>
+#include <QtGui/QPrinter>
+#include <QtGui/QPrintDialog>
+#include <QtWebKit/QtWebKit>
 
 #include "../fileformat/esmfile.h"
 #include "../fileformat/reporter/xmlReporter.h"
