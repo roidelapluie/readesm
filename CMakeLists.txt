@@ -74,5 +74,4 @@ set(CPACK_SOURCE_IGNORE_FILES
 	"^${PROJECT_SOURCE_DIR}/build/"
 )
 
-set(CPACK_DEBIAN_PACKAGE_DEPENDS "libgcrypt11, libgmp3c2, libqtcore4, libqtgui4")
 include(CPack)

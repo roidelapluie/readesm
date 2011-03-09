@@ -29,28 +29,44 @@ The language of the project is C++, and development is done on a linux platform,
 but it should be possible to compile it on any platform with a C++-compiler,
 Qt, the stdlib and shared_ptr from boost. For signature checking the Gnu MP 
 library and libgcrypt are needed.
+<h2>Installation</h2>
+<h3>Ubuntu packages</h3>
+<p>There are precompiled packages in <a href="">my personal package archive</a>.
+Installation in Ubuntu should work by typing
+<pre>sudo apt-add-repository ppa:k-2005/ppa
+sudo apt-get update
+sudo apt-get install readesm</pre>
+Afterwards you can start readesm by typing <i>readesm</i> on the command line,
+and associate a file extension with it.
 
 <h2>Compiling</h2>
+<p>You can get the program files from
+<a href="http://andreas.goelzer.de/readesm-reading-digital-tachograph-files">
+my homepage</a>, or from
+the <a href="http://sourceforge.net/projects/readesm/">development page</a> 
+at Sourceforge.</p>
 
-You can get the program files from my homepage
-(http://andreas.goelzer.de/readesm-reading-digital-tachograph-files), or from
-the development page (http://sourceforge.net/projects/readesm/) at Sourceforge.
-Since so far there is no binary distribution for the program, you will have to
-compile it yourself.
-
-To do that, you need a C++ compiler, parts of the boost (http://www.boost.org/)
-library (specifically program_options and shared_ptr) and the Gnu MP Library
-(http://gmplib.org/), which is used to check the various RSA signatures. Once
-all those are installed, typing make/make install should work fine. If not, it
-might give you a hint what is still needed, if not, report your error. For
-certain linux flavours, "sudo make packageinstall" will create and install a
-package using checkinstall, which you can easily uninstall with your package
-management tool.
-
-On Ubuntu (http://www.ubuntu.com/) systems, you will need to do something like:
-
-sudo apt-get install libboost-program-options-dev libgcrypt11-dev libgmp3-dev
+<p>To compile, you need
+<ul>
+	<li>a C++ compiler of your choice,</li>
+	<li>a Makefile parser of your choice,</li>
+	<li><a href="http://www.cmake.org/">cmake</a> as a Makefile generator,</li>
+	<li>The <a href="http://qt.nokia.com">Qt</a>, specifically the modules
+		QtCore, QtGui and QtWebKit.</li>
+</ul>
+If you want to check wether the signatures in the tachograph data check out, 
+you also need:
+<ul>
+	<li>the <a href="http://gmplib.org/">Gnu MP Library</a> and</li>
+	<li>the <a href="http://directory.fsf.org/project/libgcrypt/">
+		gcrypt</a> library.</li>
+</ul>
+</p>
+<p>If you have all prerequisites installed, unpack a release tarball or get the 
+source from svn, then build with cmake. In Ubuntu you might do something like:
 <pre>
+sudo apt-get install libqt4-dev qt4-qmake libqtwebkit-dev libgcrypt11-dev libgmp3-dev
+sudo apt-get install cmake build-essentials subversion
 svn co https://readesm.svn.sourceforge.net/svnroot/readesm readesm
 cd readesm
 mkdir build
@@ -59,8 +75,6 @@ cmake ..
 make
 sudo make install
 </pre>
-Or use some method that integrates it into your package manager, like
-aforementioned checkinstall.
 </p>
 
 <h2>Running the program</h2>
@@ -77,6 +91,22 @@ aforementioned checkinstall.
 
 
 <h2>Questions and answers</h2>
+
+<h4><a name="legislation"></a>Where can I get the documentation for the tachograph file format?</h4>
+<p>The Tachograph file format, download protocol, printout format and basically everything about digital tachographs is defined in
+<a href="http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=OJ:L:2002:207:0001:0252:EN:PDF">OJ:L:2002:207, p. 1-252</a>.
+As with all european legislation it is available in several languages, for example
+<ul><li><a href="http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=CONSLEG:2002R1360:20020825:EN:PDF">English</a>,</li>
+<li><a href="http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=CONSLEG:2002R1360:20020825:ES:PDF">Spanish</a> and</li>
+<li><a href="http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=CONSLEG:2002R1360:20020825:DE:PDF">German</a>.</li></ul>
+If you want to view it in another language, replace the <i>EN</i> in the url for the english document with your preferred language code.</p>
+
+
+<h4>How can I download the data from the vehicle unit?</h4>
+<p>I fear you will have to resort to proprietary solutions here.  Alternatively you could code something yourself, the protocol is completely defined in the <a href="#legislation">legislation</a>.  However, testing download algorithms leaves traces on the equipment, so take care your download attempts are not recorded as hacking attempts.</p>
+
+<h4>How can I download the data from the driver card?</h4>
+<p>Use <a href="http://developer.berlios.de/projects/fahrlinx/">Fahrlinux</a>.</p>
 
 <h2>Modifying the program</h2>
 <p>You are free to modify and redistribute the program under the terms of the <a href="http://www.gnu.org/licenses/gpl.html">GPL</a>.</p>
