@@ -17,16 +17,16 @@
 #ifndef VUBLOCK_H
 #define VUBLOCK_H
 
-#include "block.h"
+#include "../block.h"
 #include "config.h"
-#include "constDataPointer.h"
+#include "../constDataPointer.h"
 
 #ifndef HAVE_NO_CRYPTO
-#include "crypto.h"
+#include "../crypto.h"
 #endif
 
-#include "myTime.h"
-#include "readTypes.h"
+#include "../myTime.h"
+#include "../readTypes.h"
 
 #include <QtCore/QString>
 

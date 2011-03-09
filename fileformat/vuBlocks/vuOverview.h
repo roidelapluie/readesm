@@ -17,18 +17,19 @@
 #ifndef OVERVIEW_H
 #define OVERVIEW_H OVERVIEW_H
 
-#include <QString>
-#include <QDebug>
-
-#include "vuBlock.h"
-#include "formatStrings.h"
-
 #include "config.h"
+#include "../constDataPointer.h"
+
 #ifndef HAVE_NO_CRYPTO
-#include "crypto.h"
+#include "../crypto.h"
 #endif
-#include "readTypes.h"
-#include "constDataPointer.h"
+
+#include "../formatStrings.h"
+#include "../readTypes.h"
+#include "vuBlock.h"
+
+#include <QtCore/QDebug>
+#include <QtCore/QString>
 
 ///See page 160 of l207.pdf
 class vuOverview : public vuBlock {

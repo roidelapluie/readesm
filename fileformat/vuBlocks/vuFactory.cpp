@@ -1,6 +1,5 @@
 #include "vuFactory.h"
 
-#include "constDataPointer.h"
 #include "vuActivities.h"
 #include "vuFaults.h"
 #include "vuOverview.h"

@@ -16,9 +16,10 @@
 
 #ifndef TECHNICAL_H
 #define TECHNICAL_H TECHNICAL_H
-#include "formatStrings.h"
+
+#include "../constDataPointer.h"
+#include "../formatStrings.h"
 #include "vuBlock.h"
-#include "constDataPointer.h"
 
 ///See page 163 of l207.pdf
 class vuTechnical : public vuBlock {

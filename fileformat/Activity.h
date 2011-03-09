@@ -19,7 +19,7 @@
 
 #include "helper.h"
 #include "readTypes.h"
-#include "reporter.h"
+#include "reporter/reporter.h"
 #include "myTime.h"
 
 #include <QtCore/QCoreApplication>

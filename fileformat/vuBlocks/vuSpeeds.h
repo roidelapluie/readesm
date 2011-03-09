@@ -16,10 +16,11 @@
 
 #ifndef SPEEDS_H
 #define SPEEDS_H SPEEDS_H
-#include <QString>
 
+#include "../constDataPointer.h"
 #include "vuBlock.h"
-#include "constDataPointer.h"
+
+#include <QtCore/QString>
 
 ///See page 163 of l207.pdf
 class vuSpeeds : public vuBlock {

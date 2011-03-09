@@ -17,7 +17,7 @@
 #ifndef FAULTS_H
 #define FAULTS_H FAULTS_H
 
-#include "formatStrings.h"
+#include "../formatStrings.h"
 #include "vuBlock.h"
 
 class EventBase {

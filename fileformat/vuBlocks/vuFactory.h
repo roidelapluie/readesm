@@ -16,9 +16,10 @@
 #ifndef VUFACTORY_H
 #define VUFACTORY_H
 
+#include "../constDataPointer.h"
+
 #include <QtCore/QSharedPointer>
 
-class constDataPointer;
 class vuBlock;
 
 QSharedPointer<vuBlock> vuFactory(constDataPointer start);
