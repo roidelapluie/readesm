@@ -35,7 +35,8 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config.h.in ${CMAKE_CURRENT_BINARY_DI
 #*** translation ***
 file (GLOB TRANSLATIONS_FILES "*.ts")
 set_source_files_properties(${TRANSLATIONS_FILES} PROPERTIES OUTPUT_LOCATION ${CMAKE_CURRENT_SOURCE_DIR})
-qt4_create_translation(QM_FILES ${readesm_SRCS} ${TRANSLATIONS_FILES})
+#qt4_create_translation(QM_FILES ${readesm_SRCS} ${TRANSLATIONS_FILES})
+qt4_add_translation(QM_FILES ${readesm_SRCS} ${TRANSLATIONS_FILES})
 add_custom_target(translations_target DEPENDS ${QM_FILES})
 
 #*** Actual part needed to build everything ***
