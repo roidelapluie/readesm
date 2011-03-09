@@ -1,3 +1,10 @@
+readesm (2008.03pre1ubuntu2) maverick; urgency=low
+
+  * New release with qt gui
+  * include cmake build-dependency
+
+ -- Andreas Goelzer <k_2005@goelzer.de>  Wed, 09 Mar 2011 09:22:01 +0100
+
 readesm (0.3.2-0ubuntu2) lucid; urgency=low
 
    * New version of libboost-program-options in jaunty
