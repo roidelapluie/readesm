@@ -7,28 +7,12 @@
 	</head>
 	<body>
 		<h1>readESM Documentation</h1>
-		<p>readESM - digital tachograph file reader
-
-This program takes an ESM file, as downloaded from a digital tachograph or a
+<p>This program takes an ESM file, as downloaded from a digital tachograph or a
 driver card, a compulsory equipment for trucks heavier than 3.5 tons within the
 European Union. It converts said files into human-readable form, either html or
-simple plaintext.
+simple plaintext.</p>
 
-So far the program just does this conversion, with a few datasets still unread,
-and does little analysis of the data. More analysis is planned for the future,
-but any serious attempt requires refactoring the data heavily, which might never
-be done due to time constraints.
 
-The digital tachographs and respective cards use industry standard security, 
-with 1024-bit rsa, sha-1 hashes and individual certificates on each card
-signed by ec member states authorities. The software checks the signatures and
-certification chain for correctness, so far without checking the revoked-key
-list.
-
-The language of the project is C++, and development is done on a linux platform,
-but it should be possible to compile it on any platform with a C++-compiler,
-Qt, the stdlib and shared_ptr from boost. For signature checking the Gnu MP 
-library and libgcrypt are needed.
 <h2>Installation</h2>
 <h3>Ubuntu packages</h3>
 <p>There are precompiled packages in <a href="">my personal package archive</a>.
@@ -39,7 +23,7 @@ sudo apt-get install readesm</pre>
 Afterwards you can start readesm by typing <i>readesm</i> on the command line,
 and associate a file extension with it.
 
-<h2>Compiling</h2>
+<h3>Compiling</h3>
 <p>You can get the program files from
 <a href="http://andreas.goelzer.de/readesm-reading-digital-tachograph-files">
 my homepage</a>, or from
@@ -77,8 +61,9 @@ sudo make install
 </pre>
 </p>
 
-<h2>Running the program</h2>
-<p><ul>
+<h2>Starting the program</h2>
+<p>You can use readesm in gui mode or in command line mode:
+<ul>
 	<li>Start readesm with no arguments.  On Unix systems, this should be
 	<pre>./readesm</pre>
 	from the directory in which the executable is located, or just
@@ -108,12 +93,24 @@ If you want to view it in another language, replace the <i>EN</i> in the url for
 <h4>How can I download the data from the driver card?</h4>
 <p>Use <a href="http://developer.berlios.de/projects/fahrlinx/">Fahrlinux</a>.</p>
 
+<h4>Doesn't the driver card just hold 28 days of data?</h4>
+<p>Well, no.  The driver cards hold between 5548 byte and 13780 byte of activity data.  That translates to 28 days only if a lot of activity changes have to be recorded.  For most drivers, the card stores about one year of driving records. A possible way to clean the card would be to press <i>break</i> every minute on some slow sunday.</p>
+
+<h4>How secure is the cryptographic system?</h4>
+<p>That depends.  On one hand, the cards and vehicle units use 1024-bit RSA, which is so far reasonable even for really confidential information and not directly breakable.  On the other hand, well...
+<ul>
+	<li>There are a lot of different keys used to sign the keys in the individual cards and vehicle units.  So there are many officials one could bribe to get a signed key or even a key usable as CA.</li>
+	<li>The secret keys are on the driver cards and vehicle units, so they already are in the hands of those who have the most interest in hacking them.  This makes various side-channel attacks possible.  Or, with a bit of money, presumably far less than the cost of a new truck, one could also just flat-out read the key data from the flash memory.</li>
+</ul>
+So far the cryptographic system itself <i>might</i> be unhacked.  It is far easier to just drive with a borrowed card at night than to retrieve the secret key.  On the other hand, there is some monetary incentive to avoid detection by manipulating the data, and some day this will be enough.</p>
+<p>Please drive carefully, simply sticking to the <i>neccessary</i> law is the simplest way to avoid fines.</p>
+
 <h2>Modifying the program</h2>
 <p>You are free to modify and redistribute the program under the terms of the <a href="http://www.gnu.org/licenses/gpl.html">GPL</a>.</p>
 <p>If you do so, note:
 <ul>
 	<li>Sometimes i added references to l207.pdf in the comments, that refers to
-	<a href="http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=OJ:L:2002:207:0001:0252:EN:PDF">OJ:L:2002:207, p. 1-252</a>, as with all european legislation it is available in several languages.
+	<a href="http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=OJ:L:2002:207:0001:0252:EN:PDF">OJ:L:2002:207, p. 1-252</a>, the <a href="#legislation">legislation</a> mentioned above.
 	</li>
 	<li>The code is rather unclean, often two or more classes in the same file, wild
 	naming convention(often taken from the european law, which has quite large

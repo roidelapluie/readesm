@@ -40,7 +40,7 @@ qt4_add_translation(QM_FILES ${readesm_SRCS} ${TRANSLATIONS_FILES})
 add_custom_target(translations_target DEPENDS ${QM_FILES})
 
 #*** Actual part needed to build everything ***
-include_directories(${QT_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/fileformat ${CMAKE_CURRENT_SOURCE_DIR}/fileformat/vuBlocks ${CMAKE_CURRENT_SOURCE_DIR}/fileformat/reporter)
+include_directories(${QT_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR})
 
 file(GLOB gui_CPP "gui/*.cpp")
 file(GLOB fileformat_CPP "fileformat/*.cpp" fileformat/*/*.cpp) 
