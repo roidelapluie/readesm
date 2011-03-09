@@ -16,15 +16,19 @@
 
 #ifndef VUBLOCK_H
 #define VUBLOCK_H
-#include <QString>
-#include "../myTime.h"
+
+#include "../block.h"
 #include "config.h"
+#include "../constDataPointer.h"
+
 #ifndef HAVE_NO_CRYPTO
 #include "../crypto.h"
 #endif
-#include "../block.h"
+
+#include "../myTime.h"
 #include "../readTypes.h"
-#include "../constDataPointer.h"
+
+#include <QtCore/QString>
 
 class vuBlock : public block {
 	public:
@@ -100,6 +104,7 @@ class vuBlock : public block {
 	}
 #ifndef HAVE_NO_CRYPTO
 	virtual bool checksig(const rsa& key) {
+		;
 		validsignature = CheckSignature(start + 2 + nonhashedbytes(), size()
 				- 128 - 2 - nonhashedbytes(), signature, 128, key);
 		return validsignature;
