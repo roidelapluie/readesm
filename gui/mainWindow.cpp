@@ -67,7 +67,7 @@ void mainWindow::helpAbout()
 	QMessageBox::about(this,
 		tr("About Readesm"),
 		qApp->applicationName() % QString("\n\n") 
-		% tr("Version: ") % qApp->applicationName()
+		% tr("Version: ") % qApp->applicationVersion()
 		% QString("\n")
 		% tr("Copyright (C) 2011 by %1 (%2)")
 			.arg(qApp->organizationName())

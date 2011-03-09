@@ -30,11 +30,9 @@ esmfile::esmfile(const QString& filename) :
 {
 	constDataPointer filewalker(content, 0);
 	while(filewalker.bytesLeft() > 0) {
-		qDebug() << "Creating block from offset " << filewalker.offset <<", " << filewalker.bytesLeft() << " byte left";
 		block::ptr p(block::Factory(filewalker));
 		blocks.push_back(p);
 		filewalker += p->size();
-		qDebug() << "Block had size " << p->size();
 	}
 	for(subiter i = blocks.begin(); i < blocks.end(); ++i)
 		(*i)->reportstuff(*this);
