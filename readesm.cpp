@@ -14,11 +14,12 @@
 #include "fileformat/reporter/xmlReporter.h"
 #include "gui/mainWindow.h"
 
-#include <QtGui/QApplication>
-#include <QtCore/QTranslator>
+#include <QtCore/QByteArray>
 #include <QtCore/QLocale>
 #include <QtCore/QString>
 #include <QtCore/QTextStream>
+#include <QtCore/QTranslator>
+#include <QtGui/QApplication>
 
 int main(int argc, char** argv)
 {

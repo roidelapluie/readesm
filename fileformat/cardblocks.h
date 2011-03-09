@@ -17,21 +17,25 @@
 #ifndef CARDBLOCKS_H
 #define CARDBLOCKS_H
 
-#include <QtCore/QDebug>
-
 #include "Activity.h"
-#include "esmfilehead.h"
-
+#include "block.h"
 #include "config.h"
+
 #ifndef HAVE_NO_CRYPTO
 #include "crypto.h"
 #endif
 
-#include "block.h"
+#include "constDataPointer.h"
+#include "esmfilehead.h"
+#include "formatStrings.h"
 #include "overtime.h"
 #include "readTypes.h"
-#include "formatStrings.h"
-#include "constDataPointer.h"
+
+#include <QtCore/QByteArray>
+#include <QtCore/QCoreApplication>
+#include <QtCore/QDebug>
+#include <QtCore/QObject>
+#include <QtCore/QString>
 
 class cardBlock : public block {
 	public:

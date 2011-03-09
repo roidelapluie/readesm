@@ -17,15 +17,17 @@
 #ifndef BLOCK_H
 #define BLOCK_H BLOCK_H
 
-#include <QtCore/QSharedPointer>
-#include <QtCore/QObject>
-
-#include "helper.h"
-#include "esmfilehead.h"
+#include "config.h"
 #include "constDataPointer.h"
+#include "esmfilehead.h"
+#include "helper.h"
 #include "readTypes.h"
 #include "reporter/reporter.h"
-#include "config.h"
+
+#include <QtCore/QCoreApplication>
+#include <QtCore/QObject>
+#include <QtCore/QSharedPointer>
+#include <QtCore/QString>
 
 class signature {
 	public:
@@ -43,7 +45,7 @@ class signature {
 	}
 };
 
-class block{
+class block {
 	Q_DECLARE_TR_FUNCTIONS(block)
 	public:
 	typedef QSharedPointer<block> ptr;
