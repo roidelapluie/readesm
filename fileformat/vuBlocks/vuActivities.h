@@ -5,6 +5,7 @@
 #include "../constDataPointer.h"
 #include "vuBlock.h"
 
+#include <QtCore/QCoreApplication>
 #include <QtCore/QString>
 
 #include <vector>

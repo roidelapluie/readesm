@@ -25,7 +25,6 @@
 #include "reporter/reporter.h"
 
 #include <QtCore/QCoreApplication>
-#include <QtCore/QObject>
 #include <QtCore/QSharedPointer>
 #include <QtCore/QString>
 

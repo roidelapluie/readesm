@@ -1,6 +1,7 @@
 #include "config.h"
 #ifndef HAVE_NO_CRYPTO
 #include "crypto.h"
+
 #include <gcrypt.h>
 
 bool checkSHA1match(const unsigned char* text, int textlength,

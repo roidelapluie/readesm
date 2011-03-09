@@ -3,6 +3,7 @@
 #include "../fileformat/esmfile.h"
 #include "../fileformat/reporter/xmlReporter.h"
 
+#include <QtCore/QString>
 #include <QtCore/QStringBuilder>
 #include <QtGui/QAction>
 #include <QtGui/QFileDialog>

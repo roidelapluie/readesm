@@ -1,5 +1,7 @@
 #include "myTime.h"
 
+#include <QtCore/QObject>
+
 Duration operator-(const Time& a, const Time& b) {
 	return Duration(a.timestamp - b.timestamp);
 }

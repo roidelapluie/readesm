@@ -1,5 +1,7 @@
 #include "Activity.h"
 
+#include <QtCore/QObject>
+
 QString visualization(reporter& o, const std::vector<Activity>& acts) {
 	reporter::pgptr actvisual(o.getBarGraph());
 	for(std::vector<Activity>::const_iterator j(acts.begin()); j != acts.end(); ++j) {

@@ -2,12 +2,11 @@
 #define mainWindow_H
 
 #include <QtCore/QSharedPointer>
-#include <QtCore/QString>
 #include <QtGui/QMainWindow>
 
 class esmfile;
+class QString;
 class QWebView;
-
 
 class mainWindow : public QMainWindow
 {

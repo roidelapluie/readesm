@@ -17,9 +17,11 @@
 #ifndef CRYPTO_H
 #define CRYPTO_H CRYPTO_H
 #include "config.h"
+
 #ifdef HAVE_NO_CRYPTO
 #error "including crypto"
 #endif
+
 #include "formatStrings.h"
 #include "helper.h"
 #include "readTypes.h"
@@ -29,7 +31,6 @@
 #include <QtCore/QCoreApplication>
 #include <QtCore/QDebug>
 #include <QtCore/QFile>
-#include <QtCore/QObject>
 #include <QtCore/QSharedPointer>
 
 #include <vector>

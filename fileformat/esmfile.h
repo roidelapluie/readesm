@@ -19,11 +19,12 @@
 
 #include "block.h"
 #include "esmfilehead.h"
-#include "reporter/reporter.h"
 
 #include <QtCore/QString>
 
 #include <vector>
+
+class reporter;
 
 class esmfile : public esmfilehead {
 	Q_DECLARE_TR_FUNCTIONS(esmfile)
