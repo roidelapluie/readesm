@@ -7,7 +7,7 @@ class constDataPointer {
 	QByteArray data;
 	public:
 	int offset;
-	constDataPointer(){}
+	constDataPointer() {}
 	
 	constDataPointer(const QByteArray& data_, int offset_ = 0) :
 		data(data_),
@@ -55,7 +55,7 @@ class constDataPointer {
 		return data.size() - offset;
 	}
 	
-	bool operator<(const constDataPointer& other){
+	bool operator<(const constDataPointer& other) {
 		return offset < other.offset;
 	}
 };

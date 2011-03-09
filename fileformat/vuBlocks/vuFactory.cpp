@@ -9,7 +9,7 @@
 
 QSharedPointer<vuBlock> vuFactory(constDataPointer start) {
 	typedef QSharedPointer<vuBlock> p;
-	if(start[0] != 0x76){
+	if(start[0] != 0x76) {
 		qFatal("Not a block known to readesm, does not begin with 0x76");
 	}
 	switch(start[1]) {

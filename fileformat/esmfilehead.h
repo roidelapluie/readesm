@@ -18,9 +18,11 @@
 #define ESMFILEHEAD_H
 
 #include "config.h"
+
 #ifndef HAVE_NO_CRYPTO
 #include "crypto.h"
 #endif
+
 #include "myTime.h"
 
 #include <QtCore/QByteArray>

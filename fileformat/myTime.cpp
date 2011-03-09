@@ -15,7 +15,7 @@ QString formatRange(const Time& begin, const Time& end) {
 QString formatMinutes(int minutes) {
 	QString rv;
 	if(minutes >= 3* 24* 60 ) {
-		rv =  QObject::tr("%1 days ").arg(minutes / (24*60));
+		rv = QObject::tr("%1 days ").arg(minutes / (24*60));
 		minutes %= 24*60;
 	}
 	rv += QString("%1:%2")

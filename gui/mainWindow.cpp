@@ -121,7 +121,7 @@ void mainWindow::print()
 
 void mainWindow::saveHtml()
 {
-	if(!esm){
+	if(!esm) {
 		QMessageBox::warning(this, tr("Saving not possible"),tr("Nothing opened, nothing to save."));
 		return;
 	}
@@ -130,10 +130,10 @@ void mainWindow::saveHtml()
 		esm->suggestFileName() + ".xhtml", 
 		tr("XHtml files") +  "(*.xhtml)" + ";;" + tr("All files") + "(*)"
 	);
-	if(fileName != ""){
+	if(fileName != "") {
 		QString content = view->page()->mainFrame()->toHtml();
 		QFile file(fileName);
-		if(!file.open(QIODevice::WriteOnly)){
+		if(!file.open(QIODevice::WriteOnly)) {
 			QMessageBox::warning(this, tr("Saving not possible"),tr("Could not open file."));
 			return;
 		}
@@ -143,7 +143,7 @@ void mainWindow::saveHtml()
 
 void mainWindow::saveRaw()
 {
-	if(!esm){
+	if(!esm) {
 		QMessageBox::warning(this, tr("Saving not possible"),tr("Nothing opened, nothing to save."));
 		return;
 	}
@@ -152,9 +152,9 @@ void mainWindow::saveRaw()
 		esm->suggestFileName() + ".esm", 
 		tr("Tachograph Files") +  "(*.esm *.ddd)" + ";;" + tr("All files") + "(*)"
 	);
-	if(fileName != ""){
+	if(fileName != "") {
 		QFile file(fileName);
-		if(!file.open(QIODevice::WriteOnly)){
+		if(!file.open(QIODevice::WriteOnly)) {
 			QMessageBox::warning(this, tr("Saving not possible"),tr("Could not open file."));
 			return;
 		}

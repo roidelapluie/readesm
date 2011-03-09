@@ -17,8 +17,8 @@
 #ifndef FAULTS_H
 #define FAULTS_H FAULTS_H
 
-#include "vuBlock.h"
 #include "formatStrings.h"
+#include "vuBlock.h"
 
 class EventBase {
 	Q_DECLARE_TR_FUNCTIONS(EventBase)

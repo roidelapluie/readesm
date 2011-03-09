@@ -34,16 +34,16 @@ int main(int argc, char** argv)
 	QTextStream cerr(stderr);
 
 	QTranslator qtTranslator;
-	if(!qtTranslator.load("readesm_" + QLocale::system().name(),":/")){
+	if(!qtTranslator.load("readesm_" + QLocale::system().name(),":/")) {
 		cerr << "Could not load internationalization files for your locale :(" << endl;
 	}
 	app.installTranslator(&qtTranslator);
-	if(argc < 3){
+	if(argc < 3) {
 		mainWindow widgetMainWindow;
 		widgetMainWindow.show();
 		if(argc == 2) widgetMainWindow.openFile(QString(argv[1]));
 		return app.exec();
-	} else if(argc == 3){
+	} else if(argc == 3) {
 		QString inputFile(argv[1]);
 		QString outputFile(argv[2]);
 		
@@ -53,15 +53,15 @@ int main(int argc, char** argv)
 
 		//create report into temporary array
 		QByteArray outData;
-		if(extension == "txt"){
+		if(extension == "txt") {
 			txtReporter rep;
 			rep << esm;
 			outData = rep.str().toLocal8Bit();
-		} else if(extension == "html" || extension == "htm"){
+		} else if(extension == "html" || extension == "htm") {
 			htmlReporter rep;
 			rep << esm;
 			outData = rep.str().toUtf8();
-		} else if(extension == "xml" || extension == "xhtml"){
+		} else if(extension == "xml" || extension == "xhtml") {
 			xmlReporter rep;
 			rep << esm;
 			outData = rep.str().toUtf8();
@@ -73,7 +73,7 @@ int main(int argc, char** argv)
 		QFile out(outputFile);
 		out.open(QIODevice::WriteOnly | QIODevice::Text);
 		
-		if(!out.isOpen()){
+		if(!out.isOpen()) {
 			cerr << "Could not open file " << outputFile << " for output. dumping to stdout" << endl;
 			QTextStream cout(stdout);
 			cout << outData;

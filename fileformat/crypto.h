@@ -29,6 +29,7 @@
 #include <QtCore/QCoreApplication>
 #include <QtCore/QDebug>
 #include <QtCore/QFile>
+#include <QtCore/QObject>
 #include <QtCore/QSharedPointer>
 
 #include <vector>

@@ -17,7 +17,7 @@
 #ifndef TIME_H
 #define TIME_H TIME_H
 
-#include <QtCore/QObject>
+#include <QtCore/QCoreApplication>
 #include <QtCore/QString>
 #include <QtCore/QTextStream>
 
@@ -59,6 +59,7 @@ class Time {
 
 ///a duration between two times
 class Duration {
+	Q_DECLARE_TR_FUNCTIONS(Duration)
 	public:
 	///construct a duration from an int containing a duration in seconds
 	Duration(int length_ = 0) :
@@ -77,7 +78,7 @@ class Duration {
 			l = -l;
 		}
 		if(l > 86400) {
-			o << (l / 86400) << " " << QObject::tr("days") << " ";
+			o << (l / 86400) << " " << tr("days") << " ";
 			l %= 86400;
 		}
 		o << QString("%1:%2:%3")

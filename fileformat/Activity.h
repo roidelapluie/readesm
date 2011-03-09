@@ -17,15 +17,16 @@
 #ifndef ACTIVITY_H
 #define ACTIVITY_H
 
+#include "helper.h"
+#include "readTypes.h"
 #include "reporter.h"
 #include "myTime.h"
-#include "readTypes.h"
-#include "helper.h"
 
 #include <QtCore/QCoreApplication>
 #include <QtCore/QDebug>
-#include <QtCore/QObject>
 #include <QtCore/QString>
+
+#include <vector>
 
 class Activity {
 	Q_DECLARE_TR_FUNCTIONS(Activity)

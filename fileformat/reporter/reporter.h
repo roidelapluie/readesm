@@ -24,7 +24,6 @@
 #include <QtCore/QString>
 #include <QtCore/QTextStream>
 
-
 class reporter {
 	Q_DECLARE_TR_FUNCTIONS(reporter)
 

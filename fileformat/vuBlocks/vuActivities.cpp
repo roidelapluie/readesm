@@ -1,14 +1,10 @@
 #include "vuActivities.h"
 
-#include "reporter.h"
+#include "../formatStrings.h"
+#include "../reporter/reporter.h"
 #include "vuBlock.h"
-#include "Activity.h"
-#include "formatStrings.h"
-#include "constDataPointer.h"
 
 #include <QtCore/QString>
-
-#include <vector>
 
 Activity vuActivities::readActivity(int start) const {
 	return Activity(&block_start[start]);

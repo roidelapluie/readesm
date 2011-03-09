@@ -3,12 +3,13 @@
 
 #include "../Activity.h"
 #include "../constDataPointer.h"
-#include "../reporter/reporter.h"
 #include "vuBlock.h"
 
 #include <QtCore/QString>
 
 #include <vector>
+
+class reporter;
 
 ///See page 161 of l207.pdf
 class vuActivities : public vuBlock {

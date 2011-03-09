@@ -20,7 +20,7 @@
 #include <QtCore/QCoreApplication>
 #include <QtCore/QString>
 
-class formatStrings{
+class formatStrings {
 	Q_DECLARE_TR_FUNCTIONS(formatStrings)
 
 	public:

@@ -20,7 +20,7 @@
 #include <QtCore/QString>
 #include <QtCore/QTextStream>
 
-class picgen{
+class picgen {
 	protected:
 		QString collected;
 	public:

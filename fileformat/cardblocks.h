@@ -20,12 +20,12 @@
 #include "Activity.h"
 #include "block.h"
 #include "config.h"
+#include "constDataPointer.h"
 
 #ifndef HAVE_NO_CRYPTO
 #include "crypto.h"
 #endif
 
-#include "constDataPointer.h"
 #include "esmfilehead.h"
 #include "formatStrings.h"
 #include "overtime.h"

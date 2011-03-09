@@ -5,7 +5,7 @@
 
 #include "config.h"
 
-reporter& operator<<(reporter& report, const esmfile& e){
+reporter& operator<<(reporter& report, const esmfile& e) {
 	report.title = e.name();
 	report.bigblockstart(QObject::tr("Statistics"));
 	report.single(QObject::tr("Statistics for") + " " + e.title, true);
@@ -38,8 +38,8 @@ esmfile::esmfile(const QString& filename) :
 		(*i)->reportstuff(*this);
 #ifndef HAVE_NO_CRYPTO
 	if(CAcert && devicecert) {
-		if(CAcert->verify(":/EC_PK.bin")){
-			if(devicecert->verify(*CAcert)){
+		if(CAcert->verify(":/EC_PK.bin")) {
+			if(devicecert->verify(*CAcert)) {
 				for(subiter i = blocks.begin(); i < blocks.end(); ++i)
 					(*i)->checksig(devicecert->key);
 			}
@@ -50,14 +50,14 @@ esmfile::esmfile(const QString& filename) :
 #endif
 }
 
-QString esmfile::name() const{
+QString esmfile::name() const {
 	return tr("%1, %2 to %3")
 		.arg(title)
 		.arg(first.datestr())
 		.arg(last.datestr());
 }
 
-QString esmfile::suggestFileName() const{
+QString esmfile::suggestFileName() const {
 	return tr("%1  (%2 to %3)")
 		.arg(title)
 		.arg(first.datestr("%F"))

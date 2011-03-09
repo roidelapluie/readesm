@@ -35,7 +35,7 @@ class signature {
 	bool present;
 	validity valid;
 	signature() : present(false), valid(UNCHECKED) {}
-	void report(reporter& o){
+	void report(reporter& o) {
 #ifndef HAVE_NO_CRYPTO
 		if(valid == UNCHECKED) o("validly signed", "Could not or did not check signature");
 		else if(valid == VALID) o("validly signed", "Signature checked and valid");

@@ -21,6 +21,8 @@
 
 #include <QtCore/QObject>
 
+#include <vector>
+
 int fine(int overtime) {
 	if(overtime) return (overtime / 30 + 1) * 30;
 	return 0;
