@@ -17,8 +17,8 @@
 #ifndef HELPER_H
 #define HELPER_H HELPER_H
 
-#include <QString>
-#include <QTextStream>
+#include <QtCore/QString>
+#include <QtCore/QTextStream>
 
 template <typename T1, typename T2>
 void copy(T1 from, T2 to, int number) {

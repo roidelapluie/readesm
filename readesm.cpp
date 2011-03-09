@@ -7,19 +7,18 @@
  */
 
 
-#include <QApplication>
-#include <QTranslator>
-#include <QLocale>
-#include <QString>
-#include <QTextStream>
-
-
-#include "gui/mainWindow.h"
-#include "fileformat/reporter/xmlReporter.h"
+#include "config.h"
+#include "fileformat/esmfile.h"
 #include "fileformat/reporter/htmlReporter.h"
 #include "fileformat/reporter/txtReporter.h"
-#include "fileformat/esmfile.h"
-#include "config.h"
+#include "fileformat/reporter/xmlReporter.h"
+#include "gui/mainWindow.h"
+
+#include <QtGui/QApplication>
+#include <QtCore/QTranslator>
+#include <QtCore/QLocale>
+#include <QtCore/QString>
+#include <QtCore/QTextStream>
 
 int main(int argc, char** argv)
 {

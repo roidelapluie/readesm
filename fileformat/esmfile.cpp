@@ -1,7 +1,7 @@
 #include "esmfile.h"
 
-#include <QObject>
-#include <QDebug>
+#include <QtCore/QDebug>
+#include <QtCore/QObject>
 
 #include "config.h"
 

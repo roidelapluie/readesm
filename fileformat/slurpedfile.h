@@ -16,10 +16,11 @@
 
 #ifndef SLURPEDFILE_H
 #define SLURPEDFILE_H SLURPEDFILE_H
-#include <vector>
+#include <QtCore/QString>
+
 #include <fstream>
 #include <stdexcept>
-#include <QString>
+#include <vector>
 
 class file_not_found : public std::runtime_error {
 	public:

@@ -17,9 +17,10 @@
 #ifndef TIME_H
 #define TIME_H TIME_H
 
-#include <QString>
-#include <QTextStream>
-#include <QObject>
+#include <QtCore/QObject>
+#include <QtCore/QString>
+#include <QtCore/QTextStream>
+
 #include <time.h>
 
 /// for now, a simple wrapper around timestamps.

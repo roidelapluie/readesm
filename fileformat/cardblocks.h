@@ -17,7 +17,7 @@
 #ifndef CARDBLOCKS_H
 #define CARDBLOCKS_H
 
-#include <QDebug>
+#include <QtCore/QDebug>
 
 #include "Activity.h"
 #include "esmfilehead.h"

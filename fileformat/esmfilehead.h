@@ -17,17 +17,16 @@
 #ifndef ESMFILEHEAD_H
 #define ESMFILEHEAD_H
 
-#include <QString>
-#include <QSharedPointer>
-#include <QFile>
-#include <QByteArray>
-
 #include "config.h"
 #ifndef HAVE_NO_CRYPTO
 #include "crypto.h"
 #endif
-
 #include "myTime.h"
+
+#include <QtCore/QByteArray>
+#include <QtCore/QFile>
+#include <QtCore/QSharedPointer>
+#include <QtCore/QString>
 
 class esmfilehead {
 	public:

@@ -17,8 +17,8 @@
 #ifndef FORMATSTRINGS_H
 #define FORMATSTRINGS_H
 
-#include <QString>
-#include <QCoreApplication>
+#include <QtCore/QCoreApplication>
+#include <QtCore/QString>
 
 class formatStrings{
 	Q_DECLARE_TR_FUNCTIONS(formatStrings)

@@ -17,8 +17,8 @@
 #ifndef BLOCK_H
 #define BLOCK_H BLOCK_H
 
-#include <QSharedPointer>
-#include <QObject>
+#include <QtCore/QSharedPointer>
+#include <QtCore/QObject>
 
 #include "helper.h"
 #include "esmfilehead.h"

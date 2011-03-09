@@ -1,6 +1,9 @@
 #include "mainWindow.h"
 
-#include <QtCore/QDir>
+#include "../fileformat/esmfile.h"
+#include "../fileformat/reporter/xmlReporter.h"
+
+#include <QtCore/QStringBuilder>
 #include <QtGui/QAction>
 #include <QtGui/QFileDialog>
 #include <QtGui/QMenu>
@@ -8,10 +11,8 @@
 #include <QtGui/QMessageBox>
 #include <QtGui/QPrinter>
 #include <QtGui/QPrintDialog>
-#include <QtWebKit/QtWebKit>
-
-#include "../fileformat/esmfile.h"
-#include "../fileformat/reporter/xmlReporter.h"
+#include <QtWebKit/QWebFrame>
+#include <QtWebKit/QWebView>
 
 mainWindow::mainWindow()
 {

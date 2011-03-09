@@ -17,14 +17,13 @@
 #ifndef ESMFILE_H
 #define ESMFILE_H
 
-#include <vector>
-#include <QString>
-#include <QDebug>
-
-#include "esmfilehead.h"
-#include "reporter.h"
 #include "block.h"
+#include "esmfilehead.h"
+#include "reporter/reporter.h"
 
+#include <QtCore/QString>
+
+#include <vector>
 
 class esmfile : public esmfilehead {
 	Q_DECLARE_TR_FUNCTIONS(esmfile)

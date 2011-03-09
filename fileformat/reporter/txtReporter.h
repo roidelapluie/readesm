@@ -3,6 +3,8 @@
 
 #include "reporter.h"
 
+#include <QtCore/QString>
+
 class txtReporter : public reporter {
 	public:
 	txtReporter(const QString& title_ = "ESM Data");

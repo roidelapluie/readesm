@@ -1,10 +1,9 @@
 #ifndef mainWindow_H
 #define mainWindow_H
 
-#include <QMainWindow>
-#include <QString>
-#include <QSize>
-#include <QSharedPointer>
+#include <QtCore/QSharedPointer>
+#include <QtCore/QString>
+#include <QtGui/QMainWindow>
 
 class esmfile;
 class QWebView;

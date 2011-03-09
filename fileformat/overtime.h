@@ -17,8 +17,9 @@
 #ifndef OVERTIME_H
 #define OVERTIME_H OVERTIME_H
 
-#include <QObject>
 #include "Activity.h"
+
+#include <QtCore/QObject>
 
 int fine(int overtime) {
 	if(overtime) return (overtime / 30 + 1) * 30;

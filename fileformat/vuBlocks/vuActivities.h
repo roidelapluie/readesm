@@ -1,12 +1,14 @@
 #ifndef VUACTIVITIES_H
 #define VUACTIVITIES_H VUACTIVITIES_H
-#include <QString>
-#include <vector>
-#include "reporter.h"
+
+#include "../Activity.h"
+#include "../constDataPointer.h"
+#include "../reporter/reporter.h"
 #include "vuBlock.h"
-#include "Activity.h"
-#include "formatStrings.h"
-#include "constDataPointer.h"
+
+#include <QtCore/QString>
+
+#include <vector>
 
 ///See page 161 of l207.pdf
 class vuActivities : public vuBlock {

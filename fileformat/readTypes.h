@@ -16,8 +16,10 @@
 
 #ifndef READTYPES_H
 #define READTYPES_H
-#include <QString>
+
 #include "constDataPointer.h"
+
+#include <QtCore/QString>
 
 inline QString fixedString(constDataPointer start, int length) {
 	if(!*(start.toPointer(1))) return "";

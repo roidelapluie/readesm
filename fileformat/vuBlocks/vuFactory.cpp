@@ -1,14 +1,11 @@
 #include "vuFactory.h"
 
-#include <QSharedPointer>
-#include <QDebug>
-
+#include "constDataPointer.h"
 #include "vuActivities.h"
-#include "vuSpeeds.h"
-#include "vuTechnical.h"
 #include "vuFaults.h"
 #include "vuOverview.h"
-#include "constDataPointer.h"
+#include "vuSpeeds.h"
+#include "vuTechnical.h"
 
 QSharedPointer<vuBlock> vuFactory(constDataPointer start) {
 	typedef QSharedPointer<vuBlock> p;

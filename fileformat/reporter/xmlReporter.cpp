@@ -1,5 +1,7 @@
 #include "xmlReporter.h"
 
+#include <QtCore/QTextStream>
+
 QString xmlReporter::str() {
 	QString rv;
 	QTextStream o(&rv); 

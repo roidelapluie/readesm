@@ -3,6 +3,9 @@
 
 #include "reporter.h"
 
+#include <QtCore/QString>
+#include <QtCore/QTextStream>
+
 ///HTML reporter
 /** This reporter aims to format the data in a nicer fashion, and creates graphic visualizations
  by punching together various stretched single-pixel images */

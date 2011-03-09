@@ -14,11 +14,9 @@
  You should have received a copy of the GNU General Public License along with
  readESM.  If not, see <http://www.gnu.org/licenses/>. */
 
-#include <QString>
-#include <QCoreApplication>
-#include <QTextStream>
-
 #include "formatStrings.h"
+
+#include <QtCore/QTextStream>
 
 QString formatStrings::eventType(unsigned char etype) {
 	QString rv;

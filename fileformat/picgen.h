@@ -17,8 +17,8 @@
 #ifndef PICGEN_H
 #define PICGEN_H PICGEN_H
 
-#include <QString>
-#include <QTextStream>
+#include <QtCore/QString>
+#include <QtCore/QTextStream>
 
 class picgen{
 	protected:

@@ -1,7 +1,7 @@
 #ifndef CONSTDATAPOINTER_H
 #define CONSTDATAPOINTER_H
 
-#include <QByteArray>
+#include <QtCore/QByteArray>
 
 class constDataPointer {
 	QByteArray data;

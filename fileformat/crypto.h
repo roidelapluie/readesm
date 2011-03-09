@@ -20,18 +20,18 @@
 #ifdef HAVE_NO_CRYPTO
 #error "including crypto"
 #endif
+#include "formatStrings.h"
+#include "helper.h"
+#include "readTypes.h"
+#include "reporter/reporter.h"
+#include "rsa.h"
+
+#include <QtCore/QCoreApplication>
+#include <QtCore/QDebug>
+#include <QtCore/QFile>
+#include <QtCore/QSharedPointer>
 
 #include <vector>
-#include <QSharedPointer>
-#include <QCoreApplication>
-#include <QDebug>
-#include <QFile>
-
-#include "rsa.h"
-#include "formatStrings.h"
-#include "readTypes.h"
-#include "reporter.h"
-#include "helper.h"
 
 bool checkSHA1match(const unsigned char* text, int textlength, const unsigned char* hash);
 
