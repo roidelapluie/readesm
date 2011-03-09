@@ -3,13 +3,13 @@ Priority: optional
 Section: text
 Maintainer: Ubuntu MOTU Developers <ubuntu-motu@lists.ubuntu.com>
 XSBC-Original-Maintainer: Andreas Goelzer <andreas@goelzer.de>
-Standards-Version:  3.8.0
-Build-Depends: cdbs, libqt4-dev, qt4-qmake, libqt4-webkit, libgcrypt11-dev, libgmp3-dev, debhelper (>= 7)
+Standards-Version:  3.8.4
+Build-Depends: cdbs, cmake, libqt4-dev, qt4-qmake, libqt4-webkit, libgcrypt11-dev, libgmp3-dev, debhelper (>= 7)
 Homepage: http://readesm.sourceforge.net
 
 Package: readesm
 Architecture: any
-Depends: ${shlibs:Depends}, libgcrypt11, libgmp3c2, libqtcore4, libqtgui4
+Depends: ${misc:Depends}, ${shlibs:Depends}, libgcrypt11, libgmp3c2, libqtcore4, libqtgui4
 Description: This program takes an ESM file, as downloaded from a digital tachograph or a
  driver card, a compulsory equipment for trucks heavier than 3.5 tons within the
  European Union. It converts said files into human-readable form, either html or
