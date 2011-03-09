@@ -32,6 +32,12 @@ endif()
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config.h.in ${CMAKE_CURRENT_BINARY_DIR}/config.h)
 
+#*** translation ***
+file (GLOB TRANSLATIONS_FILES *.ts)
+qt4_create_translation(QM_FILES ${readesm_SRCS} ${TRANSLATIONS_FILES})
+add_custom_target(translations_target DEPENDS ${QM_FILES})
+
+
 #*** Actual part needed to build everything ***
 
 include_directories(${QT_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/fileformat ${CMAKE_CURRENT_SOURCE_DIR}/fileformat/vuBlocks ${CMAKE_CURRENT_SOURCE_DIR}/fileformat/reporter)
@@ -47,7 +53,7 @@ qt4_add_resources(readesm_RCC_SRCS ${readesm_RCCS})
 qt4_automoc(${readesm_SRCS})
 add_definitions(-Wall -Os)
 
-add_executable(readesm ${readesm_SRCS} ${readesm_RCC_SRCS})
+add_executable(readesm ${readesm_SRCS} ${readesm_RCC_SRCS} ${QM_FILES})
 
 target_link_libraries(readesm ${QT_QTCORE_LIBRARY} ${QT_QTGUI_LIBRARY} ${QT_QTWEBKIT_LIBRARY} ${LIBS})
 
