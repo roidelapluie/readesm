@@ -107,4 +107,3 @@ void vuActivities::reportstuff(esmfilehead& esm) {
 	esm.reportDayStatistics(Time(BEInt32(start + 2)), driven,
 			DayAct.driventime);
 }
-
