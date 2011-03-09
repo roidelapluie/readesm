@@ -1,0 +1,3 @@
+set(VERSION_STRING "2008.03pre1ubuntu1")
+set(VERSION_DATE "2008-03-09")
+
