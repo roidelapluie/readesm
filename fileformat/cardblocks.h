@@ -43,7 +43,7 @@ class cardBlock : public block {
 		block(filewalker) 
 	{
 		datasize = BEInt16(start + 3);
-		qDebug() << "size" << datasize;
+		//qDebug() << "size" << datasize;
 		filewalker = start + 5 + datasize;
 		if(getType(filewalker) == type && filewalker[2] == 1) {
 			signature = filewalker + 5;
@@ -66,6 +66,7 @@ class cardBlock : public block {
 
 };
 class drivingLicenseInfo : public cardBlock {
+	Q_DECLARE_TR_FUNCTIONS(drivingLicenseInfo)
 	public:
 	QString drivingLicenseIssuingAuthorithy;
 	static const int Type = 0x0521;
@@ -90,6 +91,7 @@ class drivingLicenseInfo : public cardBlock {
 };
 
 class cardDownload : public cardBlock {
+	Q_DECLARE_TR_FUNCTIONS(cardDownload)
 	public:
 	static const int Type = 0x050e;
 	QString name() const {
@@ -107,6 +109,7 @@ class cardDownload : public cardBlock {
 };
 
 class applicationIdentification : public cardBlock {
+	Q_DECLARE_TR_FUNCTIONS(applicationIdentification)
 	public:
 	static const int Type = 0x0501;
 	QString name() const {
@@ -127,6 +130,7 @@ class applicationIdentification : public cardBlock {
 };
 
 class cardCertificate : public cardBlock {
+	Q_DECLARE_TR_FUNCTIONS(cardCertificate)
 	public:
 	static const int Type = 0xc100;
 	virtual QString name() const {
@@ -144,6 +148,7 @@ class cardCertificate : public cardBlock {
 };
 
 class caCertificate : public cardCertificate {
+	Q_DECLARE_TR_FUNCTIONS(caCertificate)
 	public:
 	static const int Type = 0xc108;
 	virtual QString name() const {
@@ -161,6 +166,7 @@ class caCertificate : public cardCertificate {
 };
 
 class specificConditions : public cardBlock {
+	Q_DECLARE_TR_FUNCTIONS(specificConditions)
 	struct Specific_Condition {
 		Time time;
 		int condition;
@@ -272,6 +278,7 @@ public:
 };
 
 class controlActivityData : public cardBlock {
+	Q_DECLARE_TR_FUNCTIONS(controlActivityData)
 	public:
 	static const int Type = 0x0508;
 	int controlType;
@@ -303,6 +310,7 @@ class controlActivityData : public cardBlock {
 };
 
 class eventsData : public cardBlock {
+	Q_DECLARE_TR_FUNCTIONS(eventsData)
 	struct CardEventRecord {
 		int Type;
 		Time BeginTime, EndTime;
@@ -348,6 +356,7 @@ class eventsData : public cardBlock {
 };
 
 class faultsData : public eventsData {
+	Q_DECLARE_TR_FUNCTIONS(faultsData)
 	public:
 	faultsData(constDataPointer filewalker) :
 		eventsData(filewalker) 
@@ -360,6 +369,7 @@ class faultsData : public eventsData {
 };
 
 class places : public cardBlock {
+	Q_DECLARE_TR_FUNCTIONS(places)
 	public:
 	typedef std::vector<placeRecord> subray;
 	typedef subray::const_iterator subiter;
@@ -381,6 +391,7 @@ class places : public cardBlock {
 };
 
 class vehiclesUsed : public cardBlock {
+	Q_DECLARE_TR_FUNCTIONS(vehiclesUsed)
 	struct CardVehicleRecord {
 		int OdometerBegin, OdometerEnd;
 		Time FirstUse, LastUse;
@@ -446,6 +457,7 @@ class vehiclesUsed : public cardBlock {
 };
 
 class identification : public cardBlock {
+	Q_DECLARE_TR_FUNCTIONS(identification)
 	public:
 	int cardIssuingMemberState;
 	QString cardNumber;
@@ -496,7 +508,9 @@ class identification : public cardBlock {
 	}
 };
 
+//contrary to specification, the default value for the vehicle registration here
 class currentUsage : public cardBlock {
+	Q_DECLARE_TR_FUNCTIONS(currentUsage)
 	public:
 	static const int Type = 0x0507;
 	QString name() const {
@@ -514,9 +528,9 @@ class currentUsage : public cardBlock {
 
 	virtual void printOn(reporter& o) const {
 		o(tr("sessionOpenTime"), sessionOpenTime.str());
-		qDebug() << "usage..." << formatStrings::nationNumeric(reg.Nation) << reg.Number.length() << "regnum:" << reg.Number << "enddd";
+		//qDebug() << "usage..." << formatStrings::nationNumeric(reg.Nation) << reg.Number.length() << "regnum:" << reg.Number << "enddd";
 		o << reg;
-		qDebug() << "cuse " << start.offset;
+		//qDebug() << "cuse " << start.offset;
 	}
 };
 

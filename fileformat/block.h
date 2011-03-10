@@ -64,10 +64,10 @@ class block {
 		o.bigblockstart(b.name());
 		b.printOn(o);
 #ifndef HAVE_NO_CRYPTO
-		o(tr("validly signed"), b.hassignature ? (b.validsignature
-				? tr("yes, valid") : tr("no, invalid")) : tr("no, not signed"));
+		o.single(b.hassignature ? (b.validsignature
+				? tr("Block has valid signature") : tr("Beware: Block has invalid signature")) : tr("Block not signed"));
 #else
-		o(tr("validly signed"),tr("no crypto support compiled in"));
+		o.single(tr("no crypto support compiled in"));
 #endif
 		o.bigblockend();
 		return o;
