@@ -51,9 +51,11 @@ add_custom_target(translations_target DEPENDS ${QM_FILES})
 include_directories(${QT_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR})
 
 file(GLOB gui_CPP "gui/*.cpp")
-file(GLOB fileformat_CPP "fileformat/*.cpp" fileformat/*/*.cpp) 
+file(GLOB fileformat_CPP "fileformat/*.cpp" "fileformat/*/*.cpp")
+file(GLOB gui_H "gui/*.h")
+file(GLOB fileformat_H "fileformat/*.h" "fileformat/*/*.h")
 
-set(readesm_SRCS ${gui_CPP} ${fileformat_CPP} readesm.cpp )
+set(readesm_SRCS ${gui_CPP} ${fileformat_CPP} ${gui_H} ${fileformat_H} readesm.cpp )
 set(readesm_RCCS readesm.qrc)
 
 qt4_add_resources(readesm_RCC_SRCS ${readesm_RCCS})
