@@ -2,12 +2,14 @@ project(readesm)
 cmake_minimum_required(VERSION 2.8)
 
 if(WIN32)
-	set(CMAKE_FIND_LIBRARY_SUFFIXES .lib .a ${CMAKE_FIND_LIBRARY_SUFFIXES})
+	#set(CMAKE_FIND_LIBRARY_SUFFIXES .lib .a ${CMAKE_FIND_LIBRARY_SUFFIXES})
+	#set(CMAKE_EXE_LINKER_FLAGS=-static)
 	set(GUI_TYPE WIN32)
 endif(WIN32)
 if(MAC)
 	set(GUI_TYPE MACOSX_BUNDLE)
 endif()
+#set(CMAKE_BUILD_TYPE debug)
 
 find_package(Qt4 COMPONENTS QtGui QtWebKit REQUIRED)
 
@@ -29,7 +31,6 @@ include(currentRelease.cmake OPTIONAL)
 #*** check for crypto libraries and enable them if found ***
 find_package(gmp)
 find_package(gcrypt)
-
 if(GMP_FOUND AND GCRYPT_FOUND)
 	message("Found gcrypt and gmp. Will use cryptographic checks.")
 	set(LIBS ${LIBS} ${GCRYPT_LIBRARIES} ${GMP_LIBRARIES})
@@ -61,7 +62,7 @@ set(readesm_RCCS readesm.qrc)
 qt4_add_resources(readesm_RCC_SRCS ${readesm_RCCS})
 
 qt4_automoc(${readesm_SRCS})
-add_definitions(-Wall -Os)
+add_definitions(-Wall)
 
 add_executable(readesm ${GUI_TYPE} ${readesm_SRCS} ${readesm_RCC_SRCS} ${QM_FILES})
 
@@ -85,6 +86,8 @@ if(WIN32)
 	SET(CPACK_PACKAGE_EXECUTABLES "readesm" "readesm")
 	set(CPACK_GENERATOR NSIS;ZIP)
 	set(CPACK_SOURCE_GENERATOR ZIP)
+	file(GLOB readesm_needed_DLL "${CMAKE_CURRENT_SOURCE_DIR}/../dlls/*.dll")
+	install(FILES ${readesm_needed_DLL} DESTINATION bin)
 endif()
 
 set(CPACK_PACKAGE_VERSION ${VERSION_STRING})
