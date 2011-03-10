@@ -1284,7 +1284,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>Activity</name>
     <message>
-        <location filename="fileformat/Activity.h" line="+64"/>
+        <location filename="fileformat/Activity.h" line="+66"/>
         <source>break/rest</source>
         <translation>Ruhepause</translation>
     </message>
@@ -1360,7 +1360,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>CAid</name>
     <message>
-        <location filename="fileformat/crypto.h" line="+65"/>
+        <location filename="fileformat/crypto.h" line="+68"/>
         <source>nationNumeric</source>
         <translation>Land (numerisch)</translation>
     </message>
@@ -1537,14 +1537,15 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>Duration</name>
     <message>
+        <location filename="fileformat/myTime.h" line="+81"/>
         <source>days</source>
-        <translation type="obsolete">Tage</translation>
+        <translation>Tage</translation>
     </message>
 </context>
 <context>
     <name>Event</name>
     <message>
-        <location filename="fileformat/vuBlocks/vuFaults.h" line="+87"/>
+        <location filename="fileformat/vuBlocks/vuFaults.h" line="+89"/>
         <source>similarEventsNumber</source>
         <translation>Anzahl Ähnlicher Ereignisse</translation>
     </message>
@@ -1552,7 +1553,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>EventBase</name>
     <message>
-        <location line="-50"/>
+        <location line="-52"/>
         <source>RecordPurpose</source>
         <translation>Aufzeichnungsgrund</translation>
     </message>
@@ -1582,7 +1583,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>Fault</name>
     <message>
-        <location line="+25"/>
+        <location line="+26"/>
         <source>cardNumberDriverSlotBegin</source>
         <translation>Kartennummer des Fahrers bei Ereignisbeginn</translation>
     </message>
@@ -1712,7 +1713,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>Overspeed</name>
     <message>
-        <location line="+33"/>
+        <location line="+35"/>
         <source>maxSpeedValue</source>
         <translation>Höchste gefahrene Geschwindigkeit</translation>
     </message>
@@ -1801,13 +1802,13 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="fileformat/Activity.cpp" line="+7"/>
+        <location filename="fileformat/Activity.cpp" line="+9"/>
         <source>for</source>
         <translation>für</translation>
     </message>
     <message>
         <location line="+1"/>
-        <location filename="fileformat/myTime.cpp" line="+9"/>
+        <location filename="fileformat/myTime.cpp" line="+11"/>
         <location line="+2"/>
         <source>from</source>
         <translation>von</translation>
@@ -1819,7 +1820,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
         <translation>bis</translation>
     </message>
     <message>
-        <location filename="fileformat/overtime.h" line="+53"/>
+        <location filename="fileformat/overtime.h" line="+56"/>
         <source>Daily driving time</source>
         <translation>Tageslenkzeit</translation>
     </message>
@@ -1839,9 +1840,8 @@ Signatur-Prüfung fehlgeschlagen </translation>
         <translation>aufgezeichnet</translation>
     </message>
     <message>
-        <location filename="fileformat/myTime.h" line="+79"/>
         <source>days</source>
-        <translation>Tage</translation>
+        <translation type="obsolete">Tage</translation>
     </message>
     <message>
         <location filename="fileformat/myTime.cpp" line="-2"/>
@@ -1854,7 +1854,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
         <translation>%1 Tage </translation>
     </message>
     <message>
-        <location filename="fileformat/esmfile.cpp" line="+6"/>
+        <location filename="fileformat/esmfile.cpp" line="+11"/>
         <source>Statistics</source>
         <translation>Statistik</translation>
     </message>
@@ -2013,7 +2013,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>applicationIdentification</name>
     <message>
-        <location filename="fileformat/cardblocks.h" line="+106"/>
+        <location filename="fileformat/cardblocks.h" line="+116"/>
         <source>Application Identification</source>
         <translation>Anwendungskennung</translation>
     </message>
@@ -2031,7 +2031,22 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>block</name>
     <message>
-        <location filename="fileformat/block.h" line="+66"/>
+        <location filename="fileformat/block.h" line="+68"/>
+        <source>Block has valid signature</source>
+        <translation>Block ist gültig signiert</translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Beware: Block has invalid signature</source>
+        <translation>Vorsicht: Blocksignatur ungültig</translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Block not signed</source>
+        <translation>Block nicht signiert</translation>
+    </message>
+    <message>
+        <location line="+2"/>
         <source>no crypto support compiled in</source>
         <translation>Kompiliert ohne Kryptographieunterstützung</translation>
     </message>
@@ -2044,7 +2059,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>caCertificate</name>
     <message>
-        <location filename="fileformat/cardblocks.h" line="+26"/>
+        <location filename="fileformat/cardblocks.h" line="+28"/>
         <source>CA Certificate</source>
         <translation>CA-Zertifikat</translation>
     </message>
@@ -2052,7 +2067,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>cardCertificate</name>
     <message>
-        <location line="-17"/>
+        <location line="-18"/>
         <source>Card Certificate</source>
         <translation>Kartenzertifikat</translation>
     </message>
@@ -2060,7 +2075,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>cardDownload</name>
     <message>
-        <location line="-37"/>
+        <location line="-39"/>
         <source>Card Download</source>
         <translation>Herunterladen einer Karte</translation>
     </message>
@@ -2073,7 +2088,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>controlActivityData</name>
     <message>
-        <location line="+178"/>
+        <location line="+183"/>
         <source>Control Activity Data</source>
         <translation>Übersicht über Kontrollen</translation>
     </message>
@@ -2101,7 +2116,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>currentUsage</name>
     <message>
-        <location line="+202"/>
+        <location line="+209"/>
         <source>Current Usage</source>
         <translation>Derzeitige Benutzung</translation>
     </message>
@@ -2198,7 +2213,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>drivingLicenseInfo</name>
     <message>
-        <location line="-496"/>
+        <location line="-509"/>
         <source>Driving License Info</source>
         <translation>Führerscheininformationen</translation>
     </message>
@@ -2252,19 +2267,21 @@ Signatur-Prüfung fehlgeschlagen </translation>
         <source>Average speed when driving</source>
         <translation type="obsolete">Durchschnittsgeschwindigkeit während der Fahrt</translation>
     </message>
+    <message>
+        <location filename="fileformat/esmfile.cpp" line="+34"/>
+        <source>%1, %2 to %3</source>
+        <translation>%1, %2 bis %3</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>%1  (%2 to %3)</source>
+        <translation>%1 (%2 bis %3)</translation>
+    </message>
 </context>
 <context>
     <name>eventsData</name>
     <message>
-        <location line="+248"/>
-        <source>Events Data</source>
-        <translation>Ereignisdaten</translation>
-    </message>
-</context>
-<context>
-    <name>eventsData::CardEventRecord</name>
-    <message>
-        <location line="-18"/>
+        <location filename="fileformat/cardblocks.h" line="+237"/>
         <source>eventType</source>
         <translation>Ereignisart</translation>
     </message>
@@ -2278,11 +2295,31 @@ Signatur-Prüfung fehlgeschlagen </translation>
         <source>endTime</source>
         <translation>Ende</translation>
     </message>
+    <message>
+        <location line="+16"/>
+        <source>Events Data</source>
+        <translation>Ereignisdaten</translation>
+    </message>
+</context>
+<context>
+    <name>eventsData::CardEventRecord</name>
+    <message>
+        <source>eventType</source>
+        <translation type="obsolete">Ereignisart</translation>
+    </message>
+    <message>
+        <source>beginTime</source>
+        <translation type="obsolete">Anfang</translation>
+    </message>
+    <message>
+        <source>endTime</source>
+        <translation type="obsolete">Ende</translation>
+    </message>
 </context>
 <context>
     <name>faultsData</name>
     <message>
-        <location line="+37"/>
+        <location line="+22"/>
         <source>Faults Data</source>
         <translation>Fehlerdaten</translation>
     </message>
@@ -2290,7 +2327,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>formatStrings</name>
     <message>
-        <location filename="fileformat/formatStrings.cpp" line="+30"/>
+        <location filename="fileformat/formatStrings.cpp" line="+28"/>
         <source>General events: </source>
         <translation>Allgemeine Ereignisse: </translation>
     </message>
@@ -2915,38 +2952,38 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location line="+8"/>
         <source>Begin, related time = card insertion time or time of entry</source>
-        <translation type="unfinished"></translation>
+        <translation>Anfang, Bezugszeit = Karteneinschubzeit oder Eingabezeit</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>End, related time = card withdrawal time or time of entry</source>
-        <translation type="unfinished"></translation>
+        <translation>Ende, Bezugszeit = Kartenentnahmezeitpunkt oder Eingabezeit</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Begin, related time manually entered (start time)</source>
-        <translation type="unfinished"></translation>
+        <translation>Anfang, Bezugszeit von Hand eingegeben (Startzeit)</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>End, related time manually entered (end of work period)</source>
-        <translation type="unfinished"></translation>
+        <translation>Ende, Bezugszeit von Hand eingegeben (Ende der Arbeitszeit)</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Begin, related time assumed by VU</source>
-        <translation type="unfinished"></translation>
+        <translation>Anfang, Bezugszeit von der FE geschätzt</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>End, related time assumed by VU </source>
-        <translation type="unfinished"></translation>
+        <translation>Ende, Bezugszeit von der FE geschätzt</translation>
     </message>
 </context>
 <context>
     <name>fullCardNumber</name>
     <message>
-        <location filename="fileformat/cardblocks.h" line="-93"/>
+        <location filename="fileformat/cardblocks.h" line="-96"/>
         <source>cardType</source>
         <translation>Kartenart</translation>
     </message>
@@ -2964,7 +3001,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>identification</name>
     <message>
-        <location line="+197"/>
+        <location line="+203"/>
         <source>Card Identification</source>
         <translation>Karteninformationen</translation>
     </message>
@@ -3022,7 +3059,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>mainWindow</name>
     <message>
-        <location filename="gui/mainWindow.cpp" line="+23"/>
+        <location filename="gui/mainWindow.cpp" line="+25"/>
         <source>&amp;File</source>
         <translation>&amp;Datei</translation>
     </message>
@@ -3082,33 +3119,73 @@ Signatur-Prüfung fehlgeschlagen </translation>
         <translation>Über Readesm</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+2"/>
+        <source>Version: </source>
+        <translation>Version: </translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Copyright (C) 2011 by %1 (%2)</source>
+        <translation>Copyright (C) 2011 durch %1 (%2)</translation>
+    </message>
+    <message>
+        <location line="+4"/>
         <source>This program converts digital tachograph files into human-readable form.</source>
         <translation>Dieses Programm wandelt Tachographendaten in menschenlesbare Form um.</translation>
     </message>
     <message>
-        <location line="+12"/>
+        <location line="+2"/>
+        <source>readesm is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+readesm is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with readesm.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</source>
+        <translation>readesm ist freie Software. Sie können es unter den Bedingungen der GNU General Public License, wie von der Free Software Foundation veröffentlicht, weitergeben und/oder modifizieren, entweder gemäß Version 3 der Lizenz oder (nach Ihrer Option) jeder späteren Version.
+
+Die Veröffentlichung dieses Programms erfolgt in der Hoffnung, daß es Ihnen von Nutzen sein wird, aber OHNE IRGENDEINE GARANTIE, sogar ohne die implizite Garantie der MARKTREIFE oder der VERWENDBARKEIT FÜR EINEN BESTIMMTEN ZWECK. Details finden Sie in der GNU General Public License.
+
+Sie sollten ein Exemplar der GNU General Public License zusammen mit diesem Programm erhalten haben. Falls nicht, siehe &lt;http://www.gnu.org/licenses/&gt;.</translation>
+    </message>
+    <message>
+        <location line="+19"/>
         <source>Open Tachograph File</source>
         <translation>Tachographendatei öffnen</translation>
     </message>
     <message>
         <location line="+2"/>
+        <location line="+54"/>
         <source>Tachograph Files</source>
         <oldsource>Tachograph Files (*.esm *.ddd)</oldsource>
         <translation>Tachographendateien</translation>
     </message>
     <message>
-        <location line="+0"/>
+        <location line="-54"/>
+        <location line="+32"/>
+        <location line="+22"/>
         <source>All files</source>
         <translation>Alle Dateien</translation>
     </message>
     <message>
-        <location line="+17"/>
+        <location line="-37"/>
         <source>Print Document</source>
         <translation>Dokument drucken</translation>
     </message>
     <message>
+        <location line="+9"/>
+        <location line="+12"/>
         <location line="+10"/>
+        <location line="+11"/>
+        <source>Saving not possible</source>
+        <translation>Speichern nicht möglich</translation>
+    </message>
+    <message>
+        <location line="-33"/>
+        <location line="+22"/>
+        <source>Nothing opened, nothing to save.</source>
+        <translation>Nichts geöffnet, nichts zu speichern.</translation>
+    </message>
+    <message>
+        <location line="-18"/>
         <source>Save XHtml file as</source>
         <translation>XHtml-Datei speichern</translation>
     </message>
@@ -3118,11 +3195,22 @@ Signatur-Prüfung fehlgeschlagen </translation>
         <oldsource>XHtml files (*.xhtml)</oldsource>
         <translation>XHtml-Dateien</translation>
     </message>
+    <message>
+        <location line="+6"/>
+        <location line="+21"/>
+        <source>Could not open file.</source>
+        <translation>Konnte Datei nicht öffnen.</translation>
+    </message>
+    <message>
+        <location line="-7"/>
+        <source>Save Tachograph file as</source>
+        <translation>Tachographendatei speichern unter</translation>
+    </message>
 </context>
 <context>
     <name>placeRecord</name>
     <message>
-        <location filename="fileformat/cardblocks.h" line="-254"/>
+        <location filename="fileformat/cardblocks.h" line="-260"/>
         <source>entryTime</source>
         <translation>Eingabezeit</translation>
     </message>
@@ -3150,7 +3238,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>places</name>
     <message>
-        <location line="+126"/>
+        <location line="+130"/>
         <source>Places</source>
         <translation>Orte</translation>
     </message>
@@ -3171,7 +3259,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>specificConditions</name>
     <message>
-        <location filename="fileformat/cardblocks.h" line="-188"/>
+        <location filename="fileformat/cardblocks.h" line="-192"/>
         <source>Specific Conditions</source>
         <translation>Spezifische Bedingungen</translation>
     </message>
@@ -3192,30 +3280,18 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>vehiclesUsed</name>
     <message>
-        <location line="+209"/>
+        <location line="+214"/>
         <source>Vehicles Used</source>
         <translation>Benutzte Fahrzeuge</translation>
     </message>
     <message>
-        <location line="+19"/>
+        <location line="-16"/>
+        <location line="+35"/>
         <source>vehicleOdometerBegin</source>
         <translation>Kilometerstand am Anfang</translation>
     </message>
     <message>
-        <location line="+1"/>
-        <source>vehicleOdometerEnd</source>
-        <translation>Kilometerstand am Ende</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Driven distance</source>
-        <translation>Gefahrene Strecke</translation>
-    </message>
-</context>
-<context>
-    <name>vehiclesUsed::CardVehicleRecord</name>
-    <message>
-        <location line="-39"/>
+        <location line="-37"/>
         <source>vehicleFirstUse</source>
         <translation>Beginn der Einsatzzeit des Fahrzeugs</translation>
     </message>
@@ -3225,32 +3301,52 @@ Signatur-Prüfung fehlgeschlagen </translation>
         <translation>Ende der Einsatzzeit des Fahrzeugs</translation>
     </message>
     <message>
-        <location line="+1"/>
-        <source>vehicleOdometerBegin</source>
-        <translation>Kilometerstand am Anfang</translation>
-    </message>
-    <message>
-        <location line="+1"/>
+        <location line="+2"/>
+        <location line="+35"/>
         <source>vehicleOdometerEnd</source>
         <translation>Kilometerstand am Ende</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-34"/>
         <source>vuDataBlockCounter</source>
-        <translation type="unfinished"></translation>
+        <translation>Datenblockzähler der FE</translation>
+    </message>
+    <message>
+        <location line="+36"/>
+        <source>Driven distance</source>
+        <translation>Gefahrene Strecke</translation>
+    </message>
+</context>
+<context>
+    <name>vehiclesUsed::CardVehicleRecord</name>
+    <message>
+        <source>vehicleFirstUse</source>
+        <translation type="obsolete">Beginn der Einsatzzeit des Fahrzeugs</translation>
+    </message>
+    <message>
+        <source>vehicleLastUse</source>
+        <translation type="obsolete">Ende der Einsatzzeit des Fahrzeugs</translation>
+    </message>
+    <message>
+        <source>vehicleOdometerBegin</source>
+        <translation type="obsolete">Kilometerstand am Anfang</translation>
+    </message>
+    <message>
+        <source>vehicleOdometerEnd</source>
+        <translation type="obsolete">Kilometerstand am Ende</translation>
     </message>
 </context>
 <context>
     <name>vuActivities</name>
     <message>
-        <location filename="fileformat/vuBlocks/vuActivities.cpp" line="+21"/>
+        <location filename="fileformat/vuBlocks/vuActivities.cpp" line="+18"/>
         <source>Activities for</source>
         <translation>Aktivitäten am</translation>
     </message>
     <message>
         <location line="+38"/>
         <source>TimeReal</source>
-        <translation type="unfinished"></translation>
+        <translation>Zeit</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -3260,7 +3356,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location line="+1"/>
         <source>VuCardIWRecord</source>
-        <translation type="unfinished"></translation>
+        <translation>Karteneinschub- und Kartenentnahmevorgang</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -3286,7 +3382,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location line="+1"/>
         <source>cardInsertionTime</source>
-        <translation type="unfinished"></translation>
+        <translation>Karteneinschubzeit</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -3321,43 +3417,43 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location line="+1"/>
         <source>previousCardWithdrawalTime</source>
-        <translation type="unfinished"></translation>
+        <translation>Zeit, zu der die vorherige Karte entnommen wurde</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>manualInputFlag</source>
-        <translation type="unfinished"></translation>
+        <translation>Flag für manuelle Eingabe</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>activityChangeInfos</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktivitätsänderungshinweise</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>activityChangeInfo</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktivitätsänderungshinweis</translation>
     </message>
     <message>
         <location line="+5"/>
         <location line="+8"/>
         <source>entryTime</source>
-        <translation type="unfinished"></translation>
+        <translation>Eingabezeit</translation>
     </message>
     <message>
         <location line="-7"/>
         <source>entryTypeDailyWorkPeriod</source>
-        <translation type="unfinished"></translation>
+        <translation>Art der Eingabe</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>dailyWorkPeriodCountry</source>
-        <translation type="unfinished"></translation>
+        <translation>Eingegebenes Land</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>dailyWorkPeriodRegion</source>
-        <translation type="unfinished"></translation>
+        <translation>eingegebene Region</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -3367,12 +3463,12 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location line="+2"/>
         <source>SpecificConditionRecord</source>
-        <translation type="unfinished"></translation>
+        <translation>Eintrag über spezifische Bedingungen</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>specificConditionType</source>
-        <translation type="unfinished"></translation>
+        <translation>Art der spezifischen Bedingung</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -3393,7 +3489,8 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>vuFaults</name>
     <message>
-        <location filename="fileformat/vuBlocks/vuFaults.h" line="+25"/>
+        <location filename="fileformat/vuBlocks/vuFaults.h" line="+10"/>
+        <location line="+16"/>
         <source>Faults</source>
         <translation>Fehler</translation>
     </message>
@@ -3456,7 +3553,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>vuOverview</name>
     <message>
-        <location filename="fileformat/vuBlocks/vuOverview.h" line="+36"/>
+        <location filename="fileformat/vuBlocks/vuOverview.h" line="+40"/>
         <source>Overview</source>
         <translation>Übersicht</translation>
     </message>
@@ -3483,12 +3580,12 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location line="+1"/>
         <source>minDownloadableTime</source>
-        <translation type="unfinished"></translation>
+        <translation>Frühester gespeicherter Zeitpunkt</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>maxDownloadableTime</source>
-        <translation type="unfinished"></translation>
+        <translation>spätester gespeicherter Zeitpunkt</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -3498,7 +3595,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location line="+1"/>
         <source>downloadingTime</source>
-        <translation type="unfinished"></translation>
+        <translation>Heruntergeladen am</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -3513,12 +3610,12 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location line="+3"/>
         <source>lockInTime</source>
-        <translation type="unfinished"></translation>
+        <translation>Zeitpunkt der Sperrung</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>lockOutTime</source>
-        <translation type="unfinished"></translation>
+        <translation>Zeitpunkt der Entsperrung</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -3553,18 +3650,18 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location line="+1"/>
         <source>downloadPeriodBeginTime</source>
-        <translation type="unfinished"></translation>
+        <translation>Beginn des Ladens der Kontrolldaten</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>downloadPeriodEndTime</source>
-        <translation type="unfinished"></translation>
+        <translation>Ende des Ladens der Kontrolldaten</translation>
     </message>
 </context>
 <context>
     <name>vuSpeeds</name>
     <message>
-        <location filename="fileformat/vuBlocks/vuSpeeds.h" line="+28"/>
+        <location filename="fileformat/vuBlocks/vuSpeeds.h" line="+30"/>
         <source>Detailed Speed</source>
         <translation>Detaillierte Geschwindigkeit</translation>
     </message>
@@ -3576,12 +3673,12 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location line="+2"/>
         <source>speedBlockBeginDate</source>
-        <translation type="unfinished"></translation>
+        <translation>Zeit des ersten Geschwindigkeitswertes im Block</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>speedsPerSecond</source>
-        <translation type="unfinished"></translation>
+        <translation>Geschwindigkeiten für die nächsten 60 Sekunden</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -3597,69 +3694,70 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>vuTechnical</name>
     <message>
-        <location filename="fileformat/vuBlocks/vuTechnical.h" line="+27"/>
+        <location filename="fileformat/vuBlocks/vuTechnical.h" line="+29"/>
         <source>Technical Data</source>
         <translation>Technische Daten</translation>
     </message>
     <message>
         <location line="+12"/>
-        <source>vuManufacturerMame</source>
-        <translation type="unfinished"></translation>
+        <source>vuManufacturerName</source>
+        <oldsource>vuManufacturerMame</oldsource>
+        <translation>Hersteller der Fahrzeugeinheit</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>vuManufacturerAddress</source>
-        <translation type="unfinished"></translation>
+        <translation>Anschrift des Herstellers der FE</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>vuPartNumber</source>
-        <translation type="unfinished"></translation>
+        <translation>Teilnummer der FE</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>vuSerialNumber</source>
-        <translation type="unfinished"></translation>
+        <translation>Seriennummer der FE</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>vuSoftwareVersion</source>
-        <translation type="unfinished"></translation>
+        <translation>Softwarekennung der FE</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>vuSoftInstallationDate</source>
-        <translation type="unfinished"></translation>
+        <translation>Datum der Installation der vorgenannten Softwareversion der FE</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>vuManufacturingDate</source>
-        <translation type="unfinished"></translation>
+        <translation>Herstellungsdatum der FE</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>vuApprovalNumber</source>
-        <translation type="unfinished"></translation>
+        <translation>Bauartgenehmigungsnummer der FE</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>sensorSerialNumber</source>
-        <translation type="unfinished"></translation>
+        <translation>Erweiterte Seriennummer des Weg- und/oder Geschwindigkeitsgebers</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>sensorApprovalNumber</source>
-        <translation type="unfinished"></translation>
+        <translation>Bauartgenehmigungsnummer des Wegund/oder Geschwindigkeitsgeber</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>sensorPairingDateFirst</source>
-        <translation type="unfinished"></translation>
+        <translation>Datum der ersten Koppelung des Wegund/oder Geschwindigkeitsgebers mit einer Fahrzeugeinheit</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>VuCalibrationRecord</source>
-        <translation type="unfinished"></translation>
+        <translation>Kalibrierungsdatensatz</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -3689,7 +3787,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location line="+1"/>
         <source>vehicleIdentificationNumber</source>
-        <translation type="unfinished"></translation>
+        <translation>Amtliches Kennzeichen</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -3704,7 +3802,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location line="+1"/>
         <source>wVehicleCharacteristicConstant</source>
-        <translation type="unfinished"></translation>
+        <translation>Wegdrehzahl des Fahrzeug w</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -3715,12 +3813,12 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location line="-1"/>
         <source>kConstantOfRecordingEquipment</source>
-        <translation type="unfinished"></translation>
+        <translation>Kontrollgerätkonstante k</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>lTyreCircumference</source>
-        <translation>Effektiver Reifenumfang</translation>
+        <translation>Effektiver Reifenumfang L</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -3755,7 +3853,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location line="+1"/>
         <source>nextCalibrationDate</source>
-        <translation type="unfinished"></translation>
+        <translation>Nächste Kalibrierung</translation>
     </message>
 </context>
 </TS>
