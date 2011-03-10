@@ -38,7 +38,7 @@ class vuTechnical : public vuBlock {
 	}
 	void CompleteReport(reporter& report) const {
 		runningIndex = 0;
-		report(tr("vuManufacturerMame"), fixedString(36));
+		report(tr("vuManufacturerName"), fixedString(36));
 		report(tr("vuManufacturerAddress"), fixedString(36));
 		report(tr("vuPartNumber"), fixedString(16));
 		report(tr("vuSerialNumber"), hexCode(8));
