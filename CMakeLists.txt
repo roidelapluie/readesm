@@ -1,5 +1,14 @@
 project(readesm)
 cmake_minimum_required(VERSION 2.8)
+
+if(WIN32)
+	set(CMAKE_FIND_LIBRARY_SUFFIXES .lib .a ${CMAKE_FIND_LIBRARY_SUFFIXES})
+	set(GUI_TYPE WIN32)
+endif(WIN32)
+if(MAC)
+	set(GUI_TYPE MACOSX_BUNDLE)
+endif()
+
 find_package(Qt4 COMPONENTS QtGui QtWebKit REQUIRED)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
@@ -29,7 +38,6 @@ else()
 	set(HAVE_NO_CRYPTO 1)
 endif()
 
-
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config.h.in ${CMAKE_CURRENT_BINARY_DIR}/config.h)
 
 #*** translation ***
@@ -53,7 +61,7 @@ qt4_add_resources(readesm_RCC_SRCS ${readesm_RCCS})
 qt4_automoc(${readesm_SRCS})
 add_definitions(-Wall -Os)
 
-add_executable(readesm ${readesm_SRCS} ${readesm_RCC_SRCS} ${QM_FILES})
+add_executable(readesm ${GUI_TYPE} ${readesm_SRCS} ${readesm_RCC_SRCS} ${QM_FILES})
 
 target_link_libraries(readesm ${QT_QTCORE_LIBRARY} ${QT_QTGUI_LIBRARY} ${QT_QTWEBKIT_LIBRARY} ${LIBS})
 
@@ -63,11 +71,22 @@ target_link_libraries(readesm ${QT_QTCORE_LIBRARY} ${QT_QTGUI_LIBRARY} ${QT_QTWE
 #*** Install files ***
 install(TARGETS readesm RUNTIME DESTINATION bin)
 
-
-#packaging
-set(CPACK_PACKAGE_VERSION ${VERSION_STRING})
-set(CPACK_GENERATOR TBZ2)
 set(CPACK_SOURCE_GENERATOR TGZ;TBZ2)
+set(CPACK_GENERATOR TBZ2)
+set(CPACK_PACKAGE_VENDOR "Andreas Gölzer <K_2005@goelzer.de>")
+set(CPACK_NSIS_CONTACT ${CPACK_PACKAGE_VENDOR})
+set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_SOURCE_DIR}/COPYING")
+#packaging
+if(UNIX)
+endif()
+if(WIN32)
+	SET(CPACK_PACKAGE_EXECUTABLES "readesm" "readesm")
+	set(CPACK_GENERATOR NSIS;ZIP)
+	set(CPACK_SOURCE_GENERATOR ZIP)
+endif()
+
+set(CPACK_PACKAGE_VERSION ${VERSION_STRING})
+
 set(CPACK_SOURCE_IGNORE_FILES
 	"~$"
 	"^${PROJECT_SOURCE_DIR}.*/.svn/"
