@@ -28,9 +28,13 @@ class EventBase {
 	int Type, RecordPurpose;
 	Time BeginTime, EndTime;
 	EventBase(constDataPointer filewalker) :
-		Type(filewalker[0]), RecordPurpose(filewalker[1]), BeginTime(BEInt32(
-				filewalker + 2)), EndTime(BEInt32(filewalker + 6)) {
+		Type(filewalker[0]),
+		RecordPurpose(filewalker[1]),
+		BeginTime(BEInt32(filewalker + 2)),
+		EndTime(BEInt32(filewalker + 6))
+	{
 	}
+
 	virtual void printOn(reporter& o) const {
 		o.single(formatStrings::eventType(Type), true);
 		o.single(formatRange(BeginTime, EndTime));
@@ -53,9 +57,11 @@ class Fault : public EventBase {
 	static const int cardNumberCodriverSlotEnd = 3;
 	Fault(constDataPointer filewalker) :
 		EventBase(filewalker) {
-		for(int j = 0; j < 4; ++j)
-			cardnumbers[j] = fixedString(
+		for(int j = 0; j < 4; ++j){
+			if(!checkchar(filewalker + EventBase::csize() + j * 18 + 1,17,0xff))
+				cardnumbers[j] = fixedString(
 					filewalker + EventBase::csize() + j * 18, 18);
+		}
 	}
 	virtual void printOn(reporter& report) const {
 		EventBase::printOn(report);
@@ -99,11 +105,14 @@ class Overspeed : public EventBase {
 	QString cardNumberDriverSlotBegin;
 	int similarEventsNumber;
 	Overspeed(constDataPointer filewalker) :
-		EventBase(filewalker), maxSpeedValue(filewalker[10]),
-				averageSpeedValue(filewalker[11]), cardNumberDriverSlotBegin(
-						fixedString(filewalker + 12, 18)), similarEventsNumber(
-						filewalker[30]) {
+		EventBase(filewalker),
+		maxSpeedValue(filewalker[10]),
+		averageSpeedValue(filewalker[11]),
+		cardNumberDriverSlotBegin(fixedString(filewalker + 12, 18)),
+		similarEventsNumber(filewalker[30])
+	{
 	}
+
 	virtual void printOn(reporter& report) const {
 		EventBase::printOn(report);
 		report(tr("maxSpeedValue"), stringify(maxSpeedValue) + " km/h");
