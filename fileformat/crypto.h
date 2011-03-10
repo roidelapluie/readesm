@@ -87,7 +87,7 @@ class verifiedcert {
 	bool verify(const QString& filename) {
 		QFile file(filename);
 		if (!file.open(QIODevice::ReadOnly)) return false;
-		QByteArray rawkey = file.read(1e9);
+		QByteArray rawkey = file.readAll();
 		file.close();
 		constDataPointer keyPointer(rawkey);
 		CAid rawkey_ca(keyPointer);

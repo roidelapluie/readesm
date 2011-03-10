@@ -63,7 +63,7 @@ class esmfilehead {
 	{
 		QFile file(filename);
 		if (!file.open(QIODevice::ReadOnly));
-		content = file.read(1e9);
+		content = file.readAll();
 		file.close();
 	}
 	
