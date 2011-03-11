@@ -1,36 +1,66 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<title>readESM Documentation</title>
+		<title>Readesm Documentation</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" type="text/css" href="style.css" />
 	</head>
 	<body>
-		<h1>readESM Documentation</h1>
+		<h1>Readesm Documentation</h1>
 <p>This program takes an ESM file, as downloaded from a digital tachograph or a
 driver card, a compulsory equipment for trucks heavier than 3.5 tons within the
 European Union. It converts said files into human-readable form, either html or
 simple plaintext.</p>
 
+<h2>Contents</h2>
+<ol>
+	<li><a href="#installation">Installation</a>
+		<ol>		
+			<li><a href="#windows">Windows</a></li>
+			<li><a href="#windowscompiling">Compiling in Windows</a></li>
+			<li><a href="#ubuntu">Ubuntu packages</a></li>
+			<li><a href="#compiling">Compiling</a></li>
+		</ol>
+	</li>
+	<li><a href="#running">Starting the program</a></li>
+	<li><a href="#questions">Questions and answers</a>
+		<ol>
+			<li><a href="#legislation">Where can I get the documentation for the tachograph file format?</a></li>
+			<li><a href="#downloadvu">How can I download the data from the vehicle unit?</a></li>
+			<li><a href="#28days">Doesn't the driver card just hold 28 days of data?</a></li>
+			<li><a href="#secure">How secure is the cryptographic system?</a></li>
+		</ol>
+	</li>
+	<li><a href="#modifying">Modifying the program</a></li>
+	<li><a href="#ressources">Ressources</a></li>
+</ol>
 
-<h2>Installation</h2>
-<h3>Ubuntu packages</h3>
+<h2><a name="installation"></a>Installation</h2>
+
+<h3><a name="windows"></a>Windows</h3>
+<p>Download the <a href="http://sourceforge.net/projects/readesm/files/readesm/2011-03/readesm-2011.03-win32.exe/download">Installer</a>.  Execute it, then start readesm from the start menu.  You will have to associate it with tachograph files yourself.  Note that the windows version does not check the RSA signatures.</p>
+
+<h3><a name="windowscompiling"></a>Compiling in Windows</h3>
+<p>Compiling in windows is not difficult.  You can use the <a href="http://qt.nokia.com/downloads/sdk-windows-cpp">Qt SDK</a>, it already includes MinGW.  You'll also need a version of <a href="http://www.cmake.org/">cmake</a>, and you might want to install a subversion client, for example <a href="http://tortoisesvn.tigris.org/">tortoise svn</a>.</p>
+<p>For simplicity, put the cmake location, the qmake location and the mingw location in the <i>PATH</i> environment variable.  Then open readesm's <i>CMakeLists.txt</i> with qtcreator, and you are ready to go.</p>
+
+<h3><a name="ubuntu"></a>Ubuntu packages</h3>
 <p>There are precompiled packages in <a href="">my personal package archive</a>.
-Installation in Ubuntu should work by typing
+Installation in Ubuntu should work by typing</p>
 <pre>sudo apt-add-repository ppa:k-2005/ppa
 sudo apt-get update
 sudo apt-get install readesm</pre>
-Afterwards you can start readesm by typing <i>readesm</i> on the command line,
-and associate a file extension with it.
+<p>Afterwards you can start readesm by typing <i>readesm</i> on the command line,
+and associate a file extension with it.</p>
 
-<h3>Compiling</h3>
+<h3><a name="compiling"></a>Compiling</h3>
 <p>You can get the program files from
 <a href="http://andreas.goelzer.de/readesm-reading-digital-tachograph-files">
 my homepage</a>, or from
 the <a href="http://sourceforge.net/projects/readesm/">development page</a> 
 at Sourceforge.</p>
 
-<p>To compile, you need
+<p>To compile, you need</p>
 <ul>
 	<li>a C++ compiler of your choice,</li>
 	<li>a Makefile parser of your choice,</li>
@@ -38,16 +68,15 @@ at Sourceforge.</p>
 	<li>The <a href="http://qt.nokia.com">Qt</a>, specifically the modules
 		QtCore, QtGui and QtWebKit.</li>
 </ul>
-If you want to check wether the signatures in the tachograph data check out, 
-you also need:
+<p>If you want to check wether the signatures in the tachograph data check out, 
+you also need:</p>
 <ul>
 	<li>the <a href="http://gmplib.org/">Gnu MP Library</a> and</li>
 	<li>the <a href="http://directory.fsf.org/project/libgcrypt/">
 		gcrypt</a> library.</li>
 </ul>
-</p>
 <p>If you have all prerequisites installed, unpack a release tarball or get the 
-source from svn, then build with cmake. In Ubuntu you might do something like:
+source from svn, then build with cmake. In Ubuntu you might do something like:</p>
 <pre>
 sudo apt-get install libqt4-dev qt4-qmake libqtwebkit-dev libgcrypt11-dev libgmp3-dev
 sudo apt-get install cmake build-essentials subversion
@@ -59,10 +88,9 @@ cmake ..
 make
 sudo make install
 </pre>
-</p>
 
-<h2>Starting the program</h2>
-<p>You can use readesm in gui mode or in command line mode:
+<h2><a name="running"></a>Starting the program</h2>
+<p>You can use readesm in gui mode or in command line mode:</p>
 <ul>
 	<li>Start readesm with no arguments.  On Unix systems, this should be
 	<pre>./readesm</pre>
@@ -72,42 +100,41 @@ sudo make install
 	<li>If you start readesm with a filename as argument, readesm will try to open that tachograph file and show it in the User Interface.</li>
 	<li>If you start readesm with two filenames as argument, Readesm will assume the first filename to be a tachograph file, and the second filename to be a target file.  It will then try to convert the tachograph file and convert the result into the target file.</li>
 </ul>
-</p>
 
 
-<h2>Questions and answers</h2>
+<h2><a name="questions"></a>Questions and answers</h2>
 
 <h4><a name="legislation"></a>Where can I get the documentation for the tachograph file format?</h4>
 <p>The Tachograph file format, download protocol, printout format and basically everything about digital tachographs is defined in
 <a href="http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=OJ:L:2002:207:0001:0252:EN:PDF">OJ:L:2002:207, p. 1-252</a>.
-As with all european legislation it is available in several languages, for example
+As with all european legislation it is available in several languages, for example</p>
 <ul><li><a href="http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=CONSLEG:2002R1360:20020825:EN:PDF">English</a>,</li>
 <li><a href="http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=CONSLEG:2002R1360:20020825:ES:PDF">Spanish</a> and</li>
 <li><a href="http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=CONSLEG:2002R1360:20020825:DE:PDF">German</a>.</li></ul>
-If you want to view it in another language, replace the <i>EN</i> in the url for the english document with your preferred language code.</p>
+<p>If you want to view it in another language, replace the <i>EN</i> in the url for the english document with your preferred language code.</p>
 
 
-<h4>How can I download the data from the vehicle unit?</h4>
+<h4><a name="downloadvu"></a>How can I download the data from the vehicle unit?</h4>
 <p>I fear you will have to resort to proprietary solutions here.  Alternatively you could code something yourself, the protocol is completely defined in the <a href="#legislation">legislation</a>.  However, testing download algorithms leaves traces on the equipment, so take care your download attempts are not recorded as hacking attempts.</p>
 
-<h4>How can I download the data from the driver card?</h4>
+<h4><a name="downloadcard"></a>How can I download the data from the driver card?</h4>
 <p>Use <a href="http://developer.berlios.de/projects/fahrlinx/">Fahrlinux</a>.</p>
 
-<h4>Doesn't the driver card just hold 28 days of data?</h4>
+<h4><a name="28days"></a>Doesn't the driver card just hold 28 days of data?</h4>
 <p>Well, no.  The driver cards hold between 5548 byte and 13780 byte of activity data.  That translates to 28 days only if a lot of activity changes have to be recorded.  For most drivers, the card stores about one year of driving records. A possible way to clean the card would be to press <i>break</i> every minute on some slow sunday.</p>
 
-<h4>How secure is the cryptographic system?</h4>
-<p>That depends.  On one hand, the cards and vehicle units use 1024-bit RSA, which is so far reasonable even for really confidential information and not directly breakable.  On the other hand, well...
+<h4><a name="secure"></a>How secure is the cryptographic system?</h4>
+<p>That depends.  On one hand, the cards and vehicle units use 1024-bit RSA, which is so far reasonable even for really confidential information and not directly breakable.  On the other hand, well...</p>
 <ul>
 	<li>There are a lot of different keys used to sign the keys in the individual cards and vehicle units.  So there are many officials one could bribe to get a signed key or even a key usable as CA.</li>
 	<li>The secret keys are on the driver cards and vehicle units, so they already are in the hands of those who have the most interest in hacking them.  This makes various side-channel attacks possible.  Or, with a bit of money, presumably far less than the cost of a new truck, one could also just flat-out read the key data from the flash memory.</li>
 </ul>
-So far the cryptographic system itself <i>might</i> be unhacked.  It is far easier to just drive with a borrowed card at night than to retrieve the secret key.  On the other hand, there is some monetary incentive to avoid detection by manipulating the data, and some day this will be enough.</p>
+<p>So far the cryptographic system itself <i>might</i> be unhacked.  It is far easier to just drive with a borrowed card at night than to retrieve the secret key.  On the other hand, there is some monetary incentive to avoid detection by manipulating the data, and some day this will be enough.</p>
 <p>Please drive carefully, simply sticking to the <i>neccessary</i> law is the simplest way to avoid fines.</p>
 
-<h2>Modifying the program</h2>
+<h2><a name="modifying"></a>Modifying the program</h2>
 <p>You are free to modify and redistribute the program under the terms of the <a href="http://www.gnu.org/licenses/gpl.html">GPL</a>.</p>
-<p>If you do so, note:
+<p>If you do so, note:</p>
 <ul>
 	<li>Sometimes i added references to l207.pdf in the comments, that refers to
 	<a href="http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=OJ:L:2002:207:0001:0252:EN:PDF">OJ:L:2002:207, p. 1-252</a>, the <a href="#legislation">legislation</a> mentioned above.
@@ -117,16 +144,16 @@ So far the cryptographic system itself <i>might</i> be unhacked.  It is far easi
 	names.</li>
 	<li>The code contains <a href="http://www.stack.nl/~dimitri/doxygen/index.html">doxygen</a>-style comments. You can access the generated code documentation <a href="http://readesm.sourceforge.net">here</a>.</li>
 </ul>
-</p>
 
-<h2>Ressources</h2>
-<p>These links might help you use Readesm better:
+
+<h2><a name="ressources"></a>Ressources</h2>
+<p>These links might help you use Readesm better:</p>
 <ul>
-	<li>There is of course the <a href="http://readesm.sourceforge.net">Sourceforge project page</a>. <a href="http://andreas.goelzer.de/readesm-reading-digital-tachograph-files">
+	<li>There is of course the <a href="http://readesm.sourceforge.net">Sourceforge project page</a>. Also you might find some information on my <a href="http://andreas.goelzer.de/readesm-reading-digital-tachograph-files">personal Homepage</a>.</li>
 	<li><a href="http://developer.berlios.de/projects/fahrlinx/">Fahrlinux</a> is a project aimed at reading out driver cards with Card readers in Linux.</li>
 	<li>The Actros Weblog has a <a href="http://blog.actrophp.de/2010/07/fahrerkarte-auslesen-und-auswerten-unter-linux/">post</a> on how to read out the driver card with <a href="http://developer.berlios.de/projects/fahrlinx/">Fahrlinux</a> and Readesm.</li>
 </ul>
-</p>
+
 
 <h2>Thanks</h2>
 <p>Martin Walch provided the German translation.</p>
