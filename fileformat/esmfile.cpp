@@ -14,11 +14,15 @@ reporter& operator<<(reporter& report, const esmfile& e) {
 	report(QObject::tr("Recorded days"), e.daycount);
 	report(QObject::tr("Overall driven distance"), QString("%1 km").arg(e.drivenkm));
 	report(QObject::tr("Overall driving time"), formatMinutes(e.drivenminutes));
-	report(QObject::tr("Average distance per day"), QString("%1 km").arg(e.drivenkm / e.daycount));
-	report(QObject::tr("Average time driven per day"), formatMinutes(e.drivenminutes
-			/ e.daycount) + " (" + stringify(100* e .drivenminutes
-			/ (e.daycount * 24* 60 ))+ "%)");
-	report(QObject::tr("Average speed when driving"), stringify(e.drivenkm * 60 / e.drivenminutes) + " km/h");
+	if(e.daycount)
+	{
+		report(QObject::tr("Average distance per day"), QString("%1 km").arg(e.drivenkm / e.daycount));
+		report(QObject::tr("Average time driven per day"), formatMinutes(e.drivenminutes
+				/ e.daycount) + " (" + stringify(100* e .drivenminutes
+				/ (e.daycount * 24* 60 ))+ "%)");
+	}
+	if(e.drivenminutes)
+		report(QObject::tr("Average speed when driving"), stringify(e.drivenkm * 60 / e.drivenminutes) + " km/h");
 	report.bigblockend();
 
 	for(esmfile::subiter i = e.blocks.begin(); i < e.blocks.end(); ++i) report << **i;

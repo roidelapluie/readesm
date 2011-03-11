@@ -9,7 +9,8 @@
 QSharedPointer<vuBlock> vuFactory(constDataPointer start) {
 	typedef QSharedPointer<vuBlock> p;
 	if(start[0] != 0x76) {
-		qFatal("Not a block known to readesm, does not begin with 0x76");
+		qDebug("Not a block known to readesm, does not begin with 0x76");
+		return p();
 	}
 	switch(start[1]) {
 		case vuOverview::TREP:
@@ -23,7 +24,8 @@ QSharedPointer<vuBlock> vuFactory(constDataPointer start) {
 		case vuTechnical::TREP:
 			return p(new vuTechnical(start));
 		default:
-			qFatal("Oops! Unknown block %d", start[1]);
+			qDebug("Oops! Unknown vu block %d", start[1]);
+			return p();
 	}
 	return p();
 }
