@@ -34,7 +34,10 @@ class vuBlock : public block {
 	public:
 	virtual QString name() const = 0;
 	vuBlock(constDataPointer nstart) :
-		block(nstart), block_start(nstart.toUnsignedPointer(2)), runningIndex(0) {
+		block(nstart), 
+		block_start(nstart.toUnsignedPointer(2)), 
+		runningIndex(0)
+	{
 		hassignature = true;
 	}
 	virtual void Init() {
@@ -97,7 +100,9 @@ class vuBlock : public block {
 	mutable int runningIndex;
 	virtual int size() const = 0;
 	virtual void CompleteReport(reporter& report) const = 0;
-	virtual void BriefReport(reporter& report) const = 0;
+	virtual void BriefReport(reporter& report) const {
+		CompleteReport(report);
+	}
 	virtual void printOn(reporter& report) const {
 		if(report.verbose) CompleteReport(report);
 		else BriefReport(report);

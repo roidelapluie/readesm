@@ -5,6 +5,7 @@
 #include "vuOverview.h"
 #include "vuSpeeds.h"
 #include "vuTechnical.h"
+#include "vuHexBlock.h"
 
 QSharedPointer<vuBlock> vuFactory(constDataPointer start) {
 	typedef QSharedPointer<vuBlock> p;
@@ -25,7 +26,7 @@ QSharedPointer<vuBlock> vuFactory(constDataPointer start) {
 			return p(new vuTechnical(start));
 		default:
 			qDebug("Oops! Unknown vu block %d", start[1]);
-			return p();
+			return p(new vuHexBlock(start));
 	}
 	return p();
 }
