@@ -143,7 +143,7 @@ class dailyActivity {
 			if(d.codriver.size() >= 2 - (unsigned int) o.verbose) {
 				if(o.verbose) o.reportray(d.codriver, tr("Daily Activity Codriver"));
 				if(o.hasBarGraph()) o.single(tr("Activities Codriver") + "<br />" + visualization(o,
-						d.driver));
+						d.codriver));
 			}
 			o(tr("Driving time"), Activity::formatDurTime(d.driventime));
 			if(d.overtime) {
