@@ -22,7 +22,7 @@
 #include <QtCore/QString>
 
 inline QString fixedString(constDataPointer start, int length) {
-	if(!*(start.toPointer(1))) return "";
+	if(start[0] == 0 && (start[1] == 0 || start[1] == 0xFF)) return "";
 	QString rv = QString::fromLatin1(start.toPointer(1),length-1);
 	return rv.trimmed();;
 }

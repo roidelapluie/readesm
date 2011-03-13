@@ -30,6 +30,7 @@ class block11Record {
 		timeTwo(BEInt32(start + 22)),
 		payload(hexchunk(start + 26, 32))
 	{
+		qDebug() << start[0] << start[1];
 	}
 	friend reporter& operator<<(reporter& o, const block11Record& data){
 		o("cardNumber", data.cardNumber);
@@ -74,7 +75,7 @@ class vu11Block : public vuBlock {
 					.arg(start.offset)
 					.arg(start.offset, 8, 16, QChar('0')));
 		o("Block size", QString("%1").arg(size()));
-		o.single("Block start data: " + hexchunk(start, 19));
+		o.single("Block start data: " + hexchunk(start, 20));
 		o("NumberOfRecords", numberOfRecords);
 		for(int j = 0; j < numberOfRecords; ++j){
 			block11Record temp(start + 19 + j * 58);
