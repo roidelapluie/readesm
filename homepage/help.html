@@ -8,7 +8,7 @@
 	<body>
 		<h1>Readesm Documentation</h1>
 <p>Digital Tachographs are a compulsory equipment for trucks heavier than 3.5 tons within the
-European Union.  Readesm converts the binary data retrieved from the tachograph or driver card into human-readable form.  The ESM files Readesm can read typically have extensions <i>.esm</i>, <i>.esm</i> or <i>.add</i>.</p>
+European Union.  Readesm converts the binary data retrieved from the tachograph or driver card into human-readable form.  The ESM files Readesm can read typically have extensions <i>.esm</i>, <i>.ddd</i> or <i>.add</i>.</p>
 
 <h2>Contents</h2>
 <ol>
@@ -80,7 +80,7 @@ you also need:</p>
 source from svn, then build with cmake. In Ubuntu you might do something like:</p>
 <pre>
 sudo apt-get install libqt4-dev qt4-qmake libqtwebkit-dev libgcrypt11-dev libgmp3-dev
-sudo apt-get install cmake build-essentials subversion
+sudo apt-get install cmake build-essential subversion
 svn co https://readesm.svn.sourceforge.net/svnroot/readesm readesm
 cd readesm
 mkdir build
@@ -89,6 +89,7 @@ cmake ..
 make
 sudo make install
 </pre>
+<p>On other systems, use your distributions package manager to get the tools and libraries, and execute <i>make install</i> as root.  You might also want to try checkinstall or build a package for your distribution in another way.</p>
 
 <h2><a name="running"></a>Starting the program</h2>
 <p>You can use readesm in gui mode or in command line mode:</p>
@@ -116,7 +117,7 @@ As with all european legislation it is available in several languages, for examp
 
 
 <h4><a name="downloadvu"></a>How can I download the data from the vehicle unit?</h4>
-<p>I fear you will have to resort to proprietary solutions here.  Alternatively you could code something yourself, the protocol is completely defined in the <a href="#legislation">legislation</a>.  However, testing download algorithms leaves traces on the equipment, so take care your download attempts are not recorded as hacking attempts.</p>
+<p>I fear you will have to resort to proprietary solutions here.  Alternatively you could code something yourself, the protocol is completely defined in the <a href="#legislation">legislation</a>.  I wrote a little program (<i>loadVU.py</i>) for serial download in python, it is currently in the readesm subversion repository, but it is completely untested yet.  But you might be able to code it into a usable state.</p>
 
 <h4><a name="downloadcard"></a>How can I download the data from the driver card?</h4>
 <p>Use <a href="http://developer.berlios.de/projects/fahrlinx/">Fahrlinux</a>.</p>
@@ -155,6 +156,7 @@ As with all european legislation it is available in several languages, for examp
 	<li><a href="http://developer.berlios.de/projects/fahrlinx/">Fahrlinux</a> is a project aimed at reading out driver cards with Card readers in Linux.</li>
 	<li>The Actros Weblog has a <a href="http://blog.actrophp.de/2010/07/fahrerkarte-auslesen-und-auswerten-unter-linux/">post</a> on how to read out the driver card with <a href="http://developer.berlios.de/projects/fahrlinx/">Fahrlinux</a> and Readesm.</li>
 </ul>
+<p>You can also try <a href="http://www.opendtacho.org/">open dtacho</a>, an open source project trying to create a complete management suite for tachograph data.</p>
 
 <h2><a name="help"></a>Getting further help</h2>
 <p>If the program crashes, won't install, if you have feature requests or general feedback, feel free to either:</p>
