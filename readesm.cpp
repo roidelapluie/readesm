@@ -20,10 +20,10 @@
 #include <QtCore/QTextStream>
 #include <QtCore/QTranslator>
 #include <QtGui/QApplication>
-
-int main(int argc, char** argv)
+template <typename T>
+int main2(int argc, char** argv)
 {
-	QApplication app(argc, argv);
+	T app(argc, argv);
 	app.setApplicationName("readesm");
 	app.setApplicationVersion(QString("%1 (%2)")
 			.arg(VERSION)
@@ -82,4 +82,11 @@ int main(int argc, char** argv)
 	} else {
 		cerr << "Way too many arguments. Syntax is readesm [input file] [output file]" << endl;
 	}
+	return 0;
+}
+
+int main(int argc, char** argv)
+{
+	if(argc == 3) return main2<QCoreApplication>(argc,argv);
+	else return main2<QApplication>(argc,argv);
 }
