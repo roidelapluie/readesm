@@ -44,9 +44,9 @@ class cardBlock : public block {
 		block(filewalker) 
 	{
 		datasize = BEInt16(start + 3);
-		//qDebug() << "size" << datasize;
+		qDebug() << "size" << datasize << "type" << hex(type) << "Left: " << filewalker.bytesLeft();
 		filewalker = start + 5 + datasize;
-		if(getType(filewalker) == type && filewalker[2] == 1) {
+		if(filewalker.bytesLeft() >= 5 + 128 && getType(filewalker) == type && filewalker[2] == 1) {
 			signature = filewalker + 5;
 			hassignature = true;
 		}
