@@ -23,10 +23,10 @@ mainWindow::mainWindow()
 	
 	//define and link the stuff in the menu bar
 	QMenu *fileMenu = new QMenu(tr("&File"),this); 
-	QAction* fileOpenAction = new QAction(QIcon::fromTheme("document-open"), tr("&Open"), this);
-	QAction* fileSaveRawAction = new QAction(QIcon::fromTheme("document-save-as"), tr("Save &As"), this);
-	QAction* fileSaveHtmlAction = new QAction(tr("Save &Html"), this);
-	QAction* filePrintAction = new QAction(QIcon::fromTheme("document-print"), tr("&Print"), this);
+	QAction* fileOpenAction = new QAction(QIcon::fromTheme("document-open"), tr("&Open…"), this);
+	QAction* fileSaveRawAction = new QAction(QIcon::fromTheme("document-save-as"), tr("Save &As…"), this);
+	QAction* fileSaveHtmlAction = new QAction(tr("E&xport as HTML…"), this);
+	QAction* filePrintAction = new QAction(QIcon::fromTheme("document-print"), tr("&Print…"), this);
 	QAction* fileQuitAction = new QAction(QIcon::fromTheme("application-exit"), tr("&Quit"), this);
 	fileOpenAction->setShortcut(QKeySequence::Open);
 	filePrintAction->setShortcut(QKeySequence::Print);
@@ -90,6 +90,8 @@ void mainWindow::helpAbout()
 void mainWindow::helpContents()
 {
 	view->load(QUrl("qrc:///homepage/help.html"));
+	view->load(QUrl("bla.xhtml"));
+	//view->page()->setLinkDelegationPolicy( QWebPage::DelegateAllLinks );
 }
 
 void mainWindow::openFile()
