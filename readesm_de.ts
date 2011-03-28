@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
 <TS version="2.0" language="de">
+<defaultcodec>UTF-8</defaultcodec>
 <context>
     <name></name>
     <message>
@@ -1545,7 +1546,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>Event</name>
     <message>
-        <location filename="fileformat/vuBlocks/vuFaults.h" line="+89"/>
+        <location filename="fileformat/vuBlocks/vuFaults.h" line="+95"/>
         <source>similarEventsNumber</source>
         <translation>Anzahl Ähnlicher Ereignisse</translation>
     </message>
@@ -1553,7 +1554,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>EventBase</name>
     <message>
-        <location line="-52"/>
+        <location line="-54"/>
         <source>RecordPurpose</source>
         <translation>Aufzeichnungsgrund</translation>
     </message>
@@ -1583,7 +1584,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>Fault</name>
     <message>
-        <location line="+26"/>
+        <location line="+28"/>
         <source>cardNumberDriverSlotBegin</source>
         <translation>Kartennummer des Fahrers bei Ereignisbeginn</translation>
     </message>
@@ -1713,7 +1714,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>Overspeed</name>
     <message>
-        <location line="+35"/>
+        <location line="+38"/>
         <source>maxSpeedValue</source>
         <translation>Höchste gefahrene Geschwindigkeit</translation>
     </message>
@@ -1879,7 +1880,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
         <translation>Gesamtfahrzeit</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+3"/>
         <source>Average distance per day</source>
         <translation>Durchschnittliche Strecke pro Tag</translation>
     </message>
@@ -1889,7 +1890,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
         <translation>Durchschnittlich pro Tag gefahrene Zeit</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+5"/>
         <source>Average speed when driving</source>
         <translation>Durchschnittsgeschwindigkeit während der Fahrt</translation>
     </message>
@@ -3065,23 +3066,25 @@ Signatur-Prüfung fehlgeschlagen </translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>&amp;Open</source>
-        <translation>&amp;Öffnen</translation>
+        <source>&amp;Open…</source>
+        <oldsource>&amp;Openâ¦</oldsource>
+        <translation>&amp;Öffnen …</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Save &amp;As</source>
-        <translation>Speichern &amp;Unter</translation>
+        <source>Save &amp;As…</source>
+        <oldsource>Save &amp;Asâ¦</oldsource>
+        <translation>Speichern &amp;Unter …</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Save &amp;Html</source>
-        <translation>&amp;Html speichern</translation>
+        <translation type="obsolete">&amp;Html speichern</translation>
     </message>
     <message>
-        <location line="+1"/>
-        <source>&amp;Print</source>
-        <translation>&amp;Drucken</translation>
+        <location line="+2"/>
+        <source>&amp;Print…</source>
+        <oldsource>&amp;Printâ¦</oldsource>
+        <translation>&amp;Drucken …</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -3098,7 +3101,13 @@ Signatur-Prüfung fehlgeschlagen </translation>
         <translation type="obsolete">&amp;Online</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-22"/>
+        <source>E&amp;xport as HTML…</source>
+        <oldsource>E&amp;xport as HTMLâ¦</oldsource>
+        <translation>Als &amp;HTML exportieren …</translation>
+    </message>
+    <message>
+        <location line="+23"/>
         <source>&amp;Contents</source>
         <translation>&amp;Inhalt</translation>
     </message>
@@ -3147,7 +3156,7 @@ Die Veröffentlichung dieses Programms erfolgt in der Hoffnung, daß es Ihnen vo
 Sie sollten ein Exemplar der GNU General Public License zusammen mit diesem Programm erhalten haben. Falls nicht, siehe &lt;http://www.gnu.org/licenses/&gt;.</translation>
     </message>
     <message>
-        <location line="+19"/>
+        <location line="+21"/>
         <source>Open Tachograph File</source>
         <translation>Tachographendatei öffnen</translation>
     </message>
