@@ -20,11 +20,24 @@
 #include "constDataPointer.h"
 
 #include <QtCore/QString>
+#include <QDebug>
+
+inline QString codepageStringCombination(constDataPointer start, int length){
+	QString rv = QString::fromLatin1(start.toPointer(1), length - 1).trimmed();
+	return rv;
+}
 
 inline QString fixedString(constDataPointer start, int length) {
-	if(start[0] == 0 && (start[1] == 0 || start[1] == 0xFF)) return "";
-	QString rv = QString::fromLatin1(start.toPointer(1),length-1);
-	return rv.trimmed();;
+	QString rv = QString::fromLatin1(start.toPointer(0),length).trimmed();
+	if(start[0] <= 16 && start[0] >= 1){
+		qDebug() << rv << "might be a codepage-string combination, parsing as such";
+		return codepageStringCombination(start, length);
+	}
+	if(start[0] < 0x20 || start[0] == 0xFF){
+		if(start[0] == 0 && (start[1] == 0 || start[1] == 0xFF)) return "";
+		qDebug() << "String starts with " << (int)start[0] << (int)start[1] << (int)start[2] <<", string is " << rv; 
+	}
+	return rv;
 }
 
 inline  int BEInt16(constDataPointer start) {

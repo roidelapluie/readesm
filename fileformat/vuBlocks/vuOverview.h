@@ -59,21 +59,21 @@ class vuOverview : public vuBlock {
 		report(tr("maxDownloadableTime"), readDate().str());
 		report(tr("CardSlotsStatus"), IntByte());
 		report(tr("downloadingTime"), readDate().str());
-		report(tr("fullCardNumber"), fixedString(18));
+		report(tr("fullCardNumber"), fullCardNumber());
 		report(tr("companyOrWorkshopName"), fixedString(36));
-		for(reporter::subblock b = report.newsub("VuCompanyLocksRecord",
+		for(reporter::subblock b = report.newsub(tr("VuCompanyLocksRecord"),
 				IntByte()); b(); ++b) {
 			report(tr("lockInTime"), readDate().str());
 			report(tr("lockOutTime"), readDate().str());
 			report(tr("companyName"), fixedString(36));
 			report(tr("companyAddress"), fixedString(36));
-			report(tr("companyCardNumber"), fixedString(18));
+			report(tr("companyCardNumber"), fullCardNumber());
 		}
-		for(reporter::subblock b = report.newsub("VuControlActivityRecord",
+		for(reporter::subblock b = report.newsub(tr("VuControlActivityRecord"),
 				IntByte()); b(); ++b) {
 			report(tr("controlType"), formatStrings::controlType(IntByte()));
 			report(tr("controlTime"), readDate().str());
-			report(tr("controlCardNumber"), fixedString(18));
+			report(tr("controlCardNumber"), fullCardNumber());
 			report(tr("downloadPeriodBeginTime"), readDate().str());
 			report(tr("downloadPeriodEndTime"), readDate().str());
 		}

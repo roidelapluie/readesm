@@ -27,6 +27,7 @@
 
 #include "../myTime.h"
 #include "../readTypes.h"
+#include "../dataTypes/fullCardNumber.h"
 
 #include <QtCore/QString>
 
@@ -96,6 +97,17 @@ class vuBlock : public block {
 	QString fixedString(int offset, int length) const {
 		return ::fixedString(start + 2 + offset, length);
 	}
+	
+	QString fullCardNumber(int offset) const {
+		::fullCardNumber d(start + 2 + offset);
+		return d.str();
+	}
+
+	QString fullCardNumber() const {
+		runningIndex += 18;
+		return fullCardNumber(runningIndex - 18);
+	}
+
 	const unsigned char* block_start;
 	mutable int runningIndex;
 	virtual int size() const = 0;

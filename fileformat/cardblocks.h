@@ -30,6 +30,7 @@
 #include "formatStrings.h"
 #include "overtime.h"
 #include "readTypes.h"
+#include "dataTypes/fullCardNumber.h"
 
 #include <QtCore/QByteArray>
 #include <QtCore/QCoreApplication>
@@ -254,28 +255,6 @@ public:
 	}
 };
 
-struct fullCardNumber {
-	Q_DECLARE_TR_FUNCTIONS(fullCardNumber)
-public:
-	int Type;
-	int Nation;
-	QString Number;
-	fullCardNumber(constDataPointer start) :
-		Type(start[0]), 
-		Nation(start[1]), 
-		Number(fixedString(start + 2, 16)) 
-	{
-	}
-	friend reporter& operator<<(reporter& report, fullCardNumber sub) {
-		report(tr("cardType"), formatStrings::equipmentType(sub.Type));
-		report(tr("cardIssuingMemberState"), formatStrings::nationNumeric(sub.Nation));
-		report(tr("cardNumber"), sub.Number);
-		return report;
-	}
-	static bool defval(constDataPointer start) {
-		return checkZeros(start, 3) && checkSpaces(start + 3, 16);
-	}
-};
 
 class controlActivityData : public cardBlock {
 	Q_DECLARE_TR_FUNCTIONS(controlActivityData)

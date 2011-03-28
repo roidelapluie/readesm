@@ -1267,25 +1267,25 @@
         <location filename="gui/mainWindow.cpp" line="26"/>
         <source>&amp;Open…</source>
         <oldsource>&amp;Openâ¦</oldsource>
-        <translation type="unfinished">&amp;Abrir</translation>
+        <translation>&amp;Abrir…</translation>
     </message>
     <message>
         <location filename="gui/mainWindow.cpp" line="27"/>
         <source>Save &amp;As…</source>
         <oldsource>Save &amp;Asâ¦</oldsource>
-        <translation type="unfinished">G&amp;uardar como</translation>
+        <translation>G&amp;uardar como…</translation>
     </message>
     <message>
         <location filename="gui/mainWindow.cpp" line="28"/>
         <source>E&amp;xport as HTML…</source>
         <oldsource>E&amp;xport as HTMLâ¦</oldsource>
-        <translation type="unfinished"></translation>
+        <translation>E&amp;xportar como HTML…</translation>
     </message>
     <message>
         <location filename="gui/mainWindow.cpp" line="29"/>
         <source>&amp;Print…</source>
         <oldsource>&amp;Printâ¦</oldsource>
-        <translation type="unfinished">Im&amp;primir</translation>
+        <translation>Im&amp;primir…</translation>
     </message>
     <message>
         <location filename="gui/mainWindow.cpp" line="30"/>
@@ -1362,7 +1362,7 @@ You should have received a copy of the GNU General Public License along with rea
     <message>
         <location filename="gui/mainWindow.cpp" line="119"/>
         <source>Print Document</source>
-        <translation type="unfinished"></translation>
+        <translation>Imprimir</translation>
     </message>
     <message>
         <location filename="gui/mainWindow.cpp" line="128"/>

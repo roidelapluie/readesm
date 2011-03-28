@@ -58,7 +58,7 @@ void vuActivities::CompleteReport(reporter& report) const {
 	for(reporter::subblock b = report.newsub(tr("VuCardIWRecord"), Int16()); b(); ++b) {
 		report(tr("cardHolderSurname"), fixedString(36));
 		report(tr("cardHolderFirstNames"), fixedString(36));
-		report(tr("fullCardNumber"), fixedString(18));
+		report(tr("fullCardNumber"), fullCardNumber());
 		report(tr("cardExpiryDate"), readDate().str());
 		report(tr("cardInsertionTime"), readDate().str());
 		report(tr("vehicleOdometerValueAtInsertion"), Odometer());
@@ -78,7 +78,7 @@ void vuActivities::CompleteReport(reporter& report) const {
 	}
 
 	for(reporter::subblock b = report.newsub("Regions", IntByte()); b(); ++b) {
-		report(tr("fullCardNumber"), fixedString(18));
+		report(tr("fullCardNumber"), fullCardNumber());
 		report(tr("entryTime"), readDate().str());
 		report(tr("entryTypeDailyWorkPeriod"), formatStrings::dailyWorkPeriod(IntByte()));
 		report(tr("dailyWorkPeriodCountry"), formatStrings::nationNumeric(IntByte()));

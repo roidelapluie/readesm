@@ -55,7 +55,7 @@ class vuTechnical : public vuBlock {
 			report(tr("calibrationPurpose"), formatStrings::calibrationPurpose(IntByte()));
 			report(tr("workshopName"), fixedString(36));
 			report(tr("workshopAddress"), fixedString(36));
-			report(tr("workshopCardNumber"), fixedString(18));
+			report(tr("workshopCardNumber"), fullCardNumber());
 			report(tr("workshopCardExpiryDate"), readDate().str());
 			report(tr("vehicleIdentificationNumber"), fixedString(17));
 			report(tr("vehicleRegistrationNation"), formatStrings::nationNumeric(IntByte()));

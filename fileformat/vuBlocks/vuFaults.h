@@ -49,36 +49,36 @@ class EventBase {
 class Fault : public EventBase {
 	Q_DECLARE_TR_FUNCTIONS(Fault)
 	public:
-	static int csize() {return  EventBase::csize() + 4* 18; }
-	QString cardnumbers[4];
-	static const int cardNumberDriverSlotBegin = 0;
-	static const int cardNumberCodriverSlotBegin = 1;
-	static const int cardNumberDriverSlotEnd = 2;
-	static const int cardNumberCodriverSlotEnd = 3;
+	static int csize() {return  EventBase::csize() + 4 * 18; }
+	::fullCardNumber cardNumberDriverSlotBegin, 
+		cardNumberCodriverSlotBegin, 
+		cardNumberDriverSlotEnd,
+		cardNumberCodriverSlotEnd;
 	Fault(constDataPointer filewalker) :
-		EventBase(filewalker) {
-		for(int j = 0; j < 4; ++j){
-			if(!checkchar(filewalker + EventBase::csize() + j * 18 + 1,17,0xff))
-				cardnumbers[j] = fixedString(
-					filewalker + EventBase::csize() + j * 18, 18);
-		}
+		EventBase(filewalker),
+		cardNumberDriverSlotBegin  (filewalker + EventBase::csize() + 0 * 18),
+		cardNumberCodriverSlotBegin(filewalker + EventBase::csize() + 1 * 18),
+		cardNumberDriverSlotEnd    (filewalker + EventBase::csize() + 2 * 18),
+		cardNumberCodriverSlotEnd  (filewalker + EventBase::csize() + 3 * 18)
+	{
 	}
+
 	virtual void printOn(reporter& report) const {
 		EventBase::printOn(report);
-		if(cardnumbers[2] != "" && cardnumbers[2] != cardnumbers[0]) {
-			if(cardnumbers[0] != "") report(tr("cardNumberDriverSlotBegin"),
-					cardnumbers[0]);
-			if(cardnumbers[2] != "") report(tr("cardNumberDriverSlotEnd"),
-					cardnumbers[2]);
-		} else if(cardnumbers[0] != "") report(tr("cardNumberDriverSlot"),
-				cardnumbers[0]);
-		if(cardnumbers[3] != "" && cardnumbers[3] != cardnumbers[1]) {
-			if(cardnumbers[1] != "") report(tr("cardNumberCodriverSlotBegin"),
-					cardnumbers[1]);
-			if(cardnumbers[3] != "") report(tr("cardNumberCodriverSlotEnd"),
-					cardnumbers[3]);
-		} else if(cardnumbers[1] != "") report(tr("cardNumberCodriverSlot"),
-				cardnumbers[1]);
+		
+		if(cardNumberDriverSlotBegin != cardNumberDriverSlotEnd) {
+			if(!cardNumberDriverSlotBegin.defval()) 
+				report(tr("cardNumberDriverSlotBegin"), cardNumberDriverSlotBegin.str());
+			if(!cardNumberDriverSlotEnd.defval()) 
+				report(tr("cardNumberDriverSlotEnd"), cardNumberDriverSlotEnd.str());
+		} else if(!cardNumberDriverSlotBegin.defval()) report(tr("cardNumberDriverSlot"), cardNumberDriverSlotBegin.str());
+		
+		if(cardNumberCodriverSlotBegin != cardNumberCodriverSlotEnd) {
+			if(!cardNumberCodriverSlotBegin.defval()) 
+				report(tr("cardNumberCodriverSlotBegin"), cardNumberCodriverSlotBegin.str());
+			if(!cardNumberCodriverSlotEnd.defval()) 
+				report(tr("cardNumberCodriverSlotEnd"), cardNumberCodriverSlotEnd.str());
+		} else if(!cardNumberCodriverSlotBegin.defval()) report(tr("cardNumberCodriverSlot"), cardNumberCodriverSlotBegin.str());
 	}
 };
 
@@ -102,13 +102,13 @@ class Overspeed : public EventBase {
 	public:
 	static int csize() { return EventBase::csize() + 21; }
 	int maxSpeedValue, averageSpeedValue;
-	QString cardNumberDriverSlotBegin;
+	::fullCardNumber cardNumberDriverSlotBegin;
 	int similarEventsNumber;
 	Overspeed(constDataPointer filewalker) :
 		EventBase(filewalker),
 		maxSpeedValue(filewalker[10]),
 		averageSpeedValue(filewalker[11]),
-		cardNumberDriverSlotBegin(fixedString(filewalker + 12, 18)),
+		cardNumberDriverSlotBegin(filewalker + 12),
 		similarEventsNumber(filewalker[30])
 	{
 	}
@@ -117,7 +117,7 @@ class Overspeed : public EventBase {
 		EventBase::printOn(report);
 		report(tr("maxSpeedValue"), stringify(maxSpeedValue) + " km/h");
 		report(tr("averageSpeedValue"), stringify(averageSpeedValue) + " km/h");
-		report(tr("cardNumberDriverSlotBegin"), cardNumberDriverSlotBegin);
+		report(tr("cardNumberDriverSlotBegin"), cardNumberDriverSlotBegin.str());
 		if(similarEventsNumber) report(tr("similarEventsNumber"),
 				similarEventsNumber);
 	}
@@ -168,7 +168,7 @@ class vuFaults : public vuBlock {
 			report(tr("newTimeValue"), readDate().str());
 			report(tr("workshopName"), fixedString(36));
 			report(tr("workshopAddress"), fixedString(36));
-			report(tr("workshopCardNumber"), fixedString(18));
+			report(tr("workshopCardNumber"), fullCardNumber());
 		}
 	}
 	void BriefReport(reporter& report) const {
