@@ -214,7 +214,7 @@ public:
 	}
 	friend reporter& operator<<(reporter& report, vehicleRegistration sub) {
 		if(report.verbose) report(tr("vehicleRegistrationNation"), formatStrings::nationNumeric(sub.Nation));
-		report(tr("vehicleRegistrationNumber"), sub.Number);
+		if(sub.Number[0] != 0) report(tr("vehicleRegistrationNumber"), sub.Number);
 		return report;
 	}
 	static bool defval(constDataPointer start) {
