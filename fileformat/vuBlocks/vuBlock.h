@@ -130,6 +130,7 @@ class vuBlock : public block {
 	virtual int nonhashedbytes() const {
 		return 0;
 	}
+	static QSharedPointer<vuBlock> Factory(constDataPointer start);
 };
 
 #endif

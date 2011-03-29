@@ -233,3 +233,28 @@ QString formatStrings::dailyWorkPeriod(unsigned char value) {
 	if(value <= 5) return tr(vals[value]);
 	else return tr("(not specified)");
 }
+
+QString formatStrings::regionNumeric(unsigned char value) {
+	const char* vals[] = {
+		QT_TR_NOOP("No information available"),
+		QT_TR_NOOP("Andalucía"),
+		QT_TR_NOOP("Aragón"),
+		QT_TR_NOOP("Asturias"),
+		QT_TR_NOOP("Cantabria"),
+		QT_TR_NOOP("Cataluña"),
+		QT_TR_NOOP("Castilla-León"),
+		QT_TR_NOOP("Castilla-La-Mancha"),
+		QT_TR_NOOP("Valencia"),
+		QT_TR_NOOP("Extremadura"),
+		QT_TR_NOOP("Galicia"),
+		QT_TR_NOOP("Baleares"),
+		QT_TR_NOOP("Canarias"),
+		QT_TR_NOOP("La Rioja"),
+		QT_TR_NOOP("Madrid"),
+		QT_TR_NOOP("Murcia"),
+		QT_TR_NOOP("Navarra"),
+		QT_TR_NOOP("País Vasco")
+	};
+	if(value <= 0x11) return tr(vals[value]);
+	else return tr("(unknown region)");
+}

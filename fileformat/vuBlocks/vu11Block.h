@@ -3,6 +3,7 @@
 
 #include "config.h"
 #include "vuBlock.h"
+#include "../helper.h"
 
 #ifndef HAVE_NO_CRYPTO
 #include "../crypto.h"
@@ -11,12 +12,7 @@
 #include <QtCore/QString>
 #include <QtCore/QTextStream>
 
-QString hexchunk(constDataPointer start, int length){
-	QString hexDecodeString;
-	QTextStream hexDecoder(&hexDecodeString);
-	hexout(hexDecoder, start, length);
-	return hexDecodeString;
-}
+
 
 
 class block11Record {

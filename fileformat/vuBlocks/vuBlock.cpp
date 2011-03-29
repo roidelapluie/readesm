@@ -1,4 +1,4 @@
-#include "vuFactory.h"
+#include "vuBlock.h"
 
 #include "vuActivities.h"
 #include "vuFaults.h"
@@ -8,7 +8,7 @@
 #include "vuHexBlock.h"
 #include "vu11Block.h"
 
-QSharedPointer<vuBlock> vuFactory(constDataPointer start) {
+QSharedPointer<vuBlock> vuBlock::Factory(constDataPointer start) {
 	typedef QSharedPointer<vuBlock> p;
 	if(start[0] != 0x76) {
 		qDebug("Not a block known to readesm, does not begin with 0x76");

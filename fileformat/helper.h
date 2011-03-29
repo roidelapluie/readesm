@@ -78,4 +78,11 @@ bool checkSpaces(const T& i, int length) {
 	return checkchar(i, length, 0x20);
 }
 
+template <typename T>
+QString hexchunk(T start, int length){
+	QString hexDecodeString;
+	QTextStream hexDecoder(&hexDecodeString);
+	hexout(hexDecoder, start, length);
+	return hexDecodeString;
+}
 #endif

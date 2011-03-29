@@ -25,18 +25,27 @@ class formatStrings {
 
 	public:
 	
+	///What kind of event(mostly "driving without the right card")
 	static QString eventType(unsigned char etype);
 
+	///Why was the event recorded?
 	static QString eventRecordPurpose(unsigned char etype);
 
+	///Which country in the EU?
 	static QString nationNumeric(unsigned char country);
+
+	///Which region in Spain? (seems to be only relevant there)
+	static QString regionNumeric(unsigned char region);
 
 	static QString specificCondition(unsigned char scond);
 	
+	///Why was the VU (re)calibrated?
 	static QString calibrationPurpose(unsigned char cpurp);
 
+	///Control type(printing, vu read, ...)
 	static QString controlType(unsigned char ctype);
 	
+	///Kind of card(control, driver...)
 	static QString equipmentType(unsigned char value);
 
 	static QString dailyWorkPeriod(unsigned char value);
