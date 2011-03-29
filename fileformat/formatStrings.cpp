@@ -163,10 +163,13 @@ QString formatStrings::nationNumeric(unsigned char country) {
 		QT_TR_NOOP("Turkey"), 
 		QT_TR_NOOP("Ukraine"),
 		QT_TR_NOOP("Vatican City"), 
-		QT_TR_NOOP("Yugoslavia")
+		QT_TR_NOOP("Yugoslavia"),
+		QT_TR_NOOP("Montenegro"), //new ones only found on dtc.jrc.it
+		QT_TR_NOOP("Serbia"),
+		QT_TR_NOOP("Uzbekistan")
 	};
-	if(country <= 0x33) return tr(countries[country]);
-	if(0x34 <= country && country <= 0xFC) return tr("Reserved for future use");
+	if(country <= 0x36) return tr(countries[country]);
+	if(country <= 0xFC) return tr("Reserved for future use");
 	if(country == 0xFD) return tr("European Community");
 	if(country == 0xFE) return tr("Europe, but not EC and not registered");
 	if(country == 0xFF) return tr("outside of Europe, not registered");
@@ -257,4 +260,43 @@ QString formatStrings::regionNumeric(unsigned char value) {
 	};
 	if(value <= 0x11) return tr(vals[value]);
 	else return tr("(unknown region)");
+}
+
+///Manufacturer codes as found on dtc.jrc.it
+QString formatStrings::manufacturerCode(unsigned char code) {
+	switch(code){
+	case 0x00: return tr("No information available");
+	case 0x01: return tr("Reserved value");
+	case 0x10: return tr("Actia S.A.");
+	case 0x12: return tr("Austria Card Plastikkarten und Ausweissysteme GmbH");
+	case 0x13: return tr("Agencija za komercijalnu djelatnost d.o.o (AKD)");
+	case 0x20: return tr("CETIS d.d.");
+	case 0x21: return tr("certSIGN");
+	case 0x22: return tr("RUE Cryptotech");
+	case 0x30: return tr("Sdu Identification B.V. (formerly Enschedé/Sdu B.V.)");
+	case 0x32: return tr("EFKON AG.");
+	case 0x38: return tr("Fábrica Nacional de Moneda y Timbre");
+	case 0x40: return tr("Giesecke & Devrient GmbH");
+	case 0x43: return tr("Giesecke & Devrient GB Ltd.");
+	case 0x44: return tr("Giesecke & Devrient sa/nv");
+	case 0x48: return tr("Hungarian Banknote Printing Co. Ltd.");
+	case 0x50: return tr("Imprimerie Nationale");
+	case 0x51: return tr("Imprensa Nacional-Casa da Moeda, SA");
+	case 0x52: return tr("InfoCamere S.C.p.A");
+	case 0x81: return tr("Morpho e-documents (formerly Sagem Orga formerly ORGA Kartensysteme GmbH)");
+	case 0x82: return tr("ORGA Zelenograd ZAO");
+	case 0x88: return tr("Asseco Czech Republic a.s. (formerly PVT a.s.)");
+	case 0x89: return tr("Polska Wytwórnia Papierów Wartosciowych S.A. - PWPW S.A.");
+	case 0xA1: return tr("Continental Automotive GmbH (formerly Siemens AG - Siemens VDO Automotive Siemens Automotive)"); 
+	case 0xA2: return tr("Stoneridge Electronics AB");
+	case 0xA3: return tr("Gemalto (formerly Schlumberger SEMA, Axalto)");
+	case 0xA4: return tr("3M Security Printing and Systems Ltd.");
+	case 0xD8: return tr("Union of Chambers and Commodity Exchanges of Turkey - TOBB");
+	case 0xAB: return tr("T-Systems International GmbH");
+	case 0xAC: return tr("Trüb AG");
+	case 0xAD: return tr("Trüb Baltic AS");
+	case 0xAE: return tr("TEMPEST a.s.");
+	case 0xAF: return tr("Trueb - DEMAX PLC");
+	}
+	return tr("Unknown Manufacturer or equipment not type approved");
 }

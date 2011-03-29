@@ -48,6 +48,8 @@ class formatStrings {
 	///Kind of card(control, driver...)
 	static QString equipmentType(unsigned char value);
 
+	static QString manufacturerCode(unsigned char code);
+
 	static QString dailyWorkPeriod(unsigned char value);
 };
 #endif
