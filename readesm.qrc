@@ -7,4 +7,10 @@
 	<file>greeting.xhtml</file>
 	<file>homepage/style.css</file>
 </qresource>
+<qresource lang="es">
+	<file alias="greeting.xhtml">greeting_es.xhtml</file>
+</qresource>
+<qresource lang="de">
+	<file alias="greeting.xhtml">greeting_de.xhtml</file>
+</qresource>
 </RCC>
