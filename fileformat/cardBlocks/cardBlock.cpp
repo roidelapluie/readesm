@@ -14,6 +14,8 @@
 #include "applicationIdentification.h"
 #include "controlActivityData.h"
 #include "places.h"
+#include "cardIccIdentification.h"
+#include "cardChipIdentification.h"
 
 //Driver Card Codes and structure are on p. 119 in l207.pdf
 cardBlock::ptr cardBlock::Factory(constDataPointer filewalker) {
@@ -48,6 +50,11 @@ cardBlock::ptr cardBlock::Factory(constDataPointer filewalker) {
 			return p(new controlActivityData(filewalker));
 		case places::Type:
 			return p(new places(filewalker));
+		case cardIccIdentification::Type:
+			return p(new cardIccIdentification(filewalker));
+		case cardChipIdentification::Type:
+			return p(new cardChipIdentification(filewalker));
+		
 		default:
 			return p(new cardBlock(filewalker));
 	}
