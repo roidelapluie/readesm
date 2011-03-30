@@ -99,7 +99,7 @@ void mainWindow::openFile()
 	QString fileName = QFileDialog::getOpenFileName(this,
 		tr("Open Tachograph File"), 
 		QString(), 
-		tr("Tachograph Files") +  "(*.esm *.ddd)" + ";;" + tr("All files") + "(*)"
+		tr("Tachograph Files") +  "(*.esm *.ddd *.tgd)" + ";;" + tr("All files") + "(*)"
 	);
         if(fileName != "") openFile(fileName);
 }
