@@ -5,6 +5,7 @@
 #include "../helper.h"
 
 fullCardNumber::fullCardNumber(constDataPointer start) :
+	dataType(start),
 	Type(start[0]), 
 	Nation(start[1]), 
 	Number(fixedString(start + 2, 16)) 

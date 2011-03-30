@@ -107,7 +107,11 @@ class vuBlock : public block {
 		runningIndex += 18;
 		return fullCardNumber(runningIndex - 18);
 	}
-
+	template <typename T>
+	QString read() const {
+		runningIndex += T::size;
+		return T(start + 2 + runningIndex - T::size).str();
+	}
 	const unsigned char* block_start;
 	mutable int runningIndex;
 	virtual int size() const = 0;

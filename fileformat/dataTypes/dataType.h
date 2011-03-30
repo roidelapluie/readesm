@@ -6,6 +6,11 @@
 
 class dataType {
 public:
+	constDataPointer start;
+	dataType(const constDataPointer nstart) : start(nstart)
+	{
+	}
+
 	friend reporter& operator<<(reporter& report, dataType d){
 		d.printOn(report);
 		return report;

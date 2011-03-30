@@ -20,6 +20,7 @@
 #include "../constDataPointer.h"
 #include "../formatStrings.h"
 #include "vuBlock.h"
+#include "../dataTypes/extendedSerialNumber.h"
 
 ///See page 163 of l207.pdf
 class vuTechnical : public vuBlock {
@@ -41,12 +42,12 @@ class vuTechnical : public vuBlock {
 		report(tr("vuManufacturerName"), fixedString(36));
 		report(tr("vuManufacturerAddress"), fixedString(36));
 		report(tr("vuPartNumber"), fixedString(16));
-		report(tr("vuSerialNumber"), hexCode(8));
+		report(tr("vuSerialNumber"), read<extendedSerialNumber>());
 		report(tr("vuSoftwareVersion"), fixedString(4));
 		report(tr("vuSoftInstallationDate"), readDate().str());
 		report(tr("vuManufacturingDate"), readDate().str());
 		report(tr("vuApprovalNumber"), fixedString(8));
-		report(tr("sensorSerialNumber"), hexCode(8));
+		report(tr("sensorSerialNumber"), read<extendedSerialNumber>());
 		report(tr("sensorApprovalNumber"), fixedString(8));
 		report(tr("sensorPairingDateFirst"), readDate().str());
 
