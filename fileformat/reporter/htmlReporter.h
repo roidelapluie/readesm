@@ -17,6 +17,7 @@ class htmlReporter : public reporter {
 	public:
 	htmlReporter(const QString& title_ = "ESM Data");
 	virtual QString str();
+	virtual QString escapeString(const QString in) const;
 	virtual void bigblockstart(const QString& name);
 	virtual void bigblockend();
 	virtual void blockstart(const QString& description, int blockcount);

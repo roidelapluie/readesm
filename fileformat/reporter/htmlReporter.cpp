@@ -8,6 +8,11 @@ htmlReporter::htmlReporter(const QString& title_) :
 {
 }
 
+QString htmlReporter::escapeString(QString in) const{
+	in.replace("&","&amp;");
+	return in;
+}
+
 QString htmlReporter::str() {
 	QString rv;
 	QTextStream o(&rv); 
@@ -22,10 +27,10 @@ QString htmlReporter::str() {
 }
 
 void htmlReporter::bigblockstart(const QString& name) {
-	linksCollector << "<a href='#" << (++targetcount) << "'>" << name
+	linksCollector << "<a href='#" << (++targetcount) << "'>" << escapeString(name)
 			<< "</a><br/>\n";
 	collector << "<h2><a name='" << targetcount << "'>"
-			<< name << "</a></h2><table>";
+			<< escapeString(name) << "</a></h2><table>";
 }
 
 void htmlReporter::bigblockend() {
@@ -33,7 +38,7 @@ void htmlReporter::bigblockend() {
 }
 
 void htmlReporter::blockstart(const QString& description, int blockcount) {
-	collector << "<tr><th>" << description << "</th><td><table>\n";
+	collector << "<tr><th>" << escapeString(description) << "</th><td><table>\n";
 }
 
 void htmlReporter::blockbreak() {
@@ -48,11 +53,11 @@ void htmlReporter::single(const QString& description, bool ishead) {
 	QString mark = "td";
 	if(ishead) mark = "th";
 	collector << "<tr><" << mark << " colspan='2' class='center'>" << 
-			description << "</" << mark << "></tr>" << endl;
+			escapeString(description) << "</" << mark << "></tr>" << endl;
 }
 
 void htmlReporter::operator()(const QString& description, const QString& value) {
-	collector << "<tr><th>" << description << "</th><td>" << value
+	collector << "<tr><th>" << description << "</th><td>" << escapeString(value)
 			<< "</td></tr>\n";
 }
 
