@@ -74,7 +74,7 @@ target_link_libraries(readesm ${QT_QTCORE_LIBRARY} ${QT_QTGUI_LIBRARY} ${QT_QTWE
 #*** Install files ***
 install(TARGETS readesm RUNTIME DESTINATION bin)
 
-set(CPACK_SOURCE_GENERATOR TGZ;TBZ2)
+set(CPACK_SOURCE_GENERATOR TGZ;TBZ2;ZIP)
 set(CPACK_GENERATOR TBZ2)
 set(CPACK_PACKAGE_VENDOR "Andreas Goelzer <K_2005@goelzer.de>")
 set(CPACK_NSIS_CONTACT ${CPACK_PACKAGE_VENDOR})
@@ -87,7 +87,6 @@ endif()
 if(WIN32)
 	SET(CPACK_PACKAGE_EXECUTABLES "readesm" "readesm")
 	set(CPACK_GENERATOR NSIS;ZIP)
-	set(CPACK_SOURCE_GENERATOR ZIP)
 	file(GLOB readesm_needed_DLL "${CMAKE_CURRENT_SOURCE_DIR}/../dlls/*.dll")
 	install(FILES ${readesm_needed_DLL} DESTINATION bin)
 endif()
