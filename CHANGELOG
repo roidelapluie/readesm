@@ -1,0 +1,30 @@
+Readesm changelog
+2011-04(preliminary, svn)
+* Spanish translation, thanks to Jose Huguet
+* decode extended serial number
+* decode vehicle registration numbers correctly, italian numbers no longer 
+  cause invalid files 
+* Crashes no longer if the last block on a tachograph card file has no signature
+
+2011-03a
+* more german translation (more or less complete)
+* fixed a bug where readesm reserved one gigabyte of memory to read a file
+
+2011-03
+* fixed more bugs resulting from the QT transition
+
+2011-03pre1
+* Transition to the QT framework
+* Transition to cmake
+* New graphical user interface
+
+0.3.2
+* more bug fixes
+
+0.3.1
+* fixed bug with readesm-wrap-kde using the wrong prefix
+
+0.3.0
+* Transition to sourceforge
+
+no changelog available for older releases
