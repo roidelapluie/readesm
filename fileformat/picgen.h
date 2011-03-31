@@ -70,8 +70,9 @@ public:
 
 class svgPlotGraph : public svgGraph {
 	public:
+	QString drawVelocityDescription() const;
 	virtual QString str() const{
-		return addSvgHull("<g transform='scale(0.0083333,-1) translate(0,-100)'><path style='stroke:#dd2200' d='M 0 0 L " + collected + "' /></g>" + drawBorderAndTimeAxis(), 740);
+		return addSvgHull(drawVelocityDescription() + "<g transform='scale(0.0083333,-1) translate(0,-100)'><path style='stroke:#dd2200' d='M 0 0 L " + collected + "' /></g>" + drawBorderAndTimeAxis(), 800);
 	}
 };
 
