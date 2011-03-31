@@ -115,32 +115,32 @@
 <context>
     <name>Fault</name>
     <message>
-        <location filename="fileformat/vuBlocks/vuFaults.h" line="69"/>
+        <location filename="fileformat/vuBlocks/vuFaults.h" line="71"/>
         <source>cardNumberDriverSlotBegin</source>
         <translation>númeroDeRanuraInicialDelConductor</translation>
     </message>
     <message>
-        <location filename="fileformat/vuBlocks/vuFaults.h" line="71"/>
+        <location filename="fileformat/vuBlocks/vuFaults.h" line="73"/>
         <source>cardNumberDriverSlotEnd</source>
         <translation>númeroDeRanuraFinalDelConductor</translation>
     </message>
     <message>
-        <location filename="fileformat/vuBlocks/vuFaults.h" line="73"/>
+        <location filename="fileformat/vuBlocks/vuFaults.h" line="74"/>
         <source>cardNumberDriverSlot</source>
         <translation>númeroDeRanuraDelConductor</translation>
     </message>
     <message>
-        <location filename="fileformat/vuBlocks/vuFaults.h" line="76"/>
+        <location filename="fileformat/vuBlocks/vuFaults.h" line="78"/>
         <source>cardNumberCodriverSlotBegin</source>
         <translation>númeroDeRanuraInicialDelCo-conductor</translation>
     </message>
     <message>
-        <location filename="fileformat/vuBlocks/vuFaults.h" line="78"/>
+        <location filename="fileformat/vuBlocks/vuFaults.h" line="80"/>
         <source>cardNumberCodriverSlotEnd</source>
         <translation>númeroDeRanuraFinalDelCo-conductor</translation>
     </message>
     <message>
-        <location filename="fileformat/vuBlocks/vuFaults.h" line="80"/>
+        <location filename="fileformat/vuBlocks/vuFaults.h" line="81"/>
         <source>cardNumberCodriverSlot</source>
         <translation>númeroDeRanuraDelCo-conductor</translation>
     </message>
@@ -262,17 +262,17 @@
 <context>
     <name>applicationIdentification</name>
     <message>
-        <location filename="fileformat/cardblocks.h" line="116"/>
+        <location filename="fileformat/cardBlocks/applicationIdentification.h" line="11"/>
         <source>Application Identification</source>
         <translation>IdentificaciónDeLaAplicación</translation>
     </message>
     <message>
-        <location filename="fileformat/cardblocks.h" line="126"/>
+        <location filename="fileformat/cardBlocks/applicationIdentification.h" line="21"/>
         <source>typeOfTachographCardId</source>
         <translation>tipoDeTarjetaDeTacógrafo</translation>
     </message>
     <message>
-        <location filename="fileformat/cardblocks.h" line="127"/>
+        <location filename="fileformat/cardBlocks/applicationIdentification.h" line="22"/>
         <source>cardStructureVersion</source>
         <translation>versiónDeLaEstructuraDeLaTarjeta</translation>
     </message>
@@ -308,7 +308,7 @@
 <context>
     <name>caCertificate</name>
     <message>
-        <location filename="fileformat/cardblocks.h" line="155"/>
+        <location filename="fileformat/cardBlocks/caCertificate.h" line="11"/>
         <source>CA Certificate</source>
         <translation>Certificado CA</translation>
     </message>
@@ -316,48 +316,95 @@
 <context>
     <name>cardCertificate</name>
     <message>
-        <location filename="fileformat/cardblocks.h" line="137"/>
+        <location filename="fileformat/cardBlocks/cardCertificate.h" line="11"/>
         <source>Card Certificate</source>
         <translation>Certificado de la Tarjeta</translation>
     </message>
 </context>
 <context>
+    <name>cardChipIdentification</name>
+    <message>
+        <location filename="fileformat/cardBlocks/cardChipIdentification.h" line="15"/>
+        <source>Card chip identification</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>cardDownload</name>
     <message>
-        <location filename="fileformat/cardblocks.h" line="98"/>
+        <location filename="fileformat/cardBlocks/cardDownload.h" line="11"/>
         <source>Card Download</source>
         <translation>Tarjeta de la Descarga</translation>
     </message>
     <message>
-        <location filename="fileformat/cardblocks.h" line="107"/>
+        <location filename="fileformat/cardBlocks/cardDownload.h" line="20"/>
         <source>LastCardDownload</source>
         <translation>Ultima Tarjeta de Descarga</translation>
     </message>
 </context>
 <context>
+    <name>cardIccIdentification</name>
+    <message>
+        <location filename="fileformat/cardBlocks/cardIccIdentification.h" line="22"/>
+        <source>Card ICC identification</source>
+        <oldsource>Card chip identification</oldsource>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/cardBlocks/cardIccIdentification.h" line="37"/>
+        <source>clockStop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/cardBlocks/cardIccIdentification.h" line="38"/>
+        <source>cardExtendedSerialNumber</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/cardBlocks/cardIccIdentification.h" line="39"/>
+        <source>cardApprovalNumber</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/cardBlocks/cardIccIdentification.h" line="40"/>
+        <source>cardPersonaliserID</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/cardBlocks/cardIccIdentification.h" line="41"/>
+        <source>embedderIcAssemblerId</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/cardBlocks/cardIccIdentification.h" line="42"/>
+        <source>icIdentifier</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>controlActivityData</name>
     <message>
-        <location filename="fileformat/cardblocks.h" line="290"/>
+        <location filename="fileformat/cardBlocks/controlActivityData.h" line="17"/>
         <source>Control Activity Data</source>
         <translation>Control de Datos de la Actividad</translation>
     </message>
     <message>
-        <location filename="fileformat/cardblocks.h" line="303"/>
+        <location filename="fileformat/cardBlocks/controlActivityData.h" line="30"/>
         <source>controlType</source>
         <translation>tipoDeControl</translation>
     </message>
     <message>
-        <location filename="fileformat/cardblocks.h" line="304"/>
+        <location filename="fileformat/cardBlocks/controlActivityData.h" line="31"/>
         <source>controlTime</source>
         <translation>tiempoDelControl</translation>
     </message>
     <message>
-        <location filename="fileformat/cardblocks.h" line="307"/>
+        <location filename="fileformat/cardBlocks/controlActivityData.h" line="34"/>
         <source>controlDownloadPeriodBegin</source>
         <translation>controlDelInicioDelPeriodoDeDescarga</translation>
     </message>
     <message>
-        <location filename="fileformat/cardblocks.h" line="308"/>
+        <location filename="fileformat/cardBlocks/controlActivityData.h" line="35"/>
         <source>controlDownloadPeriodEnd</source>
         <translation>controlDelFinalDelPeriodoDeDescarga</translation>
     </message>
@@ -365,12 +412,12 @@
 <context>
     <name>currentUsage</name>
     <message>
-        <location filename="fileformat/cardblocks.h" line="517"/>
+        <location filename="fileformat/cardBlocks/currentUsage.h" line="14"/>
         <source>Current Usage</source>
         <translation>Uso Actual</translation>
     </message>
     <message>
-        <location filename="fileformat/cardblocks.h" line="530"/>
+        <location filename="fileformat/cardBlocks/currentUsage.h" line="27"/>
         <source>sessionOpenTime</source>
         <translation>tiempoDeLaSesiónAbierta</translation>
     </message>
@@ -439,22 +486,22 @@
 <context>
     <name>driverActivityData</name>
     <message>
-        <location filename="fileformat/cardblocks.h" line="543"/>
+        <location filename="fileformat/cardBlocks/driverActivityData.h" line="15"/>
         <source>Driver Activity Data</source>
         <translation>Fechas de Actividad del Conductor</translation>
     </message>
     <message>
-        <location filename="fileformat/cardblocks.h" line="584"/>
+        <location filename="fileformat/cardBlocks/driverActivityData.h" line="56"/>
         <source>Accumulated fines</source>
         <translation>Multas acumuladas</translation>
     </message>
     <message>
-        <location filename="fileformat/cardblocks.h" line="585"/>
+        <location filename="fileformat/cardBlocks/driverActivityData.h" line="57"/>
         <source>Activity space usage</source>
         <translation>Espacio usado en la Actividad</translation>
     </message>
     <message>
-        <location filename="fileformat/cardblocks.h" line="585"/>
+        <location filename="fileformat/cardBlocks/driverActivityData.h" line="57"/>
         <source>%1 of %2 Bytes</source>
         <translation>%1 de %2 Bytes</translation>
     </message>
@@ -462,22 +509,22 @@
 <context>
     <name>drivingLicenseInfo</name>
     <message>
-        <location filename="fileformat/cardblocks.h" line="76"/>
+        <location filename="fileformat/cardBlocks/drivingLicenseInfo.h" line="14"/>
         <source>Driving License Info</source>
         <translation>Información de la Licencia del Conductor</translation>
     </message>
     <message>
-        <location filename="fileformat/cardblocks.h" line="87"/>
+        <location filename="fileformat/cardBlocks/drivingLicenseInfo.h" line="25"/>
         <source>drivingLicenceIssuingAuthorithy</source>
         <translation>autoridadEmisoraDeLaLicenciaDelConductor</translation>
     </message>
     <message>
-        <location filename="fileformat/cardblocks.h" line="88"/>
+        <location filename="fileformat/cardBlocks/drivingLicenseInfo.h" line="26"/>
         <source>drivingLicenceIssuingNation</source>
         <translation>naciónDeLaLicenciaDelConductor</translation>
     </message>
     <message>
-        <location filename="fileformat/cardblocks.h" line="89"/>
+        <location filename="fileformat/cardBlocks/drivingLicenseInfo.h" line="27"/>
         <source>drivingLicenceNumber</source>
         <translation>númeroDeLicenciaDelConductor</translation>
     </message>
@@ -498,22 +545,22 @@
 <context>
     <name>eventsData</name>
     <message>
-        <location filename="fileformat/cardblocks.h" line="326"/>
+        <location filename="fileformat/cardBlocks/eventsData.h" line="18"/>
         <source>eventType</source>
         <translation>tipoDeSuceso</translation>
     </message>
     <message>
-        <location filename="fileformat/cardblocks.h" line="327"/>
+        <location filename="fileformat/cardBlocks/eventsData.h" line="19"/>
         <source>beginTime</source>
         <translation>HoraDeInicio</translation>
     </message>
     <message>
-        <location filename="fileformat/cardblocks.h" line="328"/>
+        <location filename="fileformat/cardBlocks/eventsData.h" line="20"/>
         <source>endTime</source>
         <translation>HoraDeFinalización</translation>
     </message>
     <message>
-        <location filename="fileformat/cardblocks.h" line="344"/>
+        <location filename="fileformat/cardBlocks/eventsData.h" line="36"/>
         <source>Events Data</source>
         <translation>Fecha de los Sucesos</translation>
     </message>
@@ -521,7 +568,7 @@
 <context>
     <name>faultsData</name>
     <message>
-        <location filename="fileformat/cardblocks.h" line="366"/>
+        <location filename="fileformat/cardBlocks/faultsData.h" line="14"/>
         <source>Faults Data</source>
         <translation>Error de los Datos</translation>
     </message>
@@ -593,9 +640,9 @@
         <location filename="fileformat/formatStrings.cpp" line="80"/>
         <location filename="fileformat/formatStrings.cpp" line="85"/>
         <location filename="fileformat/formatStrings.cpp" line="107"/>
-        <location filename="fileformat/formatStrings.cpp" line="178"/>
-        <location filename="fileformat/formatStrings.cpp" line="184"/>
-        <location filename="fileformat/formatStrings.cpp" line="221"/>
+        <location filename="fileformat/formatStrings.cpp" line="181"/>
+        <location filename="fileformat/formatStrings.cpp" line="187"/>
+        <location filename="fileformat/formatStrings.cpp" line="224"/>
         <source>RFU</source>
         <translation>RFU</translation>
     </message>
@@ -761,6 +808,8 @@
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="115"/>
+        <location filename="fileformat/formatStrings.cpp" line="242"/>
+        <location filename="fileformat/formatStrings.cpp" line="268"/>
         <source>No information available</source>
         <translation>Información no disponible</translation>
     </message>
@@ -1020,181 +1069,446 @@
         <translation>Yugoslavia</translation>
     </message>
     <message>
+        <location filename="fileformat/formatStrings.cpp" line="167"/>
+        <source>Montenegro</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="168"/>
+        <source>Serbia</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="fileformat/formatStrings.cpp" line="169"/>
+        <source>Uzbekistan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="172"/>
         <source>Reserved for future use</source>
         <translation>Reservado para usos futuros</translation>
     </message>
     <message>
-        <location filename="fileformat/formatStrings.cpp" line="170"/>
+        <location filename="fileformat/formatStrings.cpp" line="173"/>
         <source>European Community</source>
         <translation>Comunidad Europea</translation>
     </message>
     <message>
-        <location filename="fileformat/formatStrings.cpp" line="171"/>
+        <location filename="fileformat/formatStrings.cpp" line="174"/>
         <source>Europe, but not EC and not registered</source>
         <translation>Europa, pero no UE y no registrados</translation>
     </message>
     <message>
-        <location filename="fileformat/formatStrings.cpp" line="172"/>
+        <location filename="fileformat/formatStrings.cpp" line="175"/>
         <source>outside of Europe, not registered</source>
         <translation>Fuera de Europa, no registrados</translation>
     </message>
     <message>
-        <location filename="fileformat/formatStrings.cpp" line="173"/>
+        <location filename="fileformat/formatStrings.cpp" line="176"/>
         <source>error in nationNumeric</source>
         <translation>Error en el código de Nación</translation>
     </message>
     <message>
-        <location filename="fileformat/formatStrings.cpp" line="179"/>
+        <location filename="fileformat/formatStrings.cpp" line="182"/>
         <source>Out of scope - Begin</source>
         <translation>Fuera de ámbito - Inicio</translation>
     </message>
     <message>
-        <location filename="fileformat/formatStrings.cpp" line="180"/>
+        <location filename="fileformat/formatStrings.cpp" line="183"/>
         <source>Out of scope - End</source>
         <translation>Fuera de ámbito - Fin</translation>
     </message>
     <message>
-        <location filename="fileformat/formatStrings.cpp" line="181"/>
+        <location filename="fileformat/formatStrings.cpp" line="184"/>
         <source>Ferry/Train crossing</source>
         <translation>Travesía Ferry/Tren</translation>
     </message>
     <message>
-        <location filename="fileformat/formatStrings.cpp" line="189"/>
+        <location filename="fileformat/formatStrings.cpp" line="192"/>
         <source>reserved value (should not appear)</source>
         <translation>Valor reservado (puede no aparecer)</translation>
     </message>
     <message>
-        <location filename="fileformat/formatStrings.cpp" line="190"/>
+        <location filename="fileformat/formatStrings.cpp" line="193"/>
         <source>activation: recording of calibration parameters known, at the moment of the VU activation</source>
         <translation>activación; parámetros del registro de calibración conocidos, en el momento de la activación de la VU</translation>
     </message>
     <message>
-        <location filename="fileformat/formatStrings.cpp" line="191"/>
+        <location filename="fileformat/formatStrings.cpp" line="194"/>
         <source>first installation: first calibration of the VU after its activation</source>
         <translation>primera instalación: primera calibración de la VU después de la activación</translation>
     </message>
     <message>
-        <location filename="fileformat/formatStrings.cpp" line="192"/>
+        <location filename="fileformat/formatStrings.cpp" line="195"/>
         <source>installation: first calibration of the VU in the current vehicle</source>
         <translation>Instalación: primera calibración de la VU en el vehículo actual</translation>
     </message>
     <message>
-        <location filename="fileformat/formatStrings.cpp" line="193"/>
+        <location filename="fileformat/formatStrings.cpp" line="196"/>
         <source>periodic inspection</source>
         <translation>inspección periódica</translation>
     </message>
     <message>
-        <location filename="fileformat/formatStrings.cpp" line="196"/>
-        <location filename="fileformat/formatStrings.cpp" line="234"/>
+        <location filename="fileformat/formatStrings.cpp" line="199"/>
+        <location filename="fileformat/formatStrings.cpp" line="237"/>
         <source>(not specified)</source>
         <translation>(sin especificar)</translation>
     </message>
     <message>
-        <location filename="fileformat/formatStrings.cpp" line="202"/>
+        <location filename="fileformat/formatStrings.cpp" line="205"/>
         <source>card downloaded</source>
         <translation>tarjeta descargada</translation>
     </message>
     <message>
-        <location filename="fileformat/formatStrings.cpp" line="203"/>
+        <location filename="fileformat/formatStrings.cpp" line="206"/>
         <source>VU downloaded</source>
         <translation>VU descargada</translation>
     </message>
     <message>
-        <location filename="fileformat/formatStrings.cpp" line="204"/>
+        <location filename="fileformat/formatStrings.cpp" line="207"/>
         <source>printing done</source>
         <translation>enviado a la impresora</translation>
     </message>
     <message>
-        <location filename="fileformat/formatStrings.cpp" line="205"/>
+        <location filename="fileformat/formatStrings.cpp" line="208"/>
         <source>display used</source>
         <translation>pantalla de visualización en uso</translation>
     </message>
     <message>
-        <location filename="fileformat/formatStrings.cpp" line="211"/>
+        <location filename="fileformat/formatStrings.cpp" line="214"/>
         <source>Reserved</source>
         <translation>Reservado</translation>
     </message>
     <message>
-        <location filename="fileformat/formatStrings.cpp" line="212"/>
+        <location filename="fileformat/formatStrings.cpp" line="215"/>
         <source>Driver Card</source>
         <translation>Tarjeta del Conductor</translation>
     </message>
     <message>
-        <location filename="fileformat/formatStrings.cpp" line="213"/>
+        <location filename="fileformat/formatStrings.cpp" line="216"/>
         <source>Workshop Card</source>
         <translation>Tarjeta del Taller Autorizado</translation>
     </message>
     <message>
-        <location filename="fileformat/formatStrings.cpp" line="214"/>
+        <location filename="fileformat/formatStrings.cpp" line="217"/>
         <source>Control Card</source>
         <translation>Tarjeta de Control</translation>
     </message>
     <message>
-        <location filename="fileformat/formatStrings.cpp" line="215"/>
+        <location filename="fileformat/formatStrings.cpp" line="218"/>
         <source>Company Card</source>
         <translation>Tarjeta de la Empresa</translation>
     </message>
     <message>
-        <location filename="fileformat/formatStrings.cpp" line="216"/>
+        <location filename="fileformat/formatStrings.cpp" line="219"/>
         <source>Manufacturing Card</source>
         <translation>Tarjeta del Fabricante</translation>
     </message>
     <message>
-        <location filename="fileformat/formatStrings.cpp" line="217"/>
+        <location filename="fileformat/formatStrings.cpp" line="220"/>
         <source>Vehicle Unit</source>
         <translation>Unidad del Vehículo</translation>
     </message>
     <message>
-        <location filename="fileformat/formatStrings.cpp" line="218"/>
+        <location filename="fileformat/formatStrings.cpp" line="221"/>
         <source>Motion Sensor</source>
         <translation>Sensor de Movimiento</translation>
     </message>
     <message>
-        <location filename="fileformat/formatStrings.cpp" line="226"/>
+        <location filename="fileformat/formatStrings.cpp" line="229"/>
         <source>Begin, related time = card insertion time or time of entry</source>
         <translation>Inicio, tiempo registrado = tiempo con la tarjeta insertada o tiempo desde el inicio</translation>
     </message>
     <message>
-        <location filename="fileformat/formatStrings.cpp" line="227"/>
+        <location filename="fileformat/formatStrings.cpp" line="230"/>
         <source>End, related time = card withdrawal time or time of entry</source>
         <translation>FIn, tiempo registrado = tiempo con la tarjeta retirada o tiempo desde el inicio</translation>
     </message>
     <message>
-        <location filename="fileformat/formatStrings.cpp" line="228"/>
+        <location filename="fileformat/formatStrings.cpp" line="231"/>
         <source>Begin, related time manually entered (start time)</source>
         <translation>Inicio, tiempo registrado marcado manualmente (tiempo de inicio)</translation>
     </message>
     <message>
-        <location filename="fileformat/formatStrings.cpp" line="229"/>
+        <location filename="fileformat/formatStrings.cpp" line="232"/>
         <source>End, related time manually entered (end of work period)</source>
         <translation>Fin, tiempo registrado marcado manualmente (fin del periodo de trabajo)</translation>
     </message>
     <message>
-        <location filename="fileformat/formatStrings.cpp" line="230"/>
+        <location filename="fileformat/formatStrings.cpp" line="233"/>
         <source>Begin, related time assumed by VU</source>
         <translation>Inicio, tiempo registrado asumido por la VU</translation>
     </message>
     <message>
-        <location filename="fileformat/formatStrings.cpp" line="231"/>
+        <location filename="fileformat/formatStrings.cpp" line="234"/>
         <source>End, related time assumed by VU </source>
         <translation>Fin, tiempo registrado asumido por la VU</translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="243"/>
+        <source>Andalucía</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="244"/>
+        <source>Aragón</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="245"/>
+        <source>Asturias</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="246"/>
+        <source>Cantabria</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="247"/>
+        <source>Cataluña</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="248"/>
+        <source>Castilla-León</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="249"/>
+        <source>Castilla-La-Mancha</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="250"/>
+        <source>Valencia</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="251"/>
+        <source>Extremadura</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="252"/>
+        <source>Galicia</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="253"/>
+        <source>Baleares</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="254"/>
+        <source>Canarias</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="255"/>
+        <source>La Rioja</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="256"/>
+        <source>Madrid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="257"/>
+        <source>Murcia</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="258"/>
+        <source>Navarra</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="259"/>
+        <source>País Vasco</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="262"/>
+        <source>(unknown region)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="269"/>
+        <source>Reserved value</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="270"/>
+        <source>Actia S.A.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="271"/>
+        <source>Austria Card Plastikkarten und Ausweissysteme GmbH</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="272"/>
+        <source>Agencija za komercijalnu djelatnost d.o.o (AKD)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="273"/>
+        <source>CETIS d.d.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="274"/>
+        <source>certSIGN</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="275"/>
+        <source>RUE Cryptotech</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="276"/>
+        <source>Sdu Identification B.V. (formerly Enschedé/Sdu B.V.)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="277"/>
+        <source>EFKON AG.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="278"/>
+        <source>Fábrica Nacional de Moneda y Timbre</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="279"/>
+        <source>Giesecke &amp; Devrient GmbH</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="280"/>
+        <source>Giesecke &amp; Devrient GB Ltd.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="281"/>
+        <source>Giesecke &amp; Devrient sa/nv</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="282"/>
+        <source>Hungarian Banknote Printing Co. Ltd.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="283"/>
+        <source>Imprimerie Nationale</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="284"/>
+        <source>Imprensa Nacional-Casa da Moeda, SA</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="285"/>
+        <source>InfoCamere S.C.p.A</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="286"/>
+        <source>Morpho e-documents (formerly Sagem Orga formerly ORGA Kartensysteme GmbH)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="287"/>
+        <source>ORGA Zelenograd ZAO</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="288"/>
+        <source>Asseco Czech Republic a.s. (formerly PVT a.s.)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="289"/>
+        <source>Polska Wytwórnia Papierów Wartosciowych S.A. - PWPW S.A.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="290"/>
+        <source>Continental Automotive GmbH (formerly Siemens AG - Siemens VDO Automotive Siemens Automotive)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="291"/>
+        <source>Stoneridge Electronics AB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="292"/>
+        <source>Gemalto (formerly Schlumberger SEMA, Axalto)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="293"/>
+        <source>3M Security Printing and Systems Ltd.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="294"/>
+        <source>Union of Chambers and Commodity Exchanges of Turkey - TOBB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="295"/>
+        <source>T-Systems International GmbH</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="296"/>
+        <source>Trüb AG</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="297"/>
+        <source>Trüb Baltic AS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="298"/>
+        <source>TEMPEST a.s.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="299"/>
+        <source>Trueb - DEMAX PLC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/formatStrings.cpp" line="301"/>
+        <source>Unknown Manufacturer or equipment not type approved</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>fullCardNumber</name>
     <message>
-        <location filename="fileformat/cardblocks.h" line="270"/>
+        <location filename="fileformat/dataTypes/fullCardNumber.cpp" line="16"/>
         <source>cardType</source>
         <translation>tipoDeTarjeta</translation>
     </message>
     <message>
-        <location filename="fileformat/cardblocks.h" line="271"/>
+        <location filename="fileformat/dataTypes/fullCardNumber.cpp" line="17"/>
         <source>cardIssuingMemberState</source>
         <translation>emisionDeTarjetasDelEstadoMiembro</translation>
     </message>
     <message>
-        <location filename="fileformat/cardblocks.h" line="272"/>
+        <location filename="fileformat/dataTypes/fullCardNumber.cpp" line="18"/>
         <source>cardNumber</source>
         <translation>númeroDeTarjeta</translation>
     </message>
@@ -1202,57 +1516,57 @@
 <context>
     <name>identification</name>
     <message>
-        <location filename="fileformat/cardblocks.h" line="475"/>
+        <location filename="fileformat/cardBlocks/identification.h" line="20"/>
         <source>Card Identification</source>
         <translation>Tarjeta de Identificación</translation>
     </message>
     <message>
-        <location filename="fileformat/cardblocks.h" line="494"/>
+        <location filename="fileformat/cardBlocks/identification.h" line="39"/>
         <source>cardIssuingMemberState</source>
         <translation>EstadoMiembroQueEmiteLaTarjeta</translation>
     </message>
     <message>
-        <location filename="fileformat/cardblocks.h" line="495"/>
+        <location filename="fileformat/cardBlocks/identification.h" line="40"/>
         <source>cardNumber</source>
         <translation>númeroDeTarjeta</translation>
     </message>
     <message>
-        <location filename="fileformat/cardblocks.h" line="496"/>
+        <location filename="fileformat/cardBlocks/identification.h" line="41"/>
         <source>cardIssuingAuthorityName</source>
         <translation>nombreDeLaAutoridadQueEmiteLaTarjeta</translation>
     </message>
     <message>
-        <location filename="fileformat/cardblocks.h" line="497"/>
+        <location filename="fileformat/cardBlocks/identification.h" line="42"/>
         <source>cardIssueDate</source>
         <translation>fechaDeEmisiónDeLaTarjeta</translation>
     </message>
     <message>
-        <location filename="fileformat/cardblocks.h" line="498"/>
+        <location filename="fileformat/cardBlocks/identification.h" line="43"/>
         <source>cardValidityBegin</source>
         <translation>inicioDelPeriodoDeValidezDeLaTarjeta</translation>
     </message>
     <message>
-        <location filename="fileformat/cardblocks.h" line="499"/>
+        <location filename="fileformat/cardBlocks/identification.h" line="44"/>
         <source>cardExpiryDate</source>
         <translation>finDelPeriodoDeValidezDeLaTarjeta</translation>
     </message>
     <message>
-        <location filename="fileformat/cardblocks.h" line="500"/>
+        <location filename="fileformat/cardBlocks/identification.h" line="45"/>
         <source>holderSurname</source>
         <translation>ApellidoDelTitular</translation>
     </message>
     <message>
-        <location filename="fileformat/cardblocks.h" line="501"/>
+        <location filename="fileformat/cardBlocks/identification.h" line="46"/>
         <source>holderFirstNames</source>
         <translation>NombreDelTitular</translation>
     </message>
     <message>
-        <location filename="fileformat/cardblocks.h" line="502"/>
+        <location filename="fileformat/cardBlocks/identification.h" line="47"/>
         <source>cardHolderBirthDate</source>
         <translation>fechaDeNacimientoDelTirular</translation>
     </message>
     <message>
-        <location filename="fileformat/cardblocks.h" line="503"/>
+        <location filename="fileformat/cardBlocks/identification.h" line="48"/>
         <source>cardHolderPreferredLanguage</source>
         <translation>idiomaPreferidoDelTitular</translation>
     </message>
@@ -1351,54 +1665,54 @@ La traducción al español la ha realizado José Huguet (ITEM Ordenadores) Caste
     </message>
     <message>
         <location filename="gui/mainWindow.cpp" line="102"/>
-        <location filename="gui/mainWindow.cpp" line="156"/>
+        <location filename="gui/mainWindow.cpp" line="157"/>
         <source>Tachograph Files</source>
         <translation>Ficheros de Tacógrafo</translation>
     </message>
     <message>
         <location filename="gui/mainWindow.cpp" line="102"/>
-        <location filename="gui/mainWindow.cpp" line="134"/>
-        <location filename="gui/mainWindow.cpp" line="156"/>
+        <location filename="gui/mainWindow.cpp" line="135"/>
+        <location filename="gui/mainWindow.cpp" line="157"/>
         <source>All files</source>
         <translation>Todos los archivos</translation>
     </message>
     <message>
-        <location filename="gui/mainWindow.cpp" line="119"/>
+        <location filename="gui/mainWindow.cpp" line="120"/>
         <source>Print Document</source>
         <translation>Imprimir</translation>
     </message>
     <message>
-        <location filename="gui/mainWindow.cpp" line="128"/>
-        <location filename="gui/mainWindow.cpp" line="140"/>
-        <location filename="gui/mainWindow.cpp" line="150"/>
-        <location filename="gui/mainWindow.cpp" line="161"/>
+        <location filename="gui/mainWindow.cpp" line="129"/>
+        <location filename="gui/mainWindow.cpp" line="141"/>
+        <location filename="gui/mainWindow.cpp" line="151"/>
+        <location filename="gui/mainWindow.cpp" line="162"/>
         <source>Saving not possible</source>
         <translation>No es posible Guardar</translation>
     </message>
     <message>
-        <location filename="gui/mainWindow.cpp" line="128"/>
-        <location filename="gui/mainWindow.cpp" line="150"/>
+        <location filename="gui/mainWindow.cpp" line="129"/>
+        <location filename="gui/mainWindow.cpp" line="151"/>
         <source>Nothing opened, nothing to save.</source>
         <translation>Ningún fichero abierto, nada para Guardar.</translation>
     </message>
     <message>
-        <location filename="gui/mainWindow.cpp" line="132"/>
+        <location filename="gui/mainWindow.cpp" line="133"/>
         <source>Save XHtml file as</source>
         <translation>Guardar fichero XHtml como</translation>
     </message>
     <message>
-        <location filename="gui/mainWindow.cpp" line="134"/>
+        <location filename="gui/mainWindow.cpp" line="135"/>
         <source>XHtml files</source>
         <translation>Fichero XHtml</translation>
     </message>
     <message>
-        <location filename="gui/mainWindow.cpp" line="140"/>
-        <location filename="gui/mainWindow.cpp" line="161"/>
+        <location filename="gui/mainWindow.cpp" line="141"/>
+        <location filename="gui/mainWindow.cpp" line="162"/>
         <source>Could not open file.</source>
         <translation>No se pudo abrir el Archivo.</translation>
     </message>
     <message>
-        <location filename="gui/mainWindow.cpp" line="154"/>
+        <location filename="gui/mainWindow.cpp" line="155"/>
         <source>Save Tachograph file as</source>
         <translation>Salvar Archivo de Tacógrafo como</translation>
     </message>
@@ -1406,27 +1720,27 @@ La traducción al español la ha realizado José Huguet (ITEM Ordenadores) Caste
 <context>
     <name>placeRecord</name>
     <message>
-        <location filename="fileformat/cardblocks.h" line="243"/>
+        <location filename="fileformat/dataTypes/placeRecord.h" line="25"/>
         <source>entryTime</source>
         <translation>horaDeEntrada</translation>
     </message>
     <message>
-        <location filename="fileformat/cardblocks.h" line="244"/>
+        <location filename="fileformat/dataTypes/placeRecord.h" line="26"/>
         <source>entryTypeDailyWorkPeriod</source>
         <translation>entradaDelTipoDeDíaDelPeriodoDeTrabajo</translation>
     </message>
     <message>
-        <location filename="fileformat/cardblocks.h" line="246"/>
+        <location filename="fileformat/dataTypes/placeRecord.h" line="28"/>
         <source>dailyWorkPeriodCountry</source>
         <translation>tiempoDiarioDeTrabajoEnElPais</translation>
     </message>
     <message>
-        <location filename="fileformat/cardblocks.h" line="248"/>
+        <location filename="fileformat/dataTypes/placeRecord.h" line="30"/>
         <source>dailyWorkPeriodRegion</source>
         <translation>tiempoDiarioDeTrabajoEnlaRegión</translation>
     </message>
     <message>
-        <location filename="fileformat/cardblocks.h" line="249"/>
+        <location filename="fileformat/dataTypes/placeRecord.h" line="31"/>
         <source>vehicleOdometerValue</source>
         <translation>valorCuentakilómetrosDelVehículo</translation>
     </message>
@@ -1434,7 +1748,7 @@ La traducción al español la ha realizado José Huguet (ITEM Ordenadores) Caste
 <context>
     <name>places</name>
     <message>
-        <location filename="fileformat/cardblocks.h" line="379"/>
+        <location filename="fileformat/cardBlocks/places.h" line="16"/>
         <source>Places</source>
         <translation>Lugares</translation>
     </message>
@@ -1455,20 +1769,51 @@ La traducción al español la ha realizado José Huguet (ITEM Ordenadores) Caste
 <context>
     <name>specificConditions</name>
     <message>
-        <location filename="fileformat/cardblocks.h" line="187"/>
+        <location filename="fileformat/cardBlocks/specificConditions.h" line="23"/>
         <source>Specific Conditions</source>
         <translation>Condiciones Específicas</translation>
     </message>
 </context>
 <context>
+    <name>svgBarGraph</name>
+    <message>
+        <location filename="fileformat/picgen.cpp" line="28"/>
+        <source>= break/rest</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/picgen.cpp" line="29"/>
+        <source>= break, up to 15 min</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/picgen.cpp" line="30"/>
+        <source>= working</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/picgen.cpp" line="31"/>
+        <source>= driving</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>svgGraph</name>
+    <message>
+        <location filename="fileformat/picgen.cpp" line="9"/>
+        <source>Time of day (UTC)</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>vehicleRegistration</name>
     <message>
-        <location filename="fileformat/cardblocks.h" line="215"/>
+        <location filename="fileformat/dataTypes/vehicleRegistration.h" line="17"/>
         <source>vehicleRegistrationNation</source>
         <translation>naciónDeRegistroDelVehículo</translation>
     </message>
     <message>
-        <location filename="fileformat/cardblocks.h" line="216"/>
+        <location filename="fileformat/dataTypes/vehicleRegistration.h" line="18"/>
         <source>vehicleRegistrationNumber</source>
         <translation>matrículaDelVehículo</translation>
     </message>
@@ -1476,39 +1821,39 @@ La traducción al español la ha realizado José Huguet (ITEM Ordenadores) Caste
 <context>
     <name>vehiclesUsed</name>
     <message>
-        <location filename="fileformat/cardblocks.h" line="412"/>
+        <location filename="fileformat/cardBlocks/vehiclesUsed.h" line="23"/>
         <source>vehicleFirstUse</source>
         <translation>primerUsoDelVehículo</translation>
     </message>
     <message>
-        <location filename="fileformat/cardblocks.h" line="413"/>
+        <location filename="fileformat/cardBlocks/vehiclesUsed.h" line="24"/>
         <source>vehicleLastUse</source>
         <translation>ultimoUsoDelVehículo</translation>
     </message>
     <message>
-        <location filename="fileformat/cardblocks.h" line="414"/>
-        <location filename="fileformat/cardblocks.h" line="449"/>
+        <location filename="fileformat/cardBlocks/vehiclesUsed.h" line="25"/>
+        <location filename="fileformat/cardBlocks/vehiclesUsed.h" line="60"/>
         <source>vehicleOdometerBegin</source>
         <translation>inicioCuentakilómetrosDelVehículo</translation>
     </message>
     <message>
-        <location filename="fileformat/cardblocks.h" line="415"/>
-        <location filename="fileformat/cardblocks.h" line="450"/>
+        <location filename="fileformat/cardBlocks/vehiclesUsed.h" line="26"/>
+        <location filename="fileformat/cardBlocks/vehiclesUsed.h" line="61"/>
         <source>vehicleOdometerEnd</source>
         <translation>finCuentakilómetrosDelVehículo</translation>
     </message>
     <message>
-        <location filename="fileformat/cardblocks.h" line="416"/>
+        <location filename="fileformat/cardBlocks/vehiclesUsed.h" line="27"/>
         <source>vuDataBlockCounter</source>
         <translation>contadorDelBloqueDeDatosDeLaVU</translation>
     </message>
     <message>
-        <location filename="fileformat/cardblocks.h" line="430"/>
+        <location filename="fileformat/cardBlocks/vehiclesUsed.h" line="41"/>
         <source>Vehicles Used</source>
         <translation>Vehículos Utilizados</translation>
     </message>
     <message>
-        <location filename="fileformat/cardblocks.h" line="452"/>
+        <location filename="fileformat/cardBlocks/vehiclesUsed.h" line="63"/>
         <source>Driven distance</source>
         <translation>Distancia Recorrida</translation>
     </message>
@@ -1785,6 +2130,11 @@ La traducción al español la ha realizado José Huguet (ITEM Ordenadores) Caste
         <translation>nombreDeLaEmpresaOTaller</translation>
     </message>
     <message>
+        <location filename="fileformat/vuBlocks/vuOverview.h" line="64"/>
+        <source>VuCompanyLocksRecord</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="fileformat/vuBlocks/vuOverview.h" line="66"/>
         <source>lockInTime</source>
         <translation>horaDeInicioDelBloqueo</translation>
@@ -1808,6 +2158,11 @@ La traducción al español la ha realizado José Huguet (ITEM Ordenadores) Caste
         <location filename="fileformat/vuBlocks/vuOverview.h" line="70"/>
         <source>companyCardNumber</source>
         <translation>númeroDeLaTarjetaDeLaEmpresa</translation>
+    </message>
+    <message>
+        <location filename="fileformat/vuBlocks/vuOverview.h" line="72"/>
+        <source>VuControlActivityRecord</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="fileformat/vuBlocks/vuOverview.h" line="74"/>
@@ -1871,163 +2226,163 @@ La traducción al español la ha realizado José Huguet (ITEM Ordenadores) Caste
 <context>
     <name>vuTechnical</name>
     <message>
-        <location filename="fileformat/vuBlocks/vuTechnical.h" line="29"/>
+        <location filename="fileformat/vuBlocks/vuTechnical.h" line="30"/>
         <source>Technical Data</source>
         <translation>Datos Técnicos</translation>
     </message>
     <message>
-        <location filename="fileformat/vuBlocks/vuTechnical.h" line="41"/>
+        <location filename="fileformat/vuBlocks/vuTechnical.h" line="42"/>
         <source>vuManufacturerName</source>
         <translation>nombreDelFabricanteDeLaVU</translation>
     </message>
     <message>
-        <location filename="fileformat/vuBlocks/vuTechnical.h" line="42"/>
+        <location filename="fileformat/vuBlocks/vuTechnical.h" line="43"/>
         <source>vuManufacturerAddress</source>
         <translation>direcciónDelFabricanteDeLaVU</translation>
     </message>
     <message>
-        <location filename="fileformat/vuBlocks/vuTechnical.h" line="43"/>
+        <location filename="fileformat/vuBlocks/vuTechnical.h" line="44"/>
         <source>vuPartNumber</source>
         <translation>númeroDePiezaDeLaVU</translation>
     </message>
     <message>
-        <location filename="fileformat/vuBlocks/vuTechnical.h" line="44"/>
+        <location filename="fileformat/vuBlocks/vuTechnical.h" line="45"/>
         <source>vuSerialNumber</source>
         <translation>númeroDeSerieDeLaVU</translation>
     </message>
     <message>
-        <location filename="fileformat/vuBlocks/vuTechnical.h" line="45"/>
+        <location filename="fileformat/vuBlocks/vuTechnical.h" line="46"/>
         <source>vuSoftwareVersion</source>
         <translation>versiónDeSoftwareDeLaVU</translation>
     </message>
     <message>
-        <location filename="fileformat/vuBlocks/vuTechnical.h" line="46"/>
+        <location filename="fileformat/vuBlocks/vuTechnical.h" line="47"/>
         <source>vuSoftInstallationDate</source>
         <translation>fechaDeInstalaciónDelSoftware</translation>
     </message>
     <message>
-        <location filename="fileformat/vuBlocks/vuTechnical.h" line="47"/>
+        <location filename="fileformat/vuBlocks/vuTechnical.h" line="48"/>
         <source>vuManufacturingDate</source>
         <translation>fechaDeFabricaciónDeLaVU</translation>
     </message>
     <message>
-        <location filename="fileformat/vuBlocks/vuTechnical.h" line="48"/>
+        <location filename="fileformat/vuBlocks/vuTechnical.h" line="49"/>
         <source>vuApprovalNumber</source>
         <translation>númeroDeHomologaciónDeLaVU</translation>
     </message>
     <message>
-        <location filename="fileformat/vuBlocks/vuTechnical.h" line="49"/>
+        <location filename="fileformat/vuBlocks/vuTechnical.h" line="50"/>
         <source>sensorSerialNumber</source>
         <translation>númeroDeSerieDelSensor</translation>
     </message>
     <message>
-        <location filename="fileformat/vuBlocks/vuTechnical.h" line="50"/>
+        <location filename="fileformat/vuBlocks/vuTechnical.h" line="51"/>
         <source>sensorApprovalNumber</source>
         <translation>númeroDeHomologaciónDelSensor</translation>
     </message>
     <message>
-        <location filename="fileformat/vuBlocks/vuTechnical.h" line="51"/>
+        <location filename="fileformat/vuBlocks/vuTechnical.h" line="52"/>
         <source>sensorPairingDateFirst</source>
         <translation>primeraFechaDeVinculaciónDelSensor</translation>
     </message>
     <message>
-        <location filename="fileformat/vuBlocks/vuTechnical.h" line="53"/>
+        <location filename="fileformat/vuBlocks/vuTechnical.h" line="54"/>
         <source>VuCalibrationRecord</source>
         <translation>registroDeCalibraciónDeLaVU</translation>
     </message>
     <message>
-        <location filename="fileformat/vuBlocks/vuTechnical.h" line="55"/>
+        <location filename="fileformat/vuBlocks/vuTechnical.h" line="56"/>
         <source>calibrationPurpose</source>
         <translation>propósitoDeLaCalibración</translation>
     </message>
     <message>
-        <location filename="fileformat/vuBlocks/vuTechnical.h" line="56"/>
+        <location filename="fileformat/vuBlocks/vuTechnical.h" line="57"/>
         <source>workshopName</source>
         <translation>nombreDelTaller</translation>
     </message>
     <message>
-        <location filename="fileformat/vuBlocks/vuTechnical.h" line="57"/>
+        <location filename="fileformat/vuBlocks/vuTechnical.h" line="58"/>
         <source>workshopAddress</source>
         <translation>direcciónDelTaller</translation>
     </message>
     <message>
-        <location filename="fileformat/vuBlocks/vuTechnical.h" line="58"/>
+        <location filename="fileformat/vuBlocks/vuTechnical.h" line="59"/>
         <source>workshopCardNumber</source>
         <translation>númeroDeLaTarjetaDelTaller</translation>
     </message>
     <message>
-        <location filename="fileformat/vuBlocks/vuTechnical.h" line="59"/>
+        <location filename="fileformat/vuBlocks/vuTechnical.h" line="60"/>
         <source>workshopCardExpiryDate</source>
         <translation>finDelPeriodoDeValidezDeLaTarjetaDelTaller</translation>
     </message>
     <message>
-        <location filename="fileformat/vuBlocks/vuTechnical.h" line="60"/>
+        <location filename="fileformat/vuBlocks/vuTechnical.h" line="61"/>
         <source>vehicleIdentificationNumber</source>
         <translation>númeroDeIdentificaciónDelVehículo</translation>
     </message>
     <message>
-        <location filename="fileformat/vuBlocks/vuTechnical.h" line="61"/>
+        <location filename="fileformat/vuBlocks/vuTechnical.h" line="62"/>
         <source>vehicleRegistrationNation</source>
         <translation>naciónDeRegistroDelVehículo</translation>
     </message>
     <message>
-        <location filename="fileformat/vuBlocks/vuTechnical.h" line="62"/>
+        <location filename="fileformat/vuBlocks/vuTechnical.h" line="63"/>
         <source>vehicleRegistrationNumber</source>
         <translation>matrículaDelVehículo</translation>
     </message>
     <message>
-        <location filename="fileformat/vuBlocks/vuTechnical.h" line="63"/>
+        <location filename="fileformat/vuBlocks/vuTechnical.h" line="64"/>
         <source>wVehicleCharacteristicConstant</source>
         <translation>constanteWCaracterìsticaDelVehículo</translation>
     </message>
     <message>
-        <location filename="fileformat/vuBlocks/vuTechnical.h" line="64"/>
-        <location filename="fileformat/vuBlocks/vuTechnical.h" line="66"/>
+        <location filename="fileformat/vuBlocks/vuTechnical.h" line="65"/>
+        <location filename="fileformat/vuBlocks/vuTechnical.h" line="67"/>
         <source>Impulses</source>
         <translation>Impulsos</translation>
     </message>
     <message>
-        <location filename="fileformat/vuBlocks/vuTechnical.h" line="65"/>
+        <location filename="fileformat/vuBlocks/vuTechnical.h" line="66"/>
         <source>kConstantOfRecordingEquipment</source>
         <translation>contanteKDelEquipoDeRegistro</translation>
     </message>
     <message>
-        <location filename="fileformat/vuBlocks/vuTechnical.h" line="68"/>
+        <location filename="fileformat/vuBlocks/vuTechnical.h" line="69"/>
         <source>lTyreCircumference</source>
         <translation>circunferenciaDelNeumáticoL</translation>
     </message>
     <message>
-        <location filename="fileformat/vuBlocks/vuTechnical.h" line="71"/>
+        <location filename="fileformat/vuBlocks/vuTechnical.h" line="72"/>
         <source>tyreSize</source>
         <translation>tamañoDelNeumático</translation>
     </message>
     <message>
-        <location filename="fileformat/vuBlocks/vuTechnical.h" line="72"/>
+        <location filename="fileformat/vuBlocks/vuTechnical.h" line="73"/>
         <source>authorisedSpeed</source>
         <translation>velocidadAutorizada</translation>
     </message>
     <message>
-        <location filename="fileformat/vuBlocks/vuTechnical.h" line="73"/>
+        <location filename="fileformat/vuBlocks/vuTechnical.h" line="74"/>
         <source>oldOdometerValue</source>
         <translation>valorAntiguoDelCuentakilómetros</translation>
     </message>
     <message>
-        <location filename="fileformat/vuBlocks/vuTechnical.h" line="74"/>
+        <location filename="fileformat/vuBlocks/vuTechnical.h" line="75"/>
         <source>newOdometerValue</source>
         <translation>valorNuevoDelCuentakilómetros</translation>
     </message>
     <message>
-        <location filename="fileformat/vuBlocks/vuTechnical.h" line="75"/>
+        <location filename="fileformat/vuBlocks/vuTechnical.h" line="76"/>
         <source>oldTimeValue</source>
         <translation>ultimaHora</translation>
     </message>
     <message>
-        <location filename="fileformat/vuBlocks/vuTechnical.h" line="76"/>
+        <location filename="fileformat/vuBlocks/vuTechnical.h" line="77"/>
         <source>newTimeValue</source>
         <translation>nuevaHora</translation>
     </message>
     <message>
-        <location filename="fileformat/vuBlocks/vuTechnical.h" line="77"/>
+        <location filename="fileformat/vuBlocks/vuTechnical.h" line="78"/>
         <source>nextCalibrationDate</source>
         <translation>próximaFechaDeCalibración</translation>
     </message>

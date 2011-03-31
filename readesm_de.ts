@@ -1584,7 +1584,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>Fault</name>
     <message>
-        <location line="+28"/>
+        <location line="+30"/>
         <source>cardNumberDriverSlotBegin</source>
         <translation>Kartennummer des Fahrers bei Ereignisbeginn</translation>
     </message>
@@ -1594,12 +1594,12 @@ Signatur-Prüfung fehlgeschlagen </translation>
         <translation>Kartennummer des Fahrers bei Ereignisende</translation>
     </message>
     <message>
-        <location line="+2"/>
+        <location line="+1"/>
         <source>cardNumberDriverSlot</source>
         <translation>Kartennummer des Fahrers</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+4"/>
         <source>cardNumberCodriverSlotBegin</source>
         <translation>Kartennummer des Beifahrers bei Ereignisbeginn</translation>
     </message>
@@ -1609,7 +1609,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
         <translation>Kartennummer des Beifahrers bei Ereignisende</translation>
     </message>
     <message>
-        <location line="+2"/>
+        <location line="+1"/>
         <source>cardNumberCodriverSlot</source>
         <translation>Kartennummer des Beifahrers</translation>
     </message>
@@ -1714,7 +1714,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>Overspeed</name>
     <message>
-        <location line="+38"/>
+        <location line="+37"/>
         <source>maxSpeedValue</source>
         <translation>Höchste gefahrene Geschwindigkeit</translation>
     </message>
@@ -2014,7 +2014,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>applicationIdentification</name>
     <message>
-        <location filename="fileformat/cardblocks.h" line="+116"/>
+        <location filename="fileformat/cardBlocks/applicationIdentification.h" line="+11"/>
         <source>Application Identification</source>
         <translation>Anwendungskennung</translation>
     </message>
@@ -2060,7 +2060,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>caCertificate</name>
     <message>
-        <location filename="fileformat/cardblocks.h" line="+28"/>
+        <location filename="fileformat/cardBlocks/caCertificate.h" line="+11"/>
         <source>CA Certificate</source>
         <translation>CA-Zertifikat</translation>
     </message>
@@ -2068,15 +2068,23 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>cardCertificate</name>
     <message>
-        <location line="-18"/>
+        <location filename="fileformat/cardBlocks/cardCertificate.h" line="+11"/>
         <source>Card Certificate</source>
         <translation>Kartenzertifikat</translation>
     </message>
 </context>
 <context>
+    <name>cardChipIdentification</name>
+    <message>
+        <location filename="fileformat/cardBlocks/cardChipIdentification.h" line="+15"/>
+        <source>Card chip identification</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>cardDownload</name>
     <message>
-        <location line="-39"/>
+        <location filename="fileformat/cardBlocks/cardDownload.h" line="+11"/>
         <source>Card Download</source>
         <translation>Herunterladen einer Karte</translation>
     </message>
@@ -2087,9 +2095,48 @@ Signatur-Prüfung fehlgeschlagen </translation>
     </message>
 </context>
 <context>
+    <name>cardIccIdentification</name>
+    <message>
+        <location filename="fileformat/cardBlocks/cardIccIdentification.h" line="+22"/>
+        <source>Card ICC identification</source>
+        <oldsource>Card chip identification</oldsource>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+15"/>
+        <source>clockStop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>cardExtendedSerialNumber</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>cardApprovalNumber</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>cardPersonaliserID</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>embedderIcAssemblerId</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>icIdentifier</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>controlActivityData</name>
     <message>
-        <location line="+183"/>
+        <location filename="fileformat/cardBlocks/controlActivityData.h" line="+17"/>
         <source>Control Activity Data</source>
         <translation>Übersicht über Kontrollen</translation>
     </message>
@@ -2117,7 +2164,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>currentUsage</name>
     <message>
-        <location line="+209"/>
+        <location filename="fileformat/cardBlocks/currentUsage.h" line="+14"/>
         <source>Current Usage</source>
         <translation>Derzeitige Benutzung</translation>
     </message>
@@ -2191,7 +2238,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>driverActivityData</name>
     <message>
-        <location filename="fileformat/cardblocks.h" line="+13"/>
+        <location filename="fileformat/cardBlocks/driverActivityData.h" line="+15"/>
         <source>Driver Activity Data</source>
         <translation>Fahrertätigkeitsdaten</translation>
     </message>
@@ -2214,7 +2261,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>drivingLicenseInfo</name>
     <message>
-        <location line="-509"/>
+        <location filename="fileformat/cardBlocks/drivingLicenseInfo.h" line="+14"/>
         <source>Driving License Info</source>
         <translation>Führerscheininformationen</translation>
     </message>
@@ -2282,7 +2329,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>eventsData</name>
     <message>
-        <location filename="fileformat/cardblocks.h" line="+237"/>
+        <location filename="fileformat/cardBlocks/eventsData.h" line="+18"/>
         <source>eventType</source>
         <translation>Ereignisart</translation>
     </message>
@@ -2320,7 +2367,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>faultsData</name>
     <message>
-        <location line="+22"/>
+        <location filename="fileformat/cardBlocks/faultsData.h" line="+14"/>
         <source>Faults Data</source>
         <translation>Fehlerdaten</translation>
     </message>
@@ -2392,14 +2439,14 @@ Signatur-Prüfung fehlgeschlagen </translation>
         <location line="+12"/>
         <location line="+5"/>
         <location line="+22"/>
-        <location line="+71"/>
+        <location line="+74"/>
         <location line="+6"/>
         <location line="+37"/>
         <source>RFU</source>
         <translation>[Reserviert für spätere Benutzung]</translation>
     </message>
     <message>
-        <location line="-177"/>
+        <location line="-180"/>
         <source>Vehicle unit related security breach attempt events: </source>
         <translation>Sicherheitsverletzende Versuche an der Fahrzeugeinheit: </translation>
     </message>
@@ -2559,11 +2606,13 @@ Signatur-Prüfung fehlgeschlagen </translation>
     </message>
     <message>
         <location line="+5"/>
+        <location line="+127"/>
+        <location line="+26"/>
         <source>No information available</source>
         <translation>Keine Informationen verfügbar</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-152"/>
         <source>Austria</source>
         <translation>Österreich</translation>
     </message>
@@ -2818,6 +2867,21 @@ Signatur-Prüfung fehlgeschlagen </translation>
         <translation>Jugoslawien</translation>
     </message>
     <message>
+        <location line="+1"/>
+        <source>Montenegro</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Serbia</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Uzbekistan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location line="+3"/>
         <source>Reserved for future use</source>
         <translation>[Reserviert für spätere Benutzung]</translation>
@@ -2980,11 +3044,261 @@ Signatur-Prüfung fehlgeschlagen </translation>
         <source>End, related time assumed by VU </source>
         <translation>Ende, Bezugszeit von der FE geschätzt</translation>
     </message>
+    <message>
+        <location line="+9"/>
+        <source>Andalucía</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Aragón</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Asturias</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Cantabria</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Cataluña</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Castilla-León</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Castilla-La-Mancha</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Valencia</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Extremadura</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Galicia</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Baleares</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Canarias</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>La Rioja</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Madrid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Murcia</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Navarra</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>País Vasco</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>(unknown region)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Reserved value</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Actia S.A.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Austria Card Plastikkarten und Ausweissysteme GmbH</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Agencija za komercijalnu djelatnost d.o.o (AKD)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>CETIS d.d.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>certSIGN</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>RUE Cryptotech</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Sdu Identification B.V. (formerly Enschedé/Sdu B.V.)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>EFKON AG.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Fábrica Nacional de Moneda y Timbre</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Giesecke &amp; Devrient GmbH</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Giesecke &amp; Devrient GB Ltd.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Giesecke &amp; Devrient sa/nv</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Hungarian Banknote Printing Co. Ltd.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Imprimerie Nationale</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Imprensa Nacional-Casa da Moeda, SA</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>InfoCamere S.C.p.A</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Morpho e-documents (formerly Sagem Orga formerly ORGA Kartensysteme GmbH)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>ORGA Zelenograd ZAO</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Asseco Czech Republic a.s. (formerly PVT a.s.)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Polska Wytwórnia Papierów Wartosciowych S.A. - PWPW S.A.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Continental Automotive GmbH (formerly Siemens AG - Siemens VDO Automotive Siemens Automotive)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Stoneridge Electronics AB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Gemalto (formerly Schlumberger SEMA, Axalto)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>3M Security Printing and Systems Ltd.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Union of Chambers and Commodity Exchanges of Turkey - TOBB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>T-Systems International GmbH</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Trüb AG</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Trüb Baltic AS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>TEMPEST a.s.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Trueb - DEMAX PLC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Unknown Manufacturer or equipment not type approved</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>fullCardNumber</name>
     <message>
-        <location filename="fileformat/cardblocks.h" line="-96"/>
+        <location filename="fileformat/dataTypes/fullCardNumber.cpp" line="+16"/>
         <source>cardType</source>
         <translation>Kartenart</translation>
     </message>
@@ -3002,7 +3316,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>identification</name>
     <message>
-        <location line="+203"/>
+        <location filename="fileformat/cardBlocks/identification.h" line="+20"/>
         <source>Card Identification</source>
         <translation>Karteninformationen</translation>
     </message>
@@ -3162,14 +3476,14 @@ Sie sollten ein Exemplar der GNU General Public License zusammen mit diesem Prog
     </message>
     <message>
         <location line="+2"/>
-        <location line="+54"/>
+        <location line="+55"/>
         <source>Tachograph Files</source>
         <oldsource>Tachograph Files (*.esm *.ddd)</oldsource>
         <translation>Tachographendateien</translation>
     </message>
     <message>
-        <location line="-54"/>
-        <location line="+32"/>
+        <location line="-55"/>
+        <location line="+33"/>
         <location line="+22"/>
         <source>All files</source>
         <translation>Alle Dateien</translation>
@@ -3219,7 +3533,7 @@ Sie sollten ein Exemplar der GNU General Public License zusammen mit diesem Prog
 <context>
     <name>placeRecord</name>
     <message>
-        <location filename="fileformat/cardblocks.h" line="-260"/>
+        <location filename="fileformat/dataTypes/placeRecord.h" line="+25"/>
         <source>entryTime</source>
         <translation>Eingabezeit</translation>
     </message>
@@ -3247,7 +3561,7 @@ Sie sollten ein Exemplar der GNU General Public License zusammen mit diesem Prog
 <context>
     <name>places</name>
     <message>
-        <location line="+130"/>
+        <location filename="fileformat/cardBlocks/places.h" line="+16"/>
         <source>Places</source>
         <translation>Orte</translation>
     </message>
@@ -3268,15 +3582,46 @@ Sie sollten ein Exemplar der GNU General Public License zusammen mit diesem Prog
 <context>
     <name>specificConditions</name>
     <message>
-        <location filename="fileformat/cardblocks.h" line="-192"/>
+        <location filename="fileformat/cardBlocks/specificConditions.h" line="+23"/>
         <source>Specific Conditions</source>
         <translation>Spezifische Bedingungen</translation>
     </message>
 </context>
 <context>
+    <name>svgBarGraph</name>
+    <message>
+        <location filename="fileformat/picgen.cpp" line="+28"/>
+        <source>= break/rest</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>= break, up to 15 min</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>= working</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>= driving</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>svgGraph</name>
+    <message>
+        <location line="-22"/>
+        <source>Time of day (UTC)</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>vehicleRegistration</name>
     <message>
-        <location line="+28"/>
+        <location filename="fileformat/dataTypes/vehicleRegistration.h" line="+17"/>
         <source>vehicleRegistrationNation</source>
         <translation>Fahzeugregistrierungsland</translation>
     </message>
@@ -3289,7 +3634,7 @@ Sie sollten ein Exemplar der GNU General Public License zusammen mit diesem Prog
 <context>
     <name>vehiclesUsed</name>
     <message>
-        <location line="+214"/>
+        <location filename="fileformat/cardBlocks/vehiclesUsed.h" line="+41"/>
         <source>Vehicles Used</source>
         <translation>Benutzte Fahrzeuge</translation>
     </message>
@@ -3617,7 +3962,12 @@ Sie sollten ein Exemplar der GNU General Public License zusammen mit diesem Prog
         <translation>Firmen- oder Werkstattname</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+1"/>
+        <source>VuCompanyLocksRecord</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
         <source>lockInTime</source>
         <translation>Zeitpunkt der Sperrung</translation>
     </message>
@@ -3642,7 +3992,12 @@ Sie sollten ein Exemplar der GNU General Public License zusammen mit diesem Prog
         <translation>Unternehmerkartennummer</translation>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="+2"/>
+        <source>VuControlActivityRecord</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
         <source>controlType</source>
         <translation>Kontrollart</translation>
     </message>
@@ -3703,7 +4058,7 @@ Sie sollten ein Exemplar der GNU General Public License zusammen mit diesem Prog
 <context>
     <name>vuTechnical</name>
     <message>
-        <location filename="fileformat/vuBlocks/vuTechnical.h" line="+29"/>
+        <location filename="fileformat/vuBlocks/vuTechnical.h" line="+30"/>
         <source>Technical Data</source>
         <translation>Technische Daten</translation>
     </message>
