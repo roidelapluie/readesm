@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+	<mime-type type="application/x-esm">
+		<comment xml:lang="en">Digital Tachograph file according to EU regulations</comment>
+		<magic priority="50">
+			<match type="string" value="\x76\x01" offset="0"/>
+			<match type="string" value="\0\x02\0\0\x19" offset="0"/>
+		</magic>
+		<glob pattern="*.esm"/>
+		<glob pattern="*.add"/>
+		<glob pattern="*.tgd"/>
+		<glob pattern="*.ddd"/>
+	</mime-type>
+</mime-info>

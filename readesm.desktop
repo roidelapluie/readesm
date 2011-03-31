@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Readesm
+Comment=Viewer for Digital Tachograph files
+TryExec=readesm
+Exec=readesm %f
+Icon=readesm
+MimeType=application/x-esm;
