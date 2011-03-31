@@ -2,6 +2,7 @@
 #define APPLICATIONIDENTIFICATION_H
 
 #include "cardBlock.h"
+#include "../formatStrings.h"
 
 class applicationIdentification : public cardBlock {
 	Q_DECLARE_TR_FUNCTIONS(applicationIdentification)
