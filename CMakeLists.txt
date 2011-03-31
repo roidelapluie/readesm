@@ -9,7 +9,7 @@ endif(WIN32)
 if(MAC)
 	set(GUI_TYPE MACOSX_BUNDLE)
 endif()
-set(CMAKE_BUILD_TYPE debug)
+set(CMAKE_BUILD_TYPE release)
 
 find_package(Qt4 COMPONENTS QtGui QtWebKit REQUIRED)
 
@@ -68,11 +68,24 @@ add_executable(readesm ${GUI_TYPE} ${readesm_SRCS} ${readesm_RCC_SRCS} ${QM_FILE
 
 target_link_libraries(readesm ${QT_QTCORE_LIBRARY} ${QT_QTGUI_LIBRARY} ${QT_QTWEBKIT_LIBRARY} ${LIBS})
 
-#*** Documentation Files ***
+#*** .desktop file and mime type ***
+find_program(XDG-MIME_EXECUTABLE xdg-mime)
+find_program(XDG-DESKTOP-MENU_EXECUTABLE xdg-desktop-menu)
+if(XDG-MIME_EXECUTABLE AND XDG-DESKTOP-MENU_EXECUTABLE)
+	install(CODE
+		"
+		execute_process(COMMAND ${XDG-MIME_EXECUTABLE} install --novendor esm.xml)
+		execute_process(COMMAND ${XDG-DESKTOP-MENU_EXECUTABLE} install --novendor readesm.desktop)
+		"
+	)
+else()
+	message("Did not find tools to install the mimetype.")
+endif()
 
-
-#*** Install files ***
+#*** Install binary ***
 install(TARGETS readesm RUNTIME DESTINATION bin)
+
+#*** CPACK  packaging ***
 
 set(CPACK_SOURCE_GENERATOR TGZ;TBZ2;ZIP)
 set(CPACK_GENERATOR TBZ2)
@@ -85,7 +98,7 @@ set(CPACK_CREATE_DESKTOP_LINKS "readesm")
 if(UNIX)
 endif()
 if(WIN32)
-	SET(CPACK_PACKAGE_EXECUTABLES "readesm" "readesm")
+	set(CPACK_PACKAGE_EXECUTABLES "readesm" "readesm")
 	set(CPACK_GENERATOR NSIS;ZIP)
 	file(GLOB readesm_needed_DLL "${CMAKE_CURRENT_SOURCE_DIR}/../dlls/*.dll")
 	install(FILES ${readesm_needed_DLL} DESTINATION bin)
