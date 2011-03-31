@@ -27,14 +27,14 @@ QString htmlReporter::str() {
 }
 
 void htmlReporter::bigblockstart(const QString& name) {
-	linksCollector << "<a href='#" << (++targetcount) << "'>" << escapeString(name)
-			<< "</a><br/>\n";
-	collector << "<h2><a name='" << targetcount << "'>"
-			<< escapeString(name) << "</a></h2><table>";
+	linksCollector << "\n<a href='#" << (++targetcount) << "'>" << escapeString(name)
+			<< "</a><br/>";
+	collector << "\n<h2><a name='" << targetcount << "'>"
+			<< escapeString(name) << "</a></h2>\n<table>";
 }
 
 void htmlReporter::bigblockend() {
-	collector << "</table>";
+	collector << "</table>\n";
 }
 
 void htmlReporter::blockstart(const QString& description, int blockcount) {
