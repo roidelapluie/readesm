@@ -71,6 +71,8 @@ target_link_libraries(readesm ${QT_QTCORE_LIBRARY} ${QT_QTGUI_LIBRARY} ${QT_QTWE
 #*** .desktop file and mime type ***
 find_program(XDG-MIME_EXECUTABLE xdg-mime)
 find_program(XDG-DESKTOP-MENU_EXECUTABLE xdg-desktop-menu)
+message("xdg-mime ${XDG-MIME_EXECUTABLE} ")
+message("xdg-desktop-menu ${XDG-DESKTOP-MENU_EXECUTABLE} ")
 if(XDG-MIME_EXECUTABLE AND XDG-DESKTOP-MENU_EXECUTABLE)
 	install(CODE
 		"
