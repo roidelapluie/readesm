@@ -47,7 +47,7 @@
     <message>
         <location filename="fileformat/Activity.h" line="79"/>
         <source>single</source>
-        <translation>unico</translation>
+        <translation>único</translation>
     </message>
     <message>
         <location filename="fileformat/Activity.h" line="80"/>
@@ -65,7 +65,7 @@
     <message>
         <location filename="fileformat/crypto.h" line="68"/>
         <source>nationNumeric</source>
-        <translation>numeroDePais</translation>
+        <translation>númeroDePais</translation>
     </message>
     <message>
         <location filename="fileformat/crypto.h" line="69"/>
@@ -75,7 +75,7 @@
     <message>
         <location filename="fileformat/crypto.h" line="70"/>
         <source>keySerialNumber</source>
-        <translation>claveNumeroDeSerie</translation>
+        <translation>claveNúmeroDeSerie</translation>
     </message>
     <message>
         <location filename="fileformat/crypto.h" line="71"/>
@@ -93,7 +93,7 @@
     <message>
         <location filename="fileformat/myTime.h" line="81"/>
         <source>days</source>
-        <translation>dias</translation>
+        <translation>días</translation>
     </message>
 </context>
 <context>
@@ -101,7 +101,7 @@
     <message>
         <location filename="fileformat/vuBlocks/vuFaults.h" line="95"/>
         <source>similarEventsNumber</source>
-        <translation>numeroDeSucesosSimilares</translation>
+        <translation>númeroDeSucesosSimilares</translation>
     </message>
 </context>
 <context>
@@ -201,7 +201,7 @@
     <message>
         <location filename="fileformat/esmfile.cpp" line="14"/>
         <source>Recorded days</source>
-        <translation>Días Registrados</translation>
+        <translation>Días registrados</translation>
     </message>
     <message>
         <location filename="fileformat/esmfile.cpp" line="15"/>
@@ -246,7 +246,7 @@
     <message>
         <location filename="fileformat/overtime.h" line="71"/>
         <source>driven for </source>
-        <translation>conducido por</translation>
+        <translation>conducido por </translation>
     </message>
     <message>
         <location filename="fileformat/overtime.h" line="72"/>
@@ -264,7 +264,7 @@
     <message>
         <location filename="fileformat/cardBlocks/applicationIdentification.h" line="11"/>
         <source>Application Identification</source>
-        <translation>IdentificaciónDeLaAplicación</translation>
+        <translation>Identificación de la Aplicación</translation>
     </message>
     <message>
         <location filename="fileformat/cardBlocks/applicationIdentification.h" line="21"/>
@@ -326,7 +326,7 @@
     <message>
         <location filename="fileformat/cardBlocks/cardChipIdentification.h" line="15"/>
         <source>Card chip identification</source>
-        <translation type="unfinished"></translation>
+        <translation>Identificación de la tarjeta con chip</translation>
     </message>
 </context>
 <context>
@@ -348,37 +348,37 @@
         <location filename="fileformat/cardBlocks/cardIccIdentification.h" line="22"/>
         <source>Card ICC identification</source>
         <oldsource>Card chip identification</oldsource>
-        <translation type="unfinished"></translation>
+        <translation>Identificación ICC de la tarjeta</translation>
     </message>
     <message>
         <location filename="fileformat/cardBlocks/cardIccIdentification.h" line="37"/>
         <source>clockStop</source>
-        <translation type="unfinished"></translation>
+        <translation>paroDelReloj</translation>
     </message>
     <message>
         <location filename="fileformat/cardBlocks/cardIccIdentification.h" line="38"/>
         <source>cardExtendedSerialNumber</source>
-        <translation type="unfinished"></translation>
+        <translation>númeroDeSerieExtendidoDeLaTarjeta</translation>
     </message>
     <message>
         <location filename="fileformat/cardBlocks/cardIccIdentification.h" line="39"/>
         <source>cardApprovalNumber</source>
-        <translation type="unfinished"></translation>
+        <translation>númeroDeAutorizaciónDeLaTarjeta</translation>
     </message>
     <message>
         <location filename="fileformat/cardBlocks/cardIccIdentification.h" line="40"/>
         <source>cardPersonaliserID</source>
-        <translation type="unfinished"></translation>
+        <translation>IDDeLaTarjetaPersonalizada</translation>
     </message>
     <message>
         <location filename="fileformat/cardBlocks/cardIccIdentification.h" line="41"/>
         <source>embedderIcAssemblerId</source>
-        <translation type="unfinished"></translation>
+        <translation>IDEnsambladorEmbebido</translation>
     </message>
     <message>
         <location filename="fileformat/cardBlocks/cardIccIdentification.h" line="42"/>
         <source>icIdentifier</source>
-        <translation type="unfinished"></translation>
+        <translation>identificadorIC</translation>
     </message>
 </context>
 <context>
@@ -480,7 +480,7 @@
     <message>
         <location filename="fileformat/Activity.h" line="176"/>
         <source>activityDayDistance</source>
-        <translation>diatanciaDiariaDeActividad</translation>
+        <translation>Distancia diaria de la actividad</translation>
     </message>
 </context>
 <context>
@@ -552,12 +552,12 @@
     <message>
         <location filename="fileformat/cardBlocks/eventsData.h" line="19"/>
         <source>beginTime</source>
-        <translation>HoraDeInicio</translation>
+        <translation>fechaYHoraDeInicio</translation>
     </message>
     <message>
         <location filename="fileformat/cardBlocks/eventsData.h" line="20"/>
         <source>endTime</source>
-        <translation>HoraDeFinalización</translation>
+        <translation>fechaYHoraDeFinalización</translation>
     </message>
     <message>
         <location filename="fileformat/cardBlocks/eventsData.h" line="36"/>
@@ -654,8 +654,7 @@
     <message>
         <location filename="fileformat/formatStrings.cpp" line="47"/>
         <source>Motion sensor authentication failure</source>
-        <translatorcomment>Error de autentificación del sensor de movimiento</translatorcomment>
-        <translation>motion sensor authentication failure</translation>
+        <translation>Error de autentificación del sensor de movimiento</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="48"/>
@@ -718,7 +717,7 @@
     <message>
         <location filename="fileformat/formatStrings.cpp" line="73"/>
         <source>VU internal fault</source>
-        <translation>Fallo internio de la VU</translation>
+        <translation>Fallo interno de la VU</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="74"/>
@@ -1071,17 +1070,17 @@
     <message>
         <location filename="fileformat/formatStrings.cpp" line="167"/>
         <source>Montenegro</source>
-        <translation type="unfinished"></translation>
+        <translation>Montenegro</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="168"/>
         <source>Serbia</source>
-        <translation type="unfinished"></translation>
+        <translation>Serbia</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="169"/>
         <source>Uzbekistan</source>
-        <translation type="unfinished"></translation>
+        <translation>Uzbequistán</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="172"/>
@@ -1247,252 +1246,252 @@
     <message>
         <location filename="fileformat/formatStrings.cpp" line="243"/>
         <source>Andalucía</source>
-        <translation type="unfinished"></translation>
+        <translation>Andalucía</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="244"/>
         <source>Aragón</source>
-        <translation type="unfinished"></translation>
+        <translation>Aragón</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="245"/>
         <source>Asturias</source>
-        <translation type="unfinished"></translation>
+        <translation>Asturias</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="246"/>
         <source>Cantabria</source>
-        <translation type="unfinished"></translation>
+        <translation>Cantabria</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="247"/>
         <source>Cataluña</source>
-        <translation type="unfinished"></translation>
+        <translation>Cataluña</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="248"/>
         <source>Castilla-León</source>
-        <translation type="unfinished"></translation>
+        <translation>Castilla-León</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="249"/>
         <source>Castilla-La-Mancha</source>
-        <translation type="unfinished"></translation>
+        <translation>Castilla-La Mancha</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="250"/>
         <source>Valencia</source>
-        <translation type="unfinished"></translation>
+        <translation>Comunidad Valenciana</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="251"/>
         <source>Extremadura</source>
-        <translation type="unfinished"></translation>
+        <translation>Extremadura</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="252"/>
         <source>Galicia</source>
-        <translation type="unfinished"></translation>
+        <translation>Galicia</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="253"/>
         <source>Baleares</source>
-        <translation type="unfinished"></translation>
+        <translation>Baleares</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="254"/>
         <source>Canarias</source>
-        <translation type="unfinished"></translation>
+        <translation>Canarias</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="255"/>
         <source>La Rioja</source>
-        <translation type="unfinished"></translation>
+        <translation>La Rioja</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="256"/>
         <source>Madrid</source>
-        <translation type="unfinished"></translation>
+        <translation>Madrid</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="257"/>
         <source>Murcia</source>
-        <translation type="unfinished"></translation>
+        <translation>Murcia</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="258"/>
         <source>Navarra</source>
-        <translation type="unfinished"></translation>
+        <translation>Navarra</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="259"/>
         <source>País Vasco</source>
-        <translation type="unfinished"></translation>
+        <translation>País Vasco</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="262"/>
         <source>(unknown region)</source>
-        <translation type="unfinished"></translation>
+        <translation>(región desconocida)</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="269"/>
         <source>Reserved value</source>
-        <translation type="unfinished"></translation>
+        <translation>Valor reservado</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="270"/>
         <source>Actia S.A.</source>
-        <translation type="unfinished"></translation>
+        <translation>Actia S.A.</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="271"/>
         <source>Austria Card Plastikkarten und Ausweissysteme GmbH</source>
-        <translation type="unfinished"></translation>
+        <translation>Austria Card Plastikkarten und Ausweissysteme GmbH</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="272"/>
         <source>Agencija za komercijalnu djelatnost d.o.o (AKD)</source>
-        <translation type="unfinished"></translation>
+        <translation>Agencija za komercijalnu djelatnost d.o.o (AKD)</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="273"/>
         <source>CETIS d.d.</source>
-        <translation type="unfinished"></translation>
+        <translation>CETIS d.d.</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="274"/>
         <source>certSIGN</source>
-        <translation type="unfinished"></translation>
+        <translation>certSIGN</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="275"/>
         <source>RUE Cryptotech</source>
-        <translation type="unfinished"></translation>
+        <translation>RUE Cryptotech</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="276"/>
         <source>Sdu Identification B.V. (formerly Enschedé/Sdu B.V.)</source>
-        <translation type="unfinished"></translation>
+        <translation>Sdu Identification B.V. (formerly Enschedé/Sdu B.V.)</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="277"/>
         <source>EFKON AG.</source>
-        <translation type="unfinished"></translation>
+        <translation>EFKON AG.</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="278"/>
         <source>Fábrica Nacional de Moneda y Timbre</source>
-        <translation type="unfinished"></translation>
+        <translation>Fábrica Nacional de Moneda y Timbre</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="279"/>
         <source>Giesecke &amp; Devrient GmbH</source>
-        <translation type="unfinished"></translation>
+        <translation>Giesecke &amp; Devrient GmbH</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="280"/>
         <source>Giesecke &amp; Devrient GB Ltd.</source>
-        <translation type="unfinished"></translation>
+        <translation>Giesecke &amp; Devrient GB Ltd.</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="281"/>
         <source>Giesecke &amp; Devrient sa/nv</source>
-        <translation type="unfinished"></translation>
+        <translation>Giesecke &amp; Devrient sa/nv</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="282"/>
         <source>Hungarian Banknote Printing Co. Ltd.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hungarian Banknote Printing Co. Ltd.</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="283"/>
         <source>Imprimerie Nationale</source>
-        <translation type="unfinished"></translation>
+        <translation>Imprimerie Nationale</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="284"/>
         <source>Imprensa Nacional-Casa da Moeda, SA</source>
-        <translation type="unfinished"></translation>
+        <translation>Imprensa Nacional-Casa da Moeda, SA</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="285"/>
         <source>InfoCamere S.C.p.A</source>
-        <translation type="unfinished"></translation>
+        <translation>InfoCamere S.C.p.A</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="286"/>
         <source>Morpho e-documents (formerly Sagem Orga formerly ORGA Kartensysteme GmbH)</source>
-        <translation type="unfinished"></translation>
+        <translation>Morpho e-documents (formerly Sagem Orga formerly ORGA Kartensysteme GmbH)</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="287"/>
         <source>ORGA Zelenograd ZAO</source>
-        <translation type="unfinished"></translation>
+        <translation>ORGA Zelenograd ZAO</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="288"/>
         <source>Asseco Czech Republic a.s. (formerly PVT a.s.)</source>
-        <translation type="unfinished"></translation>
+        <translation>Asseco Czech Republic a.s. (formerly PVT a.s.)</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="289"/>
         <source>Polska Wytwórnia Papierów Wartosciowych S.A. - PWPW S.A.</source>
-        <translation type="unfinished"></translation>
+        <translation>Polska Wytwórnia Papierów Wartosciowych S.A. - PWPW S.A.</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="290"/>
         <source>Continental Automotive GmbH (formerly Siemens AG - Siemens VDO Automotive Siemens Automotive)</source>
-        <translation type="unfinished"></translation>
+        <translation>Continental Automotive GmbH (formerly Siemens AG - Siemens VDO Automotive Siemens Automotive)</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="291"/>
         <source>Stoneridge Electronics AB</source>
-        <translation type="unfinished"></translation>
+        <translation>Stoneridge Electronics AB</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="292"/>
         <source>Gemalto (formerly Schlumberger SEMA, Axalto)</source>
-        <translation type="unfinished"></translation>
+        <translation>Gemalto (formerly Schlumberger SEMA, Axalto)</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="293"/>
         <source>3M Security Printing and Systems Ltd.</source>
-        <translation type="unfinished"></translation>
+        <translation>3M Security Printing and Systems Ltd.</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="294"/>
         <source>Union of Chambers and Commodity Exchanges of Turkey - TOBB</source>
-        <translation type="unfinished"></translation>
+        <translation>Union of Chambers and Commodity Exchanges of Turkey - TOBB</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="295"/>
         <source>T-Systems International GmbH</source>
-        <translation type="unfinished"></translation>
+        <translation>T-Systems International GmbH</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="296"/>
         <source>Trüb AG</source>
-        <translation type="unfinished"></translation>
+        <translation>Trüb AG</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="297"/>
         <source>Trüb Baltic AS</source>
-        <translation type="unfinished"></translation>
+        <translation>Trüb Baltic AS</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="298"/>
         <source>TEMPEST a.s.</source>
-        <translation type="unfinished"></translation>
+        <translation>TEMPEST a.s.</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="299"/>
         <source>Trueb - DEMAX PLC</source>
-        <translation type="unfinished"></translation>
+        <translation>Trueb - DEMAX PLC</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="301"/>
         <source>Unknown Manufacturer or equipment not type approved</source>
-        <translation type="unfinished"></translation>
+        <translation>Fabricante desconocido o modelo no aprobado</translation>
     </message>
 </context>
 <context>
@@ -1523,7 +1522,7 @@
     <message>
         <location filename="fileformat/cardBlocks/identification.h" line="39"/>
         <source>cardIssuingMemberState</source>
-        <translation>EstadoMiembroQueEmiteLaTarjeta</translation>
+        <translation>estadoMiembroQueEmiteLaTarjeta</translation>
     </message>
     <message>
         <location filename="fileformat/cardBlocks/identification.h" line="40"/>
@@ -1553,17 +1552,17 @@
     <message>
         <location filename="fileformat/cardBlocks/identification.h" line="45"/>
         <source>holderSurname</source>
-        <translation>ApellidoDelTitular</translation>
+        <translation>apellidoDelTitular</translation>
     </message>
     <message>
         <location filename="fileformat/cardBlocks/identification.h" line="46"/>
         <source>holderFirstNames</source>
-        <translation>NombreDelTitular</translation>
+        <translation>nombreDelTitular</translation>
     </message>
     <message>
         <location filename="fileformat/cardBlocks/identification.h" line="47"/>
         <source>cardHolderBirthDate</source>
-        <translation>fechaDeNacimientoDelTirular</translation>
+        <translation>fechaDeNacimientoDelTitular</translation>
     </message>
     <message>
         <location filename="fileformat/cardBlocks/identification.h" line="48"/>
@@ -1722,7 +1721,7 @@ La traducción al español la ha realizado José Huguet (ITEM Ordenadores) Caste
     <message>
         <location filename="fileformat/dataTypes/placeRecord.h" line="25"/>
         <source>entryTime</source>
-        <translation>horaDeEntrada</translation>
+        <translation>fechaYHoraDeEntrada</translation>
     </message>
     <message>
         <location filename="fileformat/dataTypes/placeRecord.h" line="26"/>
@@ -1779,22 +1778,22 @@ La traducción al español la ha realizado José Huguet (ITEM Ordenadores) Caste
     <message>
         <location filename="fileformat/picgen.cpp" line="28"/>
         <source>= break/rest</source>
-        <translation type="unfinished"></translation>
+        <translation>= parar/arrancar</translation>
     </message>
     <message>
         <location filename="fileformat/picgen.cpp" line="29"/>
         <source>= break, up to 15 min</source>
-        <translation type="unfinished"></translation>
+        <translation>= parar, más de 15 min</translation>
     </message>
     <message>
         <location filename="fileformat/picgen.cpp" line="30"/>
         <source>= working</source>
-        <translation type="unfinished"></translation>
+        <translation>= trabajando</translation>
     </message>
     <message>
         <location filename="fileformat/picgen.cpp" line="31"/>
         <source>= driving</source>
-        <translation type="unfinished"></translation>
+        <translation>= conduciendo</translation>
     </message>
 </context>
 <context>
@@ -1802,7 +1801,7 @@ La traducción al español la ha realizado José Huguet (ITEM Ordenadores) Caste
     <message>
         <location filename="fileformat/picgen.cpp" line="9"/>
         <source>Time of day (UTC)</source>
-        <translation type="unfinished"></translation>
+        <translation>Hora actual (UTC)</translation>
     </message>
 </context>
 <context>
@@ -1828,19 +1827,19 @@ La traducción al español la ha realizado José Huguet (ITEM Ordenadores) Caste
     <message>
         <location filename="fileformat/cardBlocks/vehiclesUsed.h" line="24"/>
         <source>vehicleLastUse</source>
-        <translation>ultimoUsoDelVehículo</translation>
+        <translation>últimoUsoDelVehículo</translation>
     </message>
     <message>
         <location filename="fileformat/cardBlocks/vehiclesUsed.h" line="25"/>
         <location filename="fileformat/cardBlocks/vehiclesUsed.h" line="60"/>
         <source>vehicleOdometerBegin</source>
-        <translation>inicioCuentakilómetrosDelVehículo</translation>
+        <translation>cuentakilómetrosInicialDelVehículo</translation>
     </message>
     <message>
         <location filename="fileformat/cardBlocks/vehiclesUsed.h" line="26"/>
         <location filename="fileformat/cardBlocks/vehiclesUsed.h" line="61"/>
         <source>vehicleOdometerEnd</source>
-        <translation>finCuentakilómetrosDelVehículo</translation>
+        <translation>cuentakilómetrosFinalDelVehículo</translation>
     </message>
     <message>
         <location filename="fileformat/cardBlocks/vehiclesUsed.h" line="27"/>
@@ -1855,7 +1854,7 @@ La traducción al español la ha realizado José Huguet (ITEM Ordenadores) Caste
     <message>
         <location filename="fileformat/cardBlocks/vehiclesUsed.h" line="63"/>
         <source>Driven distance</source>
-        <translation>Distancia Recorrida</translation>
+        <translation>Distancia recorrida</translation>
     </message>
 </context>
 <context>
@@ -1904,7 +1903,7 @@ La traducción al español la ha realizado José Huguet (ITEM Ordenadores) Caste
     <message>
         <location filename="fileformat/vuBlocks/vuActivities.cpp" line="63"/>
         <source>cardInsertionTime</source>
-        <translation>horaDeInserciónDeLaTarjeta</translation>
+        <translation>fechaYHoraDeInserciónDeLaTarjeta</translation>
     </message>
     <message>
         <location filename="fileformat/vuBlocks/vuActivities.cpp" line="64"/>
@@ -1919,7 +1918,7 @@ La traducción al español la ha realizado José Huguet (ITEM Ordenadores) Caste
     <message>
         <location filename="fileformat/vuBlocks/vuActivities.cpp" line="66"/>
         <source>cardWithdrawalTime</source>
-        <translation>horaDeRetiradaDeLaTarjeta</translation>
+        <translation>fechaYHoraDeRetiradaDeLaTarjeta</translation>
     </message>
     <message>
         <location filename="fileformat/vuBlocks/vuActivities.cpp" line="67"/>
@@ -1939,7 +1938,7 @@ La traducción al español la ha realizado José Huguet (ITEM Ordenadores) Caste
     <message>
         <location filename="fileformat/vuBlocks/vuActivities.cpp" line="71"/>
         <source>previousCardWithdrawalTime</source>
-        <translation>horaAnteriorDeRetiradaDeLaTarjeta</translation>
+        <translation>fechaYHoraAnteriorDeRetiradaDeLaTarjeta</translation>
     </message>
     <message>
         <location filename="fileformat/vuBlocks/vuActivities.cpp" line="72"/>
@@ -1960,7 +1959,7 @@ La traducción al español la ha realizado José Huguet (ITEM Ordenadores) Caste
         <location filename="fileformat/vuBlocks/vuActivities.cpp" line="82"/>
         <location filename="fileformat/vuBlocks/vuActivities.cpp" line="90"/>
         <source>entryTime</source>
-        <translation>horaDeEntrada</translation>
+        <translation>fechaYHoraDeEntrada</translation>
     </message>
     <message>
         <location filename="fileformat/vuBlocks/vuActivities.cpp" line="83"/>
@@ -2039,22 +2038,22 @@ La traducción al español la ha realizado José Huguet (ITEM Ordenadores) Caste
     <message>
         <location filename="fileformat/vuBlocks/vuFaults.h" line="160"/>
         <source>ActivityChangeInfo</source>
-        <translation>informacionDelCambioDeActividad</translation>
+        <translation>informaciónDelCambioDeActividad</translation>
     </message>
     <message>
         <location filename="fileformat/vuBlocks/vuFaults.h" line="166"/>
         <source>TimeAdjustments</source>
-        <translation>AjustesHorarios</translation>
+        <translation>Ajustes Horarios</translation>
     </message>
     <message>
         <location filename="fileformat/vuBlocks/vuFaults.h" line="167"/>
         <source>oldTimeValue</source>
-        <translation>ultimaHora</translation>
+        <translation>últimaFechaYHora</translation>
     </message>
     <message>
         <location filename="fileformat/vuBlocks/vuFaults.h" line="168"/>
         <source>newTimeValue</source>
-        <translation>nuevaHora</translation>
+        <translation>nuevaFechaYHora</translation>
     </message>
     <message>
         <location filename="fileformat/vuBlocks/vuFaults.h" line="169"/>
@@ -2097,7 +2096,7 @@ La traducción al español la ha realizado José Huguet (ITEM Ordenadores) Caste
     <message>
         <location filename="fileformat/vuBlocks/vuOverview.h" line="57"/>
         <source>CurrentDateTime</source>
-        <translation>díaYHoraActuales</translation>
+        <translation>fechaYHoraActuales</translation>
     </message>
     <message>
         <location filename="fileformat/vuBlocks/vuOverview.h" line="58"/>
@@ -2132,17 +2131,17 @@ La traducción al español la ha realizado José Huguet (ITEM Ordenadores) Caste
     <message>
         <location filename="fileformat/vuBlocks/vuOverview.h" line="64"/>
         <source>VuCompanyLocksRecord</source>
-        <translation type="unfinished"></translation>
+        <translation>VURegistroBloqueadoPorLaEmpresa</translation>
     </message>
     <message>
         <location filename="fileformat/vuBlocks/vuOverview.h" line="66"/>
         <source>lockInTime</source>
-        <translation>horaDeInicioDelBloqueo</translation>
+        <translation>fechaYHoraDeInicioDelBloqueo</translation>
     </message>
     <message>
         <location filename="fileformat/vuBlocks/vuOverview.h" line="67"/>
         <source>lockOutTime</source>
-        <translation>horaDeSalidaDelBloqueo</translation>
+        <translation>fechaYHoraDeSalidaDelBloqueo</translation>
     </message>
     <message>
         <location filename="fileformat/vuBlocks/vuOverview.h" line="68"/>
@@ -2162,7 +2161,7 @@ La traducción al español la ha realizado José Huguet (ITEM Ordenadores) Caste
     <message>
         <location filename="fileformat/vuBlocks/vuOverview.h" line="72"/>
         <source>VuControlActivityRecord</source>
-        <translation type="unfinished"></translation>
+        <translation>VURegistroDelControlDeActividad</translation>
     </message>
     <message>
         <location filename="fileformat/vuBlocks/vuOverview.h" line="74"/>
@@ -2172,7 +2171,7 @@ La traducción al español la ha realizado José Huguet (ITEM Ordenadores) Caste
     <message>
         <location filename="fileformat/vuBlocks/vuOverview.h" line="75"/>
         <source>controlTime</source>
-        <translation>HoraDelControl</translation>
+        <translation>fechaYHoraDelControl</translation>
     </message>
     <message>
         <location filename="fileformat/vuBlocks/vuOverview.h" line="76"/>
@@ -2182,12 +2181,12 @@ La traducción al español la ha realizado José Huguet (ITEM Ordenadores) Caste
     <message>
         <location filename="fileformat/vuBlocks/vuOverview.h" line="77"/>
         <source>downloadPeriodBeginTime</source>
-        <translation>horaDeInicioDelPeriodoDeDescarga</translation>
+        <translation>fechaYHoraDeInicioDelPeriodoDeDescarga</translation>
     </message>
     <message>
         <location filename="fileformat/vuBlocks/vuOverview.h" line="78"/>
         <source>downloadPeriodEndTime</source>
-        <translation>horaDeFinalizaciónDelPeriodoDeDescarga</translation>
+        <translation>fechaYHoraDeFinalizaciónDelPeriodoDeDescarga</translation>
     </message>
 </context>
 <context>
@@ -2333,7 +2332,7 @@ La traducción al español la ha realizado José Huguet (ITEM Ordenadores) Caste
     <message>
         <location filename="fileformat/vuBlocks/vuTechnical.h" line="64"/>
         <source>wVehicleCharacteristicConstant</source>
-        <translation>constanteWCaracterìsticaDelVehículo</translation>
+        <translation>constanteWCaracterísticaDelVehículo</translation>
     </message>
     <message>
         <location filename="fileformat/vuBlocks/vuTechnical.h" line="65"/>
@@ -2374,12 +2373,12 @@ La traducción al español la ha realizado José Huguet (ITEM Ordenadores) Caste
     <message>
         <location filename="fileformat/vuBlocks/vuTechnical.h" line="76"/>
         <source>oldTimeValue</source>
-        <translation>ultimaHora</translation>
+        <translation>últimaFechaYHora</translation>
     </message>
     <message>
         <location filename="fileformat/vuBlocks/vuTechnical.h" line="77"/>
         <source>newTimeValue</source>
-        <translation>nuevaHora</translation>
+        <translation>nuevaFechaYHora</translation>
     </message>
     <message>
         <location filename="fileformat/vuBlocks/vuTechnical.h" line="78"/>
