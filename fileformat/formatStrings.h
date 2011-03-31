@@ -24,7 +24,7 @@ class formatStrings {
 	Q_DECLARE_TR_FUNCTIONS(formatStrings)
 
 	public:
-	
+
 	///What kind of event(mostly "driving without the right card")
 	static QString eventType(unsigned char etype);
 
@@ -38,13 +38,13 @@ class formatStrings {
 	static QString regionNumeric(unsigned char region);
 
 	static QString specificCondition(unsigned char scond);
-	
+
 	///Why was the VU (re)calibrated?
 	static QString calibrationPurpose(unsigned char cpurp);
 
 	///Control type(printing, vu read, ...)
 	static QString controlType(unsigned char ctype);
-	
+
 	///Kind of card(control, driver...)
 	static QString equipmentType(unsigned char value);
 

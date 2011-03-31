@@ -72,7 +72,7 @@ class block {
 		o.bigblockend();
 		return o;
 	}
-	
+
 	virtual int size() const = 0;
 
 	virtual QString name() const {

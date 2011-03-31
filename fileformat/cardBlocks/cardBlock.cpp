@@ -1,21 +1,21 @@
 #include "cardBlock.h"
 
+#include "applicationIdentification.h"
+#include "caCertificate.h"
+#include "cardCertificate.h"
+#include "cardChipIdentification.h"
 #include "cardDownload.h"
-#include "drivingLicenseInfo.h"
+#include "cardIccIdentification.h"
+#include "controlActivityData.h"
 #include "currentUsage.h"
 #include "driverActivityData.h"
-#include "identification.h"
-#include "specificConditions.h"
-#include "faultsData.h"
+#include "drivingLicenseInfo.h"
 #include "eventsData.h"
-#include "vehiclesUsed.h"
-#include "cardCertificate.h"
-#include "caCertificate.h"
-#include "applicationIdentification.h"
-#include "controlActivityData.h"
+#include "faultsData.h"
+#include "identification.h"
 #include "places.h"
-#include "cardIccIdentification.h"
-#include "cardChipIdentification.h"
+#include "specificConditions.h"
+#include "vehiclesUsed.h"
 
 //Driver Card Codes and structure are on p. 119 in l207.pdf
 cardBlock::ptr cardBlock::Factory(constDataPointer filewalker) {
@@ -54,7 +54,7 @@ cardBlock::ptr cardBlock::Factory(constDataPointer filewalker) {
 			return p(new cardIccIdentification(filewalker));
 		case cardChipIdentification::Type:
 			return p(new cardChipIdentification(filewalker));
-		
+
 		default:
 			return p(new cardBlock(filewalker));
 	}

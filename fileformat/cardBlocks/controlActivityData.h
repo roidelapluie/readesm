@@ -3,6 +3,7 @@
 
 #include "cardBlock.h"
 #include "../dataTypes/fullCardNumber.h"
+#include "../dataTypes/vehicleRegistration.h"
 
 class controlActivityData : public cardBlock {
 	Q_DECLARE_TR_FUNCTIONS(controlActivityData)

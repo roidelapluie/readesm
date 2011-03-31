@@ -1,8 +1,8 @@
 #include "fullCardNumber.h"
 
-#include "../readTypes.h"
 #include "../formatStrings.h"
 #include "../helper.h"
+#include "../readTypes.h"
 
 fullCardNumber::fullCardNumber(constDataPointer start) :
 	dataType(start),

@@ -2,7 +2,6 @@
 #define CARDBLOCK_H
 
 #include "../block.h"
-#include "../formatStrings.h"
 
 class cardBlock : public block {
 	public:

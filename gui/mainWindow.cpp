@@ -20,7 +20,7 @@ mainWindow::mainWindow()
 	view = new QWebView(this);
 	view->load(QUrl("qrc:///greeting.xhtml"));
 	setCentralWidget(view);
-	
+
 	//define and link the stuff in the menu bar
 	QMenu *fileMenu = new QMenu(tr("&File"),this); 
 	QAction* fileOpenAction = new QAction(QIcon::fromTheme("document-open"), trUtf8("&Open…"), this);
@@ -37,7 +37,7 @@ mainWindow::mainWindow()
 	connect(filePrintAction, SIGNAL(triggered()), SLOT(print()) );
 	connect(fileSaveRawAction, SIGNAL(triggered()), SLOT(saveRaw()) );
 	connect(fileSaveHtmlAction, SIGNAL(triggered()), SLOT(saveHtml()) );
-	
+
 	fileMenu->addAction(fileOpenAction);
 	fileMenu->addSeparator();
 	fileMenu->addAction(fileSaveRawAction);
@@ -46,7 +46,7 @@ mainWindow::mainWindow()
 	fileMenu->addSeparator();
 	fileMenu->addAction(fileQuitAction);
 	menuBar()->addMenu(fileMenu);
-	
+
 	QMenu* helpMenu = new QMenu(tr("&Help"),this); 
 	QAction* helpContentsAction = new QAction(QIcon::fromTheme("help-contents"), tr("&Contents"), this);
 	QAction* helpAboutAction = new QAction(QIcon::fromTheme("help-about"), tr("&About Readesm"), this);
@@ -60,7 +60,6 @@ mainWindow::mainWindow()
 	helpMenu->addAction(helpAboutQtAction);
 	helpMenu->addAction(helpAboutAction);
 	menuBar()->addMenu(helpMenu);
-      
 }
 
 void mainWindow::helpAbout()

@@ -24,7 +24,6 @@ class mainWindow : public QMainWindow
 		void saveRaw();
 		void saveHtml();
 		void helpAbout();
-	
 };
 
 #endif

@@ -1,6 +1,7 @@
 #ifndef EXTENDEDSERIALNUMBER_H
 #define EXTENDEDSERIALNUMBER_H
 
+#include "dataType.h"
 #include "../formatStrings.h"
 
 class extendedSerialNumber : public dataType {
@@ -17,7 +18,7 @@ public:
 		manufacturerCode(start[7])
 	{
 	}
-	
+
 	QString str() const{
 		return QString("%1 (%2) Type %3, %4")
 			.arg(serialNumber)

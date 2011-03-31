@@ -65,14 +65,14 @@ class Fault : public EventBase {
 
 	virtual void printOn(reporter& report) const {
 		EventBase::printOn(report);
-		
+
 		if(cardNumberDriverSlotBegin != cardNumberDriverSlotEnd) {
 			if(!cardNumberDriverSlotBegin.defval()) 
 				report(tr("cardNumberDriverSlotBegin"), cardNumberDriverSlotBegin.str());
 			if(!cardNumberDriverSlotEnd.defval()) 
 				report(tr("cardNumberDriverSlotEnd"), cardNumberDriverSlotEnd.str());
 		} else if(!cardNumberDriverSlotBegin.defval()) report(tr("cardNumberDriverSlot"), cardNumberDriverSlotBegin.str());
-		
+
 		if(cardNumberCodriverSlotBegin != cardNumberCodriverSlotEnd) {
 			if(!cardNumberCodriverSlotBegin.defval()) 
 				report(tr("cardNumberCodriverSlotBegin"), cardNumberCodriverSlotBegin.str());

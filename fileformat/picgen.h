@@ -17,9 +17,10 @@
 #ifndef PICGEN_H
 #define PICGEN_H PICGEN_H
 
+#include <QtCore/QCoreApplication>
 #include <QtCore/QString>
 #include <QtCore/QTextStream>
-#include <QCoreApplication>
+
 class picgen {
 	protected:
 		QString collected;

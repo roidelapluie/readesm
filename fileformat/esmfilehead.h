@@ -66,7 +66,7 @@ class esmfilehead {
 		content = file.readAll();
 		file.close();
 	}
-	
+
 };
 
 #endif

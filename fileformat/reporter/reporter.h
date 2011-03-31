@@ -33,7 +33,7 @@ class reporter {
 	public:
 	typedef QSharedPointer<picgen> pgptr;
 	reporter(const QString& title_ = "ESM Data");
-	
+
 	class subblock {
 		public:
 		subblock(const QString& description, int blockcount, reporter* nparent) :
@@ -56,11 +56,11 @@ class reporter {
 		int entriestogo;
 		reporter* parent;
 	};
-	
+
 	subblock newsub(const QString& description, int blockcount);
-	
+
 	virtual QString str();
-	
+
 	virtual void blockstart(const QString& description, int blockcount) = 0;
 	virtual void blockend() = 0;
 	virtual void blockbreak() = 0;
@@ -91,10 +91,10 @@ class reporter {
 
 	///returns wether embedding images is possible
 	virtual bool hasBarGraph() const;
-	
+
 	///determines in what way images should be created
 	virtual pgptr getBarGraph() const;
-	
+
 	virtual bool hasPlotGraph() const;
 	virtual pgptr getPlotGraph() const;
 	QString title;

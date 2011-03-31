@@ -27,7 +27,7 @@ class vuActivities : public vuBlock {
 	Time day;
 	Activity readActivity(int start) const;
 	Activity readActivity() const;
-	
+
 	public:
 	virtual QString name() const;
 	static const int TREP = 0x2;

@@ -17,8 +17,9 @@
 #ifndef VUBLOCK_H
 #define VUBLOCK_H
 
-#include "../block.h"
 #include "config.h"
+
+#include "../block.h"
 #include "../constDataPointer.h"
 
 #ifndef HAVE_NO_CRYPTO
@@ -97,7 +98,7 @@ class vuBlock : public block {
 	QString fixedString(int offset, int length) const {
 		return ::fixedString(start + 2 + offset, length);
 	}
-	
+
 	QString fullCardNumber(int offset) const {
 		::fullCardNumber d(start + 2 + offset);
 		return d.str();

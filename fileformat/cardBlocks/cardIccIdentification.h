@@ -5,6 +5,8 @@
 
 #include "../dataTypes/extendedSerialNumber.h"
 
+#include <QtCore/QString>
+
 ///ef icc(integrated circuit card) according to en 726-3
 class cardIccIdentification : public cardBlock {
 	Q_DECLARE_TR_FUNCTIONS(cardIccIdentification)
@@ -17,7 +19,7 @@ class cardIccIdentification : public cardBlock {
 	QString cardPersonaliserID;
 	QString embedderIcAssemblerId;
 	QString icIdentifier;
-	
+
 	virtual QString name() const {
 		return tr("Card ICC identification");
 	}

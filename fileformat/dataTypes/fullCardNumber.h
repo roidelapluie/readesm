@@ -1,10 +1,10 @@
 #ifndef FULLCARDNUMBER_H
 #define FULLCARDNUMBER_H
 
-#include <QString>
-#include <QCoreApplication>
-
 #include "dataType.h"
+
+#include <QtCore/QString>
+#include <QtCore/QCoreApplication>
 
 struct fullCardNumber : public dataType {
 	Q_DECLARE_TR_FUNCTIONS(fullCardNumber)

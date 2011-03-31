@@ -19,8 +19,8 @@
 
 #include "constDataPointer.h"
 
+#include <QtCore/QDebug>
 #include <QtCore/QString>
-#include <QDebug>
 
 inline QString codepageStringCombination(constDataPointer start, int length){
 	if(start[0] == 0) return "";

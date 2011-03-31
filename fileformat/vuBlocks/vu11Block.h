@@ -12,9 +12,6 @@
 #include <QtCore/QString>
 #include <QtCore/QTextStream>
 
-
-
-
 class block11Record {
 	public:
 	QString cardNumber;
@@ -35,7 +32,7 @@ class block11Record {
 		o("data: ", "<pre>" + data.payload + "</pre>");
 		return o;
 	}
-		
+
 };
 
 /** This block is for debugging, in case the program encounters
@@ -44,7 +41,7 @@ class block11Record {
 class vu11Block : public vuBlock {
 	public:
 	static const int TREP = 0x11;
-	
+
 	int numberOfRecords;
 
 	vu11Block(constDataPointer start) :
@@ -54,13 +51,13 @@ class vu11Block : public vuBlock {
 		hassignature = false;
 		qDebug() << numberOfRecords;
 	}
-	
+
 	virtual int size() const {
 		int temp = 19 + numberOfRecords * 58;
 		return temp;
 		//return start.bytesLeft();
 	}
-	
+
 	virtual QString name() const{
 		return QString("Unknown block in ADDs, TREP %1").arg(TREP);
 	}
@@ -91,7 +88,7 @@ class vu11Block : public vuBlock {
 class vu13Block : public vuBlock {
 	public:
 	static const int TREP = 0x13;
-	
+
 	int numberOfRecords;
 
 	vu13Block(constDataPointer start) :
@@ -101,13 +98,13 @@ class vu13Block : public vuBlock {
 		hassignature = false;
 		qDebug() << numberOfRecords;
 	}
-	
+
 	virtual int size() const {
 		int temp = 34 + numberOfRecords * 58;
 		return temp;
 		//return start.bytesLeft();
 	}
-	
+
 	virtual QString name() const{
 		return QString("Unknown block in ADDs, TREP %1").arg(TREP);
 	}

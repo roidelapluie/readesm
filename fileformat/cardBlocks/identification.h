@@ -19,7 +19,7 @@ class identification : public cardBlock {
 	QString name() const {
 		return tr("Card Identification");
 	}
-	
+
 	identification(constDataPointer filewalker) :
 		cardBlock(filewalker), 
 		cardIssuingMemberState(start[5]), 
@@ -34,7 +34,7 @@ class identification : public cardBlock {
 		cardHolderPreferredLanguage(fixedString(start + 146, 2)) 
 	{
 	}
-	
+
 	virtual void printOn(reporter& o) const {
 		o(tr("cardIssuingMemberState"), formatStrings::nationNumeric(cardIssuingMemberState));
 		o(tr("cardNumber"), cardNumber);
@@ -47,7 +47,7 @@ class identification : public cardBlock {
 		o(tr("cardHolderBirthDate"), cardHolderBirthDate);
 		o(tr("cardHolderPreferredLanguage"), cardHolderPreferredLanguage);
 	}
-	
+
 	virtual void reportstuff(esmfilehead& esm) {
 		esm.title = holderFirstname + " " + holderSurname;
 	}

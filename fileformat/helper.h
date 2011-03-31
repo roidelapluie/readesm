@@ -37,7 +37,6 @@ template <typename T>
 QString hex(const T& toHex, int w = 0) {
 	return QString("%1").arg(toHex, w, 16, QChar('0'));
 }
-	
 
 template <typename T>
 void hexout(QTextStream& o, T ray, int len) {

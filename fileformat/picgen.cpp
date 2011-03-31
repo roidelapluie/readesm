@@ -53,5 +53,4 @@ QString svgPlotGraph::drawVelocityDescription() const {
 		"\n\t\t\t<text x='725' y='20'>80 km/h</text>"
 		"\n\t\t\t<text x='725' y='40'>60 km/h</text>"
 		"\n\t\t</g>";
-
 }

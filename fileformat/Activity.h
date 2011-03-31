@@ -18,9 +18,9 @@
 #define ACTIVITY_H
 
 #include "helper.h"
+#include "myTime.h"
 #include "readTypes.h"
 #include "reporter/reporter.h"
-#include "myTime.h"
 
 #include <QtCore/QCoreApplication>
 #include <QtCore/QDebug>

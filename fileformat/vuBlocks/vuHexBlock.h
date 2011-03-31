@@ -2,6 +2,7 @@
 #define HEXBLOCK_H
 
 #include "config.h"
+
 #include "vuBlock.h"
 
 #ifndef HAVE_NO_CRYPTO
@@ -10,7 +11,6 @@
 
 #include <QtCore/QString>
 #include <QtCore/QTextStream>
-
 
 /** This block is for debugging, in case the program encounters
  * some data it so far cannot read, it reports hex data and as
@@ -22,11 +22,11 @@ class vuHexBlock : public vuBlock {
 	{
 		hassignature = false;
 	}
-	
+
 	virtual int size() const {
 		return start.bytesLeft();
 	}
-	
+
 	virtual QString name() const{
 		return "Unknown block";
 	}
@@ -48,6 +48,5 @@ class vuHexBlock : public vuBlock {
 	}
 #endif
 };
-
 
 #endif

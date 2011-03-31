@@ -30,7 +30,7 @@ int main2(int argc, char** argv)
 			.arg(VERSION_DATE));
 	app.setOrganizationName(QString::fromUtf8("Andreas Gölzer"));
 	app.setOrganizationDomain("http://andreas.goelzer.de");
-	
+
 	QTextStream cerr(stderr);
 
 	QTranslator qtTranslator;
@@ -46,7 +46,7 @@ int main2(int argc, char** argv)
 	} else if(argc == 3) {
 		QString inputFile(argv[1]);
 		QString outputFile(argv[2]);
-		
+
 		esmfile esm(inputFile);
 		//determine extension of output file
 		QString extension(outputFile.section(".",-1).toLower());
@@ -69,10 +69,10 @@ int main2(int argc, char** argv)
 			cerr << "Format for output not recognized." << endl;
 			return 1;
 		}
-		
+
 		QFile out(outputFile);
 		out.open(QIODevice::WriteOnly | QIODevice::Text);
-		
+
 		if(!out.isOpen()) {
 			cerr << "Could not open file " << outputFile << " for output. dumping to stdout" << endl;
 			QTextStream cout(stdout);
@@ -90,3 +90,4 @@ int main(int argc, char** argv)
 	if(argc == 3) return main2<QCoreApplication>(argc,argv);
 	else return main2<QApplication>(argc,argv);
 }
+
