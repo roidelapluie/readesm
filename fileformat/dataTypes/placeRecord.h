@@ -27,7 +27,7 @@ public:
 				sub.entryTypeDailyWorkPeriod));
 		report(tr("dailyWorkPeriodCountry"), formatStrings::nationNumeric(sub.dailyWorkPeriodCountry));
 		if(sub.dailyWorkPeriodRegion) 
-			report(tr("dailyWorkPeriodRegion"), sub.dailyWorkPeriodRegion);
+			report(tr("dailyWorkPeriodRegion"), formatStrings::regionNumeric(sub.dailyWorkPeriodRegion));
 		report(tr("vehicleOdometerValue"), sub.vehicleOdometerValue);
 		return report;
 	}
