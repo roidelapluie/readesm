@@ -19,7 +19,7 @@ class cardIccIdentification : public cardBlock {
 	QString icIdentifier;
 	
 	virtual QString name() const {
-		return tr("Card chip identification");
+		return tr("Card ICC identification");
 	}
 
 	cardIccIdentification(constDataPointer filewalker) :
