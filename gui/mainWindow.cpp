@@ -110,6 +110,7 @@ void mainWindow::openFile(const QString& filename)
 	xmlReporter rep;
 	rep << *esm;
 	view->setContent(rep.str().toUtf8(), "application/xhtml+xml");
+	//view->setHtml(rep.str().toUtf8());
 }
 
 void mainWindow::print()

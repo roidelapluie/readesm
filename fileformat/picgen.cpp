@@ -5,12 +5,14 @@ QString svgGraph::drawBorderAndTimeAxis() const {
 	QTextStream o(&rv);
 	o << "\n\t\t<g style='text-anchor:middle;font-size:16px;'>";
 	for(int j = 0; j < 25; ++j)
-		o << "\n\t\t\t<text x='" << (j * 30) << "' y='118'>" << j
-				<< "</text><line x1='" << (j * 30) << "' y1='100' x2='" << (j
-				* 30) << "' y2='104' style='stroke-width:2;stroke:black' />";
+		o << "\n\t\t\t<text x='" << (j * 30) << "' y='118'>" << j << "</text>";
 	o << "\n\t\t\t<text x='360' y='132'>" << tr("Time of day (UTC)") << "</text>";
 	o << "\n\t\t</g>";
-	o << "\n\t\t<polyline points='0,0 720,0 720,100 0,100 0,0' style='fill:none;stroke:black;stroke-width:2'/>";
+	o << "\n\t\t<g style='stroke:black;stroke-width:2;'>";
+	for(int j = 0; j < 25; ++j)
+		o << "\n\t\t\t<line x1='" << (j * 30) << "' y1='100' x2='" << (j * 30) << "' y2='104'/>";
+	o << "\n\t\t\t<polyline points='0,0 720,0 720,100 0,100 0,0' style='fill:none;'/>";
+	o << "\n\t\t</g>";
 	return rv;
 }
 

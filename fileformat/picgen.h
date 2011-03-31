@@ -61,8 +61,7 @@ public:
 	QString drawLegend() const;
 	virtual void add(int from, int duration, int height, QString color, QString title) {
 		collector<< "\n\t\t\t<rect x='" << from << "' fill='" << color << "' width='"
-				<< duration << "' height='" << height << "' title='" << title
-				<< "'><title>"<< title << "</title></rect>";
+				<< duration << "' height='" << height << "'><title>"<< title << "</title></rect>";
 	}
 	virtual QString str() const{
 		return addSvgHull("\n\t\t<g transform='scale(0.5,-1) translate(0,-100)'>" + collected + "\n\t\t</g>" + drawBorderAndTimeAxis() + drawLegend(), 900);
