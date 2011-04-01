@@ -8,14 +8,15 @@ Upstream Authors: Andreas Gölzer <k_2005@goelzer.de>
 Copyright:
 	Copyright (C) 2009 by Andreas Gölzer
 	German Translation copyright (C) 2009 by Martin Walch
+	Spanish Translation copyright (C) 2011 by Jose Huguet
 
 License:
-	readESM is free software: you can redistribute it and/or modify it under the
+	Readesm is free software: you can redistribute it and/or modify it under the
 	terms of the GNU General Public License as published by the Free Software
 	Foundation, either version 3 of the License, or (at your option) any later
 	version.
 
-	readESM is distributed in the hope that it will be useful, but WITHOUT ANY
+	Readesm is distributed in the hope that it will be useful, but WITHOUT ANY
 	WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
 	PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
@@ -23,5 +24,5 @@ License:
 	see <http://www.gnu.org/licenses/>.
 
 Packaging:
-        Copyright (C) 2009 by Andreas Gölzer <andreas@goelzer.de>
-        released under the GPL version 3
+	Copyright (C) 2009 by Andreas Gölzer <andreas@goelzer.de>
+	released under the GPL version 3
