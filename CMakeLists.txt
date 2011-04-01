@@ -56,15 +56,15 @@ file(GLOB fileformat_CPP "fileformat/*.cpp" "fileformat/*/*.cpp")
 file(GLOB gui_H "gui/*.h")
 file(GLOB fileformat_H "fileformat/*.h" "fileformat/*/*.h")
 
-set(readesm_SRCS ${gui_CPP} ${fileformat_CPP} ${gui_H} ${fileformat_H} readesm.cpp )
+set(readesm_SRCS ${gui_CPP} ${fileformat_CPP} ${gui_H} ${fileformat_H} readesm.cpp)
 set(readesm_RCCS readesm.qrc)
 
 qt4_add_resources(readesm_RCC_SRCS ${readesm_RCCS})
 
 qt4_automoc(${readesm_SRCS})
-add_definitions(-Wall)
+#add_definitions(-Wall)
 
-add_executable(readesm ${GUI_TYPE} ${readesm_SRCS} ${readesm_RCC_SRCS} ${QM_FILES}  readesm.rc)
+add_executable(readesm ${GUI_TYPE} ${readesm_SRCS} ${readesm_RCC_SRCS} ${QM_FILES} readesm.rc)
 
 target_link_libraries(readesm ${QT_QTCORE_LIBRARY} ${QT_QTGUI_LIBRARY} ${QT_QTWEBKIT_LIBRARY} ${LIBS})
 
@@ -74,7 +74,7 @@ if(UNIX)
 	install(FILES readesm-icon48.png readesm-icon.svg DESTINATION share/pixmaps )
 	install(FILES x-esm.xml DESTINATION share/mime/packages )
 endif()
-
+#documentation
 #*** Install binary ***
 install(TARGETS readesm RUNTIME DESTINATION bin)
 
@@ -87,13 +87,22 @@ set(CPACK_NSIS_CONTACT ${CPACK_PACKAGE_VENDOR})
 set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_SOURCE_DIR}/COPYING")
 set(CPACK_NSIS_MUI_FINISHPAGE_RUN "readesm")
 set(CPACK_CREATE_DESKTOP_LINKS "readesm")
+set(WEBSITE "http://readesm.sourceforge.net/")
 #packaging
 if(UNIX)
 endif()
 if(WIN32)
 	set(CPACK_PACKAGE_EXECUTABLES "readesm" "readesm")
+	set(CPACK_NSIS_URL_INFO_ABOUT "${WEBSITE}")
+	set(CPACK_NSIS_HELP_LINK "${WEBSITE}/help.html")
+	set(CPACK_NSIS_MUI_ICON "${CMAKE_CURRENT_SOURCE_DIR}/readesm-icon48.ico")
+	set(CPACK_NSIS_MUI_UNIICON "${CMAKE_CURRENT_SOURCE_DIR}/readesm-icon48.ico")
+	#set(CPACK_PACKAGE_ICON "readesm-icon48.ico")
+	set(CPACK_NSIS_INSTALLED_ICON_NAME bin\\\\readesm.exe)
+
 	set(CPACK_GENERATOR NSIS;ZIP)
-	file(GLOB readesm_needed_DLL "${CMAKE_CURRENT_SOURCE_DIR}/../dlls/*.dll")
+	file(GLOB readesm_needed_DLL "${CMAKE_CURRENT_SOURCE_DIR}/dlls/*.dll")
+	install(FILES homepage/help.html COPYING README DESTINATION doc)
 	install(FILES ${readesm_needed_DLL} DESTINATION bin)
 endif()
 
