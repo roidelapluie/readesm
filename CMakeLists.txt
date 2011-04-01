@@ -112,6 +112,7 @@ set(CPACK_SOURCE_IGNORE_FILES
 	"~$"
 	"^${PROJECT_SOURCE_DIR}.*/.svn/"
 	"^${PROJECT_SOURCE_DIR}/build/"
+	"^${PROJECT_SOURCE_DIR}/dlls/"
 )
 
 include(CPack)
