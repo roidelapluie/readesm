@@ -17,6 +17,7 @@
 
 mainWindow::mainWindow()
 {
+	setWindowIcon(QIcon(":/icon.svg"));
 	view = new QWebView(this);
 	view->load(QUrl("qrc:///greeting.xhtml"));
 	setCentralWidget(view);

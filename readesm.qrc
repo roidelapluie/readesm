@@ -6,6 +6,7 @@
 	<file>homepage/help.html</file>
 	<file>greeting.xhtml</file>
 	<file>homepage/style.css</file>
+	<file>icon.svg</file>
 </qresource>
 <qresource lang="es">
 	<file alias="greeting.xhtml">greeting_es.xhtml</file>
