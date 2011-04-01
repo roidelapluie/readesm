@@ -78,9 +78,9 @@ message("xdg-icon-resource ${XDG-ICON-RESOURCE_EXECUTABLE} ")
 if(XDG-MIME_EXECUTABLE AND XDG-DESKTOP-MENU_EXECUTABLE AND XDG-ICON-RESOURCE_EXECUTABLE)
 	install(CODE
 		"
-		execute_process(COMMAND ${XDG-MIME_EXECUTABLE} install --system --novendor ${CMAKE_SOURCE_DIR}/esm.xml)
-		execute_process(COMMAND ${XDG-DESKTOP-MENU_EXECUTABLE} install --system --novendor ${CMAKE_SOURCE_DIR}/readesm.desktop)
-		execute_process(COMMAND ${XDG-ICON-RESOURCE_EXECUTABLE} install --system --novendor --size 48 ${CMAKE_SOURCE_DIR}/readesm-icon48.png readesm)
+		execute_process(COMMAND ${XDG-MIME_EXECUTABLE} install --novendor ${CMAKE_SOURCE_DIR}/esm.xml)
+		execute_process(COMMAND ${XDG-DESKTOP-MENU_EXECUTABLE} install --novendor ${CMAKE_SOURCE_DIR}/readesm.desktop)
+		execute_process(COMMAND ${XDG-ICON-RESOURCE_EXECUTABLE} install --novendor --size 48 ${CMAKE_SOURCE_DIR}/readesm-icon48.png readesm)
 		"
 	)
 else()
