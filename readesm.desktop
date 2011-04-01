@@ -5,6 +5,6 @@ Name=Readesm
 Comment=Viewer for Digital Tachograph files
 TryExec=readesm
 Exec=readesm %f
-Icon=readesm
+Icon=readesm-icon
 MimeType=application/x-esm;
 Categories=Qt;Office;Viewer;
