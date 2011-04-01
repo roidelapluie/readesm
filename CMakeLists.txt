@@ -68,23 +68,11 @@ add_executable(readesm ${GUI_TYPE} ${readesm_SRCS} ${readesm_RCC_SRCS} ${QM_FILE
 
 target_link_libraries(readesm ${QT_QTCORE_LIBRARY} ${QT_QTGUI_LIBRARY} ${QT_QTWEBKIT_LIBRARY} ${LIBS})
 
-#*** .desktop file and mime type ***
-find_program(XDG-MIME_EXECUTABLE xdg-mime)
-find_program(XDG-DESKTOP-MENU_EXECUTABLE xdg-desktop-menu)
-find_program(XDG-ICON-RESOURCE_EXECUTABLE xdg-icon-resource)
-message("xdg-mime ${XDG-MIME_EXECUTABLE} ")
-message("xdg-desktop-menu ${XDG-DESKTOP-MENU_EXECUTABLE} ")
-message("xdg-icon-resource ${XDG-ICON-RESOURCE_EXECUTABLE} ")
-if(XDG-MIME_EXECUTABLE AND XDG-DESKTOP-MENU_EXECUTABLE AND XDG-ICON-RESOURCE_EXECUTABLE)
-	install(CODE
-		"
-		execute_process(COMMAND ${XDG-MIME_EXECUTABLE} install --novendor ${CMAKE_SOURCE_DIR}/esm.xml)
-		execute_process(COMMAND ${XDG-DESKTOP-MENU_EXECUTABLE} install --novendor ${CMAKE_SOURCE_DIR}/readesm.desktop)
-		execute_process(COMMAND ${XDG-ICON-RESOURCE_EXECUTABLE} install --novendor --size 48 ${CMAKE_SOURCE_DIR}/readesm-icon48.png readesm)
-		"
-	)
-else()
-	message("Did not find tools to install the mimetype.")
+#*** .desktop file, icon and mime type ***
+if(UNIX)
+	install(FILES readesm.desktop DESTINATION share/applications )
+	install(FILES readesm-icon48.png readesm-icon.svg DESTINATION share/pixmaps )
+	install(FILES x-esm.xml DESTINATION share/mime/packages )
 endif()
 
 #*** Install binary ***
