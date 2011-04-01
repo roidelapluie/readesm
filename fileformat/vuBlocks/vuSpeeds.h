@@ -69,8 +69,7 @@ class vuSpeeds : public vuBlock {
 			do {
 				int difference = date.timestamp - daystart;
 				for(int k = 0; k < 60; ++k)
-					visual->collector << (difference + k) << " " << IntByte()
-							<< endl;
+					visual->collector << (difference + k) << " " << IntByte() << "\n";
 				if(j < count) {
 					Time ndate = readDate();
 					if(ndate.timestamp != date.timestamp + 60
