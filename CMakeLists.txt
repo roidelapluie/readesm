@@ -64,7 +64,7 @@ qt4_add_resources(readesm_RCC_SRCS ${readesm_RCCS})
 qt4_automoc(${readesm_SRCS})
 add_definitions(-Wall)
 
-add_executable(readesm ${GUI_TYPE} ${readesm_SRCS} ${readesm_RCC_SRCS} ${QM_FILES})
+add_executable(readesm ${GUI_TYPE} ${readesm_SRCS} ${readesm_RCC_SRCS} ${QM_FILES}  readesm.rc)
 
 target_link_libraries(readesm ${QT_QTCORE_LIBRARY} ${QT_QTGUI_LIBRARY} ${QT_QTWEBKIT_LIBRARY} ${LIBS})
 

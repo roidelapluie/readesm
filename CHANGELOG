@@ -8,6 +8,8 @@ Readesm changelog
 * fixed vanishing first character of some strings (vehicle number etc.)
 * axis labels for svg graphs
 * produced xhtml files have cleaner whitespace and smaller size
+* created icon
+* Linux: register mimetype, create menu entry, associate files
 
 2011-03a
 * more german translation (more or less complete)
