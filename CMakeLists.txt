@@ -76,8 +76,8 @@ message("xdg-desktop-menu ${XDG-DESKTOP-MENU_EXECUTABLE} ")
 if(XDG-MIME_EXECUTABLE AND XDG-DESKTOP-MENU_EXECUTABLE)
 	install(CODE
 		"
-		execute_process(COMMAND ${XDG-MIME_EXECUTABLE} install --novendor esm.xml)
-		execute_process(COMMAND ${XDG-DESKTOP-MENU_EXECUTABLE} install --novendor readesm.desktop)
+		execute_process(COMMAND ${XDG-MIME_EXECUTABLE} install --novendor ${CMAKE_SOURCE_DIR}/esm.xml)
+		execute_process(COMMAND ${XDG-DESKTOP-MENU_EXECUTABLE} install --novendor ${CMAKE_SOURCE_DIR}/readesm.desktop)
 		"
 	)
 else()
