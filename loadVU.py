@@ -30,6 +30,11 @@ parser.add_option("-o", "--output", dest="output",
 
 (options, args) = parser.parse_args()
 
+def hexchunk(data):
+	rv = ""
+	for byte in data:
+		rv += " " + hex(ord(byte))
+	return rv
 
 class malformedHeader(Exception):
 	def __init__(self, received):
@@ -73,9 +78,9 @@ class vuErrorMessage(Exception):
 class vuSerial:
 	def __init__(self, maxBaudRate=115200):
 		self.open = False
-		self.conn = Serial(options.serial, 9600, timeout=5)
-		sendRawExpectingResponse('\x81\xEE\xF0\x81\xE0', '\xC1\x8F\xEA', 'Start Communication Request')
-		sendExpectingResponse('\x10\x81\x50\x81', 'Diagnostic Session')
+		self.conn = Serial(options.serial, 9600, timeout=20)
+		self.sendRawExpectingResponse('\x81\xEE\xF0\x81\xE0', '\xC1\x8F\xEA', 'Start Communication Request')
+		self.sendExpectingResponse('\x10\x81\x50\x81', 'Diagnostic Session')
 
 		baudRates = {9600:1, 19200:2, 38400:3, 57600:4, 115200:5}
 		for baudRate in sorted(baudRates, reverse=True):
@@ -88,26 +93,25 @@ class vuSerial:
 			else:
 				self.sendData('\x87\x02\x03')
 				self.conn.baudrate = baudRate
-				break
-		
+				break	
 		self.sendExpectingResponse('\0\0\0\0\xFF\xFF\xFF\xFF', '\0\xFF', name = 'Request Upload')
 		self.open = True
-
+	
 	def __del__(self):
 		self.close()
-		
+	
 	def close(self):
 		if self.open:
 			self.sendExpectingResponse(chr(0x35), chr(0x77), name = 'Transfer Exit')
 			self.sendExpectingResponse(chr(0x82), chr(0xC2), name = 'Stop Communication')
 			self.conn.close()
-		
+	
 	def _getChecksum(self, data):
 		sum = 0
 		for byte in data:
-			sum += ord(data)
+			sum += ord(byte)
 		return sum % 256
-
+	
 	def getBlock(self, TREP, parameter = ''):
 		self.sendData(chr(0x36) + chr(TREP) + parameter)
 		payload = ''
@@ -115,7 +119,7 @@ class vuSerial:
 		failcounter = 0
 		while():
 			try:
-				response = singleResponse()
+				response = self.singleResponse()
 			except wrongChecksum, malformedHeader:
 				failcounter += 1
 				if failcounter == 3:
@@ -134,16 +138,16 @@ class vuSerial:
 
 	def sendRawExpectingResponse(self, rawsenddata, expectdata, name = ''):
 		print "Sending 'Request %s'" % name
-		self.sendData(senddata)
+		self.sendData(rawsenddata)
 		response = self.singleResponse()
 		if response == expectdata:
 			print "Got the expected response"
 		else:
 			raise communicationError("Expected " + expectdata + " as response to " + name + ", got " + response)
-		
+	
 	def sendExpectingResponse(self, senddata, expectdata, name = ''):
-		return sendRawExpectingResponse(composeMessage(senddata), expectdata, name)
-
+		return self.sendRawExpectingResponse(composeMessage(senddata), expectdata, name)
+		
 	def singleResponse(self):
 		header = self.conn.read(4)
 		if header[0:3] != '\x80\xF0\xEE':
@@ -159,11 +163,12 @@ class vuSerial:
 			raise wrongChecksum
 
 	def sendData(self, data):
+		print "sending " + hexchunk(data) #+ "(" + data + ")"
 		self.conn.write(self.composeMessage(data))
-		
+	
 	def composeMessage(self, data):
 		fullmsg = '\x80\xEE\xF0' + chr(len(data)) + data
-		sum = _getChecksum(fullmsg)
+		sum = self._getChecksum(fullmsg)
 		return fullmsg + chr(sum)
 
 
