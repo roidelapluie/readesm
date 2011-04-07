@@ -16,6 +16,7 @@
 #You should have received a copy of the GNU General Public License along with
 #this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import serial
 from serial import Serial
 from optparse import OptionParser
 from struct import pack, unpack
@@ -40,7 +41,7 @@ class malformedHeader(Exception):
 	def __init__(self, received):
 		self.received = received
 	def __str__(self):
-		return "Expected 0x80 0xF0 0xEE, got " + self.received
+		return "Expected 0x80 0xF0 0xEE, got " + hexchunk(self.received)
 
 class communicationError(Exception):
 	def __init__(self, description):
@@ -78,7 +79,7 @@ class vuErrorMessage(Exception):
 class vuSerial:
 	def __init__(self, maxBaudRate=115200):
 		self.open = False
-		self.conn = Serial(options.serial, 9600, timeout=20)
+		self.conn = Serial(options.serial, 9600, parity=serial.PARITY_EVEN, timeout=20)
 		self.sendRawExpectingResponse('\x81\xEE\xF0\x81\xE0', '\xC1\x8F\xEA', 'Start Communication Request')
 		self.sendExpectingResponse('\x10\x81\x50\x81', 'Diagnostic Session')
 
@@ -143,7 +144,7 @@ class vuSerial:
 		if response == expectdata:
 			print "Got the expected response"
 		else:
-			raise communicationError("Expected " + expectdata + " as response to " + name + ", got " + response)
+			raise communicationError("Expected " + hexchunk(expectdata) + " as response to " + name + ", got " + hexchunk(response))
 	
 	def sendExpectingResponse(self, senddata, expectdata, name = ''):
 		return self.sendRawExpectingResponse(composeMessage(senddata), expectdata, name)
@@ -204,5 +205,5 @@ vu.close()
 esmfile = fopen(options.output)
 esmfile.write(data)
 esmfile.close()
-
+print "data saved to " + options.output
 
