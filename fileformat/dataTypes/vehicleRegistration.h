@@ -10,7 +10,7 @@ public:
 	QString Number;
 	vehicleRegistration(constDataPointer start) :
 		Nation(start[0]), 
-		Number(fixedString(start + 1, 14)) 
+		Number(codepageStringCombination(start + 1, 14)) 
 	{
 	}
 	friend reporter& operator<<(reporter& report, vehicleRegistration sub) {

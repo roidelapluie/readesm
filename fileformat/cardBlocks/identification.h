@@ -24,12 +24,12 @@ class identification : public cardBlock {
 		cardBlock(filewalker), 
 		cardIssuingMemberState(start[5]), 
 		cardNumber(fixedString(start + 6, 16)), 
-		cardIssuingAuthorityName(fixedString(start + 22, 36)),
+		cardIssuingAuthorityName(codepageStringCombination(start + 22, 36)),
 		cardIssueDate(BEInt32(start + 58)),
 		cardValidityBegin(BEInt32(start + 62)), 
 		cardExpiryDate(BEInt32(start + 66)),
-		holderSurname(fixedString(start + 70, 36)),
-		holderFirstname(fixedString(start + 106, 36)), 
+		holderSurname(codepageStringCombination(start + 70, 36)),
+		holderFirstname(codepageStringCombination(start + 106, 36)), 
 		cardHolderBirthDate(BCDDate(start + 142)), 
 		cardHolderPreferredLanguage(fixedString(start + 146, 2)) 
 	{

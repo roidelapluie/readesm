@@ -25,6 +25,9 @@
 inline QString codepageStringCombination(constDataPointer start, int length){
 	if(start[0] == 0) return "";
 	QString rv = QString::fromLatin1(start.toPointer(1), length - 1).trimmed();
+	if(start[0] > 16){
+		qDebug() << rv << "does not seem to be a codepage-string-combination";
+	}
 	return rv;
 }
 

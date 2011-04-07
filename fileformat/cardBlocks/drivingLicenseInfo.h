@@ -15,7 +15,7 @@ class drivingLicenseInfo : public cardBlock {
 	}
 	drivingLicenseInfo(constDataPointer filewalker) :
 		cardBlock(filewalker), 
-		drivingLicenseIssuingAuthorithy(fixedString(start + 5, 36)), 
+		drivingLicenseIssuingAuthorithy(codepageStringCombination(start + 5, 36)), 
 		drivingLicenseIssuingNation(start[5 + 36]),
 		drivingLicenseNumber(fixedString(start + 5 + 36 + 1, 16)) 
 	{
