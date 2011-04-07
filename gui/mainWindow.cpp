@@ -5,6 +5,8 @@
 
 #include <QtCore/QString>
 #include <QtCore/QStringBuilder>
+#include <QtGui/QApplication>
+#include <QtGui/QDesktopWidget>
 #include <QtGui/QAction>
 #include <QtGui/QFileDialog>
 #include <QtGui/QMenu>
@@ -61,6 +63,7 @@ mainWindow::mainWindow()
 	helpMenu->addAction(helpAboutQtAction);
 	helpMenu->addAction(helpAboutAction);
 	menuBar()->addMenu(helpMenu);
+	if(width() < 940 && QApplication::desktop()->width() >= 940) resize(940, height());
 }
 
 void mainWindow::helpAbout()
