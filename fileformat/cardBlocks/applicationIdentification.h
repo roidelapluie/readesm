@@ -27,7 +27,7 @@ class applicationIdentification : public cardBlock {
 		noOfFaultsPerType(start[9]),
 		activityStructureLength(BEInt16(start + 10)),
 		noOfCardVehicleRecords(BEInt16(start + 12)),
-		noOfCardPlaceRecords(start[5])
+		noOfCardPlaceRecords(start[14])
 	{
 	}
 	virtual void printOn(reporter& o) const {
