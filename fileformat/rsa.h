@@ -19,6 +19,7 @@
 
 #include <gmp.h>
 #include <vector>
+#include <QString>
 
 ///wrap around mpz_t
 /** This can also be done by the c++-bindings of GMP, but they are not yet
@@ -39,6 +40,9 @@ class mpz {
 	mpz& operator=(const mpz& o) {
 		mpz_init_set(t, o.t);
 		return *this;
+	}
+	QString str() const{
+		return mpz_get_str(NULL, 10, t);
 	}
 };
 
@@ -62,6 +66,9 @@ class rsa {
 		mpz_export(&rv[0], &size, 1, 1, 0, 0, out.t);
 		rv.resize(size);
 		return rv;
+	}
+	QString str() const {
+		return QString("n = %1, e = %2").arg(n.str()).arg(e.str());
 	}
 	private:
 	mpz n, e;

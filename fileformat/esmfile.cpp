@@ -26,6 +26,13 @@ reporter& operator<<(reporter& report, const esmfile& e) {
 	report.bigblockend();
 
 	for(esmfile::subiter i = e.blocks.begin(); i < e.blocks.end(); ++i) report << **i;
+
+#ifndef HAVE_NO_CRYPTO
+	report.bigblockstart(QObject::tr("Key chain"));
+	report << *e.CAcert;
+	report << *e.devicecert;
+	report.bigblockend();
+#endif
 	return report;
 
 }

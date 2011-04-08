@@ -68,18 +68,21 @@ class CAid {
 		o(tr("nationNumeric"), formatStrings::nationNumeric(p.numNation));
 		o(tr("nationAlpha"), p.alphaNation);
 		o(tr("keySerialNumber"), p.serialNumber);
-		o(tr("additionalInfo"), p.additionalCoding);
+		o(tr("additionalInfo"), hex(p.additionalCoding,4));
 		o(tr("caIdentifier"), p.identifier);
 		return o;
 	}
 };
 
 class verifiedcert {
+	Q_DECLARE_TR_FUNCTIONS(verifiedcert)
 	public:
 	constDataPointer start;
 	CAid car;
 	bool verified;
 	rsa key;
+	unsigned char cdash[164];
+	std::vector<unsigned char> hash;
 	typedef QSharedPointer<verifiedcert> ptr;
 	verifiedcert(constDataPointer start_) :
 		start(start_), car(start + 186), verified(false) {
@@ -102,10 +105,11 @@ class verifiedcert {
 	}
 	bool verify(const rsa& extkey) {
 		std::vector<unsigned char> buffer = extkey.perform(start.toUnsignedPointer(0), 128);
-		unsigned char cdash[164];
 		copy(&buffer[1], &cdash[0], 106);
 		copy(start.toUnsignedPointer(128), &cdash[106], 58);
-		if(!checkSHA1match(cdash, 164, &buffer[107])) {
+		hash.resize(20);
+		copy(&buffer[107], &hash[0], 20);
+		if(!checkSHA1match(cdash, 164, &hash[0])) {
 			qDebug() << "Certificate is invalid.\n";
 			return false;
 		}
@@ -114,7 +118,13 @@ class verifiedcert {
 		return true;
 	}
 	friend reporter& operator<<(reporter& o, const verifiedcert& p) {
-		return o << p.car;
+		o("SHA1", hexchunk(p.hash, 20));
+		o("Key Identifier", hexchunk(&p.cdash[20], 8)); 
+		o.blockstart(tr("Certificate authority reference"), 1);
+		o << p.car;
+		o.blockend();
+		o(tr("RSA public key"), p.key.str());
+		return o;
 	}
 };
 
