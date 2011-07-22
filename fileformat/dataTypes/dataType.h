@@ -11,11 +11,12 @@ public:
 	{
 	}
 
-	friend reporter& operator<<(reporter& report, dataType d){
+	friend reporter& operator<<(reporter& report, const dataType& d){
 		d.printOn(report);
 		return report;
 	}
-	virtual void printOn(reporter& report){
+	virtual void printOn(reporter& report) const{
+		report("do not call me",1);
 	}
 	virtual QString str(){
 		return "";

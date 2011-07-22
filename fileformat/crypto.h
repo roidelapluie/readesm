@@ -27,6 +27,7 @@
 #include "readTypes.h"
 #include "reporter/reporter.h"
 #include "rsa.h"
+#include "dataTypes/certificateAuthority.h"
 
 #include <QtCore/QCoreApplication>
 #include <QtCore/QDebug>
@@ -37,48 +38,12 @@
 
 bool checkSHA1match(const unsigned char* text, int textlength, const unsigned char* hash);
 
-class CAid {
-	Q_DECLARE_TR_FUNCTIONS(CAid)
-	public:
-	int numNation;
-	QString alphaNation;
-	int serialNumber;
-	int additionalCoding;
-	int identifier;
-	bool operator==(const CAid& other) const {
-		return numNation == other.numNation 
-			&& alphaNation == other.alphaNation
-			&& serialNumber == other.serialNumber 
-			&& additionalCoding == other.additionalCoding 
-			&& identifier == other.identifier;
-	}
-	bool operator!=(const CAid& other) const {
-		return !operator==(other);
-	}
-	CAid(constDataPointer start) :
-		numNation(start[0]), 
-		alphaNation(fixedString(start + 1, 3)),
-		serialNumber(start[4]), 
-		additionalCoding(BEInt16(start + 5)),
-		identifier(start[7]) 
-	{
-	}
-
-	friend reporter& operator<<(reporter& o, const CAid& p) {
-		o(tr("nationNumeric"), formatStrings::nationNumeric(p.numNation));
-		o(tr("nationAlpha"), p.alphaNation);
-		o(tr("keySerialNumber"), p.serialNumber);
-		o(tr("additionalInfo"), hex(p.additionalCoding,4));
-		o(tr("caIdentifier"), p.identifier);
-		return o;
-	}
-};
 
 class verifiedcert {
 	Q_DECLARE_TR_FUNCTIONS(verifiedcert)
 	public:
 	constDataPointer start;
-	CAid car;
+	certificateAuthority car;
 	bool verified;
 	rsa key;
 	unsigned char cdash[164];
@@ -93,7 +58,7 @@ class verifiedcert {
 		QByteArray rawkey = file.readAll();
 		file.close();
 		constDataPointer keyPointer(rawkey);
-		CAid rawkey_ca(keyPointer);
+		certificateAuthority rawkey_ca(keyPointer);
 		if(rawkey_ca != car) {
 			qDebug() << "Attempting to use wrong ca certificate.";
 			return false;

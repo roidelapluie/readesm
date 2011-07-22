@@ -1361,7 +1361,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>CAid</name>
     <message>
-        <location filename="fileformat/crypto.h" line="+68"/>
+        <location filename="fileformat/dataTypes/certificateAuthority.cpp" line="+17"/>
         <source>nationNumeric</source>
         <translation>Land (numerisch)</translation>
     </message>
@@ -1894,6 +1894,11 @@ Signatur-Prüfung fehlgeschlagen </translation>
         <source>Average speed when driving</source>
         <translation>Durchschnittsgeschwindigkeit während der Fahrt</translation>
     </message>
+    <message>
+        <location line="+6"/>
+        <source>Key chain</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Speeds</name>
@@ -2014,12 +2019,12 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>applicationIdentification</name>
     <message>
-        <location filename="fileformat/cardBlocks/applicationIdentification.h" line="+11"/>
+        <location filename="fileformat/cardBlocks/applicationIdentification.h" line="+12"/>
         <source>Application Identification</source>
         <translation>Anwendungskennung</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+22"/>
         <source>typeOfTachographCardId</source>
         <translation>Implementierte Kartenart</translation>
     </message>
@@ -2027,6 +2032,31 @@ Signatur-Prüfung fehlgeschlagen </translation>
         <location line="+1"/>
         <source>cardStructureVersion</source>
         <translation>Strukturversion der Karte</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>noOfEventsPerType</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>noOfFaultsPerType</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>activityStructureLength</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>noOfCardVehicleRecords</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>noOfCardPlaceRecords</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2076,7 +2106,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>cardChipIdentification</name>
     <message>
-        <location filename="fileformat/cardBlocks/cardChipIdentification.h" line="+15"/>
+        <location filename="fileformat/cardBlocks/cardChipIdentification.h" line="+17"/>
         <source>Card chip identification</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2097,7 +2127,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>cardIccIdentification</name>
     <message>
-        <location filename="fileformat/cardBlocks/cardIccIdentification.h" line="+22"/>
+        <location filename="fileformat/cardBlocks/cardIccIdentification.h" line="+24"/>
         <source>Card ICC identification</source>
         <oldsource>Card chip identification</oldsource>
         <translation type="unfinished"></translation>
@@ -2136,7 +2166,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>controlActivityData</name>
     <message>
-        <location filename="fileformat/cardBlocks/controlActivityData.h" line="+17"/>
+        <location filename="fileformat/cardBlocks/controlActivityData.h" line="+18"/>
         <source>Control Activity Data</source>
         <translation>Übersicht über Kontrollen</translation>
     </message>
@@ -2316,7 +2346,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
         <translation type="obsolete">Durchschnittsgeschwindigkeit während der Fahrt</translation>
     </message>
     <message>
-        <location filename="fileformat/esmfile.cpp" line="+34"/>
+        <location filename="fileformat/esmfile.cpp" line="+35"/>
         <source>%1, %2 to %3</source>
         <translation>%1, %2 bis %3</translation>
     </message>
@@ -2441,12 +2471,11 @@ Signatur-Prüfung fehlgeschlagen </translation>
         <location line="+22"/>
         <location line="+74"/>
         <location line="+6"/>
-        <location line="+37"/>
         <source>RFU</source>
         <translation>[Reserviert für spätere Benutzung]</translation>
     </message>
     <message>
-        <location line="-180"/>
+        <location line="-143"/>
         <source>Vehicle unit related security breach attempt events: </source>
         <translation>Sicherheitsverletzende Versuche an der Fahrzeugeinheit: </translation>
     </message>
@@ -2883,8 +2912,9 @@ Signatur-Prüfung fehlgeschlagen </translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Reserved for future use</source>
-        <translation>[Reserviert für spätere Benutzung]</translation>
+        <source>%1 - Reserved for future use</source>
+        <oldsource>Reserved for future use</oldsource>
+        <translation type="unfinished">[Reserviert für spätere Benutzung]</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2950,12 +2980,11 @@ Signatur-Prüfung fehlgeschlagen </translation>
     </message>
     <message>
         <location line="+3"/>
-        <location line="+38"/>
         <source>(not specified)</source>
         <translation>(nicht näher angegeben)</translation>
     </message>
     <message>
-        <location line="-32"/>
+        <location line="+6"/>
         <source>card downloaded</source>
         <translation>Kartendaten geladen</translation>
     </message>
@@ -3131,7 +3160,8 @@ Signatur-Prüfung fehlgeschlagen </translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>(unknown region)</source>
+        <source>Unknown region %1</source>
+        <oldsource>(unknown region)</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3291,7 +3321,8 @@ Signatur-Prüfung fehlgeschlagen </translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Unknown Manufacturer or equipment not type approved</source>
+        <source>Unknown Manufacturer %1 or equipment not type approved</source>
+        <oldsource>Unknown Manufacturer or equipment not type approved</oldsource>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3374,7 +3405,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>mainWindow</name>
     <message>
-        <location filename="gui/mainWindow.cpp" line="+25"/>
+        <location filename="gui/mainWindow.cpp" line="+28"/>
         <source>&amp;File</source>
         <translation>&amp;Datei</translation>
     </message>
@@ -3476,14 +3507,14 @@ Sie sollten ein Exemplar der GNU General Public License zusammen mit diesem Prog
     </message>
     <message>
         <location line="+2"/>
-        <location line="+55"/>
+        <location line="+56"/>
         <source>Tachograph Files</source>
         <oldsource>Tachograph Files (*.esm *.ddd)</oldsource>
         <translation>Tachographendateien</translation>
     </message>
     <message>
-        <location line="-55"/>
-        <location line="+33"/>
+        <location line="-56"/>
+        <location line="+34"/>
         <location line="+22"/>
         <source>All files</source>
         <translation>Alle Dateien</translation>
@@ -3688,6 +3719,19 @@ Sie sollten ein Exemplar der GNU General Public License zusammen mit diesem Prog
     <message>
         <source>vehicleOdometerEnd</source>
         <translation type="obsolete">Kilometerstand am Ende</translation>
+    </message>
+</context>
+<context>
+    <name>verifiedcert</name>
+    <message>
+        <location filename="fileformat/crypto.h" line="+88"/>
+        <source>Certificate authority reference</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>RSA public key</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

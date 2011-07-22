@@ -63,27 +63,27 @@
 <context>
     <name>CAid</name>
     <message>
-        <location filename="fileformat/crypto.h" line="68"/>
+        <location filename="fileformat/dataTypes/certificateAuthority.cpp" line="17"/>
         <source>nationNumeric</source>
         <translation>númeroDePais</translation>
     </message>
     <message>
-        <location filename="fileformat/crypto.h" line="69"/>
+        <location filename="fileformat/dataTypes/certificateAuthority.cpp" line="18"/>
         <source>nationAlpha</source>
         <translation>nombreDelPais</translation>
     </message>
     <message>
-        <location filename="fileformat/crypto.h" line="70"/>
+        <location filename="fileformat/dataTypes/certificateAuthority.cpp" line="19"/>
         <source>keySerialNumber</source>
         <translation>claveNúmeroDeSerie</translation>
     </message>
     <message>
-        <location filename="fileformat/crypto.h" line="71"/>
+        <location filename="fileformat/dataTypes/certificateAuthority.cpp" line="20"/>
         <source>additionalInfo</source>
         <translation>informaciónAdicional</translation>
     </message>
     <message>
-        <location filename="fileformat/crypto.h" line="72"/>
+        <location filename="fileformat/dataTypes/certificateAuthority.cpp" line="21"/>
         <source>caIdentifier</source>
         <translation>identificadorCal</translation>
     </message>
@@ -229,6 +229,11 @@
         <translation>Velocidad media durante la marcha</translation>
     </message>
     <message>
+        <location filename="fileformat/esmfile.cpp" line="31"/>
+        <source>Key chain</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="fileformat/myTime.cpp" line="11"/>
         <source>on for</source>
         <translation>durante</translation>
@@ -262,19 +267,44 @@
 <context>
     <name>applicationIdentification</name>
     <message>
-        <location filename="fileformat/cardBlocks/applicationIdentification.h" line="11"/>
+        <location filename="fileformat/cardBlocks/applicationIdentification.h" line="12"/>
         <source>Application Identification</source>
         <translation>Identificación de la Aplicación</translation>
     </message>
     <message>
-        <location filename="fileformat/cardBlocks/applicationIdentification.h" line="21"/>
+        <location filename="fileformat/cardBlocks/applicationIdentification.h" line="34"/>
         <source>typeOfTachographCardId</source>
         <translation>tipoDeTarjetaDeTacógrafo</translation>
     </message>
     <message>
-        <location filename="fileformat/cardBlocks/applicationIdentification.h" line="22"/>
+        <location filename="fileformat/cardBlocks/applicationIdentification.h" line="35"/>
         <source>cardStructureVersion</source>
         <translation>versiónDeLaEstructuraDeLaTarjeta</translation>
+    </message>
+    <message>
+        <location filename="fileformat/cardBlocks/applicationIdentification.h" line="36"/>
+        <source>noOfEventsPerType</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/cardBlocks/applicationIdentification.h" line="37"/>
+        <source>noOfFaultsPerType</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/cardBlocks/applicationIdentification.h" line="38"/>
+        <source>activityStructureLength</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/cardBlocks/applicationIdentification.h" line="39"/>
+        <source>noOfCardVehicleRecords</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/cardBlocks/applicationIdentification.h" line="40"/>
+        <source>noOfCardPlaceRecords</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -324,7 +354,7 @@
 <context>
     <name>cardChipIdentification</name>
     <message>
-        <location filename="fileformat/cardBlocks/cardChipIdentification.h" line="15"/>
+        <location filename="fileformat/cardBlocks/cardChipIdentification.h" line="17"/>
         <source>Card chip identification</source>
         <translation>Identificación de la tarjeta con chip</translation>
     </message>
@@ -345,38 +375,38 @@
 <context>
     <name>cardIccIdentification</name>
     <message>
-        <location filename="fileformat/cardBlocks/cardIccIdentification.h" line="22"/>
+        <location filename="fileformat/cardBlocks/cardIccIdentification.h" line="24"/>
         <source>Card ICC identification</source>
         <oldsource>Card chip identification</oldsource>
         <translation>Identificación ICC de la tarjeta</translation>
     </message>
     <message>
-        <location filename="fileformat/cardBlocks/cardIccIdentification.h" line="37"/>
+        <location filename="fileformat/cardBlocks/cardIccIdentification.h" line="39"/>
         <source>clockStop</source>
         <translation>paroDelReloj</translation>
     </message>
     <message>
-        <location filename="fileformat/cardBlocks/cardIccIdentification.h" line="38"/>
+        <location filename="fileformat/cardBlocks/cardIccIdentification.h" line="40"/>
         <source>cardExtendedSerialNumber</source>
         <translation>númeroDeSerieExtendidoDeLaTarjeta</translation>
     </message>
     <message>
-        <location filename="fileformat/cardBlocks/cardIccIdentification.h" line="39"/>
+        <location filename="fileformat/cardBlocks/cardIccIdentification.h" line="41"/>
         <source>cardApprovalNumber</source>
         <translation>númeroDeAutorizaciónDeLaTarjeta</translation>
     </message>
     <message>
-        <location filename="fileformat/cardBlocks/cardIccIdentification.h" line="40"/>
+        <location filename="fileformat/cardBlocks/cardIccIdentification.h" line="42"/>
         <source>cardPersonaliserID</source>
         <translation>IDDeLaTarjetaPersonalizada</translation>
     </message>
     <message>
-        <location filename="fileformat/cardBlocks/cardIccIdentification.h" line="41"/>
+        <location filename="fileformat/cardBlocks/cardIccIdentification.h" line="43"/>
         <source>embedderIcAssemblerId</source>
         <translation>IDEnsambladorEmbebido</translation>
     </message>
     <message>
-        <location filename="fileformat/cardBlocks/cardIccIdentification.h" line="42"/>
+        <location filename="fileformat/cardBlocks/cardIccIdentification.h" line="44"/>
         <source>icIdentifier</source>
         <translation>identificadorIC</translation>
     </message>
@@ -384,27 +414,27 @@
 <context>
     <name>controlActivityData</name>
     <message>
-        <location filename="fileformat/cardBlocks/controlActivityData.h" line="17"/>
+        <location filename="fileformat/cardBlocks/controlActivityData.h" line="18"/>
         <source>Control Activity Data</source>
         <translation>Control de Datos de la Actividad</translation>
     </message>
     <message>
-        <location filename="fileformat/cardBlocks/controlActivityData.h" line="30"/>
+        <location filename="fileformat/cardBlocks/controlActivityData.h" line="31"/>
         <source>controlType</source>
         <translation>tipoDeControl</translation>
     </message>
     <message>
-        <location filename="fileformat/cardBlocks/controlActivityData.h" line="31"/>
+        <location filename="fileformat/cardBlocks/controlActivityData.h" line="32"/>
         <source>controlTime</source>
         <translation>tiempoDelControl</translation>
     </message>
     <message>
-        <location filename="fileformat/cardBlocks/controlActivityData.h" line="34"/>
+        <location filename="fileformat/cardBlocks/controlActivityData.h" line="35"/>
         <source>controlDownloadPeriodBegin</source>
         <translation>controlDelInicioDelPeriodoDeDescarga</translation>
     </message>
     <message>
-        <location filename="fileformat/cardBlocks/controlActivityData.h" line="35"/>
+        <location filename="fileformat/cardBlocks/controlActivityData.h" line="36"/>
         <source>controlDownloadPeriodEnd</source>
         <translation>controlDelFinalDelPeriodoDeDescarga</translation>
     </message>
@@ -532,12 +562,12 @@
 <context>
     <name>esmfile</name>
     <message>
-        <location filename="fileformat/esmfile.cpp" line="59"/>
+        <location filename="fileformat/esmfile.cpp" line="66"/>
         <source>%1, %2 to %3</source>
         <translation>%1, %2 a %3</translation>
     </message>
     <message>
-        <location filename="fileformat/esmfile.cpp" line="66"/>
+        <location filename="fileformat/esmfile.cpp" line="73"/>
         <source>%1  (%2 to %3)</source>
         <translation>%1  (%2 a %3)</translation>
     </message>
@@ -642,7 +672,6 @@
         <location filename="fileformat/formatStrings.cpp" line="107"/>
         <location filename="fileformat/formatStrings.cpp" line="181"/>
         <location filename="fileformat/formatStrings.cpp" line="187"/>
-        <location filename="fileformat/formatStrings.cpp" line="224"/>
         <source>RFU</source>
         <translation>RFU</translation>
     </message>
@@ -1084,8 +1113,9 @@
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="172"/>
-        <source>Reserved for future use</source>
-        <translation>Reservado para usos futuros</translation>
+        <source>%1 - Reserved for future use</source>
+        <oldsource>Reserved for future use</oldsource>
+        <translation type="unfinished">Reservado para usos futuros</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="173"/>
@@ -1149,7 +1179,6 @@
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="199"/>
-        <location filename="fileformat/formatStrings.cpp" line="237"/>
         <source>(not specified)</source>
         <translation>(sin especificar)</translation>
     </message>
@@ -1330,8 +1359,9 @@
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="262"/>
-        <source>(unknown region)</source>
-        <translation>(región desconocida)</translation>
+        <source>Unknown region %1</source>
+        <oldsource>(unknown region)</oldsource>
+        <translation type="unfinished">(región desconocida)</translation>
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="269"/>
@@ -1490,8 +1520,9 @@
     </message>
     <message>
         <location filename="fileformat/formatStrings.cpp" line="301"/>
-        <source>Unknown Manufacturer or equipment not type approved</source>
-        <translation>Fabricante desconocido o modelo no aprobado</translation>
+        <source>Unknown Manufacturer %1 or equipment not type approved</source>
+        <oldsource>Unknown Manufacturer or equipment not type approved</oldsource>
+        <translation type="unfinished">Fabricante desconocido o modelo no aprobado</translation>
     </message>
 </context>
 <context>
@@ -1573,77 +1604,77 @@
 <context>
     <name>mainWindow</name>
     <message>
-        <location filename="gui/mainWindow.cpp" line="25"/>
+        <location filename="gui/mainWindow.cpp" line="28"/>
         <source>&amp;File</source>
         <translation>&amp;Archivo</translation>
     </message>
     <message>
-        <location filename="gui/mainWindow.cpp" line="26"/>
+        <location filename="gui/mainWindow.cpp" line="29"/>
         <source>&amp;Open…</source>
         <translation>&amp;Abrir...</translation>
     </message>
     <message>
-        <location filename="gui/mainWindow.cpp" line="27"/>
+        <location filename="gui/mainWindow.cpp" line="30"/>
         <source>Save &amp;As…</source>
         <translation>G&amp;uardar como ...</translation>
     </message>
     <message>
-        <location filename="gui/mainWindow.cpp" line="28"/>
+        <location filename="gui/mainWindow.cpp" line="31"/>
         <source>E&amp;xport as HTML…</source>
         <translation>E&amp;xportar como HTML...</translation>
     </message>
     <message>
-        <location filename="gui/mainWindow.cpp" line="29"/>
+        <location filename="gui/mainWindow.cpp" line="32"/>
         <source>&amp;Print…</source>
         <translation>Im&amp;primir...</translation>
     </message>
     <message>
-        <location filename="gui/mainWindow.cpp" line="30"/>
+        <location filename="gui/mainWindow.cpp" line="33"/>
         <source>&amp;Quit</source>
         <translation>&amp;Salir</translation>
     </message>
     <message>
-        <location filename="gui/mainWindow.cpp" line="50"/>
+        <location filename="gui/mainWindow.cpp" line="53"/>
         <source>&amp;Help</source>
         <translation>A&amp;yuda</translation>
     </message>
     <message>
-        <location filename="gui/mainWindow.cpp" line="51"/>
+        <location filename="gui/mainWindow.cpp" line="54"/>
         <source>&amp;Contents</source>
         <translation>&amp;Contenido</translation>
     </message>
     <message>
-        <location filename="gui/mainWindow.cpp" line="52"/>
+        <location filename="gui/mainWindow.cpp" line="55"/>
         <source>&amp;About Readesm</source>
         <translation>A&amp;cerca de Readesm</translation>
     </message>
     <message>
-        <location filename="gui/mainWindow.cpp" line="53"/>
+        <location filename="gui/mainWindow.cpp" line="56"/>
         <source>About &amp;Qt</source>
         <translation>Acerca de &amp;Qt</translation>
     </message>
     <message>
-        <location filename="gui/mainWindow.cpp" line="69"/>
+        <location filename="gui/mainWindow.cpp" line="72"/>
         <source>About Readesm</source>
         <translation>Acerca de Readesm</translation>
     </message>
     <message>
-        <location filename="gui/mainWindow.cpp" line="71"/>
+        <location filename="gui/mainWindow.cpp" line="74"/>
         <source>Version: </source>
         <translation>Versión:</translation>
     </message>
     <message>
-        <location filename="gui/mainWindow.cpp" line="73"/>
+        <location filename="gui/mainWindow.cpp" line="76"/>
         <source>Copyright (C) 2011 by %1 (%2)</source>
         <translation>Copyright (C) 2011 por %1 (%2)</translation>
     </message>
     <message>
-        <location filename="gui/mainWindow.cpp" line="77"/>
+        <location filename="gui/mainWindow.cpp" line="80"/>
         <source>This program converts digital tachograph files into human-readable form.</source>
         <translation>Este programa convierte Archivos encriptados de tacógrafos digitales en Archivos legibles.</translation>
     </message>
     <message>
-        <location filename="gui/mainWindow.cpp" line="79"/>
+        <location filename="gui/mainWindow.cpp" line="82"/>
         <source>readesm is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
 readesm is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
@@ -1658,60 +1689,60 @@ Ud. debería recibir una copia de la licencia GNU General Public License junto c
 La traducción al español la ha realizado José Huguet (ITEM Ordenadores) Castellón. SPAIN.</translation>
     </message>
     <message>
-        <location filename="gui/mainWindow.cpp" line="100"/>
+        <location filename="gui/mainWindow.cpp" line="103"/>
         <source>Open Tachograph File</source>
         <translation>Abrir Fichero de Tacógrafo</translation>
     </message>
     <message>
-        <location filename="gui/mainWindow.cpp" line="102"/>
-        <location filename="gui/mainWindow.cpp" line="157"/>
+        <location filename="gui/mainWindow.cpp" line="105"/>
+        <location filename="gui/mainWindow.cpp" line="161"/>
         <source>Tachograph Files</source>
         <translation>Ficheros de Tacógrafo</translation>
     </message>
     <message>
-        <location filename="gui/mainWindow.cpp" line="102"/>
-        <location filename="gui/mainWindow.cpp" line="135"/>
-        <location filename="gui/mainWindow.cpp" line="157"/>
+        <location filename="gui/mainWindow.cpp" line="105"/>
+        <location filename="gui/mainWindow.cpp" line="139"/>
+        <location filename="gui/mainWindow.cpp" line="161"/>
         <source>All files</source>
         <translation>Todos los archivos</translation>
     </message>
     <message>
-        <location filename="gui/mainWindow.cpp" line="120"/>
+        <location filename="gui/mainWindow.cpp" line="124"/>
         <source>Print Document</source>
         <translation>Imprimir</translation>
     </message>
     <message>
-        <location filename="gui/mainWindow.cpp" line="129"/>
-        <location filename="gui/mainWindow.cpp" line="141"/>
-        <location filename="gui/mainWindow.cpp" line="151"/>
-        <location filename="gui/mainWindow.cpp" line="162"/>
+        <location filename="gui/mainWindow.cpp" line="133"/>
+        <location filename="gui/mainWindow.cpp" line="145"/>
+        <location filename="gui/mainWindow.cpp" line="155"/>
+        <location filename="gui/mainWindow.cpp" line="166"/>
         <source>Saving not possible</source>
         <translation>No es posible Guardar</translation>
     </message>
     <message>
-        <location filename="gui/mainWindow.cpp" line="129"/>
-        <location filename="gui/mainWindow.cpp" line="151"/>
+        <location filename="gui/mainWindow.cpp" line="133"/>
+        <location filename="gui/mainWindow.cpp" line="155"/>
         <source>Nothing opened, nothing to save.</source>
         <translation>Ningún fichero abierto, nada para Guardar.</translation>
     </message>
     <message>
-        <location filename="gui/mainWindow.cpp" line="133"/>
+        <location filename="gui/mainWindow.cpp" line="137"/>
         <source>Save XHtml file as</source>
         <translation>Guardar fichero XHtml como</translation>
     </message>
     <message>
-        <location filename="gui/mainWindow.cpp" line="135"/>
+        <location filename="gui/mainWindow.cpp" line="139"/>
         <source>XHtml files</source>
         <translation>Fichero XHtml</translation>
     </message>
     <message>
-        <location filename="gui/mainWindow.cpp" line="141"/>
-        <location filename="gui/mainWindow.cpp" line="162"/>
+        <location filename="gui/mainWindow.cpp" line="145"/>
+        <location filename="gui/mainWindow.cpp" line="166"/>
         <source>Could not open file.</source>
         <translation>No se pudo abrir el Archivo.</translation>
     </message>
     <message>
-        <location filename="gui/mainWindow.cpp" line="155"/>
+        <location filename="gui/mainWindow.cpp" line="159"/>
         <source>Save Tachograph file as</source>
         <translation>Salvar Archivo de Tacógrafo como</translation>
     </message>
@@ -1855,6 +1886,19 @@ La traducción al español la ha realizado José Huguet (ITEM Ordenadores) Caste
         <location filename="fileformat/cardBlocks/vehiclesUsed.h" line="63"/>
         <source>Driven distance</source>
         <translation>Distancia recorrida</translation>
+    </message>
+</context>
+<context>
+    <name>verifiedcert</name>
+    <message>
+        <location filename="fileformat/crypto.h" line="88"/>
+        <source>Certificate authority reference</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/crypto.h" line="91"/>
+        <source>RSA public key</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

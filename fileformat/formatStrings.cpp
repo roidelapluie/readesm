@@ -169,7 +169,7 @@ QString formatStrings::nationNumeric(unsigned char country) {
 		QT_TR_NOOP("Uzbekistan")
 	};
 	if(country <= 0x36) return tr(countries[country]);
-	if(country <= 0xFC) return tr("Reserved for future use");
+	if(country <= 0xFC) return tr("%1 - Reserved for future use").arg(country);
 	if(country == 0xFD) return tr("European Community");
 	if(country == 0xFE) return tr("Europe, but not EC and not registered");
 	if(country == 0xFF) return tr("outside of Europe, not registered");
@@ -221,7 +221,7 @@ QString formatStrings::equipmentType(unsigned char value) {
 		QT_TR_NOOP("Motion Sensor")
 	};
 	if(value <= 7) return tr(vals[value]);
-	else return tr("RFU");
+	else return tr("RFU: %1").arg(value);
 }
 
 QString formatStrings::dailyWorkPeriod(unsigned char value) {
@@ -234,7 +234,7 @@ QString formatStrings::dailyWorkPeriod(unsigned char value) {
 		QT_TR_NOOP("End, related time assumed by VU ")
 	};
 	if(value <= 5) return tr(vals[value]);
-	else return tr("(not specified)");
+	else return tr("(not specified: %1)").arg(value);
 }
 
 QString formatStrings::regionNumeric(unsigned char value) {
@@ -259,7 +259,7 @@ QString formatStrings::regionNumeric(unsigned char value) {
 		QT_TR_NOOP("País Vasco")
 	};
 	if(value <= 0x11) return tr(vals[value]);
-	else return tr("(unknown region)");
+	else return tr("Unknown region %1").arg(value);
 }
 
 ///Manufacturer codes as found on dtc.jrc.it
@@ -298,5 +298,5 @@ QString formatStrings::manufacturerCode(unsigned char code) {
 	case 0xAE: return tr("TEMPEST a.s.");
 	case 0xAF: return tr("Trueb - DEMAX PLC");
 	}
-	return tr("Unknown Manufacturer or equipment not type approved");
+	return tr("Unknown Manufacturer %1 or equipment not type approved").arg(code);
 }

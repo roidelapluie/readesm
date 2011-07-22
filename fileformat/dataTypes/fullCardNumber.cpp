@@ -12,7 +12,7 @@ fullCardNumber::fullCardNumber(constDataPointer start) :
 {
 }
 
-void fullCardNumber::printOn(reporter& report) {
+void fullCardNumber::printOn(reporter& report) const{
 	report(tr("cardType"), formatStrings::equipmentType(Type));
 	report(tr("cardIssuingMemberState"), formatStrings::nationNumeric(Nation));
 	report(tr("cardNumber"), Number);

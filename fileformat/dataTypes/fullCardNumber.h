@@ -13,7 +13,7 @@ public:
 	int Nation;
 	QString Number;
 	fullCardNumber(constDataPointer start);
-	void printOn(reporter& report);
+	void printOn(reporter& report) const;
 	static bool defval(constDataPointer start);
 	bool defval() const;
 	QString str() const;
