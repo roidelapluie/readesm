@@ -2,6 +2,7 @@
 <qresource>
 	<file>readesm_de.qm</file>
 	<file>readesm_es.qm</file>
+	<file>readesm_hu.qm</file>
 	<file>EC_PK.bin</file>
 	<file>homepage/help.html</file>
 	<file>greeting.xhtml</file>
@@ -13,5 +14,8 @@
 </qresource>
 <qresource lang="de">
 	<file alias="greeting.xhtml">greeting_de.xhtml</file>
+</qresource>
+<qresource lang="hu">
+	<file alias="greeting.xhtml">greeting_hu.xhtml</file>
 </qresource>
 </RCC>
