@@ -92,7 +92,7 @@ class vuSerial:
 			except communicationError as err:
 				print err
 			else:
-				self.sendData('\x87\x02\x03')
+				self.sendData(self.composeMessage('\x87\x02\x03'))
 				self.conn.baudrate = baudRate
 				break	
 		self.sendExpectingResponse('\0\0\0\0\xFF\xFF\xFF\xFF', '\0\xFF', name = 'Request Upload')
@@ -165,7 +165,7 @@ class vuSerial:
 
 	def sendData(self, data):
 		print "sending " + hexchunk(data) #+ "(" + data + ")"
-		self.conn.write(self.composeMessage(data))
+		self.conn.write(data)
 	
 	def composeMessage(self, data):
 		fullmsg = '\x80\xEE\xF0' + chr(len(data)) + data
