@@ -27,7 +27,7 @@
 #include "readTypes.h"
 #include "reporter/reporter.h"
 #include "rsa.h"
-#include "dataTypes/certificateAuthority.h"
+#include "DataTypes/CertificateAuthority.h"
 
 #include <QtCore/QCoreApplication>
 #include <QtCore/QDebug>
@@ -43,54 +43,17 @@ class verifiedcert {
 	Q_DECLARE_TR_FUNCTIONS(verifiedcert)
 	public:
 	constDataPointer start;
-	certificateAuthority car;
+	CertificateAuthority car;
 	bool verified;
 	rsa key;
 	unsigned char cdash[164];
 	std::vector<unsigned char> hash;
 	typedef QSharedPointer<verifiedcert> ptr;
-	verifiedcert(constDataPointer start_) :
-		start(start_), car(start + 186), verified(false) {
-	}
-	bool verify(const QString& filename) {
-		QFile file(filename);
-		if (!file.open(QIODevice::ReadOnly)) return false;
-		QByteArray rawkey = file.readAll();
-		file.close();
-		constDataPointer keyPointer(rawkey);
-		certificateAuthority rawkey_ca(keyPointer);
-		if(rawkey_ca != car) {
-			qDebug() << "Attempting to use wrong ca certificate.";
-			return false;
-		}
-		return verify(rsa(keyPointer.toUnsignedPointer(8), 128, keyPointer.toUnsignedPointer(136), 8));
-	}
-	bool verify(const verifiedcert& other) {
-		return other.verified && verify(other.key);
-	}
-	bool verify(const rsa& extkey) {
-		std::vector<unsigned char> buffer = extkey.perform(start.toUnsignedPointer(0), 128);
-		copy(&buffer[1], &cdash[0], 106);
-		copy(start.toUnsignedPointer(128), &cdash[106], 58);
-		hash.resize(20);
-		copy(&buffer[107], &hash[0], 20);
-		if(!checkSHA1match(cdash, 164, &hash[0])) {
-			qDebug() << "Certificate is invalid.\n";
-			return false;
-		}
-		key = rsa(&cdash[28], 128, &cdash[156], 8);
-		verified = true;
-		return true;
-	}
-	friend reporter& operator<<(reporter& o, const verifiedcert& p) {
-		o("SHA1", hexchunk(p.hash, 20));
-		o("Key Identifier", hexchunk(&p.cdash[20], 8)); 
-		o.blockstart(tr("Certificate authority reference"), 1);
-		o << p.car;
-		o.blockend();
-		o(tr("RSA public key"), p.key.str());
-		return o;
-	}
+	verifiedcert(constDataPointer start_);
+	bool verify(const QString& filename);
+	bool verify(const verifiedcert& other);
+	bool verify(const rsa& extkey);
+	friend reporter& operator<<(reporter& o, const verifiedcert& p);
 };
 
 bool CheckSignature(const constDataPointer& data, int length, const constDataPointer& signature,

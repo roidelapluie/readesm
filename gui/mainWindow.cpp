@@ -1,6 +1,6 @@
 #include "mainWindow.h"
 
-#include "../fileformat/esmfile.h"
+#include "../fileformat/ESMFile.h"
 #include "../fileformat/reporter/xmlReporter.h"
 
 #include <QtCore/QString>
@@ -109,11 +109,11 @@ void mainWindow::openFile()
 
 void mainWindow::openFile(const QString& filename)
 {
-	esm = QSharedPointer<esmfile>(new esmfile(filename));
+	esm = QSharedPointer<ESMFile>(new ESMFile(filename));
 	xmlReporter rep;
 	rep << *esm;
 	view->setContent(rep.str().toUtf8(), "application/xhtml+xml");
-	setWindowTitle(esm->name() + " - readesm");
+	setWindowTitle(esm->suggestTitle() + " - readesm");
 	//view->setHtml(rep.str().toUtf8());
 }
 

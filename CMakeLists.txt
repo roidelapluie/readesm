@@ -10,6 +10,7 @@ if(MAC)
 	set(GUI_TYPE MACOSX_BUNDLE)
 endif()
 set(CMAKE_BUILD_TYPE release)
+add_definitions("-Wall")
 
 find_package(Qt4 COMPONENTS QtGui QtWebKit REQUIRED)
 

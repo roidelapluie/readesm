@@ -1,0 +1,463 @@
+<xml>
+	<comment>These data definitions are used to read the data stored in digital tachograph equipment.  They are defined in commision regulation (EC) No 1360/2002 of June 13th, 2002.  The generator script "generate.py" creates code out of these definitions that is then used in the readesm project, http://readesm.sourceforge.net/
+	You may use these definitions under the terms of the GNU General Public License, Version 3.0.
+	Following the naming in Qt and the one mostly used in the commision regulation, class names are capitalized, and data members use a lower-case first letter.</comment>
+	
+	<DataType name="FullCardNumber">
+		<content>
+			<int length="1" name="cardType" table="equipmentType" />
+			<int length="1" name="cardIssuingMemberState" table="nationNumeric" />
+			<string name="cardNumber" length="16" />
+		</content>
+		<toString>QString("%1 (%2, %3)")
+		.arg(cardNumber)
+		.arg(formatStrings::nationNumeric(cardIssuingMemberState))
+		.arg(formatStrings::equipmentType(cardType))</toString>
+	</DataType>
+	
+	<CardBlock name="DriverCardApplicationIdentification" type="0x0501">
+		<title>Application Identification</title>
+		<content>
+			<int name="typeOfTachographCardId" length="1" table="equipmentType"/>
+			<RawData name="cardStructureVersion" length="2" />
+			<int name="noOfEventsPerType" length="1"/>
+			<int name="noOfFaultsPerType" length="1" />
+			<int name="activityStructureLength" unit="Bytes" length="2" />
+			<int name="noOfCardVehicleRecords" length="2" />
+			<int name="noOfCardPlaceRecords" length="1" />
+		</content>
+	</CardBlock>
+
+	<CardBlock name="LastCardDownload" type="0x050e">
+		<title>Card Download</title>
+		<content>
+			<TimeReal name="lastCardDownload" />
+		</content>
+	</CardBlock>
+	
+	<CardBlock name="CardDrivingLicenseInformation" type="0x0521">
+		<title>Driving License Info</title>
+		<content>
+			<cpstring name="drivingLicenseIssuingAuthorithy" length="36" />
+			<int name="drivingLicenseIssuingNation" table="nationNumeric" length="1" />
+			<string name="drivingLicenseNumber" length="16" />
+		</content>
+	</CardBlock>
+
+	<DataType name="Name">
+		<content>
+			<cpstring name="surname" length="36" />
+			<cpstring name="firstNames" length="36" />
+		</content>
+		<toString>surname + ", " + firstNames</toString>
+	</DataType>
+	
+	<CardBlock name="Identification" type="0x0520">
+		<title>Card identification and card holder identification</title>
+		<content>
+			<int name="cardIssuingMemberState" table="nationNumeric" length="1" />
+			<string name="cardNumber" length="16" />
+			<cpstring name="cardIssuingAuthorityName" length="36" />
+			<TimeReal name="cardIssueDate" />
+			<TimeReal name="cardValidityBegin" />
+			<TimeReal name="cardExpiryDate" />
+			<Name name="cardHolderName"/>
+			<BcdDate name="cardHolderBirthDate" />
+			<string name="cardHolderPreferredLanguage" length="2" />
+		</content>
+	</CardBlock>
+
+	<CardBlock name="CardCurrentUse" type="0x0507">
+		<title>Current Usage</title>
+		<comment>The default value for the vehicle registration seems to be different here</comment>
+		<content>
+			<TimeReal name="sessionOpenTime" />
+			<VehicleRegistration name="sessionOpenVehicle" />
+		</content>
+	</CardBlock>
+	
+	<CardBlock name="CardChipIdentification" type="0x0005">
+		<title>Card chip identification</title>
+		<comment>ef ic according to en 726-3</comment>
+		<content>
+			<RawData name="icSerialNumber" length="4" />
+			<RawData name="icManufacturingReference" length="4" />
+		</content>
+	</CardBlock>
+	
+	<CardBlock name="CardIccIdentification" type="0x0002">
+		<title>Card ICC identification</title>
+		<content>
+			<int length="1" name="clockStop" />
+			<ExtendedSerialNumber name="cardExtendedSerialNumber" />
+			<RawData length="8" name="cardApprovalNumber" />
+			<RawData length="1" name="cardPersonaliserID" />
+			<RawData length="5" name="embedderIcAssemblerId" />
+			<RawData length="2" name="icIdentifier" />
+		</content>
+	</CardBlock>
+
+	<CardBlock name="CardControlActivityDataRecord" type="0x0508">
+		<title>Control Activity Data</title>
+		<content>
+			<int name="controlType" length="1" />
+			<TimeReal name="controlTime" />
+			<FullCardNumber name="controlCardNumber" />
+			<VehicleRegistration name="controlVehicleRegistration" />
+			<Timespan name="controlDownloadPeriod" />
+		</content>
+	</CardBlock>
+
+	<CardBlock name="CardDriverActivity" type="0x0504" hasrefined="true">
+		<title>Driver Activity Data</title>
+		<content>
+			<int name="oldestRecord" length="2" />
+			<int name="newestRecord" length="2" />
+			<RawData name="cyclicData" />
+		</content>
+	</CardBlock>
+	
+	<DataType name="CardEventRecord">
+		<content>
+			<int name="eventType" table="eventType" length="1" />
+			<Timespan name="eventTime" />
+			<VehicleRegistration name="eventVehicleRegistration" />
+		</content>
+	</DataType>
+	
+	<CardBlock name="CardEventData" type="0x0502">
+		<title>Events Data</title>
+		<content>
+			<Subblocks type="CardEventRecord" />
+		</content>
+	</CardBlock>
+
+	<CardBlock name="CardFaultData" type="0x0503">
+		<title>Faults Data</title>
+		<content>
+			<Subblocks type="CardEventRecord" />
+		</content>
+	</CardBlock>
+	
+	<DataType name="SpecificConditionRecord">
+		<content>
+			<TimeReal name="entryTime" />
+			<int length="1" name="specificConditionType" table="specificCondition" />
+		</content>
+	</DataType>
+
+	<CardBlock name="SpecificConditions" type="0x0522">
+		<title>specific Conditions</title>
+		<content>
+			<Subblocks type="SpecificConditionRecord" />
+		</content>
+	</CardBlock>
+
+	<CardBlock name="MemberStateCertificate" type="0xc108">
+		<title>CA Certificate</title>
+		<content>
+			<EncryptedCertificate name="certificate" />
+		</content>
+	</CardBlock>
+
+	<CardBlock name="CardCertificate" type="0xc100">
+		<title>card Certificate</title>
+		<content>
+			<EncryptedCertificate name="certificate" />
+		</content>
+	</CardBlock>
+	
+	<VuBlock name="VuOverview" type="0x1" requiresSignature="yes">
+		<title>Overview</title>
+		<content>
+			<EncryptedCertificate name="memberStateCertificate" />
+			<EncryptedCertificate name="vuCertificate" />
+			<string name="vehicleIdentificationNumber" length="17" />
+			<VehicleRegistration name="vehicleRegistrationIdentification" />
+			<TimeReal name="currentDateTime" />
+			<Timespan name="vuDownloadablePeriod" />
+			<int length="1" name="CardSlotsStatus" />
+			<TimeReal name="downloadingTime" />
+			<FullCardNumber name="cardNumber" />
+			<string length="36" name="companyOrWorkshopName" />
+			<Subblocks type="VuCompanyLocksRecord" counterlength="1" />
+			<Subblocks type="VuControlActivityRecord" counterlength="1" />
+		</content>
+	</VuBlock>
+
+	<DataType name="VuCompanyLocksRecord">
+		<content>
+			<Timespan name="lockTime" />
+			<string length="36" name="companyName" />
+			<string length="36" name="companyAddress" />
+			<FullCardNumber name="companyCardNumber" />
+		</content>
+	</DataType>
+	
+	<DataType name="VuControlActivityRecord">
+		<content>
+			<int length="1" name="controlType" table="controlType" />
+			<TimeReal name="controlTime" />
+			<FullCardNumber name="controlCardNumber" />
+			<Timespan name="downloadPeriod" />
+		</content>
+	</DataType>
+	
+	
+	<DataType name="VehicleRegistration">
+		<content>
+			<int length="1" name="vehicleRegistrationNation" table="nationNumeric" />
+			<cpstring length="14" name="vehicleRegistrationNumber" />
+		</content>
+	</DataType>
+	
+	<DataType name="PlaceRecord">
+		<content>
+			<TimeReal name="entryTime" />
+			<int length="1" name="entryTypeDailyWorkPeriod" table="dailyWorkPeriod" />
+			<int length="1" name="dailyWorkPeriodCountry" table="nationNumeric" />
+			<int length="1" name="dailyWorkPeriodRegion" table="regionNumeric"/>
+			<int length="3" name="vehicleOdometerValue" unit="km" />
+		</content>
+	</DataType>
+
+	<DataType name="CardVehicleRecord">
+		<content>
+			<int length="3" name="vehicleOdometerBegin" unit="km" />
+			<int length="3" name="vehicleOdometerEnd" unit="km" />
+			<Timespan name="vehicleUse" />
+			<VehicleRegistration name="registration" />
+			<int length="2" name="vuDataBlockCounter" />
+		</content>
+	</DataType>
+
+	<CardBlock name="CardPlaceDailyWorkPeriod" type="0x0506">
+		<title>Places</title>
+		<content>
+			<int length="1" name="placePointerNewestRecord" />
+			<Subblocks type="PlaceRecord" />
+		</content>
+	</CardBlock>
+	
+	<VuBlock name="VuTechnical" type="0x5" requiresSignature="yes">
+		<title>Technical Data</title>
+		<content>
+			<cpstring name="vuManufacturerName" length="36"/>
+			<cpstring name="vuManufacturerAddress" length="36"/>
+			<string name="vuPartNumber" length="16"/>
+			<ExtendedSerialNumber name="vuSerialNumber" />
+			<string name="vuSoftwareVersion" length="4" />
+			<TimeReal name="vuSoftInstallationDate" />
+			<TimeReal name="vuManufacturingDate" />
+			<string length="8" name="vuApprovalNumber" />
+			<ExtendedSerialNumber name="sensorSerialNumber" />
+			<string length="8" name="sensorApprovalNumber" />
+			<TimeReal name="sensorPairingDateFirst" />
+			<Subblocks type="VuCalibrationRecord" counterlength="1" />
+		</content>
+	</VuBlock>
+	
+	<DataType name="ExtendedSerialNumber">
+		<content>
+			<int length="4" name="serialNumber" />
+			<RawData length="2" name="date" />
+			<int length="1" name="equipmentType" table="equipmentType" />
+			<int length="1" name="manufacturerCode" table="manufacturerCode" />
+		</content>
+		<toString>QString("%1 (%2) %3, %4")
+		.arg(serialNumber)
+		.arg("20" + bcdbyte(date[1]) + "-" + bcdbyte(date[0]))
+		.arg(formatStrings::equipmentType(equipmentType))
+		.arg(formatStrings::manufacturerCode(manufacturerCode));
+		</toString>
+	</DataType>
+
+	<DataType name="block11Record">
+		<comment>check if cardnumber is with nation numeric</comment>
+		<content>
+			<FullCardNumber name="cardNumber" />
+			<TimeReal name="timeOne" />
+			<TimeReal name="timeTwo" />
+			<RawData length="32" name="payloadData"/>
+		</content>
+	</DataType>
+
+       <VuBlock name="block11" type="0x11">
+		<comment>This block is not covered in the european law. My(Andreas) guess is that this is something manufacturer-specific, in the files from siemens vdos this block (code 0x7611) contains, well, card numbers and timestamps. It might be something else from other manufacturers. If you do know what it does, please tell me.</comment>
+		<title>Unknown Block with trep 0x11</title>
+		<content>
+			<RawData length="16" name="header" />
+			<Subblocks type="block11Record" counterlength="2" />
+		</content>
+	</VuBlock>
+
+
+	<DataType name="VuCalibrationRecord">
+		<title>VuCalibrationRecord</title>
+		<comment>Used in the technical block on the vehicle unit, See page 163 of l207.pdf</comment>
+		<content>
+			<int name="calibrationPurpose" length="1" table="calibrationPurpose" />
+			<cpstring name="workshopName" length="36" />
+			<cpstring name="workshopAddress" length="36" />
+			<FullCardNumber name="workshopCardNumber" />
+			<TimeReal name="workshopCardExpiryDate" />
+			<string name="vehicleIdentificationNumber" length="17" />
+			<VehicleRegistration name="vehicleRegistrationIdentification" />
+			<int length="2" name="wVehicleCharacteristicConstant" unit="Impulses/km" />
+			<int length="2" name="kConstantOfRecordingEquipment" unit="Impulses/km" />
+			<int length="2" name="lTyreCircumference" unit="/8 mm" />
+			<string name="tyreSize" length="15" />
+			<int length="1" name="authorisedSpeed" unit="km/h" />
+			<int length="3" name="oldOdometerValue" unit="km" />
+			<int length="3" name="newOdometerValue" unit="km" />
+			<TimeReal name="oldTimeValue" />
+			<TimeReal name="newTimeValue" />
+			<TimeReal name="nextCalibrationDate" />
+		</content>
+	</DataType>
+
+	<DataType name="VuTimeAdjustmentRecord">
+		<content>
+			<TimeReal name="oldTimeValue" />
+			<TimeReal name="newTimeValue" />
+			<string name="workshopName" length="36" />
+			<string name="workshopAddress" length="36" />
+			<FullCardNumber name="workshopCardNumber" />
+		</content>
+	</DataType>
+	
+	<VuBlock name="VuEventsFaults" type="0x3" requiresSignature="yes">
+		<title>Events and faults</title>
+		<content>
+			<Subblocks counterlength="1" type="VuFaultRecord" />
+			<Subblocks counterlength="1" type="VuEventRecord" />
+			<TimeReal name="lastOverspeedControlTime" />
+			<TimeReal name="firstOverspeedSince" />
+			<int length="1" name="numberOfOverspeedSince" />
+			<Subblocks counterlength="1" type="VuOverspeedingEventRecord" />
+			<Subblocks counterlength="1" type="VuTimeAdjustmentRecord" />
+		</content>
+	</VuBlock>
+
+	<DataType name="CertificateAuthority">
+	       <content>
+			<int length="1" name="nationNumeric" table="nationNumeric" />
+			<string length="3" name="nationAlpha" />
+			<int length="1" name="keySerialNumber" />
+			<RawData length="2" name="additionalInfo" />
+			<int length="1" name="caIdentifer" />
+		</content>
+	</DataType>
+	
+	<VuBlock name="VuActivities" type="0x2" requiresSignature="yes">
+		<title>Activities</title>
+		<content>
+			<TimeReal name="timeReal" />
+			<int length="3" name="odometerValueMidnight" unit="km" />
+			<Subblocks type="VuCardIWRecord" counterlength="2" />
+			<Subblocks type="ActivityChangeInfo" counterlength="2" />
+			<Subblocks type="VuPlaceDailyWorkPeriodRecord" counterlength="1" />
+			<Subblocks type="SpecificConditionRecord" counterlength="2" /> 
+		</content>
+	</VuBlock>
+	
+	<DataType name="VuCardIWRecord">
+		<content>
+			<Name name="cardHolderName" />
+			<FullCardNumber name="cardNumber" />
+			<TimeReal name="cardExpiryDate" />
+			<TimeReal name="cardInsertionTime" />
+			<int length="3" unit="km" name="vehicleOdometerValueAtInsertion" />
+			<int length="1" name="cardSlotNumber" />
+			<TimeReal name="cardWithdrawalTime" />
+			<int length="3" unit="km" name="vehicleOdometerValueAtWithdrawal" />
+			<VehicleRegistration name="previousVehicleRegistration" />
+			<TimeReal name="previousCardWithdrawalTime" />
+			<int length="1" name="manualInputFlag" />
+		</content>
+	</DataType>
+	
+	<DataType name="VuPlaceDailyWorkPeriodRecord">
+		<content>
+			<FullCardNumber name="fullCardNumber" />
+			<PlaceRecord name="placeRecord" />
+		</content>
+	</DataType>
+
+	<DataType name="VuDetailedSpeedBlock">
+		<content>
+			<TimeReal name="speedBlockBeginDate" />
+			<RawData length="60" name="speedsPerSecond" />
+		</content>
+	</DataType>
+	
+	<VuBlock name="VuDetailedSpeedData" type="0x4" requiresSignature="yes">
+		<title>Detailed Speed</title>
+		<content>
+			<Subblocks type="VuDetailedSpeedBlock" counterlength="2"/>
+		</content>
+	</VuBlock>
+
+	<DataType name="CardSlots">
+		<content>
+			<FullCardNumber name="cardNumberDriverSlotBegin" />
+			<FullCardNumber name="cardNumberCoDriverSlotBegin" />
+			<FullCardNumber name="cardNumberDriverSlotEnd" />
+			<FullCardNumber name="cardNumberCoDriverSlotEnd" />
+		</content>
+	</DataType>
+
+	<DataType name="VuFaultRecord">
+		<content>
+			<int length="1" table="eventType" name="eventType" />
+			<int length="1" table="eventRecordPurpose" name="eventRecordPurpose" />
+			<Timespan name="eventTime" />
+			<CardSlots name="cardSlots" />
+		</content>
+	</DataType>
+	
+	<DataType name="VuEventRecord">
+		<content>
+			<int length="1" table="eventType" name="eventType" />
+			<int length="1" table="eventRecordPurpose" name="eventRecordPurpose" />
+			<Timespan name="eventTime" />
+			<CardSlots name="cardSlots" />
+			<int length="1" name="similarEventsNumber" />
+		</content>
+	</DataType>
+	
+	<DataType name="VuOverspeedingEventRecord">
+		<content>
+			<int length="1" table="eventType" name="eventType" />
+			<int length="1" table="eventRecordPurpose" name="eventRecordPurpose" />
+			<Timespan name="eventTime" />
+			<int length="1" name="maxSpeedValue" unit="km/h" />
+			<int length="1" name="averageSpeedValue" unit="km/h" />
+			<FullCardNumber name="cardNumberDriverSlotBegin" />
+			<int length="1" name="similarEventsNumber" />
+		</content>
+	</DataType>
+
+	<DataType name="BcdDate">
+		<content>
+			<RawData name="encodedDate" length="4" />
+		</content>
+		<toString>bcdbyte(encodedDate[0]) + bcdbyte(encodedDate[1]) + "-" + bcdbyte(encodedDate[2]) + "-" + bcdbyte(encodedDate[3])</toString>
+	</DataType>
+	
+	<DataType name="EncryptedCertificate">
+		<content>
+			<RawData name="Sign" length="128" />
+			<RawData name="Cndash" length="58" />
+			<CertificateAuthority name="certificateAuthorityReference" />
+		</content>
+	</DataType>
+	
+	<CardBlock name="CardVehiclesUsed" type="0x0505">
+		<title>Vehicles Used</title>
+		<content>
+			<int length="2" name="vehiclePointerNewestRecord" />
+			<Subblocks type="CardVehicleRecord" />
+		</content>
+	</CardBlock>
+</xml>

@@ -15,7 +15,7 @@ class constDataPointer {
 	{
 	}
 
-	constDataPointer operator+(int j) const
+	inline constDataPointer operator+(int j) const
 	{
 		return constDataPointer(data, offset + j);
 	}
@@ -31,7 +31,7 @@ class constDataPointer {
 		return *this;
 	}
 
-	unsigned char operator[](int j) const
+	inline unsigned char operator[](int j) const
 	{
 		return data[offset + j];
 	}

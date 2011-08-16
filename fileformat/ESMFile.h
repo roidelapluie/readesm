@@ -14,26 +14,36 @@
  You should have received a copy of the GNU General Public License along with
  readESM.  If not, see <http://www.gnu.org/licenses/>. */
 
-#ifndef READTYPES_H
-#define READTYPES_H
+#ifndef ESMFILE_H
+#define ESMFILE_H
 
-#include "constDataPointer.h"
+
+#include "Block.h"
 
 #include <QtCore/QString>
-
-QString codepageStringCombination(const constDataPointer& start, int length);
-QString fixedString(const constDataPointer& start, int length);
-
-int readBigEndianInt1(const constDataPointer& start);
-int readBigEndianInt2(const constDataPointer& start);
-int readBigEndianInt3(const constDataPointer& start);
-int readBigEndianInt4(const constDataPointer& start);
+#include <QVector>
+#include <QSharedPointer>
+#include <QByteArray>
 
 
-QString bcdbyte(unsigned char start);
 
-// inline int LEInt32(const constDataPointer& start) {
-// 	return (start[3] << 24) + (start[2] << 16) + (start[1] << 8) + start[0];
-// }
+class ESMFile {
+	Q_DECLARE_TR_FUNCTIONS(ESMFile)
+
+public:
+	QByteArray content;
+	QVector< QSharedPointer<Block> > blocks;
+
+	ESMFile(const QString& filename);
+
+	QString suggestTitle() const;
+	QString suggestFileName() const;
+	
+	friend reporter& operator<<(reporter& report, const ESMFile& e);
+	
+protected:
+	void printOn(reporter& o) const;
+
+};
 
 #endif

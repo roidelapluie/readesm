@@ -2,13 +2,13 @@
  \brief contains main() and handling of command line arguments.
 
  readesm mainly defines which files to read and parse. The actual parsing
- of files is described in esmfile.h, and the information about the parsing of
+ of files is described in DataDefinitions.xml and the information about the parsing of
  the individual blocks just there.
  */
 
 
 #include "config.h"
-#include "fileformat/esmfile.h"
+#include "fileformat/ESMFile.h"
 #include "fileformat/reporter/htmlReporter.h"
 #include "fileformat/reporter/txtReporter.h"
 #include "fileformat/reporter/xmlReporter.h"
@@ -47,7 +47,7 @@ int main2(int argc, char** argv)
 		QString inputFile(argv[1]);
 		QString outputFile(argv[2]);
 
-		esmfile esm(inputFile);
+		ESMFile esm(inputFile);
 		//determine extension of output file
 		QString extension(outputFile.section(".",-1).toLower());
 
