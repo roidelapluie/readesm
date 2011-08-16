@@ -4,7 +4,7 @@
 
 QString xmlReporter::str() {
 	QString rv;
-	QTextStream o(&rv); 
+	QTextStream o(&rv);
 	o << "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n"
 		"\n<html xmlns=\"http://www.w3.org/1999/xhtml\" dir=\"ltr\" lang=\"en-US\">\n"
 		"\n<head>\n\t<title>" << title << "</title>"
@@ -20,7 +20,7 @@ QString xmlReporter::str() {
 		"\n\t\tsmall		{font-size:0.8em;}"
 		"\n\t</style>"
 		"\n</head>\n<body>"
-		"\n<h1>" << title << "</h1>" 
+		"\n<h1>" << title << "</h1>"
 		<< links << "<hr/>"
 		<< reporter::str() << "<hr/>" << InfoAppend(true)
 		<< "\n</body>\n</html>\n";
@@ -28,7 +28,7 @@ QString xmlReporter::str() {
 }
 
 xmlReporter::xmlReporter(const QString& title_) :
-	htmlReporter(title_) 
+	htmlReporter(title_)
 {
 }
 

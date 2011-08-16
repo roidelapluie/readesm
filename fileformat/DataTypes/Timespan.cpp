@@ -1,6 +1,6 @@
 #include "Timespan.h"
 
-Timespan::Timespan(const constDataPointer& start) : 
+Timespan::Timespan(const constDataPointer& start) :
 	begin(start),
 	end(start + 4)
 {}

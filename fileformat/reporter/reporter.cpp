@@ -1,10 +1,10 @@
 #include "reporter.h"
 
-reporter::reporter(const QString& title_) : 
-	collected(), 
-	collector(&collected), 
-	title(title_), 
-	verbose(false) 
+reporter::reporter(const QString& title_) :
+	collected(),
+	collector(&collected),
+	title(title_),
+	verbose(false)
 {
 }
 

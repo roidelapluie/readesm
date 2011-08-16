@@ -1,8 +1,9 @@
 #ifndef RAWDATA_H
 #define RAWDATA_H
 
-#include <QString>
 #include "../constDataPointer.h"
+
+#include <QtCore/QString>
 
 class RawData : public constDataPointer {
 public:

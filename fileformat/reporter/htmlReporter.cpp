@@ -1,8 +1,8 @@
 #include "htmlReporter.h"
 
-htmlReporter::htmlReporter(const QString& title_) : 
+htmlReporter::htmlReporter(const QString& title_) :
 	reporter(title_),
-	links(), 
+	links(),
 	linksCollector(&links),
 	targetcount(0)
 {
@@ -15,8 +15,8 @@ QString htmlReporter::escapeString(QString in) const{
 
 QString htmlReporter::str() {
 	QString rv;
-	QTextStream o(&rv); 
-	o << "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\" dir=\"ltr\" lang=\"en-US\">\n<head><link rel='stylesheet' type='text/css' media='screen' href='style.css'/>" 
+	QTextStream o(&rv);
+	o << "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\" dir=\"ltr\" lang=\"en-US\">\n<head><link rel='stylesheet' type='text/css' media='screen' href='style.css'/>"
 	"<title>" << title << "</title>"
 	"<meta http-equiv='Content-Type' content='text/html; charset=utf8'/></head><body>"
 	"<h1>" << title << "</h1>"
@@ -52,7 +52,7 @@ void htmlReporter::blockend() {
 void htmlReporter::single(const QString& description, bool ishead) {
 	QString mark = "td";
 	if(ishead) mark = "th";
-	collector << "<tr><" << mark << " colspan='2' class='center'>" << 
+	collector << "<tr><" << mark << " colspan='2' class='center'>" <<
 			escapeString(description) << "</" << mark << "></tr>" << endl;
 }
 

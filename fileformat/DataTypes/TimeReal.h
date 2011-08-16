@@ -3,7 +3,8 @@
 
 #include "../constDataPointer.h"
 #include "../readTypes.h"
-#include <QDateTime>
+
+#include <QtCore/QDateTime>
 
 class TimeReal : public QDateTime{
 	public:
