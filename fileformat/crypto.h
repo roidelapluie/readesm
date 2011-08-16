@@ -18,7 +18,7 @@
 #define CRYPTO_H CRYPTO_H
 #include "config.h"
 
-#ifdef HAVE_NO_CRYPTO
+#ifndef HAVE_CRYPTO
 #error "including crypto"
 #endif
 

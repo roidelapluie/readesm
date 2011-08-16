@@ -21,7 +21,7 @@ class CardBlock : public Block {
 	int dataSize() const {
 		return datasize;
 	}
-#ifndef HAVE_NO_CRYPTO
+#ifdef HAVE_CRYPTO
 	virtual bool checksig(const rsa& key) {
 		if(hassignature) validsignature = CheckSignature(start + 5, datasize,
 				signature, 128, key);

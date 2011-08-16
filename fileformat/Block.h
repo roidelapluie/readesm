@@ -22,7 +22,10 @@
 #include "readTypes.h"
 #include "reporter/reporter.h"
 
+#ifdef HAVE_CRYPTO
 #include "rsa.h"
+#include "crypto.h"
+#endif
 
 #include <QtCore/QCoreApplication>
 #include <QtCore/QString>
@@ -42,7 +45,6 @@ class signature {
 #endif
 	}
 };*/
-#include "crypto.h"
 
 class Block {
 	Q_DECLARE_TR_FUNCTIONS(Block)
@@ -58,7 +60,7 @@ class Block {
 	friend reporter& operator<<(reporter& o, const Block& b) {
 		o.bigblockstart(b.name());
 		b.printOn(o);
-#ifndef HAVE_NO_CRYPTO
+#ifdef HAVE_CRYPTO
 		o.single(b.hassignature ? (b.validsignature
 				? tr("Block has valid signature") : tr("Beware: Block has invalid signature")) : tr("Block not signed"));
 #else
@@ -74,7 +76,7 @@ class Block {
 		return tr("Unknown block type 0x%1").arg(readBigEndianInt2(start), 8, 16, QChar('0'));
 	}
 
-#ifndef HAVE_NO_CRYPTO
+#ifdef HAVE_CRYPTO
 	virtual bool checksig(const rsa& key) = 0;
 #endif
 	protected:

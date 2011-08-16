@@ -43,7 +43,7 @@ class VuBlock : public Block {
 	}
 	virtual int size() const = 0;
 	virtual void printOn(reporter& report) const = 0;
-#ifndef HAVE_NO_CRYPTO
+#ifdef HAVE_CRYPTO
 	virtual bool checksig(const rsa& key) {
 		;
 		validsignature = CheckSignature(start + 2 + nonhashedbytes(), size()
