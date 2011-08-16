@@ -228,7 +228,7 @@ for block in tree.findall('CardBlock') + tree.findall('DataType') + tree.findall
 className='CardBlock'
 blocklist =  tree.findall(className)
 
-headerDependencies = set(('"CardBlock.h"','<QSharedPointer>'))
+headerDependencies = set(('"CardBlock.h"','<QtCore/QSharedPointer>'))
 codeDependencies = set('"%s.h"' % block.get('name') for block in blocklist  )
 
 headerContent = 'QSharedPointer<CardBlock> cardBlockFactory(const constDataPointer& start);'
@@ -243,7 +243,7 @@ writeCodeFile('cardBlockFactory', 'CardBlocks', headerContent, codeContent, head
 className='VuBlock'
 blocklist =  tree.findall(className)
 
-headerDependencies = set(('"VuBlock.h"','"VuUnknownBlock.h"','<QSharedPointer>'))
+headerDependencies = set(('"VuBlock.h"','"VuUnknownBlock.h"','<QtCore/QSharedPointer>'))
 codeDependencies = set('"%s.h"' % block.get('name') for block in blocklist  )
 
 headerContent = 'QSharedPointer<VuBlock> vuBlockFactory(const constDataPointer& start);'
