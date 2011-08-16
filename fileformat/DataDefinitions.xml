@@ -2,7 +2,7 @@
 	<comment>These data definitions are used to read the data stored in digital tachograph equipment.  They are defined in commision regulation (EC) No 1360/2002 of June 13th, 2002.  The generator script "generate.py" creates code out of these definitions that is then used in the readesm project, http://readesm.sourceforge.net/
 	You may use these definitions under the terms of the GNU General Public License, Version 3.0.
 	Following the naming in Qt and the one mostly used in the commision regulation, class names are capitalized, and data members use a lower-case first letter.</comment>
-	
+
 	<DataType name="FullCardNumber">
 		<content>
 			<int length="1" name="cardType" table="equipmentType" />
@@ -14,7 +14,7 @@
 		.arg(formatStrings::nationNumeric(cardIssuingMemberState))
 		.arg(formatStrings::equipmentType(cardType))</toString>
 	</DataType>
-	
+
 	<CardBlock name="DriverCardApplicationIdentification" type="0x0501">
 		<title>Application Identification</title>
 		<content>
@@ -34,7 +34,7 @@
 			<TimeReal name="lastCardDownload" />
 		</content>
 	</CardBlock>
-	
+
 	<CardBlock name="CardDrivingLicenseInformation" type="0x0521">
 		<title>Driving License Info</title>
 		<content>
@@ -51,7 +51,7 @@
 		</content>
 		<toString>surname + ", " + firstNames</toString>
 	</DataType>
-	
+
 	<CardBlock name="Identification" type="0x0520">
 		<title>Card identification and card holder identification</title>
 		<content>
@@ -75,7 +75,7 @@
 			<VehicleRegistration name="sessionOpenVehicle" />
 		</content>
 	</CardBlock>
-	
+
 	<CardBlock name="CardChipIdentification" type="0x0005">
 		<title>Card chip identification</title>
 		<comment>ef ic according to en 726-3</comment>
@@ -84,7 +84,7 @@
 			<RawData name="icManufacturingReference" length="4" />
 		</content>
 	</CardBlock>
-	
+
 	<CardBlock name="CardIccIdentification" type="0x0002">
 		<title>Card ICC identification</title>
 		<content>
@@ -116,7 +116,7 @@
 			<RawData name="cyclicData" />
 		</content>
 	</CardBlock>
-	
+
 	<DataType name="CardEventRecord">
 		<content>
 			<int name="eventType" table="eventType" length="1" />
@@ -124,7 +124,7 @@
 			<VehicleRegistration name="eventVehicleRegistration" />
 		</content>
 	</DataType>
-	
+
 	<CardBlock name="CardEventData" type="0x0502">
 		<title>Events Data</title>
 		<content>
@@ -138,7 +138,7 @@
 			<Subblocks type="CardEventRecord" />
 		</content>
 	</CardBlock>
-	
+
 	<DataType name="SpecificConditionRecord">
 		<content>
 			<TimeReal name="entryTime" />
@@ -166,7 +166,7 @@
 			<EncryptedCertificate name="certificate" />
 		</content>
 	</CardBlock>
-	
+
 	<VuBlock name="VuOverview" type="0x1" requiresSignature="yes">
 		<title>Overview</title>
 		<content>
@@ -193,7 +193,7 @@
 			<FullCardNumber name="companyCardNumber" />
 		</content>
 	</DataType>
-	
+
 	<DataType name="VuControlActivityRecord">
 		<content>
 			<int length="1" name="controlType" table="controlType" />
@@ -202,15 +202,15 @@
 			<Timespan name="downloadPeriod" />
 		</content>
 	</DataType>
-	
-	
+
+
 	<DataType name="VehicleRegistration">
 		<content>
 			<int length="1" name="vehicleRegistrationNation" table="nationNumeric" />
 			<cpstring length="14" name="vehicleRegistrationNumber" />
 		</content>
 	</DataType>
-	
+
 	<DataType name="PlaceRecord">
 		<content>
 			<TimeReal name="entryTime" />
@@ -238,7 +238,7 @@
 			<Subblocks type="PlaceRecord" />
 		</content>
 	</CardBlock>
-	
+
 	<VuBlock name="VuTechnical" type="0x5" requiresSignature="yes">
 		<title>Technical Data</title>
 		<content>
@@ -256,7 +256,7 @@
 			<Subblocks type="VuCalibrationRecord" counterlength="1" />
 		</content>
 	</VuBlock>
-	
+
 	<DataType name="ExtendedSerialNumber">
 		<content>
 			<int length="4" name="serialNumber" />
@@ -282,8 +282,8 @@
 		</content>
 	</DataType>
 
-       <VuBlock name="block11" type="0x11">
-		<comment>This block is not covered in the european law. My(Andreas) guess is that this is something manufacturer-specific, in the files from siemens vdos this block (code 0x7611) contains, well, card numbers and timestamps. It might be something else from other manufacturers. If you do know what it does, please tell me.</comment>
+	<VuBlock name="block11" type="0x11">
+		<comment>This block is not covered in the european law. My (Andreas) guess is that this is something manufacturer-specific, in the files from siemens vdos this block (code 0x7611) contains, well, card numbers and timestamps. It might be something else from other manufacturers. If you do know what it does, please tell me.</comment>
 		<title>Unknown Block with trep 0x11</title>
 		<content>
 			<RawData length="16" name="header" />
@@ -325,7 +325,7 @@
 			<FullCardNumber name="workshopCardNumber" />
 		</content>
 	</DataType>
-	
+
 	<VuBlock name="VuEventsFaults" type="0x3" requiresSignature="yes">
 		<title>Events and faults</title>
 		<content>
@@ -340,7 +340,7 @@
 	</VuBlock>
 
 	<DataType name="CertificateAuthority">
-	       <content>
+		<content>
 			<int length="1" name="nationNumeric" table="nationNumeric" />
 			<string length="3" name="nationAlpha" />
 			<int length="1" name="keySerialNumber" />
@@ -348,7 +348,7 @@
 			<int length="1" name="caIdentifer" />
 		</content>
 	</DataType>
-	
+
 	<VuBlock name="VuActivities" type="0x2" requiresSignature="yes">
 		<title>Activities</title>
 		<content>
@@ -357,10 +357,10 @@
 			<Subblocks type="VuCardIWRecord" counterlength="2" />
 			<Subblocks type="ActivityChangeInfo" counterlength="2" />
 			<Subblocks type="VuPlaceDailyWorkPeriodRecord" counterlength="1" />
-			<Subblocks type="SpecificConditionRecord" counterlength="2" /> 
+			<Subblocks type="SpecificConditionRecord" counterlength="2" />
 		</content>
 	</VuBlock>
-	
+
 	<DataType name="VuCardIWRecord">
 		<content>
 			<Name name="cardHolderName" />
@@ -376,7 +376,7 @@
 			<int length="1" name="manualInputFlag" />
 		</content>
 	</DataType>
-	
+
 	<DataType name="VuPlaceDailyWorkPeriodRecord">
 		<content>
 			<FullCardNumber name="fullCardNumber" />
@@ -390,7 +390,7 @@
 			<RawData length="60" name="speedsPerSecond" />
 		</content>
 	</DataType>
-	
+
 	<VuBlock name="VuDetailedSpeedData" type="0x4" requiresSignature="yes">
 		<title>Detailed Speed</title>
 		<content>
@@ -415,7 +415,7 @@
 			<CardSlots name="cardSlots" />
 		</content>
 	</DataType>
-	
+
 	<DataType name="VuEventRecord">
 		<content>
 			<int length="1" table="eventType" name="eventType" />
@@ -425,7 +425,7 @@
 			<int length="1" name="similarEventsNumber" />
 		</content>
 	</DataType>
-	
+
 	<DataType name="VuOverspeedingEventRecord">
 		<content>
 			<int length="1" table="eventType" name="eventType" />
@@ -444,7 +444,7 @@
 		</content>
 		<toString>bcdbyte(encodedDate[0]) + bcdbyte(encodedDate[1]) + "-" + bcdbyte(encodedDate[2]) + "-" + bcdbyte(encodedDate[3])</toString>
 	</DataType>
-	
+
 	<DataType name="EncryptedCertificate">
 		<content>
 			<RawData name="Sign" length="128" />
@@ -452,7 +452,7 @@
 			<CertificateAuthority name="certificateAuthorityReference" />
 		</content>
 	</DataType>
-	
+
 	<CardBlock name="CardVehiclesUsed" type="0x0505">
 		<title>Vehicles Used</title>
 		<content>
