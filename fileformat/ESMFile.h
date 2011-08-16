@@ -17,15 +17,15 @@
 #ifndef ESMFILE_H
 #define ESMFILE_H
 
-
 #include "Block.h"
 
+#include <QtCore/QByteArray>
+#include <QtCore/QSharedPointer>
 #include <QtCore/QString>
-#include <QVector>
-#include <QSharedPointer>
-#include <QByteArray>
+#include <QtCore/QVector>
 
-
+class QByteArray;
+class QString;
 
 class ESMFile {
 	Q_DECLARE_TR_FUNCTIONS(ESMFile)

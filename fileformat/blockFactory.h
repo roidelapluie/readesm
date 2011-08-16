@@ -2,7 +2,8 @@
 #define BLOCKFACTORY_H
 
 #include "Block.h"
-#include <QSharedPointer>
+
+#include <QtCore/QSharedPointer>
 
 QSharedPointer<Block> blockFactory(const constDataPointer& start);
 

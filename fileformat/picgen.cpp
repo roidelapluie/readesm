@@ -31,7 +31,7 @@ QString svgBarGraph::drawLegend() const{
 		.arg(tr("= driving"));
 }
 
-QString svgGraph::addSvgHull(QString content, int width) const { 
+QString svgGraph::addSvgHull(QString content, int width) const {
 	return QString("\n<svg xmlns='http://www.w3.org/2000/svg' width='%1' height='135'>\n\t<g transform='translate(10,0)'>")
 		.arg(width)
 	+ content

@@ -29,15 +29,11 @@
 #include "rsa.h"
 #include "DataTypes/CertificateAuthority.h"
 
-#include <QtCore/QCoreApplication>
-#include <QtCore/QDebug>
-#include <QtCore/QFile>
 #include <QtCore/QSharedPointer>
 
 #include <vector>
 
 bool checkSHA1match(const unsigned char* text, int textlength, const unsigned char* hash);
-
 
 class verifiedcert {
 	Q_DECLARE_TR_FUNCTIONS(verifiedcert)

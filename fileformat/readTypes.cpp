@@ -19,7 +19,7 @@ QString fixedString(const constDataPointer& start, int length) {
 	}
 	if(start[0] < 0x20 || start[0] == 0xFF){
 		if(start[0] == 0 && (start[1] == 0 || start[1] == 0xFF)) return "";
-		qDebug() << "String starts with " << (int)start[0] << (int)start[1] << (int)start[2] <<", string is " << rv; 
+		qDebug() << "String starts with " << (int)start[0] << (int)start[1] << (int)start[2] <<", string is " << rv;
 	}
 	return rv;
 }

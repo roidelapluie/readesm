@@ -4,6 +4,9 @@
 
 #include <gcrypt.h>
 
+#include <QtCore/QDebug>
+#include <QtCore/QFile>
+
 verifiedcert::verifiedcert(constDataPointer start_) :
 	start(start_), car(start + 186), verified(false) {
 }
@@ -40,7 +43,7 @@ bool verifiedcert::verify(const rsa& extkey) {
 
 reporter& operator<<(reporter& o, const verifiedcert& p) {
 	o("SHA1", hexchunk(p.hash, 20));
-	o("Key Identifier", hexchunk(&p.cdash[20], 8)); 
+	o("Key Identifier", hexchunk(&p.cdash[20], 8));
 	o.blockstart("Certificate authority reference", 1);
 	o << p.car;
 	o.blockend();

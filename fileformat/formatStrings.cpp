@@ -26,55 +26,55 @@ QString formatStrings::eventType(unsigned char etype) {
 	o << int(etype) << " - ";
 	if(major == 0) {
 		o << tr("General events: ");
-		const char* generalEvents[] = { 
+		const char* generalEvents[] = {
 			QT_TR_NOOP("No further details"),
-			QT_TR_NOOP("Insertion of a non-valid card"), 
+			QT_TR_NOOP("Insertion of a non-valid card"),
 			QT_TR_NOOP("Card conflict"),
-			QT_TR_NOOP("Time overlap"), 
+			QT_TR_NOOP("Time overlap"),
 			QT_TR_NOOP("Driving without an appropriate card"),
 			QT_TR_NOOP("Card insertion while driving"),
-			QT_TR_NOOP("Last card session not correctly closed"), 
+			QT_TR_NOOP("Last card session not correctly closed"),
 			QT_TR_NOOP("Over speeding"),
-			QT_TR_NOOP("Power supply interruption"), 
+			QT_TR_NOOP("Power supply interruption"),
 			QT_TR_NOOP("Motion data error")
 		};
 		if(minor <= 0x9) o << tr(generalEvents[minor]);
 		else o << tr("RFU");
 	} else if(major == 1) {
 		o << tr("Vehicle unit related security breach attempt events: ");
-		const char* sevents[] = { 
+		const char* sevents[] = {
 			QT_TR_NOOP("No further details"),
 			QT_TR_NOOP("Motion sensor authentication failure"),
 			QT_TR_NOOP("Tachograph card authentication failure"),
 			QT_TR_NOOP("Unauthorised change of motion sensor"),
 			QT_TR_NOOP("Card data input integrity error"),
 			QT_TR_NOOP("Stored user data integrity error"),
-			QT_TR_NOOP("Internal data transfer error"), 
+			QT_TR_NOOP("Internal data transfer error"),
 			QT_TR_NOOP("Unauthorised case opening"),
-			QT_TR_NOOP("Hardware sabotage") 
+			QT_TR_NOOP("Hardware sabotage")
 		};
 		if(minor <= 0x8) o << tr(sevents[minor]);
 		else o << tr("RFU");
 	} else if(major == 2) {
 		o << tr("Sensor related security breach attempt events: ");
-		const char* sevents[] = { 
+		const char* sevents[] = {
 			QT_TR_NOOP("No further details"),
-			QT_TR_NOOP("Authentication failure"), 
+			QT_TR_NOOP("Authentication failure"),
 			QT_TR_NOOP("Stored data integrity error"),
-			QT_TR_NOOP("Internal data transfer error"), 
+			QT_TR_NOOP("Internal data transfer error"),
 			QT_TR_NOOP("Unauthorised case opening"),
 			QT_TR_NOOP("Hardware sabotage") };
 		if(minor <= 0x5) o << tr(sevents[minor]);
 		else o << tr("RFU");
 	} else if(major == 3) {
 		o << tr("Recording equipment faults: ");
-		const char* sevents[] = { 
-			QT_TR_NOOP("No further details"), 
+		const char* sevents[] = {
+			QT_TR_NOOP("No further details"),
 			QT_TR_NOOP("VU internal fault"),
-			QT_TR_NOOP("Printer fault"), 
-			QT_TR_NOOP("Display fault"), 
+			QT_TR_NOOP("Printer fault"),
+			QT_TR_NOOP("Display fault"),
 			QT_TR_NOOP("Downloading fault"),
-			QT_TR_NOOP("Sensor fault") 
+			QT_TR_NOOP("Sensor fault")
 		};
 		if(minor <= 0x5) o << tr(sevents[minor]);
 		else o << tr("RFU");
@@ -111,58 +111,58 @@ QString formatStrings::eventRecordPurpose(unsigned char etype) {
 }
 
 QString formatStrings::nationNumeric(unsigned char country) {
-	 const char* countries[] = { 
-		QT_TR_NOOP("No information available"), 
+	const char* countries[] = {
+		QT_TR_NOOP("No information available"),
 		QT_TR_NOOP("Austria"),
-		QT_TR_NOOP("Albania"), 
-		QT_TR_NOOP("Andorra"), 
-		QT_TR_NOOP("Armenia"), 
-		QT_TR_NOOP("Azerbaijan"), 
+		QT_TR_NOOP("Albania"),
+		QT_TR_NOOP("Andorra"),
+		QT_TR_NOOP("Armenia"),
+		QT_TR_NOOP("Azerbaijan"),
 		QT_TR_NOOP("Belgium"),
-		QT_TR_NOOP("Bulgaria"), 
-		QT_TR_NOOP("Bosnia and Herzegovina"), 
-		QT_TR_NOOP("Belarus"), 
+		QT_TR_NOOP("Bulgaria"),
+		QT_TR_NOOP("Bosnia and Herzegovina"),
+		QT_TR_NOOP("Belarus"),
 		QT_TR_NOOP("Switzerland"),
-		QT_TR_NOOP("Cyprus"), 
-		QT_TR_NOOP("Czech Republic"), 
-		QT_TR_NOOP("Germany"), 
-		QT_TR_NOOP("Denmark"), 
+		QT_TR_NOOP("Cyprus"),
+		QT_TR_NOOP("Czech Republic"),
+		QT_TR_NOOP("Germany"),
+		QT_TR_NOOP("Denmark"),
 		QT_TR_NOOP("Spain"),
-		QT_TR_NOOP("Estonia"), 
-		QT_TR_NOOP("France"), 
-		QT_TR_NOOP("Finland"), 
-		QT_TR_NOOP("Liechtenstein"), 
+		QT_TR_NOOP("Estonia"),
+		QT_TR_NOOP("France"),
+		QT_TR_NOOP("Finland"),
+		QT_TR_NOOP("Liechtenstein"),
 		QT_TR_NOOP("Faeroe Islands"),
-		QT_TR_NOOP("United Kingdom"), 
-		QT_TR_NOOP("Georgia"), 
-		QT_TR_NOOP("Greece"), 
-		QT_TR_NOOP("Hungary"), 
+		QT_TR_NOOP("United Kingdom"),
+		QT_TR_NOOP("Georgia"),
+		QT_TR_NOOP("Greece"),
+		QT_TR_NOOP("Hungary"),
 		QT_TR_NOOP("Croatia"),
-		QT_TR_NOOP("Italy"), 
-		QT_TR_NOOP("Ireland"), 
-		QT_TR_NOOP("Iceland"), 
-		QT_TR_NOOP("Kazakhstan"), 
+		QT_TR_NOOP("Italy"),
+		QT_TR_NOOP("Ireland"),
+		QT_TR_NOOP("Iceland"),
+		QT_TR_NOOP("Kazakhstan"),
 		QT_TR_NOOP("Luxembourg"),
-		QT_TR_NOOP("Lithuania"), 
-		QT_TR_NOOP("Latvia"), 
-		QT_TR_NOOP("Malta"), 
-		QT_TR_NOOP("Monaco"), 
+		QT_TR_NOOP("Lithuania"),
+		QT_TR_NOOP("Latvia"),
+		QT_TR_NOOP("Malta"),
+		QT_TR_NOOP("Monaco"),
 		QT_TR_NOOP("Republic of Moldova"),
-		QT_TR_NOOP("Macedonia"), 
-		QT_TR_NOOP("Norway"), 
-		QT_TR_NOOP("Netherlands"), 
-		QT_TR_NOOP("Portugal"), 
+		QT_TR_NOOP("Macedonia"),
+		QT_TR_NOOP("Norway"),
+		QT_TR_NOOP("Netherlands"),
+		QT_TR_NOOP("Portugal"),
 		QT_TR_NOOP("Poland"),
-		QT_TR_NOOP("Romania"), 
-		QT_TR_NOOP("San Marino"), 
-		QT_TR_NOOP("Russian Federation"), 
+		QT_TR_NOOP("Romania"),
+		QT_TR_NOOP("San Marino"),
+		QT_TR_NOOP("Russian Federation"),
 		QT_TR_NOOP("Sweden"),
-		QT_TR_NOOP("Slovakia"), 
-		QT_TR_NOOP("Slovenia"), 
-		QT_TR_NOOP("Turkmenistan"), 
-		QT_TR_NOOP("Turkey"), 
+		QT_TR_NOOP("Slovakia"),
+		QT_TR_NOOP("Slovenia"),
+		QT_TR_NOOP("Turkmenistan"),
+		QT_TR_NOOP("Turkey"),
 		QT_TR_NOOP("Ukraine"),
-		QT_TR_NOOP("Vatican City"), 
+		QT_TR_NOOP("Vatican City"),
 		QT_TR_NOOP("Yugoslavia"),
 		QT_TR_NOOP("Montenegro"), //new ones only found on dtc.jrc.it
 		QT_TR_NOOP("Serbia"),
@@ -178,7 +178,7 @@ QString formatStrings::nationNumeric(unsigned char country) {
 
 QString formatStrings::specificCondition(unsigned char scond) {
 	const char* specificConditions[] = {
-		QT_TR_NOOP("RFU"), 
+		QT_TR_NOOP("RFU"),
 		QT_TR_NOOP("Out of scope - Begin"),
 		QT_TR_NOOP("Out of scope - End"),
 		QT_TR_NOOP("Ferry/Train crossing")
@@ -193,7 +193,7 @@ QString formatStrings::calibrationPurpose(unsigned char cpurp) {
 		QT_TR_NOOP("activation: recording of calibration parameters known, at the moment of the VU activation"),
 		QT_TR_NOOP("first installation: first calibration of the VU after its activation"),
 		QT_TR_NOOP("installation: first calibration of the VU in the current vehicle"),
-		QT_TR_NOOP("periodic inspection") 
+		QT_TR_NOOP("periodic inspection")
 	};
 	if(cpurp <= 4) return tr(cpurps[cpurp]);
 	else return tr("(not specified)");
@@ -211,13 +211,13 @@ QString formatStrings::controlType(unsigned char ctype) {
 
 QString formatStrings::equipmentType(unsigned char value) {
 	const char* vals[] = {
-		QT_TR_NOOP("Reserved"), 
-		QT_TR_NOOP("Driver Card"), 
+		QT_TR_NOOP("Reserved"),
+		QT_TR_NOOP("Driver Card"),
 		QT_TR_NOOP("Workshop Card"),
-		QT_TR_NOOP("Control Card"), 
-		QT_TR_NOOP("Company Card"), 
+		QT_TR_NOOP("Control Card"),
+		QT_TR_NOOP("Company Card"),
 		QT_TR_NOOP("Manufacturing Card"),
-		QT_TR_NOOP("Vehicle Unit"), 
+		QT_TR_NOOP("Vehicle Unit"),
 		QT_TR_NOOP("Motion Sensor")
 	};
 	if(value <= 7) return tr(vals[value]);
@@ -287,7 +287,7 @@ QString formatStrings::manufacturerCode(unsigned char code) {
 	case 0x82: return tr("ORGA Zelenograd ZAO");
 	case 0x88: return tr("Asseco Czech Republic a.s. (formerly PVT a.s.)");
 	case 0x89: return tr("Polska Wytwórnia Papierów Wartosciowych S.A. - PWPW S.A.");
-	case 0xA1: return tr("Continental Automotive GmbH (formerly Siemens AG - Siemens VDO Automotive Siemens Automotive)"); 
+	case 0xA1: return tr("Continental Automotive GmbH (formerly Siemens AG - Siemens VDO Automotive Siemens Automotive)");
 	case 0xA2: return tr("Stoneridge Electronics AB");
 	case 0xA3: return tr("Gemalto (formerly Schlumberger SEMA, Axalto)");
 	case 0xA4: return tr("3M Security Printing and Systems Ltd.");

@@ -17,9 +17,11 @@
 #ifndef RSA_H
 #define RSA_H RSA_H
 
+#include <QtCore/QString>
+
 #include <gmp.h>
+
 #include <vector>
-#include <QString>
 
 ///wrap around mpz_t
 /** This can also be done by the c++-bindings of GMP, but they are not yet

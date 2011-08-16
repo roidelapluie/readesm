@@ -15,11 +15,13 @@
 #include "gui/mainWindow.h"
 
 #include <QtCore/QByteArray>
+#include <QtCore/QFile>
 #include <QtCore/QLocale>
 #include <QtCore/QString>
 #include <QtCore/QTextStream>
 #include <QtCore/QTranslator>
 #include <QtGui/QApplication>
+
 template <typename T>
 int main2(int argc, char** argv)
 {

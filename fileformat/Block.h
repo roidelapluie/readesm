@@ -50,8 +50,8 @@ class Block {
 	Q_DECLARE_TR_FUNCTIONS(Block)
 	public:
 	Block(const constDataPointer& filewalker) :
-		validsignature(false), 
-		hassignature(false), 
+		validsignature(false),
+		hassignature(false),
 		start(filewalker)
 	{
 	}

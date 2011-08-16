@@ -4,8 +4,8 @@
 #include "reporter/reporter.h"
 #include "blockFactory.h"
 
-#include <QtCore/QObject>
 #include <QtCore/QFile>
+#include <QtCore/QObject>
 
 reporter& operator<<(reporter& report, const ESMFile& e) {
 	e.printOn(report);
@@ -45,7 +45,7 @@ void ESMFile::printOn(reporter& report) const{
 }
 
 ESMFile::ESMFile(const QString& filename){
-	
+
 	QFile file(filename);
 	if (!file.open(QIODevice::ReadOnly));
 	content = file.readAll();

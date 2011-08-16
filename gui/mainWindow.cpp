@@ -5,9 +5,9 @@
 
 #include <QtCore/QString>
 #include <QtCore/QStringBuilder>
+#include <QtGui/QAction>
 #include <QtGui/QApplication>
 #include <QtGui/QDesktopWidget>
-#include <QtGui/QAction>
 #include <QtGui/QFileDialog>
 #include <QtGui/QMenu>
 #include <QtGui/QMenuBar>
@@ -25,7 +25,7 @@ mainWindow::mainWindow()
 	setCentralWidget(view);
 
 	//define and link the stuff in the menu bar
-	QMenu *fileMenu = new QMenu(tr("&File"),this); 
+	QMenu *fileMenu = new QMenu(tr("&File"),this);
 	QAction* fileOpenAction = new QAction(QIcon::fromTheme("document-open"), trUtf8("&Open…"), this);
 	QAction* fileSaveRawAction = new QAction(QIcon::fromTheme("document-save-as"), trUtf8("Save &As…"), this);
 	QAction* fileSaveHtmlAction = new QAction(trUtf8("E&xport as HTML…"), this);
@@ -50,7 +50,7 @@ mainWindow::mainWindow()
 	fileMenu->addAction(fileQuitAction);
 	menuBar()->addMenu(fileMenu);
 
-	QMenu* helpMenu = new QMenu(tr("&Help"),this); 
+	QMenu* helpMenu = new QMenu(tr("&Help"),this);
 	QAction* helpContentsAction = new QAction(QIcon::fromTheme("help-contents"), tr("&Contents"), this);
 	QAction* helpAboutAction = new QAction(QIcon::fromTheme("help-about"), tr("&About Readesm"), this);
 	QAction* helpAboutQtAction = new QAction(tr("About &Qt"), this);
@@ -70,13 +70,13 @@ void mainWindow::helpAbout()
 {
 	QMessageBox::about(this,
 		tr("About Readesm"),
-		qApp->applicationName() % QString("\n\n") 
+		qApp->applicationName() % QString("\n\n")
 		% tr("Version: ") % qApp->applicationVersion()
 		% QString("\n")
 		% tr("Copyright (C) 2011 by %1 (%2)")
 			.arg(qApp->organizationName())
 			.arg(qApp->organizationDomain())
-		% QString("\n\n") 
+		% QString("\n\n")
 		% tr("This program converts digital tachograph files into human-readable form.")
 		% QString("\n\n")
 		% tr("readesm is free software: you can redistribute it and/or modify it under the "
@@ -100,11 +100,11 @@ void mainWindow::helpContents()
 void mainWindow::openFile()
 {
 	QString fileName = QFileDialog::getOpenFileName(this,
-		tr("Open Tachograph File"), 
-		QString(), 
-		tr("Tachograph Files") +  "(*.esm *.ddd *.tgd)" + ";;" + tr("All files") + "(*)"
+		tr("Open Tachograph File"),
+		QString(),
+		tr("Tachograph Files") + "(*.esm *.ddd *.tgd)" + ";;" + tr("All files") + "(*)"
 	);
-        if(fileName != "") openFile(fileName);
+	if(fileName != "") openFile(fileName);
 }
 
 void mainWindow::openFile(const QString& filename)
@@ -134,9 +134,9 @@ void mainWindow::saveHtml()
 		return;
 	}
 	QString fileName = QFileDialog::getSaveFileName(this,
-		tr("Save XHtml file as"), 
-		esm->suggestFileName() + ".xhtml", 
-		tr("XHtml files") +  "(*.xhtml)" + ";;" + tr("All files") + "(*)"
+		tr("Save XHtml file as"),
+		esm->suggestFileName() + ".xhtml",
+		tr("XHtml files") + "(*.xhtml)" + ";;" + tr("All files") + "(*)"
 	);
 	if(fileName != "") {
 		QString content = view->page()->mainFrame()->toHtml();
@@ -156,9 +156,9 @@ void mainWindow::saveRaw()
 		return;
 	}
 	QString fileName = QFileDialog::getSaveFileName(this,
-		tr("Save Tachograph file as"), 
-		esm->suggestFileName() + ".esm", 
-		tr("Tachograph Files") +  "(*.esm *.ddd)" + ";;" + tr("All files") + "(*)"
+		tr("Save Tachograph file as"),
+		esm->suggestFileName() + ".esm",
+		tr("Tachograph Files") + "(*.esm *.ddd)" + ";;" + tr("All files") + "(*)"
 	);
 	if(fileName != "") {
 		QFile file(fileName);
