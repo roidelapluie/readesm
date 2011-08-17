@@ -5,7 +5,8 @@
 
 class VuDetailedSpeedData : public RawVuDetailedSpeedData {
 public:
-	VuDetailedSpeedData(const constDataPointer& start) : RawVuDetailedSpeedData(start) {}
+	VuDetailedSpeedData(const constDataPointer& start);
+	void printOn(reporter& report) const;
 };
 
 #endif

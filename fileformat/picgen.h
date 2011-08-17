@@ -30,6 +30,9 @@ class picgen {
 	virtual QString str() const{
 		return collected;
 	}
+	virtual void reset(){
+		collected = "";
+	}
 	virtual void add(int from, int duration, int height, QString color, QString title) {}
 };
 
