@@ -183,8 +183,8 @@ for block in tree.findall('CardBlock') + tree.findall('DataType') + tree.findall
 	headerContent = 'class ' + name + ' : public ' + block.tag + ' {\n' + \
 		  '\t' + 'Q_DECLARE_TR_FUNCTIONS(' + name + ')\npublic:\n' + \
 		  '\t' + elements.replace('\n','\n\t') + '\n\n' + \
-		  '\t' + name + '(constDataPointer filewalker);\n'
-	codeContent = name + '::' + name + '(constDataPointer filewalker) : ' + initList + '\n{}\n\n'
+		  '\t' + name + '(const constDataPointer& filewalker);\n'
+	codeContent = name + '::' + name + '(const constDataPointer& filewalker) : ' + initList + '\n{}\n\n'
 
 	if block.tag != 'DataType':
 		headerContent += '\t' + 'static const int Type = ' + block.get('type') + ';\n' + \
