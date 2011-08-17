@@ -15,16 +15,17 @@ public:
 	int count_;
 	Subblocks(const constDataPointer& start, int count) :start_(start), count_(count)
 	{	
-		qDebug() << count << "subblocks have each" << T::staticSize << "size " << count_ * T::staticSize;
 		for(int j = 0; j < count_; ++j) push_back(T(start + j*T::staticSize));
 	}
+	
+	Subblocks() : count_(0) {}
 	
 	int dataSize() const {
 		return count_ * T::staticSize;
 	}
 
 	void printOn(reporter& o) const{
-		for(unsigned int j = 0; j < this->size(); ++j) (*this)[j].printOn(o);
+		o.reportraynosub((*this));
 	}
 };
 

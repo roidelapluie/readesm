@@ -4,8 +4,8 @@
 #include <QtCore/QByteArray>
 
 class constDataPointer {
-	QByteArray data;
 	public:
+	QByteArray data;
 	int offset;
 	constDataPointer() {}
 
@@ -58,5 +58,8 @@ class constDataPointer {
 	bool operator<(const constDataPointer& other) {
 		return offset < other.offset;
 	}
+	
+	static constDataPointer loadFile(const QString& filename);
+	QByteArray toQByteArray() const;
 };
 #endif

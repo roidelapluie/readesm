@@ -4,7 +4,7 @@
 #include <QtCore/QSharedPointer>
 #include <QtGui/QMainWindow>
 
-class ESMFile;
+class EsmFile;
 class QString;
 class QWebView;
 
@@ -12,7 +12,7 @@ class mainWindow : public QMainWindow
 {
 	Q_OBJECT
 	private:
-		QSharedPointer<ESMFile> esm;
+		QSharedPointer<EsmFile> esm;
 	public:
 		QWebView* view;
 		mainWindow();

@@ -117,6 +117,16 @@
 		</content>
 	</CardBlock>
 
+	<DataType name="CardActivityDailyRecord" hasrefined="true">
+		<content>
+			<int length="2" name="activityRecordPreviousLength" unit="Bytes"/>
+			<int length="2" name="activityRecordLength" unit="Bytes"/>
+			<TimeReal name="activityRecordDate" />
+			<int length="2" name="activityPresenceCounter" />
+			<int length="2" name="activityDayDistance" />
+		</content>
+	</DataType>
+
 	<DataType name="CardEventRecord">
 		<content>
 			<int name="eventType" table="eventType" length="1" />
@@ -188,8 +198,8 @@
 	<DataType name="VuCompanyLocksRecord">
 		<content>
 			<Timespan name="lockTime" />
-			<string length="36" name="companyName" />
-			<string length="36" name="companyAddress" />
+			<cpstring length="36" name="companyName" />
+			<cpstring length="36" name="companyAddress" />
 			<FullCardNumber name="companyCardNumber" />
 		</content>
 	</DataType>
@@ -209,6 +219,9 @@
 			<int length="1" name="vehicleRegistrationNation" table="nationNumeric" />
 			<cpstring length="14" name="vehicleRegistrationNumber" />
 		</content>
+		<toString>QString("%1 (%2)")
+		.arg(vehicleRegistrationNumber)
+		.arg(formatStrings::nationNumeric(vehicleRegistrationNation))</toString>
 	</DataType>
 
 	<DataType name="PlaceRecord">
@@ -349,7 +362,7 @@
 		</content>
 	</DataType>
 
-	<VuBlock name="VuActivities" type="0x2" requiresSignature="yes">
+	<VuBlock name="VuActivities" type="0x2" requiresSignature="yes" hasrefined="true">
 		<title>Activities</title>
 		<content>
 			<TimeReal name="timeReal" />
@@ -391,7 +404,7 @@
 		</content>
 	</DataType>
 
-	<VuBlock name="VuDetailedSpeedData" type="0x4" requiresSignature="yes">
+	<VuBlock name="VuDetailedSpeedData" type="0x4" requiresSignature="yes" hasrefined="yes">
 		<title>Detailed Speed</title>
 		<content>
 			<Subblocks type="VuDetailedSpeedBlock" counterlength="2"/>
@@ -445,14 +458,6 @@
 		<toString>bcdbyte(encodedDate[0]) + bcdbyte(encodedDate[1]) + "-" + bcdbyte(encodedDate[2]) + "-" + bcdbyte(encodedDate[3])</toString>
 	</DataType>
 
-	<DataType name="EncryptedCertificate">
-		<content>
-			<RawData name="Sign" length="128" />
-			<RawData name="Cndash" length="58" />
-			<CertificateAuthority name="certificateAuthorityReference" />
-		</content>
-	</DataType>
-
 	<CardBlock name="CardVehiclesUsed" type="0x0505">
 		<title>Vehicles Used</title>
 		<content>
@@ -460,4 +465,27 @@
 			<Subblocks type="CardVehicleRecord" />
 		</content>
 	</CardBlock>
+
+	<DataType name="EncryptedCertificate" hasrefined="true">
+		<content>
+			<RawData name="sign" length="128" />
+			<RawData name="cndash" length="58" />
+			<CertificateAuthority name="certificateAuthorityReference" />
+		</content>
+	</DataType>
+
+	<DataType name="PlainCertificate">
+		<content>
+			<CertificateAuthority name="keyIdentifier" />
+			<RsaPublicKey name="publicKey" />
+		</content>
+	</DataType>
+
+	<DataType name="RsaPublicKey" hasrefined="true">
+		<content>
+			<LargeNumber name="n" length="128" />
+			<LargeNumber name="e" length="8" />
+		</content>
+	</DataType>
+
 </xml>

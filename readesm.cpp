@@ -8,7 +8,7 @@
 
 
 #include "config.h"
-#include "fileformat/ESMFile.h"
+#include "fileformat/EsmFile.h"
 #include "fileformat/reporter/htmlReporter.h"
 #include "fileformat/reporter/txtReporter.h"
 #include "fileformat/reporter/xmlReporter.h"
@@ -49,7 +49,7 @@ int main2(int argc, char** argv)
 		QString inputFile(argv[1]);
 		QString outputFile(argv[2]);
 
-		ESMFile esm(inputFile);
+		EsmFile esm(inputFile);
 		//determine extension of output file
 		QString extension(outputFile.section(".",-1).toLower());
 

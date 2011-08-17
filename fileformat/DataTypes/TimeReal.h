@@ -8,10 +8,8 @@
 
 class TimeReal : public QDateTime{
 	public:
-	TimeReal(const constDataPointer& start) : QDateTime(QDateTime::fromTime_t(readBigEndianInt4(start)))
-	{
-		((QDateTime*)this)->operator=(this->toUTC());
-	}
+	TimeReal(const constDataPointer& start);
+	QString toString() const;
 };
 
 #endif

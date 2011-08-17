@@ -24,22 +24,22 @@
 #include <QtCore/QString>
 #include <QtCore/QVector>
 
-class QByteArray;
-class QString;
 
-class ESMFile {
+#include "VuBlocks/VuOverview.h"
+
+class EsmFile {
 	Q_DECLARE_TR_FUNCTIONS(ESMFile)
 
 public:
-	QByteArray content;
+	constDataPointer fileWalker;
 	QVector< QSharedPointer<Block> > blocks;
 
-	ESMFile(const QString& filename);
+	EsmFile(const QString& filename);
 
 	QString suggestTitle() const;
 	QString suggestFileName() const;
 	
-	friend reporter& operator<<(reporter& report, const ESMFile& e);
+	friend reporter& operator<<(reporter& report, const EsmFile& e);
 	
 protected:
 	void printOn(reporter& o) const;

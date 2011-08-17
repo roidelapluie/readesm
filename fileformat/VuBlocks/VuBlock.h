@@ -17,43 +17,18 @@
 #ifndef VUBLOCK_H
 #define VUBLOCK_H
 
-#include "config.h"
-
 #include "../Block.h"
 #include "../constDataPointer.h"
-
-#ifndef HAVE_NO_CRYPTO
-#include "../crypto.h"
-#endif
-
-#include "../readTypes.h"
 
 #include <QtCore/QString>
 
 class VuBlock : public Block {
 	public:
 	virtual QString name() const = 0;
-	VuBlock(constDataPointer nstart) :
-		Block(nstart)
-	{
-		hassignature = true;
-	}
-	virtual void Init() {
-		signature = start + size() - 128;
-	}
+	VuBlock(const constDataPointer& nstart);
 	virtual int size() const = 0;
 	virtual void printOn(reporter& report) const = 0;
-#ifdef HAVE_CRYPTO
-	virtual bool checksig(const rsa& key) {
-		;
-		validsignature = CheckSignature(start + 2 + nonhashedbytes(), size()
-				- 128 - 2 - nonhashedbytes(), signature, 128, key);
-		return validsignature;
-	}
-#endif
-	virtual int nonhashedbytes() const {
-		return 0;
-	}
+	virtual RawData signedBytes() const;
 };
 
 #endif

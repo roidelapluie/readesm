@@ -1,13 +1,7 @@
 #ifndef HEXBLOCk_H
 #define HEXBLOCK_H
 
-#include "config.h"
-
 #include "VuBlock.h"
-#include "../DataTypes/RawData.h"
-#ifndef HAVE_NO_CRYPTO
-#include "../crypto.h"
-#endif
 
 #include <QtCore/QString>
 #include <QtCore/QTextStream>
@@ -40,11 +34,7 @@ class VuUnknownBlock : public VuBlock {
 		o.single("If you are convinced readesm should be able to read this file, inform the author");
 		o.single("Block hex data: " + data.toString());
 	}
-#ifndef HAVE_NO_CRYPTO
-	virtual bool checksig(const rsa&){
-		return false;
-	}
-#endif
+
 };
 
 #endif

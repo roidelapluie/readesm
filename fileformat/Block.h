@@ -17,18 +17,14 @@
 #ifndef BLOCK_H
 #define BLOCK_H BLOCK_H
 
-#include "config.h"
 #include "constDataPointer.h"
 #include "readTypes.h"
 #include "reporter/reporter.h"
-
-#ifdef HAVE_CRYPTO
-#include "rsa.h"
-#include "crypto.h"
-#endif
+#include "DataTypes/RawData.h"
 
 #include <QtCore/QCoreApplication>
 #include <QtCore/QString>
+
 /*
 class signature {
 	public:
@@ -60,12 +56,12 @@ class Block {
 	friend reporter& operator<<(reporter& o, const Block& b) {
 		o.bigblockstart(b.name());
 		b.printOn(o);
-#ifdef HAVE_CRYPTO
+/*#ifdef HAVE_CRYPTO
 		o.single(b.hassignature ? (b.validsignature
 				? tr("Block has valid signature") : tr("Beware: Block has invalid signature")) : tr("Block not signed"));
 #else
 		o.single(tr("no crypto support compiled in"));
-#endif
+#endif*/
 		o.bigblockend();
 		return o;
 	}
@@ -76,9 +72,9 @@ class Block {
 		return tr("Unknown block type 0x%1").arg(readBigEndianInt2(start), 8, 16, QChar('0'));
 	}
 
-#ifdef HAVE_CRYPTO
+/*#ifdef HAVE_CRYPTO
 	virtual bool checksig(const rsa& key) = 0;
-#endif
+#endif*/
 	protected:
 	virtual void printOn(reporter& o) const {
 		o("length", size());

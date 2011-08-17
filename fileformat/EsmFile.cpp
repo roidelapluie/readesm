@@ -1,4 +1,4 @@
-#include "ESMFile.h"
+#include "EsmFile.h"
 
 #include "config.h"
 #include "reporter/reporter.h"
@@ -7,7 +7,7 @@
 #include <QtCore/QFile>
 #include <QtCore/QObject>
 
-reporter& operator<<(reporter& report, const ESMFile& e) {
+reporter& operator<<(reporter& report, const EsmFile& e) {
 	e.printOn(report);
 // 	report.title = e.name();
 // 	report.bigblockstart(QObject::tr("Statistics"));
@@ -38,24 +38,17 @@ reporter& operator<<(reporter& report, const ESMFile& e) {
 	return report;
 
 }
-void ESMFile::printOn(reporter& report) const{
+void EsmFile::printOn(reporter& report) const{
 	for(int j = 0; j < blocks.size(); ++j) {
 		report << *(blocks[j]);
 	}
 }
 
-ESMFile::ESMFile(const QString& filename){
-
-	QFile file(filename);
-	if (!file.open(QIODevice::ReadOnly));
-	content = file.readAll();
-	file.close();
-
-	constDataPointer filewalker(content, 0);
-	while(filewalker.bytesLeft() > 0) {
-		QSharedPointer<Block> p(blockFactory(filewalker));
+EsmFile::EsmFile(const QString& filename) : fileWalker(constDataPointer::loadFile(filename)){
+	while(fileWalker.bytesLeft() > 0) {
+		QSharedPointer<Block> p(blockFactory(fileWalker));
 		blocks.append(p);
-		filewalker += p->size();
+		fileWalker += p->size();
 	}
 
 /*#ifndef HAVE_NO_CRYPTO
@@ -72,7 +65,19 @@ ESMFile::ESMFile(const QString& filename){
 #endif*/
 }
 
-QString ESMFile::suggestTitle() const {
+template <typename base, typename derived>
+QSharedPointer<derived> findTypeInVector(QVector< QSharedPointer<base> > array){
+	QSharedPointer<derived> pointer;
+	for(int j = 0; j < array.size(); ++j){
+		pointer = qSharedPointerDynamicCast<derived>(array[j]);
+		if(!pointer.isNull()) return pointer;
+	}
+	return pointer;
+}
+
+QString EsmFile::suggestTitle() const {
+	QSharedPointer<VuOverview> ov = findTypeInVector<Block, VuOverview>(blocks);
+	if(!ov.isNull()) return ov->vehicleRegistrationIdentification.vehicleRegistrationNumber;
 	return "bla";
 	/*return tr("%1, %2 to %3")
 		.arg(title)
@@ -80,7 +85,7 @@ QString ESMFile::suggestTitle() const {
 		.arg(last.datestr());*/
 }
 
-QString ESMFile::suggestFileName() const {
+QString EsmFile::suggestFileName() const {
 	return "bla";
 /*	return tr("%1  (%2 to %3)")
 		.arg(title)

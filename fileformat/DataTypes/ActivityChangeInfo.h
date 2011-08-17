@@ -6,59 +6,49 @@
 class ActivityChangeInfo {
 	Q_DECLARE_TR_FUNCTIONS(activityChangeInfo)
 	public:
-	static const int Break = 0;
-	static const int Available = 1;
-	static const int Work = 2;
-	static const int Driving = 3;
-	static const int Driver = 0;
-	static const int Codriver = 1;
-	static const int Crew = 1;
+	int s,c,p,a,t;
 	static const int staticSize = 2;
-	static QString formatDurTime(int offset) {
-		return QString("%1:%2")
-				.arg(offset / 60, 1, 10, QChar('0'))
-				.arg(offset % 60, 2, 10, QChar('0'));
-	}
 
-	ActivityChangeInfo() :
-		slot(0), manning(0), cardin(0), activity(0), time(0), duration(0) {
-	}
-	ActivityChangeInfo(const constDataPointer& start) {
-		slot = (start[0] & (1 << 7)) >> 7;
-		manning = (start[0] & (1 << 6)) >> 6;
-		cardin = (start[0] & (1 << 5)) >> 5;
-		activity = (start[0] & ((1 << 4) | (1 << 3))) >> 3;
-		time = int((start[0] & 7) << 8) + start[1];
-	}
-	QString astr() const {
-		if(activity == Break) return tr("break/rest");
-		else if(activity == Available) return tr("availability");
-		else if(activity == Work) return tr("work");
-		else if(activity == Driving) return tr("driving");
+	ActivityChangeInfo(const constDataPointer& start) :
+		s((start[0] & (1 << 7)) >> 7),
+		c((start[0] & (1 << 6)) >> 6),
+		p((start[0] & (1 << 5)) >> 5),
+		a((start[0] & ((1 << 4) | (1 << 3))) >> 3),
+		t(int((start[0] & 7) << 8) + start[1])
+	{}
+	
+	QString activityName() const {
+		if(a == 0) return tr("break/rest");
+		else if(a == 1) return tr("availability");
+		else if(a == 2) return tr("work");
+		else if(a == 3) return tr("driving");
 		return tr("unknown activity");
 	}
-	QString tstr(int offset = 0) const {
-		return formatDurTime(time + offset);
+	QString formatClock(int offset = 0) const {
+		return QString("%1:%2")
+				.arg(t / 60, 1, 10, QChar('0'))
+				.arg(t % 60, 2, 10, QChar('0'));
 	}
 	QString toString() const {
-		QString rv;
-		QTextStream o(&rv);
-		o << (slot == Codriver ? tr("co-driver") : tr("driver")) << ", ";
-		o << (manning == Crew ? tr("crew") : tr("single")) << ", ";
-		o << "card " << (cardin ? tr("not inserted") : tr("inserted")) << ", ";
-		o << astr() << " " << tstr();
+		QString rv = QString("s%1 c%2 p%3 a%4, ").arg(s).arg(c).arg(p).arg(a) +  QString("%1: ").arg(formatClock());
+		if(p == 0){
+			rv += tr("Card inserted") + ", ";
+			rv += (s == 0 ? tr("driver slot") : tr("co-driver slot")) + ", ";
+			rv += (c == 0 ? tr("single") : tr("crew")) + ", ";
+			rv += activityName();
+		} else {
+			rv += tr("Card not inserted or withdrawn, ");
+			rv += (s == 0 ? tr("driver slot") : tr("co-driver slot")) + ", ";
+			rv += (c == 0 ? tr("following activity unknown") : tr("following activity manually entered")) + ", ";
+			rv += activityName();
+		}
 		return rv;
 	}
 	void printOn(reporter & o) const {
 		o.single(toString());
 	}
-	int slot, manning, cardin, activity, time, duration;
-	friend QTextStream& operator<<(QTextStream& o, const ActivityChangeInfo& a) {
-		o << a.toString();
-		return o;
-	}
 	friend reporter& operator<<(reporter& o, const ActivityChangeInfo& a) {
-		o(a.tstr(), a.toString());
+		a.printOn(o);
 		return o;
 	}
 };

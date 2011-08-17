@@ -5,7 +5,7 @@
 ## Copyright(C) Andreas Gölzer
 
 # remove auto-gen'd files with
-# find . | xargs grep --exclude "generate.py" -snH "AUTO-GENERATED" --color | cut -f1 -d':' | xargs rm
+# find . \( ! -regex '.*/\..*' ! -name "generate.py" \) | xargs grep -snH "AUTO-GENERATED" --color | cut -f1 -d':' | xargs rm
 
 
 
@@ -82,7 +82,7 @@ if not haveSizes:
 	print "Could not determine block sizes for " + ', '.join(block.get('name') if block.get('name') not in sizes else "" for block in tree.findall('DataType')) + ", abandoning"
 	exit()
 
-hasToString = set(['TimeReal', 'Timespan', 'RawData'])
+hasToString = set(['TimeReal', 'Timespan', 'RawData', 'LargeNumber'])
 for block in tree.findall('DataType'):
 	if block.find('toString') is not None:
 		hasToString.add(block.get('name'))
@@ -131,7 +131,7 @@ for block in tree.findall('CardBlock') + tree.findall('DataType') + tree.findall
 			builder = 'codepageStringCombination(%s, %i)' % (fullOffset, length)
 		elif type == 'int':
 			builder = 'readBigEndianInt%(length)i(%(fullOffset)s)' % vars()
-		elif type == 'RawData':
+		elif type == 'RawData' or type == 'LargeNumber':
 			builder = '%s, %s'  % (fullOffset, str(length))
 			headerDependencies.add('"../DataTypes/' + type + '.h"')
 		elif type == 'Subblocks':
