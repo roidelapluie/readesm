@@ -21,13 +21,13 @@ class CardBlock : public Block {
 	int dataSize() const {
 		return datasize;
 	}
-#ifdef HAVE_CRYPTO
-	virtual bool checksig(const rsa& key) {
-		if(hassignature) validsignature = CheckSignature(start + 5, datasize,
-				signature, 128, key);
-		return validsignature;
-	}
-#endif
+// #ifdef HAVE_CRYPTO
+// 	virtual bool checksig(const rsa& key) {
+// 		if(hassignature) validsignature = CheckSignature(start + 5, datasize,
+// 				signature, 128, key);
+// 		return validsignature;
+// 	}
+// #endif
 	protected:
 	int datasize;
 
