@@ -181,7 +181,7 @@ for block in tree.findall('CardBlock') + tree.findall('DataType') + tree.findall
 			offset += length
 
 	headerContent = 'class ' + name + ' : public ' + block.tag + ' {\n' + \
-		  '\t' + 'Q_DECLARE_TR_FUNCTIONS(' + name + ')\npublic:\n' + \
+		  '\t' + 'Q_DECLARE_TR_FUNCTIONS(' + block.get('name') + ')\npublic:\n' + \
 		  '\t' + elements.replace('\n','\n\t') + '\n\n' + \
 		  '\t' + name + '(const constDataPointer& filewalker);\n'
 	codeContent = name + '::' + name + '(const constDataPointer& filewalker) : ' + initList + '\n{}\n\n'
