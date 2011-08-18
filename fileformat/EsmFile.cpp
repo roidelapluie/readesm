@@ -7,6 +7,12 @@
 #include <QtCore/QFile>
 #include <QtCore/QObject>
 
+
+#include "VuBlocks/VuOverview.h"
+#include "VuBlocks/VuActivities.h"
+#include "CardBlocks/Identification.h"
+
+
 reporter& operator<<(reporter& report, const EsmFile& e) {
 	e.printOn(report);
 // 	report.title = e.name();
@@ -75,20 +81,27 @@ QSharedPointer<derived> findTypeInVector(QVector< QSharedPointer<base> > array){
 	return pointer;
 }
 
+template <typename base, typename derived>
+QVector< QSharedPointer<derived> >  findManyInVector(QVector< QSharedPointer<base> > array){
+	QVector< QSharedPointer<derived> > rv;
+	QSharedPointer<derived> pointer;
+	for(int j = 0; j < array.size(); ++j){
+		pointer = qSharedPointerDynamicCast<derived>(array[j]);
+		if(!pointer.isNull()) rv.append(pointer);
+	}
+	return rv;
+}
+
 QString EsmFile::suggestTitle() const {
 	QSharedPointer<VuOverview> ov = findTypeInVector<Block, VuOverview>(blocks);
-	if(!ov.isNull()) return ov->vehicleRegistrationIdentification.vehicleRegistrationNumber;
-	return "bla";
-	/*return tr("%1, %2 to %3")
-		.arg(title)
-		.arg(first.datestr())
-		.arg(last.datestr());*/
+	QSharedPointer<Identification> id = findTypeInVector<Block, Identification>(blocks);
+	//QSharedPointer<CardDriverActivity> act = findTypeInVector<Block, VuOverview>(blocks);
+	QString rv("Esm data");
+	if(!ov.isNull()) rv = ov->vehicleRegistrationIdentification.vehicleRegistrationNumber;
+	if(!id.isNull()) rv = id->cardHolderName.toString();
+	return rv;
 }
 
 QString EsmFile::suggestFileName() const {
-	return "bla";
-/*	return tr("%1  (%2 to %3)")
-		.arg(title)
-		.arg(first.datestr("%F"))
-		.arg(last.datestr("%F"));*/
+	return suggestTitle();
 }

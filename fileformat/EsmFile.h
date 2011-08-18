@@ -25,7 +25,6 @@
 #include <QtCore/QVector>
 
 
-#include "VuBlocks/VuOverview.h"
 
 class EsmFile {
 	Q_DECLARE_TR_FUNCTIONS(ESMFile)
