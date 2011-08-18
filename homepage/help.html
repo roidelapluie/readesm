@@ -18,6 +18,7 @@ European Union.  Readesm converts the binary data retrieved from the tachograph 
 			<li><a href="#windowscompiling">Compiling in Windows</a></li>
 			<li><a href="#ubuntu">Ubuntu packages</a></li>
 			<li><a href="#compiling">Compiling</a></li>
+			<li><a href="#devversion">Subversion repository</a></li>
 		</ol>
 	</li>
 	<li><a href="#running">Starting the program</a></li>
@@ -82,7 +83,9 @@ source from svn, then build with cmake. In Ubuntu you might do something like:</
 sudo apt-get install libqt4-dev qt4-qmake libqtwebkit-dev libgcrypt11-dev libgmp3-dev
 sudo apt-get install cmake build-essential subversion
 svn co https://readesm.svn.sourceforge.net/svnroot/readesm readesm
-cd readesm
+cd readesm/fileformat
+./generate.py
+cd ..
 mkdir build
 cd build
 cmake ..
@@ -90,6 +93,19 @@ make
 sudo make install
 </pre>
 <p>On other systems, use your distributions package manager to get the tools and libraries, and execute <i>make install</i> as root.  You might also want to try checkinstall or build a package for your distribution in another way.</p>
+<p>Readesm installs icons and mime-type-information on unix systems.  If you did not install the ubuntu-package with apt-get, you will have to update your mime database.  In Suse-linux, that means running <i>update-mime-database /usr/local/share/mime</i> as root, in other distributions it might be something similar.</p>
+
+<h3><a name="devversion"></a>Subversion repository</h3>
+<p>If you want the most recent changes and bugfixes or want to help developing, the subversion repository is at <a href="https://readesm.svn.sourceforge.net/svnroot/readesm">https://readesm.svn.sourceforge.net/svnroot/readesm</a>. The repository does not contain the automatically generated code, so you will have to run <i>generate.py</i> in the folder <i>fileformat</i> first.  To compile from svn:</p>
+<pre>svn co https://readesm.svn.sourceforge.net/svnroot/readesm readesm
+cd readesm/fileformat
+./generate.py
+cd ..
+mkdir build
+cd build
+cmake ..
+make
+</pre>
 
 <h2><a name="running"></a>Starting the program</h2>
 <p>You can use readesm in gui mode or in command line mode:</p>
@@ -171,6 +187,7 @@ As with all european legislation it is available in several languages, for examp
 <ul>
 <li>Martin Walch provided the German translation.</li>
 <li>Jose Huguet provided the Spanish translation.</li>
+<li>Mikulás Róbert provided the Hungarian translation.</li>
 </ul>
 	</body>
 </html>
