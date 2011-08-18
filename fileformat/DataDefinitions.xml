@@ -3,7 +3,7 @@
 	You may use these definitions under the terms of the GNU General Public License, Version 3.0.
 	Following the naming in Qt and the one mostly used in the commision regulation, class names are capitalized, and data members use a lower-case first letter.</comment>
 
-	<DataType name="FullCardNumber">
+	<DataType name="FullCardNumber" hasrefined="true">
 		<content>
 			<int length="1" name="cardType" table="equipmentType" />
 			<int length="1" name="cardIssuingMemberState" table="nationNumeric" />
@@ -374,7 +374,7 @@
 		</content>
 	</VuBlock>
 
-	<DataType name="VuCardIWRecord">
+	<DataType name="VuCardIWRecord" hasrefined="true">
 		<content>
 			<Name name="cardHolderName" />
 			<FullCardNumber name="cardNumber" />
