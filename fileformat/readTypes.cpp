@@ -18,7 +18,7 @@ QString codepageStringCombination(const constDataPointer& start, int length){
 }
 
 QString fixedString(const constDataPointer& start, int length) {
-	if(!checkString(start + 1, length - 1)) return "";
+	if(!checkString(start, length)) return "";
 	QString rv = QString::fromLatin1(start.toPointer(0),length).trimmed();
 	if(start[0] <= 16 && start[0] >= 1){
 		qDebug() << rv << "might be a codepage-string combination, codepage" << (int)start[0] << "parsing as such";
