@@ -8,26 +8,14 @@
 class DataType {
 public:
 	constDataPointer start;
-	DataType(const constDataPointer nstart) : start(nstart)
-	{
-	}
+	DataType(const constDataPointer& nstart);
 
-	friend reporter& operator<<(reporter& report, const DataType& d){
-		d.printOn(report);
-		return report;
-	}
+	friend reporter& operator<<(reporter& report, const DataType& d);
 	virtual void printOn(reporter& report) const  = 0;
-	virtual QString toString(){
-		return "";
-	}
 	virtual int size() const = 0;
-	virtual bool operator==(const DataType& other) const{
-		for(int j = 0; j < size(); ++j) if(start[j] != other.start[j]) return false;
-		return true;
-	}
-	virtual bool operator!=(const DataType& other) const{
-		return !operator==(other);
-	}
+	virtual bool operator==(const DataType& other) const;
+	virtual bool operator!=(const DataType& other) const;
+	virtual bool isDefaultValue() const;
 };
 
 #endif

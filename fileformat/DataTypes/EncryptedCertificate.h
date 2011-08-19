@@ -14,6 +14,8 @@ protected:
 	bool attemptVerification(const RsaPublicKey& key);
 public:
 	EncryptedCertificate(constDataPointer filewalker);
+	virtual void printOn(reporter& report) const;
+	bool isVerified() const;
 };
 
 

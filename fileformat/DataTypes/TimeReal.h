@@ -9,9 +9,11 @@
 
 class TimeReal : public QDateTime{
 	Q_DECLARE_TR_FUNCTIONS(TimeReal)
+	bool valid_;
 	public:
 	TimeReal(const constDataPointer& start);
 	QString toString() const;
+	bool isValid() const;
 };
 
 #endif

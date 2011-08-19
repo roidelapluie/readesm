@@ -16,7 +16,7 @@ bool EncryptedCertificate::attemptVerification(const RsaPublicKey& key){
 	return true;
 }
 
-bool CheckSignature(const RawData& signedData, int length, const RawData& signature, const RsaPublicKey& key) {
+bool CheckSignature(const RawData& signedData, const RawData& signature, const RsaPublicKey& key) {
 	QByteArray srdash = key.perform(signature);
 	QByteArray hdash = srdash.mid(107, 20);
 	if(!checkSha1(signedData, hdash)) return false;
@@ -29,6 +29,18 @@ bool CheckSignature(const RawData& signedData, int length, const RawData& signat
 	//not checking the first two, l207 p.251 says 0x00, 0x01,
 	//but the files actually contain 0x01, 0xff
 	return true;
+}
+
+bool EncryptedCertificate::isVerified() const {
+	return verified;
+}
+
+void EncryptedCertificate::printOn(reporter& report) const {
+	if(!isVerified()){
+		report.single(tr("Unverified certificate, needs verification from:"));
+		certificateAuthorityReference.printOn(report);
+	}
+		
 }
 /*
 bool verifiedcert::verify(const QString& filename) {

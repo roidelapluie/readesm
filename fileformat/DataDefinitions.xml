@@ -411,7 +411,7 @@
 		</content>
 	</VuBlock>
 
-	<DataType name="CardSlots">
+	<DataType name="CardSlots" hasrefined="true">
 		<content>
 			<FullCardNumber name="cardNumberDriverSlotBegin" />
 			<FullCardNumber name="cardNumberCoDriverSlotBegin" />

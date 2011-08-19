@@ -2,14 +2,19 @@
 #include <QDebug>
 TimeReal::TimeReal(const constDataPointer& start) : QDateTime(QDateTime::fromTime_t(readBigEndianInt4(start)))
 {
+	int timestamp = readBigEndianInt4(start);
+	if(timestamp == 0 || timestamp == (int)0xFFFFFFFF) valid_= false;
 	((QDateTime*)this)->operator=(this->toUTC());
 }
 
 QString TimeReal::toString() const{
-	QTime t = time();
-	if(t.hour() == 0 && t.minute() == 0 && t.second() == 0){
-		if(date().year() == 1970 && date().month() == 1 && date().day() == 1) return tr("undefined");
+	if(!isValid()) return tr("undefined");
+	if(time().hour() == 0 && time().minute() == 0 && time().second() == 0){
 		return date().toString();
 	}
 	return QDateTime::toString();
+}
+
+bool TimeReal::isValid() const {
+	return valid_;
 }

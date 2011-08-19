@@ -79,6 +79,7 @@ class Block {
 	virtual void printOn(reporter& o) const {
 		o("length", size());
 	}
+	virtual RawData signedBytes() const = 0;
 
 	protected:
 	constDataPointer signature;
