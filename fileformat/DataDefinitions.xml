@@ -273,13 +273,13 @@
 	<DataType name="ExtendedSerialNumber">
 		<content>
 			<int length="4" name="serialNumber" />
-			<RawData length="2" name="date" />
+			<BcdMonthYear name="date" />
 			<int length="1" name="equipmentType" table="equipmentType" />
 			<int length="1" name="manufacturerCode" table="manufacturerCode" />
 		</content>
 		<toString>QString("%1 (%2) %3, %4")
 		.arg(serialNumber)
-		.arg("20" + bcdbyte(date[1]) + "-" + bcdbyte(date[0]))
+		.arg(date.toString())
 		.arg(formatStrings::equipmentType(equipmentType))
 		.arg(formatStrings::manufacturerCode(manufacturerCode));
 		</toString>
@@ -458,6 +458,13 @@
 		<toString>bcdbyte(encodedDate[0]) + bcdbyte(encodedDate[1]) + "-" + bcdbyte(encodedDate[2]) + "-" + bcdbyte(encodedDate[3])</toString>
 	</DataType>
 
+	<DataType name="BcdMonthYear">
+		<content>
+			<RawData name="encodedDate" length="2" />
+		</content>
+		<toString>"20" + bcdbyte(encodedDate[1]) + "-" + bcdbyte(encodedDate[0])</toString>
+	</DataType>
+
 	<CardBlock name="CardVehiclesUsed" type="0x0505">
 		<title>Vehicles Used</title>
 		<content>
@@ -474,10 +481,10 @@
 		</content>
 	</DataType>
 
-	<DataType name="KeyIdentifier">
+	<DataType name="KeyIdentifier" hasrefined="true">
 		<content>
 			<RawData length="4" name="certificateRequestSerialNumber" />
-			<RawData length="2" name="date" />
+			<BcdMonthYear length="2" name="date" />
 			<int length="1" name="type" />
 			<int length="1" table="manufacturerCode" name="manufacturerCode" />
 		</content>
@@ -497,7 +504,7 @@
 			<CertificateAuthority name="certificateAuthorityReference" />
 			<CertificateHolderAuthorization name="certificateHolderAuthorization" />
 			<TimeReal name="endOfValidity" />
-			<CertificateAuthority name="certificateHolderReference" />
+			<KeyIdentifier name="certificateHolderReference" />
 			<RsaPublicKey name="rsaPublicKey" />
 		</content>
 	</DataType>
