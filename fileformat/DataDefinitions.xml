@@ -177,7 +177,7 @@
 		</content>
 	</CardBlock>
 
-	<VuBlock name="VuOverview" type="0x1" requiresSignature="yes">
+	<VuBlock name="VuOverview" type="0x1" requiresSignature="yes" hasrefined="true">
 		<title>Overview</title>
 		<content>
 			<EncryptedCertificate name="memberStateCertificate" />

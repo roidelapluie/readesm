@@ -25,66 +25,22 @@
 #include <QtCore/QCoreApplication>
 #include <QtCore/QString>
 
-/*
-class signature {
-	public:
-	enum validity {UNCHECKED, INVALID, VALID};
-	bool present;
-	validity valid;
-	signature() : present(false), valid(UNCHECKED) {}
-	void report(reporter& o) {
-#ifndef HAVE_NO_CRYPTO
-		if(valid == UNCHECKED) o("validly signed", "Could not or did not check signature");
-		else if(valid == VALID) o("validly signed", "Signature checked and valid");
-		else if(valid == INVALID) o("validly signed", "Signature checked and invalid");
-		else o("error", "Sig state weird");
-#endif
-	}
-};*/
-
 class Block {
 	Q_DECLARE_TR_FUNCTIONS(Block)
 	public:
-	Block(const constDataPointer& filewalker) :
-		validsignature(false),
-		hasSignature(false),
-		start(filewalker)
-	{
-	}
+	Block(const constDataPointer& filewalker);
 
-
-	friend reporter& operator<<(reporter& o, const Block& b) {
-		o.bigblockstart(b.name());
-		b.printOn(o);
-/*#ifdef HAVE_CRYPTO
-		o.single(b.hassignature ? (b.validsignature
-				? tr("Block has valid signature") : tr("Beware: Block has invalid signature")) : tr("Block not signed"));
-#else
-		o.single(tr("no crypto support compiled in"));
-#endif*/
-		o.bigblockend();
-		return o;
-	}
-
+	friend reporter& operator<<(reporter& o, const Block& b);
 	virtual int size() const = 0;
-
-	virtual QString name() const {
-		return tr("Unknown block type 0x%1").arg(readBigEndianInt2(start), 8, 16, QChar('0'));
-	}
-
-/*#ifdef HAVE_CRYPTO
-	virtual bool checksig(const rsa& key) = 0;
-#endif*/
+	virtual QString name() const;
 	virtual RawData signedBytes() const = 0;
 	virtual RawData signatureBytes() const;
 	
 	protected:
-	virtual void printOn(reporter& o) const {
-		o("length", size());
-	}
+	virtual void printOn(reporter& o) const;
 	protected:
-	bool validsignature;
 public:
+	bool validSignature;
 	bool hasSignature;
 	constDataPointer start;
 };
