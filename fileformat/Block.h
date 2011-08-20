@@ -47,7 +47,7 @@ class Block {
 	public:
 	Block(const constDataPointer& filewalker) :
 		validsignature(false),
-		hassignature(false),
+		hasSignature(false),
 		start(filewalker)
 	{
 	}
@@ -75,15 +75,17 @@ class Block {
 /*#ifdef HAVE_CRYPTO
 	virtual bool checksig(const rsa& key) = 0;
 #endif*/
+	virtual RawData signedBytes() const = 0;
+	virtual RawData signatureBytes() const;
+	
 	protected:
 	virtual void printOn(reporter& o) const {
 		o("length", size());
 	}
-	virtual RawData signedBytes() const = 0;
-
 	protected:
-	constDataPointer signature;
-	bool validsignature, hassignature;
+	bool validsignature;
+public:
+	bool hasSignature;
 	constDataPointer start;
 };
 

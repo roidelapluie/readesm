@@ -15,6 +15,7 @@ protected:
 public:
 	bool attemptVerificationFrom(const PlainCertificate& certificate);
 	bool attemptVerificationFrom(const EncryptedCertificate& certificate);
+	bool checkSignature(const RawData& signedData, const RawData& signature);
 	EncryptedCertificate(constDataPointer filewalker);
 	virtual void printOn(reporter& report) const;
 	bool isVerified() const;

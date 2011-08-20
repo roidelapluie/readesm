@@ -4,10 +4,9 @@ CardBlock::CardBlock(const constDataPointer& filewalker) :
 	Block(filewalker),
 	datasize(readBigEndianInt2(start + 3))
 {
-	signature = start + 5 + datasize;
+	constDataPointer signature = start + 5 + datasize;
 	if(signature.bytesLeft() >= 5 + 128 && readBigEndianInt2(signature) == readBigEndianInt2(start) && signature[2] == 1) {
-		signature += 5;
-		hassignature = true;
+		hasSignature = true;
 	}
 }
 
@@ -20,6 +19,6 @@ int  CardBlock::dataSize() const {
 }
 
 int  CardBlock::size() const {
-	return datasize + 5 + (hassignature ? 5 + 128 : 0);
+	return datasize + 5 + (hasSignature ? 5 + 128 : 0);
 }
 

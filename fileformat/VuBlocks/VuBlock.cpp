@@ -7,4 +7,5 @@ RawData VuBlock::signedBytes() const {
 VuBlock::VuBlock(const constDataPointer& nstart) :
 	Block(nstart)
 {
+	hasSignature = true;
 }

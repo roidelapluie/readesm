@@ -15,7 +15,7 @@ class VuUnknownBlock : public VuBlock {
 	VuUnknownBlock(constDataPointer start) :
 		VuBlock(start), data(start, start.bytesLeft())
 	{
-		hassignature = false;
+		hasSignature = false;
 	}
 
 	virtual int size() const {
