@@ -474,10 +474,38 @@
 		</content>
 	</DataType>
 
+	<DataType name="KeyIdentifier">
+		<content>
+			<RawData length="4" name="certificateRequestSerialNumber" />
+			<RawData length="2" name="date" />
+			<int length="1" name="type" />
+			<int length="1" table="manufacturerCode" name="manufacturerCode" />
+		</content>
+	</DataType>
+
+
+	<DataType name="CertificateHolderAuthorization">
+		<content>
+			<RawData length="6" name="tachographApplicationId" />
+			<int length="1" table="equipmentType" name="equipmentType" />
+		</content>
+	</DataType>
+
+	<DataType name="DecryptedCertificate">
+		<content>
+			<int length="1" name="certificateProfileIdentifier" />
+			<CertificateAuthority name="certificateAuthorityReference" />
+			<CertificateHolderAuthorization name="certificateHolderAuthorization" />
+			<TimeReal name="endOfValidity" />
+			<CertificateAuthority name="certificateHolderReference" />
+			<RsaPublicKey name="rsaPublicKey" />
+		</content>
+	</DataType>
+
 	<DataType name="PlainCertificate">
 		<content>
 			<CertificateAuthority name="keyIdentifier" />
-			<RsaPublicKey name="publicKey" />
+			<RsaPublicKey name="rsaPublicKey" />
 		</content>
 	</DataType>
 

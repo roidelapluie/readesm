@@ -2,17 +2,19 @@
 #define ENCRYPTEDCERTIFICATE_H
 
 #include "RawEncryptedCertificate.h"
-#include "../DataTypes/RsaPublicKey.h"
-#include "../DataTypes/RawData.h"
-#include "../DataTypes/Signature.h"
-
+#include "PlainCertificate.h"
+#include "RsaPublicKey.h"
+#include "Signature.h"
+#include "DecryptedCertificate.h"
 
 class EncryptedCertificate : public RawEncryptedCertificate {
 	Q_DECLARE_TR_FUNCTIONS(EncryptedCertificate)
 protected:
-	bool verified;
 	bool attemptVerification(const RsaPublicKey& key);
+	QSharedPointer<DecryptedCertificate> decryptedCertificate;
 public:
+	bool attemptVerificationFrom(const PlainCertificate& certificate);
+	bool attemptVerificationFrom(const EncryptedCertificate& certificate);
 	EncryptedCertificate(constDataPointer filewalker);
 	virtual void printOn(reporter& report) const;
 	bool isVerified() const;

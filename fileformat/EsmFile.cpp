@@ -12,6 +12,31 @@
 #include "VuBlocks/VuActivities.h"
 #include "CardBlocks/Identification.h"
 
+#include "DataTypes/EncryptedCertificate.h"
+#include "CardBlocks/MemberStateCertificate.h"
+#include "CardBlocks/CardCertificate.h"
+
+
+template <typename base, typename derived>
+QSharedPointer<derived> findTypeInVector(QVector< QSharedPointer<base> > array){
+	QSharedPointer<derived> pointer;
+	for(int j = 0; j < array.size(); ++j){
+		pointer = qSharedPointerDynamicCast<derived>(array[j]);
+		if(!pointer.isNull()) return pointer;
+	}
+	return pointer;
+}
+
+template <typename base, typename derived>
+QVector< QSharedPointer<derived> >  findManyInVector(QVector< QSharedPointer<base> > array){
+	QVector< QSharedPointer<derived> > rv;
+	QSharedPointer<derived> pointer;
+	for(int j = 0; j < array.size(); ++j){
+		pointer = qSharedPointerDynamicCast<derived>(array[j]);
+		if(!pointer.isNull()) rv.append(pointer);
+	}
+	return rv;
+}
 
 reporter& operator<<(reporter& report, const EsmFile& e) {
 	e.printOn(report);
@@ -56,41 +81,26 @@ EsmFile::EsmFile(const QString& filename) : fileWalker(constDataPointer::loadFil
 		blocks.append(p);
 		fileWalker += p->size();
 	}
-
-/*#ifndef HAVE_NO_CRYPTO
-	if(CAcert && devicecert) {
-		if(CAcert->verify(":/EC_PK.bin")) {
-			if(devicecert->verify(*CAcert)) {
-				for(subiter i = blocks.begin(); i < blocks.end(); ++i)
-					(*i)->checksig(devicecert->key);
-			}
-		} else {
-			qDebug() << "Cannot verify certificates and signatures: European main certificate file not found or not openable.";
-		}
+#ifdef HAVE_CRYPTO
+	PlainCertificate ercaKey(constDataPointer::loadFile(":/EC_PK.bin"));
+	EncryptedCertificate* caCertificate = NULL;
+	EncryptedCertificate* deviceCertificate = NULL;
+	QSharedPointer<VuOverview> ov = findTypeInVector<Block, VuOverview>(blocks);
+	if(ov){
+		caCertificate = &ov->memberStateCertificate;
+		deviceCertificate = &ov->vuCertificate;
+	} else {
+		QSharedPointer<MemberStateCertificate> mc = findTypeInVector<Block, MemberStateCertificate>(blocks);
+		if(mc) caCertificate = &mc->certificate;
+		QSharedPointer<CardCertificate> dc = findTypeInVector<Block, CardCertificate>(blocks);
+		if(dc) deviceCertificate = &dc->certificate;
 	}
-#endif*/
+	if(caCertificate) caCertificate->attemptVerificationFrom(ercaKey);
+	if(deviceCertificate) deviceCertificate->attemptVerificationFrom(*caCertificate);
+#endif
 }
 
-template <typename base, typename derived>
-QSharedPointer<derived> findTypeInVector(QVector< QSharedPointer<base> > array){
-	QSharedPointer<derived> pointer;
-	for(int j = 0; j < array.size(); ++j){
-		pointer = qSharedPointerDynamicCast<derived>(array[j]);
-		if(!pointer.isNull()) return pointer;
-	}
-	return pointer;
-}
 
-template <typename base, typename derived>
-QVector< QSharedPointer<derived> >  findManyInVector(QVector< QSharedPointer<base> > array){
-	QVector< QSharedPointer<derived> > rv;
-	QSharedPointer<derived> pointer;
-	for(int j = 0; j < array.size(); ++j){
-		pointer = qSharedPointerDynamicCast<derived>(array[j]);
-		if(!pointer.isNull()) rv.append(pointer);
-	}
-	return rv;
-}
 
 QString EsmFile::suggestTitle() const {
 	QSharedPointer<VuOverview> ov = findTypeInVector<Block, VuOverview>(blocks);

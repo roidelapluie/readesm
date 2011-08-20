@@ -5,9 +5,7 @@
 #error "including libgcrypt-dependent file despite not having all crypto libs"
 #endif
 
-
 #include <gcrypt.h>
-
 
 bool checkSha1(const RawData& data, const QByteArray& hash){
 	QByteArray buffer(20, 0);

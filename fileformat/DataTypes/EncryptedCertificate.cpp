@@ -1,18 +1,19 @@
 #include "EncryptedCertificate.h"
 #include "../checkSha1.h"
-
+#include <QDebug>
 EncryptedCertificate::EncryptedCertificate(constDataPointer filewalker) : RawEncryptedCertificate(filewalker),
-	verified(false)
+	decryptedCertificate()
 {}
 
 bool EncryptedCertificate::attemptVerification(const RsaPublicKey& key){
 	QByteArray srdash = key.perform(sign);
-	if(srdash.size() != 128 || srdash.at(0) != 0x6A || srdash.at(127) != 0xBC) return false;
+	if(srdash.size() != 128 || srdash.at(0) != 0x6A || (unsigned char)srdash[127] != 0xBC) return false;
 	QByteArray crdash = srdash.mid(1, 106);
 	QByteArray hdash = srdash.mid(107, 20);
-	QByteArray cdash = crdash.append(cndash.data); // implicitly shared, but we do not need crdash anymore
+	QByteArray cdash = crdash.append(cndash.toQByteArray()); // implicitly shared, but we do not need crdash anymore
 	if(!checkSha1(cdash, hdash)) return false;
-	verified = true;
+	decryptedCertificate = QSharedPointer<DecryptedCertificate>(new DecryptedCertificate(constDataPointer(cdash)));
+	qDebug() << "valid!";
 	return true;
 }
 
@@ -32,16 +33,28 @@ bool CheckSignature(const RawData& signedData, const RawData& signature, const R
 }
 
 bool EncryptedCertificate::isVerified() const {
-	return verified;
+	return decryptedCertificate;
 }
 
 void EncryptedCertificate::printOn(reporter& report) const {
-	if(!isVerified()){
+	if(decryptedCertificate){
+		decryptedCertificate->printOn(report);
+		report.single(tr("Certificate verified from:"));
+		certificateAuthorityReference.printOn(report);
+	} else {
 		report.single(tr("Unverified certificate, needs verification from:"));
 		certificateAuthorityReference.printOn(report);
 	}
-		
 }
+
+bool EncryptedCertificate::attemptVerificationFrom(const PlainCertificate& certificate){
+	return certificateAuthorityReference == certificate.keyIdentifier && attemptVerification(certificate.rsaPublicKey);
+}
+
+bool EncryptedCertificate::attemptVerificationFrom(const EncryptedCertificate& other){
+	return other.isVerified() && attemptVerification(other.decryptedCertificate->rsaPublicKey);
+}
+
 /*
 bool verifiedcert::verify(const QString& filename) {
 	QFile file(filename);
