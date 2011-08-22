@@ -99,7 +99,7 @@ EsmFile::EsmFile(const QString& filename) : fileWalker(constDataPointer::loadFil
 	if(deviceCertificate) deviceCertificate->attemptVerificationFrom(*caCertificate);
 	if(deviceCertificate && deviceCertificate->isVerified()){
 		for(int j = 0; j < blocks.size(); ++j) {
-			if(blocks[j]->hasSignature) blocks[j]->validSignature = deviceCertificate->checkSignature(blocks[j]->signedBytes(), blocks[j]->signatureBytes());
+			blocks[j]->checkSignature(*deviceCertificate);
 		}
 	}
 #endif

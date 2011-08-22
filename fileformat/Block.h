@@ -21,6 +21,7 @@
 #include "readTypes.h"
 #include "reporter/reporter.h"
 #include "DataTypes/RawData.h"
+#include "DataTypes/EncryptedCertificate.h"
 
 #include <QtCore/QCoreApplication>
 #include <QtCore/QString>
@@ -29,17 +30,15 @@ class Block {
 	Q_DECLARE_TR_FUNCTIONS(Block)
 	public:
 	Block(const constDataPointer& filewalker);
-
 	friend reporter& operator<<(reporter& o, const Block& b);
 	virtual int size() const = 0;
 	virtual QString name() const;
-	virtual RawData signedBytes() const = 0;
-	virtual RawData signatureBytes() const;
+	virtual void checkSignature(const EncryptedCertificate& cert);
 	
 	protected:
+	virtual RawData signedBytes() const = 0;
+	virtual RawData signatureBytes() const;
 	virtual void printOn(reporter& o) const;
-	protected:
-public:
 	bool validSignature;
 	bool hasSignature;
 	constDataPointer start;

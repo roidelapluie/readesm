@@ -13,6 +13,10 @@ Block::Block(const constDataPointer& filewalker) :
 {
 }
 
+void Block::checkSignature(const EncryptedCertificate& cert){
+	if(hasSignature) validSignature = cert.checkSignature(signedBytes(), signatureBytes());
+}
+
 
 reporter& operator<<(reporter& o, const Block& b) {
 	o.bigblockstart(b.name());

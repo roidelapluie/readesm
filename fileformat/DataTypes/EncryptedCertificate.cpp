@@ -1,7 +1,7 @@
 #include "EncryptedCertificate.h"
 #include "../checkSha1.h"
 #include <QDebug>
-EncryptedCertificate::EncryptedCertificate(constDataPointer filewalker) : RawEncryptedCertificate(filewalker),
+EncryptedCertificate::EncryptedCertificate(const constDataPointer& filewalker) : RawEncryptedCertificate(filewalker),
 	decryptedCertificate()
 {}
 
@@ -13,17 +13,14 @@ bool EncryptedCertificate::attemptVerification(const RsaPublicKey& key){
 	QByteArray cdash = crdash.append(cndash.toQByteArray()); // implicitly shared, but we do not need crdash anymore
 	if(!checkSha1(cdash, hdash)) return false;
 	decryptedCertificate = QSharedPointer<DecryptedCertificate>(new DecryptedCertificate(constDataPointer(cdash)));
-	qDebug() << "valid!";
 	return true;
 }
 
-bool EncryptedCertificate::checkSignature(const RawData& signedData, const RawData& signature) {
+bool EncryptedCertificate::checkSignature(const RawData& signedData, const RawData& signature) const{
 	if(!isVerified()) return false;
-	qDebug() << "checking sig";
 	QByteArray srdash = decryptedCertificate->rsaPublicKey.perform(signature);
 	QByteArray hdash = srdash.mid(107, 20);
 	if(!checkSha1(signedData, hdash)) return false;
-	qDebug() << "checking sig2";
 	const unsigned char der[] = { 0x30, 0x21, 0x30, 0x09, 0x06, 0x05, 0x2b,
 			0x0e, 0x03, 0x02, 0x1a, 0x05, 0x00, 0x04, 0x14 };
 	for(int j = 0; j < 15; ++j)
@@ -32,7 +29,6 @@ bool EncryptedCertificate::checkSignature(const RawData& signedData, const RawDa
 		if((unsigned char)srdash.at(j) != 0xff) return false;
 	//not checking the first two, l207 p.251 says 0x00, 0x01,
 	//but the files actually contain 0x01, 0xff
-	qDebug() << "valid sig";
 	return true;
 }
 
