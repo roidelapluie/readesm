@@ -1,5 +1,7 @@
 #include "TimeReal.h"
-#include <QDebug>
+
+#include <QtCore/QDebug>
+
 TimeReal::TimeReal(const constDataPointer& start) : QDateTime(QDateTime::fromTime_t(readBigEndianInt4(start)))
 {
 	int timestamp = readBigEndianInt4(start);

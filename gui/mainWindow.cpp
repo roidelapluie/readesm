@@ -25,7 +25,7 @@ mainWindow::mainWindow()
 	setCentralWidget(view);
 
 	//define and link the stuff in the menu bar
-	QMenu *fileMenu = new QMenu(tr("&File"),this);
+	QMenu* fileMenu = new QMenu(tr("&File"),this);
 	QAction* fileOpenAction = new QAction(QIcon::fromTheme("document-open"), trUtf8("&Open…"), this);
 	QAction* fileSaveRawAction = new QAction(QIcon::fromTheme("document-save-as"), trUtf8("Save &As…"), this);
 	QAction* fileSaveHtmlAction = new QAction(trUtf8("E&xport as HTML…"), this);
@@ -120,7 +120,7 @@ void mainWindow::openFile(const QString& filename)
 void mainWindow::print()
 {
 	QPrinter printer;
-	QPrintDialog *dialog = new QPrintDialog(&printer, this);
+	QPrintDialog* dialog = new QPrintDialog(&printer, this);
 	dialog->setWindowTitle(tr("Print Document"));
 	if (dialog->exec() != QDialog::Accepted)
 		return;

@@ -1,6 +1,6 @@
 #include "constDataPointer.h"
 
-#include <QFile>
+#include <QtCore/QFile>
 
 constDataPointer constDataPointer::loadFile(const QString& filename) {
 	QFile file(filename);

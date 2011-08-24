@@ -3,7 +3,8 @@
 
 #include <gmp.h>
 #include "../constDataPointer.h"
-#include <QString>
+
+#include <QtCore/QString>
 
 ///wrap around mpz_t
 /** This can also be done by the c++-bindings of GMP, but they are not yet

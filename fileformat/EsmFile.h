@@ -19,11 +19,9 @@
 
 #include "Block.h"
 
-#include <QtCore/QByteArray>
 #include <QtCore/QSharedPointer>
 #include <QtCore/QString>
 #include <QtCore/QVector>
-
 
 
 class EsmFile {

@@ -1,5 +1,5 @@
 #include "DataType.h"
-#include <QDebug>
+#include <QtCore/QDebug>
 
 
 DataType::DataType(const constDataPointer& nstart) : start(nstart)
