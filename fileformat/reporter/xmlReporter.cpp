@@ -32,14 +32,6 @@ xmlReporter::xmlReporter(const QString& title_) :
 {
 }
 
-xmlReporter::pgptr xmlReporter::getBarGraph() const {
-	return pgptr(new svgBarGraph);
-}
-
 bool xmlReporter::hasPlotGraph() const {
 	return true;
-}
-
-xmlReporter::pgptr xmlReporter::getPlotGraph() const {
-	return pgptr(new svgPlotGraph);
 }

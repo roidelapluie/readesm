@@ -12,9 +12,7 @@ class xmlReporter : public htmlReporter {
 	public:
 	virtual QString str();
 	xmlReporter(const QString& title_ = "ESM Data");
-	virtual pgptr getBarGraph() const;
 	virtual bool hasPlotGraph() const;
-	virtual pgptr getPlotGraph() const;
 };
 
 

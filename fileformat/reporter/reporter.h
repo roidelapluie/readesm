@@ -17,8 +17,6 @@
 #ifndef REPORTER_H
 #define REPORTER_H REPORTER_H
 
-#include "../picgen.h"
-
 #include <QtCore/QCoreApplication>
 #include <QtCore/QSharedPointer>
 #include <QtCore/QString>
@@ -31,7 +29,6 @@ class reporter {
 	QString collected;
 	QTextStream collector;
 	public:
-	typedef QSharedPointer<picgen> pgptr;
 	reporter(const QString& title_ = "ESM Data");
 
 	class subblock {
@@ -92,11 +89,7 @@ class reporter {
 	///returns wether embedding images is possible
 	virtual bool hasBarGraph() const;
 
-	///determines in what way images should be created
-	virtual pgptr getBarGraph() const;
-
 	virtual bool hasPlotGraph() const;
-	virtual pgptr getPlotGraph() const;
 	QString title;
 	bool verbose;
 	QString InfoAppend(bool html = false, bool justname = false);

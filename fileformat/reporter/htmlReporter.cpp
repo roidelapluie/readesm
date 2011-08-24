@@ -69,7 +69,3 @@ void htmlReporter::operator()(const QString& description, int value) {
 bool htmlReporter::hasBarGraph() const {
 	return true;
 }
-
-reporter::pgptr htmlReporter::getBarGraph() const {
-	return pgptr(new htmlBarGraph);
-}

@@ -10,9 +10,21 @@
 
 
 from xml.etree.ElementTree import ElementTree
+import os
 
+xmlFilename = 'DataDefinitions.xml'
 tree = ElementTree()
-tree.parse('DataDefinitions.xml')
+try:
+	tree.parse(xmlFilename)
+except IOError:
+	__dir__ = os.path.dirname(os.path.abspath(__file__))
+	filepath = os.path.join(__dir__, xmlFilename)
+	tree.parse(filepath)
+
+os.mkdir('CardBlocks')
+os.mkdir('DataTypes')
+os.mkdir('VuBlocks')
+
 
 def writeIfDifferent(filename, newContent):
 	try:

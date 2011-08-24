@@ -27,6 +27,5 @@ class htmlReporter : public reporter {
 	virtual void operator()(const QString& description, const QString& value);
 	virtual void operator()(const QString& description, int value);
 	virtual bool hasBarGraph() const;
-	virtual pgptr getBarGraph() const;
 };
 #endif

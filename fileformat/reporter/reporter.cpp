@@ -24,16 +24,8 @@ bool reporter::hasBarGraph() const {
 	return false;
 }
 
-reporter::pgptr reporter::getBarGraph() const {
-	return pgptr(new picgen);
-}
-
 bool reporter::hasPlotGraph() const {
 	return false;
-}
-
-reporter::pgptr reporter::getPlotGraph() const {
-	return pgptr(new picgen);
 }
 
 QString reporter::InfoAppend(bool html, bool justname) {
