@@ -20,8 +20,8 @@
 #include "constDataPointer.h"
 #include "readTypes.h"
 #include "reporter/reporter.h"
-#include "DataTypes/RawData.h"
 #include "DataTypes/EncryptedCertificate.h"
+#include "DataTypes/RawData.h"
 
 #include <QtCore/QCoreApplication>
 #include <QtCore/QString>
