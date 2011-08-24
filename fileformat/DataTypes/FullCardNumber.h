@@ -3,6 +3,7 @@
 
 
 #include "RawFullCardNumber.h"
+
 #include <QtCore/QMap>
 
 class FullCardNumber : public RawFullCardNumber {

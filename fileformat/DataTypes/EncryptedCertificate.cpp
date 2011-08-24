@@ -2,7 +2,9 @@
 
 #include "../checkSha1.h"
 
+/*
 #include <QtCore/QDebug>
+*/
 
 EncryptedCertificate::EncryptedCertificate(const constDataPointer& filewalker) : RawEncryptedCertificate(filewalker),
 	decryptedCertificate()

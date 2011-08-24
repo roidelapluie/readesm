@@ -2,8 +2,9 @@
 #define DATATYPE_H
 
 #include "../constDataPointer.h"
-#include "../reporter/reporter.h"
 #include "../readTypes.h"
+#include "../reporter/reporter.h"
+
 
 class DataType {
 public:

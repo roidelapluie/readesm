@@ -1,14 +1,14 @@
 #include "RawData.h"
 
-RawData::RawData(const constDataPointer& start, int length) : 
-	constDataPointer(start), 
-	length_(length) 
+RawData::RawData(const constDataPointer& start, int length) :
+	constDataPointer(start),
+	length_(length)
 {}
 
-RawData::RawData(const QByteArray& o) : 
+RawData::RawData(const QByteArray& o) :
 	constDataPointer(o),
 	length_(o.size())
-{}	
+{}
 
 QString RawData::toString() const{
 	QString rv;
@@ -17,7 +17,7 @@ QString RawData::toString() const{
 }
 
 int RawData::length() const {
-	return length_; 
+	return length_;
 }
 
 QByteArray RawData::toQByteArray() const {

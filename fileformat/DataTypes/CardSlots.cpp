@@ -18,4 +18,3 @@ void CardSlots::printOn(reporter& report) const {
 			report(tr("cardNumberCoDriverSlotEnd"), cardNumberCoDriverSlotEnd.toString());
 	} else if(!cardNumberCoDriverSlotBegin.isDefaultValue()) report(tr("cardNumberCoDriverSlot"), cardNumberCoDriverSlotBegin.toString());
 }
-

@@ -1,4 +1,5 @@
 #include "CardDriverActivity.h"
+
 CardDriverActivity::CardDriverActivity(const constDataPointer& start)
 	: RawCardDriverActivity(start) 
 {

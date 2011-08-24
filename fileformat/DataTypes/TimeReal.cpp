@@ -9,7 +9,7 @@ TimeReal::TimeReal(const constDataPointer& start) : QDateTime(QDateTime::fromTim
 	((QDateTime*)this)->operator=(this->toUTC());
 }
 
-QString TimeReal::toString() const{
+QString TimeReal::toString() const {
 	if(!isValid()) return tr("undefined");
 	if(time().hour() == 0 && time().minute() == 0 && time().second() == 0){
 		return date().toString();

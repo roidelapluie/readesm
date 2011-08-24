@@ -1,21 +1,18 @@
 #include "EsmFile.h"
 
 #include "config.h"
-#include "reporter/reporter.h"
+
 #include "blockFactory.h"
+#include "CardBlocks/CardCertificate.h"
+#include "CardBlocks/Identification.h"
+#include "CardBlocks/MemberStateCertificate.h"
+#include "DataTypes/EncryptedCertificate.h"
+#include "reporter/reporter.h"
+#include "VuBlocks/VuOverview.h"
+#include "VuBlocks/VuActivities.h"
 
 #include <QtCore/QFile>
 #include <QtCore/QObject>
-
-
-#include "VuBlocks/VuOverview.h"
-#include "VuBlocks/VuActivities.h"
-#include "CardBlocks/Identification.h"
-
-#include "DataTypes/EncryptedCertificate.h"
-#include "CardBlocks/MemberStateCertificate.h"
-#include "CardBlocks/CardCertificate.h"
-
 
 template <typename base, typename derived>
 QSharedPointer<derived> findTypeInVector(QVector< QSharedPointer<base> > array){

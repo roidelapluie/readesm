@@ -35,5 +35,4 @@ void VuDetailedSpeedData::printOn(reporter& report) const {
 		visual->collector << (lastDifference + 1) << " 0\n";
 		report(daystart.date().toString(), visual->str());
 	}
-		
 }

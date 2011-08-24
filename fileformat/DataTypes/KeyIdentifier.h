@@ -2,8 +2,8 @@
 #define KEYIDENTIFIER_H
 
 
-#include "RawKeyIdentifier.h"
 #include "CertificateAuthority.h"
+#include "RawKeyIdentifier.h"
 
 class KeyIdentifier : public RawKeyIdentifier {
 	Q_DECLARE_TR_FUNCTIONS(KeyIdentifier)

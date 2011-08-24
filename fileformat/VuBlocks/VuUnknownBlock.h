@@ -4,7 +4,6 @@
 #include "VuBlock.h"
 
 #include <QtCore/QString>
-#include <QtCore/QTextStream>
 
 /** This block is for debugging, in case the program encounters
  * some data it so far cannot read, it reports hex data and as
@@ -22,7 +21,7 @@ class VuUnknownBlock : public VuBlock {
 		return start.bytesLeft();
 	}
 
-	virtual QString name() const{
+	virtual QString name() const {
 		return "Unknown block";
 	}
 	virtual void printOn(reporter& o) const {

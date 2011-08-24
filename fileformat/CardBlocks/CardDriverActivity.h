@@ -2,8 +2,8 @@
 #define DRIVERACTIVITYDATA_H
 
 #include "RawCardDriverActivity.h"
-#include "../DataTypes/Subblocks.h"
 #include "../DataTypes/CardActivityDailyRecord.h"
+#include "../DataTypes/Subblocks.h"
 
 class CardDriverActivity : public RawCardDriverActivity {
 public:

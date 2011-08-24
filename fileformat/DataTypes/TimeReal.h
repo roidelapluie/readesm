@@ -4,10 +4,10 @@
 #include "../constDataPointer.h"
 #include "../readTypes.h"
 
-#include <QtCore/QDateTime>
 #include <QtCore/QCoreApplication>
+#include <QtCore/QDateTime>
 
-class TimeReal : public QDateTime{
+class TimeReal : public QDateTime {
 	Q_DECLARE_TR_FUNCTIONS(TimeReal)
 	bool valid_;
 	public:

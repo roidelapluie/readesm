@@ -1,6 +1,6 @@
 #include "LargeNumber.h"
 
-LargeNumber::LargeNumber(const constDataPointer& start, int length){
+LargeNumber::LargeNumber(const constDataPointer& start, int length) {
 	mpz_init(t);
 	mpz_import(t, length, 1, 1, 0, 0, start.toUnsignedPointer());
 }
@@ -22,6 +22,6 @@ LargeNumber& LargeNumber::operator=(const LargeNumber& o) {
 	return *this;
 }
 
-QString LargeNumber::toString() const{
+QString LargeNumber::toString() const {
 	return mpz_get_str(NULL, 10, t);
 }

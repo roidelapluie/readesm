@@ -2,11 +2,14 @@
 #define SUBBLOCKS_H
 
 
-#include <vector>
+
 #include "../constDataPointer.h"
 #include "../readTypes.h"
 #include "../reporter/reporter.h"
+
 #include <QtCore/QDebug>
+
+#include <vector>
 
 template <typename T>
 class Subblocks : public std::vector<T> {
