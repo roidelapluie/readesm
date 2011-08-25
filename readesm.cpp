@@ -92,4 +92,3 @@ int main(int argc, char** argv)
 	if(argc == 3) return main2<QCoreApplication>(argc,argv);
 	else return main2<QApplication>(argc,argv);
 }
-
