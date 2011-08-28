@@ -2,7 +2,7 @@
 #define LARGENUMBER_H
 
 #include <gmp.h>
-#include "../constDataPointer.h"
+#include "../DataPointer.h"
 
 #include <QtCore/QString>
 
@@ -14,7 +14,7 @@ class LargeNumber {
 	mpz_t t;
 	LargeNumber();
 	~LargeNumber();
-	LargeNumber(const constDataPointer& start, int length);
+	LargeNumber(const DataPointer& start, int length);
 	LargeNumber(const LargeNumber& o);
 	LargeNumber& operator=(const LargeNumber& o);
 	QString toString() const;

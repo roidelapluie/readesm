@@ -1,40 +1,30 @@
 #include "CardDriverActivity.h"
+#include <QtCore/QDebug>
 
-CardDriverActivity::CardDriverActivity(const constDataPointer& start)
-	: RawCardDriverActivity(start) 
-{
+QByteArray CardDriverActivity::readCyclicData(){
+	QByteArray rv;
+	qDebug() << "oldest" << oldestRecord << "newest" << newestRecord;
 	if(newestRecord < oldestRecord) {
+		qDebug() << "card full" << rv.size() << size() << cyclicData.size();
 		//just copy the circular stuff into a new vector, avoids those boundary problems
-		activityDataUncycled.append(cyclicData.toPointer(oldestRecord), cyclicData.length() - oldestRecord);
-		activityDataUncycled.append(cyclicData.toPointer(), newestRecord);
+		rv.append(cyclicData.toPointer(oldestRecord), cyclicData.size() - oldestRecord);
+			qDebug() << "older" << rv.size() << (uint)rv[0] << (uint)rv[rv.size() - 1];
+		rv.append(cyclicData.toPointer(), newestRecord);
+			qDebug() << "older" << rv.size() << (uint)rv[0] << (uint)rv[rv.size() - 1];
 	} else {
-		activityDataUncycled.append(cyclicData.toPointer(oldestRecord), newestRecord - oldestRecord);
+		qDebug() << "card not full" << rv.size();
+		rv.append(cyclicData.toPointer(oldestRecord), newestRecord - oldestRecord);
+		qDebug() << "card not full" << rv.size();
 	}
-	constDataPointer walker(activityDataUncycled);
-	//cardActivityDailyRecords = Subblocks<CardActivityDailyRecord>(walker, activityDataUncycled.size());
-	while(walker.bytesLeft()) {
-		qDebug() << walker.bytesLeft() <<" Bytes left";
-		CardActivityDailyRecord rec(walker);
-		cardActivityDailyRecords.push_back(rec);
-		walker += rec.size();
-		qDebug() << rec.size() << "in next block";
-	}
-// 		int thissize = BEInt16(walker + 2);
-// 		//qDebug() << walker.bytesLeft() <<" Bytes left, " << thissize << "in next block";
-// 		if(!thissize) {
-// 			qDebug() << "Size 0 for increment. Aborting.";
-// 			break;
-// 		}
-// 		dailyActivityCard d(walker, (thissize - 12) / 2);
-// 		acts.push_back(d);
-// 		walker += thissize;
-// 	}
-// 	fine = checkTimes(acts);
-// 	qDebug() << "driverActivityData end";
-
+	return rv;
+}
+CardDriverActivity::CardDriverActivity(const DataPointer& start) : RawCardDriverActivity(start),
+	activityDataUncycled(readCyclicData()),
+	cardActivityDailyRecords(Subblocks<CardActivityDailyRecord>::fromTypeAndLength(DataPointer(activityDataUncycled), activityDataUncycled.size()))
+{
 }
 
-void CardDriverActivity::printOn(reporter& o) const{
+void CardDriverActivity::printOn(Reporter& o) const{
 	//RawCardDriverActivity::printOn(o);
 	cardActivityDailyRecords.printOn(o);
 }

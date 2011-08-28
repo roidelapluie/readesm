@@ -3,12 +3,15 @@
 #include "CardBlocks/cardBlockFactory.h"
 #include "VuBlocks/vuBlockFactory.h"
 
-/*
 #include <QtCore/QDebug>
-*/
 
-QSharedPointer<Block> blockFactory(const constDataPointer& start) {
-	//qDebug() << "Creating block at" << start.offset << "bytes left: " << start.bytesLeft();
-	if(start[0] == 0x76) return vuBlockFactory(start);
-	else return cardBlockFactory(start);
+QSharedPointer<TopLevelBlock> blockFactory(const DataPointer& start) {
+	qDebug() << "attempting to create block, bytes left: " << start.bytesLeft();
+	qDebug() << readBigEndianInt1(start) << readBigEndianInt2(start);
+	QSharedPointer<TopLevelBlock> rv;
+	if(start[0] == 0x76) rv = vuBlockFactory(start);
+	else rv = cardBlockFactory(start);
+	qDebug() << "Created block, named " << rv->name() << " at" << start.offset << "bytes left: " << start.bytesLeft();
+	return rv;
 }
+

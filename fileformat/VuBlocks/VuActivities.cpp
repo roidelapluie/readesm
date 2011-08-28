@@ -1,7 +1,7 @@
 #include "VuActivities.h"
 
 
-VuActivities::VuActivities(const constDataPointer& filewalker) : RawVuActivities(filewalker)
+VuActivities::VuActivities(const DataPointer& filewalker) : RawVuActivities(filewalker)
 {}
 
 QString VuActivities::name() const {

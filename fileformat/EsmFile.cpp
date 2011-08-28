@@ -7,9 +7,10 @@
 #include "CardBlocks/Identification.h"
 #include "CardBlocks/MemberStateCertificate.h"
 #include "DataTypes/EncryptedCertificate.h"
-#include "reporter/reporter.h"
+#include "Reporter/Reporter.h"
 #include "VuBlocks/VuOverview.h"
 #include "VuBlocks/VuActivities.h"
+#include "loadFile.h"
 
 #include <QtCore/QFile>
 #include <QtCore/QObject>
@@ -35,7 +36,7 @@ QVector< QSharedPointer<derived> >  findManyInVector(QVector< QSharedPointer<bas
 	return rv;
 }
 
-reporter& operator<<(reporter& report, const EsmFile& e) {
+Reporter& operator<<(Reporter& report, const EsmFile& e) {
 	e.printOn(report);
 // 	report.title = e.name();
 // 	report.bigblockstart(QObject::tr("Statistics"));
@@ -66,30 +67,32 @@ reporter& operator<<(reporter& report, const EsmFile& e) {
 	return report;
 
 }
-void EsmFile::printOn(reporter& report) const{
+void EsmFile::printOn(Reporter& report) const{
 	for(int j = 0; j < blocks.size(); ++j) {
-		report << *(blocks[j]);
+		report.topLevelBlock(*blocks[j]);
 	}
+	report.flush();
 }
 
-EsmFile::EsmFile(const QString& filename) : fileWalker(constDataPointer::loadFile(filename)){
+EsmFile::EsmFile(const QString& filename) : fileData(loadFile(filename)) {
+	DataPointer fileWalker(fileData);
 	while(fileWalker.bytesLeft() > 0) {
-		QSharedPointer<Block> p(blockFactory(fileWalker));
+		QSharedPointer<TopLevelBlock> p(blockFactory(fileWalker));
 		blocks.append(p);
 		fileWalker += p->size();
 	}
 #ifdef HAVE_CRYPTO
-	PlainCertificate ercaKey(constDataPointer::loadFile(":/EC_PK.bin"));
+	PlainCertificate ercaKey(DataPointer(loadFile(":/EC_PK.bin")));
 	EncryptedCertificate* caCertificate = NULL;
 	EncryptedCertificate* deviceCertificate = NULL;
-	QSharedPointer<VuOverview> ov = findTypeInVector<Block, VuOverview>(blocks);
+	QSharedPointer<VuOverview> ov = findTypeInVector<TopLevelBlock, VuOverview>(blocks);
 	if(ov){
 		caCertificate = &ov->memberStateCertificate;
 		deviceCertificate = &ov->vuCertificate;
 	} else {
-		QSharedPointer<MemberStateCertificate> mc = findTypeInVector<Block, MemberStateCertificate>(blocks);
+		QSharedPointer<MemberStateCertificate> mc = findTypeInVector<TopLevelBlock, MemberStateCertificate>(blocks);
 		if(mc) caCertificate = &mc->certificate;
-		QSharedPointer<CardCertificate> dc = findTypeInVector<Block, CardCertificate>(blocks);
+		QSharedPointer<CardCertificate> dc = findTypeInVector<TopLevelBlock, CardCertificate>(blocks);
 		if(dc) deviceCertificate = &dc->certificate;
 	}
 	if(caCertificate) caCertificate->attemptVerificationFrom(ercaKey);
@@ -105,8 +108,8 @@ EsmFile::EsmFile(const QString& filename) : fileWalker(constDataPointer::loadFil
 
 
 QString EsmFile::suggestTitle() const {
-	QSharedPointer<VuOverview> ov = findTypeInVector<Block, VuOverview>(blocks);
-	QSharedPointer<Identification> id = findTypeInVector<Block, Identification>(blocks);
+	QSharedPointer<VuOverview> ov = findTypeInVector<TopLevelBlock, VuOverview>(blocks);
+	QSharedPointer<Identification> id = findTypeInVector<TopLevelBlock, Identification>(blocks);
 	//QSharedPointer<CardDriverActivity> act = findTypeInVector<Block, VuOverview>(blocks);
 	QString rv("Esm data");
 	if(!ov.isNull()) rv = ov->vehicleRegistrationIdentification.vehicleRegistrationNumber;

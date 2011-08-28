@@ -1,7 +1,7 @@
 #include "mainWindow.h"
 
 #include "../fileformat/EsmFile.h"
-#include "../fileformat/reporter/xmlReporter.h"
+#include "../fileformat/Reporter/HtmlReporter.h"
 
 #include <QtCore/QString>
 #include <QtCore/QStringBuilder>
@@ -110,9 +110,9 @@ void mainWindow::openFile()
 void mainWindow::openFile(const QString& filename)
 {
 	esm = QSharedPointer<EsmFile>(new EsmFile(filename));
-	xmlReporter rep;
+	HtmlReporter rep;
 	rep << *esm;
-	view->setContent(rep.str().toUtf8(), "application/xhtml+xml");
+	view->setContent(rep.toQByteArray(), "application/xhtml+xml");
 	setWindowTitle(esm->suggestTitle() + " - readesm");
 	//view->setHtml(rep.str().toUtf8());
 }
@@ -166,7 +166,7 @@ void mainWindow::saveRaw()
 			QMessageBox::warning(this, tr("Saving not possible"),tr("Could not open file."));
 			return;
 		}
-		file.write(esm->fileWalker.toQByteArray());
+		file.write(esm->fileData);
 	}
 }
 

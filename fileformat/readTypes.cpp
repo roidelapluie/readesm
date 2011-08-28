@@ -2,13 +2,13 @@
 
 #include <QtCore/QDebug>
 
-bool checkString(const constDataPointer& start, int length){
+bool checkString(const DataPointer& start, int length){
 	for(int j = 0; j < length; ++j)
 		if(start[j] > 0x20 && start[j] != 0xFF && start[j] != '?') return true;
 	return false;
 }
 
-QString codepageStringCombination(const constDataPointer& start, int length){
+QString codepageStringCombination(const DataPointer& start, int length){
 	if(!checkString(start + 1, length - 1)) return "";
 	QString rv = QString::fromLatin1(start.toPointer(1), length - 1).trimmed();
 	if(start[0] > 16){
@@ -17,7 +17,7 @@ QString codepageStringCombination(const constDataPointer& start, int length){
 	return rv;
 }
 
-QString fixedString(const constDataPointer& start, int length) {
+QString fixedString(const DataPointer& start, int length) {
 	if(!checkString(start, length)) return "";
 	QString rv = QString::fromLatin1(start.toPointer(0),length).trimmed();
 	if(start[0] <= 16 && start[0] >= 1){
@@ -27,19 +27,19 @@ QString fixedString(const constDataPointer& start, int length) {
 	return rv;
 }
 
-int readBigEndianInt1(const constDataPointer& start) {
+int readBigEndianInt1(const DataPointer& start) {
 	return start[0];
 }
 
-int readBigEndianInt2(const constDataPointer& start) {
+int readBigEndianInt2(const DataPointer& start) {
 	return (start[0] << 8) + start[1];
 }
 
-int readBigEndianInt3(const constDataPointer& start) {
+int readBigEndianInt3(const DataPointer& start) {
 	return (start[0] << 16) + (start[1] << 8) + start[2];
 }
 
-int readBigEndianInt4(const constDataPointer& start) {
+int readBigEndianInt4(const DataPointer& start) {
 	return (start[0] << 24) + (start[1] << 16) + (start[2] << 8) + start[3];
 }
 

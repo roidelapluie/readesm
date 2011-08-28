@@ -17,17 +17,14 @@
 #ifndef VUBLOCK_H
 #define VUBLOCK_H
 
-#include "../Block.h"
-#include "../constDataPointer.h"
+#include "../TopLevelBlock.h"
 
-#include <QtCore/QString>
-
-class VuBlock : public Block {
+class VuBlock : public TopLevelBlock {
 	public:
 	virtual QString name() const = 0;
-	VuBlock(const constDataPointer& nstart);
+	VuBlock(const DataPointer& nstart);
 	virtual int size() const = 0;
-	virtual void printOn(reporter& report) const = 0;
+	virtual void printOn(Reporter& report) const = 0;
 	virtual RawData signedBytes() const;
 };
 

@@ -1,10 +1,10 @@
 #include "RsaPublicKey.h"
 
-RsaPublicKey::RsaPublicKey(const constDataPointer& start) : RawRsaPublicKey(start) {}
+RsaPublicKey::RsaPublicKey(const DataPointer& start) : RawRsaPublicKey(start) {}
 
 QByteArray RsaPublicKey::perform(const RawData& input) const {
 	LargeNumber in, out;
-	mpz_import(in.t, input.length(), 1, 1, 0, 0, input.toUnsignedPointer());
+	mpz_import(in.t, input.size(), 1, 1, 0, 0, input.toUnsignedPointer());
 	mpz_powm(out.t, in.t, e.t, n.t);
 	QByteArray rv(mpz_sizeinbase(out.t, 256) + 10, 0);
 	size_t size;

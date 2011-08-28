@@ -1,25 +1,25 @@
 #include "VuDetailedSpeedData.h"
 #include "../PictureGenerators/SvgDayVelocity.h"
 
-VuDetailedSpeedData::VuDetailedSpeedData(const constDataPointer& start) : RawVuDetailedSpeedData(start) {}
+VuDetailedSpeedData::VuDetailedSpeedData(const DataPointer& start) : RawVuDetailedSpeedData(start) {}
 
-void VuDetailedSpeedData::printOn(reporter& report) const {
-	if(!report.hasPlotGraph()) {
+void VuDetailedSpeedData::printOn(Reporter& report) const {
+/*	if(!report.hasPlotGraph()) {
 		RawVuDetailedSpeedData::printOn(report);
 		return;
-	}
-	if(vuDetailedSpeedBlocks.size() < 1) return;
+	}*/
+	if(vuDetailedSpeedBlocks.numberOfBlocks() < 1) return;
 	
 	SvgDayVelocity visualization;
-	QDateTime daystart = QDateTime(vuDetailedSpeedBlocks[0].speedBlockBeginDate.date());
+	QDateTime daystart = QDateTime(vuDetailedSpeedBlocks[0]->speedBlockBeginDate.date());
 	int lastDifference = 0;
-	for(uint j = 0; j < vuDetailedSpeedBlocks.size(); ++j) {
-		int difference = daystart.secsTo(vuDetailedSpeedBlocks[j].speedBlockBeginDate);
+	for(int j = 0; j < vuDetailedSpeedBlocks.numberOfBlocks(); ++j) {
+		int difference = daystart.secsTo(vuDetailedSpeedBlocks[j]->speedBlockBeginDate);
 		if(difference > 86400){
 			visualization.add(lastDifference + 1, 0);
-			report(daystart.date().toString(),visualization.toString());
-			daystart = QDateTime(vuDetailedSpeedBlocks[j].speedBlockBeginDate.date());
-			difference = daystart.secsTo(vuDetailedSpeedBlocks[j].speedBlockBeginDate);
+			report.tagValuePair(daystart.date().toString(),visualization.toString());
+			daystart = QDateTime(vuDetailedSpeedBlocks[j]->speedBlockBeginDate.date());
+			difference = daystart.secsTo(vuDetailedSpeedBlocks[j]->speedBlockBeginDate);
 			visualization.reset();
 			lastDifference = 0;
 		}
@@ -28,11 +28,11 @@ void VuDetailedSpeedData::printOn(reporter& report) const {
 			visualization.add(difference - 1, 0);
 		}
 		for(int k = 0; k < 60; ++k)
-			visualization.add(difference + k, vuDetailedSpeedBlocks[j].speedsPerSecond[k]);
+			visualization.add(difference + k, vuDetailedSpeedBlocks[j]->speedsPerSecond[k]);
 		lastDifference = difference;
 	}
 	if(lastDifference != 0){
 		visualization.add(lastDifference + 1, 0);
-		report(daystart.date().toString(), visualization.toString());
+		report.tagValuePair(daystart.date().toString(), visualization.toString());
 	}
 }

@@ -1,18 +1,18 @@
 #ifndef RAWDATA_H
 #define RAWDATA_H
 
-#include "../constDataPointer.h"
+#include "DataType.h"
+#include "../DataPointer.h"
 
-#include <QtCore/QString>
-
-class RawData : public constDataPointer {
+class RawData : public DataType, public DataPointer {
 public:
 	int length_;
-	RawData(const constDataPointer& start, int length);
+	RawData(const DataPointer& start, int length);
 	RawData(const QByteArray& o);
 	QString toString() const;
-	int length() const;
+	int size() const;
 	QByteArray toQByteArray() const;
+	void printOn(Reporter& report) const;
 };
 
 #endif

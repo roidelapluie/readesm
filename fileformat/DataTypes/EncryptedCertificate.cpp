@@ -6,7 +6,7 @@
 #include <QtCore/QDebug>
 */
 
-EncryptedCertificate::EncryptedCertificate(const constDataPointer& filewalker) : RawEncryptedCertificate(filewalker),
+EncryptedCertificate::EncryptedCertificate(const DataPointer& filewalker) : RawEncryptedCertificate(filewalker),
 	decryptedCertificate()
 {}
 
@@ -17,7 +17,7 @@ bool EncryptedCertificate::attemptVerification(const RsaPublicKey& key){
 	QByteArray hdash = srdash.mid(107, 20);
 	QByteArray cdash = crdash.append(cndash.toQByteArray()); // implicitly shared, but we do not need crdash anymore
 	if(!checkSha1(cdash, hdash)) return false;
-	decryptedCertificate = QSharedPointer<DecryptedCertificate>(new DecryptedCertificate(constDataPointer(cdash)));
+	decryptedCertificate = QSharedPointer<DecryptedCertificate>(new DecryptedCertificate(DataPointer(cdash)));
 	return true;
 }
 
@@ -41,14 +41,12 @@ bool EncryptedCertificate::isVerified() const {
 	return decryptedCertificate;
 }
 
-void EncryptedCertificate::printOn(reporter& report) const {
+void EncryptedCertificate::printOn(Reporter& report) const {
 	if(decryptedCertificate){
 		decryptedCertificate->printOn(report);
-		report.single(tr("Certificate verified from:"));
-		certificateAuthorityReference.printOn(report);
+		report.namedSubBlock(tr("Certificate verified from:"), certificateAuthorityReference);
 	} else {
-		report.single(tr("Unverified certificate, needs verification from:"));
-		certificateAuthorityReference.printOn(report);
+		report.namedSubBlock(tr("Unverified certificate, needs verification from:"), certificateAuthorityReference);
 	}
 }
 
@@ -66,7 +64,7 @@ bool verifiedcert::verify(const QString& filename) {
 	if (!file.open(QIODevice::ReadOnly)) return false;
 	QByteArray rawkey = file.readAll();
 	file.close();
-	constDataPointer keyPointer(rawkey);
+	DataPointer keyPointer(rawkey);
 	CertificateAuthority rawkey_ca(keyPointer);
 	if(rawkey_ca != car) {
 		qDebug() << "Attempting to use wrong ca certificate.";

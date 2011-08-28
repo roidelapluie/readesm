@@ -7,7 +7,7 @@
 class RsaPublicKey : public RawRsaPublicKey {
 	Q_DECLARE_TR_FUNCTIONS(RsaPublicKey)
 public:
-	RsaPublicKey(const constDataPointer& start);
+	RsaPublicKey(const DataPointer& start);
 	QByteArray perform(const RawData& input) const;
 };
 #endif

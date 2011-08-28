@@ -38,6 +38,7 @@ def writeIfDifferent(filename, newContent):
 		f = open(filename,'w')
 		f.write(newContent)
 		f.close()
+		print filename
 
 def lcfirst(a):
 	return a[0].lower() + a[1:]
@@ -132,7 +133,7 @@ for block in tree.findall('CardBlock') + tree.findall('DataType') + tree.findall
 		elif type in sizes:
 			length = sizes[type]
 		elif block.tag == 'CardBlock':
-			length = 'size() - (%(offset)i %(offsetextra)s)' % vars()
+			length = 'dataBlockSize() - (%(offset)i %(offsetextra)s)' % vars()
 			isLast = True
 
 		if type == 'string':
@@ -148,22 +149,20 @@ for block in tree.findall('CardBlock') + tree.findall('DataType') + tree.findall
 			headerDependencies.add('"../DataTypes/' + type + '.h"')
 		elif type == 'Subblocks':
 			subtype = elem.get('type')
-			length = elem.get('counterlength')
-			subsize = sizes[subtype]
+			counterlength = elem.get('counterlength')
 			if not ename:
 				ename = lcfirst(subtype + 's')
-			if length:
-				length=int(length)
-				subcount = 'readBigEndianInt%i(%s)' % (length, fullOffset)
-				builder = '%(fullOffset)s + %(length)i, %(subcount)s' % vars()
+			if counterlength:
+				length=int(counterlength)
+				subcount = 'readBigEndianInt%(length)i(%(fullOffset)s)' % vars()
+				builder = 'Subblocks<%(subtype)s>::fromTypeAndCount(%(fullOffset)s + %(counterlength)s, %(subcount)s)' % vars()
 			elif block.tag == 'CardBlock':
-				subcount = '(dataSize() + 5 - (%(offset)i %(offsetextra)s)) / %(subsize)i' % vars()
-				builder = '%(fullOffset)s, %(subcount)s' % vars()
+				builder = 'Subblocks<%(subtype)s>::fromTypeAndLength(%(fullOffset)s, %(size)s)' % vars()
 				isLast = True
 			else:
 				raise
-			offsetextra += ' + ' + ename + '.dataSize()'
 			type = 'Subblocks<' + subtype + '>'
+			offsetextra += ' + ' + ename + '.size()'
 			headerDependencies.add('"../DataTypes/Subblocks.h"')
 			headerDependencies.add('"../DataTypes/%(subtype)s.h"' % vars())
 		else:
@@ -173,20 +172,20 @@ for block in tree.findall('CardBlock') + tree.findall('DataType') + tree.findall
 		table = elem.get('table')
 		if table is not None:
 			codeDependencies.add('"../formatStrings.h"')
-			output += '\no(tr("' + ename + '"), formatStrings::' + table + '(' + ename + '));'
+			output += '\nreport.tagValuePair(tr("' + ename + '"), formatStrings::' + table + '(' + ename + '));'
 		elif type in hasToString:
-			output += '\no(tr("' + ename + '"), ' + ename + '.toString());'
+			output += '\nreport.tagValuePair(tr("' + ename + '"), ' + ename + '.toString());'
 		elif type == 'int':
 			unit = elem.get('unit')
 			if unit:
-				output += '\no(tr("%(ename)s"), QString("%%1 %(unit)s").arg(%(ename)s));' % vars()
+				output += '\nreport.tagValuePair(tr("%(ename)s"), QString("%%1 %(unit)s").arg(%(ename)s));' % vars()
 			else:
-				output += '\no(tr("%(ename)s"), %(ename)s);' % vars()
+				output += '\nreport.tagValuePair(tr("%(ename)s"), %(ename)s);' % vars()
 		elif type == 'QString':
-			output += '\no(tr("%(ename)s"), %(ename)s);' % vars()
+			output += '\nreport.tagValuePair(tr("%(ename)s"), %(ename)s);' % vars()
 		else:	
 			print ename, type
-			output += '\n%(ename)s.printOn(o);' % vars()
+			output += '\nreport.namedSubBlock(tr("%(ename)s"), %(ename)s);' % vars()
 		elements += '\n' + type + ' ' + ename + ';'
 		initList += ',\n\t' + ename + '(' + builder + ')'
 		if not isLast:
@@ -195,8 +194,8 @@ for block in tree.findall('CardBlock') + tree.findall('DataType') + tree.findall
 	headerContent = 'class ' + name + ' : public ' + block.tag + ' {\n' + \
 		  '\t' + 'Q_DECLARE_TR_FUNCTIONS(' + block.get('name') + ')\npublic:\n' + \
 		  '\t' + elements.replace('\n','\n\t') + '\n\n' + \
-		  '\t' + name + '(const constDataPointer& filewalker);\n'
-	codeContent = name + '::' + name + '(const constDataPointer& filewalker) : ' + initList + '\n{}\n\n'
+		  '\t' + name + '(const DataPointer& filewalker);\n'
+	codeContent = name + '::' + name + '(const DataPointer& filewalker) : ' + initList + '\n{}\n\n'
 
 	if block.tag != 'DataType':
 		headerContent += '\t' + 'static const int Type = ' + block.get('type') + ';\n' + \
@@ -216,9 +215,9 @@ for block in tree.findall('CardBlock') + tree.findall('DataType') + tree.findall
 		toString = toString.text
 		codeContent += 'QString %(name)s::toString() const{\n\treturn %(toString)s;\n}\n\n' % vars()
 		
-	headerContent += '\t' + 'virtual void printOn(reporter& o) const;\n' + \
+	headerContent += '\t' + 'virtual void printOn(Reporter& report) const;\n' + \
 		  '};\n\n'
-	codeContent += 'void ' + name + '::printOn(reporter& o) const {' + output.replace('\n','\n\t') + '\n}\n'
+	codeContent += 'void ' + name + '::printOn(Reporter& report) const {' + output.replace('\n','\n\t') + '\n}\n'
 
 	writeCodeFile(name, block.tag + 's', headerContent, codeContent, headerDependencies, codeDependencies)
 
@@ -233,8 +232,8 @@ for block in tree.findall('CardBlock') + tree.findall('DataType') + tree.findall
 #headerContent += '\n\tint blockCount() const;'
 #codeContent = '\nint ' + className + '::blockCount() const {\n\treturn ' + ' + '.join(lcfirst(block.get('name')) + '.size()' for block in blocklist) +  ';\n}\n'
 
-#headerContent += '\n\t///add a block to the container, return its size\n\tint addBlock(int type, const constDataPointer& start) const;'
-#codeContent += '\nint ' + className + '::addBlock(int type, const constDataPointer& start) const {' + \
+#headerContent += '\n\t///add a block to the container, return its size\n\tint addBlock(int type, const DataPointer& start) const;'
+#codeContent += '\nint ' + className + '::addBlock(int type, const DataPointer& start) const {' + \
 	#'\n\tswitch(' + type + '){' + '\n\t\t'.join('case ' + block.get('name') + '::Type: ' + lcfirst(name) + 's.push_back(T(start));\n\t\t\treturn '+ lcfirst(name) + 's.last().size();' for block in blocklist)
 
 className='CardBlock'
@@ -243,7 +242,7 @@ blocklist =  tree.findall(className)
 headerDependencies = set(('"CardBlock.h"','<QtCore/QSharedPointer>'))
 codeDependencies = set('"%s.h"' % block.get('name') for block in blocklist  )
 
-headerContent = 'QSharedPointer<CardBlock> cardBlockFactory(const constDataPointer& start);'
+headerContent = 'QSharedPointer<CardBlock> cardBlockFactory(const DataPointer& start);'
 codeContent = headerContent[:-1] + '{\n' + \
 	'\tif(start.bytesLeft() < 5) return QSharedPointer<'+className+'>();\n' + \
 	'\tswitch(readBigEndianInt2(start)) {\n\t\t' + \
@@ -258,7 +257,7 @@ blocklist =  tree.findall(className)
 headerDependencies = set(('"VuBlock.h"','"VuUnknownBlock.h"','<QtCore/QSharedPointer>'))
 codeDependencies = set('"%s.h"' % block.get('name') for block in blocklist  )
 
-headerContent = 'QSharedPointer<VuBlock> vuBlockFactory(const constDataPointer& start);'
+headerContent = 'QSharedPointer<VuBlock> vuBlockFactory(const DataPointer& start);'
 codeContent = headerContent[:-1] + '{\n' + \
 	'\tif(start.bytesLeft() < 2 || readBigEndianInt1(start) != 0x76) return QSharedPointer<'+className+'>();\n' + \
 	'\tswitch(readBigEndianInt1(start + 1)) {\n\t\t' + \

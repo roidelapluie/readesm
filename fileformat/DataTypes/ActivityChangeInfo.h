@@ -1,15 +1,15 @@
 #ifndef ACTIVITYCHANGEINFO_H
 #define ACTIVITYCHANGEINFO_H ACTIVITYCHANGEINFO_H
 
-#include "../reporter/reporter.h"
+#include "DataType.h"
 
-class ActivityChangeInfo {
+class ActivityChangeInfo : public DataType {
 	Q_DECLARE_TR_FUNCTIONS(activityChangeInfo)
 	public:
 	int s,c,p,a,t;
 	static const int staticSize = 2;
 
-	ActivityChangeInfo(const constDataPointer& start) :
+	ActivityChangeInfo(const DataPointer& start) : DataType(start),
 		s((start[0] & (1 << 7)) >> 7),
 		c((start[0] & (1 << 6)) >> 6),
 		p((start[0] & (1 << 5)) >> 5),
@@ -44,10 +44,13 @@ class ActivityChangeInfo {
 		}
 		return rv;
 	}
-	void printOn(reporter & o) const {
-		o.single(toString());
+	int size() const {
+		return 2;
 	}
-	friend reporter& operator<<(reporter& o, const ActivityChangeInfo& a) {
+	void printOn(Reporter & o) const {
+		o.tagValuePair(activityName(), toString());
+	}
+	friend Reporter& operator<<(Reporter& o, const ActivityChangeInfo& a) {
 		a.printOn(o);
 		return o;
 	}

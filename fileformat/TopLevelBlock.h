@@ -14,33 +14,31 @@
  You should have received a copy of the GNU General Public License along with
  readESM.  If not, see <http://www.gnu.org/licenses/>. */
 
-#ifndef ESMFILE_H
-#define ESMFILE_H
+#ifndef TOPLEVELBLOCK_H
+#define TOPLEVELBLOCK_H
 
-#include "TopLevelBlock.h"
+#include "Block.h"
+#include "Reporter/Reporter.h"
+#include "DataTypes/EncryptedCertificate.h"
+#include "DataTypes/RawData.h"
 
-#include <QtCore/QSharedPointer>
+#include <QtCore/QCoreApplication>
 #include <QtCore/QString>
-#include <QtCore/QVector>
 
-
-class EsmFile {
-	Q_DECLARE_TR_FUNCTIONS(ESMFile)
-
-public:
-	QByteArray fileData;
-	QVector< QSharedPointer<TopLevelBlock> > blocks;
-
-	EsmFile(const QString& filename);
-
-	QString suggestTitle() const;
-	QString suggestFileName() const;
+class TopLevelBlock : public Block {
+	Q_DECLARE_TR_FUNCTIONS(Block)
+	public:
+	TopLevelBlock(const DataPointer& filewalker);
+	virtual QString name() const;
+	virtual void checkSignature(const EncryptedCertificate& cert);
+	virtual QString signatureValidity() const;
 	
-	friend Reporter& operator<<(Reporter& report, const EsmFile& e);
-	
-protected:
-	void printOn(Reporter& o) const;
-
+	protected:
+	virtual RawData signedBytes() const = 0;
+	virtual RawData signatureBytes() const;
+	virtual void printOn(Reporter& o) const;
+	bool validSignature;
+	bool hasSignature;
 };
 
 #endif

@@ -11,7 +11,7 @@ class Timespan {
 	TimeReal begin;
 	TimeReal end;
 
-	Timespan(const constDataPointer& start);
+	Timespan(const DataPointer& start);
 
 	QString toString() const;
 };

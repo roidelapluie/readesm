@@ -14,33 +14,32 @@
  You should have received a copy of the GNU General Public License along with
  readESM.  If not, see <http://www.gnu.org/licenses/>. */
 
-#ifndef ESMFILE_H
-#define ESMFILE_H
+#ifndef REPORTER_H
+#define REPORTER_H REPORTER_H
 
-#include "TopLevelBlock.h"
-
+#include <QtCore/QCoreApplication>
 #include <QtCore/QSharedPointer>
 #include <QtCore/QString>
-#include <QtCore/QVector>
+#include <QtCore/QTextStream>
 
+class DataType;
+class TopLevelBlock;
 
-class EsmFile {
-	Q_DECLARE_TR_FUNCTIONS(ESMFile)
-
+class Reporter {
+	Q_DECLARE_TR_FUNCTIONS(Reporter)
 public:
-	QByteArray fileData;
-	QVector< QSharedPointer<TopLevelBlock> > blocks;
-
-	EsmFile(const QString& filename);
-
-	QString suggestTitle() const;
-	QString suggestFileName() const;
-	
-	friend Reporter& operator<<(Reporter& report, const EsmFile& e);
-	
+	virtual void tagValuePair(const QString& tag, const QString& value) = 0;
+	virtual void tagValuePair(const QString& tag, int value);
+	virtual void namedSubBlock(const QString& tag, const DataType& value) = 0;
+	virtual void topLevelBlock(const TopLevelBlock& value) = 0;
+	virtual QByteArray toQByteArray() const = 0;
+	virtual void setTitle(const QString& newtitle);
+	void flush();
+	Reporter();
 protected:
-	void printOn(Reporter& o) const;
-
+	QByteArray collected;
+	QTextStream collector;
+	QString title;
 };
 
 #endif

@@ -6,7 +6,7 @@
 class VuActivities : public RawVuActivities {
 	Q_DECLARE_TR_FUNCTIONS(VuActivities)
 public:
-	VuActivities(const constDataPointer& filewalker);
+	VuActivities(const DataPointer& filewalker);
 	QString name() const;
 };
 

@@ -1,6 +1,6 @@
 #include "LargeNumber.h"
 
-LargeNumber::LargeNumber(const constDataPointer& start, int length) {
+LargeNumber::LargeNumber(const DataPointer& start, int length) {
 	mpz_init(t);
 	mpz_import(t, length, 1, 1, 0, 0, start.toUnsignedPointer());
 }

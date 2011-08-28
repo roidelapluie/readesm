@@ -15,8 +15,8 @@ public:
 	bool attemptVerificationFrom(const PlainCertificate& certificate);
 	bool attemptVerificationFrom(const EncryptedCertificate& certificate);
 	bool checkSignature(const RawData& signedData, const RawData& signature) const;
-	EncryptedCertificate(const constDataPointer& filewalker);
-	virtual void printOn(reporter& report) const;
+	EncryptedCertificate(const DataPointer& filewalker);
+	virtual void printOn(Reporter& report) const;
 	bool isVerified() const;
 };
 

@@ -2,10 +2,10 @@
 #include <QtCore/QDebug>
 
 
-DataType::DataType(const constDataPointer& nstart) : start(nstart)
+DataType::DataType(const DataPointer& nstart) : Block(nstart)
 {}
 
-reporter& operator<<(reporter& report, const DataType& d){
+Reporter& operator<<(Reporter& report, const DataType& d){
 	d.printOn(report);
 	return report;
 }

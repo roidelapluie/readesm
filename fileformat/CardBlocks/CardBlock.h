@@ -1,13 +1,15 @@
 #ifndef CARDBLOCK_H
 #define CARDBLOCK_H
 
-#include "../Block.h"
+#include "../TopLevelBlock.h"
 
-class CardBlock : public Block {
+class CardBlock : public TopLevelBlock {
 	public:
-	CardBlock(const constDataPointer& filewalker);
+	CardBlock(const DataPointer& filewalker);
 	int size() const;
-	int dataSize() const;
+
+	///size of Data block (i.e. without signature)
+	int dataBlockSize() const;
 	
 	virtual RawData signedBytes() const;
 

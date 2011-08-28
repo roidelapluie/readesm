@@ -6,7 +6,7 @@
 class VuCardIWRecord : public RawVuCardIWRecord {
 	Q_DECLARE_TR_FUNCTIONS(VuCardIWRecord)
 public:
-	VuCardIWRecord(const constDataPointer& filewalker);
+	VuCardIWRecord(const DataPointer& filewalker);
 };
 
 

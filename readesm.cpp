@@ -9,9 +9,7 @@
 
 #include "config.h"
 #include "fileformat/EsmFile.h"
-#include "fileformat/reporter/htmlReporter.h"
-#include "fileformat/reporter/txtReporter.h"
-#include "fileformat/reporter/xmlReporter.h"
+#include "fileformat/Reporter/HtmlReporter.h"
 #include "gui/mainWindow.h"
 
 #include <QtCore/QByteArray>
@@ -55,22 +53,22 @@ int main2(int argc, char** argv)
 
 		//create report into temporary array
 		QByteArray outData;
-		if(extension == "txt") {
+		/*if(extension == "txt") {
 			txtReporter rep;
 			rep << esm;
 			outData = rep.str().toLocal8Bit();
-		} else if(extension == "html" || extension == "htm") {
-			htmlReporter rep;
+		} else*/ if(extension == "html" || extension == "htm") {
+			HtmlReporter rep;
 			rep << esm;
-			outData = rep.str().toUtf8();
-		} else if(extension == "xml" || extension == "xhtml") {
+			outData = rep.toQByteArray();
+		} /*else if(extension == "xml" || extension == "xhtml") {
 			xmlReporter rep;
 			rep << esm;
 			outData = rep.str().toUtf8();
 		} else {
 			cerr << "Format for output not recognized." << endl;
 			return 1;
-		}
+		}*/
 
 		QFile out(outputFile);
 		out.open(QIODevice::WriteOnly | QIODevice::Text);
@@ -92,3 +90,4 @@ int main(int argc, char** argv)
 	if(argc == 3) return main2<QCoreApplication>(argc,argv);
 	else return main2<QApplication>(argc,argv);
 }
+

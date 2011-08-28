@@ -2,7 +2,7 @@
 
 #include <QtCore/QDebug>
 
-TimeReal::TimeReal(const constDataPointer& start) : QDateTime(QDateTime::fromTime_t(readBigEndianInt4(start)))
+TimeReal::TimeReal(const DataPointer& start) : QDateTime(QDateTime::fromTime_t(readBigEndianInt4(start))), valid_(true)
 {
 	int timestamp = readBigEndianInt4(start);
 	if(timestamp == 0 || timestamp == (int)0xFFFFFFFF) valid_= false;

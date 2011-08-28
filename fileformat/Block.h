@@ -17,11 +17,9 @@
 #ifndef BLOCK_H
 #define BLOCK_H BLOCK_H
 
-#include "constDataPointer.h"
+#include "DataPointer.h"
 #include "readTypes.h"
-#include "reporter/reporter.h"
-#include "DataTypes/EncryptedCertificate.h"
-#include "DataTypes/RawData.h"
+#include "Reporter/Reporter.h"
 
 #include <QtCore/QCoreApplication>
 #include <QtCore/QString>
@@ -29,19 +27,13 @@
 class Block {
 	Q_DECLARE_TR_FUNCTIONS(Block)
 	public:
-	Block(const constDataPointer& filewalker);
-	friend reporter& operator<<(reporter& o, const Block& b);
+	Block(const DataPointer& filewalker);
 	virtual int size() const = 0;
-	virtual QString name() const;
-	virtual void checkSignature(const EncryptedCertificate& cert);
+	friend Reporter& operator<<(Reporter& o, const Block& b);
 	
 	protected:
-	virtual RawData signedBytes() const = 0;
-	virtual RawData signatureBytes() const;
-	virtual void printOn(reporter& o) const;
-	bool validSignature;
-	bool hasSignature;
-	constDataPointer start;
+	virtual void printOn(Reporter& o) const = 0;
+	DataPointer start;
 };
 
 #endif

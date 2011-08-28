@@ -6,7 +6,7 @@
 class VuOverview : public RawVuOverview {
 	Q_DECLARE_TR_FUNCTIONS(VuOverview)
 public:
-	VuOverview(const constDataPointer& filewalker);
+	VuOverview(const DataPointer& filewalker);
 	virtual RawData signedBytes() const;
 };
 

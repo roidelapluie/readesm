@@ -1,6 +1,6 @@
 #include "VuOverview.h"
 
-VuOverview::VuOverview(const constDataPointer& filewalker) : RawVuOverview(filewalker)
+VuOverview::VuOverview(const DataPointer& filewalker) : RawVuOverview(filewalker)
 {}
 
 ///In the overview block, the bytes in the two certificates do not count for the checksum calculation

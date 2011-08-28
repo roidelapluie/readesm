@@ -5,23 +5,27 @@
 #include "RawCardActivityDailyRecord.h"
 #include "Subblocks.h"
 
+#include <QtCore/QDebug>
+
 class CardActivityDailyRecord : public RawCardActivityDailyRecord {
 public:
 	Subblocks<ActivityChangeInfo> activityChangeInfos;
 	
-	CardActivityDailyRecord(const constDataPointer& start) : RawCardActivityDailyRecord(start),
-		activityChangeInfos(start + RawCardActivityDailyRecord::staticSize, (activityRecordLength - RawCardActivityDailyRecord::staticSize) / ActivityChangeInfo::staticSize)
+	CardActivityDailyRecord(const DataPointer& start) : RawCardActivityDailyRecord(start),
+		activityChangeInfos(Subblocks<ActivityChangeInfo>::fromTypeAndLength(start + RawCardActivityDailyRecord::staticSize, activityRecordLength - RawCardActivityDailyRecord::staticSize))
 	{
-		qDebug() << "gen'd CardActivityDailyRecord";
 	}
 	int size() const {
 		if(activityRecordLength < RawCardActivityDailyRecord::staticSize){
 			qDebug() << "Size to small in CardActivityDailyRecord";
 			return RawCardActivityDailyRecord::staticSize;
 		}
+		if(activityRecordLength > RawCardActivityDailyRecord::staticSize + 2 * 60 * 24){
+			qDebug() << "Size of CardActivityDailyRecord excessive:" <<  activityRecordLength;
+		}
 		return activityRecordLength;
 	}
-	void printOn(reporter& o) const {
+	void printOn(Reporter& o) const {
 		RawCardActivityDailyRecord::printOn(o);
 		activityChangeInfos.printOn(o);
 	}

@@ -1,18 +1,17 @@
 #ifndef DATATYPE_H
 #define DATATYPE_H
 
-#include "../constDataPointer.h"
+#include "../DataPointer.h"
 #include "../readTypes.h"
-#include "../reporter/reporter.h"
+#include "../Reporter/Reporter.h"
+#include "../Block.h"
 
-
-class DataType {
+class DataType : public Block {
 public:
-	constDataPointer start;
-	DataType(const constDataPointer& nstart);
+	DataType(const DataPointer& nstart);
 
-	friend reporter& operator<<(reporter& report, const DataType& d);
-	virtual void printOn(reporter& report) const  = 0;
+	friend Reporter& operator<<(Reporter& report, const DataType& d);
+	virtual void printOn(Reporter& report) const  = 0;
 	virtual int size() const = 0;
 	virtual bool operator==(const DataType& other) const;
 	virtual bool operator!=(const DataType& other) const;

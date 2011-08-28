@@ -1,34 +1,54 @@
 #ifndef SUBBLOCKS_H
 #define SUBBLOCKS_H
 
-
-
-#include "../constDataPointer.h"
-#include "../readTypes.h"
-#include "../reporter/reporter.h"
-
 #include <QtCore/QDebug>
+#include <QtCore/QVector>
+#include <QtCore/QSharedPointer>
 
-#include <vector>
+#include "DataType.h"
 
 template <typename T>
-class Subblocks : public std::vector<T> {
+class Subblocks : public DataType {
+protected:
+	QVector<QSharedPointer<T> > array;
+	int numberOfBytes;
+	void appendAndIncrement(DataPointer& walker, QSharedPointer<T> toAppend){
+		if(!toAppend->isDefaultValue()) array.append(toAppend);
+		walker += toAppend->size();
+	}
+	Subblocks(const DataPointer& start)  : DataType(start), numberOfBytes(0) {}
 public:
-	constDataPointer start_;
-	int count_;
-	Subblocks(const constDataPointer& start, int count) :start_(start), count_(count)
-	{	
-		for(int j = 0; j < count_; ++j) push_back(T(start + j*T::staticSize));
+	QSharedPointer<T> operator[](int j) const{
+		return array[j];
 	}
-	
-	Subblocks() : count_(0) {}
-	
-	int dataSize() const {
-		return count_ * T::staticSize;
+	int numberOfBlocks() const{
+		return array.size();
 	}
-
-	void printOn(reporter& o) const{
-		o.reportraynosub((*this));
+	void printOn(Reporter& o) const{
+		for(int j = 0; j < numberOfBlocks(); ++j) o.namedSubBlock("subblock", *array[j]);
+	}
+	int size() const {
+		return numberOfBytes;
+	}
+	///Create a fixed number of subblocks
+	static Subblocks fromTypeAndCount(const DataPointer& start, int count){
+		qDebug() << "starting subblocks";
+		DataPointer walker(start);
+		Subblocks rv(start);
+		for(int j = 0; j < count; ++j) rv.appendAndIncrement(walker, QSharedPointer<T>(new T(walker)));
+		rv.numberOfBytes = walker - start;
+		return rv;
+	}
+	///Create Subblocks if a fixed number of bytes is to be read
+	static Subblocks fromTypeAndLength(const DataPointer& start, int length){
+		DataPointer walker(start);
+		Subblocks rv(start);
+		while(walker - start < length){
+			//qDebug() << "pos " << (walker - start) << " of " << length;
+			rv.appendAndIncrement(walker, QSharedPointer<T>(new T(walker)));
+		}
+		rv.numberOfBytes = walker - start;
+		return rv;
 	}
 };
 

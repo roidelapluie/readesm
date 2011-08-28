@@ -17,22 +17,22 @@
 #ifndef READTYPES_H
 #define READTYPES_H
 
-#include "constDataPointer.h"
+#include "DataPointer.h"
 
 #include <QtCore/QString>
 
-QString codepageStringCombination(const constDataPointer& start, int length);
-QString fixedString(const constDataPointer& start, int length);
+QString codepageStringCombination(const DataPointer& start, int length);
+QString fixedString(const DataPointer& start, int length);
 
-int readBigEndianInt1(const constDataPointer& start);
-int readBigEndianInt2(const constDataPointer& start);
-int readBigEndianInt3(const constDataPointer& start);
-int readBigEndianInt4(const constDataPointer& start);
+int readBigEndianInt1(const DataPointer& start);
+int readBigEndianInt2(const DataPointer& start);
+int readBigEndianInt3(const DataPointer& start);
+int readBigEndianInt4(const DataPointer& start);
 
 
 QString bcdbyte(unsigned char start);
 
-// inline int LEInt32(const constDataPointer& start) {
+// inline int LEInt32(const DataPointer& start) {
 // 	return (start[3] << 24) + (start[2] << 16) + (start[1] << 8) + start[0];
 // }
 

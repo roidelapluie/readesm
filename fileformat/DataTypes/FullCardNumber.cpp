@@ -1,6 +1,6 @@
 #include "FullCardNumber.h"
 
-FullCardNumber::FullCardNumber(constDataPointer filewalker) : RawFullCardNumber(filewalker)
+FullCardNumber::FullCardNumber(DataPointer filewalker) : RawFullCardNumber(filewalker)
 {}
 
 QString FullCardNumber::toString() const{
@@ -13,7 +13,7 @@ QString FullCardNumber::toString() const{
 	return RawFullCardNumber::toString();
 }
 
-void FullCardNumber::printOn(reporter& o) const {
+void FullCardNumber::printOn(Reporter& o) const {
 	RawFullCardNumber::printOn(o);
 }
 

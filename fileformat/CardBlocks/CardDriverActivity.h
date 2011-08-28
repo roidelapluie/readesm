@@ -6,12 +6,13 @@
 #include "../DataTypes/Subblocks.h"
 
 class CardDriverActivity : public RawCardDriverActivity {
+	QByteArray readCyclicData();
 public:
-	Subblocks<CardActivityDailyRecord> cardActivityDailyRecords;
 	QByteArray activityDataUncycled;
+	Subblocks<CardActivityDailyRecord> cardActivityDailyRecords;
 
-	CardDriverActivity(const constDataPointer& start);
-	void printOn(reporter& o) const;
+	CardDriverActivity(const DataPointer& start);
+	void printOn(Reporter& o) const;
 };
 
 #endif

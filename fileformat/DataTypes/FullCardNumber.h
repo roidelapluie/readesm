@@ -9,9 +9,9 @@
 class FullCardNumber : public RawFullCardNumber {
 	Q_DECLARE_TR_FUNCTIONS(FullCardNumber)
 public:
-	FullCardNumber(constDataPointer filewalker);
+	FullCardNumber(DataPointer filewalker);
 	QString toString() const;
-	virtual void printOn(reporter& o) const;
+	virtual void printOn(Reporter& o) const;
 	static QMap<QString, QString>& mapCardNumberToName();
 	
 };
