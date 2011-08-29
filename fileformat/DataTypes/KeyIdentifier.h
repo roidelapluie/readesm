@@ -2,15 +2,18 @@
 #define KEYIDENTIFIER_H
 
 
-#include "CertificateAuthority.h"
-#include "RawKeyIdentifier.h"
+#include <QSharedPointer>
 
-class KeyIdentifier : public RawKeyIdentifier {
+#include "DataType.h"
+
+class KeyIdentifier : public DataType {
 	Q_DECLARE_TR_FUNCTIONS(KeyIdentifier)
 public:
 	KeyIdentifier(const DataPointer& filewalker);
 	void printOn(Reporter& o) const;
-	CertificateAuthority asCertificateAuthority;
+	int size() const;
+protected:
+	QSharedPointer<DataType> content;
 };
 
 

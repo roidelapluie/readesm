@@ -44,6 +44,9 @@ int readBigEndianInt4(const DataPointer& start) {
 }
 
 QString bcdbyte(unsigned char start) {
-	return QString("%1").arg(start, 2, 16, QChar('0'));
+	return hexByte(start);
 }
 
+QString hexByte(unsigned char start) {
+	return QString("%1").arg(start, 2, 16, QChar('0'));
+}

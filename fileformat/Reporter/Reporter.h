@@ -32,6 +32,7 @@ public:
 	virtual void tagValuePair(const QString& tag, int value);
 	virtual void namedSubBlock(const QString& tag, const DataType& value) = 0;
 	virtual void topLevelBlock(const TopLevelBlock& value) = 0;
+	///return the qbytearray that contains the report, ready for being written to a file.
 	virtual QByteArray toQByteArray() const = 0;
 	virtual void setTitle(const QString& newtitle);
 	virtual bool allowSvg() const = 0;
@@ -39,7 +40,7 @@ public:
 	Reporter();
 protected:
 	QByteArray collected;
-	QTextStream collector;
+	mutable QTextStream collector;
 	QString title;
 };
 

@@ -189,7 +189,7 @@
 			<int length="1" name="CardSlotsStatus" />
 			<TimeReal name="downloadingTime" />
 			<FullCardNumber name="cardNumber" />
-			<string length="36" name="companyOrWorkshopName" />
+			<cpstring length="36" name="companyOrWorkshopName" />
 			<Subblocks type="VuCompanyLocksRecord" counterlength="1" />
 			<Subblocks type="VuControlActivityRecord" counterlength="1" />
 		</content>

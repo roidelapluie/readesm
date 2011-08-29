@@ -31,6 +31,7 @@ int readBigEndianInt4(const DataPointer& start);
 
 
 QString bcdbyte(unsigned char start);
+QString hexByte(unsigned char start);
 
 // inline int LEInt32(const DataPointer& start) {
 // 	return (start[3] << 24) + (start[2] << 16) + (start[1] << 8) + start[0];

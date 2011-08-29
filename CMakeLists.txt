@@ -9,7 +9,7 @@ endif(WIN32)
 if(MAC)
 	set(GUI_TYPE MACOSX_BUNDLE)
 endif()
-set(CMAKE_BUILD_TYPE release)
+set(CMAKE_BUILD_TYPE debug)
 add_definitions("-Wall")
 
 find_package(Qt4 COMPONENTS QtGui QtWebKit REQUIRED)
@@ -67,7 +67,14 @@ qt4_automoc(${readesm_SRCS})
 
 add_executable(readesm ${GUI_TYPE} ${readesm_SRCS} ${readesm_RCC_SRCS} ${QM_FILES} readesm.rc)
 
+# set(test-fileformat_SRCS ${fileformat_CPP} ${fileformat_H} test-fileformat.cpp)
+# add_executable(test-fileformat ${test-fileformat_SRCS} ${readesm_RCC_SRCS})
+
 target_link_libraries(readesm ${QT_QTCORE_LIBRARY} ${QT_QTGUI_LIBRARY} ${QT_QTWEBKIT_LIBRARY} ${LIBS})
+
+
+#*** testing ***
+#enable_testing()
 
 #*** .desktop file, icon and mime type ***
 if(UNIX)

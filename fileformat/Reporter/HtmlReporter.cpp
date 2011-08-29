@@ -26,6 +26,7 @@ void HtmlReporter::topLevelBlock(const TopLevelBlock& value){
 
 
 QByteArray HtmlReporter::toQByteArray() const{
+	collector.flush();
 	QByteArray filecontent = loadFile(":/template.html");
 	filecontent.replace("$title", title.toUtf8());
 	filecontent.replace("$content", collected);

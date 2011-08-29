@@ -34,10 +34,12 @@ int main2(int argc, char** argv)
 	QTextStream cerr(stderr);
 
 	QTranslator qtTranslator;
-	if(!qtTranslator.load("readesm_" + QLocale::system().name(),":/")) {
-		cerr << "Could not load internationalization files for your locale :(" << endl;
+	if(QLocale::system().name() != "C"){
+		if(!qtTranslator.load("readesm_" + QLocale::system().name(),":/")) {
+			cerr << "Could not load internationalization files for your locale :(" << endl;
+		}
+		app.installTranslator(&qtTranslator);
 	}
-	app.installTranslator(&qtTranslator);
 	if(argc < 3) {
 		mainWindow widgetMainWindow;
 		widgetMainWindow.show();

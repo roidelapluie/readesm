@@ -1,11 +1,18 @@
 #include "KeyIdentifier.h"
 
+#include "CertificateAuthority.h"
+#include "RawKeyIdentifier.h"
 
-KeyIdentifier::KeyIdentifier(const DataPointer& filewalker) : RawKeyIdentifier(filewalker),
-	asCertificateAuthority(start)
-{}
+KeyIdentifier::KeyIdentifier(const DataPointer& filewalker) : DataType(filewalker)
+{
+	if(start[7] == 1) content = QSharedPointer<DataType>(new CertificateAuthority(start));
+	else content = QSharedPointer<DataType>(new RawKeyIdentifier(start));
+}
+
+int KeyIdentifier::size() const {
+	return 8;
+}
 
 void KeyIdentifier::printOn(Reporter& o) const {
-	if(manufacturerCode == 1) asCertificateAuthority.printOn(o);
-	else RawKeyIdentifier::printOn(o);
+	if(content) content->printOn(o);
 }

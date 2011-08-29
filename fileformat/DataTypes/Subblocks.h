@@ -36,7 +36,6 @@ public:
 	}
 	///Create a fixed number of subblocks
 	static Subblocks fromTypeAndCount(const DataPointer& start, int count){
-		qDebug() << "starting subblocks";
 		DataPointer walker(start);
 		Subblocks rv(start);
 		for(int j = 0; j < count; ++j) rv.appendAndIncrement(walker, QSharedPointer<T>(new T(walker)));
