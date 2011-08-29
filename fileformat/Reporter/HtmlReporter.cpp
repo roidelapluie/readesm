@@ -32,3 +32,7 @@ QByteArray HtmlReporter::toQByteArray() const{
 	filecontent.replace("$info", "gernerated with readesm");
 	return filecontent;
 }
+
+bool HtmlReporter::allowSvg() const{
+	return true;
+}

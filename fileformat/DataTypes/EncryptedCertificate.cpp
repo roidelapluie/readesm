@@ -1,3 +1,6 @@
+#include "config.h"
+#ifdef HAVE_CRYPTO
+
 #include "EncryptedCertificate.h"
 
 #include "../checkSha1.h"
@@ -72,3 +75,5 @@ bool verifiedcert::verify(const QString& filename) {
 	}
 	return verify(rsa(keyPointer.toUnsignedPointer(8), 128, keyPointer.toUnsignedPointer(136), 8));
 }*/
+
+#endif

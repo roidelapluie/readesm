@@ -13,7 +13,9 @@ TopLevelBlock::TopLevelBlock(const DataPointer& start) : Block(start),
 }
 
 void TopLevelBlock::checkSignature(const EncryptedCertificate& cert){
+#ifdef HAVE_CRYPTO
 	if(hasSignature) validSignature = cert.checkSignature(signedBytes(), signatureBytes());
+#endif
 }
 
 QString TopLevelBlock::signatureValidity() const{

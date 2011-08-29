@@ -34,6 +34,7 @@ public:
 	virtual void topLevelBlock(const TopLevelBlock& value) = 0;
 	virtual QByteArray toQByteArray() const = 0;
 	virtual void setTitle(const QString& newtitle);
+	virtual bool allowSvg() const = 0;
 	void flush();
 	Reporter();
 protected:

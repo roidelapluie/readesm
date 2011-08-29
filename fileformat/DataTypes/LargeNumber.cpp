@@ -1,3 +1,6 @@
+#include "config.h"
+#ifdef HAVE_CRYPTO
+
 #include "LargeNumber.h"
 
 LargeNumber::LargeNumber(const DataPointer& start, int length) {
@@ -25,3 +28,5 @@ LargeNumber& LargeNumber::operator=(const LargeNumber& o) {
 QString LargeNumber::toString() const {
 	return mpz_get_str(NULL, 10, t);
 }
+
+#endif

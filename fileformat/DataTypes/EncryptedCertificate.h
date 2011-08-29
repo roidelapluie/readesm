@@ -1,8 +1,11 @@
 #ifndef ENCRYPTEDCERTIFICATE_H
 #define ENCRYPTEDCERTIFICATE_H
+#include "RawEncryptedCertificate.h"
+
+#include "config.h"
+#ifdef HAVE_CRYPTO
 
 #include "DecryptedCertificate.h"
-#include "RawEncryptedCertificate.h"
 #include "RsaPublicKey.h"
 #include "PlainCertificate.h"
 
@@ -19,5 +22,14 @@ public:
 	virtual void printOn(Reporter& report) const;
 	bool isVerified() const;
 };
+
+#else
+
+class EncryptedCertificate : public RawEncryptedCertificate {
+public:
+	EncryptedCertificate(const DataPointer& filewalker) : RawEncryptedCertificate(filewalker){}
+};
+
+#endif
 
 #endif

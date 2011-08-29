@@ -1,6 +1,9 @@
 #ifndef LARGENUMBER_H
 #define LARGENUMBER_H
 
+#include "config.h"
+#ifdef HAVE_CRYPTO
+
 #include <gmp.h>
 #include "../DataPointer.h"
 
@@ -19,5 +22,18 @@ class LargeNumber {
 	LargeNumber& operator=(const LargeNumber& o);
 	QString toString() const;
 };
+
+#else
+
+#include "../DataPointer.h"
+#include <QtCore/QString>
+
+class LargeNumber {
+public:
+	LargeNumber(const DataPointer& start, int length){}
+	QString toString() const{ return "not implemented";}
+};
+
+#endif
 
 #endif

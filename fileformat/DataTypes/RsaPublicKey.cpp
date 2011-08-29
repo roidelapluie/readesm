@@ -1,4 +1,6 @@
 #include "RsaPublicKey.h"
+#include "config.h"
+#ifdef HAVE_CRYPTO
 
 RsaPublicKey::RsaPublicKey(const DataPointer& start) : RawRsaPublicKey(start) {}
 
@@ -12,3 +14,5 @@ QByteArray RsaPublicKey::perform(const RawData& input) const {
 	rv.resize(size);
 	return rv;
 }
+
+#endif

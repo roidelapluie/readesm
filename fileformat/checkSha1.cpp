@@ -1,9 +1,7 @@
 #include "checkSha1.h"
 
 #include "config.h"
-#ifndef HAVE_CRYPTO
-#error "including libgcrypt-dependent file despite not having all crypto libs"
-#endif
+#ifdef HAVE_CRYPTO
 
 #include <gcrypt.h>
 
@@ -15,3 +13,5 @@ bool checkSha1(const RawData& data, const QByteArray& hash){
 	}
 	return true;
 }
+
+#endif

@@ -25,7 +25,11 @@ public:
 		return array.size();
 	}
 	void printOn(Reporter& o) const{
-		for(int j = 0; j < numberOfBlocks(); ++j) o.namedSubBlock("subblock", *array[j]);
+		if(numberOfBlocks()){
+			for(int j = 0; j < numberOfBlocks(); ++j) o.namedSubBlock("subblock", *array[j]);
+		} else {
+			
+		}
 	}
 	int size() const {
 		return numberOfBytes;
