@@ -1285,59 +1285,48 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>Activity</name>
     <message>
-        <location filename="fileformat/Activity.h" line="+66"/>
         <source>break/rest</source>
-        <translation>Ruhepause</translation>
+        <translation type="obsolete">Ruhepause</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>availability</source>
-        <translation>Verfügbarkeit</translation>
+        <translation type="obsolete">Verfügbarkeit</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>work</source>
-        <translation>Arbeit</translation>
+        <translation type="obsolete">Arbeit</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>driving</source>
-        <translation>Lenken</translation>
+        <translation type="obsolete">Lenken</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>unknown activity</source>
-        <translation>unbekannte Tätigkeit</translation>
+        <translation type="obsolete">unbekannte Tätigkeit</translation>
     </message>
     <message>
-        <location line="+8"/>
         <source>co-driver</source>
-        <translation>2. Fahrer</translation>
+        <translation type="obsolete">2. Fahrer</translation>
     </message>
     <message>
-        <location line="+0"/>
         <source>driver</source>
-        <translation>Fahrer</translation>
+        <translation type="obsolete">Fahrer</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>crew</source>
-        <translation>Team</translation>
+        <translation type="obsolete">Team</translation>
     </message>
     <message>
-        <location line="+0"/>
         <source>single</source>
-        <translation>Einmannbetrieb</translation>
+        <translation type="obsolete">Einmannbetrieb</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>not inserted</source>
-        <translation>nicht eingesteckt</translation>
+        <translation type="obsolete">nicht eingesteckt</translation>
     </message>
     <message>
-        <location line="+0"/>
         <source>inserted</source>
-        <translation>eingesteckt</translation>
+        <translation type="obsolete">eingesteckt</translation>
     </message>
 </context>
 <context>
@@ -1352,6 +1341,109 @@ Signatur-Prüfung fehlgeschlagen </translation>
     </message>
 </context>
 <context>
+    <name>BcdDate</name>
+    <message>
+        <location filename="fileformat/DataTypes/BcdDate.cpp" line="+24"/>
+        <source>encodedDate</source>
+        <translation>Datum</translation>
+    </message>
+</context>
+<context>
+    <name>BcdMonthYear</name>
+    <message>
+        <location filename="fileformat/DataTypes/BcdMonthYear.cpp" line="+24"/>
+        <source>encodedDate</source>
+        <translation>Datum</translation>
+    </message>
+</context>
+<context>
+    <name>Block</name>
+    <message>
+        <location filename="fileformat/TopLevelBlock.cpp" line="+24"/>
+        <source>Block has valid signature</source>
+        <translation>Block ist gültig signiert</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Beware: Block has invalid signature</source>
+        <translation>Vorsicht: Blocksignatur ungültig</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Block not signed</source>
+        <translation>Block nicht signiert</translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>no crypto support compiled in</source>
+        <translation>Kompiliert ohne Kryptographieunterstützung</translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Unknown block type 0x%1</source>
+        <translation>Unbekannte Art eines Blocks: 0x%1</translation>
+    </message>
+</context>
+<context>
+    <name>Block11</name>
+    <message>
+        <location filename="fileformat/VuBlocks/Block11.cpp" line="+17"/>
+        <source>Unknown Block with trep 0x11</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>header</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>block11Records</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Block11Record</name>
+    <message>
+        <location filename="fileformat/DataTypes/Block11Record.cpp" line="+23"/>
+        <source>cardNumber</source>
+        <translation type="unfinished">Kartennummer</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>timeOne</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>timeTwo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>payloadData</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Block13</name>
+    <message>
+        <location filename="fileformat/VuBlocks/Block13.cpp" line="+17"/>
+        <source>Unknown Block with trep 0x13</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>header</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>block11Records</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>CA_Certificate</name>
     <message>
         <source>CA Certificate</source>
@@ -1361,7 +1453,387 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>CAid</name>
     <message>
-        <location filename="fileformat/dataTypes/certificateAuthority.cpp" line="+17"/>
+        <source>nationNumeric</source>
+        <translation type="obsolete">Land (numerisch)</translation>
+    </message>
+    <message>
+        <source>nationAlpha</source>
+        <translation type="obsolete">Land (alphabethisch)</translation>
+    </message>
+    <message>
+        <source>keySerialNumber</source>
+        <translation type="obsolete">Schlüsselseriennummer</translation>
+    </message>
+    <message>
+        <source>additionalInfo</source>
+        <translation type="obsolete">Zusätzliche Informationen</translation>
+    </message>
+    <message>
+        <source>caIdentifier</source>
+        <translation type="obsolete">CA Identifizierer</translation>
+    </message>
+</context>
+<context>
+    <name>CardActivityDailyRecord</name>
+    <message>
+        <location filename="fileformat/DataTypes/RawCardActivityDailyRecord.cpp" line="+24"/>
+        <source>activityRecordPreviousLength</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>activityRecordLength</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>activityRecordDate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>activityPresenceCounter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>activityDayDistance</source>
+        <translation>Gefahrene Strecke</translation>
+    </message>
+</context>
+<context>
+    <name>CardCertificate</name>
+    <message>
+        <location filename="fileformat/CardBlocks/CardCertificate.cpp" line="+16"/>
+        <source>card Certificate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>certificate</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>CardChipIdentification</name>
+    <message>
+        <location filename="fileformat/CardBlocks/CardChipIdentification.cpp" line="+17"/>
+        <source>Card chip identification</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>icSerialNumber</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>icManufacturingReference</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>CardControlActivityDataRecord</name>
+    <message>
+        <location filename="fileformat/CardBlocks/CardControlActivityDataRecord.cpp" line="+20"/>
+        <source>Control Activity Data</source>
+        <translation type="unfinished">Übersicht über Kontrollen</translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>controlType</source>
+        <translation type="unfinished">Kontrollart</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>controlTime</source>
+        <translation type="unfinished">Kontrollzeit</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>controlCardNumber</source>
+        <translation type="unfinished">Kontrollkartennummer</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>controlVehicleRegistration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>controlDownloadPeriod</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>CardCurrentUse</name>
+    <message>
+        <location filename="fileformat/CardBlocks/CardCurrentUse.cpp" line="+17"/>
+        <source>Current Usage</source>
+        <translation>Derzeitige Benutzung</translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>sessionOpenTime</source>
+        <translation>Sitzungsbeginn</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>sessionOpenVehicle</source>
+        <translation>Fahrzeug bei Sitzungsbeginn</translation>
+    </message>
+</context>
+<context>
+    <name>CardDriverActivity</name>
+    <message>
+        <location filename="fileformat/CardBlocks/RawCardDriverActivity.cpp" line="+18"/>
+        <source>Driver Activity Data</source>
+        <translation>Fahrertätigkeitsdaten</translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>oldestRecord</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>newestRecord</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>cyclicData</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>CardDrivingLicenseInformation</name>
+    <message>
+        <location filename="fileformat/CardBlocks/CardDrivingLicenseInformation.cpp" line="+18"/>
+        <source>Driving License Info</source>
+        <translation>Führerscheininformationen</translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>drivingLicenseIssuingAuthorithy</source>
+        <translation>Ausstellende Behörde</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>drivingLicenseIssuingNation</source>
+        <translation>Ausstellender Staat</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>drivingLicenseNumber</source>
+        <translation>Führerscheinnummer</translation>
+    </message>
+</context>
+<context>
+    <name>CardEventData</name>
+    <message>
+        <location filename="fileformat/CardBlocks/CardEventData.cpp" line="+16"/>
+        <source>Events Data</source>
+        <translation>Ereignisdaten</translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>cardEventRecords</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>CardEventRecord</name>
+    <message>
+        <location filename="fileformat/DataTypes/CardEventRecord.cpp" line="+22"/>
+        <source>eventType</source>
+        <translation>Ereignisart</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>eventTime</source>
+        <translation>Zeit</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>eventVehicleRegistration</source>
+        <translation>Fahzeugregistrierung</translation>
+    </message>
+</context>
+<context>
+    <name>CardFaultData</name>
+    <message>
+        <location filename="fileformat/CardBlocks/CardFaultData.cpp" line="+16"/>
+        <source>Faults Data</source>
+        <translation>Fehlerdaten</translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>cardEventRecords</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>CardIccIdentification</name>
+    <message>
+        <location filename="fileformat/CardBlocks/CardIccIdentification.cpp" line="+21"/>
+        <source>Card ICC identification</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>clockStop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>cardExtendedSerialNumber</source>
+        <translation>Erweiterte Seriennummer der Karte</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>cardApprovalNumber</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>cardPersonaliserID</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>embedderIcAssemblerId</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>icIdentifier</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>CardPlaceDailyWorkPeriod</name>
+    <message>
+        <location filename="fileformat/CardBlocks/CardPlaceDailyWorkPeriod.cpp" line="+17"/>
+        <source>Places</source>
+        <translation type="unfinished">Orte</translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>placePointerNewestRecord</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>placeRecords</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>CardSlots</name>
+    <message>
+        <location filename="fileformat/DataTypes/CardSlots.cpp" line="+9"/>
+        <location filename="fileformat/DataTypes/RawCardSlots.cpp" line="+23"/>
+        <source>cardNumberDriverSlotBegin</source>
+        <translation type="unfinished">Kartennummer des Fahrers bei Ereignisbeginn</translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <location filename="fileformat/DataTypes/RawCardSlots.cpp" line="+2"/>
+        <source>cardNumberDriverSlotEnd</source>
+        <translation type="unfinished">Kartennummer des Fahrers bei Ereignisende</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>cardNumberDriverSlot</source>
+        <translation type="unfinished">Kartennummer des Fahrers</translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <location filename="fileformat/DataTypes/RawCardSlots.cpp" line="-1"/>
+        <source>cardNumberCoDriverSlotBegin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <location filename="fileformat/DataTypes/RawCardSlots.cpp" line="+2"/>
+        <source>cardNumberCoDriverSlotEnd</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>cardNumberCoDriverSlot</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>CardVehicleRecord</name>
+    <message>
+        <location filename="fileformat/DataTypes/CardVehicleRecord.cpp" line="+24"/>
+        <source>vehicleOdometerBegin</source>
+        <translation type="unfinished">Kilometerstand am Anfang</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>vehicleOdometerEnd</source>
+        <translation type="unfinished">Kilometerstand am Ende</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>vehicleUse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>registration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>vuDataBlockCounter</source>
+        <translation type="unfinished">Datenblockzähler der FE</translation>
+    </message>
+</context>
+<context>
+    <name>CardVehiclesUsed</name>
+    <message>
+        <location filename="fileformat/CardBlocks/CardVehiclesUsed.cpp" line="+17"/>
+        <source>Vehicles Used</source>
+        <translation>Benutzte Fahrzeuge</translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>vehiclePointerNewestRecord</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>cardVehicleRecords</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Card_Certificate</name>
+    <message>
+        <source>Card Certificate</source>
+        <translation type="obsolete">Kartenzertifikat</translation>
+    </message>
+</context>
+<context>
+    <name>Card_Download</name>
+    <message>
+        <source>Card Download</source>
+        <translation type="obsolete">Herunterladen einer Karte</translation>
+    </message>
+    <message>
+        <source>LastCardDownload</source>
+        <translation type="obsolete">Letzter Kartendownload</translation>
+    </message>
+</context>
+<context>
+    <name>CertificateAuthority</name>
+    <message>
+        <location filename="fileformat/DataTypes/CertificateAuthority.cpp" line="+24"/>
         <source>nationNumeric</source>
         <translation>Land (numerisch)</translation>
     </message>
@@ -1382,26 +1854,21 @@ Signatur-Prüfung fehlgeschlagen </translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>caIdentifier</source>
-        <translation>CA Identifizierer</translation>
+        <source>caIdentifer</source>
+        <translation>Identifikation der Zertifizierungsstelle</translation>
     </message>
 </context>
 <context>
-    <name>Card_Certificate</name>
+    <name>CertificateHolderAuthorization</name>
     <message>
-        <source>Card Certificate</source>
-        <translation type="obsolete">Kartenzertifikat</translation>
-    </message>
-</context>
-<context>
-    <name>Card_Download</name>
-    <message>
-        <source>Card Download</source>
-        <translation type="obsolete">Herunterladen einer Karte</translation>
+        <location filename="fileformat/DataTypes/CertificateHolderAuthorization.cpp" line="+21"/>
+        <source>tachographApplicationId</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>LastCardDownload</source>
-        <translation type="obsolete">Letzter Kartendownload</translation>
+        <location line="+1"/>
+        <source>equipmentType</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1488,6 +1955,82 @@ Signatur-Prüfung fehlgeschlagen </translation>
     </message>
 </context>
 <context>
+    <name>DecryptedCertificate</name>
+    <message>
+        <location filename="fileformat/DataTypes/DecryptedCertificate.cpp" line="+25"/>
+        <source>certificateProfileIdentifier</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>certificateAuthorityReference</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>certificateHolderAuthorization</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>endOfValidity</source>
+        <translation>Gültigkeitsende</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>certificateHolderReference</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>rsaPublicKey</source>
+        <translation>Öffentlicher RSA-Schlüssel</translation>
+    </message>
+</context>
+<context>
+    <name>DriverCardApplicationIdentification</name>
+    <message>
+        <location filename="fileformat/CardBlocks/DriverCardApplicationIdentification.cpp" line="+22"/>
+        <source>Application Identification</source>
+        <translation>Anwendungskennung</translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>typeOfTachographCardId</source>
+        <translation>Implementierte Kartenart</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>cardStructureVersion</source>
+        <translation>Strukturversion der Karte</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>noOfEventsPerType</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>noOfFaultsPerType</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>activityStructureLength</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>noOfCardVehicleRecords</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>noOfCardPlaceRecords</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Driver_Activity_Data</name>
     <message>
         <source>Driver Activity Data</source>
@@ -1538,25 +2081,50 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>Duration</name>
     <message>
-        <location filename="fileformat/myTime.h" line="+81"/>
         <source>days</source>
-        <translation>Tage</translation>
+        <translation type="obsolete">Tage</translation>
+    </message>
+</context>
+<context>
+    <name>EncryptedCertificate</name>
+    <message>
+        <location filename="fileformat/DataTypes/EncryptedCertificate.cpp" line="+50"/>
+        <source>Certificate verified from:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Unverified certificate, needs verification from:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/DataTypes/RawEncryptedCertificate.cpp" line="+22"/>
+        <source>sign</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>cndash</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>certificateAuthorityReference</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>Event</name>
     <message>
-        <location filename="fileformat/vuBlocks/vuFaults.h" line="+95"/>
         <source>similarEventsNumber</source>
-        <translation>Anzahl Ähnlicher Ereignisse</translation>
+        <translation type="obsolete">Anzahl Ähnlicher Ereignisse</translation>
     </message>
 </context>
 <context>
     <name>EventBase</name>
     <message>
-        <location line="-54"/>
         <source>RecordPurpose</source>
-        <translation>Aufzeichnungsgrund</translation>
+        <translation type="obsolete">Aufzeichnungsgrund</translation>
     </message>
 </context>
 <context>
@@ -1582,36 +2150,53 @@ Signatur-Prüfung fehlgeschlagen </translation>
     </message>
 </context>
 <context>
+    <name>ExtendedSerialNumber</name>
+    <message>
+        <location filename="fileformat/DataTypes/ExtendedSerialNumber.cpp" line="+32"/>
+        <source>serialNumber</source>
+        <translation>Seriennummer</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>date</source>
+        <translation>Datum</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>equipmentType</source>
+        <translation>Gegenstandsart</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>manufacturerCode</source>
+        <translation>Herstellerkodierung</translation>
+    </message>
+</context>
+<context>
     <name>Fault</name>
     <message>
-        <location line="+30"/>
         <source>cardNumberDriverSlotBegin</source>
-        <translation>Kartennummer des Fahrers bei Ereignisbeginn</translation>
+        <translation type="obsolete">Kartennummer des Fahrers bei Ereignisbeginn</translation>
     </message>
     <message>
-        <location line="+2"/>
         <source>cardNumberDriverSlotEnd</source>
-        <translation>Kartennummer des Fahrers bei Ereignisende</translation>
+        <translation type="obsolete">Kartennummer des Fahrers bei Ereignisende</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>cardNumberDriverSlot</source>
-        <translation>Kartennummer des Fahrers</translation>
+        <translation type="obsolete">Kartennummer des Fahrers</translation>
     </message>
     <message>
-        <location line="+4"/>
         <source>cardNumberCodriverSlotBegin</source>
-        <translation>Kartennummer des Beifahrers bei Ereignisbeginn</translation>
+        <translation type="obsolete">Kartennummer des Beifahrers bei Ereignisbeginn</translation>
     </message>
     <message>
-        <location line="+2"/>
         <source>cardNumberCodriverSlotEnd</source>
-        <translation>Kartennummer des Beifahrers bei Ereignisende</translation>
+        <translation type="obsolete">Kartennummer des Beifahrers bei Ereignisende</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>cardNumberCodriverSlot</source>
-        <translation>Kartennummer des Beifahrers</translation>
+        <translation type="obsolete">Kartennummer des Beifahrers</translation>
     </message>
 </context>
 <context>
@@ -1665,34 +2250,73 @@ Signatur-Prüfung fehlgeschlagen </translation>
     </message>
 </context>
 <context>
+    <name>FullCardNumber</name>
+    <message>
+        <location filename="fileformat/DataTypes/FullCardNumber.cpp" line="+8"/>
+        <source>%1, card holder: %2</source>
+        <translation>%1, Karteninhaber: %2</translation>
+    </message>
+    <message>
+        <location filename="fileformat/DataTypes/RawFullCardNumber.cpp" line="+29"/>
+        <source>cardType</source>
+        <translation>Kartenart</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>cardIssuingMemberState</source>
+        <translation>Kartenausgebender Staat</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>cardNumber</source>
+        <translation>Kartennummer</translation>
+    </message>
+</context>
+<context>
     <name>Identification</name>
     <message>
         <source>Card Identification</source>
         <translation type="obsolete">Karteninformationen</translation>
     </message>
     <message>
+        <location filename="fileformat/CardBlocks/Identification.cpp" line="+24"/>
+        <source>Card identification and card holder identification</source>
+        <translation>Kartenidentifikation und Identität des Karteninhabers</translation>
+    </message>
+    <message>
+        <location line="+4"/>
         <source>cardIssuingMemberState</source>
-        <translation type="obsolete">Kartenausgebender Staat</translation>
+        <translation>Kartenausgebender Staat</translation>
     </message>
     <message>
+        <location line="+1"/>
         <source>cardNumber</source>
-        <translation type="obsolete">Kartennummer</translation>
+        <translation>Kartennummer</translation>
     </message>
     <message>
+        <location line="+1"/>
         <source>cardIssuingAuthorityName</source>
-        <translation type="obsolete">Kartenausgebende Behörde</translation>
+        <translation>Kartenausgebende Behörde</translation>
     </message>
     <message>
+        <location line="+1"/>
         <source>cardIssueDate</source>
-        <translation type="obsolete">Kartenausgabedatum</translation>
+        <translation>Kartenausgabedatum</translation>
     </message>
     <message>
+        <location line="+1"/>
         <source>cardValidityBegin</source>
-        <translation type="obsolete">Kartengültigkeitsbeginn</translation>
+        <translation>Kartengültigkeitsbeginn</translation>
     </message>
     <message>
+        <location line="+1"/>
         <source>cardExpiryDate</source>
-        <translation type="obsolete">Kartengültigkeitsende</translation>
+        <translation>Kartengültigkeitsende</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>cardHolderName</source>
+        <translation>Name des Karteninhabers</translation>
     </message>
     <message>
         <source>holderSurname</source>
@@ -1703,35 +2327,95 @@ Signatur-Prüfung fehlgeschlagen </translation>
         <translation type="obsolete">Vornamen des Karteninhabers</translation>
     </message>
     <message>
+        <location line="+1"/>
         <source>cardHolderBirthDate</source>
-        <translation type="obsolete">Geburtstag des Karteninhabers</translation>
+        <translation>Geburtstag des Karteninhabers</translation>
     </message>
     <message>
+        <location line="+1"/>
         <source>cardHolderPreferredLanguage</source>
-        <translation type="obsolete">Bevorzugte Sprache des Karteninhabers</translation>
+        <translation>Bevorzugte Sprache des Karteninhabers</translation>
+    </message>
+</context>
+<context>
+    <name>KeyIdentifier</name>
+    <message>
+        <location filename="fileformat/DataTypes/RawKeyIdentifier.cpp" line="+23"/>
+        <source>certificateRequestSerialNumber</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>date</source>
+        <translation>Datum</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>manufacturerCode</source>
+        <translation>Herstellerkodierung</translation>
+    </message>
+</context>
+<context>
+    <name>LastCardDownload</name>
+    <message>
+        <location filename="fileformat/CardBlocks/LastCardDownload.cpp" line="+16"/>
+        <source>Card Download</source>
+        <translation>Herunterladen einer Karte</translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>lastCardDownload</source>
+        <translation>Letzter Kartendownload</translation>
+    </message>
+</context>
+<context>
+    <name>MemberStateCertificate</name>
+    <message>
+        <location filename="fileformat/CardBlocks/MemberStateCertificate.cpp" line="+16"/>
+        <source>CA Certificate</source>
+        <translation>CA-Zertifikat</translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>certificate</source>
+        <translation>Zertifikat</translation>
+    </message>
+</context>
+<context>
+    <name>Name</name>
+    <message>
+        <location filename="fileformat/DataTypes/Name.cpp" line="+25"/>
+        <source>surname</source>
+        <translation>Nachname</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>firstNames</source>
+        <translation>Vornamen</translation>
     </message>
 </context>
 <context>
     <name>Overspeed</name>
     <message>
-        <location line="+37"/>
         <source>maxSpeedValue</source>
-        <translation>Höchste gefahrene Geschwindigkeit</translation>
+        <translation type="obsolete">Höchste gefahrene Geschwindigkeit</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>averageSpeedValue</source>
-        <translation>Durchschnittsgeschwindigkeit</translation>
+        <translation type="obsolete">Durchschnittsgeschwindigkeit</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>cardNumberDriverSlotBegin</source>
-        <translation>Kartennummer des Fahrers bei Ereignisbeginn</translation>
+        <translation type="obsolete">Kartennummer des Fahrers bei Ereignisbeginn</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>similarEventsNumber</source>
-        <translation>Anzahl Ähnlicher Ereignisse</translation>
+        <translation type="obsolete">Anzahl Ähnlicher Ereignisse</translation>
     </message>
 </context>
 <context>
@@ -1794,6 +2478,34 @@ Signatur-Prüfung fehlgeschlagen </translation>
     </message>
 </context>
 <context>
+    <name>PlaceRecord</name>
+    <message>
+        <location filename="fileformat/DataTypes/PlaceRecord.cpp" line="+24"/>
+        <source>entryTime</source>
+        <translation>Eingabezeit</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>entryTypeDailyWorkPeriod</source>
+        <translation>Art der Eingabe</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>dailyWorkPeriodCountry</source>
+        <translation>Eingegebenes Land</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>dailyWorkPeriodRegion</source>
+        <translation>eingegebene Region</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>vehicleOdometerValue</source>
+        <translation>Kilometerstand</translation>
+    </message>
+</context>
+<context>
     <name>Places</name>
     <message>
         <source>Places</source>
@@ -1801,24 +2513,31 @@ Signatur-Prüfung fehlgeschlagen </translation>
     </message>
 </context>
 <context>
+    <name>PlainCertificate</name>
+    <message>
+        <location filename="fileformat/DataTypes/PlainCertificate.cpp" line="+21"/>
+        <source>keyIdentifier</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>rsaPublicKey</source>
+        <translation>Öffentlicher RSA-Schlüssel</translation>
+    </message>
+</context>
+<context>
     <name>QObject</name>
     <message>
-        <location filename="fileformat/Activity.cpp" line="+9"/>
         <source>for</source>
-        <translation>für</translation>
+        <translation type="obsolete">für</translation>
     </message>
     <message>
-        <location line="+1"/>
-        <location filename="fileformat/myTime.cpp" line="+11"/>
-        <location line="+2"/>
         <source>from</source>
-        <translation>von</translation>
+        <translation type="obsolete">von</translation>
     </message>
     <message>
-        <location line="+1"/>
-        <location filename="fileformat/myTime.cpp" line="+0"/>
         <source>to</source>
-        <translation>bis</translation>
+        <translation type="obsolete">bis</translation>
     </message>
     <message>
         <location filename="fileformat/overtime.h" line="+56"/>
@@ -1845,58 +2564,82 @@ Signatur-Prüfung fehlgeschlagen </translation>
         <translation type="obsolete">Tage</translation>
     </message>
     <message>
-        <location filename="fileformat/myTime.cpp" line="-2"/>
         <source>on for</source>
-        <translation>ab, für</translation>
+        <translation type="obsolete">ab, für</translation>
     </message>
     <message>
-        <location line="+9"/>
         <source>%1 days </source>
-        <translation>%1 Tage </translation>
+        <translation type="obsolete">%1 Tage </translation>
     </message>
     <message>
-        <location filename="fileformat/esmfile.cpp" line="+11"/>
         <source>Statistics</source>
-        <translation>Statistik</translation>
+        <translation type="obsolete">Statistik</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Statistics for</source>
-        <translation>Statistik für</translation>
+        <translation type="obsolete">Statistik für</translation>
     </message>
     <message>
-        <location line="+2"/>
         <source>Recorded days</source>
-        <translation>Aufgezeichnete Tage</translation>
+        <translation type="obsolete">Aufgezeichnete Tage</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Overall driven distance</source>
-        <translation>Insgesamt gefahrene Strecke</translation>
+        <translation type="obsolete">Insgesamt gefahrene Strecke</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Overall driving time</source>
-        <translation>Gesamtfahrzeit</translation>
+        <translation type="obsolete">Gesamtfahrzeit</translation>
     </message>
     <message>
-        <location line="+3"/>
         <source>Average distance per day</source>
-        <translation>Durchschnittliche Strecke pro Tag</translation>
+        <translation type="obsolete">Durchschnittliche Strecke pro Tag</translation>
+    </message>
+    <message>
+        <source>Average time driven per day</source>
+        <translation type="obsolete">Durchschnittlich pro Tag gefahrene Zeit</translation>
+    </message>
+    <message>
+        <source>Average speed when driving</source>
+        <translation type="obsolete">Durchschnittsgeschwindigkeit während der Fahrt</translation>
+    </message>
+</context>
+<context>
+    <name>RsaPublicKey</name>
+    <message>
+        <location filename="fileformat/DataTypes/RawRsaPublicKey.cpp" line="+21"/>
+        <source>n</source>
+        <translation>RSA-Modul N</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Average time driven per day</source>
-        <translation>Durchschnittlich pro Tag gefahrene Zeit</translation>
+        <source>e</source>
+        <translation>Verschlüsselungsexponent e</translation>
+    </message>
+</context>
+<context>
+    <name>SpecificConditionRecord</name>
+    <message>
+        <location filename="fileformat/DataTypes/SpecificConditionRecord.cpp" line="+21"/>
+        <source>entryTime</source>
+        <translation>Eingabezeit</translation>
     </message>
     <message>
-        <location line="+5"/>
-        <source>Average speed when driving</source>
-        <translation>Durchschnittsgeschwindigkeit während der Fahrt</translation>
+        <location line="+1"/>
+        <source>specificConditionType</source>
+        <translation>Art der spezifischen Bedingung</translation>
+    </message>
+</context>
+<context>
+    <name>SpecificConditions</name>
+    <message>
+        <location filename="fileformat/CardBlocks/SpecificConditions.cpp" line="+16"/>
+        <source>specific Conditions</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+6"/>
-        <source>Key chain</source>
+        <location line="+4"/>
+        <source>specificConditionRecords</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1917,6 +2660,37 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <source>omitted</source>
         <translation type="obsolete">weggelassen</translation>
+    </message>
+</context>
+<context>
+    <name>SvgDayActivity</name>
+    <message>
+        <location filename="fileformat/PictureGenerators/SvgDayActivity.cpp" line="+21"/>
+        <source>= break/rest</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>= break, up to 15 min</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>= working</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>= driving</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SvgDayGraph</name>
+    <message>
+        <location filename="fileformat/PictureGenerators/SvgDayGraph.cpp" line="+9"/>
+        <source>Time of day (UTC)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1987,6 +2761,60 @@ Signatur-Prüfung fehlgeschlagen </translation>
     </message>
 </context>
 <context>
+    <name>TimeReal</name>
+    <message>
+        <location filename="fileformat/DataTypes/TimeReal.cpp" line="+13"/>
+        <source>undefined</source>
+        <translation>undefiniert</translation>
+    </message>
+</context>
+<context>
+    <name>Timespan</name>
+    <message>
+        <location filename="fileformat/DataTypes/Timespan.cpp" line="+9"/>
+        <source>undefined</source>
+        <translation>undefiniert</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>From %1 on, end undefined</source>
+        <translation>Von %1 an, Endzeitpunkt undefiniert</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>From undefined time until %1</source>
+        <translation>Von undefinierter Zeit an, bis %1</translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>%1 days</source>
+        <translation>%1 Tage</translation>
+    </message>
+    <message>
+        <location line="+9"/>
+        <source>On %1, from %2 to %3 (%4)</source>
+        <translation>Am %1, von %2 bis %3 (%4)</translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>From %1 to %2 (%4)</source>
+        <translation>Von %1 bis %2 (%4)</translation>
+    </message>
+</context>
+<context>
+    <name>VehicleRegistration</name>
+    <message>
+        <location filename="fileformat/DataTypes/VehicleRegistration.cpp" line="+27"/>
+        <source>vehicleRegistrationNation</source>
+        <translation>Fahzeugregistrierungsland</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>vehicleRegistrationNumber</source>
+        <translation>Amtliches Kennzeichen</translation>
+    </message>
+</context>
+<context>
     <name>Vehicles_Used</name>
     <message>
         <source>Vehicles Used</source>
@@ -2017,298 +2845,828 @@ Signatur-Prüfung fehlgeschlagen </translation>
     </message>
 </context>
 <context>
+    <name>VuActivities</name>
+    <message>
+        <location filename="fileformat/VuBlocks/RawVuActivities.cpp" line="+21"/>
+        <source>Activities</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>timeReal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>odometerValueMidnight</source>
+        <translation>Kilometerstand um Mitternacht</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>vuCardIWRecords</source>
+        <translation>Karteneinschub- und Kartenentnahmevorgänge</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>activityChangeInfos</source>
+        <translation>Aktivitätsänderungshinweise</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>vuPlaceDailyWorkPeriodRecords</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>specificConditionRecords</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fileformat/VuBlocks/VuActivities.cpp" line="+8"/>
+        <source>Activities on %1</source>
+        <translation>Aktivitäten am %1</translation>
+    </message>
+</context>
+<context>
+    <name>VuCalibrationRecord</name>
+    <message>
+        <location filename="fileformat/DataTypes/VuCalibrationRecord.cpp" line="+36"/>
+        <source>calibrationPurpose</source>
+        <translation type="unfinished">Kalibrierungsgrund</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>workshopName</source>
+        <translation type="unfinished">Werkstattname</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>workshopAddress</source>
+        <translation type="unfinished">Werkstattaddresse</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>workshopCardNumber</source>
+        <translation type="unfinished">Werkstattkartennummer</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>workshopCardExpiryDate</source>
+        <translation type="unfinished">Werkstattkartengültigkeitsablauf</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>vehicleIdentificationNumber</source>
+        <translation type="unfinished">Amtliches Kennzeichen</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>vehicleRegistrationIdentification</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>wVehicleCharacteristicConstant</source>
+        <translation type="unfinished">Wegdrehzahl des Fahrzeug w</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>kConstantOfRecordingEquipment</source>
+        <translation type="unfinished">Kontrollgerätkonstante k</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>lTyreCircumference</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>tyreSize</source>
+        <translation type="unfinished">Reifengröße</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>authorisedSpeed</source>
+        <translation type="unfinished">Erlaubte Höchstgeschwindigkeit</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>oldOdometerValue</source>
+        <translation type="unfinished">Alter Kilometerstand</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>newOdometerValue</source>
+        <translation type="unfinished">Neuer Kilometerstand</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>oldTimeValue</source>
+        <translation type="unfinished">Alte Uhrzeit</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>newTimeValue</source>
+        <translation type="unfinished">Neue Uhrzeit</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>nextCalibrationDate</source>
+        <translation type="unfinished">Nächste Kalibrierung</translation>
+    </message>
+</context>
+<context>
+    <name>VuCardIWRecord</name>
+    <message>
+        <location filename="fileformat/DataTypes/RawVuCardIWRecord.cpp" line="+30"/>
+        <source>cardHolderName</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>cardNumber</source>
+        <translation type="unfinished">Kartennummer</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>cardExpiryDate</source>
+        <translation type="unfinished">Kartengültigkeitsende</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>cardInsertionTime</source>
+        <translation type="unfinished">Karteneinschubzeit</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>vehicleOdometerValueAtInsertion</source>
+        <translation type="unfinished">Kilometerstand bei Karteneingabe</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>cardSlotNumber</source>
+        <translation type="unfinished">Kartenfachnummer</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>cardWithdrawalTime</source>
+        <translation type="unfinished">Kartenentnahmezeit</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>vehicleOdometerValueAtWithdrawal</source>
+        <translation type="unfinished">Kilometerstand bei Kartenentnahme</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>previousVehicleRegistration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>previousCardWithdrawalTime</source>
+        <translation type="unfinished">Zeit, zu der die vorherige Karte entnommen wurde</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>manualInputFlag</source>
+        <translation type="unfinished">Flag für manuelle Eingabe</translation>
+    </message>
+</context>
+<context>
+    <name>VuCompanyLocksRecord</name>
+    <message>
+        <location filename="fileformat/DataTypes/VuCompanyLocksRecord.cpp" line="+23"/>
+        <source>lockTime</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>companyName</source>
+        <translation type="unfinished">Firma</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>companyAddress</source>
+        <translation type="unfinished">Firmenadresse</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>companyCardNumber</source>
+        <translation type="unfinished">Unternehmerkartennummer</translation>
+    </message>
+</context>
+<context>
+    <name>VuControlActivityRecord</name>
+    <message>
+        <location filename="fileformat/DataTypes/VuControlActivityRecord.cpp" line="+23"/>
+        <source>controlType</source>
+        <translation type="unfinished">Kontrollart</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>controlTime</source>
+        <translation type="unfinished">Kontrollzeit</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>controlCardNumber</source>
+        <translation type="unfinished">Kontrollkartennummer</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>downloadPeriod</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>VuDetailedSpeedBlock</name>
+    <message>
+        <location filename="fileformat/DataTypes/VuDetailedSpeedBlock.cpp" line="+21"/>
+        <source>speedBlockBeginDate</source>
+        <translation type="unfinished">Zeit des ersten Geschwindigkeitswertes im Block</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>speedsPerSecond</source>
+        <translation type="unfinished">Geschwindigkeiten für die nächsten 60 Sekunden</translation>
+    </message>
+</context>
+<context>
+    <name>VuDetailedSpeedData</name>
+    <message>
+        <location filename="fileformat/VuBlocks/RawVuDetailedSpeedData.cpp" line="+16"/>
+        <source>Detailed Speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>vuDetailedSpeedBlocks</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>VuEventRecord</name>
+    <message>
+        <location filename="fileformat/DataTypes/VuEventRecord.cpp" line="+24"/>
+        <source>eventType</source>
+        <translation type="unfinished">Ereignisart</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>eventRecordPurpose</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>eventTime</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>cardSlots</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>similarEventsNumber</source>
+        <translation type="unfinished">Anzahl Ähnlicher Ereignisse</translation>
+    </message>
+</context>
+<context>
+    <name>VuEventsFaults</name>
+    <message>
+        <location filename="fileformat/VuBlocks/VuEventsFaults.cpp" line="+22"/>
+        <source>Events and faults</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>vuFaultRecords</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>vuEventRecords</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>lastOverspeedControlTime</source>
+        <translation type="unfinished">Letzte Kontrolle auf Geschwindigkeitsüberschreitungen</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>firstOverspeedSince</source>
+        <translation type="unfinished">Erste Geschwindigkeitsüberschreitung seit</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>numberOfOverspeedSince</source>
+        <translation type="unfinished">Seitherige Geschwindigkeitsüberschreitungen</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>vuOverspeedingEventRecords</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>vuTimeAdjustmentRecords</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>VuFaultRecord</name>
+    <message>
+        <location filename="fileformat/DataTypes/VuFaultRecord.cpp" line="+23"/>
+        <source>eventType</source>
+        <translation type="unfinished">Ereignisart</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>eventRecordPurpose</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>eventTime</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>cardSlots</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>VuOverspeedingEventRecord</name>
+    <message>
+        <location filename="fileformat/DataTypes/VuOverspeedingEventRecord.cpp" line="+26"/>
+        <source>eventType</source>
+        <translation type="unfinished">Ereignisart</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>eventRecordPurpose</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>eventTime</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>maxSpeedValue</source>
+        <translation type="unfinished">Höchste gefahrene Geschwindigkeit</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>averageSpeedValue</source>
+        <translation type="unfinished">Durchschnittsgeschwindigkeit</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>cardNumberDriverSlotBegin</source>
+        <translation type="unfinished">Kartennummer des Fahrers bei Ereignisbeginn</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>similarEventsNumber</source>
+        <translation type="unfinished">Anzahl Ähnlicher Ereignisse</translation>
+    </message>
+</context>
+<context>
+    <name>VuOverview</name>
+    <message>
+        <location filename="fileformat/VuBlocks/RawVuOverview.cpp" line="+27"/>
+        <source>Overview</source>
+        <translation>Übersicht</translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>memberStateCertificate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>vuCertificate</source>
+        <translation>Zertifikat der Fahrzeugeinheit</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>vehicleIdentificationNumber</source>
+        <translation>Amtliches Kennzeichen</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>vehicleRegistrationIdentification</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>currentDateTime</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>vuDownloadablePeriod</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>CardSlotsStatus</source>
+        <translation>Status Der Karteneinschübe</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>downloadingTime</source>
+        <translation>Heruntergeladen am</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>cardNumber</source>
+        <translation>Kartennummer</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>companyOrWorkshopName</source>
+        <translation>Firmen- oder Werkstattname</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>vuCompanyLocksRecords</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>vuControlActivityRecords</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>VuPlaceDailyWorkPeriodRecord</name>
+    <message>
+        <location filename="fileformat/DataTypes/VuPlaceDailyWorkPeriodRecord.cpp" line="+21"/>
+        <source>fullCardNumber</source>
+        <translation>Volle Kartennummer</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>placeRecord</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>VuTechnical</name>
+    <message>
+        <location filename="fileformat/VuBlocks/VuTechnical.cpp" line="+27"/>
+        <source>Technical Data</source>
+        <translation>Technische Daten</translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>vuManufacturerName</source>
+        <translation>Hersteller der Fahrzeugeinheit</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>vuManufacturerAddress</source>
+        <translation>Anschrift des Herstellers der FE</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>vuPartNumber</source>
+        <translation>Teilnummer der FE</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>vuSerialNumber</source>
+        <translation>Seriennummer der FE</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>vuSoftwareVersion</source>
+        <translation>Softwarekennung der FE</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>vuSoftInstallationDate</source>
+        <translation>Datum der Installation der vorgenannten Softwareversion der FE</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>vuManufacturingDate</source>
+        <translation>Herstellungsdatum der FE</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>vuApprovalNumber</source>
+        <translation>Bauartgenehmigungsnummer der FE</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>sensorSerialNumber</source>
+        <translation>Erweiterte Seriennummer des Weg- und/oder Geschwindigkeitsgebers</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>sensorApprovalNumber</source>
+        <translation>Bauartgenehmigungsnummer des Wegund/oder Geschwindigkeitsgeber</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>sensorPairingDateFirst</source>
+        <translation>Datum der ersten Koppelung des Wegund/oder Geschwindigkeitsgebers mit einer Fahrzeugeinheit</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>vuCalibrationRecords</source>
+        <translation>Kalibrierungsdatensätze</translation>
+    </message>
+</context>
+<context>
+    <name>VuTimeAdjustmentRecord</name>
+    <message>
+        <location filename="fileformat/DataTypes/VuTimeAdjustmentRecord.cpp" line="+24"/>
+        <source>oldTimeValue</source>
+        <translation>Alte Uhrzeit</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>newTimeValue</source>
+        <translation>Neue Uhrzeit</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>workshopName</source>
+        <translation>Werkstattname</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>workshopAddress</source>
+        <translation>Werkstattaddresse</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>workshopCardNumber</source>
+        <translation>Werkstattkartennummer</translation>
+    </message>
+</context>
+<context>
+    <name>activityChangeInfo</name>
+    <message>
+        <location filename="fileformat/DataTypes/ActivityChangeInfo.h" line="+21"/>
+        <source>break/rest</source>
+        <translation>Ruhepause</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>availability</source>
+        <translation>Verfügbarkeit</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>work</source>
+        <translation>Arbeit</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>driving</source>
+        <translation>Lenken</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>unknown activity</source>
+        <translation>unbekannte Tätigkeit</translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Card inserted</source>
+        <translation>Karte eingesteckt</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <location line="+5"/>
+        <source>driver slot</source>
+        <translation>Karteneinschub Fahrer</translation>
+    </message>
+    <message>
+        <location line="-5"/>
+        <location line="+5"/>
+        <source>co-driver slot</source>
+        <translation>Karteneinschub Beifahrer</translation>
+    </message>
+    <message>
+        <location line="-4"/>
+        <source>single</source>
+        <translation>Einmannbetrieb</translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>crew</source>
+        <translation>Team</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Card not inserted or withdrawn, </source>
+        <translation>Karte nicht gesteckt oder entnommen</translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>following activity unknown</source>
+        <translation>nächste Aktivität unbekannt</translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>following activity manually entered</source>
+        <translation>nächste Aktivität manuell eingetragen</translation>
+    </message>
+</context>
+<context>
     <name>applicationIdentification</name>
     <message>
-        <location filename="fileformat/cardBlocks/applicationIdentification.h" line="+12"/>
         <source>Application Identification</source>
-        <translation>Anwendungskennung</translation>
+        <translation type="obsolete">Anwendungskennung</translation>
     </message>
     <message>
-        <location line="+22"/>
         <source>typeOfTachographCardId</source>
-        <translation>Implementierte Kartenart</translation>
+        <translation type="obsolete">Implementierte Kartenart</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>cardStructureVersion</source>
-        <translation>Strukturversion der Karte</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>noOfEventsPerType</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>noOfFaultsPerType</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>activityStructureLength</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>noOfCardVehicleRecords</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>noOfCardPlaceRecords</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Strukturversion der Karte</translation>
     </message>
 </context>
 <context>
     <name>block</name>
     <message>
-        <location filename="fileformat/block.h" line="+68"/>
         <source>Block has valid signature</source>
-        <translation>Block ist gültig signiert</translation>
+        <translation type="obsolete">Block ist gültig signiert</translation>
     </message>
     <message>
-        <location line="+0"/>
         <source>Beware: Block has invalid signature</source>
-        <translation>Vorsicht: Blocksignatur ungültig</translation>
+        <translation type="obsolete">Vorsicht: Blocksignatur ungültig</translation>
     </message>
     <message>
-        <location line="+0"/>
         <source>Block not signed</source>
-        <translation>Block nicht signiert</translation>
+        <translation type="obsolete">Block nicht signiert</translation>
     </message>
     <message>
-        <location line="+2"/>
         <source>no crypto support compiled in</source>
-        <translation>Kompiliert ohne Kryptographieunterstützung</translation>
+        <translation type="obsolete">Kompiliert ohne Kryptographieunterstützung</translation>
     </message>
     <message>
-        <location line="+9"/>
         <source>Unknown block type %1</source>
-        <translation>Unbekannter Blocktyp %1</translation>
+        <translation type="obsolete">Unbekannter Blocktyp %1</translation>
     </message>
 </context>
 <context>
     <name>caCertificate</name>
     <message>
-        <location filename="fileformat/cardBlocks/caCertificate.h" line="+11"/>
         <source>CA Certificate</source>
-        <translation>CA-Zertifikat</translation>
+        <translation type="obsolete">CA-Zertifikat</translation>
     </message>
 </context>
 <context>
     <name>cardCertificate</name>
     <message>
-        <location filename="fileformat/cardBlocks/cardCertificate.h" line="+11"/>
         <source>Card Certificate</source>
-        <translation>Kartenzertifikat</translation>
-    </message>
-</context>
-<context>
-    <name>cardChipIdentification</name>
-    <message>
-        <location filename="fileformat/cardBlocks/cardChipIdentification.h" line="+17"/>
-        <source>Card chip identification</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Kartenzertifikat</translation>
     </message>
 </context>
 <context>
     <name>cardDownload</name>
     <message>
-        <location filename="fileformat/cardBlocks/cardDownload.h" line="+11"/>
         <source>Card Download</source>
-        <translation>Herunterladen einer Karte</translation>
+        <translation type="obsolete">Herunterladen einer Karte</translation>
     </message>
     <message>
-        <location line="+9"/>
         <source>LastCardDownload</source>
-        <translation>Letzter Kartendownload</translation>
-    </message>
-</context>
-<context>
-    <name>cardIccIdentification</name>
-    <message>
-        <location filename="fileformat/cardBlocks/cardIccIdentification.h" line="+24"/>
-        <source>Card ICC identification</source>
-        <oldsource>Card chip identification</oldsource>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+15"/>
-        <source>clockStop</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>cardExtendedSerialNumber</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>cardApprovalNumber</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>cardPersonaliserID</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>embedderIcAssemblerId</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>icIdentifier</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Letzter Kartendownload</translation>
     </message>
 </context>
 <context>
     <name>controlActivityData</name>
     <message>
-        <location filename="fileformat/cardBlocks/controlActivityData.h" line="+18"/>
         <source>Control Activity Data</source>
-        <translation>Übersicht über Kontrollen</translation>
+        <translation type="obsolete">Übersicht über Kontrollen</translation>
     </message>
     <message>
-        <location line="+13"/>
         <source>controlType</source>
-        <translation>Kontrollart</translation>
+        <translation type="obsolete">Kontrollart</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>controlTime</source>
-        <translation>Kontrollzeit</translation>
+        <translation type="obsolete">Kontrollzeit</translation>
     </message>
     <message>
-        <location line="+3"/>
         <source>controlDownloadPeriodBegin</source>
-        <translation>Beginn des Ladens der Kontrolldaten</translation>
+        <translation type="obsolete">Beginn des Ladens der Kontrolldaten</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>controlDownloadPeriodEnd</source>
-        <translation>Ende des Ladens der Kontrolldaten</translation>
+        <translation type="obsolete">Ende des Ladens der Kontrolldaten</translation>
     </message>
 </context>
 <context>
     <name>currentUsage</name>
     <message>
-        <location filename="fileformat/cardBlocks/currentUsage.h" line="+14"/>
         <source>Current Usage</source>
-        <translation>Derzeitige Benutzung</translation>
+        <translation type="obsolete">Derzeitige Benutzung</translation>
     </message>
     <message>
-        <location line="+13"/>
         <source>sessionOpenTime</source>
-        <translation>Sitzungsbeginn</translation>
+        <translation type="obsolete">Sitzungsbeginn</translation>
     </message>
 </context>
 <context>
     <name>dailyActivity</name>
     <message>
-        <location filename="fileformat/Activity.h" line="+57"/>
         <source>Date</source>
-        <translation>Datum</translation>
+        <translation type="obsolete">Datum</translation>
     </message>
     <message>
-        <location line="+2"/>
         <source>Daily Activity Driver</source>
-        <translation>Tagestätigkeit des Fahrers</translation>
+        <translation type="obsolete">Tagestätigkeit des Fahrers</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Activities Driver</source>
-        <translation>Fahreraktivitäten</translation>
+        <translation type="obsolete">Fahreraktivitäten</translation>
     </message>
     <message>
-        <location line="+4"/>
         <source>Daily Activity Codriver</source>
-        <translation>Tagestätigkeiten des Beifahrers</translation>
+        <translation type="obsolete">Tagestätigkeiten des Beifahrers</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Activities Codriver</source>
-        <translation>Beifahreraktivitäten</translation>
+        <translation type="obsolete">Beifahreraktivitäten</translation>
     </message>
     <message>
-        <location line="+3"/>
         <source>Driving time</source>
-        <translation>Fahrzeit</translation>
+        <translation type="obsolete">Fahrzeit</translation>
     </message>
     <message>
-        <location line="+2"/>
         <source>Overtime</source>
-        <translation>Lenkzeitüberschreitung</translation>
+        <translation type="obsolete">Lenkzeitüberschreitung</translation>
     </message>
     <message>
-        <location line="+2"/>
         <source>Possible fine</source>
-        <translation>Mögliche Strafe</translation>
+        <translation type="obsolete">Mögliche Strafe</translation>
     </message>
     <message>
-        <location line="+4"/>
         <source>Week</source>
-        <translation>Woche</translation>
+        <translation type="obsolete">Woche</translation>
     </message>
 </context>
 <context>
     <name>dailyActivityCard</name>
     <message>
-        <location line="+19"/>
         <source>activityDailyPresenceCounter</source>
-        <translation>Tagesanwesenheitszähler</translation>
+        <translation type="obsolete">Tagesanwesenheitszähler</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>activityDayDistance</source>
-        <translation>Gefahrene Strecke</translation>
+        <translation type="obsolete">Gefahrene Strecke</translation>
     </message>
 </context>
 <context>
     <name>driverActivityData</name>
     <message>
-        <location filename="fileformat/cardBlocks/driverActivityData.h" line="+15"/>
         <source>Driver Activity Data</source>
-        <translation>Fahrertätigkeitsdaten</translation>
+        <translation type="obsolete">Fahrertätigkeitsdaten</translation>
     </message>
     <message>
-        <location line="+41"/>
         <source>Accumulated fines</source>
-        <translation>Mögliche aufgerechnete Strafe</translation>
+        <translation type="obsolete">Mögliche aufgerechnete Strafe</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Activity space usage</source>
-        <translation>Platzverbrauch durch Aktivitäten</translation>
+        <translation type="obsolete">Platzverbrauch durch Aktivitäten</translation>
     </message>
     <message>
-        <location line="+0"/>
         <source>%1 of %2 Bytes</source>
-        <translation>%1 von %2 Byte</translation>
+        <translation type="obsolete">%1 von %2 Byte</translation>
     </message>
 </context>
 <context>
     <name>drivingLicenseInfo</name>
     <message>
-        <location filename="fileformat/cardBlocks/drivingLicenseInfo.h" line="+14"/>
         <source>Driving License Info</source>
-        <translation>Führerscheininformationen</translation>
+        <translation type="obsolete">Führerscheininformationen</translation>
     </message>
     <message>
-        <location line="+11"/>
         <source>drivingLicenceIssuingAuthorithy</source>
-        <translation>Ausstellende Behörde</translation>
+        <translation type="obsolete">Ausstellende Behörde</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>drivingLicenceIssuingNation</source>
-        <translation>Ausstellender Staat</translation>
+        <translation type="obsolete">Ausstellender Staat</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>drivingLicenceNumber</source>
-        <translation>Führerscheinnummer</translation>
+        <translation type="obsolete">Führerscheinnummer</translation>
     </message>
 </context>
 <context>
@@ -2346,37 +3704,31 @@ Signatur-Prüfung fehlgeschlagen </translation>
         <translation type="obsolete">Durchschnittsgeschwindigkeit während der Fahrt</translation>
     </message>
     <message>
-        <location filename="fileformat/esmfile.cpp" line="+35"/>
         <source>%1, %2 to %3</source>
-        <translation>%1, %2 bis %3</translation>
+        <translation type="obsolete">%1, %2 bis %3</translation>
     </message>
     <message>
-        <location line="+7"/>
         <source>%1  (%2 to %3)</source>
-        <translation>%1 (%2 bis %3)</translation>
+        <translation type="obsolete">%1 (%2 bis %3)</translation>
     </message>
 </context>
 <context>
     <name>eventsData</name>
     <message>
-        <location filename="fileformat/cardBlocks/eventsData.h" line="+18"/>
         <source>eventType</source>
-        <translation>Ereignisart</translation>
+        <translation type="obsolete">Ereignisart</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>beginTime</source>
-        <translation>Anfang</translation>
+        <translation type="obsolete">Anfang</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>endTime</source>
-        <translation>Ende</translation>
+        <translation type="obsolete">Ende</translation>
     </message>
     <message>
-        <location line="+16"/>
         <source>Events Data</source>
-        <translation>Ereignisdaten</translation>
+        <translation type="obsolete">Ereignisdaten</translation>
     </message>
 </context>
 <context>
@@ -2397,9 +3749,8 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>faultsData</name>
     <message>
-        <location filename="fileformat/cardBlocks/faultsData.h" line="+14"/>
         <source>Faults Data</source>
-        <translation>Fehlerdaten</translation>
+        <translation type="obsolete">Fehlerdaten</translation>
     </message>
 </context>
 <context>
@@ -2898,23 +4249,23 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location line="+1"/>
         <source>Montenegro</source>
-        <translation type="unfinished"></translation>
+        <translation>Montenegro</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Serbia</source>
-        <translation type="unfinished"></translation>
+        <translation>Serbien</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Uzbekistan</source>
-        <translation type="unfinished"></translation>
+        <translation>Usbekistan</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>%1 - Reserved for future use</source>
         <oldsource>Reserved for future use</oldsource>
-        <translation type="unfinished">[Reserviert für spätere Benutzung]</translation>
+        <translation>[%1 - Reserviert für spätere Benutzung]</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -3044,7 +4395,12 @@ Signatur-Prüfung fehlgeschlagen </translation>
         <translation>Bewegungssensor</translation>
     </message>
     <message>
-        <location line="+8"/>
+        <location line="+3"/>
+        <source>RFU: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
         <source>Begin, related time = card insertion time or time of entry</source>
         <translation>Anfang, Bezugszeit = Karteneinschubzeit oder Eingabezeit</translation>
     </message>
@@ -3074,7 +4430,12 @@ Signatur-Prüfung fehlgeschlagen </translation>
         <translation>Ende, Bezugszeit von der FE geschätzt</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+3"/>
+        <source>(not specified: %1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
         <source>Andalucía</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3323,83 +4684,69 @@ Signatur-Prüfung fehlgeschlagen </translation>
         <location line="+2"/>
         <source>Unknown Manufacturer %1 or equipment not type approved</source>
         <oldsource>Unknown Manufacturer or equipment not type approved</oldsource>
-        <translation type="unfinished"></translation>
+        <translation>Unbekannter Hersteller %1 oder Ausrüstung nicht Typgenehmigt</translation>
     </message>
 </context>
 <context>
     <name>fullCardNumber</name>
     <message>
-        <location filename="fileformat/dataTypes/fullCardNumber.cpp" line="+16"/>
         <source>cardType</source>
-        <translation>Kartenart</translation>
+        <translation type="obsolete">Kartenart</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>cardIssuingMemberState</source>
-        <translation>Kartenausgebender Staat</translation>
+        <translation type="obsolete">Kartenausgebender Staat</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>cardNumber</source>
-        <translation>Kartennummer</translation>
+        <translation type="obsolete">Kartennummer</translation>
     </message>
 </context>
 <context>
     <name>identification</name>
     <message>
-        <location filename="fileformat/cardBlocks/identification.h" line="+20"/>
         <source>Card Identification</source>
-        <translation>Karteninformationen</translation>
+        <translation type="obsolete">Karteninformationen</translation>
     </message>
     <message>
-        <location line="+19"/>
         <source>cardIssuingMemberState</source>
-        <translation>Kartenausgebender Staat</translation>
+        <translation type="obsolete">Kartenausgebender Staat</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>cardNumber</source>
-        <translation>Kartennummer</translation>
+        <translation type="obsolete">Kartennummer</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>cardIssuingAuthorityName</source>
-        <translation>Kartenausgebende Behörde</translation>
+        <translation type="obsolete">Kartenausgebende Behörde</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>cardIssueDate</source>
-        <translation>Kartenausgabedatum</translation>
+        <translation type="obsolete">Kartenausgabedatum</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>cardValidityBegin</source>
-        <translation>Kartengültigkeitsbeginn</translation>
+        <translation type="obsolete">Kartengültigkeitsbeginn</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>cardExpiryDate</source>
-        <translation>Kartengültigkeitsende</translation>
+        <translation type="obsolete">Kartengültigkeitsende</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>holderSurname</source>
-        <translation>Nachname des Karteninhabers</translation>
+        <translation type="obsolete">Nachname des Karteninhabers</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>holderFirstNames</source>
-        <translation>Vornamen des Karteninhabers</translation>
+        <translation type="obsolete">Vornamen des Karteninhabers</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>cardHolderBirthDate</source>
-        <translation>Geburtstag des Karteninhabers</translation>
+        <translation type="obsolete">Geburtstag des Karteninhabers</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>cardHolderPreferredLanguage</source>
-        <translation>Bevorzugte Sprache des Karteninhabers</translation>
+        <translation type="obsolete">Bevorzugte Sprache des Karteninhabers</translation>
     </message>
 </context>
 <context>
@@ -3564,142 +4911,91 @@ Sie sollten ein Exemplar der GNU General Public License zusammen mit diesem Prog
 <context>
     <name>placeRecord</name>
     <message>
-        <location filename="fileformat/dataTypes/placeRecord.h" line="+25"/>
         <source>entryTime</source>
-        <translation>Eingabezeit</translation>
+        <translation type="obsolete">Eingabezeit</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>entryTypeDailyWorkPeriod</source>
-        <translation>Art der Eingabe</translation>
+        <translation type="obsolete">Art der Eingabe</translation>
     </message>
     <message>
-        <location line="+2"/>
         <source>dailyWorkPeriodCountry</source>
-        <translation>Eingegebenes Land</translation>
+        <translation type="obsolete">Eingegebenes Land</translation>
     </message>
     <message>
-        <location line="+2"/>
         <source>dailyWorkPeriodRegion</source>
-        <translation>eingegebene Region</translation>
+        <translation type="obsolete">eingegebene Region</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>vehicleOdometerValue</source>
-        <translation>Kilometerstand</translation>
+        <translation type="obsolete">Kilometerstand</translation>
     </message>
 </context>
 <context>
     <name>places</name>
     <message>
-        <location filename="fileformat/cardBlocks/places.h" line="+16"/>
         <source>Places</source>
-        <translation>Orte</translation>
+        <translation type="obsolete">Orte</translation>
     </message>
 </context>
 <context>
     <name>reporter</name>
     <message>
-        <location filename="fileformat/reporter/reporter.cpp" line="+41"/>
         <source>Report generated with</source>
-        <translation>Report erstellt mit</translation>
+        <translation type="obsolete">Report erstellt mit</translation>
     </message>
     <message>
-        <location line="+4"/>
         <source>version</source>
-        <translation>Version</translation>
+        <translation type="obsolete">Version</translation>
     </message>
 </context>
 <context>
     <name>specificConditions</name>
     <message>
-        <location filename="fileformat/cardBlocks/specificConditions.h" line="+23"/>
         <source>Specific Conditions</source>
-        <translation>Spezifische Bedingungen</translation>
-    </message>
-</context>
-<context>
-    <name>svgBarGraph</name>
-    <message>
-        <location filename="fileformat/picgen.cpp" line="+28"/>
-        <source>= break/rest</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>= break, up to 15 min</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>= working</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>= driving</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>svgGraph</name>
-    <message>
-        <location line="-22"/>
-        <source>Time of day (UTC)</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Spezifische Bedingungen</translation>
     </message>
 </context>
 <context>
     <name>vehicleRegistration</name>
     <message>
-        <location filename="fileformat/dataTypes/vehicleRegistration.h" line="+17"/>
         <source>vehicleRegistrationNation</source>
-        <translation>Fahzeugregistrierungsland</translation>
+        <translation type="obsolete">Fahzeugregistrierungsland</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>vehicleRegistrationNumber</source>
-        <translation>Amtliches Kennzeichen</translation>
+        <translation type="obsolete">Amtliches Kennzeichen</translation>
     </message>
 </context>
 <context>
     <name>vehiclesUsed</name>
     <message>
-        <location filename="fileformat/cardBlocks/vehiclesUsed.h" line="+41"/>
         <source>Vehicles Used</source>
-        <translation>Benutzte Fahrzeuge</translation>
+        <translation type="obsolete">Benutzte Fahrzeuge</translation>
     </message>
     <message>
-        <location line="-16"/>
-        <location line="+35"/>
         <source>vehicleOdometerBegin</source>
-        <translation>Kilometerstand am Anfang</translation>
+        <translation type="obsolete">Kilometerstand am Anfang</translation>
     </message>
     <message>
-        <location line="-37"/>
         <source>vehicleFirstUse</source>
-        <translation>Beginn der Einsatzzeit des Fahrzeugs</translation>
+        <translation type="obsolete">Beginn der Einsatzzeit des Fahrzeugs</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>vehicleLastUse</source>
-        <translation>Ende der Einsatzzeit des Fahrzeugs</translation>
+        <translation type="obsolete">Ende der Einsatzzeit des Fahrzeugs</translation>
     </message>
     <message>
-        <location line="+2"/>
-        <location line="+35"/>
         <source>vehicleOdometerEnd</source>
-        <translation>Kilometerstand am Ende</translation>
+        <translation type="obsolete">Kilometerstand am Ende</translation>
     </message>
     <message>
-        <location line="-34"/>
         <source>vuDataBlockCounter</source>
-        <translation>Datenblockzähler der FE</translation>
+        <translation type="obsolete">Datenblockzähler der FE</translation>
     </message>
     <message>
-        <location line="+36"/>
         <source>Driven distance</source>
-        <translation>Gefahrene Strecke</translation>
+        <translation type="obsolete">Gefahrene Strecke</translation>
     </message>
 </context>
 <context>
@@ -3722,546 +5018,419 @@ Sie sollten ein Exemplar der GNU General Public License zusammen mit diesem Prog
     </message>
 </context>
 <context>
-    <name>verifiedcert</name>
-    <message>
-        <location filename="fileformat/crypto.h" line="+88"/>
-        <source>Certificate authority reference</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>RSA public key</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>vuActivities</name>
     <message>
-        <location filename="fileformat/vuBlocks/vuActivities.cpp" line="+18"/>
         <source>Activities for</source>
-        <translation>Aktivitäten am</translation>
+        <translation type="obsolete">Aktivitäten am</translation>
     </message>
     <message>
-        <location line="+38"/>
         <source>TimeReal</source>
-        <translation>Zeit</translation>
+        <translation type="obsolete">Zeit</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Odometer</source>
-        <translation>Kilometerstand</translation>
+        <translation type="obsolete">Kilometerstand</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>VuCardIWRecord</source>
-        <translation>Karteneinschub- und Kartenentnahmevorgang</translation>
+        <translation type="obsolete">Karteneinschub- und Kartenentnahmevorgang</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>cardHolderSurname</source>
-        <translation>Nachname des Karteninhabers</translation>
+        <translation type="obsolete">Nachname des Karteninhabers</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>cardHolderFirstNames</source>
-        <translation>Vornamen des Karteninhabers</translation>
+        <translation type="obsolete">Vornamen des Karteninhabers</translation>
     </message>
     <message>
-        <location line="+1"/>
-        <location line="+20"/>
         <source>fullCardNumber</source>
-        <translation>Volle Kartennummer</translation>
+        <translation type="obsolete">Volle Kartennummer</translation>
     </message>
     <message>
-        <location line="-19"/>
         <source>cardExpiryDate</source>
-        <translation>Kartengültigkeitsende</translation>
+        <translation type="obsolete">Kartengültigkeitsende</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>cardInsertionTime</source>
-        <translation>Karteneinschubzeit</translation>
+        <translation type="obsolete">Karteneinschubzeit</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>vehicleOdometerValueAtInsertion</source>
-        <translation>Kilometerstand bei Karteneingabe</translation>
+        <translation type="obsolete">Kilometerstand bei Karteneingabe</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>cardSlotNumber</source>
-        <translation>Kartenfachnummer</translation>
+        <translation type="obsolete">Kartenfachnummer</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>cardWithdrawalTime</source>
-        <translation>Kartenentnahmezeit</translation>
+        <translation type="obsolete">Kartenentnahmezeit</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>vehicleOdometerValueAtWithdrawal</source>
-        <translation>Kilometerstand bei Kartenentnahme</translation>
+        <translation type="obsolete">Kilometerstand bei Kartenentnahme</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>previousVehicleRegistrationNation</source>
-        <translation>Registrierungsland des vorherigen Fahrzeugs</translation>
+        <translation type="obsolete">Registrierungsland des vorherigen Fahrzeugs</translation>
     </message>
     <message>
-        <location line="+2"/>
         <source>previousVehicleRegistrationNumber</source>
-        <translation>Amtliches Kennzeichen des vorherigen Fahrzeugs</translation>
+        <translation type="obsolete">Amtliches Kennzeichen des vorherigen Fahrzeugs</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>previousCardWithdrawalTime</source>
-        <translation>Zeit, zu der die vorherige Karte entnommen wurde</translation>
+        <translation type="obsolete">Zeit, zu der die vorherige Karte entnommen wurde</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>manualInputFlag</source>
-        <translation>Flag für manuelle Eingabe</translation>
+        <translation type="obsolete">Flag für manuelle Eingabe</translation>
     </message>
     <message>
-        <location line="+4"/>
         <source>activityChangeInfos</source>
-        <translation>Aktivitätsänderungshinweise</translation>
+        <translation type="obsolete">Aktivitätsänderungshinweise</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>activityChangeInfo</source>
-        <translation>Aktivitätsänderungshinweis</translation>
+        <translation type="obsolete">Aktivitätsänderungshinweis</translation>
     </message>
     <message>
-        <location line="+5"/>
-        <location line="+8"/>
         <source>entryTime</source>
-        <translation>Eingabezeit</translation>
+        <translation type="obsolete">Eingabezeit</translation>
     </message>
     <message>
-        <location line="-7"/>
         <source>entryTypeDailyWorkPeriod</source>
-        <translation>Art der Eingabe</translation>
+        <translation type="obsolete">Art der Eingabe</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>dailyWorkPeriodCountry</source>
-        <translation>Eingegebenes Land</translation>
+        <translation type="obsolete">Eingegebenes Land</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>dailyWorkPeriodRegion</source>
-        <translation>eingegebene Region</translation>
+        <translation type="obsolete">eingegebene Region</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>vehicleOdometerValue</source>
-        <translation>Kilometerstand</translation>
+        <translation type="obsolete">Kilometerstand</translation>
     </message>
     <message>
-        <location line="+2"/>
         <source>SpecificConditionRecord</source>
-        <translation>Eintrag über spezifische Bedingungen</translation>
+        <translation type="obsolete">Eintrag über spezifische Bedingungen</translation>
     </message>
     <message>
-        <location line="+3"/>
         <source>specificConditionType</source>
-        <translation>Art der spezifischen Bedingung</translation>
+        <translation type="obsolete">Art der spezifischen Bedingung</translation>
     </message>
     <message>
-        <location line="+6"/>
         <source>Driver</source>
-        <translation>Fahrer</translation>
+        <translation type="obsolete">Fahrer</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Work period</source>
-        <translation>Arbeitszeit</translation>
+        <translation type="obsolete">Arbeitszeit</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Driven distance</source>
-        <translation>Gefahrene Strecke</translation>
+        <translation type="obsolete">Gefahrene Strecke</translation>
     </message>
 </context>
 <context>
     <name>vuFaults</name>
     <message>
-        <location filename="fileformat/vuBlocks/vuFaults.h" line="+10"/>
-        <location line="+16"/>
         <source>Faults</source>
-        <translation>Fehler</translation>
+        <translation type="obsolete">Fehler</translation>
     </message>
     <message>
-        <location line="+5"/>
         <source>Events</source>
-        <translation>Ereignisse</translation>
+        <translation type="obsolete">Ereignisse</translation>
     </message>
     <message>
-        <location line="+5"/>
         <source>lastOverspeedControlTime</source>
-        <translation>Letzte Kontrolle auf Geschwindigkeitsüberschreitungen</translation>
+        <translation type="obsolete">Letzte Kontrolle auf Geschwindigkeitsüberschreitungen</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>firstOverspeedSince</source>
-        <translation>Erste Geschwindigkeitsüberschreitung seit</translation>
+        <translation type="obsolete">Erste Geschwindigkeitsüberschreitung seit</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>numberOfOverspeedSince</source>
-        <translation>Seitherige Geschwindigkeitsüberschreitungen</translation>
+        <translation type="obsolete">Seitherige Geschwindigkeitsüberschreitungen</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>ActivityChangeInfo</source>
-        <translation>Aktivitätenänderungsinformation</translation>
+        <translation type="obsolete">Aktivitätenänderungsinformation</translation>
     </message>
     <message>
-        <location line="+6"/>
         <source>TimeAdjustments</source>
-        <translation>Uhrzeitveränderungen</translation>
+        <translation type="obsolete">Uhrzeitveränderungen</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>oldTimeValue</source>
-        <translation>Alte Uhrzeit</translation>
+        <translation type="obsolete">Alte Uhrzeit</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>newTimeValue</source>
-        <translation>Neue Uhrzeit</translation>
+        <translation type="obsolete">Neue Uhrzeit</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>workshopName</source>
-        <translation>Werkstattname</translation>
+        <translation type="obsolete">Werkstattname</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>workshopAddress</source>
-        <translation>Werkstattaddresse</translation>
+        <translation type="obsolete">Werkstattaddresse</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>workshopCardNumber</source>
-        <translation>Werkstattkartennummer</translation>
+        <translation type="obsolete">Werkstattkartennummer</translation>
     </message>
 </context>
 <context>
     <name>vuOverview</name>
     <message>
-        <location filename="fileformat/vuBlocks/vuOverview.h" line="+40"/>
         <source>Overview</source>
-        <translation>Übersicht</translation>
+        <translation type="obsolete">Übersicht</translation>
     </message>
     <message>
-        <location line="+13"/>
         <source>VehicleIdentificationNumber</source>
-        <translation>Fahrzeugnummer</translation>
+        <translation type="obsolete">Fahrzeugnummer</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>VehicleRegistrationNation</source>
-        <translation>Fahzeugregistrierungsland</translation>
+        <translation type="obsolete">Fahzeugregistrierungsland</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>VehicleRegistrationNumber</source>
-        <translation>Amtliches Kennzeichen</translation>
+        <translation type="obsolete">Amtliches Kennzeichen</translation>
     </message>
     <message>
-        <location line="+2"/>
         <source>CurrentDateTime</source>
-        <translation>Jetzige Zeit</translation>
+        <translation type="obsolete">Jetzige Zeit</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>minDownloadableTime</source>
-        <translation>Frühester gespeicherter Zeitpunkt</translation>
+        <translation type="obsolete">Frühester gespeicherter Zeitpunkt</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>maxDownloadableTime</source>
-        <translation>spätester gespeicherter Zeitpunkt</translation>
+        <translation type="obsolete">spätester gespeicherter Zeitpunkt</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>CardSlotsStatus</source>
-        <translation>Status Der Karteneinschübe</translation>
+        <translation type="obsolete">Status Der Karteneinschübe</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>downloadingTime</source>
-        <translation>Heruntergeladen am</translation>
+        <translation type="obsolete">Heruntergeladen am</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>fullCardNumber</source>
-        <translation>Volle Kartennummer</translation>
+        <translation type="obsolete">Volle Kartennummer</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>companyOrWorkshopName</source>
-        <translation>Firmen- oder Werkstattname</translation>
+        <translation type="obsolete">Firmen- oder Werkstattname</translation>
     </message>
     <message>
-        <location line="+1"/>
-        <source>VuCompanyLocksRecord</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
         <source>lockInTime</source>
-        <translation>Zeitpunkt der Sperrung</translation>
+        <translation type="obsolete">Zeitpunkt der Sperrung</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>lockOutTime</source>
-        <translation>Zeitpunkt der Entsperrung</translation>
+        <translation type="obsolete">Zeitpunkt der Entsperrung</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>companyName</source>
-        <translation>Firma</translation>
+        <translation type="obsolete">Firma</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>companyAddress</source>
-        <translation>Firmenadresse</translation>
+        <translation type="obsolete">Firmenadresse</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>companyCardNumber</source>
-        <translation>Unternehmerkartennummer</translation>
+        <translation type="obsolete">Unternehmerkartennummer</translation>
     </message>
     <message>
-        <location line="+2"/>
-        <source>VuControlActivityRecord</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
         <source>controlType</source>
-        <translation>Kontrollart</translation>
+        <translation type="obsolete">Kontrollart</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>controlTime</source>
-        <translation>Kontrollzeit</translation>
+        <translation type="obsolete">Kontrollzeit</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>controlCardNumber</source>
-        <translation>Kontrollkartennummer</translation>
+        <translation type="obsolete">Kontrollkartennummer</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>downloadPeriodBeginTime</source>
-        <translation>Beginn des Ladens der Kontrolldaten</translation>
+        <translation type="obsolete">Beginn des Ladens der Kontrolldaten</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>downloadPeriodEndTime</source>
-        <translation>Ende des Ladens der Kontrolldaten</translation>
+        <translation type="obsolete">Ende des Ladens der Kontrolldaten</translation>
     </message>
 </context>
 <context>
     <name>vuSpeeds</name>
     <message>
-        <location filename="fileformat/vuBlocks/vuSpeeds.h" line="+30"/>
         <source>Detailed Speed</source>
-        <translation>Detaillierte Geschwindigkeit</translation>
+        <translation type="obsolete">Detaillierte Geschwindigkeit</translation>
     </message>
     <message>
-        <location line="+12"/>
         <source>VuDetailedSpeedBlock</source>
-        <translation>genaue Geschwindigkeit während einer Minute</translation>
+        <translation type="obsolete">genaue Geschwindigkeit während einer Minute</translation>
     </message>
     <message>
-        <location line="+2"/>
         <source>speedBlockBeginDate</source>
-        <translation>Zeit des ersten Geschwindigkeitswertes im Block</translation>
+        <translation type="obsolete">Zeit des ersten Geschwindigkeitswertes im Block</translation>
     </message>
     <message>
-        <location line="+5"/>
         <source>speedsPerSecond</source>
-        <translation>Geschwindigkeiten für die nächsten 60 Sekunden</translation>
+        <translation type="obsolete">Geschwindigkeiten für die nächsten 60 Sekunden</translation>
     </message>
     <message>
-        <location line="+6"/>
         <source>Speed data</source>
-        <translation>Geschwindigkeitsdaten</translation>
+        <translation type="obsolete">Geschwindigkeitsdaten</translation>
     </message>
     <message>
-        <location line="+0"/>
         <source>omitted</source>
-        <translation>weggelassen</translation>
+        <translation type="obsolete">weggelassen</translation>
     </message>
 </context>
 <context>
     <name>vuTechnical</name>
     <message>
-        <location filename="fileformat/vuBlocks/vuTechnical.h" line="+30"/>
         <source>Technical Data</source>
-        <translation>Technische Daten</translation>
+        <translation type="obsolete">Technische Daten</translation>
     </message>
     <message>
-        <location line="+12"/>
         <source>vuManufacturerName</source>
         <oldsource>vuManufacturerMame</oldsource>
-        <translation>Hersteller der Fahrzeugeinheit</translation>
+        <translation type="obsolete">Hersteller der Fahrzeugeinheit</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>vuManufacturerAddress</source>
-        <translation>Anschrift des Herstellers der FE</translation>
+        <translation type="obsolete">Anschrift des Herstellers der FE</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>vuPartNumber</source>
-        <translation>Teilnummer der FE</translation>
+        <translation type="obsolete">Teilnummer der FE</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>vuSerialNumber</source>
-        <translation>Seriennummer der FE</translation>
+        <translation type="obsolete">Seriennummer der FE</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>vuSoftwareVersion</source>
-        <translation>Softwarekennung der FE</translation>
+        <translation type="obsolete">Softwarekennung der FE</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>vuSoftInstallationDate</source>
-        <translation>Datum der Installation der vorgenannten Softwareversion der FE</translation>
+        <translation type="obsolete">Datum der Installation der vorgenannten Softwareversion der FE</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>vuManufacturingDate</source>
-        <translation>Herstellungsdatum der FE</translation>
+        <translation type="obsolete">Herstellungsdatum der FE</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>vuApprovalNumber</source>
-        <translation>Bauartgenehmigungsnummer der FE</translation>
+        <translation type="obsolete">Bauartgenehmigungsnummer der FE</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>sensorSerialNumber</source>
-        <translation>Erweiterte Seriennummer des Weg- und/oder Geschwindigkeitsgebers</translation>
+        <translation type="obsolete">Erweiterte Seriennummer des Weg- und/oder Geschwindigkeitsgebers</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>sensorApprovalNumber</source>
-        <translation>Bauartgenehmigungsnummer des Wegund/oder Geschwindigkeitsgeber</translation>
+        <translation type="obsolete">Bauartgenehmigungsnummer des Wegund/oder Geschwindigkeitsgeber</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>sensorPairingDateFirst</source>
-        <translation>Datum der ersten Koppelung des Wegund/oder Geschwindigkeitsgebers mit einer Fahrzeugeinheit</translation>
+        <translation type="obsolete">Datum der ersten Koppelung des Wegund/oder Geschwindigkeitsgebers mit einer Fahrzeugeinheit</translation>
     </message>
     <message>
-        <location line="+2"/>
         <source>VuCalibrationRecord</source>
-        <translation>Kalibrierungsdatensatz</translation>
+        <translation type="obsolete">Kalibrierungsdatensatz</translation>
     </message>
     <message>
-        <location line="+2"/>
         <source>calibrationPurpose</source>
-        <translation>Kalibrierungsgrund</translation>
+        <translation type="obsolete">Kalibrierungsgrund</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>workshopName</source>
-        <translation>Werkstattname</translation>
+        <translation type="obsolete">Werkstattname</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>workshopAddress</source>
-        <translation>Werkstattaddresse</translation>
+        <translation type="obsolete">Werkstattaddresse</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>workshopCardNumber</source>
-        <translation>Werkstattkartennummer</translation>
+        <translation type="obsolete">Werkstattkartennummer</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>workshopCardExpiryDate</source>
-        <translation>Werkstattkartengültigkeitsablauf</translation>
+        <translation type="obsolete">Werkstattkartengültigkeitsablauf</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>vehicleIdentificationNumber</source>
-        <translation>Amtliches Kennzeichen</translation>
+        <translation type="obsolete">Amtliches Kennzeichen</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>vehicleRegistrationNation</source>
-        <translation>Fahzeugregistrierungsland</translation>
+        <translation type="obsolete">Fahzeugregistrierungsland</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>vehicleRegistrationNumber</source>
-        <translation>Amtliches Kennzeichen</translation>
+        <translation type="obsolete">Amtliches Kennzeichen</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>wVehicleCharacteristicConstant</source>
-        <translation>Wegdrehzahl des Fahrzeug w</translation>
+        <translation type="obsolete">Wegdrehzahl des Fahrzeug w</translation>
     </message>
     <message>
-        <location line="+1"/>
-        <location line="+2"/>
         <source>Impulses</source>
-        <translation>Impulse</translation>
+        <translation type="obsolete">Impulse</translation>
     </message>
     <message>
-        <location line="-1"/>
         <source>kConstantOfRecordingEquipment</source>
-        <translation>Kontrollgerätkonstante k</translation>
+        <translation type="obsolete">Kontrollgerätkonstante k</translation>
     </message>
     <message>
-        <location line="+3"/>
         <source>lTyreCircumference</source>
-        <translation>Effektiver Reifenumfang L</translation>
+        <translation type="obsolete">Effektiver Reifenumfang L</translation>
     </message>
     <message>
-        <location line="+3"/>
         <source>tyreSize</source>
-        <translation>Reifengröße</translation>
+        <translation type="obsolete">Reifengröße</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>authorisedSpeed</source>
-        <translation>Erlaubte Höchstgeschwindigkeit</translation>
+        <translation type="obsolete">Erlaubte Höchstgeschwindigkeit</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>oldOdometerValue</source>
-        <translation>Alter Kilometerstand</translation>
+        <translation type="obsolete">Alter Kilometerstand</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>newOdometerValue</source>
-        <translation>Neuer Kilometerstand</translation>
+        <translation type="obsolete">Neuer Kilometerstand</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>oldTimeValue</source>
-        <translation>Alte Uhrzeit</translation>
+        <translation type="obsolete">Alte Uhrzeit</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>newTimeValue</source>
-        <translation>Neue Uhrzeit</translation>
+        <translation type="obsolete">Neue Uhrzeit</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>nextCalibrationDate</source>
-        <translation>Nächste Kalibrierung</translation>
+        <translation type="obsolete">Nächste Kalibrierung</translation>
     </message>
 </context>
 </TS>
