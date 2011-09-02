@@ -157,7 +157,7 @@
 	</DataType>
 
 	<CardBlock name="SpecificConditions" type="0x0522">
-		<title>specific Conditions</title>
+		<title>Specific Conditions</title>
 		<content>
 			<Subblocks type="SpecificConditionRecord" />
 		</content>
@@ -171,7 +171,7 @@
 	</CardBlock>
 
 	<CardBlock name="CardCertificate" type="0xc100">
-		<title>card Certificate</title>
+		<title>Card Certificate</title>
 		<content>
 			<EncryptedCertificate name="certificate" />
 		</content>
@@ -295,18 +295,18 @@
 		</content>
 	</DataType>
 
-	<VuBlock name="block11" type="0x11">
+	<VuBlock name="Block11" type="0x11">
 		<comment>This block is not covered in the european law. My (Andreas) guess is that this is something manufacturer-specific, in the files from siemens vdos this block (code 0x7611) contains, well, card numbers and timestamps. It might be something else from other manufacturers. If you do know what it does, please tell me.</comment>
-		<title>Unknown Block with trep 0x11</title>
+		<title>Unknown Block with TREP 0x11</title>
 		<content>
 			<RawData length="15" name="header" />
 			<Subblocks type="Block11Record" counterlength="2" />
 		</content>
 	</VuBlock>
 
-	<VuBlock name="block13" type="0x13">
+	<VuBlock name="Block13" type="0x13">
 		<comment>This block is not covered in the european law. My (Andreas) guess is that this is something manufacturer-specific, in the files from siemens vdos this block (code 0x7613) contains, well, card numbers and timestamps. It might be something else from other manufacturers. If you do know what it does, please tell me.</comment>
-		<title>Unknown Block with trep 0x13</title>
+		<title>Unknown Block with TREP 0x13</title>
 		<content>
 			<RawData length="30" name="header" />
 			<Subblocks type="Block11Record" counterlength="2" />
