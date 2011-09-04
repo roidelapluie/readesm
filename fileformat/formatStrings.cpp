@@ -262,6 +262,14 @@ QString formatStrings::regionNumeric(unsigned char value) {
 	else return tr("Unknown region %1").arg(value);
 }
 
+QString formatStrings::previous(const QString& now, const QString& past) {
+	return tr("%1, formerly %2").arg(now, past);
+}
+
+QString formatStrings::previous(const QString& now, const QString& past, const QString& ancientpast) {
+	return tr("%1, formerly %2 and before that %3").arg(now, past, ancientpast);
+}
+
 ///Manufacturer codes as found on dtc.jrc.it
 QString formatStrings::manufacturerCode(unsigned char code) {
 	switch(code){
@@ -273,7 +281,7 @@ QString formatStrings::manufacturerCode(unsigned char code) {
 	case 0x20: return "CETIS d.d.";
 	case 0x21: return "certSIGN";
 	case 0x22: return "RUE Cryptotech";
-	case 0x30: return "Sdu Identification B.V. " + tr("(formerly Enschedé/Sdu B.V.)");
+	case 0x30: return previous("Sdu Identification B.V.", "Enschedé/Sdu B.V.");
 	case 0x32: return "EFKON AG.";
 	case 0x38: return "Fábrica Nacional de Moneda y Timbre";
 	case 0x40: return "Giesecke & Devrient GmbH";
@@ -283,13 +291,13 @@ QString formatStrings::manufacturerCode(unsigned char code) {
 	case 0x50: return "Imprimerie Nationale";
 	case 0x51: return "Imprensa Nacional-Casa da Moeda, SA";
 	case 0x52: return "InfoCamere S.C.p.A";
-	case 0x81: return "Morpho e-documents " + tr("(formerly Sagem Orga, formerly ORGA Kartensysteme GmbH)");
+	case 0x81: return previous("Morpho e-documents", "Sagem Orga", "ORGA Kartensysteme GmbH");
 	case 0x82: return "ORGA Zelenograd ZAO";
-	case 0x88: return "Asseco Czech Republic a.s. " + tr("(formerly PVT a.s.)");
+	case 0x88: return previous("Asseco Czech Republic a.s.", "PVT a.s.");
 	case 0x89: return "Polska Wytwórnia Papierów Wartosciowych S.A. - PWPW S.A.";
-	case 0xA1: return "Continental Automotive GmbH " + tr("(formerly Siemens AG - Siemens VDO Automotive)");
+	case 0xA1: return previous("Continental Automotive GmbH", "Siemens AG - Siemens VDO Automotive");
 	case 0xA2: return "Stoneridge Electronics AB";
-	case 0xA3: return "Gemalto " + tr("(formerly Schlumberger SEMA, Axalto)");
+	case 0xA3: return previous("Gemalto", "Schlumberger SEMA, Axalto");
 	case 0xA4: return "3M Security Printing and Systems Ltd.";
 	case 0xD8: return "Union of Chambers and Commodity Exchanges of Turkey - TOBB";
 	case 0xAB: return "T-Systems International GmbH";

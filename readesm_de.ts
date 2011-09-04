@@ -1480,22 +1480,22 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location filename="fileformat/DataTypes/RawCardActivityDailyRecord.cpp" line="+24"/>
         <source>activityRecordPreviousLength</source>
-        <translation type="unfinished"></translation>
+        <translation>Länge des vorherigen Datensatzes</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>activityRecordLength</source>
-        <translation type="unfinished"></translation>
+        <translation>Länge dieses Datensatzes</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>activityRecordDate</source>
-        <translation type="unfinished"></translation>
+        <translation>Datum</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>activityPresenceCounter</source>
-        <translation type="unfinished"></translation>
+        <translation>Tagesanwesenheitszähler</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1522,17 +1522,17 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location filename="fileformat/CardBlocks/CardChipIdentification.cpp" line="+17"/>
         <source>Card chip identification</source>
-        <translation type="unfinished"></translation>
+        <translation>Identifizierung des Integrierten Schaltkreises der Karte</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>icSerialNumber</source>
-        <translation type="unfinished"></translation>
+        <translation>IC-Seriennummer nach EN-726-3</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>icManufacturingReference</source>
-        <translation type="unfinished"></translation>
+        <translation>IC-Herstellerbezeichner und Fertigungselement nach EN 726-3</translation>
     </message>
 </context>
 <context>
@@ -1560,12 +1560,12 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location line="+1"/>
         <source>controlVehicleRegistration</source>
-        <translation type="unfinished"></translation>
+        <translation>Amtliches Kennzeichen des Fahrzeugs, in dem die Kontrolle stattfand</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>controlDownloadPeriod</source>
-        <translation type="unfinished"></translation>
+        <translation>Übertragener Zeitraum</translation>
     </message>
 </context>
 <context>
@@ -1642,7 +1642,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location line="+4"/>
         <source>cardEventRecords</source>
-        <translation type="unfinished"></translation>
+        <translation>Einträge über Ereignisse</translation>
     </message>
 </context>
 <context>
@@ -1672,7 +1672,8 @@ Signatur-Prüfung fehlgeschlagen </translation>
     </message>
     <message>
         <location line="+4"/>
-        <source>cardEventRecords</source>
+        <source>cardFaultRecords</source>
+        <oldsource>cardEventRecords</oldsource>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1719,7 +1720,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location filename="fileformat/CardBlocks/CardPlaceDailyWorkPeriod.cpp" line="+17"/>
         <source>Places</source>
-        <translation type="unfinished">Orte</translation>
+        <translation>Orte</translation>
     </message>
     <message>
         <location line="+4"/>
@@ -1729,7 +1730,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location line="+1"/>
         <source>placeRecords</source>
-        <translation type="unfinished"></translation>
+        <translation>Ortseinträge</translation>
     </message>
 </context>
 <context>
@@ -1784,7 +1785,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location line="+1"/>
         <source>vehicleUse</source>
-        <translation type="unfinished"></translation>
+        <translation>Benutzungszeitraum</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1812,7 +1813,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location line="+1"/>
         <source>cardVehicleRecords</source>
-        <translation type="unfinished"></translation>
+        <translation>Fahrzeugdatensätze</translation>
     </message>
 </context>
 <context>
@@ -1866,7 +1867,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location filename="fileformat/DataTypes/CertificateHolderAuthorization.cpp" line="+21"/>
         <source>tachographApplicationId</source>
-        <translation type="unfinished"></translation>
+        <translation>Anwendungsbezeichner für die Kontrollgerätanwendung</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1967,7 +1968,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location line="+1"/>
         <source>certificateAuthorityReference</source>
-        <translation type="unfinished"></translation>
+        <translation>Referenz zur Zertifizierungsstelle</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2010,12 +2011,12 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location line="+1"/>
         <source>noOfEventsPerType</source>
-        <translation type="unfinished"></translation>
+        <translation>Anzahl der Ereignisse je Ereignisart, die die Karte speichern kann</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>noOfFaultsPerType</source>
-        <translation type="unfinished"></translation>
+        <translation>Anzahl der Störungen je Störungsart, die die Karte speichern kann</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2025,12 +2026,12 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location line="+1"/>
         <source>noOfCardVehicleRecords</source>
-        <translation type="unfinished"></translation>
+        <translation>Anzahl der auf der Karte speicherbaren Fahrzeugdatensätze</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>noOfCardPlaceRecords</source>
-        <translation type="unfinished"></translation>
+        <translation>Anzahl der Ortseinträge, die auf der Karte gespeichert werden können</translation>
     </message>
 </context>
 <context>
@@ -2670,23 +2671,27 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <name>SvgDayActivity</name>
     <message>
         <location filename="fileformat/PictureGenerators/SvgDayActivity.cpp" line="+21"/>
-        <source>= break/rest</source>
-        <translation type="unfinished"></translation>
+        <source>break/rest</source>
+        <oldsource>= break/rest</oldsource>
+        <translation>Ruhepause</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>= break, up to 15 min</source>
-        <translation type="unfinished"></translation>
+        <source>break (&lt; 15 min)</source>
+        <oldsource>= break, up to 15 min</oldsource>
+        <translation>Pause (&lt; 15 min)</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>= working</source>
-        <translation type="unfinished"></translation>
+        <source>working</source>
+        <oldsource>= working</oldsource>
+        <translation>Arbeit</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>= driving</source>
-        <translation type="unfinished"></translation>
+        <source>driving</source>
+        <oldsource>= driving</oldsource>
+        <translation>Fahren</translation>
     </message>
 </context>
 <context>
@@ -3088,12 +3093,12 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location filename="fileformat/DataTypes/VuDetailedSpeedBlock.cpp" line="+21"/>
         <source>speedBlockBeginDate</source>
-        <translation type="unfinished">Zeit des ersten Geschwindigkeitswertes im Block</translation>
+        <translation>Zeit des ersten Geschwindigkeitswertes im Block</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>speedsPerSecond</source>
-        <translation type="unfinished">Geschwindigkeiten für die nächsten 60 Sekunden</translation>
+        <translation>Geschwindigkeiten für die nächsten 60 Sekunden</translation>
     </message>
 </context>
 <context>
@@ -3101,12 +3106,12 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location filename="fileformat/VuBlocks/RawVuDetailedSpeedData.cpp" line="+16"/>
         <source>Detailed Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Detaillierte Geschwindigkeit</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>vuDetailedSpeedBlocks</source>
-        <translation type="unfinished"></translation>
+        <translation>Einträge üer detaillierte Geschwindigkeiten</translation>
     </message>
 </context>
 <context>
@@ -3991,12 +3996,12 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location line="+5"/>
         <location line="+127"/>
-        <location line="+26"/>
+        <location line="+34"/>
         <source>No information available</source>
         <translation>Keine Informationen verfügbar</translation>
     </message>
     <message>
-        <location line="-152"/>
+        <location line="-160"/>
         <source>Austria</source>
         <translation>Österreich</translation>
     </message>
@@ -4530,42 +4535,47 @@ Signatur-Prüfung fehlgeschlagen </translation>
         <translation>Unbekannte Region %1</translation>
     </message>
     <message>
+        <location line="+4"/>
+        <source>%1, formerly %2</source>
+        <translation>%1, ehemals %2</translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>%1, formerly %2 and before that %3</source>
+        <translation>%1, davor %2 und davor %3</translation>
+    </message>
+    <message>
         <location line="+7"/>
         <source>Reserved value</source>
         <translation>Reservierter Wert</translation>
     </message>
     <message>
-        <location line="+7"/>
         <source>(formerly Enschedé/Sdu B.V.)</source>
         <oldsource>Sdu Identification B.V. (formerly Enschedé/Sdu B.V.)</oldsource>
-        <translation>(ehemals Enschedé/Sdu B.V.)</translation>
+        <translation type="obsolete">(ehemals Enschedé/Sdu B.V.)</translation>
     </message>
     <message>
-        <location line="+10"/>
         <source>(formerly Sagem Orga, formerly ORGA Kartensysteme GmbH)</source>
         <oldsource>Morpho e-documents (formerly Sagem Orga formerly ORGA Kartensysteme GmbH)</oldsource>
-        <translation>(ehemals Sagem Orga und davor ORGA Kartensysteme GmbH)</translation>
+        <translation type="obsolete">(ehemals Sagem Orga und davor ORGA Kartensysteme GmbH)</translation>
     </message>
     <message>
-        <location line="+2"/>
         <source>(formerly PVT a.s.)</source>
         <oldsource>Asseco Czech Republic a.s. (formerly PVT a.s.)</oldsource>
-        <translation>(ehemals PVT a.s.)</translation>
+        <translation type="obsolete">(ehemals PVT a.s.)</translation>
     </message>
     <message>
-        <location line="+2"/>
         <source>(formerly Siemens AG - Siemens VDO Automotive)</source>
         <oldsource>Continental Automotive GmbH (formerly Siemens AG - Siemens VDO Automotive Siemens Automotive)</oldsource>
-        <translation>(ehemals Siemens AG - Siemens VDO Automotive)</translation>
+        <translation type="obsolete">(ehemals Siemens AG - Siemens VDO Automotive)</translation>
     </message>
     <message>
-        <location line="+2"/>
         <source>(formerly Schlumberger SEMA, Axalto)</source>
         <oldsource>Gemalto (formerly Schlumberger SEMA, Axalto)</oldsource>
-        <translation>(ehemals Schlumberger SEMA, Axalto)</translation>
+        <translation type="obsolete">(ehemals Schlumberger SEMA, Axalto)</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+32"/>
         <source>Unknown Manufacturer %1 or equipment not type approved</source>
         <oldsource>Unknown Manufacturer or equipment not type approved</oldsource>
         <translation>Unbekannter Hersteller %1 oder Ausrüstung nicht Typgenehmigt</translation>

@@ -145,7 +145,7 @@
 	<CardBlock name="CardFaultData" type="0x0503">
 		<title>Faults Data</title>
 		<content>
-			<Subblocks type="CardEventRecord" />
+			<Subblocks type="CardEventRecord" name="cardFaultRecords" />
 		</content>
 	</CardBlock>
 

@@ -22,9 +22,10 @@
 
 class formatStrings {
 	Q_DECLARE_TR_FUNCTIONS(formatStrings)
-
-	public:
-
+private:
+	static QString previous(const QString& now, const QString& past);
+	static QString previous(const QString& now, const QString& past, const QString& ancientpast);
+public:
 	///What kind of event(mostly "driving without the right card")
 	static QString eventType(unsigned char etype);
 

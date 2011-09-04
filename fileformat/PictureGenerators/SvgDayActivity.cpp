@@ -12,14 +12,14 @@ void SvgDayActivity::add(int from, int duration, int height, const QString& colo
 QString SvgDayActivity::drawLegend(){
 	return QString(
 		"\n\t\t<g style='text-anchor:left;font-size:16px;'>"
-		"\n\t\t\t<rect x='730' y='86' fill='red' width='30' height='16' /><text x='765' y='100'>%1</text>"
-		"\n\t\t\t<rect x='730' y='66' fill='blue' width='30' height='16' /><text x='765' y='80'>%2</text>"
-		"\n\t\t\t<rect x='730' y='46' fill='yellow' width='30' height='16' /><text x='765' y='60'>%3</text>"
-		"\n\t\t\t<rect x='730' y='26' fill='green' width='30' height='16' /><text x='765' y='40'>%4</text>"
+		"\n\t\t\t<rect x='730' y='86' fill='red' width='30' height='16' /><text x='765' y='100'>= %1</text>"
+		"\n\t\t\t<rect x='730' y='66' fill='blue' width='30' height='16' /><text x='765' y='80'>= %2</text>"
+		"\n\t\t\t<rect x='730' y='46' fill='yellow' width='30' height='16' /><text x='765' y='60'>= %3</text>"
+		"\n\t\t\t<rect x='730' y='26' fill='green' width='30' height='16' /><text x='765' y='40'>= %4</text>"
 		"\n\t\t</g>"
 		)
-		.arg(tr("= break/rest"))
-		.arg(tr("= break, up to 15 min"))
-		.arg(tr("= working"))
-		.arg(tr("= driving"));
+		.arg(tr("break/rest"))
+		.arg(tr("break (< 15 min)"))
+		.arg(tr("working"))
+		.arg(tr("driving"));
 }
