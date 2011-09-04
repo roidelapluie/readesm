@@ -29,6 +29,12 @@ QString TopLevelBlock::signatureValidity() const{
 #endif
 }
 
+Reporter& operator<<(Reporter& report, const TopLevelBlock& b){
+	b.printOn(report);
+	report.tagValuePair("signature", b.signatureValidity());
+	return report;
+}
+
 void TopLevelBlock::printOn(Reporter& o) const {
 	o.tagValuePair("length", size());
 }

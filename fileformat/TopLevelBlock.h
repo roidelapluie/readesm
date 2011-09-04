@@ -27,13 +27,15 @@
 
 class TopLevelBlock : public Block {
 	Q_DECLARE_TR_FUNCTIONS(Block)
-	public:
+
+public:
 	TopLevelBlock(const DataPointer& filewalker);
 	virtual QString name() const;
 	virtual void checkSignature(const EncryptedCertificate& cert);
 	virtual QString signatureValidity() const;
+	friend Reporter& operator<<(Reporter& o, const TopLevelBlock& b);
 	
-	protected:
+protected:
 	virtual RawData signedBytes() const = 0;
 	virtual RawData signatureBytes() const;
 	virtual void printOn(Reporter& o) const;
