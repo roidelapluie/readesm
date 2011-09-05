@@ -263,11 +263,11 @@ QString formatStrings::regionNumeric(unsigned char value) {
 }
 
 QString formatStrings::previous(const QString& now, const QString& past) {
-	return tr("%1, formerly %2").arg(now, past);
+	return tr("%1 (formerly %2)").arg(now, past);
 }
 
 QString formatStrings::previous(const QString& now, const QString& past, const QString& ancientpast) {
-	return tr("%1, formerly %2 and before that %3").arg(now, past, ancientpast);
+	return tr("%1  (formerly %2 and before that %3)").arg(now, past, ancientpast);
 }
 
 ///Manufacturer codes as found on dtc.jrc.it
