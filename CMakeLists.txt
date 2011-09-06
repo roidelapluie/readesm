@@ -9,8 +9,10 @@ endif(WIN32)
 if(MAC)
 	set(GUI_TYPE MACOSX_BUNDLE)
 endif()
-set(CMAKE_BUILD_TYPE debug)
-add_definitions("-Wall")
+
+set(CMAKE_BUILD_TYPE release)
+set(CMAKE_CXX_FLAGS "-Wall -O2" )
+set(CMAKE_VERBOSE_MAKEFILE ON)
 
 find_package(Qt4 COMPONENTS QtGui QtWebKit REQUIRED)
 
