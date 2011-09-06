@@ -17,6 +17,13 @@ void HtmlReporter::namedSubBlock(const QString& tag, const DataType& value){
 	collector << "</ul></li>";
 }
 
+void HtmlReporter::unnamedSubBlock(const DataType& value){
+	collector << "\n<li><ul>";
+	value.printOn(*this);
+	collector << "</ul></li>";
+}
+
+
 void HtmlReporter::topLevelBlock(const TopLevelBlock& value){
 	collector << "\n<h3>" << value.name() << "</h3>";
 	collector << "<ul>";

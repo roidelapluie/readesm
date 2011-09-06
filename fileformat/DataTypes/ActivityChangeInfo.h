@@ -7,6 +7,7 @@ class ActivityChangeInfo : public DataType {
 	Q_DECLARE_TR_FUNCTIONS(activityChangeInfo)
 	public:
 	int s,c,p,a,t;
+	int duration;
 	static const int staticSize = 2;
 
 	ActivityChangeInfo(const DataPointer& start) : DataType(start),
@@ -14,7 +15,8 @@ class ActivityChangeInfo : public DataType {
 		c((start[0] & (1 << 6)) >> 6),
 		p((start[0] & (1 << 5)) >> 5),
 		a((start[0] & ((1 << 4) | (1 << 3))) >> 3),
-		t(int((start[0] & 7) << 8) + start[1])
+		t(int((start[0] & 7) << 8) + start[1]),
+		duration(0)
 	{}
 	
 	QString activityName() const {

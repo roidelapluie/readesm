@@ -286,12 +286,12 @@
 	</DataType>
 
 	<DataType name="Block11Record">
-		<comment>check if cardnumber is with nation numeric</comment>
+		<comment>in block 11, sometimesDuration seems to encode duration in seconds/3, in block 13 it seems to be seconds.</comment>
 		<content>
 			<FullCardNumber name="cardNumber" />
-			<TimeReal name="timeOne" />
-			<TimeReal name="timeTwo" />
-			<RawData length="32" name="payloadData"/>
+			<Timespan name="time" />
+			<int unit="s" name="sometimesDuration" length="2" />
+			<RawData length="30" name="payloadData"/>
 		</content>
 	</DataType>
 

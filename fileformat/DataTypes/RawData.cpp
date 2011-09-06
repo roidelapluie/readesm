@@ -13,6 +13,14 @@ RawData::RawData(const QByteArray& data_) :
 {}
 
 QString RawData::toString() const{
+	bool allzeros = true;
+	for(int j = 0; j < size(); ++j){
+		if(start[j] != 0){
+			allzeros = false;
+			break;
+		}
+	}
+	if(allzeros) return tr("All %1 Byte are zeroed.").arg(size());
 	QString rv;
 	for(int j = 0; j < size(); ++j) rv.append(QString("%1 ").arg(start[j], 2, 16, QChar('0')));
 	return rv;

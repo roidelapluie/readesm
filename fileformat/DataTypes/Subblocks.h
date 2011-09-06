@@ -26,7 +26,7 @@ public:
 	}
 	void printOn(Reporter& o) const{
 		if(numberOfBlocks()){
-			for(int j = 0; j < numberOfBlocks(); ++j) o.namedSubBlock("subblock", *array[j]);
+			for(int j = 0; j < numberOfBlocks(); ++j) o.unnamedSubBlock(*array[j]);
 		} else {
 			
 		}

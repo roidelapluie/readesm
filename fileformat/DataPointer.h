@@ -18,19 +18,6 @@ QString hexByte(unsigned char start) const{
 	{
 	}
 
-	DataPointer(const DataPointer& other) :
-		data(other.data),
-		offset(other.offset)
-	{
-	}
-
-	DataPointer& operator=(const DataPointer& other)
-	{
-		data = other.data;
-		offset = other.offset;
-		return *this;
-	}
-
 	inline DataPointer operator+(int j) const
 	{
 		return DataPointer(data, offset + j);
@@ -54,7 +41,6 @@ QString hexByte(unsigned char start) const{
 
 	inline unsigned char operator[](int j) const
 	{
-		if(j > bytesLeft()) qDebug() << "error, reading past end of file" << offset  << j << bytesLeft() << data.size() << hexByte(data[1]) << hexByte(data[2]);
 		return data[offset + j];
 	}
 
