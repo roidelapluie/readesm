@@ -3,7 +3,7 @@
 
 #include <QtCore/QSharedPointer>
 #include <QtGui/QMainWindow>
-
+#include <QtCore/QByteArray>
 class EsmFile;
 class QString;
 class QWebView;
@@ -13,6 +13,7 @@ class mainWindow : public QMainWindow
 	Q_OBJECT
 	private:
 		QSharedPointer<EsmFile> esm;
+		QByteArray htmlContent;
 	public:
 		QWebView* view;
 		mainWindow();

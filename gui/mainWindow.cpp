@@ -112,7 +112,8 @@ void mainWindow::openFile(const QString& filename)
 	esm = QSharedPointer<EsmFile>(new EsmFile(filename));
 	HtmlReporter rep;
 	rep << *esm;
-	view->setContent(rep.toQByteArray(), "application/xhtml+xml");
+	htmlContent = rep.toQByteArray();
+	view->setContent(htmlContent, "application/xhtml+xml");
 	setWindowTitle(esm->suggestTitle() + " - readesm");
 	//view->setHtml(rep.str().toUtf8());
 }
@@ -129,7 +130,7 @@ void mainWindow::print()
 
 void mainWindow::saveHtml()
 {
-	if(!esm) {
+	if(!htmlContent.size()) {
 		QMessageBox::warning(this, tr("Saving not possible"),tr("Nothing opened, nothing to save."));
 		return;
 	}
@@ -139,13 +140,12 @@ void mainWindow::saveHtml()
 		tr("XHtml files") + "(*.xhtml)" + ";;" + tr("All files") + "(*)"
 	);
 	if(fileName != "") {
-		QString content = view->page()->mainFrame()->toHtml();
 		QFile file(fileName);
 		if(!file.open(QIODevice::WriteOnly)) {
 			QMessageBox::warning(this, tr("Saving not possible"),tr("Could not open file."));
 			return;
 		}
-		file.write(content.toUtf8());
+		file.write(htmlContent);
 	}
 }
 
