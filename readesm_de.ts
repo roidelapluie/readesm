@@ -1379,7 +1379,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
         <translation>Kompiliert ohne Kryptographieunterstützung</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+16"/>
         <source>Unknown block type 0x%1</source>
         <translation>Unbekannte Art eines Blocks: 0x%1</translation>
     </message>
@@ -1395,12 +1395,12 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location line="+8"/>
         <source>header</source>
-        <translation type="unfinished"></translation>
+        <translation>Inhalt des Blockkopfes</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>block11Records</source>
-        <translation type="unfinished"></translation>
+        <translation>Einträge unbekannter Art</translation>
     </message>
 </context>
 <context>
@@ -1408,22 +1408,22 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location filename="fileformat/DataTypes/Block11Record.cpp" line="+23"/>
         <source>cardNumber</source>
-        <translation type="unfinished">Kartennummer</translation>
+        <translation>Kartennummer</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>timeOne</source>
-        <translation type="unfinished"></translation>
+        <translation>Erste Zeit</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>timeTwo</source>
-        <translation type="unfinished"></translation>
+        <translation>Zweite Zeit</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>payloadData</source>
-        <translation type="unfinished"></translation>
+        <translation>Zusätzliche Daten</translation>
     </message>
 </context>
 <context>
@@ -1432,17 +1432,17 @@ Signatur-Prüfung fehlgeschlagen </translation>
         <location filename="fileformat/VuBlocks/Block13.cpp" line="+17"/>
         <source>Unknown Block with TREP 0x13</source>
         <oldsource>Unknown Block with trep 0x13</oldsource>
-        <translation type="unfinished">Unbekannter Block mit TREP 0x13 {0x?}</translation>
+        <translation>Unbekannter Block mit TREP 0x13</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>header</source>
-        <translation type="unfinished"></translation>
+        <translation>Inhalt des Blockkopfes</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>block11Records</source>
-        <translation type="unfinished"></translation>
+        <translation>Einträge unbekannter Art</translation>
     </message>
 </context>
 <context>
@@ -1596,17 +1596,17 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location line="+4"/>
         <source>oldestRecord</source>
-        <translation type="unfinished"></translation>
+        <translation>Ältester Eintrag</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>newestRecord</source>
-        <translation type="unfinished"></translation>
+        <translation>Neuester Eintrag</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>cyclicData</source>
-        <translation type="unfinished"></translation>
+        <translation>Zyklische Daten</translation>
     </message>
 </context>
 <context>
@@ -1674,7 +1674,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
         <location line="+4"/>
         <source>cardFaultRecords</source>
         <oldsource>cardEventRecords</oldsource>
-        <translation type="unfinished"></translation>
+        <translation>Einträge üer Fehler</translation>
     </message>
 </context>
 <context>
@@ -1682,12 +1682,12 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location filename="fileformat/CardBlocks/CardIccIdentification.cpp" line="+21"/>
         <source>Card ICC identification</source>
-        <translation type="unfinished"></translation>
+        <translation>Informationen zur Identifizierung der chipkarte</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>clockStop</source>
-        <translation type="unfinished"></translation>
+        <translation>Clockstop-Modus (EN 726-3)</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1697,22 +1697,22 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location line="+1"/>
         <source>cardApprovalNumber</source>
-        <translation type="unfinished"></translation>
+        <translation>Bauartgenehmigungsnummer der Karte</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>cardPersonaliserID</source>
-        <translation type="unfinished"></translation>
+        <translation>Kartenpersonalisier-ID (EN 796-3)</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>embedderIcAssemblerId</source>
-        <translation type="unfinished"></translation>
+        <translation>Kartenhersteller/IC-Assembler-bezeichner (EN 926-3)</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>icIdentifier</source>
-        <translation type="unfinished"></translation>
+        <translation>Bezeichner des IC auf der Karte und des IC-Herstellers (EN 726-3)</translation>
     </message>
 </context>
 <context>
@@ -1725,7 +1725,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location line="+4"/>
         <source>placePointerNewestRecord</source>
-        <translation type="unfinished"></translation>
+        <translation>Verweis auf den neuesten Datensatz</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1808,7 +1808,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location line="+4"/>
         <source>vehiclePointerNewestRecord</source>
-        <translation type="unfinished"></translation>
+        <translation>Verweis auf den neuesten Datensatz</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1963,7 +1963,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location filename="fileformat/DataTypes/DecryptedCertificate.cpp" line="+25"/>
         <source>certificateProfileIdentifier</source>
-        <translation type="unfinished"></translation>
+        <translation>Version des Zertifikats</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1973,7 +1973,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location line="+1"/>
         <source>certificateHolderAuthorization</source>
-        <translation type="unfinished"></translation>
+        <translation>Rechte des Zertifikatsinhabers</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1983,7 +1983,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location line="+1"/>
         <source>certificateHolderReference</source>
-        <translation type="unfinished"></translation>
+        <translation>Identität des Zertifikatinhabers</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2104,12 +2104,12 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location filename="fileformat/DataTypes/RawEncryptedCertificate.cpp" line="+22"/>
         <source>sign</source>
-        <translation type="unfinished"></translation>
+        <translation>Signatur</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>cndash</source>
-        <translation type="unfinished"></translation>
+        <translation>Cn&apos;</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2883,7 +2883,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location line="+1"/>
         <source>vuPlaceDailyWorkPeriodRecords</source>
-        <translation type="unfinished"></translation>
+        <translation>Einträge zum Ort am Beginn und Ende des Arbeitstages</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -3047,7 +3047,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location filename="fileformat/DataTypes/VuCompanyLocksRecord.cpp" line="+23"/>
         <source>lockTime</source>
-        <translation type="unfinished"></translation>
+        <translation>Sperrzeitraum</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -3085,7 +3085,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location line="+1"/>
         <source>downloadPeriod</source>
-        <translation type="unfinished"></translation>
+        <translation>Übertragener Zeitraum</translation>
     </message>
 </context>
 <context>
@@ -3177,12 +3177,12 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location line="+1"/>
         <source>vuOverspeedingEventRecords</source>
-        <translation type="unfinished"></translation>
+        <translation>Einträge über Geschwindigkeitsüberschreitungen</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>vuTimeAdjustmentRecords</source>
-        <translation type="unfinished"></translation>
+        <translation>Uhrzeitveränderungen</translation>
     </message>
 </context>
 <context>
@@ -3306,12 +3306,12 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location line="+1"/>
         <source>vuCompanyLocksRecords</source>
-        <translation type="unfinished"></translation>
+        <translation>Einträge über Unternehmenssperren</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>vuControlActivityRecords</source>
-        <translation type="unfinished"></translation>
+        <translation>Einträge über Kontrollen</translation>
     </message>
 </context>
 <context>
@@ -3324,7 +3324,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location line="+1"/>
         <source>placeRecord</source>
-        <translation type="unfinished"></translation>
+        <translation>Ortseintag</translation>
     </message>
 </context>
 <context>
@@ -3382,12 +3382,12 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location line="+1"/>
         <source>sensorApprovalNumber</source>
-        <translation>Bauartgenehmigungsnummer des Wegund/oder Geschwindigkeitsgeber</translation>
+        <translation>Bauartgenehmigungsnummer des Weg und/oder Geschwindigkeitsgeber</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>sensorPairingDateFirst</source>
-        <translation>Datum der ersten Koppelung des Wegund/oder Geschwindigkeitsgebers mit einer Fahrzeugeinheit</translation>
+        <translation>Datum der ersten Koppelung des Weg und/oder Geschwindigkeitsgebers mit einer Fahrzeugeinheit</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -4536,13 +4536,15 @@ Signatur-Prüfung fehlgeschlagen </translation>
     </message>
     <message>
         <location line="+4"/>
-        <source>%1, formerly %2</source>
-        <translation>%1, ehemals %2</translation>
+        <source>%1 (formerly %2)</source>
+        <oldsource>%1, formerly %2</oldsource>
+        <translation>%1 (ehemals %2)</translation>
     </message>
     <message>
         <location line="+4"/>
-        <source>%1, formerly %2 and before that %3</source>
-        <translation>%1, davor %2 und davor %3</translation>
+        <source>%1  (formerly %2 and before that %3)</source>
+        <oldsource>%1, formerly %2 and before that %3</oldsource>
+        <translation>%1 (ehemals %2 und davor %3)</translation>
     </message>
     <message>
         <location line="+7"/>
