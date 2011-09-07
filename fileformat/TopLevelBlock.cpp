@@ -31,7 +31,7 @@ QString TopLevelBlock::signatureValidity() const{
 
 Reporter& operator<<(Reporter& report, const TopLevelBlock& b){
 	b.printOn(report);
-	report.tagValuePair(tr("signature"), b.signatureValidity());
+	report.tagValuePair(QObject::tr("signature"), b.signatureValidity());
 	return report;
 }
 

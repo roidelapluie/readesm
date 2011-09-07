@@ -26,7 +26,7 @@
 #include <QtCore/QString>
 
 class TopLevelBlock : public Block {
-	Q_DECLARE_TR_FUNCTIONS(Block)
+	Q_DECLARE_TR_FUNCTIONS(TopLevelBlock)
 
 public:
 	TopLevelBlock(const DataPointer& filewalker);
