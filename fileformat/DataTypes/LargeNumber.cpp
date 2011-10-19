@@ -26,7 +26,10 @@ LargeNumber& LargeNumber::operator=(const LargeNumber& o) {
 }
 
 QString LargeNumber::toString() const {
-	return mpz_get_str(NULL, 10, t);
+	QString temp = mpz_get_str(NULL, 10, t);
+	//split in groups of three
+	for(int j = temp.length(); j > 0; j -= 3) temp.insert(j,' ');
+	return temp;
 }
 
 #endif
