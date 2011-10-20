@@ -1,18 +1,17 @@
 #ifndef CARDACTIVITYDAILYRECORD_H
 #define CARDACTIVITYDAILYRECORD_H
 
-#include "ActivityChangeInfo.h"
+#include "ActivityChangeInfoArray.h"
 #include "RawCardActivityDailyRecord.h"
-#include "Subblocks.h"
 
 #include <QtCore/QDebug>
 
 class CardActivityDailyRecord : public RawCardActivityDailyRecord {
 public:
-	Subblocks<ActivityChangeInfo> activityChangeInfos;
+	ActivityChangeInfoArray activityChangeInfos;
 	
 	CardActivityDailyRecord(const DataPointer& start) : RawCardActivityDailyRecord(start),
-		activityChangeInfos(Subblocks<ActivityChangeInfo>::fromTypeAndLength(start + RawCardActivityDailyRecord::staticSize, activityRecordLength - RawCardActivityDailyRecord::staticSize))
+		activityChangeInfos(start + RawCardActivityDailyRecord::staticSize, activityRecordLength - RawCardActivityDailyRecord::staticSize)
 	{
 	}
 	int size() const {

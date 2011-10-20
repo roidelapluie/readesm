@@ -26,6 +26,14 @@ class ActivityChangeInfo : public DataType {
 		else if(a == 3) return tr("driving");
 		return tr("unknown activity");
 	}
+	QString color() const {
+		if(a == 0 && duration >= 15) return "red";
+		else if(a == 0) return "orange";
+		else if(a == 1) return "black";
+		else if(a == 2) return "yellow";
+		else if(a == 3) return "green";
+		return "purple";
+	}
 	QString formatClock(int offset = 0) const {
 		return QString("%1:%2")
 				.arg(t / 60, 1, 10, QChar('0'))
