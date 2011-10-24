@@ -71,7 +71,6 @@ void EsmFile::printOn(Reporter& report) const{
 	for(int j = 0; j < blocks.size(); ++j) {
 		report.writeBlock(*blocks[j]);
 	}
-	report.flush();
 }
 
 EsmFile::EsmFile(const QString& filename) : fileData(loadFile(filename)) {
