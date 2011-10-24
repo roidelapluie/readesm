@@ -69,7 +69,7 @@ Reporter& operator<<(Reporter& report, const EsmFile& e) {
 }
 void EsmFile::printOn(Reporter& report) const{
 	for(int j = 0; j < blocks.size(); ++j) {
-		report.topLevelBlock(*blocks[j]);
+		report.writeBlock(*blocks[j]);
 	}
 	report.flush();
 }

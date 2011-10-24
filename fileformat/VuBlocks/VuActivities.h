@@ -7,7 +7,8 @@ class VuActivities : public RawVuActivities {
 	Q_DECLARE_TR_FUNCTIONS(VuActivities)
 public:
 	VuActivities(const DataPointer& filewalker);
-	QString name() const;
+	QString title() const;
+	void printOn(Reporter& report) const;
 };
 
 

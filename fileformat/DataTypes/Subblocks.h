@@ -1,35 +1,32 @@
 #ifndef SUBBLOCKS_H
 #define SUBBLOCKS_H
 
-#include <QtCore/QDebug>
-#include <QtCore/QVector>
-#include <QtCore/QSharedPointer>
+#include <vector>
 
 #include "DataType.h"
 
 template <typename T>
 class Subblocks : public DataType {
 protected:
-	QVector<QSharedPointer<T> > array;
+	std::vector<T> array;
 	int numberOfBytes;
-	void appendAndIncrement(DataPointer& walker, QSharedPointer<T> toAppend){
-		if(!toAppend->isDefaultValue()) array.append(toAppend);
-		walker += toAppend->size();
+	void appendAndIncrement(DataPointer& walker, T toAppend){
+		if(!toAppend.isDefaultValue()) array.push_back(toAppend);
+		walker += toAppend.size();
 	}
 	Subblocks(const DataPointer& start)  : DataType(start), numberOfBytes(0) {}
 public:
-	QSharedPointer<T> operator[](int j) const{
+	const T& operator[](int j) const{
+		return array[j];
+	}
+	T& operator[](int j){
 		return array[j];
 	}
 	int numberOfBlocks() const{
 		return array.size();
 	}
 	void printOn(Reporter& o) const{
-		if(numberOfBlocks()){
-			for(int j = 0; j < numberOfBlocks(); ++j) o.unnamedSubBlock(*array[j]);
-		} else {
-			
-		}
+		o.writeArray(*this, title());
 	}
 	int size() const {
 		return numberOfBytes;
@@ -38,7 +35,7 @@ public:
 	static Subblocks fromTypeAndCount(const DataPointer& start, int count){
 		DataPointer walker(start);
 		Subblocks rv(start);
-		for(int j = 0; j < count; ++j) rv.appendAndIncrement(walker, QSharedPointer<T>(new T(walker)));
+		for(int j = 0; j < count; ++j) rv.appendAndIncrement(walker, T(walker));
 		rv.numberOfBytes = walker - start;
 		return rv;
 	}
@@ -48,7 +45,7 @@ public:
 		Subblocks rv(start);
 		while(walker - start < length){
 			//qDebug() << "pos " << (walker - start) << " of " << length;
-			rv.appendAndIncrement(walker, QSharedPointer<T>(new T(walker)));
+			rv.appendAndIncrement(walker, T(walker));
 		}
 		rv.numberOfBytes = walker - start;
 		return rv;

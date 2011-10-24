@@ -47,9 +47,9 @@ bool EncryptedCertificate::isVerified() const {
 void EncryptedCertificate::printOn(Reporter& report) const {
 	if(decryptedCertificate){
 		decryptedCertificate->printOn(report);
-		report.namedSubBlock(tr("Certificate verified from:"), certificateAuthorityReference);
+		report.writeBlock(certificateAuthorityReference, tr("Certificate verified from:"));
 	} else {
-		report.namedSubBlock(tr("Unverified certificate, needs verification from:"), certificateAuthorityReference);
+		report.writeBlock(certificateAuthorityReference, tr("Unverified certificate, needs verification from:"));
 	}
 }
 

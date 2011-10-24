@@ -20,5 +20,5 @@ CardDriverActivity::CardDriverActivity(const DataPointer& start) : RawCardDriver
 
 void CardDriverActivity::printOn(Reporter& o) const{
 	//RawCardDriverActivity::printOn(o);
-	cardActivityDailyRecords.printOn(o);
+	o.writeArray(cardActivityDailyRecords, tr("cardActivityDailyRecords"));
 }

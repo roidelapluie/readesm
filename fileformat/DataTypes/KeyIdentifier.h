@@ -2,7 +2,7 @@
 #define KEYIDENTIFIER_H
 
 
-#include <QSharedPointer>
+#include <QtCore/QSharedPointer>
 
 #include "DataType.h"
 

@@ -13,7 +13,7 @@ class VuUnknownBlock : public VuBlock {
 
 	virtual int size() const;
 
-	virtual QString name() const;
+	virtual QString title() const;
 	
 	virtual void printOn(Reporter& o) const;
 

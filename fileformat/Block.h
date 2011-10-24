@@ -29,6 +29,7 @@ class Block {
 	public:
 	Block(const DataPointer& filewalker);
 	virtual int size() const = 0;
+	virtual QString title() const;
 	friend Reporter& operator<<(Reporter& o, const Block& b);
 	
 	protected:

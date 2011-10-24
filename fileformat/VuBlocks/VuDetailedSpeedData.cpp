@@ -4,22 +4,22 @@
 VuDetailedSpeedData::VuDetailedSpeedData(const DataPointer& start) : RawVuDetailedSpeedData(start) {}
 
 void VuDetailedSpeedData::printOn(Reporter& report) const {
-/*	if(!report.hasPlotGraph()) {
+	if(!report.allowSvg()) {
 		RawVuDetailedSpeedData::printOn(report);
 		return;
-	}*/
+	}
 	if(vuDetailedSpeedBlocks.numberOfBlocks() < 1) return;
 	
 	SvgDayVelocity visualization;
-	QDateTime daystart = QDateTime(vuDetailedSpeedBlocks[0]->speedBlockBeginDate.date());
+	QDateTime daystart = QDateTime(vuDetailedSpeedBlocks[0].speedBlockBeginDate.date(), QTime(), Qt::UTC);
 	int lastDifference = 0;
 	for(int j = 0; j < vuDetailedSpeedBlocks.numberOfBlocks(); ++j) {
-		int difference = daystart.secsTo(vuDetailedSpeedBlocks[j]->speedBlockBeginDate);
+		int difference = daystart.secsTo(vuDetailedSpeedBlocks[j].speedBlockBeginDate);
 		if(difference > 86400){
 			visualization.add(lastDifference + 1, 0);
 			report.tagValuePair(daystart.date().toString(),visualization.toString());
-			daystart = QDateTime(vuDetailedSpeedBlocks[j]->speedBlockBeginDate.date());
-			difference = daystart.secsTo(vuDetailedSpeedBlocks[j]->speedBlockBeginDate);
+			daystart = QDateTime(vuDetailedSpeedBlocks[j].speedBlockBeginDate.date(), QTime(), Qt::UTC);
+			difference = daystart.secsTo(vuDetailedSpeedBlocks[j].speedBlockBeginDate);
 			visualization.reset();
 			lastDifference = 0;
 		}
@@ -28,7 +28,7 @@ void VuDetailedSpeedData::printOn(Reporter& report) const {
 			visualization.add(difference - 1, 0);
 		}
 		for(int k = 0; k < 60; ++k)
-			visualization.add(difference + k, vuDetailedSpeedBlocks[j]->speedsPerSecond[k]);
+			visualization.add(difference + k, vuDetailedSpeedBlocks[j].speedsPerSecond[k]);
 		lastDifference = difference;
 	}
 	if(lastDifference != 0){

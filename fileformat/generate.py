@@ -125,6 +125,7 @@ for block in tree.findall('CardBlock') + tree.findall('DataType') + tree.findall
 		ename = elem.get('name')
 		type = elem.tag
 		isLast = False
+		thisoutput = None
 		fullOffset = 'start + %(offset)i %(offsetextra)s' % vars()
 		
 		length = elem.get('length')
@@ -144,6 +145,11 @@ for block in tree.findall('CardBlock') + tree.findall('DataType') + tree.findall
 			builder = 'codepageStringCombination(%s, %i)' % (fullOffset, length)
 		elif type == 'int':
 			builder = 'readBigEndianInt%(length)i(%(fullOffset)s)' % vars()
+			unit = elem.get('unit')
+			if unit:
+				thisoutput = '\nreport.tagValuePair(tr("%(ename)s"), QString("%%1 %(unit)s").arg(%(ename)s));' % vars()
+			else:
+				thisoutput = '\nreport.tagValuePair(tr("%(ename)s"), %(ename)s);' % vars()
 		elif type == 'RawData' or type == 'LargeNumber':
 			builder = '%s, %s'  % (fullOffset, str(length))
 			headerDependencies.add('"../DataTypes/' + type + '.h"')
@@ -165,6 +171,7 @@ for block in tree.findall('CardBlock') + tree.findall('DataType') + tree.findall
 			offsetextra += ' + ' + ename + '.size()'
 			headerDependencies.add('"../DataTypes/Subblocks.h"')
 			headerDependencies.add('"../DataTypes/%(subtype)s.h"' % vars())
+			thisoutput = '\nreport.writeArray(%(ename)s, tr("%(ename)s"));' % vars()
 		else:
 			builder = fullOffset
 			headerDependencies.add('"../DataTypes/' + type + '.h"')
@@ -175,17 +182,13 @@ for block in tree.findall('CardBlock') + tree.findall('DataType') + tree.findall
 			output += '\nreport.tagValuePair(tr("' + ename + '"), formatStrings::' + table + '(' + ename + '));'
 		elif type in hasToString:
 			output += '\nreport.tagValuePair(tr("' + ename + '"), ' + ename + '.toString());'
-		elif type == 'int':
-			unit = elem.get('unit')
-			if unit:
-				output += '\nreport.tagValuePair(tr("%(ename)s"), QString("%%1 %(unit)s").arg(%(ename)s));' % vars()
-			else:
-				output += '\nreport.tagValuePair(tr("%(ename)s"), %(ename)s);' % vars()
+		elif thisoutput is not None:
+			output += thisoutput
 		elif type == 'QString':
 			output += '\nreport.tagValuePair(tr("%(ename)s"), %(ename)s);' % vars()
 		else:	
 			print ename, type
-			output += '\nreport.namedSubBlock(tr("%(ename)s"), %(ename)s);' % vars()
+			output += '\nreport.writeBlock(%(ename)s, tr("%(ename)s"));' % vars()
 		elements += '\n' + type + ' ' + ename + ';'
 		initList += ',\n\t' + ename + '(' + builder + ')'
 		if not isLast:
@@ -199,8 +202,8 @@ for block in tree.findall('CardBlock') + tree.findall('DataType') + tree.findall
 
 	if block.tag != 'DataType':
 		headerContent += '\t' + 'static const int Type = ' + block.get('type') + ';\n' + \
-		  '\t' + 'QString name() const;\n'
-		codeContent +=  'QString ' + name + '::name() const {\n\treturn tr("' + title + '");\n}\n\n'
+		  '\t' + 'QString title() const;\n'
+		codeContent +=  'QString ' + name + '::title() const {\n\treturn tr("' + title + '");\n}\n\n'
 	if block.tag != 'CardBlock':
 		headerContent += '\tint size() const;\n'
 		if block.tag == 'DataType':

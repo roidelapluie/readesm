@@ -23,27 +23,38 @@
 #include <QtCore/QTextStream>
 
 class DataType;
-class TopLevelBlock;
+class Block;
 
 class Reporter {
 	Q_DECLARE_TR_FUNCTIONS(Reporter)
 public:
 	virtual void tagValuePair(const QString& tag, const QString& value) = 0;
 	virtual void tagValuePair(const QString& tag, int value);
-	virtual void namedSubBlock(const QString& tag, const DataType& value) = 0;
-	virtual void unnamedSubBlock(const DataType& value) = 0;
-	virtual void topLevelBlock(const TopLevelBlock& value) = 0;
-//	virtual void startSubBlocks()
+	virtual void writeBlock(const Block& value, const QString& tag = "");
 	///return the qbytearray that contains the report, ready for being written to a file.
 	virtual QByteArray toQByteArray() const = 0;
 	virtual void setTitle(const QString& newtitle);
 	virtual bool allowSvg() const = 0;
 	void flush();
 	Reporter();
+	template <typename Arraytype>
+	void writeArray(const Arraytype& ray, const QString& title = "", bool defaultShown = true){
+		arrayStart(ray.numberOfBlocks(), title, defaultShown);
+		++nestLevel;
+		for(int j = 0; j < ray.numberOfBlocks(); ++j){
+			this->writeBlock(ray[j]);
+		}
+		--nestLevel;
+		arrayEnd(ray.numberOfBlocks());
+	}
 protected:
+	int nestLevel;
 	QByteArray collected;
 	mutable QTextStream collector;
 	QString title;
+	virtual void subBlock(const Block& value, const QString& tag) = 0;
+	virtual void arrayStart(int count, const QString& title, bool defaultShown){}
+	virtual void arrayEnd(int count){}
 };
 
 #endif

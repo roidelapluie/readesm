@@ -21,7 +21,7 @@
 
 class VuBlock : public TopLevelBlock {
 	public:
-	virtual QString name() const = 0;
+	virtual QString title() const = 0;
 	VuBlock(const DataPointer& nstart);
 	virtual int size() const = 0;
 	virtual void printOn(Reporter& report) const = 0;

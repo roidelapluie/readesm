@@ -4,9 +4,9 @@ QString SvgDayActivity::toString() const{
 	return addSvgHull("\n\t\t<g transform='scale(0.5,-1) translate(0,-100)'>" + collected + "\n\t\t</g>" + drawBorderAndTimeAxis() + drawLegend(), 900);
 }
 
-void SvgDayActivity::add(int from, int duration, int height, const QString& color, const QString& title){
+void SvgDayActivity::add(int from, int duration, float height, const QString& color, const QString& title){
 	collector<< "\n\t\t\t<rect x='" << from << "' fill='" << color << "' width='"
-			<< duration << "' height='" << height << "'><title>"<< title << "</title></rect>";
+			<< duration << "' height='" << int(height * 80) << "'><title>"<< title << "</title></rect>";
 }
 
 QString SvgDayActivity::drawLegend(){

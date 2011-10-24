@@ -3,7 +3,26 @@
 
 #include "ActivityChangeInfoCard.h"
 #include "../PictureGenerators/SvgDayActivity.h"
-#include <QDebug>
+#include <QtCore/QDebug>
+
+
+bool prepareActivityChangeInfoArray(Subblocks<ActivityChangeInfo> activities){
+	//set durations
+	for(int j = 0; j < activities.size() - 1; ++j){
+		if(activities[j + 1].t != 0) activities[j].duration = activities[j + 1].t - activities[j].t;
+		else activities[j].duration = 60*24 - activities[j].t;
+	}
+	activities[activities.size() - 1].duration = 60*24 - activities[activities.size() - 1].t;
+	return true;
+}
+
+SvgDayActivity visualizeActivityChangeInfoArray(Subblocks<ActivityChangeInfo> activities){
+				SvgDayActivity visualization;
+			for(int j = 0; j < Activities.size(); ++j){
+				visualization.add(Activities[j].t,Activities[j].duration,(Activities[j].a+1)*10,Activities[j].color(),Activities[j].toString());
+			}
+}
+
 class ActivityChangeInfoArray : public DataType {
 	Q_DECLARE_TR_FUNCTIONS(ActivityChangeInfoArray)
 private:

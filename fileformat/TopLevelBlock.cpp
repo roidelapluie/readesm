@@ -40,6 +40,6 @@ void TopLevelBlock::printOn(Reporter& o) const {
 }
 
 
-QString TopLevelBlock::name() const {
+QString TopLevelBlock::title() const {
 	return tr("Unknown block type 0x%1").arg(readBigEndianInt2(start), 8, 16, QChar('0'));
 }
