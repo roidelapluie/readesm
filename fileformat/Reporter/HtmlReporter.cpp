@@ -4,12 +4,14 @@
 #include "../DataTypes/DataType.h"
 #include "../TopLevelBlock.h"
 #include "config.h"
+#include <QTextCodec>
 
 HtmlReporter::HtmlReporter() : Reporter(), 
 	linkNumber(0),
 	linkCollected(),
 	linkCollector(&linkCollected)
 {
+	linkCollector.setCodec(QTextCodec::codecForName("UTF-8"));
 	linkCollector << "<h3>" << tr("Content") << "</h3><ul>";
 }
 
