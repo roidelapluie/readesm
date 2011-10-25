@@ -58,19 +58,19 @@ int main2(int argc, char** argv)
 		/*if(extension == "txt") {
 			txtReporter rep;
 			rep << esm;
-			outData = rep.str().toLocal8Bit();
-		} else*/ if(extension == "html" || extension == "htm") {
+			outData = rep.str().toLocal8Bit();*/
+		if(extension == "html" || extension == "htm" || extension == "xhtml") {
 			HtmlReporter rep;
 			rep << esm;
 			outData = rep.toQByteArray();
 		} /*else if(extension == "xml" || extension == "xhtml") {
 			xmlReporter rep;
 			rep << esm;
-			outData = rep.str().toUtf8();
-		} else {
+			outData = rep.str().toUtf8();*/
+		else {
 			cerr << "Format for output not recognized." << endl;
 			return 1;
-		}*/
+		}
 
 		QFile out(outputFile);
 		out.open(QIODevice::WriteOnly | QIODevice::Text);
