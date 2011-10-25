@@ -6,6 +6,7 @@
 	<title>$title</title>
 	<meta http-equiv='Content-Type' content='text/html; charset=utf8'/>
 	<style type="text/css">
+		body		{ font-family:sans-serif; }
 		table		{ border-collapse:collapse;  border-width:2px; border-style:solid; }
 		tr 		{ border-top-width:1px; border-top-style:dashed; }
 		tr:hover 	{border-style:outset; background-color:#eeeeee; }
@@ -17,7 +18,7 @@
 	</style>
 	<script type="text/javascript">
 		function toggle_visibility(id) {
-			var toggledContent = document.getElementById(id);
+			var toggledContent = document.getElementById('toggled' + id);
 			var link = document.getElementById('link' + id);
 			if(toggledContent.style.display != 'none'){
 				toggledContent.style.display = 'none';
@@ -27,13 +28,13 @@
 				link.innerHTML = 'hide';
 			}
 		}
-
 	</script>
 </head>
 <body>
 <h1>$title</h1>
+$links
 $content
 <hr/>
-$info <a href="http://www.readesm.sf.net" target="_blank">Readesm</a>.
+Report generated with <a href="http://www.readesm.sf.net" target="_blank">Readesm</a> <small>($version)</small>.
 </body>
 </html>
