@@ -123,7 +123,7 @@
 			<int length="2" name="activityRecordLength" unit="Bytes"/>
 			<TimeReal name="activityRecordDate" />
 			<int length="2" name="activityPresenceCounter" />
-			<int length="2" name="activityDayDistance" />
+			<int length="2" name="activityDayDistance" unit="km"/>
 		</content>
 	</DataType>
 

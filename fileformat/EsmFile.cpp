@@ -11,7 +11,6 @@
 #include "VuBlocks/VuOverview.h"
 #include "VuBlocks/VuActivities.h"
 #include "loadFile.h"
-
 #include <QtCore/QFile>
 #include <QtCore/QObject>
 
