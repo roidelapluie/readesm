@@ -1359,29 +1359,24 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>Block</name>
     <message>
-        <location filename="fileformat/TopLevelBlock.cpp" line="+24"/>
         <source>Block has valid signature</source>
-        <translation>Block ist gültig signiert</translation>
+        <translation type="obsolete">Block ist gültig signiert</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Beware: Block has invalid signature</source>
-        <translation>Vorsicht: Blocksignatur ungültig</translation>
+        <translation type="obsolete">Vorsicht: Blocksignatur ungültig</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Block not signed</source>
-        <translation>Block nicht signiert</translation>
+        <translation type="obsolete">Block nicht signiert</translation>
     </message>
     <message>
-        <location line="+2"/>
         <source>no crypto support compiled in</source>
-        <translation>Kompiliert ohne Kryptographieunterstützung</translation>
+        <translation type="obsolete">Kompiliert ohne Kryptographieunterstützung</translation>
     </message>
     <message>
-        <location line="+16"/>
         <source>Unknown block type 0x%1</source>
-        <translation>Unbekannte Art eines Blocks: 0x%1</translation>
+        <translation type="obsolete">Unbekannte Art eines Blocks: 0x%1</translation>
     </message>
 </context>
 <context>
@@ -1412,13 +1407,18 @@ Signatur-Prüfung fehlgeschlagen </translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>timeOne</source>
-        <translation>Erste Zeit</translation>
+        <source>time</source>
+        <oldsource>timeOne</oldsource>
+        <translation type="unfinished">Erste Zeit</translation>
     </message>
     <message>
         <location line="+1"/>
+        <source>sometimesDuration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>timeTwo</source>
-        <translation>Zweite Zeit</translation>
+        <translation type="obsolete">Zweite Zeit</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1501,6 +1501,21 @@ Signatur-Prüfung fehlgeschlagen </translation>
         <location line="+1"/>
         <source>activityDayDistance</source>
         <translation>Gefahrene Strecke</translation>
+    </message>
+    <message>
+        <location filename="fileformat/DataTypes/CardActivityDailyRecord.cpp" line="+36"/>
+        <source>Visualization</source>
+        <translation>Visualisierung</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>activityChangeInfos</source>
+        <translation>Aktivitätsänderungshinweise</translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Activities on %1</source>
+        <translation>Aktivitäten am %1</translation>
     </message>
 </context>
 <context>
@@ -1607,6 +1622,22 @@ Signatur-Prüfung fehlgeschlagen </translation>
         <location line="+1"/>
         <source>cyclicData</source>
         <translation>Zyklische Daten</translation>
+    </message>
+    <message>
+        <location filename="fileformat/CardBlocks/CardDriverActivity.cpp" line="+39"/>
+        <source>cardActivityDailyRecords</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <location line="+7"/>
+        <source>Timesheet for %1</source>
+        <translation>Stundenzettel für %1</translation>
+    </message>
+    <message>
+        <location line="+12"/>
+        <source>Timesheet</source>
+        <translation>Stundenzettel</translation>
     </message>
 </context>
 <context>
@@ -2277,6 +2308,29 @@ Signatur-Prüfung fehlgeschlagen </translation>
     </message>
 </context>
 <context>
+    <name>HtmlReporter</name>
+    <message>
+        <location filename="fileformat/Reporter/HtmlReporter.cpp" line="+13"/>
+        <source>Content</source>
+        <translation>Inhalt</translation>
+    </message>
+    <message>
+        <location line="+52"/>
+        <source>hide</source>
+        <translation>verstecken</translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>show</source>
+        <translation>anzeigen</translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>No %1.</source>
+        <translation>Keine %1.</translation>
+    </message>
+</context>
+<context>
     <name>Identification</name>
     <message>
         <source>Card Identification</source>
@@ -2607,6 +2661,19 @@ Signatur-Prüfung fehlgeschlagen </translation>
         <source>Average speed when driving</source>
         <translation type="obsolete">Durchschnittsgeschwindigkeit während der Fahrt</translation>
     </message>
+    <message>
+        <location filename="fileformat/TopLevelBlock.cpp" line="+34"/>
+        <source>signature</source>
+        <translation>Signatur</translation>
+    </message>
+</context>
+<context>
+    <name>RawData</name>
+    <message>
+        <location filename="fileformat/DataTypes/RawData.cpp" line="+23"/>
+        <source>All %1 Byte are zeroed.</source>
+        <translation>Alle %1 Byte sind null.</translation>
+    </message>
 </context>
 <context>
     <name>RsaPublicKey</name>
@@ -2670,16 +2737,20 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>SvgDayActivity</name>
     <message>
-        <location filename="fileformat/PictureGenerators/SvgDayActivity.cpp" line="+21"/>
+        <location filename="fileformat/PictureGenerators/SvgDayActivity.cpp" line="+23"/>
         <source>break/rest</source>
         <oldsource>= break/rest</oldsource>
         <translation>Ruhepause</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>break (&lt; 15 min)</source>
         <oldsource>= break, up to 15 min</oldsource>
-        <translation>Pause (&lt; 15 min)</translation>
+        <translation type="obsolete">Pause (&lt; 15 min)</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>short break</source>
+        <translation>kurze Pause</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2692,6 +2763,16 @@ Signatur-Prüfung fehlgeschlagen </translation>
         <source>driving</source>
         <oldsource>= driving</oldsource>
         <translation>Fahren</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>available</source>
+        <translation>verfügbar</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>unknown</source>
+        <translation>unbekannt</translation>
     </message>
 </context>
 <context>
@@ -2811,6 +2892,34 @@ Signatur-Prüfung fehlgeschlagen </translation>
     </message>
 </context>
 <context>
+    <name>TopLevelBlock</name>
+    <message>
+        <location filename="fileformat/TopLevelBlock.cpp" line="-10"/>
+        <source>Block has valid signature</source>
+        <translation>Block ist gültig signiert</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Beware: Block has invalid signature</source>
+        <translation>Vorsicht: Blocksignatur ungültig</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Block not signed</source>
+        <translation>Block nicht signiert</translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>no crypto support compiled in</source>
+        <translation>Kompiliert ohne Kryptographieunterstützung</translation>
+    </message>
+    <message>
+        <location line="+16"/>
+        <source>Unknown block type 0x%1</source>
+        <translation>Unbekannte Art eines Blocks: 0x%1</translation>
+    </message>
+</context>
+<context>
     <name>VehicleRegistration</name>
     <message>
         <location filename="fileformat/DataTypes/VehicleRegistration.cpp" line="+27"/>
@@ -2862,38 +2971,54 @@ Signatur-Prüfung fehlgeschlagen </translation>
     </message>
     <message>
         <location line="+8"/>
+        <location filename="fileformat/VuBlocks/VuActivities.cpp" line="+21"/>
         <source>timeReal</source>
         <translation>Zeit</translation>
     </message>
     <message>
         <location line="+1"/>
+        <location filename="fileformat/VuBlocks/VuActivities.cpp" line="+1"/>
         <source>odometerValueMidnight</source>
         <translation>Kilometerstand um Mitternacht</translation>
     </message>
     <message>
         <location line="+1"/>
+        <location filename="fileformat/VuBlocks/VuActivities.cpp" line="+1"/>
         <source>vuCardIWRecords</source>
         <translation>Karteneinschub- und Kartenentnahmevorgänge</translation>
     </message>
     <message>
         <location line="+1"/>
+        <location filename="fileformat/VuBlocks/VuActivities.cpp" line="+15"/>
         <source>activityChangeInfos</source>
         <translation>Aktivitätsänderungshinweise</translation>
     </message>
     <message>
         <location line="+1"/>
+        <location filename="fileformat/VuBlocks/VuActivities.cpp" line="+1"/>
         <source>vuPlaceDailyWorkPeriodRecords</source>
         <translation>Einträge zum Ort am Beginn und Ende des Arbeitstages</translation>
     </message>
     <message>
         <location line="+1"/>
+        <location filename="fileformat/VuBlocks/VuActivities.cpp" line="+1"/>
         <source>specificConditionRecords</source>
         <translation>Einträge über spezifische Bedingungen</translation>
     </message>
     <message>
-        <location filename="fileformat/VuBlocks/VuActivities.cpp" line="+8"/>
+        <location filename="fileformat/VuBlocks/VuActivities.cpp" line="-23"/>
         <source>Activities on %1</source>
         <translation>Aktivitäten am %1</translation>
+    </message>
+    <message>
+        <location line="+17"/>
+        <source>Activities Driver</source>
+        <translation>Fahreraktivitäten</translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Activities Codriver</source>
+        <translation>Beifahreraktivitäten</translation>
     </message>
 </context>
 <context>
@@ -3426,7 +3551,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>activityChangeInfo</name>
     <message>
-        <location filename="fileformat/DataTypes/ActivityChangeInfo.h" line="+21"/>
+        <location filename="fileformat/DataTypes/ActivityChangeInfo.cpp" line="+43"/>
         <source>break/rest</source>
         <translation>Ruhepause</translation>
     </message>
@@ -3447,43 +3572,73 @@ Signatur-Prüfung fehlgeschlagen </translation>
     </message>
     <message>
         <location line="+1"/>
+        <source>unknown</source>
+        <translation>unbekannt</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>short break</source>
+        <translation>kurze Pause</translation>
+    </message>
+    <message>
+        <location line="+2"/>
         <source>unknown activity</source>
         <translation>unbekannte Tätigkeit</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+20"/>
+        <source>from %1 to %2 (%3 h)</source>
+        <translation>von %1 bis %2 (%3 Stunden)</translation>
+    </message>
+    <message>
+        <location line="+9"/>
+        <location line="+5"/>
         <source>Card inserted</source>
         <translation>Karte eingesteckt</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-5"/>
+        <location line="+9"/>
+        <source>Card not inserted or withdrawn</source>
+        <translation>Karte nicht gesteckt oder entnommen</translation>
+    </message>
+    <message>
+        <location line="-8"/>
         <location line="+5"/>
+        <location line="+4"/>
         <source>driver slot</source>
         <translation>Karteneinschub Fahrer</translation>
     </message>
     <message>
-        <location line="-5"/>
+        <location line="-9"/>
         <location line="+5"/>
+        <location line="+4"/>
         <source>co-driver slot</source>
         <translation>Karteneinschub Beifahrer</translation>
     </message>
     <message>
-        <location line="-4"/>
+        <location line="-8"/>
+        <location line="+5"/>
         <source>single</source>
         <translation>Einmannbetrieb</translation>
     </message>
     <message>
-        <location line="+0"/>
+        <location line="-5"/>
+        <location line="+5"/>
         <source>crew</source>
         <translation>Team</translation>
     </message>
     <message>
-        <location line="+3"/>
-        <source>Card not inserted or withdrawn, </source>
-        <translation>Karte nicht gesteckt oder entnommen</translation>
+        <location line="+27"/>
+        <source>%1 for %2 h</source>
+        <translation>%1, %2 Stunden</translation>
     </message>
     <message>
-        <location line="+2"/>
+        <source>Card not inserted or withdrawn, </source>
+        <translation type="obsolete">Karte nicht gesteckt oder entnommen</translation>
+    </message>
+    <message>
+        <location line="-23"/>
         <source>following activity unknown</source>
         <translation>nächste Aktivität unbekannt</translation>
     </message>
