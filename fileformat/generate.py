@@ -163,7 +163,7 @@ for block in tree.findall('CardBlock') + tree.findall('DataType') + tree.findall
 				subcount = 'readBigEndianInt%(length)i(%(fullOffset)s)' % vars()
 				builder = 'Subblocks<%(subtype)s>::fromTypeAndCount(%(fullOffset)s + %(counterlength)s, %(subcount)s)' % vars()
 			elif block.tag == 'CardBlock':
-				builder = 'Subblocks<%(subtype)s>::fromTypeAndLength(%(fullOffset)s, %(size)s)' % vars()
+				builder = 'Subblocks<%(subtype)s>::fromTypeAndLength(%(fullOffset)s, %(length)s)' % vars()
 				isLast = True
 			else:
 				raise
