@@ -5,5 +5,5 @@
 
 
 QByteArray DataPointer::toQByteArray() const{
-	return data; 
+	return data;
 }

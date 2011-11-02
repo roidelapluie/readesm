@@ -9,5 +9,3 @@ QByteArray loadFile(const QString& filename){
 	file.close();
 	return content;
 }
-
-

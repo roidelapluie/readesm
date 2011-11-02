@@ -13,4 +13,3 @@ QSharedPointer<TopLevelBlock> blockFactory(const DataPointer& start) {
 	//qDebug() << "Created block, named " << rv->name() << " at" << start.offset << "bytes left: " << start.bytesLeft();
 	return rv;
 }
-

@@ -6,7 +6,7 @@
 #include "config.h"
 #include <QTextCodec>
 
-HtmlReporter::HtmlReporter() : Reporter(), 
+HtmlReporter::HtmlReporter() : Reporter(),
 	linkNumber(0),
 	linkCollected(),
 	linkCollector(&linkCollected)
@@ -26,7 +26,7 @@ void HtmlReporter::subBlock(const Block& value, const QString& tag){
 	if(nestLevel == 1){
 		++linkNumber;
 		linkCollector << "<li><a href='#" << linkNumber << "'>" << tag << "</a></li>";
-		lTag = QString("<a name='%1'>%2</a>").arg(linkNumber).arg(tag); 
+		lTag = QString("<a name='%1'>%2</a>").arg(linkNumber).arg(tag);
 	}
 	if(nestLevel == 1){
 		collector << "\n<h3>" << lTag << "</h3>";

@@ -39,4 +39,3 @@ void VuActivities::printOn(Reporter& report) const {
 	report.writeArray(vuPlaceDailyWorkPeriodRecords, tr("vuPlaceDailyWorkPeriodRecords"));
 	report.writeArray(specificConditionRecords, tr("specificConditionRecords"));
 }
-
