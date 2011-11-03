@@ -46,6 +46,6 @@ void VuActivities::printOn(Reporter& report) const {
 	}
 
 	report.writeArray(activityChangeInfos, tr("activityChangeInfos"),false);
-	report.writeArray(vuPlaceDailyWorkPeriodRecords, tr("vuPlaceDailyWorkPeriodRecords"));
-	report.writeArray(specificConditionRecords, tr("specificConditionRecords"));
+	report.writeArray(vuPlaceDailyWorkPeriodRecords, tr("vuPlaceDailyWorkPeriodRecords"), false);
+	report.writeArray(specificConditionRecords, tr("specificConditionRecords"), false);
 }
