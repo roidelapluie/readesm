@@ -20,7 +20,17 @@ QString VuActivities::title() const {
 void VuActivities::printOn(Reporter& report) const {
 	report.tagValuePair(tr("timeReal"), timeReal.toString());
 	report.tagValuePair(tr("odometerValueMidnight"), QString("%1 km").arg(odometerValueMidnight));
-	report.writeArray(vuCardIWRecords, tr("vuCardIWRecords"));
+	QString iwCondensed = "";
+	for(int j = 0; j < vuCardIWRecords.numberOfBlocks(); ++j){
+		if(j != 0) iwCondensed += ", ";
+		if(vuCardIWRecords[j].cardInsertionTime.date() == timeReal.date() && vuCardIWRecords[j].cardWithdrawalTime.date() == timeReal.date()){
+			iwCondensed += tr("%1 (%2 to %3)").arg(vuCardIWRecords[j].cardHolderName.toString(), vuCardIWRecords[j].cardInsertionTime.time().toString(), vuCardIWRecords[j].cardWithdrawalTime.time().toString());
+		} else {
+			iwCondensed += tr("%1 (%2 to %3)").arg(vuCardIWRecords[j].cardHolderName.toString(), vuCardIWRecords[j].cardInsertionTime.toString(), vuCardIWRecords[j].cardWithdrawalTime.toString());
+		}
+	}
+	if(iwCondensed != "") report.tagValuePair(tr("Drivers"),iwCondensed);
+	report.writeArray(vuCardIWRecords, tr("vuCardIWRecords"), false);
 	if(report.allowSvg()){
 		for(int slot = 0; slot < 2; ++slot){
 			SvgDayActivity visualization;

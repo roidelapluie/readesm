@@ -35,7 +35,8 @@ CardDriverActivity::CardDriverActivity(const DataPointer& start) : RawCardDriver
 }
 
 void CardDriverActivity::printOn(Reporter& report) const{
-	//RawCardDriverActivity::printOn(o);
+	report.tagValuePair(tr("oldestRecord"), oldestRecord);
+	report.tagValuePair(tr("newestRecord"), newestRecord);
 	report.writeArray(cardActivityDailyRecords, tr("cardActivityDailyRecords"));
 	if(cardActivityDailyRecords.numberOfBlocks() > 0){
 		QString tablehead = "<table><tr><th></th><th>Driving</th><th>Working</th><th>Rest</th><th>Available</th></tr>";

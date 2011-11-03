@@ -21,9 +21,9 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
 #*** Make Version known to program ***
 #is this in version control? take version control revision
 find_package(Subversion)
-find_file(Subversion_IS_WC .svn ${CMAKE_CURRENT_SOURCE_DIR} NO_CMAKE_PATH)
+find_file(Subversion_IS_WC .svn ${CMAKE_SOURCE_DIR} NO_CMAKE_PATH)
 if(Subversion_FOUND AND Subversion_IS_WC)
-	Subversion_WC_INFO(${CMAKE_CURRENT_SOURCE_DIR} ER)
+	Subversion_WC_INFO(${CMAKE_SOURCE_DIR} ER)
 	set(VERSION_STRING "svn${ER_WC_REVISION}")
 	set(VERSION_DATE ${ER_WC_LAST_CHANGED_DATE})
 endif()
@@ -42,17 +42,16 @@ else()
 	message("Did not find both gmp and gcrypt. Disabling cryptographic checks.")
 endif()
 
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config.h.in ${CMAKE_CURRENT_BINARY_DIR}/config.h)
+#*** configuration file ***
+configure_file(${CMAKE_SOURCE_DIR}/config.h.in ${CMAKE_BINARY_DIR}/config.h)
 
 #*** translation ***
-file (GLOB TRANSLATIONS_FILES "*.ts")
-set_source_files_properties(${TRANSLATIONS_FILES} PROPERTIES OUTPUT_LOCATION ${CMAKE_CURRENT_SOURCE_DIR})
-#qt4_create_translation(QM_FILES ${readesm_SRCS} ${TRANSLATIONS_FILES})
+file (GLOB TRANSLATIONS_FILES "ressources/translations/*.ts")
 qt4_add_translation(QM_FILES ${readesm_SRCS} ${TRANSLATIONS_FILES})
 add_custom_target(translations_target DEPENDS ${QM_FILES})
 
 #*** Actual part needed to build everything ***
-include_directories(${QT_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR})
+include_directories(${QT_INCLUDES} ${CMAKE_BINARY_DIR})
 
 file(GLOB gui_CPP "gui/*.cpp")
 file(GLOB fileformat_CPP "fileformat/*.cpp" "fileformat/*/*.cpp")
@@ -65,30 +64,32 @@ set(readesm_RCCS readesm.qrc)
 qt4_add_resources(readesm_RCC_SRCS ${readesm_RCCS})
 
 qt4_automoc(${readesm_SRCS})
-#add_definitions(-Wall)
 
 add_executable(readesm ${GUI_TYPE} ${readesm_SRCS} ${readesm_RCC_SRCS} ${QM_FILES} readesm.rc)
-
-# set(test-fileformat_SRCS ${fileformat_CPP} ${fileformat_H} test-fileformat.cpp)
-# add_executable(test-fileformat ${test-fileformat_SRCS} ${readesm_RCC_SRCS})
-
 target_link_libraries(readesm ${QT_QTCORE_LIBRARY} ${QT_QTGUI_LIBRARY} ${QT_QTWEBKIT_LIBRARY} ${LIBS})
 
 
-#*** testing ***
-#enable_testing()
-
 #*** .desktop file, icon and mime type ***
 if(UNIX)
-	install(FILES readesm.desktop DESTINATION share/applications )
-	install(FILES readesm-icon48.png readesm-icon.svg DESTINATION share/pixmaps )
-	install(FILES x-esm.xml DESTINATION share/mime/packages )
+	install(FILES ressources/linux-integration/readesm.desktop DESTINATION share/applications )
+	install(FILES ressources/icons/readesm.png ressources/icons/readesm.svg DESTINATION share/pixmaps )
+	install(FILES ressources/linux-integration/x-esm.xml DESTINATION share/mime/packages )
 endif()
+
 #documentation
 #*** Install binary ***
 install(TARGETS readesm RUNTIME DESTINATION bin)
 
 #*** CPACK  packaging ***
+set(CPACK_PACKAGE_VERSION ${VERSION_STRING})
+
+set(CPACK_SOURCE_IGNORE_FILES
+	"~$"
+	"^${PROJECT_SOURCE_DIR}.*/.svn/"
+	"^${PROJECT_SOURCE_DIR}/build/"
+	"^${PROJECT_SOURCE_DIR}/dlls/"
+	"^${PROJECT_SOURCE_DIR}/data/"
+)
 
 set(CPACK_SOURCE_GENERATOR TGZ;TBZ2;ZIP)
 set(CPACK_GENERATOR TBZ2)
@@ -101,28 +102,30 @@ set(WEBSITE "http://readesm.sourceforge.net/")
 #packaging
 if(UNIX)
 endif()
+if(APPLE)
+	set(PROGNAME Readesm )
+	set(MACOSX_BUNDLE_ICON_FILE "${CMAKE_SOURCE_DIR}/ressources/icons/readesm.icns")
+	set(MACOSX_BUNDLE_SHORT_VERSION_STRING ${VERSION_STRING})
+	set(MACOSX_BUNDLE_VERSION ${VERSION_STRING})
+	set(MACOSX_BUNDLE_LONG_VERSION_STRING "Version ${VERSION_STRING}")
+endif()
 if(WIN32)
 	set(CPACK_PACKAGE_EXECUTABLES "readesm" "readesm")
 	set(CPACK_NSIS_URL_INFO_ABOUT "${WEBSITE}")
 	set(CPACK_NSIS_HELP_LINK "${WEBSITE}/help.html")
-	set(CPACK_NSIS_MUI_ICON "${CMAKE_CURRENT_SOURCE_DIR}/readesm-icon48.ico")
-	set(CPACK_NSIS_MUI_UNIICON ${CPACK_NSIS_MUI_ICON})
-	#set(CPACK_PACKAGE_ICON "${CMAKE_CURRENT_SOURCE_DIR}/readesm-icon48.png")
-	set(CPACK_NSIS_INSTALLED_ICON_NAME bin\\\\readesm.exe)
 
+	set(CPACK_NSIS_MUI_ICON "${CMAKE_SOURCE_DIR}/ressources/icons/readesm.ico")
+	set(CPACK_NSIS_MUI_UNIICON ${CPACK_NSIS_MUI_ICON})
+	set(CPACK_NSIS_INSTALLED_ICON_NAME bin\\\\readesm.exe)
+	# File types association:
+	set(CPACK_NSIS_DEFINES "!include ${PROJECT_SOURCE_DIR}/ressources/windows-integration/FileAssociation.nsh")
+	set(CPACK_NSIS_EXTRA_INSTALL_COMMANDS "\\\${registerExtension} \\\"Digitaltacho Data\\\" \\\".esm\\\" \\\"\\\$INSTDIR\\\\bin\\\\readesm.exe\\\"")
+	set(CPACK_NSIS_EXTRA_UNINSTALL_COMMANDS "\\\${unregisterExtension} \\\".esm\\\" \\\"Digitaltacho Data\\\"")
 	set(CPACK_GENERATOR NSIS;ZIP)
-	file(GLOB readesm_needed_DLL "${CMAKE_CURRENT_SOURCE_DIR}/dlls/*.dll")
+	file(GLOB readesm_needed_DLL "${CMAKE_SOURCE_DIR}/dlls/*.dll")
 	install(FILES homepage/help.html COPYING README DESTINATION doc)
 	install(FILES ${readesm_needed_DLL} DESTINATION bin)
 endif()
 
-set(CPACK_PACKAGE_VERSION ${VERSION_STRING})
-
-set(CPACK_SOURCE_IGNORE_FILES
-	"~$"
-	"^${PROJECT_SOURCE_DIR}.*/.svn/"
-	"^${PROJECT_SOURCE_DIR}/build/"
-	"^${PROJECT_SOURCE_DIR}/dlls/"
-)
 
 include(CPack)

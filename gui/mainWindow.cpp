@@ -19,7 +19,7 @@
 
 mainWindow::mainWindow()
 {
-	setWindowIcon(QIcon(":/readesm-icon.svg"));
+	setWindowIcon(QIcon(":/ressources/icons/readesm.svg"));
 	view = new QWebView(this);
 	view->load(QUrl("qrc:///greeting.xhtml"));
 	setCentralWidget(view);

@@ -118,6 +118,7 @@
 	</CardBlock>
 
 	<DataType name="CardActivityDailyRecord" hasrefined="true">
+		<title dynamic="yes">tr("Activities on %1").arg(activityRecordDate.toString())</title>
 		<content>
 			<int length="2" name="activityRecordPreviousLength" unit="Bytes"/>
 			<int length="2" name="activityRecordLength" unit="Bytes"/>
@@ -371,7 +372,7 @@
 	</DataType>
 
 	<VuBlock name="VuActivities" type="0x2" requiresSignature="yes" hasrefined="true">
-		<title>Activities</title>
+		<title dynamic="yes">tr("Activities on %1").arg(timeReal.toString())</title>
 		<content>
 			<TimeReal name="timeReal" />
 			<int length="3" name="odometerValueMidnight" unit="km" />
