@@ -76,9 +76,14 @@ if(UNIX)
 	install(FILES ressources/linux-integration/x-esm.xml DESTINATION share/mime/packages )
 endif()
 
+#*** translation files ***
+if(WIN32)
+	install(FILES ${QM_FILES} DESTINATION "translations")
+endif()
+
 #documentation
 #*** Install binary ***
-install(TARGETS readesm RUNTIME DESTINATION bin)
+install(TARGETS readesm RUNTIME DESTINATION "bin")
 
 #*** CPACK  packaging ***
 set(CPACK_PACKAGE_VERSION ${VERSION_STRING})
@@ -118,9 +123,16 @@ if(WIN32)
 	set(CPACK_NSIS_MUI_UNIICON ${CPACK_NSIS_MUI_ICON})
 	set(CPACK_NSIS_INSTALLED_ICON_NAME bin\\\\readesm.exe)
 	# File types association:
-	set(CPACK_NSIS_DEFINES "!include ${PROJECT_SOURCE_DIR}/ressources/windows-integration/FileAssociation.nsh")
-	set(CPACK_NSIS_EXTRA_INSTALL_COMMANDS "\\\${registerExtension} \\\"Digitaltacho Data\\\" \\\".esm\\\" \\\"\\\$INSTDIR\\\\bin\\\\readesm.exe\\\"")
-	set(CPACK_NSIS_EXTRA_UNINSTALL_COMMANDS "\\\${unregisterExtension} \\\".esm\\\" \\\"Digitaltacho Data\\\"")
+	set(FILETYPE_DESCRIPTION "Digitaltacho Data")
+	set(EXTENSIONS ddd esm add tgd)
+	set(CPACK_NSIS_DEFINES "!include ${PROJECT_SOURCE_DIR}\\\\ressources\\\\windows-integration\\\\FileAssociation.nsh")
+	foreach(EXTENSION ${EXTENSIONS})
+		set(NSIS_INSTALL_EXT "${NSIS_INSTALL_EXT}\n\\\${registerExtension} \\\"\\\$INSTDIR\\\\bin\\\\readesm.exe\\\" \\\".${EXTENSION}\\\" \\\"${FILETYPE_DESCRIPTION}\\\"")
+		set(NSIS_UNINSTALL_EXT "${NSIS_UNINSTALL_EXT}\n\\\${unregisterExtension} \\\".${EXTENSION}\\\" \\\"${FILETYPE_DESCRIPTION}\\\"")
+	endforeach()
+	set(CPACK_NSIS_EXTRA_INSTALL_COMMANDS ${NSIS_INSTALL_EXT})
+	set(CPACK_NSIS_EXTRA_UNINSTALL_COMMANDS ${NSIS_UNINSTALL_EXT})
+	message("--${NSIS_INSTALL_EXT}--")
 	set(CPACK_GENERATOR NSIS;ZIP)
 	file(GLOB readesm_needed_DLL "${CMAKE_SOURCE_DIR}/dlls/*.dll")
 	install(FILES homepage/help.html COPYING README DESTINATION doc)

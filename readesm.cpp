@@ -36,7 +36,7 @@ int main2(int argc, char** argv)
 	QTranslator qTranslator;
 	if(QLocale::system().name() != "C"){
 		QString trans = "readesm_" + QLocale::system().name();
-		if(!qTranslator.load(trans) && !qTranslator.load(trans, QCoreApplication::applicationDirPath() + "/translations") && !qTranslator.load(trans, PREFIX "readesm/translations")) {
+		if(!qTranslator.load(trans) && !qTranslator.load(trans, QCoreApplication::applicationDirPath() + "/../translations") && !qTranslator.load(trans, PREFIX "readesm/translations")) {
 			cerr << "Could not load internationalization files for your locale :(" << endl;
 		}
 		app.installTranslator(&qTranslator);
