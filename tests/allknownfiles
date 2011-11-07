@@ -1,0 +1,6 @@
+#!/bin/sh
+for file in ../data/Tachograph\ data/*
+do
+	echo "$file"
+	../build/readesm "$file" ../build/output.html
+done

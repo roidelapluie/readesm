@@ -1,0 +1,12 @@
+#!/bin/sh
+rm -r build/testcompile
+svn export . build/testcompile
+cd build/testcompile/fileformat
+./generate.py
+cd ..
+mkdir build
+cd build
+cmake ..
+make
+./readesm
+cd ../..

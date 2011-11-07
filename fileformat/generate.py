@@ -112,11 +112,6 @@ for block in tree.findall('CardBlock') + tree.findall('DataType') + tree.findall
 	print name
 	if block.get('hasrefined'):
 		name = 'Raw' + name
-	title = block.find('title')
-	if title is not None:
-		title = title.text
-	else:
-		title = name
 	
 	offsets = {'CardBlock' : 5, 'VuBlock' : 2, 'DataType' : 0}
 	offset = offsets[block.tag]
@@ -203,7 +198,16 @@ for block in tree.findall('CardBlock') + tree.findall('DataType') + tree.findall
 	if block.tag != 'DataType':
 		headerContent += '\t' + 'static const int Type = ' + block.get('type') + ';\n' + \
 		  '\t' + 'QString title() const;\n'
-		codeContent +=  'QString ' + name + '::title() const {\n\treturn tr("' + title + '");\n}\n\n'
+		codeContent +=  'QString ' + name + '::title() const {\n\treturn '
+		title = block.find('title')
+		if title is not None:
+			if title.get('dynamic') == 'yes':
+				codeContent += title.text
+			else:
+				codeContent += 'tr("%s")' % title.text	
+		else:
+			codeContent += 'tr("%s")' % name
+		codeContent += ';\n}\n\n'
 	if block.tag != 'CardBlock':
 		headerContent += '\tint size() const;\n'
 		if block.tag == 'DataType':
@@ -223,21 +227,6 @@ for block in tree.findall('CardBlock') + tree.findall('DataType') + tree.findall
 	codeContent += 'void ' + name + '::printOn(Reporter& report) const {' + output.replace('\n','\n\t') + '\n}\n'
 
 	writeCodeFile(name, block.tag + 's', headerContent, codeContent, headerDependencies, codeDependencies)
-
-
-#headerDependencies = set(('"CardBlock.h"','<vector>'))
-#codeDependencies = set()
-#className = 'CardBlockContainer'
-#blocklist =  tree.findall('CardBlock')
-#headerDependencies |= set('"%s.h"' % block.get('name') for block in blocklist  )
-#headerContent = '\n\n' + 'class ' + className + ' {\npublic:' + '\n\t'.join('std::vector<' + block.get('name') + '> ' + lcfirst(block.get('name')) + 's;' for block in blocklist)
-
-#headerContent += '\n\tint blockCount() const;'
-#codeContent = '\nint ' + className + '::blockCount() const {\n\treturn ' + ' + '.join(lcfirst(block.get('name')) + '.size()' for block in blocklist) +  ';\n}\n'
-
-#headerContent += '\n\t///add a block to the container, return its size\n\tint addBlock(int type, const DataPointer& start) const;'
-#codeContent += '\nint ' + className + '::addBlock(int type, const DataPointer& start) const {' + \
-	#'\n\tswitch(' + type + '){' + '\n\t\t'.join('case ' + block.get('name') + '::Type: ' + lcfirst(name) + 's.push_back(T(start));\n\t\t\treturn '+ lcfirst(name) + 's.last().size();' for block in blocklist)
 
 className='CardBlock'
 blocklist =  tree.findall(className)
@@ -267,10 +256,3 @@ codeContent = headerContent[:-1] + '{\n' + \
 	'\n\t\t'.join('case ' + block.get('name') + '::Type: return QSharedPointer<'+block.get('name') +'>(new ' + block.get('name') + '(start));' for block in blocklist) + '\n' + \
 	'\t\tdefault: return QSharedPointer<VuBlock>(new VuUnknownBlock(start));\n\t}\n}\n'
 writeCodeFile('vuBlockFactory', 'VuBlocks', headerContent, codeContent, headerDependencies, codeDependencies)
-
-	#name = block.get('name')
-	#headerDependencies.add('"' + name + '.h"')
-	#elements += '\nstd::vector<' + name + '> '  + lcfirst(name) + 's;'
-	#builders += '\ncase ' + name + '::Type: ' + lcfirst(name) + 's.push_back(T(filewalker)); break;'
-	
-
