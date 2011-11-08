@@ -2129,6 +2129,14 @@ Signatur-Prüfung fehlgeschlagen </translation>
     </message>
 </context>
 <context>
+    <name>ESMFile</name>
+    <message>
+        <location filename="../../fileformat/EsmFile.cpp" line="+99"/>
+        <source>%1 to %2</source>
+        <translation>%1 bis %2</translation>
+    </message>
+</context>
+<context>
     <name>EncryptedCertificate</name>
     <message>
         <location filename="../../fileformat/DataTypes/EncryptedCertificate.cpp" line="+50"/>
