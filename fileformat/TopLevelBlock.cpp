@@ -1,4 +1,5 @@
 #include "TopLevelBlock.h"
+#include "DataTypes/EncryptedCertificate.h"
 
 #include "config.h"
 
