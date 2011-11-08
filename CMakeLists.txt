@@ -5,22 +5,27 @@ if(WIN32)
 	#set(CMAKE_FIND_LIBRARY_SUFFIXES .lib .a ${CMAKE_FIND_LIBRARY_SUFFIXES})
 	#set(CMAKE_EXE_LINKER_FLAGS=-static)
 	set(GUI_TYPE WIN32)
-endif(WIN32)
+endif()
 if(MAC)
 	set(GUI_TYPE MACOSX_BUNDLE)
 endif()
 
-# set(CMAKE_BUILD_TYPE release)
-# set(CMAKE_CXX_FLAGS "-Wall -O2" )
-
-set(CMAKE_BUILD_TYPE debug)
 set(CMAKE_CXX_FLAGS "-Wall" )
+set(CMAKE_CXX_FLAGS_RELEASE "-O2")
+set(CMAKE_CXX_FLAGS_DEBUG "-Werror")
+
+if(NOT CMAKE_BUILD_TYPE)
+	set(CMAKE_BUILD_TYPE release)
+endif()
 
 set(CMAKE_VERBOSE_MAKEFILE ON)
 
 find_package(Qt4 COMPONENTS QtGui QtWebKit REQUIRED)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
+
+#if this is a release, look into the release file to get release version
+include(currentRelease.cmake OPTIONAL)
 
 #*** Make Version known to program ***
 #is this in version control? take version control revision
@@ -31,9 +36,6 @@ if(Subversion_FOUND AND Subversion_IS_WC)
 	set(VERSION_STRING "svn${ER_WC_REVISION}")
 	set(VERSION_DATE ${ER_WC_LAST_CHANGED_DATE})
 endif()
-
-#if this is a release, look into the release file to get release version
-include(currentRelease.cmake OPTIONAL)
 
 #*** check for crypto libraries and enable them if found ***
 find_package(gmp)
