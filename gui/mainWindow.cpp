@@ -102,7 +102,7 @@ void mainWindow::openFile()
 	QString fileName = QFileDialog::getOpenFileName(this,
 		tr("Open Tachograph File"),
 		QString(),
-		tr("Tachograph Files") + "(*.esm *.ddd *.tgd)" + ";;" + tr("All files") + "(*)"
+		tr("Tachograph Files") + "(*.esm *.ddd *.tgd *.add)" + ";;" + tr("All files") + "(*)"
 	);
 	if(fileName != "") openFile(fileName);
 }
@@ -158,7 +158,7 @@ void mainWindow::saveRaw()
 	QString fileName = QFileDialog::getSaveFileName(this,
 		tr("Save Tachograph file as"),
 		esm->suggestFileName() + ".esm",
-		tr("Tachograph Files") + "(*.esm *.ddd)" + ";;" + tr("All files") + "(*)"
+		tr("Tachograph Files") + "(*.esm *.ddd *.tgd *.add)" + ";;" + tr("All files") + "(*)"
 	);
 	if(fileName != "") {
 		QFile file(fileName);
