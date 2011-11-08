@@ -44,9 +44,9 @@ bool OptionParser::parseArgs(int argc, char* argv[]){
 			}
 		} else arguments << cmdArgs[j];
 	}
-	return true;
 	flagDescriptions.sort();
 	optionDescriptions.sort();
+	return true;
 }
 
 QString OptionParser::get(const QString& argument, const QString& elsevalue) const{
