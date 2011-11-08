@@ -11,8 +11,13 @@ int VuUnknownBlock::size() const {
 }
 
 QString VuUnknownBlock::title() const {
-	return "Unknown vu block, TREP " + hexByte(start[1]);
+	return tr("Unknown Vu block, TREP %1").arg(hexByte(start[1]));
 }
+
+QString VuUnknownBlock::className() const {
+	return tr("VuUnknownBlock%1").arg(hexByte(start[1]));
+}
+
 
 void VuUnknownBlock::printOn(Reporter& o) const {
 	o.writeBlock(data, "Raw Data");

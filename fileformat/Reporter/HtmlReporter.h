@@ -9,6 +9,7 @@ protected:
 	int toggleNumber;
 	QByteArray linkCollected;
 	mutable QTextStream linkCollector;
+	QString toggleAbleBlocks(const QString& title, bool showByDefault);
 	virtual void subBlock(const Block& value, const QString& tag);
 	virtual void arrayStart(int count, const QString& title, bool defaultShown);
 	virtual void arrayEnd(int count);

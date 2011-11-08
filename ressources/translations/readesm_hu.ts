@@ -52,7 +52,12 @@
 <context>
     <name>BcdDate</name>
     <message>
-        <location filename="../../fileformat/DataTypes/BcdDate.cpp" line="+24"/>
+        <location filename="../../fileformat/DataTypes/BcdDate.cpp" line="+20"/>
+        <source>BcdDate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+12"/>
         <source>encodedDate</source>
         <translation type="unfinished"></translation>
     </message>
@@ -60,7 +65,12 @@
 <context>
     <name>BcdMonthYear</name>
     <message>
-        <location filename="../../fileformat/DataTypes/BcdMonthYear.cpp" line="+24"/>
+        <location filename="../../fileformat/DataTypes/BcdMonthYear.cpp" line="+20"/>
+        <source>BcdMonthYear</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+12"/>
         <source>encodedDate</source>
         <translation type="unfinished"></translation>
     </message>
@@ -68,7 +78,7 @@
 <context>
     <name>Block11</name>
     <message>
-        <location filename="../../fileformat/VuBlocks/Block11.cpp" line="+17"/>
+        <location filename="../../fileformat/VuBlocks/Block11.cpp" line="+21"/>
         <source>Unknown Block with TREP 0x11</source>
         <translation type="unfinished"></translation>
     </message>
@@ -87,6 +97,11 @@
     <name>Block11Record</name>
     <message>
         <location filename="../../fileformat/DataTypes/Block11Record.cpp" line="+23"/>
+        <source>Block11Record</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
         <source>cardNumber</source>
         <translation type="unfinished"></translation>
     </message>
@@ -109,7 +124,7 @@
 <context>
     <name>Block13</name>
     <message>
-        <location filename="../../fileformat/VuBlocks/Block13.cpp" line="+17"/>
+        <location filename="../../fileformat/VuBlocks/Block13.cpp" line="+21"/>
         <source>Unknown Block with TREP 0x13</source>
         <translation type="unfinished"></translation>
     </message>
@@ -161,11 +176,12 @@
     </message>
     <message>
         <location line="+4"/>
+        <location filename="../../fileformat/DataTypes/RawCardActivityDailyRecord.cpp" line="+24"/>
         <source>Activities on %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/RawCardActivityDailyRecord.cpp" line="+24"/>
+        <location filename="../../fileformat/DataTypes/RawCardActivityDailyRecord.cpp" line="+8"/>
         <source>activityRecordPreviousLength</source>
         <translation type="unfinished"></translation>
     </message>
@@ -193,7 +209,7 @@
 <context>
     <name>CardCertificate</name>
     <message>
-        <location filename="../../fileformat/CardBlocks/CardCertificate.cpp" line="+16"/>
+        <location filename="../../fileformat/CardBlocks/CardCertificate.cpp" line="+20"/>
         <source>Card Certificate</source>
         <translation type="unfinished">Kártyatanúsítvány</translation>
     </message>
@@ -206,7 +222,7 @@
 <context>
     <name>CardChipIdentification</name>
     <message>
-        <location filename="../../fileformat/CardBlocks/CardChipIdentification.cpp" line="+17"/>
+        <location filename="../../fileformat/CardBlocks/CardChipIdentification.cpp" line="+21"/>
         <source>Card chip identification</source>
         <translation type="unfinished">Kártya chip azonosító</translation>
     </message>
@@ -224,7 +240,7 @@
 <context>
     <name>CardControlActivityDataRecord</name>
     <message>
-        <location filename="../../fileformat/CardBlocks/CardControlActivityDataRecord.cpp" line="+20"/>
+        <location filename="../../fileformat/CardBlocks/CardControlActivityDataRecord.cpp" line="+24"/>
         <source>Control Activity Data</source>
         <translation type="unfinished">Ellenőrzési tevékenység adatok</translation>
     </message>
@@ -257,7 +273,7 @@
 <context>
     <name>CardCurrentUse</name>
     <message>
-        <location filename="../../fileformat/CardBlocks/CardCurrentUse.cpp" line="+17"/>
+        <location filename="../../fileformat/CardBlocks/CardCurrentUse.cpp" line="+21"/>
         <source>Current Usage</source>
         <translation type="unfinished">Aktuális használat</translation>
     </message>
@@ -276,7 +292,7 @@
     <name>CardDriverActivity</name>
     <message>
         <location filename="../../fileformat/CardBlocks/CardDriverActivity.cpp" line="+38"/>
-        <location filename="../../fileformat/CardBlocks/RawCardDriverActivity.cpp" line="+22"/>
+        <location filename="../../fileformat/CardBlocks/RawCardDriverActivity.cpp" line="+26"/>
         <source>oldestRecord</source>
         <translation type="unfinished"></translation>
     </message>
@@ -316,7 +332,7 @@
 <context>
     <name>CardDrivingLicenseInformation</name>
     <message>
-        <location filename="../../fileformat/CardBlocks/CardDrivingLicenseInformation.cpp" line="+18"/>
+        <location filename="../../fileformat/CardBlocks/CardDrivingLicenseInformation.cpp" line="+22"/>
         <source>Driving License Info</source>
         <translation type="unfinished">Vezetői engedély információk</translation>
     </message>
@@ -339,7 +355,7 @@
 <context>
     <name>CardEventData</name>
     <message>
-        <location filename="../../fileformat/CardBlocks/CardEventData.cpp" line="+16"/>
+        <location filename="../../fileformat/CardBlocks/CardEventData.cpp" line="+20"/>
         <source>Events Data</source>
         <translation type="unfinished">Esemény adatok</translation>
     </message>
@@ -353,6 +369,11 @@
     <name>CardEventRecord</name>
     <message>
         <location filename="../../fileformat/DataTypes/CardEventRecord.cpp" line="+22"/>
+        <source>CardEventRecord</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
         <source>eventType</source>
         <translation type="unfinished">Esemény típus</translation>
     </message>
@@ -370,7 +391,7 @@
 <context>
     <name>CardFaultData</name>
     <message>
-        <location filename="../../fileformat/CardBlocks/CardFaultData.cpp" line="+16"/>
+        <location filename="../../fileformat/CardBlocks/CardFaultData.cpp" line="+20"/>
         <source>Faults Data</source>
         <translation type="unfinished">Hiba adatok</translation>
     </message>
@@ -383,7 +404,7 @@
 <context>
     <name>CardIccIdentification</name>
     <message>
-        <location filename="../../fileformat/CardBlocks/CardIccIdentification.cpp" line="+21"/>
+        <location filename="../../fileformat/CardBlocks/CardIccIdentification.cpp" line="+25"/>
         <source>Card ICC identification</source>
         <translation type="unfinished">Kártya ICC azonosító</translation>
     </message>
@@ -421,7 +442,7 @@
 <context>
     <name>CardPlaceDailyWorkPeriod</name>
     <message>
-        <location filename="../../fileformat/CardBlocks/CardPlaceDailyWorkPeriod.cpp" line="+17"/>
+        <location filename="../../fileformat/CardBlocks/CardPlaceDailyWorkPeriod.cpp" line="+21"/>
         <source>Places</source>
         <translation type="unfinished">Helyek</translation>
     </message>
@@ -440,7 +461,7 @@
     <name>CardSlots</name>
     <message>
         <location filename="../../fileformat/DataTypes/CardSlots.cpp" line="+9"/>
-        <location filename="../../fileformat/DataTypes/RawCardSlots.cpp" line="+23"/>
+        <location filename="../../fileformat/DataTypes/RawCardSlots.cpp" line="+31"/>
         <source>cardNumberDriverSlotBegin</source>
         <translation type="unfinished">Az esemény kezdetekor a járművezetői kártyaolvasó egységbe behelyezett kártya azonosítója</translation>
     </message>
@@ -472,11 +493,21 @@
         <source>cardNumberCoDriverSlot</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../../fileformat/DataTypes/RawCardSlots.cpp" line="-11"/>
+        <source>RawCardSlots</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>CardVehicleRecord</name>
     <message>
         <location filename="../../fileformat/DataTypes/CardVehicleRecord.cpp" line="+24"/>
+        <source>CardVehicleRecord</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
         <source>vehicleOdometerBegin</source>
         <translation type="unfinished">A kilométer-számláló értéke induláskor</translation>
     </message>
@@ -504,7 +535,7 @@
 <context>
     <name>CardVehiclesUsed</name>
     <message>
-        <location filename="../../fileformat/CardBlocks/CardVehiclesUsed.cpp" line="+17"/>
+        <location filename="../../fileformat/CardBlocks/CardVehiclesUsed.cpp" line="+21"/>
         <source>Vehicles Used</source>
         <translation type="unfinished">Használt járművek</translation>
     </message>
@@ -523,6 +554,11 @@
     <name>CertificateAuthority</name>
     <message>
         <location filename="../../fileformat/DataTypes/CertificateAuthority.cpp" line="+24"/>
+        <source>CertificateAuthority</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
         <source>nationNumeric</source>
         <translation type="unfinished">Kiállító tagország kódja (szám)</translation>
     </message>
@@ -551,6 +587,11 @@
     <name>CertificateHolderAuthorization</name>
     <message>
         <location filename="../../fileformat/DataTypes/CertificateHolderAuthorization.cpp" line="+21"/>
+        <source>CertificateHolderAuthorization</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
         <source>tachographApplicationId</source>
         <translation type="unfinished"></translation>
     </message>
@@ -564,6 +605,11 @@
     <name>DecryptedCertificate</name>
     <message>
         <location filename="../../fileformat/DataTypes/DecryptedCertificate.cpp" line="+25"/>
+        <source>DecryptedCertificate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
         <source>certificateProfileIdentifier</source>
         <translation type="unfinished"></translation>
     </message>
@@ -596,7 +642,7 @@
 <context>
     <name>DriverCardApplicationIdentification</name>
     <message>
-        <location filename="../../fileformat/CardBlocks/DriverCardApplicationIdentification.cpp" line="+22"/>
+        <location filename="../../fileformat/CardBlocks/DriverCardApplicationIdentification.cpp" line="+26"/>
         <source>Application Identification</source>
         <translation type="unfinished">Alkalmazás azonosítás</translation>
     </message>
@@ -657,6 +703,11 @@
     </message>
     <message>
         <location filename="../../fileformat/DataTypes/RawEncryptedCertificate.cpp" line="+22"/>
+        <source>RawEncryptedCertificate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
         <source>sign</source>
         <translation type="unfinished"></translation>
     </message>
@@ -688,7 +739,12 @@
 <context>
     <name>ExtendedSerialNumber</name>
     <message>
-        <location filename="../../fileformat/DataTypes/ExtendedSerialNumber.cpp" line="+32"/>
+        <location filename="../../fileformat/DataTypes/ExtendedSerialNumber.cpp" line="+23"/>
+        <source>ExtendedSerialNumber</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+17"/>
         <source>serialNumber</source>
         <translation type="unfinished"></translation>
     </message>
@@ -743,7 +799,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/RawFullCardNumber.cpp" line="+29"/>
+        <location filename="../../fileformat/DataTypes/RawFullCardNumber.cpp" line="+22"/>
+        <source>RawFullCardNumber</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+15"/>
         <source>cardType</source>
         <translation type="unfinished">Kártya típus</translation>
     </message>
@@ -766,17 +827,19 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+52"/>
+        <location line="+41"/>
+        <location line="+11"/>
         <source>hide</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+0"/>
+        <location line="-11"/>
+        <location line="+10"/>
         <source>show</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+2"/>
+        <location line="+14"/>
         <source>No %1.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -784,7 +847,7 @@
 <context>
     <name>Identification</name>
     <message>
-        <location filename="../../fileformat/CardBlocks/Identification.cpp" line="+24"/>
+        <location filename="../../fileformat/CardBlocks/Identification.cpp" line="+28"/>
         <source>Card identification and card holder identification</source>
         <translation type="unfinished"></translation>
     </message>
@@ -838,6 +901,11 @@
     <name>KeyIdentifier</name>
     <message>
         <location filename="../../fileformat/DataTypes/RawKeyIdentifier.cpp" line="+23"/>
+        <source>RawKeyIdentifier</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
         <source>certificateRequestSerialNumber</source>
         <translation type="unfinished"></translation>
     </message>
@@ -860,7 +928,7 @@
 <context>
     <name>LastCardDownload</name>
     <message>
-        <location filename="../../fileformat/CardBlocks/LastCardDownload.cpp" line="+16"/>
+        <location filename="../../fileformat/CardBlocks/LastCardDownload.cpp" line="+20"/>
         <source>Card Download</source>
         <translation type="unfinished">Kártyaletöltés</translation>
     </message>
@@ -873,7 +941,7 @@
 <context>
     <name>MemberStateCertificate</name>
     <message>
-        <location filename="../../fileformat/CardBlocks/MemberStateCertificate.cpp" line="+16"/>
+        <location filename="../../fileformat/CardBlocks/MemberStateCertificate.cpp" line="+20"/>
         <source>CA Certificate</source>
         <translation type="unfinished">CA tanúsítvány</translation>
     </message>
@@ -886,13 +954,36 @@
 <context>
     <name>Name</name>
     <message>
-        <location filename="../../fileformat/DataTypes/Name.cpp" line="+25"/>
+        <location filename="../../fileformat/DataTypes/Name.cpp" line="+21"/>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+12"/>
         <source>surname</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
         <source>firstNames</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>OptionParser</name>
+    <message>
+        <location filename="../../OptionParser.cpp" line="+12"/>
+        <source>Show help text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+59"/>
+        <source>Possible Flags:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Possible Options:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -919,6 +1010,11 @@
     <name>PlaceRecord</name>
     <message>
         <location filename="../../fileformat/DataTypes/PlaceRecord.cpp" line="+24"/>
+        <source>PlaceRecord</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+16"/>
         <source>entryTime</source>
         <translation type="unfinished">A betáplálásra vonatkozó dátum és idő</translation>
     </message>
@@ -947,6 +1043,11 @@
     <name>PlainCertificate</name>
     <message>
         <location filename="../../fileformat/DataTypes/PlainCertificate.cpp" line="+21"/>
+        <source>PlainCertificate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
         <source>keyIdentifier</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1031,7 +1132,7 @@
         <translation type="obsolete">Átlagsebesség vezetés közben</translation>
     </message>
     <message>
-        <location filename="../../fileformat/TopLevelBlock.cpp" line="+34"/>
+        <location filename="../../fileformat/TopLevelBlock.cpp" line="+35"/>
         <source>signature</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1048,6 +1149,11 @@
     <name>RsaPublicKey</name>
     <message>
         <location filename="../../fileformat/DataTypes/RawRsaPublicKey.cpp" line="+21"/>
+        <source>RawRsaPublicKey</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
         <source>n</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1061,6 +1167,11 @@
     <name>SpecificConditionRecord</name>
     <message>
         <location filename="../../fileformat/DataTypes/SpecificConditionRecord.cpp" line="+21"/>
+        <source>SpecificConditionRecord</source>
+        <translation type="unfinished">Specifikus állapotok</translation>
+    </message>
+    <message>
+        <location line="+8"/>
         <source>entryTime</source>
         <translation type="unfinished">A betáplálásra vonatkozó dátum és idő</translation>
     </message>
@@ -1073,7 +1184,7 @@
 <context>
     <name>SpecificConditions</name>
     <message>
-        <location filename="../../fileformat/CardBlocks/SpecificConditions.cpp" line="+16"/>
+        <location filename="../../fileformat/CardBlocks/SpecificConditions.cpp" line="+20"/>
         <source>Specific Conditions</source>
         <translation type="unfinished">Specifikus állapotok</translation>
     </message>
@@ -1196,7 +1307,12 @@
 <context>
     <name>VehicleRegistration</name>
     <message>
-        <location filename="../../fileformat/DataTypes/VehicleRegistration.cpp" line="+27"/>
+        <location filename="../../fileformat/DataTypes/VehicleRegistration.cpp" line="+21"/>
+        <source>VehicleRegistration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+14"/>
         <source>vehicleRegistrationNation</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1209,12 +1325,7 @@
 <context>
     <name>VuActivities</name>
     <message>
-        <location filename="../../fileformat/VuBlocks/RawVuActivities.cpp" line="+21"/>
-        <source>Activities</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+8"/>
+        <location filename="../../fileformat/VuBlocks/RawVuActivities.cpp" line="+33"/>
         <location filename="../../fileformat/VuBlocks/VuActivities.cpp" line="+21"/>
         <source>timeReal</source>
         <translation type="unfinished"></translation>
@@ -1250,12 +1361,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location line="-13"/>
         <location filename="../../fileformat/VuBlocks/VuActivities.cpp" line="-33"/>
         <source>Activities on %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location filename="../../fileformat/VuBlocks/VuActivities.cpp" line="+10"/>
         <location line="+2"/>
         <source>%1 (%2 to %3)</source>
         <translation type="unfinished"></translation>
@@ -1280,6 +1392,11 @@
     <name>VuCalibrationRecord</name>
     <message>
         <location filename="../../fileformat/DataTypes/VuCalibrationRecord.cpp" line="+36"/>
+        <source>VuCalibrationRecord</source>
+        <translation type="unfinished">JE kalibrálási adatok</translation>
+    </message>
+    <message>
+        <location line="+8"/>
         <source>calibrationPurpose</source>
         <translation type="unfinished">A kalibrálás célja</translation>
     </message>
@@ -1368,6 +1485,11 @@
     <name>VuCardIWRecord</name>
     <message>
         <location filename="../../fileformat/DataTypes/RawVuCardIWRecord.cpp" line="+30"/>
+        <source>RawVuCardIWRecord</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
         <source>cardHolderName</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1426,6 +1548,11 @@
     <name>VuCompanyLocksRecord</name>
     <message>
         <location filename="../../fileformat/DataTypes/VuCompanyLocksRecord.cpp" line="+23"/>
+        <source>VuCompanyLocksRecord</source>
+        <translation type="unfinished">A JE vállalkozási lezárások rekordjainak sorozata</translation>
+    </message>
+    <message>
+        <location line="+8"/>
         <source>lockTime</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1449,6 +1576,11 @@
     <name>VuControlActivityRecord</name>
     <message>
         <location filename="../../fileformat/DataTypes/VuControlActivityRecord.cpp" line="+23"/>
+        <source>VuControlActivityRecord</source>
+        <translation type="unfinished">JE ellenőrzési tevékenység adatok</translation>
+    </message>
+    <message>
+        <location line="+8"/>
         <source>controlType</source>
         <translation type="unfinished">Az ellenőrzés típusa</translation>
     </message>
@@ -1472,6 +1604,11 @@
     <name>VuDetailedSpeedBlock</name>
     <message>
         <location filename="../../fileformat/DataTypes/VuDetailedSpeedBlock.cpp" line="+21"/>
+        <source>VuDetailedSpeedBlock</source>
+        <translation type="unfinished">JE részletezett sebesség blokk</translation>
+    </message>
+    <message>
+        <location line="+8"/>
         <source>speedBlockBeginDate</source>
         <translation type="unfinished">Sebességblokk kezdési idő</translation>
     </message>
@@ -1484,7 +1621,7 @@
 <context>
     <name>VuDetailedSpeedData</name>
     <message>
-        <location filename="../../fileformat/VuBlocks/RawVuDetailedSpeedData.cpp" line="+16"/>
+        <location filename="../../fileformat/VuBlocks/RawVuDetailedSpeedData.cpp" line="+20"/>
         <source>Detailed Speed</source>
         <translation type="unfinished">Részletezett sebesség</translation>
     </message>
@@ -1498,6 +1635,11 @@
     <name>VuEventRecord</name>
     <message>
         <location filename="../../fileformat/DataTypes/VuEventRecord.cpp" line="+24"/>
+        <source>VuEventRecord</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
         <source>eventType</source>
         <translation type="unfinished">Esemény típus</translation>
     </message>
@@ -1525,7 +1667,7 @@
 <context>
     <name>VuEventsFaults</name>
     <message>
-        <location filename="../../fileformat/VuBlocks/VuEventsFaults.cpp" line="+22"/>
+        <location filename="../../fileformat/VuBlocks/VuEventsFaults.cpp" line="+26"/>
         <source>Events and faults</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1569,6 +1711,11 @@
     <name>VuFaultRecord</name>
     <message>
         <location filename="../../fileformat/DataTypes/VuFaultRecord.cpp" line="+23"/>
+        <source>VuFaultRecord</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
         <source>eventType</source>
         <translation type="unfinished">Esemény típus</translation>
     </message>
@@ -1592,6 +1739,11 @@
     <name>VuOverspeedingEventRecord</name>
     <message>
         <location filename="../../fileformat/DataTypes/VuOverspeedingEventRecord.cpp" line="+26"/>
+        <source>VuOverspeedingEventRecord</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
         <source>eventType</source>
         <translation type="unfinished">Esemény típus</translation>
     </message>
@@ -1629,7 +1781,7 @@
 <context>
     <name>VuOverview</name>
     <message>
-        <location filename="../../fileformat/VuBlocks/RawVuOverview.cpp" line="+27"/>
+        <location filename="../../fileformat/VuBlocks/RawVuOverview.cpp" line="+31"/>
         <source>Overview</source>
         <translation type="unfinished">Áttekintés</translation>
     </message>
@@ -1698,6 +1850,11 @@
     <name>VuPlaceDailyWorkPeriodRecord</name>
     <message>
         <location filename="../../fileformat/DataTypes/VuPlaceDailyWorkPeriodRecord.cpp" line="+21"/>
+        <source>VuPlaceDailyWorkPeriodRecord</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
         <source>fullCardNumber</source>
         <translation type="unfinished">Teljes kártyaszám</translation>
     </message>
@@ -1710,7 +1867,7 @@
 <context>
     <name>VuTechnical</name>
     <message>
-        <location filename="../../fileformat/VuBlocks/VuTechnical.cpp" line="+27"/>
+        <location filename="../../fileformat/VuBlocks/VuTechnical.cpp" line="+31"/>
         <source>Technical Data</source>
         <translation type="unfinished">Műszaki adatok</translation>
     </message>
@@ -1779,6 +1936,11 @@
     <name>VuTimeAdjustmentRecord</name>
     <message>
         <location filename="../../fileformat/DataTypes/VuTimeAdjustmentRecord.cpp" line="+24"/>
+        <source>VuTimeAdjustmentRecord</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
         <source>oldTimeValue</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1800,6 +1962,19 @@
     <message>
         <location line="+1"/>
         <source>workshopCardNumber</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>VuUnknownBlock</name>
+    <message>
+        <location filename="../../fileformat/VuBlocks/VuUnknownBlock.cpp" line="+14"/>
+        <source>Unknown vu block, TREP %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>VuUnknownBlock%1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1894,7 +2069,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+23"/>
+        <location line="+27"/>
         <source>%1 for %2 h</source>
         <translation type="unfinished"></translation>
     </message>

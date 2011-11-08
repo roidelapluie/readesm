@@ -28,6 +28,9 @@ public:
 	void printOn(Reporter& o) const{
 		o.writeArray(*this, title());
 	}
+	QString className()const{
+		return "Subblocks";
+	}
 	int size() const {
 		return numberOfBytes;
 	}

@@ -96,10 +96,10 @@ if not haveSizes:
 	exit()
 
 hasToString = set(['TimeReal', 'Timespan', 'RawData', 'LargeNumber'])
-for block in tree.findall('DataType'):
-	if block.find('toString') is not None:
-		hasToString.add(block.get('name'))
-print hasToString
+#for block in tree.findall('DataType'):
+	#if block.find('toString') is not None:
+		#hasToString.add(block.get('name'))
+#print hasToString
 
 
 for block in tree.findall('CardBlock') + tree.findall('DataType') + tree.findall('VuBlock'):
@@ -195,19 +195,21 @@ for block in tree.findall('CardBlock') + tree.findall('DataType') + tree.findall
 		  '\t' + name + '(const DataPointer& filewalker);\n'
 	codeContent = name + '::' + name + '(const DataPointer& filewalker) : ' + initList + '\n{}\n\n'
 
-	if block.tag != 'DataType':
-		headerContent += '\t' + 'static const int Type = ' + block.get('type') + ';\n' + \
-		  '\t' + 'QString title() const;\n'
+	headerContent += '\t' + '///returns "'+ name + '"\nQString className() const;\n'
+	codeContent +=  'QString ' + name + '::className() const {\n\treturn "' + name + '";\n}\n\n'
+
+	title = block.find('title')
+	if title is not None:
+		headerContent += '\t' + 'QString title() const;\n'
 		codeContent +=  'QString ' + name + '::title() const {\n\treturn '
-		title = block.find('title')
-		if title is not None:
-			if title.get('dynamic') == 'yes':
-				codeContent += title.text
-			else:
-				codeContent += 'tr("%s")' % title.text	
+		if title.get('dynamic') == 'yes':
+			codeContent += title.text
 		else:
-			codeContent += 'tr("%s")' % name
+			codeContent += 'tr("%s")' % title.text	
 		codeContent += ';\n}\n\n'
+
+	if block.tag != 'DataType':
+		headerContent += '\t' + 'static const int Type = ' + block.get('type') + ';\n'
 	if block.tag != 'CardBlock':
 		headerContent += '\tint size() const;\n'
 		if block.tag == 'DataType':
@@ -226,6 +228,9 @@ for block in tree.findall('CardBlock') + tree.findall('DataType') + tree.findall
 		  '};\n\n'
 	codeContent += 'void ' + name + '::printOn(Reporter& report) const {' + output.replace('\n','\n\t') + '\n}\n'
 
+	comment = block.find('comment')
+	if comment is not None:
+		headerContent = '/** ' + comment.text + '*/\n' + headerContent
 	writeCodeFile(name, block.tag + 's', headerContent, codeContent, headerDependencies, codeDependencies)
 
 className='CardBlock'

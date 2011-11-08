@@ -11,6 +11,7 @@ class KeyIdentifier : public DataType {
 public:
 	KeyIdentifier(const DataPointer& filewalker);
 	void printOn(Reporter& o) const;
+	QString className() const;
 	int size() const;
 protected:
 	QSharedPointer<DataType> content;

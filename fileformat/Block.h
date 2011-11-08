@@ -28,8 +28,21 @@ class Block {
 	Q_DECLARE_TR_FUNCTIONS(Block)
 	public:
 	Block(const DataPointer& filewalker);
+	
+	///Size of data used in the file
+	/** If the data element uses 3 bytes in the file, size() will return 3. */
 	virtual int size() const = 0;
+	
+	///Name of block element in the specification (or something meaningful if there is no name in the law)
+	/** This usually matches the name of the c++-class used to read and show the data */ 
+	virtual QString className() const = 0;
+	
+	///Possible title for the block (empty if unset)
 	virtual QString title() const;
+	
+	///Possible short form of the block (empty if unset)
+	virtual QString toString() const;
+	
 	friend Reporter& operator<<(Reporter& o, const Block& b);
 	
 	protected:

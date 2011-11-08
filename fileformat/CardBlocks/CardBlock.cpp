@@ -21,3 +21,7 @@ int  CardBlock::dataBlockSize() const {
 int  CardBlock::size() const {
 	return datasize + 5 + (hasSignature ? 5 + 128 : 0);
 }
+
+QString CardBlock::className() const {
+	return "CardBlock";
+}

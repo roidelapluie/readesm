@@ -30,6 +30,10 @@ void RawData::printOn(Reporter& report) const{
 	report.tagValuePair("Raw data(hex encoded)", toString());
 }
 
+QString RawData::className() const{
+	return "RawData";
+}
+
 int RawData::size() const {
 	return length_;
 }

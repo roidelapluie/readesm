@@ -221,8 +221,8 @@
 			<cpstring length="14" name="vehicleRegistrationNumber" />
 		</content>
 		<toString>QString("%1 (%2)")
-		.arg(vehicleRegistrationNumber)
-		.arg(formatStrings::nationNumeric(vehicleRegistrationNation))</toString>
+			.arg(vehicleRegistrationNumber)
+			.arg(formatStrings::nationNumeric(vehicleRegistrationNation))</toString>
 	</DataType>
 
 	<DataType name="PlaceRecord">
@@ -233,6 +233,11 @@
 			<int length="1" name="dailyWorkPeriodRegion" table="regionNumeric"/>
 			<int length="3" name="vehicleOdometerValue" unit="km" />
 		</content>
+		<toString>QString("%1%2 - %3 - %4 km")
+			.arg(formatStrings::nationNumeric(dailyWorkPeriodCountry))
+			.arg(dailyWorkPeriodRegion == 0 ? "" : ", " + formatStrings::regionNumeric(dailyWorkPeriodRegion))
+			.arg(entryTime.toString())
+			.arg(vehicleOdometerValue)</toString>
 	</DataType>
 
 	<DataType name="CardVehicleRecord">
@@ -243,6 +248,10 @@
 			<VehicleRegistration name="registration" />
 			<int length="2" name="vuDataBlockCounter" />
 		</content>
+		<toString>tr("%1 km on %2 (%3)")
+			.arg(vehicleOdometerEnd - vehicleOdometerBegin)
+			.arg(registration.toString())
+			.arg(vehicleUse.toString())</toString>		
 	</DataType>
 
 	<CardBlock name="CardPlaceDailyWorkPeriod" type="0x0506">

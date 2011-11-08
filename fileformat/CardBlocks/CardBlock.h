@@ -10,6 +10,8 @@ class CardBlock : public TopLevelBlock {
 
 	///size of Data block (i.e. without signature)
 	int dataBlockSize() const;
+
+	QString className() const;
 	
 	virtual RawData signedBytes() const;
 

@@ -98,6 +98,10 @@ QString ActivityChangeInfo::toString() const {
 	return activityName() + ", " + timespan() + ": " + extraString();
 }
 
+QString ActivityChangeInfo::className() const {
+	return "ActivityChangeInfo";
+}
+
 int ActivityChangeInfo::size() const {
 	return 2;
 }

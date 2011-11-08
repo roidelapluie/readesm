@@ -34,13 +34,28 @@ void HtmlReporter::subBlock(const Block& value, const QString& tag){
 		*this << value;
 		collector << "</ul>";
 	} else {
-		if(tag != "") collector << "\n<li>" << lTag << ": <ul>";
-		else collector << "\n<li><ul>";
-		*this << value;
-		collector << "</ul></li>";
+		if(value.toString() != ""){
+			if(tag == "") collector << toggleAbleBlocks(value.toString().replace("&","&amp;"), false);
+			else collector << toggleAbleBlocks(QString("%1: <b>%2</b>").arg(lTag, value.toString().replace("&","&amp;")), false);
+			*this << value;
+			collector << "</ul></li>";
+		} else {
+			if(tag != "") collector << "\n<li>" << lTag << ": <ul>";
+			else collector << "\n<li><ul>";
+			*this << value;
+			collector << "</ul></li>";
+		}
 	}
 }
 
+QString HtmlReporter::toggleAbleBlocks(const QString& title, bool showByDefault){
+	++toggleNumber;
+	return QString("\n<li>%1 (<a href='#link%2' name='link%2' onclick='return toggle_visibility(%2);' id='link%2'>%3</a>)<ul name='toggled%2' style='%4' id='toggled%2'>")
+			.arg(title)
+			.arg(toggleNumber)
+			.arg(showByDefault ? tr("hide") : tr("show"))
+			.arg(showByDefault ? "" : "display:none");
+}
 
 QByteArray HtmlReporter::toQByteArray() const{
 	collector.flush();
@@ -48,6 +63,8 @@ QByteArray HtmlReporter::toQByteArray() const{
 	QByteArray filecontent = loadFile(":/template.html");
 	filecontent.replace("$title", title.toUtf8());
 	filecontent.replace("$content", collected);
+	filecontent.replace("$show", tr("show").toUtf8());
+	filecontent.replace("$hide", tr("hide").toUtf8());
 	filecontent.replace("$links", linkCollected + "</ul>");
 	filecontent.replace("$version", "readesm " VERSION " (" VERSION_DATE ")");
 	return filecontent;
@@ -58,14 +75,8 @@ bool HtmlReporter::allowSvg() const{
 }
 
 void HtmlReporter::arrayStart(int count, const QString& title, bool defaultShown){
-	++toggleNumber;
 	if(count > 0){
-		collector << QString("\n<li>%1 %2 (<a href='#link%3' name='link%3' onclick='toggle_visibility(%3);' id='link%3'>%4</a>)<ul name='toggled%3' style='%5' id='toggled%3'>")
-			.arg(count)
-			.arg(title)
-			.arg(toggleNumber)
-			.arg(defaultShown ? tr("hide") : tr("show"))
-			.arg(defaultShown ? "" : "display:none");
+		collector << toggleAbleBlocks(QString("%1 %2").arg(count).arg(title), defaultShown);
 	} else collector << "<li>" << tr("No %1.").arg(title) << "</li>";
 }
 void HtmlReporter::arrayEnd(int count){

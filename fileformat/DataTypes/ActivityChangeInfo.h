@@ -30,6 +30,7 @@ public:
 	QString color() const;
 	static QString formatClock(int time);
 	QString toString() const;
+	QString className() const;
 	int size() const;
 	void printOn(Reporter & o) const;
 	bool isDefaultValue() const;

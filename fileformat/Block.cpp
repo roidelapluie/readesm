@@ -15,3 +15,8 @@ Reporter& operator<<(Reporter& report, const Block& b){
 QString Block::title() const{
 	return "";
 }
+
+QString Block::toString() const{
+	return "";
+}
+

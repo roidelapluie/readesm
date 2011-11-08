@@ -13,6 +13,10 @@ int KeyIdentifier::size() const {
 	return 8;
 }
 
+QString KeyIdentifier::className() const {
+	return "KeyIdentifier";
+}
+
 void KeyIdentifier::printOn(Reporter& o) const {
 	if(content) content->printOn(o);
 }

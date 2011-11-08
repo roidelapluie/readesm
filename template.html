@@ -22,11 +22,12 @@
 			var link = document.getElementById('link' + id);
 			if(toggledContent.style.display != 'none'){
 				toggledContent.style.display = 'none';
-				link.innerHTML = 'show';
+				link.innerHTML = '$show';
 			} else {
 				toggledContent.style.display = 'block';
-				link.innerHTML = 'hide';
+				link.innerHTML = '$hide';
 			}
+			return false;
 		}
 	</script>
 </head>

@@ -19,7 +19,7 @@
 
 #include "Block.h"
 #include "Reporter/Reporter.h"
-#include "DataTypes/EncryptedCertificate.h"
+class EncryptedCertificate;
 #include "DataTypes/RawData.h"
 
 #include <QtCore/QCoreApplication>
