@@ -15,7 +15,7 @@ QString VuUnknownBlock::title() const {
 }
 
 QString VuUnknownBlock::className() const {
-	return tr("VuUnknownBlock%1").arg(hexByte(start[1]));
+	return QString("VuUnknownBlock%1").arg(hexByte(start[1]));
 }
 
 

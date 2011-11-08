@@ -4,6 +4,7 @@
 #include "Reporter.h"
 
 class HtmlReporter : public Reporter {
+	Q_DECLARE_TR_FUNCTIONS(HtmlReporter)
 protected:
 	int linkNumber;
 	int toggleNumber;
