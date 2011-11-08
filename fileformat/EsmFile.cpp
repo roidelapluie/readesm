@@ -6,6 +6,8 @@
 #include "CardBlocks/CardCertificate.h"
 #include "CardBlocks/Identification.h"
 #include "CardBlocks/MemberStateCertificate.h"
+#include "CardBlocks/CardDriverActivity.h"
+
 #include "DataTypes/EncryptedCertificate.h"
 #include "Reporter/Reporter.h"
 #include "VuBlocks/VuOverview.h"
@@ -37,35 +39,10 @@ QVector< QSharedPointer<derived> >  findManyInVector(QVector< QSharedPointer<bas
 
 Reporter& operator<<(Reporter& report, const EsmFile& e) {
 	e.printOn(report);
-// 	report.title = e.name();
-// 	report.bigblockstart(QObject::tr("Statistics"));
-// 	report.single(QObject::tr("Statistics for") + " " + e.title, true);
-// 	report.single(formatRange(e.first, e.last));
-// 	report(QObject::tr("Recorded days"), e.daycount);
-// 	report(QObject::tr("Overall driven distance"), QString("%1 km").arg(e.drivenkm));
-// 	report(QObject::tr("Overall driving time"), formatMinutes(e.drivenminutes));
-// 	if(e.daycount)
-// 	{
-// 		report(QObject::tr("Average distance per day"), QString("%1 km").arg(e.drivenkm / e.daycount));
-// 		report(QObject::tr("Average time driven per day"), formatMinutes(e.drivenminutes
-// 				/ e.daycount) + " (" + stringify(100* e .drivenminutes
-// 				/ (e.daycount * 24* 60 ))+ "%)");
-// 	}
-// 	if(e.drivenminutes)
-// 		report(QObject::tr("Average speed when driving"), stringify(e.drivenkm * 60 / e.drivenminutes) + " km/h");
-// 	report.bigblockend();
-// 
-// 	for(esmfile::subiter i = e.blocks.begin(); i < e.blocks.end(); ++i) report << **i;
-// 
-// #ifndef HAVE_NO_CRYPTO
-// 	report.bigblockstart(QObject::tr("Key chain"));
-// 	report << *e.CAcert;
-// 	report << *e.devicecert;
-// 	report.bigblockend();
-// #endif
+	report.setTitle(e.suggestTitle());
 	return report;
-
 }
+
 void EsmFile::printOn(Reporter& report) const{
 	for(int j = 0; j < blocks.size(); ++j) {
 		report.writeBlock(*blocks[j]);
@@ -108,10 +85,21 @@ EsmFile::EsmFile(const QString& filename) : fileData(loadFile(filename)) {
 QString EsmFile::suggestTitle() const {
 	QSharedPointer<VuOverview> ov = findTypeInVector<TopLevelBlock, VuOverview>(blocks);
 	QSharedPointer<Identification> id = findTypeInVector<TopLevelBlock, Identification>(blocks);
-	//QSharedPointer<CardDriverActivity> act = findTypeInVector<Block, VuOverview>(blocks);
+	QSharedPointer<CardDriverActivity> act = findTypeInVector<TopLevelBlock, CardDriverActivity>(blocks);
 	QString rv("Esm data");
-	if(!ov.isNull()) rv = ov->vehicleRegistrationIdentification.vehicleRegistrationNumber;
+	QString dateSuggestion;
+	if(!ov.isNull()){
+		rv = ov->vehicleRegistrationIdentification.vehicleRegistrationNumber;
+		dateSuggestion = ov->currentDateTime.date().toString();
+	}
 	if(!id.isNull()) rv = id->cardHolderName.toString();
+	QDate minDate, maxDate;
+	if(!act.isNull()){
+		if(act->cardActivityDailyRecords.numberOfBlocks() > 1){
+			dateSuggestion = tr("%1 to %2").arg(act->cardActivityDailyRecords[0].activityRecordDate.date().toString(), act->cardActivityDailyRecords[act->cardActivityDailyRecords.numberOfBlocks() - 1].activityRecordDate.date().toString());
+		}
+	}
+	if(dateSuggestion != "") rv += " " + dateSuggestion;
 	return rv;
 }
 
