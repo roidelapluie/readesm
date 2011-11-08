@@ -11,6 +11,7 @@
 #include "fileformat/EsmFile.h"
 #include "fileformat/Reporter/HtmlReporter.h"
 #include "gui/mainWindow.h"
+#include "OptionParser.h"
 
 #include <QtCore/QByteArray>
 #include <QtCore/QFile>
@@ -20,76 +21,88 @@
 #include <QtCore/QTranslator>
 #include <QtGui/QApplication>
 
-template <typename T>
-int main2(int argc, char** argv)
+int main(int argc, char** argv)
 {
-	T app(argc, argv);
-	app.setApplicationName("readesm");
+	QTextStream cerr(stderr);
+	QTextStream cout(stdout);
+
+	OptionParser parser;
+	parser.addOption("format","f","Format used for output");
+	parser.addOption("locale","l","Language used for output");
+	parser.parseArgs(argc,argv);
+	if(parser.checkFlag("help")){
+		cout << "Readesm " << QString("%1 (%2)")
+			.arg(VERSION)
+			.arg(VERSION_DATE);
+		cout << "\n\n Readesm takes an ESM file, as downloaded from a digital tachograph or a driver card, a compulsory equipment for trucks heavier than 3.5 tons within the European Union and converts it into human-readable form.\n\n";
+		cout << "usage: Readesm [OPTIONS] [INPUT FILE [OUTPUT FILE]]\n\n";
+		cout << parser.helpText();
+		cout << "\n\n Being a QT (http://qt.nokia.com/) application, you can also pass qt command line parameters to Readesm.";
+		cout << "\n\n  This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.\n\n This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.\n";
+		return 0;
+	}
+	bool gui = true;
+	if(parser.argumentCount() >= 2) gui = false;
+
+	QApplication app(argc, argv, gui);
+	app.setApplicationName("Readesm");
 	app.setApplicationVersion(QString("%1 (%2)")
 			.arg(VERSION)
 			.arg(VERSION_DATE));
 	app.setOrganizationName(QString::fromUtf8("Andreas Gölzer"));
 	app.setOrganizationDomain("http://andreas.goelzer.de");
 
-	QTextStream cerr(stderr);
-
 	QTranslator qTranslator;
-	if(QLocale::system().name() != "C"){
-		QString trans = "readesm_" + QLocale::system().name();
+	QString locale = parser.get("locale", QLocale::system().name());
+	if(locale != "C"){
+		QString trans = "readesm_" + locale;
 		if(!qTranslator.load(trans) && !qTranslator.load(trans, QCoreApplication::applicationDirPath() + "/../translations") && !qTranslator.load(trans, PREFIX "readesm/translations")) {
 			cerr << "Could not load internationalization files for your locale :(" << endl;
 		}
 		app.installTranslator(&qTranslator);
 	}
-	if(argc < 3) {
-		mainWindow widgetMainWindow;
-		widgetMainWindow.show();
-		if(argc == 2) widgetMainWindow.openFile(QString(argv[1]));
-		return app.exec();
-	} else if(argc == 3) {
-		QString inputFile(argv[1]);
-		QString outputFile(argv[2]);
+	
+	if(!gui){
+		QString inputFile(parser.getArgument(0));
+		QString outputFile(parser.getArgument(1));
+		bool converted = false;
 
 		EsmFile esm(inputFile);
+		QByteArray outData;
+
 		//determine extension of output file
 		QString extension(outputFile.section(".",-1).toLower());
-
-		//create report into temporary array
-		QByteArray outData;
-		/*if(extension == "txt") {
-			txtReporter rep;
-			rep << esm;
-			outData = rep.str().toLocal8Bit();*/
-		if(extension == "html" || extension == "htm" || extension == "xhtml") {
+		if(parser.get("format") == "html" || extension == "html" || extension == "htm" || extension == "xhtml") {
 			HtmlReporter rep;
 			rep << esm;
 			outData = rep.toQByteArray();
-		} /*else if(extension == "xml" || extension == "xhtml") {
-			xmlReporter rep;
-			rep << esm;
-			outData = rep.str().toUtf8();*/
-		else {
+			converted = true;
+		}
+		
+		if(!converted) {
 			cerr << "Format for output not recognized." << endl;
 			return 1;
 		}
+		
+		if(outputFile != "-"){
+			QFile out(outputFile);
+			out.open(QIODevice::WriteOnly | QIODevice::Text);
 
-		QFile out(outputFile);
-		out.open(QIODevice::WriteOnly | QIODevice::Text);
-
-		if(!out.isOpen()) {
-			cerr << "Could not open file " << outputFile << " for output. dumping to stdout" << endl;
-			QTextStream cout(stdout);
+			if(!out.isOpen()) {
+				cerr << "Could not open file " << outputFile << " for output. dumping to stdout" << endl;
+				cout << outData;
+				return 1;
+			} else out.write(outData);
+		} else {
 			cout << outData;
-			return 1;
-		} else out.write(outData);
+		}
+	} else if(parser.argumentCount() < 2){
+		mainWindow widgetMainWindow;
+		widgetMainWindow.show();
+		if(parser.argumentCount() == 1) widgetMainWindow.openFile(parser.getArgument(0));
+		return app.exec();
 	} else {
-		cerr << "Way too many arguments. Syntax is readesm [input file] [output file]" << endl;
+		cerr << "too many arguments to readesm";
+		return 1;
 	}
-	return 0;
-}
-
-int main(int argc, char** argv)
-{
-	if(argc == 3) return main2<QCoreApplication>(argc,argv);
-	else return main2<QApplication>(argc,argv);
 }

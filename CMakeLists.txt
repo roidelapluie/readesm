@@ -10,8 +10,12 @@ if(MAC)
 	set(GUI_TYPE MACOSX_BUNDLE)
 endif()
 
-set(CMAKE_BUILD_TYPE release)
-set(CMAKE_CXX_FLAGS "-Wall -O2" )
+# set(CMAKE_BUILD_TYPE release)
+# set(CMAKE_CXX_FLAGS "-Wall -O2" )
+
+set(CMAKE_BUILD_TYPE debug)
+set(CMAKE_CXX_FLAGS "-Wall" )
+
 set(CMAKE_VERBOSE_MAKEFILE ON)
 
 find_package(Qt4 COMPONENTS QtGui QtWebKit REQUIRED)
@@ -57,8 +61,8 @@ file(GLOB gui_CPP "gui/*.cpp")
 file(GLOB fileformat_CPP "fileformat/*.cpp" "fileformat/*/*.cpp")
 file(GLOB gui_H "gui/*.h")
 file(GLOB fileformat_H "fileformat/*.h" "fileformat/*/*.h")
-
-set(readesm_SRCS ${gui_CPP} ${fileformat_CPP} ${gui_H} ${fileformat_H} readesm.cpp)
+file(GLOB main "*.cpp" "*.h")
+set(readesm_SRCS ${gui_CPP} ${fileformat_CPP} ${gui_H} ${fileformat_H} ${main})
 set(readesm_RCCS readesm.qrc)
 
 qt4_add_resources(readesm_RCC_SRCS ${readesm_RCCS})
