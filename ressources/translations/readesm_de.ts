@@ -1343,12 +1343,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>BcdDate</name>
     <message>
-        <location filename="../../fileformat/DataTypes/BcdDate.cpp" line="+20"/>
-        <source>BcdDate</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+12"/>
+        <location filename="../../fileformat/DataTypes/BcdDate.cpp" line="+28"/>
         <source>encodedDate</source>
         <translation>Datum</translation>
     </message>
@@ -1356,12 +1351,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>BcdMonthYear</name>
     <message>
-        <location filename="../../fileformat/DataTypes/BcdMonthYear.cpp" line="+20"/>
-        <source>BcdMonthYear</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+12"/>
+        <location filename="../../fileformat/DataTypes/BcdMonthYear.cpp" line="+28"/>
         <source>encodedDate</source>
         <translation>Datum</translation>
     </message>
@@ -1411,12 +1401,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>Block11Record</name>
     <message>
-        <location filename="../../fileformat/DataTypes/Block11Record.cpp" line="+23"/>
-        <source>Block11Record</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+8"/>
+        <location filename="../../fileformat/DataTypes/Block11Record.cpp" line="+27"/>
         <source>cardNumber</source>
         <translation>Kartennummer</translation>
     </message>
@@ -1424,12 +1409,12 @@ Signatur-Prüfung fehlgeschlagen </translation>
         <location line="+1"/>
         <source>time</source>
         <oldsource>timeOne</oldsource>
-        <translation type="unfinished">Erste Zeit</translation>
+        <translation>Zeit</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>sometimesDuration</source>
-        <translation type="unfinished"></translation>
+        <translation>manchmal Dauer</translation>
     </message>
     <message>
         <source>timeTwo</source>
@@ -1644,7 +1629,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location filename="../../fileformat/CardBlocks/CardDriverActivity.cpp" line="+1"/>
         <source>cardActivityDailyRecords</source>
-        <translation type="unfinished"></translation>
+        <translation>Karteneinträge über Tagesaktivitäten</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -1697,12 +1682,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>CardEventRecord</name>
     <message>
-        <location filename="../../fileformat/DataTypes/CardEventRecord.cpp" line="+22"/>
-        <source>CardEventRecord</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+8"/>
+        <location filename="../../fileformat/DataTypes/CardEventRecord.cpp" line="+26"/>
         <source>eventType</source>
         <translation>Ereignisart</translation>
     </message>
@@ -1791,7 +1771,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <name>CardSlots</name>
     <message>
         <location filename="../../fileformat/DataTypes/CardSlots.cpp" line="+9"/>
-        <location filename="../../fileformat/DataTypes/RawCardSlots.cpp" line="+31"/>
+        <location filename="../../fileformat/DataTypes/RawCardSlots.cpp" line="+27"/>
         <source>cardNumberDriverSlotBegin</source>
         <translation>Kartennummer des Fahrers bei Ereignisbeginn</translation>
     </message>
@@ -1823,21 +1803,16 @@ Signatur-Prüfung fehlgeschlagen </translation>
         <source>cardNumberCoDriverSlot</source>
         <translation>Kartennummer des Beifahrers</translation>
     </message>
-    <message>
-        <location filename="../../fileformat/DataTypes/RawCardSlots.cpp" line="-11"/>
-        <source>RawCardSlots</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>CardVehicleRecord</name>
     <message>
-        <location filename="../../fileformat/DataTypes/CardVehicleRecord.cpp" line="+24"/>
-        <source>CardVehicleRecord</source>
-        <translation type="unfinished"></translation>
+        <location filename="../../fileformat/DataTypes/CardVehicleRecord.cpp" line="+28"/>
+        <source>%1 km on %2 (%3)</source>
+        <translation>%1 km auf %2 (%3)</translation>
     </message>
     <message>
-        <location line="+8"/>
+        <location line="+7"/>
         <source>vehicleOdometerBegin</source>
         <translation>Kilometerstand am Anfang</translation>
     </message>
@@ -1901,12 +1876,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>CertificateAuthority</name>
     <message>
-        <location filename="../../fileformat/DataTypes/CertificateAuthority.cpp" line="+24"/>
-        <source>CertificateAuthority</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+8"/>
+        <location filename="../../fileformat/DataTypes/CertificateAuthority.cpp" line="+28"/>
         <source>nationNumeric</source>
         <translation>Land (numerisch)</translation>
     </message>
@@ -1934,12 +1904,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>CertificateHolderAuthorization</name>
     <message>
-        <location filename="../../fileformat/DataTypes/CertificateHolderAuthorization.cpp" line="+21"/>
-        <source>CertificateHolderAuthorization</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+8"/>
+        <location filename="../../fileformat/DataTypes/CertificateHolderAuthorization.cpp" line="+25"/>
         <source>tachographApplicationId</source>
         <translation>Anwendungsbezeichner für die Kontrollgerätanwendung</translation>
     </message>
@@ -2035,12 +2000,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>DecryptedCertificate</name>
     <message>
-        <location filename="../../fileformat/DataTypes/DecryptedCertificate.cpp" line="+25"/>
-        <source>DecryptedCertificate</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+8"/>
+        <location filename="../../fileformat/DataTypes/DecryptedCertificate.cpp" line="+29"/>
         <source>certificateProfileIdentifier</source>
         <translation>Version des Zertifikats</translation>
     </message>
@@ -2181,12 +2141,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
         <translation>Nichtverifiziertes Zertifikat, erfordert Verifizierung durch:</translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/RawEncryptedCertificate.cpp" line="+22"/>
-        <source>RawEncryptedCertificate</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+8"/>
+        <location filename="../../fileformat/DataTypes/RawEncryptedCertificate.cpp" line="+26"/>
         <source>sign</source>
         <translation>Signatur</translation>
     </message>
@@ -2240,12 +2195,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>ExtendedSerialNumber</name>
     <message>
-        <location filename="../../fileformat/DataTypes/ExtendedSerialNumber.cpp" line="+23"/>
-        <source>ExtendedSerialNumber</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+17"/>
+        <location filename="../../fileformat/DataTypes/ExtendedSerialNumber.cpp" line="+36"/>
         <source>serialNumber</source>
         <translation>Seriennummer</translation>
     </message>
@@ -2350,12 +2300,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
         <translation>%1, Karteninhaber: %2</translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/RawFullCardNumber.cpp" line="+22"/>
-        <source>RawFullCardNumber</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+15"/>
+        <location filename="../../fileformat/DataTypes/RawFullCardNumber.cpp" line="+33"/>
         <source>cardType</source>
         <translation>Kartenart</translation>
     </message>
@@ -2463,12 +2408,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>KeyIdentifier</name>
     <message>
-        <location filename="../../fileformat/DataTypes/RawKeyIdentifier.cpp" line="+23"/>
-        <source>RawKeyIdentifier</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+8"/>
+        <location filename="../../fileformat/DataTypes/RawKeyIdentifier.cpp" line="+27"/>
         <source>certificateRequestSerialNumber</source>
         <translation>Seriennummer der Zertifikatsanforderung</translation>
     </message>
@@ -2517,12 +2457,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>Name</name>
     <message>
-        <location filename="../../fileformat/DataTypes/Name.cpp" line="+21"/>
-        <source>Name</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+12"/>
+        <location filename="../../fileformat/DataTypes/Name.cpp" line="+29"/>
         <source>surname</source>
         <translation>Nachname</translation>
     </message>
@@ -2537,17 +2472,17 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location filename="../../OptionParser.cpp" line="+12"/>
         <source>Show help text</source>
-        <translation type="unfinished"></translation>
+        <translation>Hilfetext anzeigen</translation>
     </message>
     <message>
         <location line="+59"/>
         <source>Possible Flags:</source>
-        <translation type="unfinished"></translation>
+        <translation>Mögliche Flags:</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Possible Options:</source>
-        <translation type="unfinished"></translation>
+        <translation>Mögliche Optionen:</translation>
     </message>
 </context>
 <context>
@@ -2631,12 +2566,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>PlaceRecord</name>
     <message>
-        <location filename="../../fileformat/DataTypes/PlaceRecord.cpp" line="+24"/>
-        <source>PlaceRecord</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+16"/>
+        <location filename="../../fileformat/DataTypes/PlaceRecord.cpp" line="+36"/>
         <source>entryTime</source>
         <translation>Eingabezeit</translation>
     </message>
@@ -2671,12 +2601,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>PlainCertificate</name>
     <message>
-        <location filename="../../fileformat/DataTypes/PlainCertificate.cpp" line="+21"/>
-        <source>PlainCertificate</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+8"/>
+        <location filename="../../fileformat/DataTypes/PlainCertificate.cpp" line="+25"/>
         <source>keyIdentifier</source>
         <translation>Schlüsselidentifikation</translation>
     </message>
@@ -2781,12 +2706,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>RsaPublicKey</name>
     <message>
-        <location filename="../../fileformat/DataTypes/RawRsaPublicKey.cpp" line="+21"/>
-        <source>RawRsaPublicKey</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+8"/>
+        <location filename="../../fileformat/DataTypes/RawRsaPublicKey.cpp" line="+25"/>
         <source>n</source>
         <translation>RSA-Modul N</translation>
     </message>
@@ -2799,12 +2719,11 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>SpecificConditionRecord</name>
     <message>
-        <location filename="../../fileformat/DataTypes/SpecificConditionRecord.cpp" line="+21"/>
         <source>SpecificConditionRecord</source>
-        <translation type="unfinished">Eintrag über spezifische Bedingungen</translation>
+        <translation type="obsolete">Eintrag über spezifische Bedingungen</translation>
     </message>
     <message>
-        <location line="+8"/>
+        <location filename="../../fileformat/DataTypes/SpecificConditionRecord.cpp" line="+25"/>
         <source>entryTime</source>
         <translation>Eingabezeit</translation>
     </message>
@@ -3035,12 +2954,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>VehicleRegistration</name>
     <message>
-        <location filename="../../fileformat/DataTypes/VehicleRegistration.cpp" line="+21"/>
-        <source>VehicleRegistration</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+14"/>
+        <location filename="../../fileformat/DataTypes/VehicleRegistration.cpp" line="+31"/>
         <source>vehicleRegistrationNation</source>
         <translation>Fahzeugregistrierungsland</translation>
     </message>
@@ -3132,12 +3046,12 @@ Signatur-Prüfung fehlgeschlagen </translation>
         <location filename="../../fileformat/VuBlocks/VuActivities.cpp" line="+10"/>
         <location line="+2"/>
         <source>%1 (%2 to %3)</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 (%2 bis %3)</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Drivers</source>
-        <translation type="unfinished"></translation>
+        <translation>Fahrer</translation>
     </message>
     <message>
         <location line="+12"/>
@@ -3155,7 +3069,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <message>
         <location filename="../../fileformat/DataTypes/VuCalibrationRecord.cpp" line="+36"/>
         <source>VuCalibrationRecord</source>
-        <translation type="unfinished">Kalibrierungsdatensatz</translation>
+        <translation>Kalibrierungsdatensatz</translation>
     </message>
     <message>
         <location line="+8"/>
@@ -3246,12 +3160,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>VuCardIWRecord</name>
     <message>
-        <location filename="../../fileformat/DataTypes/RawVuCardIWRecord.cpp" line="+30"/>
-        <source>RawVuCardIWRecord</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+8"/>
+        <location filename="../../fileformat/DataTypes/RawVuCardIWRecord.cpp" line="+34"/>
         <source>cardHolderName</source>
         <translation>Name des Karteninhabers</translation>
     </message>
@@ -3309,12 +3218,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>VuCompanyLocksRecord</name>
     <message>
-        <location filename="../../fileformat/DataTypes/VuCompanyLocksRecord.cpp" line="+23"/>
-        <source>VuCompanyLocksRecord</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+8"/>
+        <location filename="../../fileformat/DataTypes/VuCompanyLocksRecord.cpp" line="+27"/>
         <source>lockTime</source>
         <translation>Sperrzeitraum</translation>
     </message>
@@ -3337,12 +3241,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>VuControlActivityRecord</name>
     <message>
-        <location filename="../../fileformat/DataTypes/VuControlActivityRecord.cpp" line="+23"/>
-        <source>VuControlActivityRecord</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+8"/>
+        <location filename="../../fileformat/DataTypes/VuControlActivityRecord.cpp" line="+27"/>
         <source>controlType</source>
         <translation>Kontrollart</translation>
     </message>
@@ -3365,12 +3264,11 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>VuDetailedSpeedBlock</name>
     <message>
-        <location filename="../../fileformat/DataTypes/VuDetailedSpeedBlock.cpp" line="+21"/>
         <source>VuDetailedSpeedBlock</source>
-        <translation type="unfinished">genaue Geschwindigkeit während einer Minute</translation>
+        <translation type="obsolete">genaue Geschwindigkeit während einer Minute</translation>
     </message>
     <message>
-        <location line="+8"/>
+        <location filename="../../fileformat/DataTypes/VuDetailedSpeedBlock.cpp" line="+25"/>
         <source>speedBlockBeginDate</source>
         <translation>Zeit des ersten Geschwindigkeitswertes im Block</translation>
     </message>
@@ -3396,12 +3294,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>VuEventRecord</name>
     <message>
-        <location filename="../../fileformat/DataTypes/VuEventRecord.cpp" line="+24"/>
-        <source>VuEventRecord</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+8"/>
+        <location filename="../../fileformat/DataTypes/VuEventRecord.cpp" line="+28"/>
         <source>eventType</source>
         <translation>Ereignisart</translation>
     </message>
@@ -3472,12 +3365,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>VuFaultRecord</name>
     <message>
-        <location filename="../../fileformat/DataTypes/VuFaultRecord.cpp" line="+23"/>
-        <source>VuFaultRecord</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+8"/>
+        <location filename="../../fileformat/DataTypes/VuFaultRecord.cpp" line="+27"/>
         <source>eventType</source>
         <translation>Ereignisart</translation>
     </message>
@@ -3500,12 +3388,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>VuOverspeedingEventRecord</name>
     <message>
-        <location filename="../../fileformat/DataTypes/VuOverspeedingEventRecord.cpp" line="+26"/>
-        <source>VuOverspeedingEventRecord</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+8"/>
+        <location filename="../../fileformat/DataTypes/VuOverspeedingEventRecord.cpp" line="+30"/>
         <source>eventType</source>
         <translation>Ereignisart</translation>
     </message>
@@ -3611,12 +3494,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>VuPlaceDailyWorkPeriodRecord</name>
     <message>
-        <location filename="../../fileformat/DataTypes/VuPlaceDailyWorkPeriodRecord.cpp" line="+21"/>
-        <source>VuPlaceDailyWorkPeriodRecord</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+8"/>
+        <location filename="../../fileformat/DataTypes/VuPlaceDailyWorkPeriodRecord.cpp" line="+25"/>
         <source>fullCardNumber</source>
         <translation>Volle Kartennummer</translation>
     </message>
@@ -3697,12 +3575,7 @@ Signatur-Prüfung fehlgeschlagen </translation>
 <context>
     <name>VuTimeAdjustmentRecord</name>
     <message>
-        <location filename="../../fileformat/DataTypes/VuTimeAdjustmentRecord.cpp" line="+24"/>
-        <source>VuTimeAdjustmentRecord</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+8"/>
+        <location filename="../../fileformat/DataTypes/VuTimeAdjustmentRecord.cpp" line="+28"/>
         <source>oldTimeValue</source>
         <translation>Alte Uhrzeit</translation>
     </message>
@@ -3731,13 +3604,8 @@ Signatur-Prüfung fehlgeschlagen </translation>
     <name>VuUnknownBlock</name>
     <message>
         <location filename="../../fileformat/VuBlocks/VuUnknownBlock.cpp" line="+14"/>
-        <source>Unknown vu block, TREP %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+4"/>
-        <source>VuUnknownBlock%1</source>
-        <translation type="unfinished"></translation>
+        <source>Unknown Vu block, TREP %1</source>
+        <translation>Unbekannter Fahrzeugeinheit-Block, TREP %1</translation>
     </message>
 </context>
 <context>

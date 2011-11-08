@@ -52,12 +52,7 @@
 <context>
     <name>BcdDate</name>
     <message>
-        <location filename="../../fileformat/DataTypes/BcdDate.cpp" line="20"/>
-        <source>BcdDate</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../fileformat/DataTypes/BcdDate.cpp" line="32"/>
+        <location filename="../../fileformat/DataTypes/BcdDate.cpp" line="28"/>
         <source>encodedDate</source>
         <translation type="unfinished"></translation>
     </message>
@@ -65,12 +60,7 @@
 <context>
     <name>BcdMonthYear</name>
     <message>
-        <location filename="../../fileformat/DataTypes/BcdMonthYear.cpp" line="20"/>
-        <source>BcdMonthYear</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../fileformat/DataTypes/BcdMonthYear.cpp" line="32"/>
+        <location filename="../../fileformat/DataTypes/BcdMonthYear.cpp" line="28"/>
         <source>encodedDate</source>
         <translation type="unfinished"></translation>
     </message>
@@ -96,27 +86,22 @@
 <context>
     <name>Block11Record</name>
     <message>
-        <location filename="../../fileformat/DataTypes/Block11Record.cpp" line="23"/>
-        <source>Block11Record</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../fileformat/DataTypes/Block11Record.cpp" line="31"/>
+        <location filename="../../fileformat/DataTypes/Block11Record.cpp" line="27"/>
         <source>cardNumber</source>
         <translation type="unfinished">númeroDeTarjeta</translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/Block11Record.cpp" line="32"/>
+        <location filename="../../fileformat/DataTypes/Block11Record.cpp" line="28"/>
         <source>time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/Block11Record.cpp" line="33"/>
+        <location filename="../../fileformat/DataTypes/Block11Record.cpp" line="29"/>
         <source>sometimesDuration</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/Block11Record.cpp" line="34"/>
+        <location filename="../../fileformat/DataTypes/Block11Record.cpp" line="30"/>
         <source>payloadData</source>
         <translation type="unfinished"></translation>
     </message>
@@ -368,22 +353,17 @@
 <context>
     <name>CardEventRecord</name>
     <message>
-        <location filename="../../fileformat/DataTypes/CardEventRecord.cpp" line="22"/>
-        <source>CardEventRecord</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../fileformat/DataTypes/CardEventRecord.cpp" line="30"/>
+        <location filename="../../fileformat/DataTypes/CardEventRecord.cpp" line="26"/>
         <source>eventType</source>
         <translation type="unfinished">tipoDeSuceso</translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/CardEventRecord.cpp" line="31"/>
+        <location filename="../../fileformat/DataTypes/CardEventRecord.cpp" line="27"/>
         <source>eventTime</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/CardEventRecord.cpp" line="32"/>
+        <location filename="../../fileformat/DataTypes/CardEventRecord.cpp" line="28"/>
         <source>eventVehicleRegistration</source>
         <translation type="unfinished"></translation>
     </message>
@@ -461,13 +441,13 @@
     <name>CardSlots</name>
     <message>
         <location filename="../../fileformat/DataTypes/CardSlots.cpp" line="9"/>
-        <location filename="../../fileformat/DataTypes/RawCardSlots.cpp" line="31"/>
+        <location filename="../../fileformat/DataTypes/RawCardSlots.cpp" line="27"/>
         <source>cardNumberDriverSlotBegin</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../fileformat/DataTypes/CardSlots.cpp" line="11"/>
-        <location filename="../../fileformat/DataTypes/RawCardSlots.cpp" line="33"/>
+        <location filename="../../fileformat/DataTypes/RawCardSlots.cpp" line="29"/>
         <source>cardNumberDriverSlotEnd</source>
         <translation type="unfinished">númeroDeRanuraFinalDelConductor</translation>
     </message>
@@ -478,13 +458,13 @@
     </message>
     <message>
         <location filename="../../fileformat/DataTypes/CardSlots.cpp" line="16"/>
-        <location filename="../../fileformat/DataTypes/RawCardSlots.cpp" line="32"/>
+        <location filename="../../fileformat/DataTypes/RawCardSlots.cpp" line="28"/>
         <source>cardNumberCoDriverSlotBegin</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../fileformat/DataTypes/CardSlots.cpp" line="18"/>
-        <location filename="../../fileformat/DataTypes/RawCardSlots.cpp" line="34"/>
+        <location filename="../../fileformat/DataTypes/RawCardSlots.cpp" line="30"/>
         <source>cardNumberCoDriverSlotEnd</source>
         <translation type="unfinished"></translation>
     </message>
@@ -493,41 +473,36 @@
         <source>cardNumberCoDriverSlot</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <location filename="../../fileformat/DataTypes/RawCardSlots.cpp" line="23"/>
-        <source>RawCardSlots</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>CardVehicleRecord</name>
     <message>
-        <location filename="../../fileformat/DataTypes/CardVehicleRecord.cpp" line="24"/>
-        <source>CardVehicleRecord</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../fileformat/DataTypes/CardVehicleRecord.cpp" line="32"/>
-        <source>vehicleOdometerBegin</source>
-        <translation type="unfinished">cuentakilómetrosInicialDelVehículo</translation>
-    </message>
-    <message>
-        <location filename="../../fileformat/DataTypes/CardVehicleRecord.cpp" line="33"/>
-        <source>vehicleOdometerEnd</source>
-        <translation type="unfinished">cuentakilómetrosFinalDelVehículo</translation>
-    </message>
-    <message>
-        <location filename="../../fileformat/DataTypes/CardVehicleRecord.cpp" line="34"/>
-        <source>vehicleUse</source>
+        <location filename="../../fileformat/DataTypes/CardVehicleRecord.cpp" line="28"/>
+        <source>%1 km on %2 (%3)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../fileformat/DataTypes/CardVehicleRecord.cpp" line="35"/>
+        <source>vehicleOdometerBegin</source>
+        <translation type="unfinished">cuentakilómetrosInicialDelVehículo</translation>
+    </message>
+    <message>
+        <location filename="../../fileformat/DataTypes/CardVehicleRecord.cpp" line="36"/>
+        <source>vehicleOdometerEnd</source>
+        <translation type="unfinished">cuentakilómetrosFinalDelVehículo</translation>
+    </message>
+    <message>
+        <location filename="../../fileformat/DataTypes/CardVehicleRecord.cpp" line="37"/>
+        <source>vehicleUse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../fileformat/DataTypes/CardVehicleRecord.cpp" line="38"/>
         <source>registration</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/CardVehicleRecord.cpp" line="36"/>
+        <location filename="../../fileformat/DataTypes/CardVehicleRecord.cpp" line="39"/>
         <source>vuDataBlockCounter</source>
         <translation type="unfinished">contadorDelBloqueDeDatosDeLaVU</translation>
     </message>
@@ -553,32 +528,27 @@
 <context>
     <name>CertificateAuthority</name>
     <message>
-        <location filename="../../fileformat/DataTypes/CertificateAuthority.cpp" line="24"/>
-        <source>CertificateAuthority</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../fileformat/DataTypes/CertificateAuthority.cpp" line="32"/>
+        <location filename="../../fileformat/DataTypes/CertificateAuthority.cpp" line="28"/>
         <source>nationNumeric</source>
         <translation type="unfinished">númeroDePais</translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/CertificateAuthority.cpp" line="33"/>
+        <location filename="../../fileformat/DataTypes/CertificateAuthority.cpp" line="29"/>
         <source>nationAlpha</source>
         <translation type="unfinished">nombreDelPais</translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/CertificateAuthority.cpp" line="34"/>
+        <location filename="../../fileformat/DataTypes/CertificateAuthority.cpp" line="30"/>
         <source>keySerialNumber</source>
         <translation type="unfinished">claveNúmeroDeSerie</translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/CertificateAuthority.cpp" line="35"/>
+        <location filename="../../fileformat/DataTypes/CertificateAuthority.cpp" line="31"/>
         <source>additionalInfo</source>
         <translation type="unfinished">informaciónAdicional</translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/CertificateAuthority.cpp" line="36"/>
+        <location filename="../../fileformat/DataTypes/CertificateAuthority.cpp" line="32"/>
         <source>caIdentifer</source>
         <translation type="unfinished"></translation>
     </message>
@@ -586,17 +556,12 @@
 <context>
     <name>CertificateHolderAuthorization</name>
     <message>
-        <location filename="../../fileformat/DataTypes/CertificateHolderAuthorization.cpp" line="21"/>
-        <source>CertificateHolderAuthorization</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../fileformat/DataTypes/CertificateHolderAuthorization.cpp" line="29"/>
+        <location filename="../../fileformat/DataTypes/CertificateHolderAuthorization.cpp" line="25"/>
         <source>tachographApplicationId</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/CertificateHolderAuthorization.cpp" line="30"/>
+        <location filename="../../fileformat/DataTypes/CertificateHolderAuthorization.cpp" line="26"/>
         <source>equipmentType</source>
         <translation type="unfinished"></translation>
     </message>
@@ -604,37 +569,32 @@
 <context>
     <name>DecryptedCertificate</name>
     <message>
-        <location filename="../../fileformat/DataTypes/DecryptedCertificate.cpp" line="25"/>
-        <source>DecryptedCertificate</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../fileformat/DataTypes/DecryptedCertificate.cpp" line="33"/>
+        <location filename="../../fileformat/DataTypes/DecryptedCertificate.cpp" line="29"/>
         <source>certificateProfileIdentifier</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/DecryptedCertificate.cpp" line="34"/>
+        <location filename="../../fileformat/DataTypes/DecryptedCertificate.cpp" line="30"/>
         <source>certificateAuthorityReference</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/DecryptedCertificate.cpp" line="35"/>
+        <location filename="../../fileformat/DataTypes/DecryptedCertificate.cpp" line="31"/>
         <source>certificateHolderAuthorization</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/DecryptedCertificate.cpp" line="36"/>
+        <location filename="../../fileformat/DataTypes/DecryptedCertificate.cpp" line="32"/>
         <source>endOfValidity</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/DecryptedCertificate.cpp" line="37"/>
+        <location filename="../../fileformat/DataTypes/DecryptedCertificate.cpp" line="33"/>
         <source>certificateHolderReference</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/DecryptedCertificate.cpp" line="38"/>
+        <location filename="../../fileformat/DataTypes/DecryptedCertificate.cpp" line="34"/>
         <source>rsaPublicKey</source>
         <translation type="unfinished"></translation>
     </message>
@@ -702,22 +662,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/RawEncryptedCertificate.cpp" line="22"/>
-        <source>RawEncryptedCertificate</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../fileformat/DataTypes/RawEncryptedCertificate.cpp" line="30"/>
+        <location filename="../../fileformat/DataTypes/RawEncryptedCertificate.cpp" line="26"/>
         <source>sign</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/RawEncryptedCertificate.cpp" line="31"/>
+        <location filename="../../fileformat/DataTypes/RawEncryptedCertificate.cpp" line="27"/>
         <source>cndash</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/RawEncryptedCertificate.cpp" line="32"/>
+        <location filename="../../fileformat/DataTypes/RawEncryptedCertificate.cpp" line="28"/>
         <source>certificateAuthorityReference</source>
         <translation type="unfinished"></translation>
     </message>
@@ -739,27 +694,22 @@
 <context>
     <name>ExtendedSerialNumber</name>
     <message>
-        <location filename="../../fileformat/DataTypes/ExtendedSerialNumber.cpp" line="23"/>
-        <source>ExtendedSerialNumber</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../fileformat/DataTypes/ExtendedSerialNumber.cpp" line="40"/>
+        <location filename="../../fileformat/DataTypes/ExtendedSerialNumber.cpp" line="36"/>
         <source>serialNumber</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/ExtendedSerialNumber.cpp" line="41"/>
+        <location filename="../../fileformat/DataTypes/ExtendedSerialNumber.cpp" line="37"/>
         <source>date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/ExtendedSerialNumber.cpp" line="42"/>
+        <location filename="../../fileformat/DataTypes/ExtendedSerialNumber.cpp" line="38"/>
         <source>equipmentType</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/ExtendedSerialNumber.cpp" line="43"/>
+        <location filename="../../fileformat/DataTypes/ExtendedSerialNumber.cpp" line="39"/>
         <source>manufacturerCode</source>
         <translation type="unfinished"></translation>
     </message>
@@ -799,22 +749,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/RawFullCardNumber.cpp" line="22"/>
-        <source>RawFullCardNumber</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../fileformat/DataTypes/RawFullCardNumber.cpp" line="37"/>
+        <location filename="../../fileformat/DataTypes/RawFullCardNumber.cpp" line="33"/>
         <source>cardType</source>
         <translation type="unfinished">tipoDeTarjeta</translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/RawFullCardNumber.cpp" line="38"/>
+        <location filename="../../fileformat/DataTypes/RawFullCardNumber.cpp" line="34"/>
         <source>cardIssuingMemberState</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/RawFullCardNumber.cpp" line="39"/>
+        <location filename="../../fileformat/DataTypes/RawFullCardNumber.cpp" line="35"/>
         <source>cardNumber</source>
         <translation type="unfinished">númeroDeTarjeta</translation>
     </message>
@@ -900,27 +845,22 @@
 <context>
     <name>KeyIdentifier</name>
     <message>
-        <location filename="../../fileformat/DataTypes/RawKeyIdentifier.cpp" line="23"/>
-        <source>RawKeyIdentifier</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../fileformat/DataTypes/RawKeyIdentifier.cpp" line="31"/>
+        <location filename="../../fileformat/DataTypes/RawKeyIdentifier.cpp" line="27"/>
         <source>certificateRequestSerialNumber</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/RawKeyIdentifier.cpp" line="32"/>
+        <location filename="../../fileformat/DataTypes/RawKeyIdentifier.cpp" line="28"/>
         <source>date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/RawKeyIdentifier.cpp" line="33"/>
+        <location filename="../../fileformat/DataTypes/RawKeyIdentifier.cpp" line="29"/>
         <source>type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/RawKeyIdentifier.cpp" line="34"/>
+        <location filename="../../fileformat/DataTypes/RawKeyIdentifier.cpp" line="30"/>
         <source>manufacturerCode</source>
         <translation type="unfinished"></translation>
     </message>
@@ -954,17 +894,12 @@
 <context>
     <name>Name</name>
     <message>
-        <location filename="../../fileformat/DataTypes/Name.cpp" line="21"/>
-        <source>Name</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../fileformat/DataTypes/Name.cpp" line="33"/>
+        <location filename="../../fileformat/DataTypes/Name.cpp" line="29"/>
         <source>surname</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/Name.cpp" line="34"/>
+        <location filename="../../fileformat/DataTypes/Name.cpp" line="30"/>
         <source>firstNames</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1009,32 +944,27 @@
 <context>
     <name>PlaceRecord</name>
     <message>
-        <location filename="../../fileformat/DataTypes/PlaceRecord.cpp" line="24"/>
-        <source>PlaceRecord</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../fileformat/DataTypes/PlaceRecord.cpp" line="40"/>
+        <location filename="../../fileformat/DataTypes/PlaceRecord.cpp" line="36"/>
         <source>entryTime</source>
         <translation type="unfinished">fechaYHoraDeEntrada</translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/PlaceRecord.cpp" line="41"/>
+        <location filename="../../fileformat/DataTypes/PlaceRecord.cpp" line="37"/>
         <source>entryTypeDailyWorkPeriod</source>
         <translation type="unfinished">entradaDelTipoDeDíaDelPeriodoDeTrabajo</translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/PlaceRecord.cpp" line="42"/>
+        <location filename="../../fileformat/DataTypes/PlaceRecord.cpp" line="38"/>
         <source>dailyWorkPeriodCountry</source>
         <translation type="unfinished">tiempoDiarioDeTrabajoEnElPais</translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/PlaceRecord.cpp" line="43"/>
+        <location filename="../../fileformat/DataTypes/PlaceRecord.cpp" line="39"/>
         <source>dailyWorkPeriodRegion</source>
         <translation type="unfinished">tiempoDiarioDeTrabajoEnlaRegión</translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/PlaceRecord.cpp" line="44"/>
+        <location filename="../../fileformat/DataTypes/PlaceRecord.cpp" line="40"/>
         <source>vehicleOdometerValue</source>
         <translation type="unfinished">valorCuentakilómetrosDelVehículo</translation>
     </message>
@@ -1042,17 +972,12 @@
 <context>
     <name>PlainCertificate</name>
     <message>
-        <location filename="../../fileformat/DataTypes/PlainCertificate.cpp" line="21"/>
-        <source>PlainCertificate</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../fileformat/DataTypes/PlainCertificate.cpp" line="29"/>
+        <location filename="../../fileformat/DataTypes/PlainCertificate.cpp" line="25"/>
         <source>keyIdentifier</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/PlainCertificate.cpp" line="30"/>
+        <location filename="../../fileformat/DataTypes/PlainCertificate.cpp" line="26"/>
         <source>rsaPublicKey</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1148,17 +1073,12 @@
 <context>
     <name>RsaPublicKey</name>
     <message>
-        <location filename="../../fileformat/DataTypes/RawRsaPublicKey.cpp" line="21"/>
-        <source>RawRsaPublicKey</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../fileformat/DataTypes/RawRsaPublicKey.cpp" line="29"/>
+        <location filename="../../fileformat/DataTypes/RawRsaPublicKey.cpp" line="25"/>
         <source>n</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/RawRsaPublicKey.cpp" line="30"/>
+        <location filename="../../fileformat/DataTypes/RawRsaPublicKey.cpp" line="26"/>
         <source>e</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1166,17 +1086,16 @@
 <context>
     <name>SpecificConditionRecord</name>
     <message>
-        <location filename="../../fileformat/DataTypes/SpecificConditionRecord.cpp" line="21"/>
         <source>SpecificConditionRecord</source>
-        <translation type="unfinished">registroDeCondicionesEspecíficas</translation>
+        <translation type="obsolete">registroDeCondicionesEspecíficas</translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/SpecificConditionRecord.cpp" line="29"/>
+        <location filename="../../fileformat/DataTypes/SpecificConditionRecord.cpp" line="25"/>
         <source>entryTime</source>
         <translation type="unfinished">fechaYHoraDeEntrada</translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/SpecificConditionRecord.cpp" line="30"/>
+        <location filename="../../fileformat/DataTypes/SpecificConditionRecord.cpp" line="26"/>
         <source>specificConditionType</source>
         <translation type="unfinished">tipoDeCondicionesEspecíficas</translation>
     </message>
@@ -1307,17 +1226,12 @@
 <context>
     <name>VehicleRegistration</name>
     <message>
-        <location filename="../../fileformat/DataTypes/VehicleRegistration.cpp" line="21"/>
-        <source>VehicleRegistration</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../fileformat/DataTypes/VehicleRegistration.cpp" line="35"/>
+        <location filename="../../fileformat/DataTypes/VehicleRegistration.cpp" line="31"/>
         <source>vehicleRegistrationNation</source>
         <translation type="unfinished">naciónDeRegistroDelVehículo</translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/VehicleRegistration.cpp" line="36"/>
+        <location filename="../../fileformat/DataTypes/VehicleRegistration.cpp" line="32"/>
         <source>vehicleRegistrationNumber</source>
         <translation type="unfinished">matrículaDelVehículo</translation>
     </message>
@@ -1484,62 +1398,57 @@
 <context>
     <name>VuCardIWRecord</name>
     <message>
-        <location filename="../../fileformat/DataTypes/RawVuCardIWRecord.cpp" line="30"/>
-        <source>RawVuCardIWRecord</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../fileformat/DataTypes/RawVuCardIWRecord.cpp" line="38"/>
+        <location filename="../../fileformat/DataTypes/RawVuCardIWRecord.cpp" line="34"/>
         <source>cardHolderName</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/RawVuCardIWRecord.cpp" line="39"/>
+        <location filename="../../fileformat/DataTypes/RawVuCardIWRecord.cpp" line="35"/>
         <source>cardNumber</source>
         <translation type="unfinished">númeroDeTarjeta</translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/RawVuCardIWRecord.cpp" line="40"/>
+        <location filename="../../fileformat/DataTypes/RawVuCardIWRecord.cpp" line="36"/>
         <source>cardExpiryDate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/RawVuCardIWRecord.cpp" line="41"/>
+        <location filename="../../fileformat/DataTypes/RawVuCardIWRecord.cpp" line="37"/>
         <source>cardInsertionTime</source>
         <translation type="unfinished">fechaYHoraDeInserciónDeLaTarjeta</translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/RawVuCardIWRecord.cpp" line="42"/>
+        <location filename="../../fileformat/DataTypes/RawVuCardIWRecord.cpp" line="38"/>
         <source>vehicleOdometerValueAtInsertion</source>
         <translation type="unfinished">valorCuentakilómetrosDelVehículoALaInserción</translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/RawVuCardIWRecord.cpp" line="43"/>
+        <location filename="../../fileformat/DataTypes/RawVuCardIWRecord.cpp" line="39"/>
         <source>cardSlotNumber</source>
         <translation type="unfinished">númeroDeRanuraDeLaTarjeta</translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/RawVuCardIWRecord.cpp" line="44"/>
+        <location filename="../../fileformat/DataTypes/RawVuCardIWRecord.cpp" line="40"/>
         <source>cardWithdrawalTime</source>
         <translation type="unfinished">fechaYHoraDeRetiradaDeLaTarjeta</translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/RawVuCardIWRecord.cpp" line="45"/>
+        <location filename="../../fileformat/DataTypes/RawVuCardIWRecord.cpp" line="41"/>
         <source>vehicleOdometerValueAtWithdrawal</source>
         <translation type="unfinished">valorCuentakilómetrosDelVehículoALaRetirada</translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/RawVuCardIWRecord.cpp" line="46"/>
+        <location filename="../../fileformat/DataTypes/RawVuCardIWRecord.cpp" line="42"/>
         <source>previousVehicleRegistration</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/RawVuCardIWRecord.cpp" line="47"/>
+        <location filename="../../fileformat/DataTypes/RawVuCardIWRecord.cpp" line="43"/>
         <source>previousCardWithdrawalTime</source>
         <translation type="unfinished">fechaYHoraAnteriorDeRetiradaDeLaTarjeta</translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/RawVuCardIWRecord.cpp" line="48"/>
+        <location filename="../../fileformat/DataTypes/RawVuCardIWRecord.cpp" line="44"/>
         <source>manualInputFlag</source>
         <translation type="unfinished">entradaManualDeSeñal</translation>
     </message>
@@ -1547,27 +1456,26 @@
 <context>
     <name>VuCompanyLocksRecord</name>
     <message>
-        <location filename="../../fileformat/DataTypes/VuCompanyLocksRecord.cpp" line="23"/>
         <source>VuCompanyLocksRecord</source>
-        <translation type="unfinished">VURegistroBloqueadoPorLaEmpresa</translation>
+        <translation type="obsolete">VURegistroBloqueadoPorLaEmpresa</translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/VuCompanyLocksRecord.cpp" line="31"/>
+        <location filename="../../fileformat/DataTypes/VuCompanyLocksRecord.cpp" line="27"/>
         <source>lockTime</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/VuCompanyLocksRecord.cpp" line="32"/>
+        <location filename="../../fileformat/DataTypes/VuCompanyLocksRecord.cpp" line="28"/>
         <source>companyName</source>
         <translation type="unfinished">nombreDeLaEmpresa</translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/VuCompanyLocksRecord.cpp" line="33"/>
+        <location filename="../../fileformat/DataTypes/VuCompanyLocksRecord.cpp" line="29"/>
         <source>companyAddress</source>
         <translation type="unfinished">direcciónDeLaEmpresa</translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/VuCompanyLocksRecord.cpp" line="34"/>
+        <location filename="../../fileformat/DataTypes/VuCompanyLocksRecord.cpp" line="30"/>
         <source>companyCardNumber</source>
         <translation type="unfinished">númeroDeLaTarjetaDeLaEmpresa</translation>
     </message>
@@ -1575,27 +1483,26 @@
 <context>
     <name>VuControlActivityRecord</name>
     <message>
-        <location filename="../../fileformat/DataTypes/VuControlActivityRecord.cpp" line="23"/>
         <source>VuControlActivityRecord</source>
-        <translation type="unfinished">VURegistroDelControlDeActividad</translation>
+        <translation type="obsolete">VURegistroDelControlDeActividad</translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/VuControlActivityRecord.cpp" line="31"/>
+        <location filename="../../fileformat/DataTypes/VuControlActivityRecord.cpp" line="27"/>
         <source>controlType</source>
         <translation type="unfinished">tipoDeControl</translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/VuControlActivityRecord.cpp" line="32"/>
+        <location filename="../../fileformat/DataTypes/VuControlActivityRecord.cpp" line="28"/>
         <source>controlTime</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/VuControlActivityRecord.cpp" line="33"/>
+        <location filename="../../fileformat/DataTypes/VuControlActivityRecord.cpp" line="29"/>
         <source>controlCardNumber</source>
         <translation type="unfinished">númeroDeLaTarjetaDeControl</translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/VuControlActivityRecord.cpp" line="34"/>
+        <location filename="../../fileformat/DataTypes/VuControlActivityRecord.cpp" line="30"/>
         <source>downloadPeriod</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1603,17 +1510,16 @@
 <context>
     <name>VuDetailedSpeedBlock</name>
     <message>
-        <location filename="../../fileformat/DataTypes/VuDetailedSpeedBlock.cpp" line="21"/>
         <source>VuDetailedSpeedBlock</source>
-        <translation type="unfinished">bloqueDeLaVelocidadDetalladaDeLaVU</translation>
+        <translation type="obsolete">bloqueDeLaVelocidadDetalladaDeLaVU</translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/VuDetailedSpeedBlock.cpp" line="29"/>
+        <location filename="../../fileformat/DataTypes/VuDetailedSpeedBlock.cpp" line="25"/>
         <source>speedBlockBeginDate</source>
         <translation type="unfinished">fechaDeInicioDelBloqueDeVelocidad</translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/VuDetailedSpeedBlock.cpp" line="30"/>
+        <location filename="../../fileformat/DataTypes/VuDetailedSpeedBlock.cpp" line="26"/>
         <source>speedsPerSecond</source>
         <translation type="unfinished">velocidadPorSegundo</translation>
     </message>
@@ -1634,32 +1540,27 @@
 <context>
     <name>VuEventRecord</name>
     <message>
-        <location filename="../../fileformat/DataTypes/VuEventRecord.cpp" line="24"/>
-        <source>VuEventRecord</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../fileformat/DataTypes/VuEventRecord.cpp" line="32"/>
+        <location filename="../../fileformat/DataTypes/VuEventRecord.cpp" line="28"/>
         <source>eventType</source>
         <translation type="unfinished">tipoDeSuceso</translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/VuEventRecord.cpp" line="33"/>
+        <location filename="../../fileformat/DataTypes/VuEventRecord.cpp" line="29"/>
         <source>eventRecordPurpose</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/VuEventRecord.cpp" line="34"/>
+        <location filename="../../fileformat/DataTypes/VuEventRecord.cpp" line="30"/>
         <source>eventTime</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/VuEventRecord.cpp" line="35"/>
+        <location filename="../../fileformat/DataTypes/VuEventRecord.cpp" line="31"/>
         <source>cardSlots</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/VuEventRecord.cpp" line="36"/>
+        <location filename="../../fileformat/DataTypes/VuEventRecord.cpp" line="32"/>
         <source>similarEventsNumber</source>
         <translation type="unfinished">númeroDeSucesosSimilares</translation>
     </message>
@@ -1710,27 +1611,22 @@
 <context>
     <name>VuFaultRecord</name>
     <message>
-        <location filename="../../fileformat/DataTypes/VuFaultRecord.cpp" line="23"/>
-        <source>VuFaultRecord</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../fileformat/DataTypes/VuFaultRecord.cpp" line="31"/>
+        <location filename="../../fileformat/DataTypes/VuFaultRecord.cpp" line="27"/>
         <source>eventType</source>
         <translation type="unfinished">tipoDeSuceso</translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/VuFaultRecord.cpp" line="32"/>
+        <location filename="../../fileformat/DataTypes/VuFaultRecord.cpp" line="28"/>
         <source>eventRecordPurpose</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/VuFaultRecord.cpp" line="33"/>
+        <location filename="../../fileformat/DataTypes/VuFaultRecord.cpp" line="29"/>
         <source>eventTime</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/VuFaultRecord.cpp" line="34"/>
+        <location filename="../../fileformat/DataTypes/VuFaultRecord.cpp" line="30"/>
         <source>cardSlots</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1738,42 +1634,37 @@
 <context>
     <name>VuOverspeedingEventRecord</name>
     <message>
-        <location filename="../../fileformat/DataTypes/VuOverspeedingEventRecord.cpp" line="26"/>
-        <source>VuOverspeedingEventRecord</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../fileformat/DataTypes/VuOverspeedingEventRecord.cpp" line="34"/>
+        <location filename="../../fileformat/DataTypes/VuOverspeedingEventRecord.cpp" line="30"/>
         <source>eventType</source>
         <translation type="unfinished">tipoDeSuceso</translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/VuOverspeedingEventRecord.cpp" line="35"/>
+        <location filename="../../fileformat/DataTypes/VuOverspeedingEventRecord.cpp" line="31"/>
         <source>eventRecordPurpose</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/VuOverspeedingEventRecord.cpp" line="36"/>
+        <location filename="../../fileformat/DataTypes/VuOverspeedingEventRecord.cpp" line="32"/>
         <source>eventTime</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/VuOverspeedingEventRecord.cpp" line="37"/>
+        <location filename="../../fileformat/DataTypes/VuOverspeedingEventRecord.cpp" line="33"/>
         <source>maxSpeedValue</source>
         <translation type="unfinished">valorDeVelocidadMáxima</translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/VuOverspeedingEventRecord.cpp" line="38"/>
+        <location filename="../../fileformat/DataTypes/VuOverspeedingEventRecord.cpp" line="34"/>
         <source>averageSpeedValue</source>
         <translation type="unfinished">valorDeVelocidadMedia</translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/VuOverspeedingEventRecord.cpp" line="39"/>
+        <location filename="../../fileformat/DataTypes/VuOverspeedingEventRecord.cpp" line="35"/>
         <source>cardNumberDriverSlotBegin</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/VuOverspeedingEventRecord.cpp" line="40"/>
+        <location filename="../../fileformat/DataTypes/VuOverspeedingEventRecord.cpp" line="36"/>
         <source>similarEventsNumber</source>
         <translation type="unfinished">númeroDeSucesosSimilares</translation>
     </message>
@@ -1849,17 +1740,12 @@
 <context>
     <name>VuPlaceDailyWorkPeriodRecord</name>
     <message>
-        <location filename="../../fileformat/DataTypes/VuPlaceDailyWorkPeriodRecord.cpp" line="21"/>
-        <source>VuPlaceDailyWorkPeriodRecord</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../fileformat/DataTypes/VuPlaceDailyWorkPeriodRecord.cpp" line="29"/>
+        <location filename="../../fileformat/DataTypes/VuPlaceDailyWorkPeriodRecord.cpp" line="25"/>
         <source>fullCardNumber</source>
         <translation type="unfinished">númeroCompletoDeLaTarjeta</translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/VuPlaceDailyWorkPeriodRecord.cpp" line="30"/>
+        <location filename="../../fileformat/DataTypes/VuPlaceDailyWorkPeriodRecord.cpp" line="26"/>
         <source>placeRecord</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1935,32 +1821,27 @@
 <context>
     <name>VuTimeAdjustmentRecord</name>
     <message>
-        <location filename="../../fileformat/DataTypes/VuTimeAdjustmentRecord.cpp" line="24"/>
-        <source>VuTimeAdjustmentRecord</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../fileformat/DataTypes/VuTimeAdjustmentRecord.cpp" line="32"/>
+        <location filename="../../fileformat/DataTypes/VuTimeAdjustmentRecord.cpp" line="28"/>
         <source>oldTimeValue</source>
         <translation type="unfinished">últimaFechaYHora</translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/VuTimeAdjustmentRecord.cpp" line="33"/>
+        <location filename="../../fileformat/DataTypes/VuTimeAdjustmentRecord.cpp" line="29"/>
         <source>newTimeValue</source>
         <translation type="unfinished">nuevaFechaYHora</translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/VuTimeAdjustmentRecord.cpp" line="34"/>
+        <location filename="../../fileformat/DataTypes/VuTimeAdjustmentRecord.cpp" line="30"/>
         <source>workshopName</source>
         <translation type="unfinished">nombreDelTaller</translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/VuTimeAdjustmentRecord.cpp" line="35"/>
+        <location filename="../../fileformat/DataTypes/VuTimeAdjustmentRecord.cpp" line="31"/>
         <source>workshopAddress</source>
         <translation type="unfinished">direcciónDelTaller</translation>
     </message>
     <message>
-        <location filename="../../fileformat/DataTypes/VuTimeAdjustmentRecord.cpp" line="36"/>
+        <location filename="../../fileformat/DataTypes/VuTimeAdjustmentRecord.cpp" line="32"/>
         <source>workshopCardNumber</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1969,12 +1850,7 @@
     <name>VuUnknownBlock</name>
     <message>
         <location filename="../../fileformat/VuBlocks/VuUnknownBlock.cpp" line="14"/>
-        <source>Unknown vu block, TREP %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../fileformat/VuBlocks/VuUnknownBlock.cpp" line="18"/>
-        <source>VuUnknownBlock%1</source>
+        <source>Unknown Vu block, TREP %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
