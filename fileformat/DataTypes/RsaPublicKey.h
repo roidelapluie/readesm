@@ -21,6 +21,7 @@ class RsaPublicKey : public DataType {
 public:
 	RsaPublicKey(const DataPointer& start) : DataType(start) {}
 	int size() const { return 128+8; }
+	QString className() const { return "RsaPublicKey"; }
 	void printOn(Reporter& report) const{
 	}
 };
