@@ -85,6 +85,8 @@ endif()
 #*** translation files ***
 if(WIN32)
 	install(FILES ${QM_FILES} DESTINATION "translations")
+else()
+	install(FILES ${QM_FILES} DESTINATION "share/readesm/translations")
 endif()
 
 #documentation
