@@ -24,8 +24,6 @@ find_package(Qt4 COMPONENTS QtGui QtWebKit REQUIRED)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
 
-#if this is a release, look into the release file to get release version
-include(currentRelease.cmake OPTIONAL)
 
 #*** Make Version known to program ***
 #is this in version control? take version control revision
@@ -36,6 +34,10 @@ if(Subversion_FOUND AND Subversion_IS_WC)
 	set(VERSION_STRING "svn${ER_WC_REVISION}")
 	set(VERSION_DATE ${ER_WC_LAST_CHANGED_DATE})
 endif()
+
+#if this is a release, look into the release file to get release version
+include(currentRelease.cmake OPTIONAL)
+
 
 #*** check for crypto libraries and enable them if found ***
 find_package(gmp)
@@ -106,7 +108,7 @@ set(CPACK_SOURCE_IGNORE_FILES
 
 set(CPACK_SOURCE_GENERATOR TGZ;TBZ2;ZIP)
 set(CPACK_GENERATOR TBZ2)
-set(CPACK_PACKAGE_VENDOR "Andreas Goelzer <K_2005@goelzer.de>")
+set(CPACK_PACKAGE_VENDOR "Andreas Goelzer <andreas@goelzer.de>")
 set(CPACK_NSIS_CONTACT ${CPACK_PACKAGE_VENDOR})
 set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_SOURCE_DIR}/COPYING")
 set(CPACK_NSIS_MUI_FINISHPAGE_RUN "readesm")
@@ -129,17 +131,25 @@ if(WIN32)
 
 	set(CPACK_NSIS_MUI_ICON "${CMAKE_SOURCE_DIR}/ressources/icons/readesm.ico")
 	set(CPACK_NSIS_MUI_UNIICON ${CPACK_NSIS_MUI_ICON})
-	set(CPACK_NSIS_INSTALLED_ICON_NAME bin\\\\readesm.exe)
+	set(CPACK_NSIS_INSTALLED_ICON_NAME "bin\\\\readesm.exe")
+
+	set(CPACK_NSIS_MENU_LINKS "${WEBSITE}" "Homepage for Readesm")
+
 	# File types association:
-	set(FILETYPE_DESCRIPTION "Digitaltacho Data")
+	set(FILETYPE_DESCRIPTION "Digitaltachograph data")
 	set(EXTENSIONS ddd esm add tgd)
 	set(CPACK_NSIS_DEFINES "!include ${PROJECT_SOURCE_DIR}\\\\ressources\\\\windows-integration\\\\FileAssociation.nsh")
 	foreach(EXTENSION ${EXTENSIONS})
 		set(NSIS_INSTALL_EXT "${NSIS_INSTALL_EXT}\n\\\${registerExtension} \\\"\\\$INSTDIR\\\\bin\\\\readesm.exe\\\" \\\".${EXTENSION}\\\" \\\"${FILETYPE_DESCRIPTION}\\\"")
 		set(NSIS_UNINSTALL_EXT "${NSIS_UNINSTALL_EXT}\n\\\${unregisterExtension} \\\".${EXTENSION}\\\" \\\"${FILETYPE_DESCRIPTION}\\\"")
 	endforeach()
-	set(NSIS_INSTALL_EXT "System::Call 'shell32.dll::SHChangeNotify(i, i, i, i) v (0x08000000, 0, 0, 0)'")
-	set(NSIS_UNINSTALL_EXT "System::Call 'shell32.dll::SHChangeNotify(i, i, i, i) v (0x08000000, 0, 0, 0)'")
+	#notify windows of registry changes
+	set(NSIS_INSTALL_EXT "${NSIS_INSTALL_EXT}\nSystem::Call 'shell32.dll::SHChangeNotify(i, i, i, i) v (0x08000000, 0, 0, 0)'")
+	set(NSIS_UNINSTALL_EXT "${NSIS_UNINSTALL_EXT}\nSystem::Call 'shell32.dll::SHChangeNotify(i, i, i, i) v (0x08000000, 0, 0, 0)'")
+	#create desktop Icon
+	set(NSIS_INSTALL_EXT "${NSIS_INSTALL_EXT}\nCreateShortCut \\\"$DESKTOP\\\\readesm.lnk\\\" \\\"$INSTDIR\\\\bin\\\\readesm.exe\\\"")
+	set(NSIS_UNINSTALL_EXT "${NSIS_UNINSTALL_EXT}\nDelete \\\"$DESKTOP\\\\readesm.lnk\\\"")
+
 	set(CPACK_NSIS_EXTRA_INSTALL_COMMANDS ${NSIS_INSTALL_EXT})
 	set(CPACK_NSIS_EXTRA_UNINSTALL_COMMANDS ${NSIS_UNINSTALL_EXT})
 	set(CPACK_GENERATOR NSIS;ZIP)
