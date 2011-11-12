@@ -17,10 +17,10 @@
 #this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import serial
-from serial import Serial
 from optparse import OptionParser
 from struct import pack, unpack
 from datetime import date
+from time import sleep
 
 parser = OptionParser(version="%prog 0.1")
 parser.add_option("-s", "--serial", dest="serial",
@@ -39,22 +39,26 @@ def hexchunk(data):
 	return rv
 
 class malformedHeader(Exception):
+	"""Exception for malformed Header"""
 	def __init__(self, received):
 		self.received = received
 	def __str__(self):
-		return "Expected 0x80 0xF0 0xEE, got " + hexchunk(self.received)
+		return "Expected header 0x80 0xF0 0xEE, but instead got " + hexchunk(self.received) + "."
 
 class communicationError(Exception):
+	"""Exception for errors in the vu-protocol (checksum wrong 3 times etc.) """
 	def __init__(self, description):
 		self.description = description
 	def __str__(self):
 		return description
 
 class wrongChecksum(Exception):
+	"""wrong checksum, should be caught and the wrongly transmitted message rerequested"""
 	def __str__(self):
 		return "Received message had wrong checksum"
 
 class vuErrorMessage(Exception):
+	"""Error Messages from the Vehicle unit decoded according to the legislation"""
 	def __init__(self, code, requestSID):
 		self.code = code
 		self.requestSID = requestSID
@@ -78,9 +82,10 @@ class vuErrorMessage(Exception):
 		return rv
 	
 class vuSerial:
+	"""Class for Serial connections to the vehicle unit"""
 	def __init__(self, maxBaudRate=115200):
 		self.open = False
-		self.conn = Serial(options.serial, 9600, parity=serial.PARITY_EVEN, timeout=20)
+		self.conn = serial.Serial(options.serial, 9600, parity=serial.PARITY_EVEN, timeout=20)
 		self.sendRawExpectingResponse('\x81\xEE\xF0\x81\xE0', '\xC1\xEA\x8f', 'Start Communication Request')
 		self.sendExpectingResponse('\x10\x81', '\x50\x81', 'Diagnostic Session')
 
@@ -93,8 +98,8 @@ class vuSerial:
 			except communicationError as err:
 				print err
 			else:
-				self.sendData(self.composeMessage('\x87\x02\x03'))
-				self.conn.baudrate = baudRate
+				self.sendComposedData('\x87\x02\x03')
+				self.conn.setBaudrate(baudRate)
 				break	
 		self.sendExpectingResponse('\x35\0\0\0\0\0\xFF\xFF\xFF\xFF', '\x75\0\xFF', name = 'Request Upload')
 		self.open = True
@@ -103,30 +108,35 @@ class vuSerial:
 		self.close()
 	
 	def close(self):
+		"""Close connection if it's still open, send required commands"""
 		if self.open:
 			self.sendExpectingResponse(chr(0x35), chr(0x77), name = 'Transfer Exit')
 			self.sendExpectingResponse(chr(0x82), chr(0xC2), name = 'Stop Communication')
 			self.conn.close()
 	
 	def _getChecksum(self, data):
+		"""simple modulo-256-checksum."""
 		sum = 0
 		for byte in data:
 			sum += ord(byte)
 		return sum % 256
 	
 	def getBlock(self, TREP, parameter = ''):
-		self.sendData(self.composeMessage(chr(0x36) + chr(TREP) + parameter))
+		self.sendComposedData(chr(0x36) + chr(TREP) + parameter)
 		payload = ''
 		counter = 1
 		failcounter = 0
 		while True:
 			try:
 				response = self.singleResponse()
+				sid = response[0]
+				if options.verbose:
+					print "SID " + sid + ", TREP " + response[1] + ", submessagecounter " + unpack(">H",response[2:3])
 			except wrongChecksum, malformedHeader:
 				failcounter += 1
 				if failcounter == 3:
-					raise communicationError("Failed to get the same 265-byte-chunk three times, aborting")
-				self.sendData(self.composeMessage(chr(0x83) + chr(0x76) + pack(">H",counter)))
+					raise communicationError("Failed to get the same 255-byte-chunk three times, aborting")
+				self.sendComposedData(chr(0x83) + sid + pack(">H",counter))
 			else:
 				failcounter = 0
 				payload += response[4:]
@@ -134,11 +144,15 @@ class vuSerial:
 					print "end of block"
 					break
 				counter += 1
-				self.sendData(self.composeMessage(chr(0x83) + chr(0x76) + pack(">H",counter)))
+				self.sendComposedData(chr(0x83) + sid + pack(">H",counter))
 		return payload
 
 	def sendRawExpectingResponse(self, rawsenddata, expectdata, name = ''):
-		print "Sending 'Request %s'" % name
+		"""Send raw data to the VU, expect a response
+		The first message to the vu requires message type 0x81, all other messages should
+		be sent using sendExpectingResponse. expectdata should be without header and checksum"""
+		if name != '':
+			print "Sending 'Request %s'" % name
 		self.sendData(rawsenddata)
 		response = self.singleResponse()
 		if response == expectdata:
@@ -147,9 +161,11 @@ class vuSerial:
 			raise communicationError("Expected " + hexchunk(expectdata) + " as response to " + name + ", got " + hexchunk(response))
 	
 	def sendExpectingResponse(self, senddata, expectdata, name = ''):
+		"""send data to the vu after adding header, read back data"""
 		return self.sendRawExpectingResponse(self.composeMessage(senddata), expectdata, name)
 		
 	def singleResponse(self):
+		"""Read response from the vehicle unit"""
 		header = self.conn.read(4)
 		if options.verbose:
 			print "got header:" + hexchunk(header)
@@ -160,19 +176,28 @@ class vuSerial:
 		if options.verbose:
 			print "got data:" + hexchunk(dataWithChecksum)
 		payload = dataWithChecksum[:-1]
-		if self._getChecksum(header + payload) == ord(dataWithChecksum[-1]):
-			if length == 3 and ord(payload[0])  == 0x7F:
-				raise vuErrorMessage(ord(payload[2]), ord(payload[1]))  
-			return payload
-		else:
+		if self._getChecksum(header + payload) != ord(dataWithChecksum[-1]):
 			raise wrongChecksum
+		if length == 3 and ord(payload[0])  == 0x7F:
+			if ord(payload[2]) == 0x78:
+				print "Got Response pending message, waiting"
+				sleep(0.002)
+				return self.singleResponse()
+			raise vuErrorMessage(ord(payload[2]), ord(payload[1]))  
+		return payload
 
 	def sendData(self, data):
+		"""Send data to the vehicle unit"""
 		if options.verbose:
-			print "sending " + hexchunk(data) #+ "(" + data + ")"
+			print "sending " + hexchunk(data)
 		self.conn.write(data)
+
+	def sendComposedData(self, data):
+		"""Send data to the vehicle unit after adding header and checksum"""
+		self.sendData(self.composeMessage(data))
 	
 	def composeMessage(self, data):
+		"""add header(0x80 for message type, 0xEE for target VU, 0xF0 for source IDE, length of payload) and checksum to the data""" 
 		fullmsg = '\x80\xEE\xF0' + chr(len(data)) + data
 		sum = self._getChecksum(fullmsg)
 		return fullmsg + chr(sum)
@@ -180,12 +205,15 @@ class vuSerial:
 
 print "This is completely untested, without some hacking this will not work, and even if it does, it won't do what you expect"
 vu = vuSerial()
+
+#get overview block
 data = vu.getBlock(1)
 print "Read data from vehicle unit in ", data[388:388+17]
 minDate = unpack('>I',data[424:428])
 maxDate = unpack('>I',data[428:432])
 print "Downloadable data is from " +  date.fromtimestamp(mindate) + " to " + date.fromtimestamp(maxdate) 
 
+#get daily activity data
 for date in Range(minDate, maxDate + 1, 86400):
 	print "Downloading data for " +  date.fromtimestamp(date)
 	try:
@@ -194,7 +222,8 @@ for date in Range(minDate, maxDate + 1, 86400):
 		print err
 	except communicationError as err:
 		print err
-	
+
+#get other blocks
 for TREP in range(3,7):
 	print "asking for data block TREP", TREP
 	try:
