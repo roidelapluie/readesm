@@ -27,7 +27,8 @@ parser.add_option("-s", "--serial", dest="serial",
                   help="serial terminal the VU is connected to", default='/dev/ttyUSB0', metavar="FILE")
 parser.add_option("-o", "--output", dest="output",
                   help="File to save readesm data to", default='test.esm', metavar="FILE")
-
+parser.add_option("-v", "--verbose", dest="verbose", action="store_true", default=False,
+                  help="Print traffic to stdout")
 
 (options, args) = parser.parse_args()
 
@@ -80,8 +81,8 @@ class vuSerial:
 	def __init__(self, maxBaudRate=115200):
 		self.open = False
 		self.conn = Serial(options.serial, 9600, parity=serial.PARITY_EVEN, timeout=20)
-		self.sendRawExpectingResponse('\x81\xEE\xF0\x81\xE0', '\xC1\x8F\xEA', 'Start Communication Request')
-		self.sendExpectingResponse('\x10\x81\x50\x81', 'Diagnostic Session')
+		self.sendRawExpectingResponse('\x81\xEE\xF0\x81\xE0', '\xC1\xEA\x8f', 'Start Communication Request')
+		self.sendExpectingResponse('\x10\x81', '\x50\x81', 'Diagnostic Session')
 
 		baudRates = {9600:1, 19200:2, 38400:3, 57600:4, 115200:5}
 		for baudRate in sorted(baudRates, reverse=True):
@@ -95,7 +96,7 @@ class vuSerial:
 				self.sendData(self.composeMessage('\x87\x02\x03'))
 				self.conn.baudrate = baudRate
 				break	
-		self.sendExpectingResponse('\0\0\0\0\xFF\xFF\xFF\xFF', '\0\xFF', name = 'Request Upload')
+		self.sendExpectingResponse('\x35\0\0\0\0\0\xFF\xFF\xFF\xFF', '\x75\0\xFF', name = 'Request Upload')
 		self.open = True
 	
 	def __del__(self):
@@ -114,27 +115,26 @@ class vuSerial:
 		return sum % 256
 	
 	def getBlock(self, TREP, parameter = ''):
-		self.sendData(chr(0x36) + chr(TREP) + parameter)
+		self.sendData(self.composeMessage(chr(0x36) + chr(TREP) + parameter))
 		payload = ''
 		counter = 1
 		failcounter = 0
-		while():
+		while True:
 			try:
 				response = self.singleResponse()
 			except wrongChecksum, malformedHeader:
 				failcounter += 1
 				if failcounter == 3:
 					raise communicationError("Failed to get the same 265-byte-chunk three times, aborting")
-				self.sendData(chr(0x83) + chr(0x36) + pack(">H",counter))
-				
-				
+				self.sendData(self.composeMessage(chr(0x83) + chr(0x76) + pack(">H",counter)))
 			else:
 				failcounter = 0
 				payload += response[4:]
 				if len(response) < 255:
+					print "end of block"
 					break
 				counter += 1
-				self.sendData(chr(0x83) + chr(0x36) + pack(">H",counter))
+				self.sendData(self.composeMessage(chr(0x83) + chr(0x76) + pack(">H",counter)))
 		return payload
 
 	def sendRawExpectingResponse(self, rawsenddata, expectdata, name = ''):
@@ -147,16 +147,20 @@ class vuSerial:
 			raise communicationError("Expected " + hexchunk(expectdata) + " as response to " + name + ", got " + hexchunk(response))
 	
 	def sendExpectingResponse(self, senddata, expectdata, name = ''):
-		return self.sendRawExpectingResponse(composeMessage(senddata), expectdata, name)
+		return self.sendRawExpectingResponse(self.composeMessage(senddata), expectdata, name)
 		
 	def singleResponse(self):
 		header = self.conn.read(4)
+		if options.verbose:
+			print "got header:" + hexchunk(header)
 		if header[0:3] != '\x80\xF0\xEE':
 			raise malformedHeader(header)
 		length = ord(header[3])
 		dataWithChecksum = self.conn.read(length + 1)
+		if options.verbose:
+			print "got data:" + hexchunk(dataWithChecksum)
 		payload = dataWithChecksum[:-1]
-		if _getChecksum(header + payload) == ord(dataWithChecksum[-1]):
+		if self._getChecksum(header + payload) == ord(dataWithChecksum[-1]):
 			if length == 3 and ord(payload[0])  == 0x7F:
 				raise vuErrorMessage(ord(payload[2]), ord(payload[1]))  
 			return payload
@@ -164,7 +168,8 @@ class vuSerial:
 			raise wrongChecksum
 
 	def sendData(self, data):
-		print "sending " + hexchunk(data) #+ "(" + data + ")"
+		if options.verbose:
+			print "sending " + hexchunk(data) #+ "(" + data + ")"
 		self.conn.write(data)
 	
 	def composeMessage(self, data):
@@ -174,7 +179,6 @@ class vuSerial:
 
 
 print "This is completely untested, without some hacking this will not work, and even if it does, it won't do what you expect"
-
 vu = vuSerial()
 data = vu.getBlock(1)
 print "Read data from vehicle unit in ", data[388:388+17]
