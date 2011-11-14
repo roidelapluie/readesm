@@ -24,11 +24,15 @@ from time import sleep
 
 parser = OptionParser(version="%prog 0.1")
 parser.add_option("-s", "--serial", dest="serial",
-                  help="serial terminal the VU is connected to", default='/dev/ttyUSB0', metavar="FILE")
+		help="serial terminal the VU is connected to", default='/dev/ttyUSB0', metavar="FILE")
 parser.add_option("-o", "--output", dest="output",
-                  help="File to save readesm data to", default='test.esm', metavar="FILE")
+		help="File to save readesm data to", default='test.esm', metavar="FILE")
 parser.add_option("-v", "--verbose", dest="verbose", action="store_true", default=False,
-                  help="Print traffic to stdout")
+		help="Print traffic to stdout")
+#parser.add_option("-f", "--first", dest="firstDate", metavar="DATE", default='', 
+		#help="First Date to download in ISO form, e.g. 2010-11-01")
+#parser.add_option("-l", "--last", dest="lastDate", metavar="DATE", default='', 
+		#help="Last Date to download in ISO form, e.g. 2010-11-01")
 
 (options, args) = parser.parse_args()
 
@@ -99,8 +103,10 @@ class vuSerial:
 				print err
 			else:
 				self.sendComposedData('\x87\x02\x03')
+				sleep(0.1) #wait until data is sent
 				self.conn.setBaudrate(baudRate)
-				break	
+				sleep(0.1) #wait until transition is handled
+				break
 		self.sendExpectingResponse('\x35\0\0\0\0\0\xFF\xFF\xFF\xFF', '\x75\0\xFF', name = 'Request Upload')
 		self.open = True
 	
@@ -110,7 +116,7 @@ class vuSerial:
 	def close(self):
 		"""Close connection if it's still open, send required commands"""
 		if self.open:
-			self.sendExpectingResponse(chr(0x35), chr(0x77), name = 'Transfer Exit')
+			self.sendExpectingResponse(chr(0x37), chr(0x77), name = 'Transfer Exit')
 			self.sendExpectingResponse(chr(0x82), chr(0xC2), name = 'Stop Communication')
 			self.conn.close()
 	
@@ -122,6 +128,19 @@ class vuSerial:
 		return sum % 256
 	
 	def getBlock(self, TREP, parameter = ''):
+		"""Download a vehicle unit data block with trep and parameter (date for activity blocks)"""
+		TREPstrings = {
+			0x1:"Overview",
+			0x2:"Activities recorded on ",
+			0x3:"Events and faults",
+			0x4:"Detailed speed",
+			0x5:"Technical data",
+			0x6:"Card download"
+		}
+		explain = "Requesting to download data for TREP %i" % TREP
+		if TREP in TREPstrings:
+			explain += " (%s)" % TREPstrings[TREP]
+		print explain
 		self.sendComposedData(chr(0x36) + chr(TREP) + parameter)
 		payload = ''
 		counter = 1
@@ -131,7 +150,7 @@ class vuSerial:
 				response = self.singleResponse()
 				sid = response[0]
 				if options.verbose:
-					print "SID " + sid + ", TREP " + response[1] + ", submessagecounter " + unpack(">H",response[2:3])
+					print "SID " + sid + ", TREP " + response[1] + ", submessagecounter " , unpack(">H",response[2:4])[0]
 			except wrongChecksum, malformedHeader:
 				failcounter += 1
 				if failcounter == 3:
@@ -139,13 +158,16 @@ class vuSerial:
 				self.sendComposedData(chr(0x83) + sid + pack(">H",counter))
 			else:
 				failcounter = 0
-				payload += response[4:]
+				if len(response) < 255 and counter == 1:
+					payload += response[2:]
+				else:
+					payload += response[4:]
 				if len(response) < 255:
-					print "end of block"
+					print "end of block, got %i Byte"  % len(payload)
 					break
 				counter += 1
 				self.sendComposedData(chr(0x83) + sid + pack(">H",counter))
-		return payload
+		return response[0:2] + payload
 
 	def sendRawExpectingResponse(self, rawsenddata, expectdata, name = ''):
 		"""Send raw data to the VU, expect a response
@@ -205,19 +227,23 @@ class vuSerial:
 
 print "This is completely untested, without some hacking this will not work, and even if it does, it won't do what you expect"
 vu = vuSerial()
+esmfile = open(options.output,"w")
 
 #get overview block
 data = vu.getBlock(1)
-print "Read data from vehicle unit in ", data[388:388+17]
-minDate = unpack('>I',data[424:428])
-maxDate = unpack('>I',data[428:432])
-print "Downloadable data is from " +  date.fromtimestamp(mindate) + " to " + date.fromtimestamp(maxdate) 
+esmfile.write(data)
+print "Read data from vehicle unit in ", data[390:390+17]
+minDate = unpack('>I',data[426:430])[0]
+maxDate = unpack('>I',data[430:434])[0]
+print minDate, maxDate
+print "Downloadable data is from " +  date.fromtimestamp(minDate).strftime("%F") + " to " + date.fromtimestamp(maxDate).strftime("%F")
 
-#get daily activity data
-for date in Range(minDate, maxDate + 1, 86400):
-	print "Downloading data for " +  date.fromtimestamp(date)
+#get daily activity data. 
+for daydate in range(minDate, maxDate + 1, 86400):
+	print "Downloading data for " +  date.fromtimestamp(daydate).strftime("%F")
 	try:
-		data += vu.getBlock(2, pack('>I',date))
+		data = vu.getBlock(2, pack('>I',daydate))
+		esmfile.write(data)
 	except vuErrorMessage as err:
 		print err
 	except communicationError as err:
@@ -227,16 +253,14 @@ for date in Range(minDate, maxDate + 1, 86400):
 for TREP in range(3,7):
 	print "asking for data block TREP", TREP
 	try:
-		data += vu.getBlock(TREP)
+		data = vu.getBlock(TREP)
+		esmfile.write(data)
 	except vuErrorMessage as err:
 		print err
 	except communicationError as err:
 		print err
 
 vu.close()
-
-esmfile = fopen(options.output)
-esmfile.write(data)
 esmfile.close()
 print "data saved to " + options.output
 
