@@ -1,0 +1,7 @@
+Format: http://www.debian.org/doc/copyright-format/1.0
+Upstream-Name: loadVu
+Source: http://andreas.goelzer.de/serial-download-from-a-digital-tachograph-in-python
+
+Files: *
+Copyright: 2011, Andreas Goelzer <andreas@goelzer.de>
+License: GPL-3+
