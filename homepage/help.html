@@ -40,7 +40,7 @@ European Union.  Readesm converts the binary data retrieved from the tachograph 
 <h2><a name="installation"></a>Installation</h2>
 
 <h3><a name="windows"></a>Windows</h3>
-<p>Download the <a href="http://sourceforge.net/projects/readesm/files/readesm/2011-03/readesm-2011.03-win32.exe/download">Installer</a>.  Execute it, then start readesm from the start menu.  You will have to associate it with tachograph files yourself.  Note that the windows version does not check the RSA signatures.</p>
+<p>Download the <a href="http://sourceforge.net/projects/readesm/files/readesm/2011-10/readesm-2011.10-win32.exe/download">Installer</a>.  Execute it, then start readesm from the start menu.  You will have to associate it with tachograph files yourself.  Note that the windows version does not check the RSA signatures.</p>
 
 <h3><a name="windowscompiling"></a>Compiling in Windows</h3>
 <p>Compiling in windows is not difficult.  You can use the <a href="http://qt.nokia.com/downloads/sdk-windows-cpp">Qt SDK</a>, it already includes MinGW.  You'll also need a version of <a href="http://www.cmake.org/">cmake</a>, and you might want to install a subversion client, for example <a href="http://tortoisesvn.tigris.org/">tortoise svn</a>.</p>
@@ -133,7 +133,7 @@ As with all european legislation it is available in several languages, for examp
 
 
 <h4><a name="downloadvu"></a>How can I download the data from the vehicle unit?</h4>
-<p>I fear you will have to resort to proprietary solutions here.  Alternatively you could code something yourself, the protocol is completely defined in the <a href="#legislation">legislation</a>.  I wrote a little program (<i>loadVU.py</i>) for serial download in python, it is currently in the readesm subversion repository, but it is completely untested yet.  But you might be able to code it into a usable state.</p>
+<p>I wrote a little program (<i>loadvu.py</i>) for serial download in python, it is currently in the readesm subversion repository and from <a href="http://andreas.goelzer.de/serial-download-from-a-digital-tachograph-in-python">my loadvu blog post</a>. As testing it requires a company card and a truck, svn versions will usually require some hacking to work flawlessly.</p>
 
 <h4><a name="downloadcard"></a>How can I download the data from the driver card?</h4>
 <p>Use <a href="http://developer.berlios.de/projects/fahrlinx/">Fahrlinux</a>.</p>

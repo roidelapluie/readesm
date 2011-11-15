@@ -7,3 +7,7 @@ td.cont {
 	font-size: 0.75em;
 	width: 160px
 }
+
+body {
+	font-family:"Ubuntu", sans-serif;
+}
