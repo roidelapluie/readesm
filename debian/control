@@ -3,7 +3,7 @@ Priority: optional
 Section: text
 Maintainer: Ubuntu MOTU Developers <ubuntu-motu@lists.ubuntu.com>
 XSBC-Original-Maintainer: Andreas Goelzer <andreas@goelzer.de>
-Standards-Version:  3.8.4
+Standards-Version:  3.9.2
 Build-Depends: cdbs, cmake, libqt4-dev, qt4-qmake, libqtwebkit-dev, libgcrypt11-dev, libgmp3-dev, debhelper (>= 7)
 Homepage: http://readesm.sourceforge.net
 
