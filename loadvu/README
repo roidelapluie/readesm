@@ -1,0 +1,9 @@
+loadvu is a script to download data from a digital tachograph unit
+using a serial cable.
+It works on the tachographs used in eu/aetr countries.
+
+start with
+./loadvu -o FILE
+
+type 
+./loadvu --help for a list of parameters
