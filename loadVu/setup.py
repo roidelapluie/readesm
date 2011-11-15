@@ -1,7 +1,10 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 from distutils.core import setup
 setup(
 	name='loadVu',
-	version='0.1',
+	version='2011.11',
 	py_modules=[],
 	scripts=['loadVu'],
 	author='Andreas Gölzer',

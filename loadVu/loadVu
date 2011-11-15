@@ -119,6 +119,7 @@ class vuSerial:
 			self.sendExpectingResponse(chr(0x37), chr(0x77), name = 'Transfer Exit')
 			self.sendExpectingResponse(chr(0x82), chr(0xC2), name = 'Stop Communication')
 			self.conn.close()
+			self.open = False
 	
 	def _getChecksum(self, data):
 		"""simple modulo-256-checksum."""
