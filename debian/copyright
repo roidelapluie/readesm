@@ -1,28 +1,19 @@
-This package was debianized and written by Andreas Gölzer <andreas@goelzer.de>
-March 9th, 2011 
+Format: http://www.debian.org/doc/copyright-format/1.0
+Upstream-Name: readesm
+Source: http://readesm.sourceforge.net/
 
-The source can be downloaded from : http://readesm.sourceforge.net/
+Files: *
+Copyright: 2011, Andreas Gölzer <andreas@goelzer.de>
+License: GPL-3+
 
-Upstream Authors: Andreas Gölzer <k_2005@goelzer.de>
+Files: ressources/translations/readesm_de.ts
+Copyright: 2009,2010,2011 Martin Walch <walch.martin@web.de> and Andreas Gölzer <andreas@goelzer.de>
 
-Copyright:
-	Copyright (C) 2009 by Andreas Gölzer
-	German Translation copyright (C) 2009 by Martin Walch
-	Spanish Translation copyright (C) 2011 by Jose Huguet
+Files: ressources/translations/readesm_es.ts
+Copyright: 2011 José Huguet Pérez <huguet@itemcs.net>
 
-License:
-	Readesm is free software: you can redistribute it and/or modify it under the
-	terms of the GNU General Public License as published by the Free Software
-	Foundation, either version 3 of the License, or (at your option) any later
-	version.
+Files: ressources/translations/readesm_hu.ts
+Copyright: 2011 Mikulás Róbert <rmikulas@gmail.com>
 
-	Readesm is distributed in the hope that it will be useful, but WITHOUT ANY
-	WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
-	PARTICULAR PURPOSE. See the GNU General Public License for more details.
-
-	/usr/share/common-licenses/GPL should contain a copy of the license. If not,
-	see <http://www.gnu.org/licenses/>.
-
-Packaging:
-	Copyright (C) 2009 by Andreas Gölzer <andreas@goelzer.de>
-	released under the GPL version 3
+License: GPL-3+
+ [LICENSE TEXT]

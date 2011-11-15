@@ -1,5 +1,5 @@
 Format: http://www.debian.org/doc/copyright-format/1.0
-Upstream-Name: loadVu
+Upstream-Name: loadvu
 Source: http://andreas.goelzer.de/serial-download-from-a-digital-tachograph-in-python
 
 Files: *
