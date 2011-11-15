@@ -1,0 +1,23 @@
+loadvu (2011.11.1ubuntu2) oneiric; urgency=low
+
+  * more packaging changes
+
+ -- Andreas Goelzer <K_2005@goelzer.de>  Tue, 15 Nov 2011 11:26:37 +0100
+
+loadvu (2011.11.1ubuntu1) oneiric; urgency=low
+
+  * leaner package
+
+ -- Andreas Goelzer <K_2005@goelzer.de>  Tue, 15 Nov 2011 11:18:59 +0100
+
+loadvu (2011.11.1) oneiric; urgency=low
+
+  * Packaging fixes
+
+ -- Andreas Goelzer <K_2005@goelzer.de>  Tue, 15 Nov 2011 10:52:23 +0100
+
+loadvu (2011.11) oneiric; urgency=low
+
+  * Initial release.
+
+ -- Andreas Goelzer <K_2005@goelzer.de>  Tue, 15 Nov 2011 00:27:23 +0100

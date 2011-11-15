@@ -1,0 +1,15 @@
+Source: loadvu
+Priority: optional
+Section: text
+Maintainer: Ubuntu MOTU Developers <ubuntu-motu@lists.ubuntu.com>
+XSBC-Original-Maintainer: Andreas Goelzer <andreas@goelzer.de>
+Standards-Version:  3.9.2
+Build-Depends: cdbs, debhelper (>= 7), python-support, python
+Homepage: http://developer.berlios.de/projects/fahrlinx/ 
+
+Package: loadvu
+Architecture: all
+Depends: ${misc:Depends}, ${python:Depends}, python-serial
+Suggests: readesm
+Description: Script to serially download data from digital tachographs.
+ New trucks in the European Union are required to have a digital tachograph unit on board.  This script downloads data from vehicle units attached to the computer with a serial cable.

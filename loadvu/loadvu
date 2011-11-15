@@ -1,0 +1,94 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+## Tool to read tachograph data from a vehicle unit connected serially 
+## Copyright(C) 2011 Andreas Gölzer
+
+#This is free software: you can redistribute it and/or modify it under the
+#terms of the GNU General Public License as published by the Free Software
+#Foundation, either version 3 of the License, or (at your option) any later
+#version.
+
+#It is distributed in the hope that it will be useful, but WITHOUT ANY
+#WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+#FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+#You should have received a copy of the GNU General Public License along with
+#this program.  If not, see <http://www.gnu.org/licenses/>.
+
+import vuserial
+from optparse import OptionParser
+from struct import pack, unpack
+from datetime import date
+
+parser = OptionParser(version="%prog 0.1")
+parser.add_option("-s", "--serial", dest="serial",
+		help="serial terminal the VU is connected to", default='/dev/ttyUSB0', metavar="FILE")
+parser.add_option("-o", "--output", dest="output",
+		help="File to save readesm data to", default='test.esm', metavar="FILE")
+parser.add_option("-v", "--verbose", dest="verbose", action="store_true", default=False,
+		help="Print traffic to stdout")
+parser.add_option("-f", "--first", dest="firstDate", metavar="DATE", default='', 
+		help="First Date to download in ISO form, e.g. 2010-11-01")
+parser.add_option("-l", "--last", dest="lastDate", metavar="DATE", default='', 
+		help="Last Date to download in ISO form, e.g. 2010-11-01")
+
+(options, args) = parser.parse_args()
+
+
+
+print "This is untested, use the last release or hack this into working state"
+try:
+	vu = vuserial.vuSerial(options.serial)
+except vuserial.malformedHeader as err:
+	print err
+	print "Could not open a connection to the vehicle unit.  Check that the cable is plugged into the VU and that the VU is connected to " + options.serial + "."
+	exit(2)
+except vuserial.SerialException as err:
+	print err
+	print "This usually means " + options.serial + " could not be opened.  Check that the USB cable is plugged into the computer."
+	exit(2)
+if not vu.open:
+	exit(2)
+try:
+	esmfile = open(options.output,"w")
+
+	#get overview block
+	data = vu.getBlock(1)
+	esmfile.write(data)
+	print "Read data from vehicle unit in ", data[390:390+17]
+	minDate = unpack('>I',data[426:430])[0]
+	maxDate = unpack('>I',data[430:434])[0]
+	print minDate, maxDate
+	print "Downloadable data is from " +  date.fromtimestamp(minDate).strftime("%F") + " to " + date.fromtimestamp(maxDate).strftime("%F")
+
+	#get daily activity data. 
+	for daydate in range(minDate, maxDate + 1, 86400):
+		print "Downloading data for " +  date.fromtimestamp(daydate).strftime("%F")
+		try:
+			data = vu.getBlock(2, pack('>I',daydate))
+			esmfile.write(data)
+		except vuserial.vuErrorMessage as err:
+			print err
+		except vuserial.communicationError as err:
+			print err
+
+	#get other blocks
+	for TREP in range(3,7):
+		print "asking for data block TREP", TREP
+		try:
+			data = vu.getBlock(TREP)
+			esmfile.write(data)
+		except vuserial.vuErrorMessage as err:
+			print err
+		except vuserial.communicationError as err:
+			print err
+except KeyboardInterrupt:
+	print "Aborting after user input. Saving partial data and trying to close the connection gracefully"
+	esmfile.close()
+	vu.close()
+
+esmfile.close()
+vu.close()
+print "data saved to " + options.output
+
