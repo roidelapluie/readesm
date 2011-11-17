@@ -21,7 +21,7 @@ from optparse import OptionParser
 import timestampsutc
 from time import time
 
-parser = OptionParser(version="%prog 0.1")
+parser = OptionParser(version="%prog 2011.11")
 parser.add_option("-s", "--serial", dest="serial",
 		help="serial terminal the VU is connected to", default='/dev/ttyUSB0', metavar="FILE")
 parser.add_option("-o", "--output", dest="output",
