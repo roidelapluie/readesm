@@ -24,8 +24,8 @@ from time import time
 parser = OptionParser(version="%prog 2011.11")
 parser.add_option("-s", "--serial", dest="serial",
 		help="serial terminal the VU is connected to", default='/dev/ttyUSB0', metavar="FILE")
-parser.add_option("-o", "--output", dest="output",
-		help="File to save readesm data to", default='test.esm', metavar="FILE")
+parser.add_option("-o", "--output", dest="output", default='', metavar="FILE",
+		help="Save data to this file (default: try to choose an appropriate name)")
 parser.add_option("-v", "--verbose", dest="verbose", action="store_true", default=False,
 		help="Print traffic to stdout")
 parser.add_option("-f", "--first", dest="firstDate", metavar="DATE", default='', 
@@ -36,7 +36,7 @@ parser.add_option("-t", "--treps", dest="treps", metavar="N", default='2,3,4,5,6
 		help="Extra TREPS to get in addition to overview block (default: all defined in the standard)")
 
 (options, args) = parser.parse_args()
-treps = option.treps.split(",")
+treps = options.treps.split(",")
 
 
 print "This is untested, use the last release or hack this into working state"
@@ -54,17 +54,28 @@ except vuserial.SerialException as err:
 if not vu.open:
 	exit(2)
 try:
-	esmfile = open(options.output,"w")
-
 	#get overview block
 	data = vu.getBlock(1)
-	esmfile.write(data)
-	esmfile.flush()
-	print "Read data from vehicle unit in ", data[390:390+17]
+	vehicleName = data[390:390+17]
+	print "Read data from vehicle unit in " + vehicleName
 	minDate = timestampsutc.unpackTimestamp(data[426:430])
 	maxDate = timestampsutc.unpackTimestamp(data[430:434])
 	print minDate, maxDate
-	print "Downloadable data is from " +  timestampsutc.formatTimestamp(minDate) + " to " + timestampsutc.formatTimestamp(maxDate)
+	timerange = timestampsutc.formatTimestamp(minDate) + " to " + timestampsutc.formatTimestamp(maxDate)
+	print "Downloadable data is from " + timerange
+
+	filename = options.output
+	if(filename == ""):
+		filename = vehicleName + " "
+		if "2" in treps:
+			filename += timerange
+		else:
+			filename += timestampsutc.formatTimestamp(maxDate)
+		filename += ".esm"
+		
+	esmfile = open(filename,"w")
+	esmfile.write(data)
+	esmfile.flush()
 	
 	#get daily activity data. 
 	if 2 in treps:
