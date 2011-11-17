@@ -41,7 +41,7 @@ class communicationError(Exception):
 	def __init__(self, description):
 		self.description = description
 	def __str__(self):
-		return description
+		return self.description
 
 class wrongChecksum(Exception):
 	"""wrong checksum, should be caught and the wrongly transmitted message rerequested"""
@@ -111,10 +111,10 @@ class vuSerial:
 	
 	def _getChecksum(self, data):
 		"""simple modulo-256-checksum."""
-		sum = 0
+		datasum = 0
 		for byte in data:
-			sum += ord(byte)
-		return sum % 256
+			datasum += ord(byte)
+		return datasum % 256
 	
 	def getBlock(self, TREP, parameter = ''):
 		"""Download a vehicle unit data block with trep and parameter (date for activity blocks)"""
@@ -213,5 +213,5 @@ class vuSerial:
 	def composeMessage(self, data):
 		"""add header(0x80 for message type, 0xEE for target VU, 0xF0 for source IDE, length of payload) and checksum to the data""" 
 		fullmsg = '\x80\xEE\xF0' + chr(len(data)) + data
-		sum = self._getChecksum(fullmsg)
-		return fullmsg + chr(sum)
+		checksum = self._getChecksum(fullmsg)
+		return fullmsg + chr(checksum)

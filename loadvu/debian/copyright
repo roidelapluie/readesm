@@ -3,6 +3,6 @@ Upstream-Name: loadvu
 Source: http://andreas.goelzer.de/serial-download-from-a-digital-tachograph-in-python
 
 Files: *
-Copyright: 2011, Andreas Goelzer <andreas@goelzer.de>
+Copyright: 2011, Andreas Gölzer <andreas@goelzer.de>
 License: GPL-3+
  [LICENSE TEXT]

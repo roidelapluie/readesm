@@ -18,8 +18,8 @@
 
 import vuserial
 from optparse import OptionParser
-from struct import pack, unpack
-from datetime import date
+import timestampsutc
+from time import time
 
 parser = OptionParser(version="%prog 0.1")
 parser.add_option("-s", "--serial", dest="serial",
@@ -38,6 +38,7 @@ parser.add_option("-l", "--last", dest="lastDate", metavar="DATE", default='',
 
 
 print "This is untested, use the last release or hack this into working state"
+startTime = time()
 try:
 	vu = vuserial.vuSerial(options.serial)
 except vuserial.malformedHeader as err:
@@ -56,18 +57,24 @@ try:
 	#get overview block
 	data = vu.getBlock(1)
 	esmfile.write(data)
+	esmfile.flush()
 	print "Read data from vehicle unit in ", data[390:390+17]
-	minDate = unpack('>I',data[426:430])[0]
-	maxDate = unpack('>I',data[430:434])[0]
+	minDate = timestampsutc.unpackTimestamp(data[426:430])
+	maxDate = timestampsutc.unpackTimestamp(data[430:434])
 	print minDate, maxDate
-	print "Downloadable data is from " +  date.fromtimestamp(minDate).strftime("%F") + " to " + date.fromtimestamp(maxDate).strftime("%F")
-
+	print "Downloadable data is from " +  timestampsutc.formatTimestamp(minDate) + " to " + timestampsutc.formatTimestamp(maxDate)
+	if(options.firstDate != ''):
+		minDate = timestampsutc.dateToTimestamp(options.firstDate)
+	if(options.lastDate != ''):
+		maxDate = timestampsutc.dateToTimestamp(options.lastDate)
+	print "Downloading data from " +  timestampsutc.formatTimestamp(minDate) + " to " + timestampsutc.formatTimestamp(maxDate)
 	#get daily activity data. 
 	for daydate in range(minDate, maxDate + 1, 86400):
-		print "Downloading data for " +  date.fromtimestamp(daydate).strftime("%F")
+		print "Downloading data for " +  timestampsutc.formatTimestamp(daydate)
 		try:
-			data = vu.getBlock(2, pack('>I',daydate))
+			data = vu.getBlock(2, timestampsutc.packTimestamp(daydate))
 			esmfile.write(data)
+			esmfile.flush()
 		except vuserial.vuErrorMessage as err:
 			print err
 		except vuserial.communicationError as err:
@@ -79,16 +86,17 @@ try:
 		try:
 			data = vu.getBlock(TREP)
 			esmfile.write(data)
+			esmfile.flush()
 		except vuserial.vuErrorMessage as err:
 			print err
 		except vuserial.communicationError as err:
 			print err
 except KeyboardInterrupt:
 	print "Aborting after user input. Saving partial data and trying to close the connection gracefully"
-	esmfile.close()
-	vu.close()
 
+dataSize = esmfile.tell()
 esmfile.close()
 vu.close()
+elapsedTime = time() - startTime
 print "data saved to " + options.output
-
+print "Got " + dataSize + " in " + elapsedTime +" seconds. (" + (dataSize / elapsedTime) + " Byte/s)"
