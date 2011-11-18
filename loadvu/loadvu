@@ -16,12 +16,19 @@
 #You should have received a copy of the GNU General Public License along with
 #this program.  If not, see <http://www.gnu.org/licenses/>.
 
+#see http://andreas.goelzer.de/serial-download-from-a-digital-tachograph-in-python
+#for help
 import vuserial
 from optparse import OptionParser
 import timestampsutc
 from time import time
+from os import system
 
-parser = OptionParser(version="%prog 2011.11")
+parser = OptionParser(
+		version="%prog 2011.11", 
+		description="Tool to download data from a digital tachograph vehicle unit using a serial connection. " +
+			"See http://andreas.goelzer.de/serial-download-from-a-digital-tachograph-in-python for details."
+		)
 parser.add_option("-s", "--serial", dest="serial",
 		help="serial terminal the VU is connected to", default='/dev/ttyUSB0', metavar="FILE")
 parser.add_option("-o", "--output", dest="output", default='', metavar="FILE",
@@ -33,7 +40,9 @@ parser.add_option("-f", "--first", dest="firstDate", metavar="DATE", default='',
 parser.add_option("-l", "--last", dest="lastDate", metavar="DATE", default='', 
 		help="Last Date to download in ISO form, e.g. 2010-11-01")
 parser.add_option("-t", "--treps", dest="treps", metavar="N", default='2,3,4,5,6', 
-		help="Extra TREPS to get in addition to overview block (default: all defined in the standard)")
+		help="Extra TREPS to get in addition to overview block (default: 2,3,4,5,6 (those are the ones defined in the standard))")
+parser.add_option("-r", "--readesm", dest="readesm", action="store_true", default=False,
+		help="Open file in readesm after download")
 
 (options, args) = parser.parse_args()
 treps = options.treps.split(",")
@@ -56,11 +65,14 @@ if not vu.open:
 try:
 	#get overview block
 	data = vu.getBlock(1)
-	vehicleName = data[390:390+17]
+	vehicleId = data[390:390+17].strip()
+	vehicleReg = data[409:409+13].strip()
+	vehicleName = vehicleReg
+	if vehicleName == "":
+		vehicleName = vehicleId
 	print "Read data from vehicle unit in " + vehicleName
 	minDate = timestampsutc.unpackTimestamp(data[426:430])
 	maxDate = timestampsutc.unpackTimestamp(data[430:434])
-	print minDate, maxDate
 	timerange = timestampsutc.formatTimestamp(minDate) + " to " + timestampsutc.formatTimestamp(maxDate)
 	print "Downloadable data is from " + timerange
 
@@ -78,7 +90,7 @@ try:
 	esmfile.flush()
 	
 	#get daily activity data. 
-	if 2 in treps:
+	if "2" in treps:
 		if(options.firstDate != ''):
 			minDate = timestampsutc.dateToTimestamp(options.firstDate)
 		if(options.lastDate != ''):
@@ -96,11 +108,12 @@ try:
 				print err
 
 	#get other blocks
-	treps.remove("2")
+	if "2" in treps:
+		treps.remove("2")
 	for TREP in treps:
 		print "asking for data block TREP", TREP
 		try:
-			data = vu.getBlock(TREP)
+			data = vu.getBlock(int(TREP))
 			esmfile.write(data)
 			esmfile.flush()
 		except vuserial.vuErrorMessage as err:
@@ -114,5 +127,7 @@ dataSize = esmfile.tell()
 esmfile.close()
 vu.close()
 elapsedTime = time() - startTime
-print "data saved to " + options.output
-print "Got " + dataSize + " in " + elapsedTime +" seconds. (" + (dataSize / elapsedTime) + " Byte/s)"
+print "data saved to " + filename
+print "Got " + str(dataSize) + " Byte in " + str(elapsedTime) +" seconds. (" + str(dataSize / elapsedTime) + " Byte/s)"
+if options.readesm:
+	system("readesm \"" + filename+"\" &")

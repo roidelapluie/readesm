@@ -77,7 +77,7 @@ class vuSerial:
 	def __init__(self, serialPort, maxBaudRate=115200, verbose=1):
 		self.open = False
 		self.verbose = verbose
-		self.conn = serial.Serial(serialPort, 9600, parity=serial.PARITY_EVEN, timeout=6)
+		self.conn = serial.Serial(serialPort, 9600, parity=serial.PARITY_EVEN, timeout=20)
 		self.sendRawExpectingResponse('\x81\xEE\xF0\x81\xE0', '\xC1\xEA\x8f', 'Start Communication Request')
 		self.sendExpectingResponse('\x10\x81', '\x50\x81', 'Diagnostic Session')
 
