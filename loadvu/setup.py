@@ -5,7 +5,7 @@ from distutils.core import setup
 setup(
 	name='loadvu',
 	version='2011.11',
-	py_modules=['vuserial'],
+	py_modules=['vuserial','timestampsutc'],
 	scripts=['loadvu'],
 	author='Andreas Gölzer',
 	author_email='andreas@goelzer.de',
