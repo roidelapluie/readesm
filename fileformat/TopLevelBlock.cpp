@@ -2,6 +2,7 @@
 #include "DataTypes/EncryptedCertificate.h"
 
 #include "config.h"
+#include <QDebug>
 
 RawData TopLevelBlock::signatureBytes() const {
 	return RawData(start + size() - 128, 128);
@@ -16,6 +17,7 @@ TopLevelBlock::TopLevelBlock(const DataPointer& start) : Block(start),
 void TopLevelBlock::checkSignature(const EncryptedCertificate& cert){
 #ifdef HAVE_CRYPTO
 	if(hasSignature) validSignature = cert.checkSignature(signedBytes(), signatureBytes());
+	qDebug() << title() << signatureValidity();
 #endif
 }
 
