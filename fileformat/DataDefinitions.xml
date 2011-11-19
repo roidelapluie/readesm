@@ -280,6 +280,13 @@
 		</content>
 	</VuBlock>
 
+	<VuBlock name="VuCardData" type="0x6" requiresSignature="no">
+		<title>Card Data</title>
+		<comment>Card Data should be saved to a separate file</comment>
+		<content>
+		</content>
+	</VuBlock>
+	
 	<DataType name="ExtendedSerialNumber">
 		<content>
 			<int length="4" name="serialNumber" />
@@ -305,7 +312,7 @@
 		</content>
 	</DataType>
 
-	<VuBlock name="Block11" type="0x11">
+	<VuBlock name="Block11" type="0x11" requiresSignature="no">
 		<comment>This block is not covered in the european law. My (Andreas) guess is that this is something manufacturer-specific, in the files from siemens vdos this block (code 0x7611) contains, well, card numbers and timestamps. It might be something else from other manufacturers. If you do know what it does, please tell me.</comment>
 		<title>Unknown Block with TREP 0x11</title>
 		<content>
@@ -314,12 +321,19 @@
 		</content>
 	</VuBlock>
 
-	<VuBlock name="Block13" type="0x13">
+	<VuBlock name="Block13" type="0x13" requiresSignature="no">
 		<comment>This block is not covered in the european law. My (Andreas) guess is that this is something manufacturer-specific, in the files from siemens vdos this block (code 0x7613) contains, well, card numbers and timestamps. It might be something else from other manufacturers. If you do know what it does, please tell me.</comment>
 		<title>Unknown Block with TREP 0x13</title>
 		<content>
 			<RawData length="30" name="header" />
 			<Subblocks type="Block11Record" counterlength="2" />
+		</content>
+	</VuBlock>
+	
+	<VuBlock name="Block14" type="0x14" requiresSignature="no">
+		<title>Unknown Block with TREP 0x14</title>
+		<content>
+			<RawData length="2" name="data" />
 		</content>
 	</VuBlock>
 

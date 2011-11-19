@@ -193,7 +193,10 @@ for block in tree.findall('CardBlock') + tree.findall('DataType') + tree.findall
 		  '\t' + 'Q_DECLARE_TR_FUNCTIONS(' + block.get('name') + ')\npublic:\n' + \
 		  '\t' + elements.replace('\n','\n\t') + '\n\n' + \
 		  '\t' + name + '(const DataPointer& filewalker);\n'
-	codeContent = name + '::' + name + '(const DataPointer& filewalker) : ' + initList + '\n{}\n\n'
+	codeContent = name + '::' + name + '(const DataPointer& filewalker) : ' + initList + '\n{'
+	if block.tag == 'VuBlock' and block.get("requiresSignature") == "no":
+		codeContent += '\thasSignature = false;\n'
+	codeContent += '}\n\n'
 
 	headerContent += '\t' + '///returns "'+ name + '"\nQString className() const;\n'
 	codeContent +=  'QString ' + name + '::className() const {\n\treturn "' + name + '";\n}\n\n'
@@ -214,8 +217,7 @@ for block in tree.findall('CardBlock') + tree.findall('DataType') + tree.findall
 		headerContent += '\tint size() const;\n'
 		if block.tag == 'DataType':
 			headerContent += '\tstatic const int staticSize = %(offset)i;\n' % vars()
-		hasSignature = block.get('requiresSignature')
-		if hasSignature:
+		if block.tag == 'VuBlock' and block.get('requiresSignature') != "no":
 			offset += 128
 		codeContent += 'int %(name)s::size() const{\n\treturn %(offset)i %(offsetextra)s;\n}\n\n' % vars()
 	toString = block.find('toString')
