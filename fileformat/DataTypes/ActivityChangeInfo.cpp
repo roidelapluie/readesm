@@ -90,7 +90,6 @@ QString ActivityChangeInfo::extraString() const {
 			rv += (c == 0 ? tr("following activity unknown") : tr("following activity manually entered"));
 		}
 	}
-	rv += QString(" (s=%1, c=%2, p=%3, a=%4, t=%5)").arg(s).arg(c).arg(p).arg(a).arg(t);
 	return rv;
 }
 
@@ -107,8 +106,13 @@ int ActivityChangeInfo::size() const {
 }
 
 void ActivityChangeInfo::printOn(Reporter & o) const {
-	o.tagValuePair(activityName() + ", " + timespan(), extraString());
+	o.tagValuePair(tr("activity"), activityName());
+	o.tagValuePair(tr("time"), timespan());
+	o.tagValuePair(tr("slot status"), extraString());
+	o.tagValuePair(tr("Raw data"), QString("s=%1, c=%2, p=%3, a=%4, t=%5").arg(s).arg(c).arg(p).arg(a).arg(t));
+	
 }
+
 bool ActivityChangeInfo::isDefaultValue() const {
 	return false;
 }
