@@ -1,3 +1,16 @@
+readesm (2011.11pre1ubuntu2) oneiric; urgency=low
+
+  * russian translation
+
+ -- Andreas Goelzer <K_2005@goelzer.de>  Wed, 30 Nov 2011 23:09:37 +0100
+
+readesm (2011.11pre1ubuntu1) oneiric; urgency=low
+
+  * lots of fixes
+
+ -- Andreas Goelzer <K_2005@goelzer.de>  Sun, 20 Nov 2011 23:01:24 +0100
+
+
 readesm (2008.03pre1ubuntu2) maverick; urgency=low
 
   * New release with qt gui

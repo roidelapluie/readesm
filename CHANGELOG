@@ -1,4 +1,21 @@
 Readesm changelog
+2011-11
++ optical fixes
+
+2011-10
++ Lots of internal changes
++ Monthly Timesheets
++ More Accurate visualization of Driver activities, added "unknown" state
++ Show textual representation of activities on demand
++ Should read more files without crashing
++ Hungarian translation, thanks to Mikulás Róbert
+0 Read and show all data, this of course makes it a bit harder to read
+0 Use lists instead of tables in html output
+- No more plaintext output
+- No more classic html output, so generated files cannot be read in old versions of IE
+- Content section at start of generated html has less links
+
+
 2011-04(preliminary, svn)
 * Spanish translation, thanks to Jose Huguet
 * decode extended serial number
