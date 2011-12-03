@@ -49,7 +49,8 @@ void EsmFile::printOn(Reporter& report) const{
 	}
 }
 
-EsmFile::EsmFile(const QString& filename) : fileData(loadFile(filename)) {
+EsmFile::EsmFile(const QString& filename) : fileData(loadFile(filename)), errors() {
+	if(fileData.size() == 0) errors = tr("Could not read any data from file '%1'.").arg(filename);
 	DataPointer fileWalker(fileData);
 	while(fileWalker.bytesLeft() > 0) {
 		QSharedPointer<TopLevelBlock> p(blockFactory(fileWalker));
@@ -105,4 +106,8 @@ QString EsmFile::suggestTitle() const {
 
 QString EsmFile::suggestFileName() const {
 	return suggestTitle();
+}
+
+QString EsmFile::errorLog() const {
+	return errors;
 }

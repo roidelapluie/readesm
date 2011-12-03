@@ -33,6 +33,8 @@ public:
 
 	EsmFile(const QString& filename);
 
+	QString errorLog() const;
+	
 	QString suggestTitle() const;
 	QString suggestFileName() const;
 	
@@ -40,6 +42,7 @@ public:
 	
 protected:
 	void printOn(Reporter& o) const;
+	QString errors;
 
 };
 

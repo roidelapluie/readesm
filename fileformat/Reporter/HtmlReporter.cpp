@@ -60,6 +60,7 @@ QString HtmlReporter::toggleAbleBlocks(const QString& title, bool showByDefault)
 QByteArray HtmlReporter::toQByteArray() const{
 	collector.flush();
 	linkCollector.flush();
+	if(collected.size() == 0) return QByteArray();
 	QByteArray filecontent = loadFile(":/template.html");
 	filecontent.replace("$title", title.toUtf8());
 	filecontent.replace("$content", collected);

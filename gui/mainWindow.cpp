@@ -16,6 +16,7 @@
 #include <QtGui/QPrintDialog>
 #include <QtWebKit/QWebFrame>
 #include <QtWebKit/QWebView>
+#include <QtCore/QDebug>
 
 mainWindow::mainWindow()
 {
@@ -110,11 +111,18 @@ void mainWindow::openFile()
 void mainWindow::openFile(const QString& filename)
 {
 	esm = QSharedPointer<EsmFile>(new EsmFile(filename));
+	if(esm->errorLog() != ""){
+		qDebug() << "error" << esm->errorLog();
+		QMessageBox msgBox(QMessageBox::Warning, tr("Could not read file"), esm->errorLog(), 0, this);
+		msgBox.exec();
+	}
 	HtmlReporter rep;
 	rep << *esm;
 	htmlContent = rep.toQByteArray();
-	view->setContent(htmlContent, "application/xhtml+xml");
-	setWindowTitle(esm->suggestTitle() + " - readesm");
+	if(htmlContent.size() > 0){
+		view->setContent(htmlContent, "application/xhtml+xml");
+		setWindowTitle(esm->suggestTitle() + " - readesm");
+	}
 	//view->setHtml(rep.str().toUtf8());
 }
 
