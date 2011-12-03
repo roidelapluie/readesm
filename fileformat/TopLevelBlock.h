@@ -34,11 +34,12 @@ public:
 	virtual void checkSignature(const EncryptedCertificate& cert);
 	virtual QString signatureValidity() const;
 	friend Reporter& operator<<(Reporter& o, const TopLevelBlock& b);
-	
+	enum SignatureState { UNKNOWN, NOTPRESENT, NOTPRESENTBUTSHOULDBE, UNCHECKED, VALID, INVALID };
 protected:
 	virtual RawData signedBytes() const = 0;
 	virtual RawData signatureBytes() const;
 	virtual void printOn(Reporter& o) const;
+	SignatureState signatureState;
 	bool validSignature;
 	bool hasSignature;
 };
