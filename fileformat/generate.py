@@ -44,8 +44,7 @@ def lcfirst(a):
 	return a[0].lower() + a[1:]
 
 def writeCodeFile(name, directory, headerContent, codeContent, headerDependencies, codeDependencies):
-	autoGenWarning = '\n//This file was AUTO-GENERATED. Make changes in the generator script(' + __file__ + ')' + \
-		'\n//the derived classes or in the data definition\n\n';
+	autoGenWarning = '\n/** \\file \n\\brief auto-generated file for '+name+'\n\nThis file was AUTO-GENERATED.\nMake changes in the generator script generate.py,\nthe data definitions in DataDefinitions.xml\nor derive a class*/\n\n';
 	headerFile =   '#ifndef '  + name.upper() + '_H\n' + \
 		  '#define '  + name.upper() + '_H\n' + \
 		  '\n' + autoGenWarning  + \
@@ -228,7 +227,10 @@ for block in tree.findall('CardBlock') + tree.findall('DataType') + tree.findall
 		
 	headerContent += '\t' + 'virtual void printOn(Reporter& report) const;\n' + \
 		  '};\n\n'
-	codeContent += 'void ' + name + '::printOn(Reporter& report) const {' + output.replace('\n','\n\t') + '\n}\n'
+	codeContent += 'void ' + name + '::printOn(Reporter& report) const {' + output.replace('\n','\n\t')
+	if block.tag == 'CardBlock':
+		codeContent += "if(size() != %(offset)i %(offsetextra)s){ report.tagValuePair(\"should have\", %(offset)i %(offsetextra)s); report.tagValuePair(\"has\", size()); }" % vars()
+	codeContent += '\n}\n'
 
 	comment = block.find('comment')
 	if comment is not None:
