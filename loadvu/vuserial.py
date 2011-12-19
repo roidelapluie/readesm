@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-## Tool to read tachograph data from a vehicle unit connected serially 
+"""Tool to read tachograph data from a vehicle unit connected serially"""
 ## Copyright(C) 2011 Andreas Gölzer
 
 #This is free software: you can redistribute it and/or modify it under the
@@ -22,6 +22,9 @@ from serial.serialutil import SerialException
 from struct import pack, unpack
 
 def hexchunk(data):
+	"""convert data in a string to hexadecimal representation
+	
+	For example: "\x76\x6e" to "76 6e"."""
 	rv = ""
 	for byte in data:
 		rv += " " + hex(ord(byte))
@@ -71,6 +74,21 @@ class vuErrorMessage(Exception):
 		else:
 			rv += "Unknown error code %s" % hex(self.code)
 		return rv
+
+def trepToString(TREP):
+	"""Request number to Human-readable string"""
+	TREPstrings = {
+		0x1:"Overview",
+		0x2:"Activities recorded on ",
+		0x3:"Events and faults",
+		0x4:"Detailed speed",
+		0x5:"Technical data",
+		0x6:"Card download"
+	}
+	if(TREP in TREPstrings.keys()):
+		return TREPstrings[TREP]
+	else:
+		return "Unknown, TREP " + str(TREP)
 	
 class vuSerial:
 	"""Class for Serial connections to the vehicle unit"""
@@ -115,22 +133,10 @@ class vuSerial:
 		for byte in data:
 			datasum += ord(byte)
 		return datasum % 256
-	
 	def getBlock(self, TREP, parameter = ''):
 		"""Download a vehicle unit data block with trep and parameter (date for activity blocks)"""
 		if self.verbose >= 1:
-			TREPstrings = {
-				0x1:"Overview",
-				0x2:"Activities recorded on ",
-				0x3:"Events and faults",
-				0x4:"Detailed speed",
-				0x5:"Technical data",
-				0x6:"Card download"
-			}
-			explain = "Requesting to download data for TREP %i" % TREP
-			if TREP in TREPstrings:
-				explain += " (%s)" % TREPstrings[TREP]
-			print explain
+			print "Requesting to download data for TREP %i (%s)" % (TREP, trepToString(TREP))
 		self.sendComposedData(chr(0x36) + chr(TREP) + parameter)
 		payload = ''
 		counter = 1

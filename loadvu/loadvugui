@@ -1,0 +1,63 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+import sys
+from PyQt4 import QtCore, QtGui
+import serial
+from vuserial import trepToString
+
+app = QtGui.QApplication(sys.argv)
+
+window = QtGui.QWidget()
+
+isoDateValidator=QtGui.QRegExpValidator(QtCore.QRegExp(r'\d\d\d\d-[0-1]\d-[0-3]\d'),window)
+
+layout = QtGui.QGridLayout()
+
+portselect = QtGui.QComboBox()
+for j in range(0,256):
+	try:
+		ser = serial.Serial(j)
+		portselect.addItem(ser.portstr)
+		ser.close()
+	except serial.serialutil.SerialException:
+		continue
+layout.addWidget(QtGui.QLabel("serial port"),0,0)
+layout.addWidget(portselect,0,1)
+
+firstDate = QtGui.QLineEdit()
+firstDate.setValidator(isoDateValidator)
+layout.addWidget(QtGui.QLabel("first date"),1,0)
+layout.addWidget(firstDate,1,1)
+
+lastDate = QtGui.QLineEdit()
+lastDate.setValidator(isoDateValidator)
+layout.addWidget(QtGui.QLabel("last date"),2,0)
+layout.addWidget(lastDate,2,1)
+
+trepbox=dict()
+for t in range(3,7):
+	trepbox[t] = QtGui.QCheckBox(trepToString(t))
+	trepbox[t].setCheckState(True)
+	layout.addWidget(trepbox[t],t,0)
+	
+	
+	
+logger = QtGui.QTextEdit()
+layout.addWidget(logger,8,0,8,1)
+logger.setReadOnly(True)
+
+class logToWidget:
+	def write(self, string):
+		logger.append(string)
+sys.stdout = logToWidget()
+sys.stderr = logToWidget()
+
+window.setLayout(layout)
+print "mockup/guitest"
+print "does nothing"
+
+
+window.setWindowTitle("loadvu") 
+window.show()
+
+sys.exit(app.exec_())
