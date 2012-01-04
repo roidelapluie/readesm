@@ -28,7 +28,7 @@ void OptionParser::addFlag(const QString& longName, const QString& shortName, co
 
 bool OptionParser::parseArgs(int argc, char* argv[]){
 	QStringList cmdArgs;
-	for(int j = 1; j < argc; ++j) cmdArgs << argv[j];
+	for(int j = 1; j < argc; ++j) cmdArgs << QString::fromUtf8(argv[j]);
 	QString optionName = "";
 	for(int j = 0; j < cmdArgs.size(); ++j){
 		if(optionName != ""){
