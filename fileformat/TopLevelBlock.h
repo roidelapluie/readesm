@@ -19,11 +19,12 @@
 
 #include "Block.h"
 #include "Reporter/Reporter.h"
-class EncryptedCertificate;
 #include "DataTypes/RawData.h"
 
 #include <QtCore/QCoreApplication>
 #include <QtCore/QString>
+
+class EncryptedCertificate;
 
 class TopLevelBlock : public Block {
 	Q_DECLARE_TR_FUNCTIONS(TopLevelBlock)

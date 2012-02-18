@@ -1,4 +1,5 @@
 #include "CardDriverActivity.h"
+
 #include <QtCore/QDebug>
 
 template<typename T, int n>

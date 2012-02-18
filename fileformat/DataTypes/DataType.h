@@ -1,10 +1,10 @@
 #ifndef DATATYPE_H
 #define DATATYPE_H
 
-#include "../DataPointer.h"
-#include "../readTypes.h"
-#include "../Reporter/Reporter.h"
 #include "../Block.h"
+#include "../Reporter/Reporter.h"
+#include "../readTypes.h"
+#include "../DataPointer.h"
 
 class DataType : public Block {
 public:

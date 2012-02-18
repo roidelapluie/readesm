@@ -1,6 +1,6 @@
 #include "DataType.h"
-#include <QtCore/QDebug>
 
+#include <QtCore/QDebug>
 
 DataType::DataType(const DataPointer& nstart) : Block(nstart)
 {}

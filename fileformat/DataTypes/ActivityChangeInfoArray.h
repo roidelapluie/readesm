@@ -3,6 +3,7 @@
 
 #include "ActivityChangeInfoCard.h"
 #include "../PictureGenerators/SvgDayActivity.h"
+
 #include <QtCore/QDebug>
 
 

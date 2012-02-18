@@ -1,10 +1,10 @@
 #ifndef OPTIONPARSER_H
 #define OPTIONPARSER_H OPTIONPARSER_H
 
-#include <QCoreApplication>
-#include <QMap>
-#include <QStringList>
-#include <QString>
+#include <QtCore/QCoreApplication>
+#include <QtCore/QMap>
+#include <QtCore/QStringList>
+#include <QtCore/QString>
 
 class OptionParser {
 	Q_DECLARE_TR_FUNCTIONS(OptionParser)

@@ -1,8 +1,10 @@
 #include "TopLevelBlock.h"
-#include "DataTypes/EncryptedCertificate.h"
 
 #include "config.h"
-#include <QDebug>
+
+#include "DataTypes/EncryptedCertificate.h"
+
+#include <QtCore/QDebug>
 
 RawData TopLevelBlock::signatureBytes() const {
 	return RawData(start + size() - 128, 128);

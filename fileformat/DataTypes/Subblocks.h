@@ -1,9 +1,9 @@
 #ifndef SUBBLOCKS_H
 #define SUBBLOCKS_H
 
-#include <vector>
-
 #include "DataType.h"
+
+#include <vector>
 
 template <typename T>
 class Subblocks : public DataType {

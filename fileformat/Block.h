@@ -17,9 +17,9 @@
 #ifndef BLOCK_H
 #define BLOCK_H BLOCK_H
 
-#include "DataPointer.h"
-#include "readTypes.h"
 #include "Reporter/Reporter.h"
+#include "readTypes.h"
+#include "DataPointer.h"
 
 #include <QtCore/QCoreApplication>
 #include <QtCore/QString>

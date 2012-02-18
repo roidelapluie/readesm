@@ -1,8 +1,8 @@
 #include "DataPointer.h"
 
-#include <QtCore/QFile>
 #include "loadFile.h"
 
+#include <QtCore/QFile>
 
 QByteArray DataPointer::toQByteArray() const{
 	return data;

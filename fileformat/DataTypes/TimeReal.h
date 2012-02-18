@@ -1,8 +1,8 @@
 #ifndef TIMEREAL_H
 #define TIMEREAL_H
 
-#include "../DataPointer.h"
 #include "../readTypes.h"
+#include "../DataPointer.h"
 
 #include <QtCore/QCoreApplication>
 #include <QtCore/QDateTime>

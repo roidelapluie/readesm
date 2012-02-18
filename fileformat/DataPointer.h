@@ -4,6 +4,7 @@
 #include <QtCore/QByteArray>
 #include <QtCore/QDebug>
 #include <QtCore/QString>
+
 class DataPointer {
 QString hexByte(unsigned char start) const{
 	return QString("%1").arg(start, 2, 16, QChar('0'));

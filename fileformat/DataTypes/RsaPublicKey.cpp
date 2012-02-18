@@ -1,5 +1,4 @@
 #include "RsaPublicKey.h"
-#include "config.h"
 #ifdef HAVE_CRYPTO
 
 RsaPublicKey::RsaPublicKey(const DataPointer& start) : RawRsaPublicKey(start) {}

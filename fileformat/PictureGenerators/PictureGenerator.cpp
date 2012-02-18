@@ -1,5 +1,6 @@
 #include "PictureGenerator.h"
-#include <QTextCodec>
+
+#include <QtCore/QTextCodec>
 
 PictureGenerator::PictureGenerator() : collected(), collector(&collected) {
 	collector.setCodec(QTextCodec::codecForName("UTF-8"));

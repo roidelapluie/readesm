@@ -21,6 +21,7 @@ Start the readesm executable from the command line or from the menu
 
 */
 #include "config.h"
+
 #include "fileformat/EsmFile.h"
 #include "fileformat/Reporter/HtmlReporter.h"
 #include "gui/mainWindow.h"

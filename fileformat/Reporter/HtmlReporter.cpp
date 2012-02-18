@@ -1,10 +1,12 @@
 #include "HtmlReporter.h"
 
-#include "../loadFile.h"
-#include "../DataTypes/DataType.h"
-#include "../TopLevelBlock.h"
 #include "config.h"
-#include <QTextCodec>
+
+#include "../TopLevelBlock.h"
+#include "../DataTypes/DataType.h"
+#include "../loadFile.h"
+
+#include <QtCore/QTextCodec>
 
 HtmlReporter::HtmlReporter() : Reporter(),
 	linkNumber(0),

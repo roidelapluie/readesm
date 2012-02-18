@@ -1,10 +1,9 @@
 #ifndef KEYIDENTIFIER_H
 #define KEYIDENTIFIER_H
 
+#include "DataType.h"
 
 #include <QtCore/QSharedPointer>
-
-#include "DataType.h"
 
 class KeyIdentifier : public DataType {
 	Q_DECLARE_TR_FUNCTIONS(KeyIdentifier)

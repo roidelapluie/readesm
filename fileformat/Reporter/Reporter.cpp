@@ -1,7 +1,9 @@
 #include "Reporter.h"
+
 #include "../Block.h"
+
 #include <QtCore/QDebug>
-#include <QTextCodec>
+#include <QtCore/QTextCodec>
 
 void Reporter::setTitle(const QString& newTitle){
 	title = newTitle;
