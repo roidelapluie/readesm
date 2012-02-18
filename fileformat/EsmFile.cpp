@@ -13,6 +13,7 @@
 #include "VuBlocks/VuOverview.h"
 #include "VuBlocks/VuActivities.h"
 #include "loadFile.h"
+
 #include <QtCore/QFile>
 #include <QtCore/QObject>
 
@@ -27,7 +28,7 @@ QSharedPointer<derived> findTypeInVector(QVector< QSharedPointer<base> > array){
 }
 
 template <typename base, typename derived>
-QVector< QSharedPointer<derived> >  findManyInVector(QVector< QSharedPointer<base> > array){
+QVector< QSharedPointer<derived> > findManyInVector(QVector< QSharedPointer<base> > array){
 	QVector< QSharedPointer<derived> > rv;
 	QSharedPointer<derived> pointer;
 	for(int j = 0; j < array.size(); ++j){
@@ -80,8 +81,6 @@ EsmFile::EsmFile(const QString& filename) : fileData(loadFile(filename)), errors
 	}
 #endif
 }
-
-
 
 QString EsmFile::suggestTitle() const {
 	QSharedPointer<VuOverview> ov = findTypeInVector<TopLevelBlock, VuOverview>(blocks);

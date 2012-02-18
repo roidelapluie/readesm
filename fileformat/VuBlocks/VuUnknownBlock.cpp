@@ -18,7 +18,6 @@ QString VuUnknownBlock::className() const {
 	return QString("VuUnknownBlock%1").arg(hexByte(start[1]));
 }
 
-
 void VuUnknownBlock::printOn(Reporter& o) const {
 	o.writeBlock(data, "Raw Data");
 /*	o.single("Oops! readesm encountered a chunk of data it cannot read.  Since the length of this chunk is also unknown, it cannot read the remaining file.");

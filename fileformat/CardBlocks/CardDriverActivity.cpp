@@ -47,7 +47,7 @@ void CardDriverActivity::printOn(Reporter& report) const{
 			if(cardActivityDailyRecords[j].activityRecordDate.date().month() != currentMonth){
 				currentMonth = cardActivityDailyRecords[j].activityRecordDate.date().month();
 				table += QString("<tr><th>Summary</th><th>%1</th><th>%2</th><th>%3</th><th>%4</th></tr>").arg(ActivityChangeInfo::formatClock(durationsMonth[ActivityChangeInfo::DRIVING]), ActivityChangeInfo::formatClock(durationsMonth[ActivityChangeInfo::WORK]), ActivityChangeInfo::formatClock(durationsMonth[ActivityChangeInfo::REST] + durationsMonth[ActivityChangeInfo::SHORTREST]), ActivityChangeInfo::formatClock(durationsMonth[ActivityChangeInfo::AVAILABLE]));
-				
+
 				durationsMonth = activityVector();
 				table += QString("</table></li><li>%1:").arg(tr("Timesheet for %1").arg(QDate::longMonthName(currentMonth))) + tablehead;
 			}

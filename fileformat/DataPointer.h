@@ -62,7 +62,7 @@ QString hexByte(unsigned char start) const{
 	bool operator<(const DataPointer& other) {
 		return offset < other.offset;
 	}
-	
+
 	QByteArray toQByteArray() const;
 };
 #endif

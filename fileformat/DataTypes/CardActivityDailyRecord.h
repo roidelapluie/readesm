@@ -9,7 +9,7 @@
 class CardActivityDailyRecord : public RawCardActivityDailyRecord {
 public:
 	Subblocks<ActivityChangeInfo> activityChangeInfos;
-	
+
 	CardActivityDailyRecord(const DataPointer& start);
 	int size() const;
 	void printOn(Reporter& o) const;

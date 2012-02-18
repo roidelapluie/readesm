@@ -9,7 +9,7 @@ void VuDetailedSpeedData::printOn(Reporter& report) const {
 		return;
 	}
 	if(vuDetailedSpeedBlocks.numberOfBlocks() < 1) return;
-	
+
 	SvgDayVelocity visualization;
 	QDateTime daystart = QDateTime(vuDetailedSpeedBlocks[0].speedBlockBeginDate.date(), QTime(), Qt::UTC);
 	int lastDifference = 0;

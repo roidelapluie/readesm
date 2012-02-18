@@ -17,7 +17,7 @@ class VuUnknownBlock : public VuBlock {
 	virtual QString title() const;
 
 	virtual QString className() const;
-	
+
 	virtual void printOn(Reporter& o) const;
 
 };

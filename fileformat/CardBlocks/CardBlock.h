@@ -12,7 +12,7 @@ class CardBlock : public TopLevelBlock {
 	int dataBlockSize() const;
 
 	QString className() const;
-	
+
 	virtual RawData signedBytes() const;
 
 	protected:

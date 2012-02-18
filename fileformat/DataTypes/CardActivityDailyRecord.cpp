@@ -1,7 +1,8 @@
 #include "CardActivityDailyRecord.h"
 
-#include <QtCore/QDebug>
 #include "../PictureGenerators/SvgDayActivity.h"
+
+#include <QtCore/QDebug>
 
 CardActivityDailyRecord::CardActivityDailyRecord(const DataPointer& start) : RawCardActivityDailyRecord(start),
 	activityChangeInfos(Subblocks<ActivityChangeInfo>::fromTypeAndLength(start + RawCardActivityDailyRecord::staticSize, activityRecordLength - RawCardActivityDailyRecord::staticSize))
@@ -21,7 +22,7 @@ int CardActivityDailyRecord::size() const {
 		return RawCardActivityDailyRecord::staticSize;
 	}
 	if(activityRecordLength > RawCardActivityDailyRecord::staticSize + 2 * 60 * 24){
-		qDebug() << "Size of CardActivityDailyRecord excessive:" <<  activityRecordLength;
+		qDebug() << "Size of CardActivityDailyRecord excessive:" << activityRecordLength;
 	}
 	return activityRecordLength;
 }

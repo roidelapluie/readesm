@@ -7,10 +7,10 @@
 
 
 class PictureGenerator {
-public:	
+public:
 	///returns the string to be used in the document
 	virtual QString toString() const;
-	
+
 	///reset to the initial state
 	virtual void reset();
 

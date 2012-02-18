@@ -34,12 +34,12 @@ public:
 	EsmFile(const QString& filename);
 
 	QString errorLog() const;
-	
+
 	QString suggestTitle() const;
 	QString suggestFileName() const;
-	
+
 	friend Reporter& operator<<(Reporter& report, const EsmFile& e);
-	
+
 protected:
 	void printOn(Reporter& o) const;
 	QString errors;

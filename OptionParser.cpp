@@ -1,13 +1,9 @@
-#include <QStringList>
-#include <QMap>
-
 #include "OptionParser.h"
-
 
 OptionParser::OptionParser(bool withQt){
 	if(withQt){
 		possibleFlags << "cmap" << "widgetcount" << "reverse";
-		possibleOptions << "style" << "stylesheet" << "session" << "graphicssystem" << "qmljsdebugger" << "display" << "geometry" << "fn" << "font" << "bg" << "background"  << "fg" << "foreground" << "btn" << "button" << "name" << "title" << "visual" << "ncols" << "im" << "inputstyle";
+		possibleOptions << "style" << "stylesheet" << "session" << "graphicssystem" << "qmljsdebugger" << "display" << "geometry" << "fn" << "font" << "bg" << "background" << "fg" << "foreground" << "btn" << "button" << "name" << "title" << "visual" << "ncols" << "im" << "inputstyle";
 	}
 	addFlag("help","h",tr("Show help text"));
 }

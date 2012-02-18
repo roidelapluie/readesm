@@ -74,7 +74,7 @@ int main(int argc, char** argv)
 		}
 		app.installTranslator(&qTranslator);
 	}
-	
+
 	if(!gui){
 		QString inputFile(parser.getArgument(0));
 		QString outputFile(parser.getArgument(1));
@@ -91,12 +91,12 @@ int main(int argc, char** argv)
 			outData = rep.toQByteArray();
 			converted = true;
 		}
-		
+
 		if(!converted) {
 			cerr << "Format for output not recognized." << endl;
 			return 1;
 		}
-		
+
 		if(outputFile != "-"){
 			QFile out(outputFile);
 			out.open(QIODevice::WriteOnly | QIODevice::Text);

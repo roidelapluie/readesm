@@ -1,13 +1,10 @@
 #ifndef OPTIONPARSER_H
 #define OPTIONPARSER_H OPTIONPARSER_H
 
-#include <QString>
 #include <QCoreApplication>
-
-template<typename T, typename T2>
-class QMap;
-
-class QStringList;
+#include <QMap>
+#include <QStringList>
+#include <QString>
 
 class OptionParser {
 	Q_DECLARE_TR_FUNCTIONS(OptionParser)
@@ -18,7 +15,7 @@ protected:
 	QStringList flags;
 	QStringList flagDescriptions;
 	QStringList optionDescriptions;
-	
+
 	QMap<QString, QString> options;
 	QMap<QString, QString> optionAliases;
 public:
