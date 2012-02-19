@@ -20,11 +20,11 @@ DEPEND=">=dev-libs/boost-1.35.0
 RDEPEND="${DEPEND}"
 
 src_compile() {
-	cd ${WORKDIR}/${PN}
+	cd "${WORKDIR}/${PN}"
 	emake || die "build failed"
 }
 
 src_install() {
-	cd ${WORKDIR}/${PN}
-	emake prefix=${D}/usr install || die "install failed"
+	cd "${WORKDIR}/${PN}"
+	emake prefix="${D}/usr" install || die "install failed"
 }
