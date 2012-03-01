@@ -2,13 +2,13 @@
 
 #include <QtCore/QDebug>
 
-bool checkString(const DataPointer& start, int length){
+bool checkString(const DataPointer& start, int length) {
 	for(int j = 0; j < length; ++j)
 		if(start[j] > 0x20 && start[j] != 0xFF && start[j] != '?') return true;
 	return false;
 }
 
-QString codepageStringCombination(const DataPointer& start, int length){
+QString codepageStringCombination(const DataPointer& start, int length) {
 	if(!checkString(start + 1, length - 1)) return "";
 	QString rv = QString::fromLatin1(start.toPointer(1), length - 1).trimmed();
 	if(start[0] > 16){
@@ -26,6 +26,19 @@ QString fixedString(const DataPointer& start, int length) {
 	}
 	return rv;
 }
+/*
+How about this? Would reduce the size of the API and eliminate duplicate code.
+Also, one can easily switch to a longer data type.
+int readBigEndianInt(const DataPointer& start, int length) {
+	int res = start[0];
+	int i;
+	for (i = 1; i < length; i++) {
+		res <<= 8;
+		res += start[i];
+	}
+	return res;
+}
+*/
 
 int readBigEndianInt1(const DataPointer& start) {
 	return start[0];
