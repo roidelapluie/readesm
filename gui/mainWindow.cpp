@@ -74,7 +74,7 @@ void mainWindow::helpAbout()
 		qApp->applicationName() % QString("\n\n")
 		% tr("Version: ") % qApp->applicationVersion()
 		% QString("\n")
-		% tr("Copyright (C) 2011 by %1 (%2)")
+		% tr("Copyright (C) 2011, 2012 by %1 (%2)")
 			.arg(qApp->organizationName())
 			.arg(qApp->organizationDomain())
 		% QString("\n\n")
@@ -94,7 +94,6 @@ void mainWindow::helpAbout()
 void mainWindow::helpContents()
 {
 	view->load(QUrl("qrc:///homepage/help.html"));
-	view->load(QUrl("bla.xhtml"));
 	//view->page()->setLinkDelegationPolicy( QWebPage::DelegateAllLinks );
 }
 
