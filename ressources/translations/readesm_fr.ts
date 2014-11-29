@@ -28,7 +28,7 @@
     </message>
     <message>
         <source>block11Records</source>
-        <translation>Type d&apos;Entrée Inconnue</translation>
+        <translation>Type d&apos;Entrée Inconnu</translation>
     </message>
 </context>
 <context>
@@ -39,7 +39,7 @@
     </message>
     <message>
         <source>payloadData</source>
-        <translation>Plus d&apos;informations </translation>
+        <translation>Informations additionnelles</translation>
     </message>
     <message>
         <source>sometimesDuration</source>
@@ -2190,19 +2190,19 @@ You should have received a copy of the GNU General Public License along with rea
     </message>
     <message>
         <source>&amp;Open…</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ouvrir...</translation>
     </message>
     <message>
         <source>Save &amp;As…</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Enregistrer...</translation>
     </message>
     <message>
         <source>E&amp;xport as HTML…</source>
-        <translation type="unfinished"></translation>
+        <translation>E&amp;xporter en tant que HTML...</translation>
     </message>
     <message>
         <source>&amp;Print…</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Imprimer...</translation>
     </message>
 </context>
 </TS>
