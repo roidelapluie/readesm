@@ -3,7 +3,7 @@
 
 
 TEMPLATE = app
-TRANSLATIONS = ressources/translations/readesm_de.ts ressources/translations/readesm_hu.ts ressources/translations/readesm_es.ts
+TRANSLATIONS = ressources/translations/readesm_de.ts ressources/translations/readesm_hu.ts ressources/translations/readesm_es.ts ressources/translations/readesm_fr.ts
 SOURCES += *.cpp gui/*.cpp fileformat/*.cpp fileformat/VuBlocks/*.cpp fileformat/Reporter/*.cpp fileformat/DataTypes/*.cpp fileformat/CardBlocks/*.cpp fileformat/PictureGenerators/*.cpp 
 HEADERS += *.h gui/*.h fileformat/*.h fileformat/VuBlocks/*.h fileformat/Reporter/*.h fileformat/DataTypes/*.h fileformat/CardBlocks/*.h fileformat/PictureGenerators/*.h
 CODECFORTR = UTF-8
