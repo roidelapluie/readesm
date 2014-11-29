@@ -209,6 +209,26 @@
         <source>oldestRecord</source>
         <translation>Ancien Eregistrement</translation>
     </message>
+    <message>
+        <source>Driving</source>
+        <translation>Conduite</translation>
+    </message>
+    <message>
+        <source>Working</source>
+        <translation>Travail</translation>
+    </message>
+    <message>
+        <source>Rest</source>
+        <translation>Reste</translation>
+    </message>
+    <message>
+        <source>Available</source>
+        <translation>Disponible</translation>
+    </message>
+    <message>
+        <source>Summary</source>
+        <translation>Total</translation>
+    </message>
 </context>
 <context>
     <name>CardDrivingLicenseInformation</name>

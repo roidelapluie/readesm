@@ -10,6 +10,9 @@
 <qresource lang="es">
 	<file alias="greeting.xhtml">greeting_es.xhtml</file>
 </qresource>
+<qresource lang="fr">
+	<file alias="greeting.xhtml">greeting_fr.xhtml</file>
+</qresource>
 <qresource lang="de">
 	<file alias="greeting.xhtml">greeting_de.xhtml</file>
 </qresource>

@@ -306,9 +306,34 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../../fileformat/CardBlocks/CardDriverActivity.cpp" line="43"/>
+        <source>Driving</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../fileformat/CardBlocks/CardDriverActivity.cpp" line="43"/>
+        <source>Working</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../fileformat/CardBlocks/CardDriverActivity.cpp" line="43"/>
+        <source>Rest</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../fileformat/CardBlocks/CardDriverActivity.cpp" line="43"/>
+        <source>Available</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../../fileformat/CardBlocks/CardDriverActivity.cpp" line="46"/>
         <location filename="../../fileformat/CardBlocks/CardDriverActivity.cpp" line="53"/>
         <source>Timesheet for %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../fileformat/CardBlocks/CardDriverActivity.cpp" line="50"/>
+        <source>Summary</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

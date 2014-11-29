@@ -1645,13 +1645,38 @@ Signatur-Prüfung fehlgeschlagen </translation>
         <translation>Karteneinträge über Tagesaktivitäten</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+2"/>
+        <source>Driving</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Working</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Rest</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Available</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
         <location line="+7"/>
         <source>Timesheet for %1</source>
         <translation>Stundenzettel für %1</translation>
     </message>
     <message>
-        <location line="+12"/>
+        <location line="-3"/>
+        <source>Summary</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+15"/>
         <source>Timesheet</source>
         <translation>Stundenzettel</translation>
     </message>

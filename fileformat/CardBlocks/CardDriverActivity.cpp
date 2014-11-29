@@ -40,14 +40,14 @@ void CardDriverActivity::printOn(Reporter& report) const{
 	report.tagValuePair(tr("newestRecord"), newestRecord);
 	report.writeArray(cardActivityDailyRecords, tr("cardActivityDailyRecords"));
 	if(cardActivityDailyRecords.numberOfBlocks() > 0){
-		QString tablehead = "<table><tr><th></th><th>Driving</th><th>Working</th><th>Rest</th><th>Available</th></tr>";
+		QString tablehead = QString("<table><tr><th></th><th>%1</th><th>%2</th><th>%3</th><th>%4</th></tr>").arg(tr("Driving"), tr("Working"), tr("Rest"), tr("Available"));
 		activityVector durationsMonth;
 		int currentMonth = cardActivityDailyRecords[0].activityRecordDate.date().month();
 		QString table = QString("<ul><li>%1:").arg(tr("Timesheet for %1").arg(QDate::longMonthName(currentMonth))) + tablehead;
 		for(int j = 0; j < cardActivityDailyRecords.numberOfBlocks(); ++j){
 			if(cardActivityDailyRecords[j].activityRecordDate.date().month() != currentMonth){
 				currentMonth = cardActivityDailyRecords[j].activityRecordDate.date().month();
-				table += QString("<tr><th>Summary</th><th>%1</th><th>%2</th><th>%3</th><th>%4</th></tr>").arg(ActivityChangeInfo::formatClock(durationsMonth[ActivityChangeInfo::DRIVING]), ActivityChangeInfo::formatClock(durationsMonth[ActivityChangeInfo::WORK]), ActivityChangeInfo::formatClock(durationsMonth[ActivityChangeInfo::REST] + durationsMonth[ActivityChangeInfo::SHORTREST]), ActivityChangeInfo::formatClock(durationsMonth[ActivityChangeInfo::AVAILABLE]));
+				table += QString("<tr><th>%1</th><th>%2</th><th>%3</th><th>%4</th><th>%5</th></tr>").arg(tr("Summary"), ActivityChangeInfo::formatClock(durationsMonth[ActivityChangeInfo::DRIVING]), ActivityChangeInfo::formatClock(durationsMonth[ActivityChangeInfo::WORK]), ActivityChangeInfo::formatClock(durationsMonth[ActivityChangeInfo::REST] + durationsMonth[ActivityChangeInfo::SHORTREST]), ActivityChangeInfo::formatClock(durationsMonth[ActivityChangeInfo::AVAILABLE]));
 
 				durationsMonth = activityVector();
 				table += QString("</table></li><li>%1:").arg(tr("Timesheet for %1").arg(QDate::longMonthName(currentMonth))) + tablehead;
