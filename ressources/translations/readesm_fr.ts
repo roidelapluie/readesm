@@ -219,7 +219,7 @@
     </message>
     <message>
         <source>Rest</source>
-        <translation>Reste</translation>
+        <translation>Repos</translation>
     </message>
     <message>
         <source>Available</source>
