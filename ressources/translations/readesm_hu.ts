@@ -333,11 +333,12 @@
     </message>
     <message>
         <location line="-3"/>
+        <location line="+12"/>
         <source>Summary</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+15"/>
+        <location line="+3"/>
         <source>Timesheet</source>
         <translation type="unfinished"></translation>
     </message>

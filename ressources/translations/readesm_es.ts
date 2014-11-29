@@ -333,6 +333,7 @@
     </message>
     <message>
         <location filename="../../fileformat/CardBlocks/CardDriverActivity.cpp" line="50"/>
+        <location filename="../../fileformat/CardBlocks/CardDriverActivity.cpp" line="62"/>
         <source>Summary</source>
         <translation type="unfinished"></translation>
     </message>
